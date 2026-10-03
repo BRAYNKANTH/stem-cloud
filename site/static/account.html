@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEM Cloud · My account</title>
+<meta name="theme-color" content="#0b0f17"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/static/icons/favicon-32.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">STEM <span>Cloud</span> · My account</div>
+  <p class="tag"><a class="lnk" href="/lessons/index.html">← Back to lessons</a></p>
+
+  <div class="card">
+    <h2 id="who">…</h2>
+    <div class="stats">
+      <div class="stat"><span>XP</span><b id="xp">0</b></div>
+      <div class="stat"><span>Badges</span><b id="bd">0</b></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Change my name</h2>
+    <input type="text" id="dn" maxlength="30" aria-label="Display name">
+    <button class="btn pri full" id="saveName" type="button">Save name</button>
+    <div class="msg" id="m1"></div>
+  </div>
+
+  <div class="card">
+    <h2>Change my password</h2>
+    <label for="op">Current password</label>
+    <input type="password" id="op" autocomplete="current-password">
+    <label for="np">New password</label>
+    <input type="password" id="np" autocomplete="new-password">
+    <div class="hint">At least 8 characters. Other devices will be logged out.</div>
+    <button class="btn pri full" id="savePw" type="button">Change password</button>
+    <div class="msg" id="m2"></div>
+  </div>
+
+  <div class="card">
+    <h2>Delete my account</h2>
+    <p class="hint">This removes your account and all your saved progress for good. It cannot be undone.</p>
+    <label for="dp">Type your password to confirm</label>
+    <input type="password" id="dp" autocomplete="current-password">
+    <button class="btn bad full" id="del" type="button">Delete my account</button>
+    <div class="msg" id="m3"></div>
+  </div>
+
+  <div class="row"><button class="btn" id="out" type="button">Log out</button><a class="btn" id="adm" href="/admin" hidden>Admin</a></div>
+  <div class="foot"><a href="/privacy">Privacy</a></div>
+</div>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var H = { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' };
+  function post(url, body) {
+    return fetch(url, { method: 'POST', headers: H, credentials: 'same-origin', body: JSON.stringify(body || {}) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) throw new Error(j.detail || 'Something went wrong.'); return j; }); });
+  }
+  function show(id, ok, t) { var m = $(id); m.className = 'msg ' + (ok ? 'ok' : 'err'); m.textContent = t; }
+  fetch('/api/me', { credentials: 'same-origin' }).then(function (r) { if (!r.ok) location.href = '/login?next=/account'; return r.json(); }).then(function (j) {
+    $('who').textContent = j.user.display_name + ' (@' + j.user.username + ')';
+    $('dn').value = j.user.display_name;
+    if (j.user.role === 'admin') $('adm').hidden = false;
+  });
+  fetch('/api/progress', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(function (j) {
+    var p = j.progress || {};
+    $('xp').textContent = parseInt(p.scx_xp_total || '0', 10) || 0;
+    try { $('bd').textContent = JSON.parse(p.scx_badges || '[]').length; } catch (e) {}
+  });
+  $('saveName').onclick = function () { post('/api/account/name', { display_name: $('dn').value }).then(function () { show('m1', true, 'Saved ✓'); }).catch(function (e) { show('m1', false, e.message); }); };
+  $('savePw').onclick = function () { post('/api/account/password', { old: $('op').value, new: $('np').value }).then(function () { $('op').value = $('np').value = ''; show('m2', true, 'Password changed ✓'); }).catch(function (e) { show('m2', false, e.message); }); };
+  $('del').onclick = function () { post('/api/account/delete', { password: $('dp').value }).then(function () {
+    try { Object.keys(localStorage).filter(function (k) { return /^(scx_|lessonLang$|lessonTheme$|acct_owner$)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
+    if (window.StemApp) window.StemApp.clearPageCache();
+    location.href = '/login'; }).catch(function (e) { show('m3', false, e.message); }); };
+  $('out').onclick = function () { if (window.StemApp) window.StemApp.clearPageCache(); post('/api/logout').then(function () { location.href = '/login'; }); };
+})();
+</script>
+<script src="/static/pwa.js"></script>
+</body>
+</html>

@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equilibrium of Forces — Chapter 12 Physics (O/L)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f17; --bg-alt:#101724; --panel:#141d2c; --panel-2:#182338; --border:#25324a;
+    --text:#e7edf7; --text-dim:#a7b3c8; --text-faint:#6d7c96;
+    --accent:#5ee0c2; --accent-2:#8b7bff; --accent-3:#ff9f6b;
+    --danger:#ff6b81; --danger-bg:#3a1a24; --good:#5ee0c2; --good-bg:#0f2e28;
+    --warn-bg:#3a2e12; --warn-border:#a6802b;
+    --shadow: 0 10px 30px rgba(0,0,0,0.35); --radius: 16px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f4f6fb; --bg-alt:#eaeef7; --panel:#ffffff; --panel-2:#f2f5fc; --border:#dbe2f0;
+      --text:#1a2233; --text-dim:#4c5773; --text-faint:#8391ab;
+      --accent:#0c9e83; --accent-2:#5b46e0; --accent-3:#d9762f;
+      --danger:#d13a52; --danger-bg:#fde6ea; --good:#0c9e83; --good-bg:#e3f7f1;
+      --warn-bg:#fff4dc; --warn-border:#d9a53a; --shadow: 0 10px 30px rgba(30,40,70,0.08);
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6fb; --bg-alt:#eaeef7; --panel:#ffffff; --panel-2:#f2f5fc; --border:#dbe2f0;
+    --text:#1a2233; --text-dim:#4c5773; --text-faint:#8391ab;
+    --accent:#0c9e83; --accent-2:#5b46e0; --accent-3:#d9762f;
+    --danger:#d13a52; --danger-bg:#fde6ea; --good:#0c9e83; --good-bg:#e3f7f1;
+    --warn-bg:#fff4dc; --warn-border:#d9a53a; --shadow: 0 10px 30px rgba(30,40,70,0.08);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;}
+  body.lang-ta{font-family:'Noto Sans Tamil','Inter',system-ui,sans-serif;}
+  body::before{
+    content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(circle at 12% 8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 42%),
+      radial-gradient(circle at 88% 6%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 38%),
+      radial-gradient(circle at 80% 92%, color-mix(in srgb, var(--accent-3) 16%, transparent), transparent 42%),
+      radial-gradient(circle at 8% 85%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 40%),
+      var(--bg);
+  }
+  body::after{
+    content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background-image: radial-gradient(color-mix(in srgb, var(--text) 10%, transparent) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+    opacity:0.5;
+  }
+  h1,h2,h3,h4{font-family:'Sora',system-ui,sans-serif;color:var(--text);margin:0 0 .4em;}
+  body.lang-ta h1,body.lang-ta h2,body.lang-ta h3,body.lang-ta h4{font-family:'Noto Sans Tamil','Sora',sans-serif;}
+  sup{font-size:0.68em;}
+  a{color:var(--accent);}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 100px;}
+  .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);}
+  .topbar-inner{max-width:920px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+  .topbar .brand{font-family:'Sora';font-weight:700;font-size:0.95rem;color:var(--text);white-space:nowrap;}
+  .topbar .brand span{color:var(--accent);}
+  .navlinks{display:flex;gap:4px;flex-wrap:wrap;font-size:0.82rem;}
+  .navlinks a{color:var(--text-dim);text-decoration:none;padding:6px 10px;border-radius:20px;transition:.15s;white-space:nowrap;}
+  .navlinks a:hover{background:var(--panel-2);color:var(--text);}
+  .toggles{margin-left:auto;display:flex;gap:8px;}
+  .theme-toggle,.lang-toggle{border:1px solid var(--border);background:var(--panel);color:var(--text-dim);border-radius:20px;padding:6px 12px;cursor:pointer;font-size:0.78rem;font-family:'Inter';white-space:nowrap;}
+  .lang-toggle{font-weight:700;color:var(--accent-2);border-color:color-mix(in srgb, var(--accent-2) 40%, var(--border));}
+  .theme-toggle:hover,.lang-toggle:hover{filter:brightness(1.15);}
+  .xpbar{position:sticky;top:53px;z-index:40;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);}
+  .xpbar-inner{max-width:920px;margin:0 auto;padding:8px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:0.8rem;color:var(--text-dim);}
+  .xp-chip{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono';white-space:nowrap;}
+  .xp-chip b{color:var(--accent);}
+  .xp-bar-track{flex:1;min-width:80px;height:8px;background:var(--panel-2);border-radius:8px;overflow:hidden;border:1px solid var(--border);}
+  .xp-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:8px;transition:width .4s ease;}
+  .badges-btn{background:var(--panel-2);border:1px solid var(--border);color:var(--text-dim);border-radius:16px;padding:4px 10px;cursor:pointer;font-size:0.78rem;font-family:'Inter';white-space:nowrap;}
+  body.lang-ta .badges-btn{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .badges-btn:hover{border-color:var(--accent);}
+  .badges-panel{display:none;max-width:920px;margin:0 auto;padding:10px 20px 14px;gap:10px;flex-wrap:wrap;}
+  .badges-panel.show{display:flex;}
+  .badge-pill{display:flex;align-items:center;gap:6px;background:var(--panel-2);border:1px solid var(--border);border-radius:20px;padding:5px 12px 5px 6px;font-size:0.78rem;color:var(--text-faint);opacity:0.5;}
+  .badge-pill.earned{opacity:1;color:var(--text);border-color:var(--accent-3);background:color-mix(in srgb, var(--accent-3) 12%, var(--panel-2));}
+  .badge-pill .bi{font-size:1.1rem;}
+  #toastWrap{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:10px;max-width:280px;}
+  .toast{background:var(--panel);border:1px solid var(--accent);border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);font-size:0.88rem;color:var(--text);animation:toastIn .3s ease;}
+  .toast b{color:var(--accent);}
+  @keyframes toastIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .toast.fadeout{animation:toastOut .4s ease forwards;}
+  @keyframes toastOut{to{opacity:0;transform:translateX(20px);}}
+  #confettiCanvas{position:fixed;inset:0;pointer-events:none;z-index:300;}
+  .hero{padding:44px 0 20px;}
+  .kicker{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb, var(--accent) 14%, transparent);border:1px solid color-mix(in srgb, var(--accent) 35%, transparent);padding:5px 12px;border-radius:20px;margin-bottom:14px;}
+  .hero h1{font-size:2.1rem;line-height:1.15;max-width:18ch;}
+  .hero p.lead{color:var(--text-dim);max-width:62ch;font-size:1.02rem;}
+  .crumb{font-size:0.82rem;color:var(--text-faint);margin-bottom:10px;}
+  .crumb a{color:var(--text-faint);text-decoration:none;}
+  .crumb a:hover{color:var(--accent);}
+  section.block{margin-top:56px;scroll-margin-top:80px;}
+  .section-label{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+  .section-label .num{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f17;font-family:'Sora';font-weight:800;flex-shrink:0;font-size:0.95rem;}
+  .section-label h2{font-size:1.4rem;margin:0;}
+  .section-label .sub{color:var(--text-faint);font-size:0.85rem;margin-top:2px;}
+
+  .path-row{display:flex;justify-content:space-between;align-items:center;position:relative;padding:26px 6px 58px;margin-bottom:2px;}
+  .path-row::before{content:'';position:absolute;left:6%;right:6%;top:38px;height:3px;z-index:0;background:repeating-linear-gradient(90deg, var(--border) 0 12px, transparent 12px 22px);}
+  .path-stone{position:relative;z-index:1;width:60px;height:60px;border-radius:50%;background:var(--panel);border:3px solid var(--border);color:var(--text-dim);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;cursor:pointer;transition:transform .25s cubic-bezier(.34,1.56,.64,1), border-color .2s, box-shadow .2s, color .2s;font-family:'Inter';flex-shrink:0;box-shadow:var(--shadow);}
+  .path-stone svg{width:20px;height:20px;}
+  .path-stone .ps-num{font-size:0.6rem;font-weight:800;font-family:'JetBrains Mono';}
+  .path-stone:nth-child(2){transform:translateY(30px);}
+  .path-stone:nth-child(4){transform:translateY(30px);}
+  .path-stone:hover{border-color:var(--board-accent, var(--accent));}
+  .path-stone.active{border-color:var(--board-accent, var(--accent));color:var(--text);box-shadow:0 0 0 5px color-mix(in srgb, var(--board-accent, var(--accent)) 24%, transparent);transform:scale(1.14) translateY(0);}
+  .path-stone.active:nth-child(2),.path-stone.active:nth-child(4){transform:scale(1.14) translateY(30px);}
+  .path-stone.visited{background:color-mix(in srgb, var(--board-accent, var(--accent)) 14%, var(--panel));}
+  .path-stone .ps-check{position:absolute;top:-5px;right:-5px;width:18px;height:18px;border-radius:50%;background:var(--good);color:#06231c;font-size:11px;display:none;align-items:center;justify-content:center;font-weight:800;}
+  .path-stone.visited .ps-check{display:flex;}
+  .path-stone.c1{--board-accent:var(--accent);}
+  .path-stone.c2{--board-accent:var(--accent-2);}
+  .path-stone.c3{--board-accent:var(--accent-3);}
+  .path-stone.c4{--board-accent:var(--good);}
+  @media (max-width:640px){
+    .path-row{flex-wrap:wrap;gap:20px 12px;padding-bottom:20px;justify-content:center;}
+    .path-row::before{display:none;}
+    .path-stone:nth-child(2),.path-stone:nth-child(4){transform:none;}
+    .path-stone.active:nth-child(2),.path-stone.active:nth-child(4){transform:scale(1.14);}
+  }
+  .notes-grid{position:relative;}
+  .notes-grid .card{display:none;}
+  .notes-grid .card.stage-active{display:block;}
+  @keyframes dropIn{0%{opacity:0;transform:translateY(-28px) scale(.97);}55%{opacity:1;transform:translateY(6px) scale(1.008);}100%{opacity:1;transform:translateY(0) scale(1);}}
+  .notes-grid .card.stage-active.dropping{animation:dropIn .5s cubic-bezier(.34,1.56,.64,1) forwards;}
+  .stage-nav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:2px 0 20px;}
+  .stage-nav .np-progress{font-family:'JetBrains Mono';font-size:0.8rem;color:var(--text-faint);}
+
+  .card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:26px 24px 22px;margin-bottom:20px;box-shadow:var(--shadow);border-top:4px solid var(--board-accent, var(--accent));transition:transform .25s ease, box-shadow .25s ease;overflow:hidden;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .card:hover{box-shadow:0 16px 34px rgba(30,40,70,0.14);}}
+  :root[data-theme="light"] .card:hover{box-shadow:0 16px 34px rgba(30,40,70,0.14);}
+  .card.c1{--board-accent:var(--accent);}
+  .card.c2{--board-accent:var(--accent-2);}
+  .card.c3{--board-accent:var(--accent-3);}
+  .card.c4{--board-accent:var(--good);}
+  .card .icon-badge{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px;background:color-mix(in srgb, var(--board-accent, var(--accent)) 18%, var(--panel-2));border:1px solid color-mix(in srgb, var(--board-accent, var(--accent)) 40%, var(--border));margin-bottom:12px;flex-shrink:0;}
+  .card .icon-badge svg{width:26px;height:26px;color:var(--board-accent, var(--accent));}
+  .card .icon-watermark{position:absolute;top:-10px;right:-10px;width:110px;height:110px;opacity:0.05;pointer-events:none;color:var(--board-accent, var(--accent));}
+  .card h3{font-size:1.08rem;margin-bottom:10px;color:var(--text);}
+  .card p{color:var(--text-dim);margin:0 0 10px;}
+  .card p:last-child{margin-bottom:0;}
+  .reveal-init{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease;}
+  .reveal-init.revealed{opacity:1;transform:translateY(0);}
+
+  .formula-box{background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, var(--panel-2)), var(--panel-2));border:1px solid color-mix(in srgb, var(--accent) 30%, var(--border));border-radius:12px;padding:14px 18px;margin:14px 0;}
+  .formula-box .flabel{font-size:0.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:700;margin-bottom:6px;}
+  .formula-box .fmath{font-family:'JetBrains Mono';font-size:1.05rem;color:var(--text);font-weight:600;}
+  body.lang-ta .formula-box .fmath{font-family:'Noto Sans Tamil','JetBrains Mono',sans-serif;font-size:1rem;}
+  .formula-box .fnote{color:var(--text-faint);font-size:0.82rem;margin-top:6px;}
+  .callout{border-radius:12px;padding:16px 18px;margin:16px 0;border:1px solid var(--warn-border);background:var(--warn-bg);}
+  .callout .ctitle{font-weight:700;font-family:'Sora';font-size:0.92rem;margin-bottom:8px;display:flex;align-items:center;gap:8px;color:var(--text);}
+  body.lang-ta .callout .ctitle{font-family:'Noto Sans Tamil',sans-serif;}
+  .callout ul{margin:0;padding-left:20px;color:var(--text-dim);font-size:0.92rem;}
+  .callout li{margin-bottom:7px;}
+  .callout li:last-child{margin-bottom:0;}
+  .callout li b{color:var(--text);}
+  .callout.tip{border-color:color-mix(in srgb, var(--accent-2) 55%, var(--warn-border));background:color-mix(in srgb, var(--accent-2) 10%, var(--panel-2));}
+  .lawbox{background:linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 14%, var(--panel-2)), var(--panel-2));border:1px solid color-mix(in srgb, var(--accent-2) 35%, var(--border));border-radius:12px;padding:16px 18px;margin:14px 0;}
+  .lawbox .llabel{font-size:0.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-weight:700;margin-bottom:6px;}
+  .lawbox .ltext{font-size:1.02rem;font-weight:600;color:var(--text);}
+  .lawbox ol{margin:8px 0 0;padding-left:20px;color:var(--text-dim);font-weight:500;font-size:0.95rem;}
+
+  .lab-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+  .lab-controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:end;margin-bottom:18px;}
+  @media (max-width:700px){.lab-controls{grid-template-columns:1fr;}}
+  .control label{display:block;font-size:0.85rem;color:var(--text-dim);margin-bottom:8px;}
+  .control label b{color:var(--text);font-family:'JetBrains Mono';}
+  input[type=range]{width:100%;accent-color:var(--accent);height:6px;}
+  .lab-buttons{display:flex;gap:8px;}
+  .btn{border:1px solid var(--border);background:var(--panel-2);color:var(--text);padding:10px 16px;border-radius:10px;cursor:pointer;font-family:'Inter';font-weight:600;font-size:0.88rem;transition:.15s;}
+  body.lang-ta .btn{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f17;border:none;}
+  .btn:hover{filter:brightness(1.08);}
+  .btn:active{transform:translateY(1px);}
+  .a-readout{text-align:center;background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:14px;font-family:'JetBrains Mono';font-size:0.95rem;color:var(--text-dim);}
+  body.lang-ta .a-readout{font-family:'Noto Sans Tamil','JetBrains Mono',sans-serif;}
+  .a-readout b{color:var(--accent);font-size:1.15rem;}
+  .track-wrap{width:100%;overflow-x:auto;margin-bottom:18px;}
+  svg text{font-family:'Inter',sans-serif;}
+  .lab-hint{color:var(--text-faint);font-size:0.85rem;margin-top:16px;text-align:center;}
+  .lab-hint b{color:var(--text-dim);}
+
+  .quiz-score{display:inline-flex;align-items:center;gap:8px;background:var(--panel-2);border:1px solid var(--border);border-radius:20px;padding:6px 14px;font-family:'JetBrains Mono';font-size:0.85rem;color:var(--text-dim);margin-bottom:16px;}
+  .quiz-score b{color:var(--accent);}
+  .qz-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px;margin-bottom:16px;box-shadow:var(--shadow);}
+  .qz-card .qz-q{font-weight:600;margin-bottom:14px;color:var(--text);}
+  .qz-opts{display:flex;flex-direction:column;gap:8px;}
+  .qz-opt{text-align:left;background:var(--panel-2);border:1px solid var(--border);color:var(--text);padding:11px 14px;border-radius:10px;cursor:pointer;font-family:'Inter';font-size:0.92rem;transition:.15s;}
+  body.lang-ta .qz-opt{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .qz-opt:hover:not(:disabled){border-color:var(--accent-2);}
+  .qz-opt.correct{background:var(--good-bg);border-color:var(--good);color:var(--text);}
+  .qz-opt.wrong{background:var(--danger-bg);border-color:var(--danger);color:var(--text);}
+  .qz-opt:disabled{cursor:default;opacity:0.75;}
+  .qz-explain{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--panel-2);border:1px solid var(--border);color:var(--text-dim);font-size:0.88rem;display:none;}
+  .qz-explain.show{display:block;}
+
+  .qcard{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:22px;box-shadow:var(--shadow);}
+  .qtag{display:inline-block;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-3);background:color-mix(in srgb, var(--accent-3) 16%, transparent);border-radius:6px;padding:3px 9px;margin-bottom:10px;}
+  .qtext{color:var(--text);margin-bottom:14px;font-size:1rem;}
+  .steps{display:flex;flex-direction:column;gap:10px;}
+  .step-toggle{width:100%;text-align:left;background:var(--panel-2);border:1px dashed var(--border);color:var(--text-dim);padding:11px 14px;border-radius:10px;cursor:pointer;font-family:'Inter';font-size:0.9rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  body.lang-ta .step-toggle{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .step-toggle:hover{border-color:var(--accent);color:var(--text);}
+  .step-content{border-left:3px solid var(--accent);background:var(--panel-2);border-radius:0 10px 10px 0;padding:12px 16px;margin:-4px 0 0;font-size:0.92rem;color:var(--text-dim);}
+  .step-content .note{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);color:var(--text-faint);font-size:0.83rem;}
+  .step-content .note b{color:var(--accent-3);}
+  .final-toggle{margin-top:6px;}
+  .final-answer{margin-top:10px;background:linear-gradient(135deg, color-mix(in srgb, var(--good) 16%, var(--panel-2)), var(--panel-2));border:1px solid var(--good);border-radius:12px;padding:14px 18px;font-size:0.98rem;color:var(--text);}
+  .final-answer b{color:var(--good);}
+  .hidden{display:none;}
+
+  .exgroup{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px;margin-bottom:20px;box-shadow:var(--shadow);}
+  .exgroup h3{font-size:1.02rem;margin-bottom:14px;}
+  .exgroup h3 .chip{display:inline-block;font-family:'JetBrains Mono';font-size:0.68rem;font-weight:700;color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 16%, transparent);border-radius:6px;padding:2px 8px;margin-right:8px;vertical-align:middle;}
+  .exitem{border-top:1px solid var(--border);padding:14px 0;}
+  .exitem:first-of-type{border-top:none;padding-top:0;}
+  .exq{display:flex;gap:10px;align-items:baseline;color:var(--text);font-size:0.94rem;margin-bottom:8px;}
+  .exq .exnum{color:var(--accent-3);font-family:'JetBrains Mono';font-weight:700;flex-shrink:0;}
+  .ex-toggle{background:var(--panel-2);border:1px solid var(--border);color:var(--accent-2);padding:7px 13px;border-radius:8px;cursor:pointer;font-family:'Inter';font-size:0.82rem;font-weight:600;}
+  body.lang-ta .ex-toggle{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .ex-toggle:hover{border-color:var(--accent-2);}
+  .ex-answer{display:none;margin-top:10px;background:var(--panel-2);border-left:3px solid var(--accent-2);border-radius:0 10px 10px 0;padding:10px 14px;font-size:0.9rem;color:var(--text-dim);}
+  .ex-answer.show{display:block;}
+  .ex-answer .work{font-family:'JetBrains Mono';color:var(--text);margin:3px 0;}
+  body.lang-ta .ex-answer .work{font-family:'Noto Sans Tamil','JetBrains Mono',sans-serif;}
+
+  .level-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:18px;}
+  .level-btn{background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:10px 6px;cursor:pointer;text-align:center;color:var(--text-dim);font-family:'Inter';transition:.15s;}
+  .level-btn.active{border-color:var(--accent);background:color-mix(in srgb, var(--accent) 16%, var(--panel));color:var(--text);}
+  .level-btn .lstars{font-size:0.85rem;color:var(--accent-3);margin-top:2px;}
+  .level-btn .lnum2{font-weight:800;font-family:'Sora';font-size:1rem;color:var(--text);}
+  .game-scene{background:var(--panel-2);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;text-align:center;}
+  .game-scene .surface-label{font-size:0.9rem;color:var(--text-dim);margin-bottom:10px;}
+  .game-result{margin-top:10px;font-size:0.95rem;min-height:1.4em;}
+  .game-result.win{color:var(--good);font-weight:700;}
+  .game-result.lose{color:var(--accent-3);font-weight:700;}
+  .star-row{font-size:1.6rem;letter-spacing:4px;margin:8px 0;}
+
+  .match-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
+  @media (max-width:640px){.match-grid{grid-template-columns:1fr;}}
+  .match-col .mtitle{font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint);margin-bottom:8px;font-weight:700;}
+  .match-tile{background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:8px;cursor:pointer;font-size:0.88rem;color:var(--text);transition:.15s;}
+  body.lang-ta .match-tile{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .match-tile:hover{border-color:var(--accent-2);}
+  .match-tile.selected{border-color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 18%, var(--panel));}
+  .match-tile.matched{opacity:0.4;cursor:default;border-color:var(--good);}
+  .match-tile.wrong{animation:shakeTile .35s;border-color:var(--danger);}
+  @keyframes shakeTile{0%,100%{transform:translateX(0);}25%{transform:translateX(-5px);}75%{transform:translateX(5px);}}
+  .sort-pool{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;min-height:40px;}
+  .sort-chip{background:var(--panel-2);border:1px solid var(--border);border-radius:20px;padding:8px 14px;cursor:pointer;font-size:0.85rem;color:var(--text);transition:.15s;}
+  body.lang-ta .sort-chip{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+  .sort-chip:hover{border-color:var(--accent-2);}
+  .sort-chip.selected{border-color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 20%, var(--panel));}
+  .sort-chip.wrong{animation:shakeTile .35s;border-color:var(--danger);}
+  .sort-bins{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media (max-width:640px){.sort-bins{grid-template-columns:1fr;}}
+  .sort-bin{background:var(--panel-2);border:2px dashed var(--border);border-radius:12px;padding:14px;min-height:110px;cursor:pointer;}
+  .sort-bin:hover{border-color:var(--accent);}
+  .sort-bin .btitle{font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:8px;}
+  .sort-bin .schip{display:inline-block;background:var(--panel);border:1px solid var(--good);border-radius:16px;padding:5px 10px;margin:3px;font-size:0.78rem;color:var(--text);}
+
+  footer{text-align:center;color:var(--text-faint);font-size:0.8rem;padding:40px 0 10px;}
+  footer .note2{display:block;margin-top:8px;font-size:0.74rem;opacity:0.85;}
+
+  /* ---- activities + summary/glossary ---- */
+  .act-ref{display:inline-block;font-size:.72rem;font-weight:700;color:var(--text-faint);margin:-4px 0 8px;font-family:'JetBrains Mono';}
+  .act-box{background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:10px 14px;margin:10px 0;}
+  .act-box b{font-size:.88rem;color:var(--text);}
+  .act-box ul,.act-box ol{margin:6px 0 0;padding-left:22px;color:var(--text-dim);font-size:.93rem;}
+  .act-box li{margin-bottom:4px;}
+  details.act-reveal{margin:10px 0;border:1px dashed var(--border);border-radius:12px;padding:8px 14px;background:color-mix(in srgb, var(--board-accent,var(--accent)) 8%, var(--panel));}
+  details.act-reveal summary{cursor:pointer;font-weight:700;color:var(--text);font-size:.92rem;}
+  details.act-reveal .act-res{margin-top:8px;color:var(--text-dim);font-size:.93rem;}
+  .act-done{margin-top:6px;}
+  .act-done[disabled]{opacity:.7;cursor:default;}
+  .sumlist{margin:6px 0 0;padding-left:22px;color:var(--text-dim);}
+  .sumlist li{margin-bottom:8px;}
+  .gloss-wrap{overflow-x:auto;}
+  table.gloss{width:100%;border-collapse:collapse;font-size:.92rem;}
+  table.gloss th,table.gloss td{border:1px solid var(--border);padding:8px 12px;text-align:left;vertical-align:top;}
+  table.gloss th{background:var(--panel-2);color:var(--text);}
+  table.gloss td{color:var(--text-dim);}
+  table.gloss td.tt{color:var(--text);font-weight:700;font-family:'Noto Sans Tamil',sans-serif;}
+  table.gloss td.te{color:var(--accent);font-weight:700;}
+  .gsvg{max-width:100%;height:auto;margin:6px 0;} .gsvg text{fill:var(--text-dim);font-size:10px;} .gsvg .ax{stroke:var(--text-faint);} .gsvg .ln{stroke:var(--accent);fill:none;stroke-width:2.4;} .gsvg .gd{stroke:var(--border);stroke-dasharray:3 3;}
+
+  /* ---- Raja & Chittu story opener ---- */
+  .so-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+  .so-chip{display:inline-flex;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--accent-3);background:color-mix(in srgb, var(--accent-3) 14%, transparent);border:1px solid color-mix(in srgb, var(--accent-3) 40%, transparent);padding:4px 12px;border-radius:20px;}
+  .so-title{font-family:'Sora','Noto Sans Tamil',sans-serif;font-size:1.25rem;font-weight:800;}
+  .so-stage{background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--accent-3);border-radius:18px;padding:18px 18px 16px;box-shadow:var(--shadow);}
+  .so-chars{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end;}
+  .so-char{text-align:center;transition:transform .3s ease, filter .3s ease;filter:grayscale(.55) brightness(.92);transform:scale(.93);}
+  .so-char.on{filter:none;transform:scale(1.04);}
+  .so-char svg{width:100%;max-width:170px;height:auto;overflow:visible;}
+  .so-nm{font-family:'Sora','Noto Sans Tamil',sans-serif;font-weight:800;font-size:.9rem;}
+  .so-char.r .so-nm{color:#e8a050;} .so-char.c .so-nm{color:#4aa8dc;}
+  .so-scene{text-align:center;font-size:2rem;letter-spacing:6px;min-height:2.6rem;margin:6px 0 0;}
+  .so-bubble{position:relative;margin:14px 4px 8px;padding:14px 18px;border-radius:16px;min-height:88px;font-size:1.02rem;font-weight:600;border:3px solid;display:flex;align-items:center;}
+  .so-bubble.r{background:color-mix(in srgb, #ffb869 18%, var(--panel));border-color:#ffb869;}
+  .so-bubble.c{background:color-mix(in srgb, #5cc0f2 16%, var(--panel));border-color:#5cc0f2;}
+  .so-bubble::before{content:'';position:absolute;top:-13px;width:20px;height:20px;transform:rotate(45deg);background:inherit;border-left:3px solid;border-top:3px solid;border-color:inherit;}
+  .so-bubble.r::before{left:22%;} .so-bubble.c::before{left:72%;}
+  .so-caret{display:inline-block;width:2px;height:1.1em;background:currentColor;margin-left:2px;vertical-align:-3px;animation:so-caret .7s infinite;}
+  @keyframes so-caret{50%{opacity:0;}}
+  .so-ctrls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:space-between;margin-top:6px;}
+  .so-dots{display:flex;gap:4px;flex-wrap:wrap;flex:1;min-width:110px;}
+  .so-dots i{width:8px;height:8px;border-radius:50%;background:var(--border);display:block;}
+  .so-dots i.done{background:var(--accent);} .so-dots i.now{background:var(--accent-3);transform:scale(1.4);}
+  .so-cta{display:none;text-align:center;margin-top:12px;}
+  .so-cta.show{display:block;animation:so-pop .5s cubic-bezier(.34,1.56,.64,1);}
+  @keyframes so-pop{from{transform:scale(.7);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .so-bob{animation:so-bob 2.4s ease-in-out infinite;transform-origin:50% 100%;}
+  @keyframes so-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  .so-blink{animation:so-blink 4s infinite;transform-box:fill-box;transform-origin:center;}
+  @keyframes so-blink{0%,92%,100%{transform:scaleY(1);}95%{transform:scaleY(.08);}}
+  .so-char.talking .so-rm{animation:so-tr .22s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0;}
+  @keyframes so-tr{from{transform:scaleY(.35);}to{transform:scaleY(1.1);}}
+  .so-char.talking .so-cb{animation:so-tc .22s ease-in-out infinite alternate;}
+  @keyframes so-tc{from{transform:translateY(0);}to{transform:translateY(5px);}}
+  .so-wave{animation:so-wave 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:15% 85%;}
+  @keyframes so-wave{0%,100%{transform:rotate(0);}50%{transform:rotate(-24deg);}}
+  @media (prefers-reduced-motion: reduce){.so-bob,.so-blink,.so-wave,.so-char.talking .so-rm,.so-char.talking .so-cb{animation:none;}}
+
+  /* ================= lesson framework ================= */
+  .fw-card{background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:18px;padding:20px 20px 18px;box-shadow:var(--shadow);}
+  .fw-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;margin-bottom:6px;}
+  .fw-h{font-family:'Sora','Noto Sans Tamil',sans-serif;font-size:1.2rem;font-weight:800;margin:0;}
+  .fw-sub{color:var(--text-dim);font-size:.92rem;margin:2px 0 12px;}
+  .fw-bar{height:10px;background:var(--panel-2);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin:6px 0 14px;}
+  .fw-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .5s ease;}
+  .fw-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+  .fw-phase{border-radius:14px;padding:10px 12px;background:var(--panel-2);border:1px solid var(--border);}
+  .fw-phase h4{margin:0 0 6px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);font-family:'Sora','Noto Sans Tamil',sans-serif;}
+  .fw-steps{display:flex;flex-direction:column;gap:5px;}
+  .fw-step{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-size:.88rem;font-weight:600;padding:5px 8px;border-radius:10px;border:1px solid transparent;}
+  .fw-step:hover{border-color:var(--accent);}
+  .fw-step .tick{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0;color:transparent;}
+  .fw-step.done .tick{background:var(--good);border-color:var(--good);color:#06231c;}
+  .fw-step.cur{background:color-mix(in srgb, var(--accent-3) 14%, transparent);}
+  .fw-go{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px;}
+  .fw-hint{font-size:.85rem;color:var(--text-faint);}
+  .fw-next{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center;margin:26px 0 0;padding-top:16px;border-top:2px dashed var(--border);}
+  .fw-next a.btn{text-decoration:none;}
+  .fw-next .small{font-size:.82rem;color:var(--text-faint);text-decoration:none;}
+  .fw-pill{position:fixed;left:12px;bottom:12px;z-index:60;display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--border);border-radius:22px;padding:6px 14px;box-shadow:var(--shadow);font-size:.8rem;font-weight:700;color:var(--text);text-decoration:none;max-width:70vw;}
+  .fw-pill b{color:var(--accent);} .fw-pill .mini{width:44px;height:6px;border-radius:6px;background:var(--panel-2);overflow:hidden;display:inline-block;} .fw-pill .mini i{display:block;height:100%;background:var(--accent);width:0;}
+  .fw-finish{text-align:center;}
+  .fw-finish .big{font-size:3rem;line-height:1.1;}
+  .fw-chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:10px 0;}
+  .fw-chip{background:var(--panel-2);border:1px solid var(--border);border-radius:16px;padding:5px 12px;font-size:.85rem;font-weight:700;}
+  .fw-left{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:8px 0;}
+  /* watch-it animation */
+  .fw-anim svg{width:100%;height:auto;display:block;background:color-mix(in srgb, var(--accent) 5%, var(--panel-2));border:1px solid var(--border);border-radius:14px;}
+  .fw-cap{margin:12px 0 8px;min-height:3.4em;padding:10px 14px;border-radius:12px;background:var(--panel-2);border:1px solid var(--border);font-weight:600;font-size:.98rem;display:flex;align-items:center;gap:10px;}
+  .fw-cap .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent-3);color:#0b0f17;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center;}
+  .fw-ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .fw-ctl input[type=range]{flex:1;min-width:140px;}
+  .fw-anim text{font-family:'Inter','Noto Sans Tamil',sans-serif;font-weight:700;}
+  /* guided lab */
+  .lg{background:linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 10%, var(--panel-2)), var(--panel-2));border:1px solid color-mix(in srgb, var(--accent-2) 35%, var(--border));border-radius:14px;padding:14px 16px;margin-bottom:16px;}
+  .lg h4{margin:0 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2);font-family:'Sora','Noto Sans Tamil',sans-serif;}
+  .lg .goal{font-size:.98rem;font-weight:600;margin-bottom:10px;}
+  .lg .look{font-size:.88rem;color:var(--text-dim);margin-bottom:10px;}
+  .lg-tries{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0;}
+  .lg-try{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:12px;padding:8px 12px;cursor:pointer;font-family:inherit;font-size:.88rem;font-weight:700;text-align:left;}
+  .lg-try:hover{border-color:var(--accent-2);} .lg-try.on{border-color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 16%, var(--panel));}
+  .lg-see,.lg-live{border-radius:12px;padding:9px 13px;font-size:.92rem;margin-top:8px;}
+  .lg-see{background:color-mix(in srgb, var(--accent) 12%, var(--panel));border:1px solid color-mix(in srgb, var(--accent) 40%, var(--border));}
+  .lg-live{background:var(--panel);border:1px dashed var(--border);color:var(--text-dim);}
+  .lg-live b,.lg-see b{color:var(--text);}
+  /* fun recap */
+  .cm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:6px 0 18px;}
+  @media (max-width:640px){.cm-grid{grid-template-columns:1fr;}}
+  .cm-panel{border:3px solid var(--text);border-radius:14px;padding:12px 14px;position:relative;background:var(--panel);}
+  .cm-panel .no{position:absolute;top:-12px;left:12px;background:var(--text);color:var(--bg);font-weight:800;font-size:.75rem;padding:2px 10px;border-radius:10px;}
+  .cm-panel .sc{font-size:2.2rem;text-align:center;letter-spacing:6px;margin:2px 0 6px;}
+  .cm-b{border-radius:14px;padding:7px 12px;margin:6px 0;font-size:.92rem;font-weight:600;border:2px solid;}
+  .cm-b.r{background:color-mix(in srgb, #ffb869 18%, var(--panel));border-color:#ffb869;margin-right:20px;}
+  .cm-b.c{background:color-mix(in srgb, #5cc0f2 16%, var(--panel));border-color:#5cc0f2;margin-left:20px;}
+  .cm-b i{font-style:normal;font-weight:800;}
+  .cm-rhyme{font-size:1.08rem;font-weight:800;text-align:center;line-height:1.9;}
+  .cm-table{width:100%;border-collapse:collapse;font-size:.92rem;}
+  .cm-table th,.cm-table td{border:1px solid var(--border);padding:8px 12px;text-align:left;vertical-align:top;}
+  .cm-table th{background:var(--panel-2);} .cm-table td.w{color:var(--accent-3);} .cm-table td.ok{color:var(--text);}
+  .cm-must{margin:6px 0 0;padding-left:20px;color:var(--text-dim);} .cm-must li{margin-bottom:6px;} .cm-must b{color:var(--text);}
+  @media (prefers-reduced-motion: reduce){.fw-bar i{transition:none;}}
+
+  .fw-anim{position:relative;}
+  .fw-ask{position:absolute;left:14px;right:14px;top:14px;z-index:6;background:var(--panel);border:3px solid var(--accent-3);border-radius:16px;padding:12px 14px;box-shadow:0 14px 40px rgba(0,0,0,.45);}
+  .fw-ask .aq{font-weight:800;font-size:1rem;margin-bottom:8px;}
+  .fw-ask .ao{display:flex;gap:8px;flex-wrap:wrap;}
+  .fw-ask .ar{margin-top:10px;font-size:.92rem;color:var(--text-dim);} .fw-ask .ar b{color:var(--text);} .fw-ask .ar .btn{margin-top:8px;}
+
+  /* cartoon lab stage */
+  .ls{margin-bottom:16px;}
+  .ls-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;}
+  .ls-top b{font-family:'Sora','Noto Sans Tamil',sans-serif;font-size:.95rem;} .ls-hint{font-size:.8rem;color:var(--text-faint);}
+  .ls svg{width:100%;height:auto;display:block;background:color-mix(in srgb, var(--accent) 5%, var(--panel-2));border:1px solid var(--border);border-radius:14px;}
+  .ls svg text{font-family:'Inter','Noto Sans Tamil',sans-serif;font-weight:700;}
+  .ls-miss{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+  .ls-m{display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--panel);border-radius:12px;padding:7px 12px;font-size:.86rem;font-weight:600;}
+  .ls-m .ck{width:20px;height:20px;border-radius:50%;border:2px solid var(--border);display:inline-flex;align-items:center;justify-content:center;font-size:.7rem;color:transparent;flex-shrink:0;}
+  .ls-m.ok{border-color:var(--good);background:color-mix(in srgb, var(--good) 14%, var(--panel));} .ls-m.ok .ck{background:var(--good);border-color:var(--good);color:#06231c;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">STEM Cloud <span>·</span> <span data-ta="O/L பிசிக்ஸ்">O/L Physics</span></div>
+    <div class="navlinks">
+      <a href="#fw_path" data-ta="🧭 வழி">🧭 Path</a>
+      <a href="#story" data-ta="🎬 கதை">🎬 Story</a>
+      <a href="#watch" data-ta="👀 பாரு">👀 Watch</a>
+      <a href="#notes" data-ta="குறிப்புகள்">Notes</a>
+      <a href="#activities" data-ta="செயற்பாடுகள்">Activities</a>
+      <a href="#lab" data-ta="சமநிலை லேப்">Equilibrium Lab</a>
+      <a href="#holdgame" data-ta="🎮 விளையாட்டு">🎮 Hold It Still!</a>
+      <a href="#quiz" data-ta="சுயபரிசோதனை">Self-Check</a>
+      <a href="#sortgame" data-ta="🧩 வரிசைப்படுத்து">🧩 Sort Game</a>
+      <a href="#walkthroughs" data-ta="விளக்கங்கள்">Walkthroughs</a>
+      <a href="#practice" data-ta="பயிற்சி">Practice</a>
+      <a href="#recap" data-ta="😄 ரிகேப்">😄 Recap</a>
+      <a href="#summary" data-ta="சுருக்கம்">Summary</a>
+    </div>
+    <div class="toggles">
+      <button class="lang-toggle" id="langToggle">🌐 தமிழ்</button>
+      <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
+    </div>
+  </div>
+</div>
+
+<div class="xpbar">
+  <div class="xpbar-inner">
+    <div class="xp-chip">⭐ <span data-ta="மட்டம்">Lv</span> <b id="xpLevel">1</b></div>
+    <div class="xp-bar-track"><div class="xp-bar-fill" id="xpBarFill" style="width:0%"></div></div>
+    <div class="xp-chip"><b id="xpTotal">0</b> XP</div>
+    <div class="xp-chip">🔥 <b id="streakVal">0</b></div>
+    <button class="badges-btn" id="badgesToggle">🏅 <span id="badgeCount">0</span>/5 <span data-ta="பேட்ஜ்">Badges</span></button>
+  </div>
+  <div class="badges-panel" id="badgesPanel"></div>
+</div>
+
+<div id="toastWrap"></div>
+<canvas id="confettiCanvas"></canvas>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="crumb"><a href="index.html" data-ta="&larr; படிப்பு மையம்">&larr; Study Hub</a></div>
+    <span class="kicker" data-ta="பிசிக்ஸ் · பாடம் 12 · க.பொ.த (சா/த)">Physics · Chapter 12 · G.C.E. O/L</span>
+    <h1 data-ta="விசைகளின் சமநிலை!">Equilibrium of Forces</h1>
+    <p class="lead" data-ta="மேசை மேல வெச்ச புத்தகம் ஏன் கீழ விழுறதில்ல? கயிறிழுத்தல்ல ரெண்டு அணியும் சம பலத்துல இழுத்தா கயிறு ஏன் அசையாம நிக்குது? ஊஞ்சல்ல உக்காந்திருக்கற பிள்ளை ஏன் கீழ விழல? எல்லாத்துக்கும் பதில் — விசைகளின் சமநிலை! ஆழமா, சுலபமா, நிறைய உதாரணங்களோட பாப்போம்.">Why doesn't a book on a table fall? Why does a tug-of-war rope stay still when both teams pull equally hard? Why doesn't a child on a swing fall? The answer to all of these is the equilibrium of forces. Deep explanations, lots of examples below.</p>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 1. NOTES -->
+  <section class="block" id="fw_path">
+    <div class="fw-card">
+      <div class="fw-top"><h2 class="fw-h" id="fw_ph"></h2><span class="fw-hint" id="fw_pc"></span></div>
+      <p class="fw-sub" id="fw_ps"></p>
+      <div class="fw-bar"><i id="fw_pb"></i></div>
+      <div class="fw-phases" id="fw_phases"></div>
+      <div class="fw-go"><a class="btn primary" id="fw_start" href="#story"></a><span class="fw-hint" id="fw_pt"></span></div>
+    </div>
+  </section>
+
+  <section class="block so-wrap" id="story">
+    <div class="so-head"><span class="so-chip" data-ta="🎬 கதை நேரம்">🎬 Story time</span><span class="so-title" id="so_title"></span></div>
+    <div class="so-stage">
+      <div class="so-chars">
+        <div class="so-char r" id="so_cr"><div id="so_sr"></div><div class="so-nm" id="so_nr"></div></div>
+        <div class="so-char c" id="so_cc"><div id="so_sc"></div><div class="so-nm" id="so_nc"></div></div>
+      </div>
+      <div class="so-scene" id="so_scene" aria-hidden="true"></div>
+      <div class="so-bubble r" id="so_bubble"><span id="so_text"></span><span class="so-caret" id="so_caret"></span></div>
+      <div class="so-ctrls">
+        <button class="btn" id="so_prev"></button>
+        <div class="so-dots" id="so_dots"></div>
+        <button class="btn primary" id="so_next"></button>
+      </div>
+      <div class="so-cta" id="so_cta"><a class="btn primary" href="#watch" id="so_go"></a></div>
+    </div>
+  </section>
+
+  <section class="block" id="watch">
+    <div class="section-label">
+      <div class="num">1</div>
+      <div><h2 data-ta="பாரு: சமநிலையில விசைகள்">Watch it happen: forces in balance</h2><div class="sub" data-ta="தொங்கும் பை, ஊஞ்சல்: ரெண்டும் அசையாம நிக்குது">A hanging bag and a swing, both perfectly still</div></div>
+    </div>
+    <div class="lab-card fw-anim">
+      <svg id="fw_svg" viewBox="0 0 640 360" role="img" aria-label="animation"></svg>
+      <div class="fw-ask" id="fw_ask" hidden></div>
+      <div class="fw-cap"><span class="n" id="fw_n">1</span><span id="fw_cap"></span></div>
+      <div class="fw-ctl">
+        <button class="btn primary" id="fw_play"></button>
+        <button class="btn" id="fw_rep"></button>
+        <button class="btn" id="fw_slow"></button>
+        <button class="btn" id="fw_snd"></button>
+        <input type="range" id="fw_scrub" min="0" max="1000" value="0" aria-label="time">
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <section class="block" id="notes">
+    <div class="section-label">
+      <div class="num">2</div>
+      <div><h2 data-ta="குறிப்புகள்">Notes</h2><div class="sub" data-ta="ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ">Tap a stepping stone to explore each topic</div></div>
+    </div>
+
+    <div class="path-row" id="notesPath">
+      <button class="path-stone c1" data-idx="0" aria-label="12.1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/><path d="M6 9l-3 3 3 3M18 9l3 3-3 3" stroke-opacity="0.6"/></svg>
+        <span class="ps-num">12.1</span>
+        <span class="ps-check">✓</span>
+      </button>
+      <button class="path-stone c2" data-idx="1" aria-label="12.2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M9 7l3-4 3 4"/><path d="M12 21v-7M9 17l3 4 3-4" stroke-opacity="0.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        <span class="ps-num">12.2</span>
+        <span class="ps-check">✓</span>
+      </button>
+      <button class="path-stone c3" data-idx="2" aria-label="12.3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v7M17 4v7"/><path d="M5 6l2-2 2 2M15 6l2-2 2 2"/><rect x="8" y="14" width="8" height="6" rx="1" stroke-opacity="0.6"/><path d="M12 11v3" stroke-opacity="0.6"/></svg>
+        <span class="ps-num">12.3</span>
+        <span class="ps-check">✓</span>
+      </button>
+      <button class="path-stone c4" data-idx="3" aria-label="12.4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4L5 12M12 4l7 8"/><rect x="6" y="13" width="12" height="7" rx="1"/><path d="M12 20v1" /></svg>
+        <span class="ps-num">12.4</span>
+        <span class="ps-check">✓</span>
+      </button>
+    </div>
+
+    <div class="notes-grid" id="notesStage">
+    <div class="card c1" data-idx="0">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/><path d="M6 9l-3 3 3 3M18 9l3 3-3 3" stroke-opacity="0.6"/></svg></div>
+      <svg class="icon-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M3 12h6M15 12h6"/></svg>
+      <h3 data-ta="12.1&nbsp; சமநிலை என்றால் என்ன? — விசைகள் இருந்தும் ஒண்ணுமே நடக்காம இருக்குறது!">12.1 &nbsp;What is Equilibrium? — Forces Everywhere, Yet Nothing Moves!</h3>
+      <p data-ta="கயிறிழுத்தல் போட்டிய பாத்திருப்பீங்க. ரெண்டு அணியும் கயிற்றை தங்கள் பக்கம் இழுக்குது. ஒரு பக்கத்து விசை மத்த பக்கத்துக்கு விட அதிகமா இருந்தா, கயிறு அந்த பக்கம் நகரும். ஆனா ரெண்டு பக்கமும் சம விசையில இழுத்தா? கயிறு ஒரு பக்கமும் நகராம அசையாம நிக்கும்! அதுக்குக் காரணம், கயிற்றின் ரெண்டு பக்கமும் தாக்கும் விசைகள் <b>சமநிலையில்</b> (equilibrium / நாப்பம்) இருக்குறதுதான். அப்போ கயிறு <b>சமநிலையில்</b> இருக்குன்னு சொல்றோம்.">You've watched a tug of war. Both teams pull the rope their own way. If one side pulls harder, the rope moves that way. But if both sides pull with equal force? The rope stays perfectly still! That's because the forces on both sides are <b>balanced</b> — in <b>equilibrium</b>. We say the rope is in equilibrium.</p>
+      <p data-ta="இன்னொரு உதாரணம் — ஒரு பந்த வலுவான நூலுல தொங்கவிடு. பந்தோட நிறை அதை கீழ இழுக்குது. அதே நேரம் நூல் அதை மேல இழுக்குது. இந்த ரெண்டு விசையும் சமமா இருக்குறதால, பந்து தொங்கிட்டே இருக்கு — கீழ விழாது, மேல போகாது.">Another example — hang a ball from a strong thread. The ball's weight pulls it down; the thread pulls it up at the same time. Since these two forces are equal, the ball just hangs there — it neither falls nor rises.</p>
+      <div class="lawbox">
+        <div class="llabel" data-ta="சமநிலையின் பொருள்">What equilibrium means</div>
+        <div class="ltext" data-ta="ஒரு பொருளின் மீது தாக்கும் எல்லா விசைகளின் விளையுள் பூச்சியமாக இருந்தால், அப்பொருள் சமநிலையில் உள்ளது.">When the resultant of all the forces acting on an object is zero, the object is in equilibrium.</div>
+      </div>
+      <p data-ta="நிஜ வாழ்க்கையில ஒரு பொருள் மேல எப்பவுமே ஒரே ஒரு விசை இருக்காது. ரெண்டு, மூணு, இல்ல அதுக்கு மேலயும் விசைகள் இருக்கலாம் — அவை சமநிலையில் இருந்தா, பொருள் ஓய்வுல இருக்கும் (அல்லது சீரான வேகத்துல இயங்கும்). இந்த அத்தியாயத்துல ரெண்டு விசை, மூணு விசை சமநிலைகளை தனித்தனியா பாக்கப்போறோம். (நியூற்றனின் முதலாவது விதி நினைவிருக்கா? சமநிலைப்படுத்தப்படாத விசை இல்லாத வரை ஓய்வு → ஓய்வு. இதுதான் அது!)">In real life an object is rarely acted on by just one force. Two, three or more forces may act — and if they balance, the object stays at rest (or keeps moving at a steady speed). In this chapter we'll look at two-force and three-force equilibrium separately. (Remember Newton's first law? With no unbalanced force, rest stays rest. This is exactly that!)</p>
+    </div>
+
+    <div class="card c2" data-idx="1">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7M9 7l3-4 3 4"/><path d="M12 21v-7M9 17l3 4 3-4" stroke-opacity="0.6"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg></div>
+      <svg class="icon-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v7"/><path d="M12 21v-7"/></svg>
+      <h3 data-ta="12.2&nbsp; இரு விசைகளின் கீழ் சமநிலை">12.2 &nbsp;Equilibrium Under Two Forces</h3>
+      <p data-ta="ரெண்டு விசைகள் மட்டும் ஒரு பொருள் மேல தாக்கும்போது, அந்த பொருள் சமநிலையில இருக்கணும்னா என்ன வேணும்? ஒரு சோதனை பாரு: ஒரு வளையத்த (ring) எடுத்து, அதோட ரெண்டு பக்கமும் ரெண்டு நியூற்றன் தராசு (spring balance) இணைச்சு எதிர் எதிர் திசையில இழு. வளையம் ஓய்வுல நிக்கும்போது ரெண்டு தராசு வாசிப்பும் <b>சமமா</b> இருக்கும். ரெண்டு தராசையும் ஒரே நேர்கோட்டில் இல்லாம வெச்சு, வளையத்த ஓய்வுல நிறுத்த முயற்சி பண்ணு — முடியவே முடியாது!">What do we need for an object under just two forces to be in equilibrium? Try this: hang a ring between two spring balances pulled in opposite directions. When the ring is at rest, both readings are <b>equal</b>. Now try keeping the ring still with the two balances NOT on the same straight line — you simply can't!</p>
+      <div class="lawbox">
+        <div class="llabel" data-ta="இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகள்">Three conditions for two-force equilibrium</div>
+        <div class="ltext" data-ta="இரு விசைகள் சமநிலையில் இருக்க:">For two forces to be in equilibrium:</div>
+        <ol>
+          <li data-ta="இரு விசைகளும் பருமனில் சமமாக இருத்தல் வேண்டும்.">The two forces must be equal in magnitude.</li>
+          <li data-ta="இரு விசைகளும் எதிர்த் திசைகளில் தாக்குதல் வேண்டும்.">They must act in opposite directions.</li>
+          <li data-ta="இரு விசைகளும் ஒரே நேர்கோட்டில் தாக்குதல் வேண்டும்.">They must act along the same straight line.</li>
+        </ol>
+      </div>
+      <p data-ta="இப்போ ஒரு மரக்குற்றிய ரெண்டு பக்கமும் நியூற்றன் தராசால இழுக்கறத நினைச்சுப்பாரு. ரெண்டு பக்கமும் சம விசைன்னா குற்றி அசையாம நிக்கும். ஒரு பக்கம் அதிகமா இழுத்தா, குற்றி அதிக விசை உள்ள பக்கம் நகரும் — ஏன்னா அப்போ விளையுள் பூச்சியம் இல்ல.">Imagine pulling a block of wood from both sides with spring balances. Equal pulls — the block stays still. Pull harder on one side, and the block moves toward the stronger pull — because the resultant is no longer zero.</p>
+      <div class="callout tip">
+        <div class="ctitle" data-ta="🏠 நம்ம வீட்டுலயே உதாரணங்கள்">🏠 Examples right at home</div>
+        <ul>
+          <li data-ta="<b>மேசை மேல புத்தகம்:</b> புத்தகத்தோட நிறை (W) கீழ இழுக்குது; மேசை செவ்வன் மறுதாக்கம் (R) மேல தள்ளுது. W = R, எதிர் திசை, ஒரே நேர்கோடு — அதனால புத்தகம் விழாது."><b>A book on a table:</b> its weight (W) pulls down; the table pushes up with a normal reaction (R). W = R, opposite, same line — so the book doesn't fall.</li>
+          <li data-ta="<b>கயிறுல தொங்கும் பொருள்:</b> நிறை W கீழ; கயிற்றோட இழுவை (T) மேல. T = W — அதனால பொருள் ஓய்வுல இருக்கு."><b>An object hanging from a rope:</b> weight W down; the rope's tension (T) up. T = W — so the object stays at rest.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card c3" data-idx="2">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v7M17 4v7"/><path d="M5 6l2-2 2 2M15 6l2-2 2 2"/><rect x="8" y="14" width="8" height="6" rx="1" stroke-opacity="0.6"/><path d="M12 11v3" stroke-opacity="0.6"/></svg></div>
+      <svg class="icon-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M7 4v7M17 4v7"/><rect x="8" y="14" width="8" height="6"/></svg>
+      <h3 data-ta="12.3&nbsp; ஒரு தளத்தில் உள்ள மூன்று சமாந்தர விசைகளின் சமநிலை">12.3 &nbsp;Equilibrium of Three Parallel Forces in One Plane</h3>
+      <p data-ta="வாழைக்குலை ஒண்ணு ஒரு இலேசான கோலுல மூணு கயிறுகளால தொங்குது. மூணு கயிறுகளும் சமாந்தரமா (ஒரே திசையில்) இருக்கு — மேல ரெண்டு இழுக்குது, குலையோட நிறை கீழ இழுக்குது. இது மூணு சமாந்தர விசைகளோட சமநிலைக்கு ஒரு நல்ல உதாரணம்.">A bunch of bananas hangs from a light rod by three cords. All three forces are parallel — two pull up, the bananas' weight pulls down. This is a classic example of three parallel forces in equilibrium.</p>
+      <p data-ta="இன்னொண்ணு — ஊஞ்சல்ல உக்காந்திருக்கும் பிள்ளை. ரெண்டு கயிறும் மேல இழுக்குது (F₁, F₂), பிள்ளையோட நிறை (W) கீழ இழுக்குது. இந்த மூணு விசையும் சமநிலையில இருக்குறதால பிள்ளை ஓய்வுல இருக்கு. இங்க F₁ + F₂ = W.">Another one — a child sitting on a swing. Two ropes pull up (F₁, F₂), and the child's weight (W) pulls down. These three forces balance, so the child stays at rest. Here, F₁ + F₂ = W.</p>
+      <div class="formula-box">
+        <div class="flabel" data-ta="மூன்று சமாந்தர விசைகள்">Three parallel forces</div>
+        <div class="fmath" data-ta="F₁ + F₂ = W  (மேல்நோக்கிய மொத்தம் = கீழ்நோக்கிய மொத்தம்)">F₁ + F₂ = W  (total upward = total downward)</div>
+        <div class="fnote" data-ta="ஒரு மீற்றர் கோல் ரெண்டு நியூற்றன் தராசுகளால தொங்கும் சோதனையிலயும் இதையே பாக்கலாம் — ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்.">The textbook's metre-rule experiment shows the same: the two spring balance readings add up to the rule's weight.</div>
+      </div>
+      <div class="lawbox">
+        <div class="llabel" data-ta="மூன்று சமாந்தர விசைகளின் சமநிலைக்கு">For three parallel forces to be in equilibrium</div>
+        <ol>
+          <li data-ta="மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.">All three forces must lie in one plane.</li>
+          <li data-ta="ஒரு விசை மற்றைய இரு விசைகளுக்கும் எதிரான திசையில் தாக்க வேண்டும்.">One force must act opposite to the other two.</li>
+          <li data-ta="இரு விசைகளின் விளையுள் மூன்றாவது விசைக்குப் பருமனில் சமமாகவும் எதிர் திசையிலும் இருத்தல் வேண்டும்.">The resultant of two of the forces must equal the third in magnitude and be opposite in direction.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card c4" data-idx="3">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4L5 12M12 4l7 8"/><rect x="6" y="13" width="12" height="7" rx="1"/><path d="M12 20v1" /></svg></div>
+      <svg class="icon-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 4L5 12M12 4l7 8"/><rect x="6" y="13" width="12" height="7"/></svg>
+      <h3 data-ta="12.4&nbsp; ஒரு தளத்தில் உள்ள சமாந்தரமற்ற மூன்று விசைகளின் சமநிலை">12.4 &nbsp;Equilibrium of Three Non-Parallel Forces in One Plane</h3>
+      <p data-ta="சுவர்ல ஆணியில ரெண்டு கயிறு சாய்வா கட்டி ஒரு படத்த தொங்கவிட்டிருக்கீங்கல்ல? இங்க கயிறுகளோட இழுவை F₁, F₂ ஆகிய ரெண்டும் சாய்வா (சமாந்தரமில்லாம) இருக்கு, படத்தோட நிறை W கீழ இழுக்குது. இந்த மூணு விசைகளும் சமநிலையில இருக்குறதால, படம் ஓய்வுல நிக்குது.">You've seen a picture hung on a wall with two slanting cords. The cord tensions F₁ and F₂ are slanted (not parallel), and the picture's weight W pulls down. These three forces balance, so the picture stays still.</p>
+      <p data-ta="நூலுல ஒரு மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல தொங்கவிட்டு, ஒவ்வொரு தடவையும் நூலோட நேர் செங்குத்து கோட்ட தகட்டுல வரை. மூணு கோடும் ஒரே புள்ளில சந்திக்கும்! அதுதான் தகட்டோட புவியீர்ப்பு மையம். இதுல இருந்து தெரியுது — சமநிலையில இருக்கும் மூன்று சாய்ந்த விசைகளோட தாக்கும் கோடுகள் எப்பவும் ஒரே புள்ளில சந்திக்கும்.">Hang a thin plate by a thread from three different points, and each time mark the vertical line of the thread on the plate. All three lines meet at one point — the plate's centre of gravity! This shows that for three slanting forces in equilibrium, their lines of action always meet at a single point.</p>
+      <div class="lawbox">
+        <div class="llabel" data-ta="மூன்று சமாந்தரமற்ற விசைகளின் சமநிலைக்கு">For three non-parallel forces to be in equilibrium</div>
+        <ol>
+          <li data-ta="மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.">All three forces must lie in one plane.</li>
+          <li data-ta="மூன்று விசைகளினதும் தாக்கக் கோடுகள் ஒரே புள்ளியில் சந்தித்தல் வேண்டும்.">Their lines of action must meet at a single point.</li>
+          <li data-ta="இரு விசைகளின் விளையுள் மூன்றாம் விசைக்குச் சமமாகவும் எதிர்த் திசையிலும் இருத்தல் வேண்டும்.">The resultant of two must be equal to the third, in the opposite direction.</li>
+        </ol>
+      </div>
+      <p data-ta="மூணுக்கு மேல விசைகள் இருந்தாலும் இதே ஐடியாதான் — ஒரு பலகையோட நாலு மூலையிலும் கயிறு கட்டி தொங்கவிட்டா, நாலு இழுவை விசைகளோட மொத்தம் பலகையோட நிறைக்கு சமம்; அதனால பலகை ஓய்வுல இருக்கு.">The same idea works for more than three forces — hang a board by four ropes at its corners and the four upward tensions together equal the board's weight, so it stays at rest.</p>
+    </div>
+    </div>
+
+    <div class="stage-nav">
+      <button class="btn" id="notePrevBtn" data-ta="&larr; முந்தையது">&larr; Previous</button>
+      <span class="np-progress" id="noteProgress">1 / 4</span>
+      <button class="btn primary" id="noteNextBtn" data-ta="அடுத்த தலைப்பு &rarr;">Next topic &rarr;</button>
+    </div>
+
+    <div class="callout">
+      <div class="ctitle" data-ta="⚠️ இதுல தப்பு பண்ணாதீங்க!">⚠️ Common mistakes</div>
+      <ul>
+        <li data-ta="<b>மூன்று நிபந்தனையும் வேணும்!</b> இரு விசை சமநிலைக்கு சம பருமன் மட்டும் போதாது — எதிர் திசையும், ஒரே நேர்கோடும் கூட வேணும்."><b>You need all three conditions!</b> For two forces, equal size alone isn't enough — they must also be opposite and along the same line.</li>
+        <li data-ta="<b>சமநிலைன்னா அசையாதுன்னு மட்டும் நினைக்காதீங்க.</b> விளையுள் பூச்சியம்னா பொருள் ஓய்வுல இருக்கலாம் அல்லது சீரான வேகத்துல இயங்கலாம்."><b>Equilibrium doesn't only mean "not moving".</b> Zero resultant means the object is either at rest or moving at a steady speed.</li>
+        <li data-ta="<b>விசைகள் சமமில்லன்னா சமநிலை இல்ல.</b> 20 N, 25 N எதிரெதிரா இருந்தா 5 N நிகர விசை இருக்கு — பொருள் பெரிய விசையின் பக்கம் நகரும்."><b>Unequal forces mean no equilibrium.</b> With 20 N and 25 N opposed, there's a 5 N net force — the object moves toward the bigger pull.</li>
+        <li data-ta="<b>சாய்ந்த மூன்று விசைகளுக்கு, தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும்.</b> மூணும் ஒரு தளத்துல இருந்தாலும், கோடுகள் சந்திக்காட்டா சமநிலை இல்ல."><b>For three slanting forces, the lines must meet at one point.</b> Even if they're in one plane, no common meeting point means no equilibrium.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- HANDS-ON ACTIVITIES (textbook) -->
+  <!-- ============================================================ -->
+  <section class="block" id="activities">
+    <div class="section-label">
+      <div class="num">3</div>
+      <div><h2 data-ta="செஞ்சு பாரு — செயற்பாடுகள்">Hands-on Activities</h2><div class="sub" data-ta="பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு">The textbook's experiments — try them at home or in class</div></div>
+    </div>
+    <div class="callout tip">
+      <div class="ctitle" data-ta="💡 உபகரணங்கள் இல்லையா?">💡 No apparatus?</div>
+      <ul><li data-ta="கவலை வேணாம் — கீழ இருக்கற <a href='#lab'>லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!">No worries — you can see the same ideas in the <a href="#lab">Lab</a> below. But doing it for real makes it stick even better!</li></ul>
+    </div>
+    <div class="card c1 act" data-act="12.1">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M8 15h8" stroke-opacity="0.5"/></svg></div>
+      <h3 data-ta="செயற்பாடு 1 — வளையம் மேல இரு விசைகள்">Activity 1 — Two forces on a ring</h3>
+      <span class="act-ref" data-ta="பாடப்புத்தகம் · p.213">Textbook · p.213</span>
+      <p data-ta="இரு விசைகள் ஒரு வளையத்த ஓய்வுல வெக்க என்ன வேணும்னு பாக்கலாம்.">Find what is needed for two forces to keep a ring at rest.</p>
+      <div class="act-box"><b data-ta="🧰 தேவையானவை">🧰 You need</b><ul><li data-ta="ஒரு வளையம்">A ring</li><li data-ta="இரு நியூற்றன் தராசுகள்">Two newton balances (spring balances)</li></ul></div>
+      <div class="act-box"><b data-ta="📝 செய்முறை">📝 Steps</b><ol><li data-ta="வளையத்த மேசை மேல வெச்சு, ரெண்டு தராசாலயும் எதிர் எதிர் திசையில, வெவ்வேறு விசைகள்ல இழுத்து, ஓய்வுல வெக்க முயற்சி பண்ணு (உரு 12.4).">Place the ring on a table and pull it with the two spring balances in opposite directions with different forces, trying to keep the ring at rest (Fig. 12.4).</li><li data-ta="ஒவ்வொரு தடவையும் வளையம் ஓய்வுல இருக்கும்போது ரெண்டு தராசு வாசிப்புகளையும் பாரு.">Each time the ring is at rest, read both balances.</li><li data-ta="இப்போ ரெண்டு தராசையும் ஒரே நேர்கோட்டுல வெக்காம, வளையத்த ஓய்வுல வெக்க முயற்சி பண்ணு. முடியுதா?">Now try to keep the ring at rest with the two balances NOT on one straight line. Can you?</li></ol></div>
+      <details class="act-reveal"><summary data-ta="💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)">💡 What should you find? (tap)</summary><div class="act-res" data-ta="வளையம் ஓய்வுல இருக்கும்போது ரெண்டு வாசிப்புகளும் சமம், விசைகள் எதிர்த் திசையில, ஒரே நேர்கோட்டுல. ரெண்டு விசையும் ஒரே கோட்டுல இல்லாட்டா வளையத்த ஓய்வுல வெக்கவே முடியாது.">When the ring is at rest, the two readings are equal, the forces are opposite, and they act along one straight line. You cannot keep the ring at rest if the two forces are not on the same line.</div></details>
+      <button class="btn act-done" data-act="12.1" data-ta="✅ நான் செஞ்சு பாத்தேன்! (+10 XP)">✅ I tried it! (+10 XP)</button>
+    </div>
+    <div class="card c2 act" data-act="12.2">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M8 15h8" stroke-opacity="0.5"/></svg></div>
+      <h3 data-ta="செயற்பாடு 2 — மரக்குற்றி மேல இரு விசைகள்">Activity 2 — Two forces on a block</h3>
+      <span class="act-ref" data-ta="பாடப்புத்தகம் · p.213–214">Textbook · p.213–214</span>
+      <p data-ta="ஒரு மரக்குற்றிய ரெண்டு பக்கமும் இழுத்தா என்ன நடக்குதுன்னு பாக்கலாம்.">See what happens to a block when it is pulled from both sides.</p>
+      <div class="act-box"><b data-ta="🧰 தேவையானவை">🧰 You need</b><ul><li data-ta="ஒழுங்கான வடிவ மரக்குற்றி">A regular wooden block</li><li data-ta="இரு நியூற்றன் தராசுகள்">Two newton balances</li><li data-ta="தராசுகள குற்றியோட இணைக்க இரு வளையங்கள்">Two rings to attach the balances to the block</li></ul></div>
+      <div class="act-box"><b data-ta="📝 செய்முறை">📝 Steps</b><ol><li data-ta="குற்றியோட ரெண்டு முனையோட நடுப்புள்ளிலயும் ஒரு வளையத்த பொருத்து (உரு 12.5).">Fix a ring at the middle of each end of the block (Fig. 12.5).</li><li data-ta="ஒவ்வொரு வளையத்துலயும் ஒரு தராச மாட்டி, வெவ்வேறு விசைகள்ல ரெண்டு பக்கமும் இழு.">Attach a spring balance to each ring and pull the block to both sides with different forces.</li><li data-ta="குற்றிய கவனிச்சு, ஒவ்வொரு தடவையும் ரெண்டு தராசு வாசிப்புகளையும் பாரு.">Watch the block, and read both balances each time.</li></ol></div>
+      <details class="act-reveal"><summary data-ta="💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)">💡 What should you find? (tap)</summary><div class="act-res" data-ta="ரெண்டு விசையும் வேற வேறா இருந்தா விளையுள் இருக்கும்; குற்றி பெரிய விசை பக்கம் நகரும். விளையுள் பூச்சியமா இருந்தா, ரெண்டு விசையும் சமம், குற்றி ஓய்வுல நிக்கும்.">If the two forces are different, there is a resultant and the block moves in the direction of the larger force. When the resultant is zero, the two forces are equal and the block stays at rest.</div></details>
+      <button class="btn act-done" data-act="12.2" data-ta="✅ நான் செஞ்சு பாத்தேன்! (+10 XP)">✅ I tried it! (+10 XP)</button>
+    </div>
+    <div class="card c3 act" data-act="12.3">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M8 15h8" stroke-opacity="0.5"/></svg></div>
+      <h3 data-ta="செயற்பாடு 3 — மூன்று சமாந்தர விசைகள் (மீற்றர்க் கோல்)">Activity 3 — Three parallel forces (metre rule)</h3>
+      <span class="act-ref" data-ta="பாடப்புத்தகம் · p.216">Textbook · p.216</span>
+      <p data-ta="தொங்கும் மீற்றர்க் கோல் மேல இருக்கும் மூன்று சமாந்தர விசைகளோட தொடர்ப கண்டுபிடிக்கலாம்.">Find the relationship between the three parallel forces on a hanging metre rule.</p>
+      <div class="act-box"><b data-ta="🧰 தேவையானவை">🧰 You need</b><ul><li data-ta="ஒரு மீற்றர்க் கோல்">A metre rule</li><li data-ta="இரு நியூற்றன் தராசுகள்">Two newton balances</li><li data-ta="கோலை தொங்கவிட இறப்பர் பட்டிகள்">Rubber bands to hang the rule</li></ul></div>
+      <div class="act-box"><b data-ta="📝 செய்முறை">📝 Steps</b><ol><li data-ta="மீற்றர்க் கோலோட நிறை W-ஐ கண்டுபிடி.">Find the weight W of the metre rule.</li><li data-ta="ரெண்டு தராசுகள்ல இறப்பர் பட்டிகளால கோலை கிடையா தொங்கவிட்டு, F₁, F₂ வாசிப்புகள பாரு (உரு 12.10).">Hang the rule horizontally from the two spring balances using rubber bands, and read the two balances, F₁ and F₂ (Fig. 12.10).</li><li data-ta="F₁ + F₂ கூட்டி W-யோட ஒப்பிடு.">Add F₁ + F₂ and compare it with W.</li><li data-ta="கோலோட ஒரு முனைய கோலுக்கு செங்குத்தா தள்ளியும், விசைகளோட தளத்த மாத்தியும் சமநிலையில வெக்க முயற்சி பண்ணி, எப்போ முடியுதுன்னு கவனி.">Try to keep the rule in equilibrium by also pushing one end at right angles to the rule, and by changing the plane of the forces. Notice when it works.</li></ol></div>
+      <details class="act-reveal"><summary data-ta="💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)">💡 What should you find? (tap)</summary><div class="act-res" data-ta="ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்: F₁ + F₂ = W. மூணு விசையும் ஒரே தளத்துல இருந்து, ஒரு விசை மத்த ரெண்டுக்கும் எதிரா இருந்து, ரெண்டோட விளையுள் மூணாவதுக்கு சமமா இருந்தா மட்டும்தான் சமநிலை.">The sum of the two balance readings equals the weight of the rule: F₁ + F₂ = W. The rule stays in equilibrium only when the three forces lie in one plane, one force acts opposite to the other two, and the resultant of two equals the third.</div></details>
+      <button class="btn act-done" data-act="12.3" data-ta="✅ நான் செஞ்சு பாத்தேன்! (+10 XP)">✅ I tried it! (+10 XP)</button>
+    </div>
+    <div class="card c4 act" data-act="12.4">
+      <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M8 15h8" stroke-opacity="0.5"/></svg></div>
+      <h3 data-ta="செயற்பாடு 4 — மூன்று சமாந்தரமற்ற விசைகள் (மெல்லிய தகடு)">Activity 4 — Three non-parallel forces (thin plate)</h3>
+      <span class="act-ref" data-ta="பாடப்புத்தகம் · p.218">Textbook · p.218</span>
+      <p data-ta="சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகளோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்குதுன்னு காட்டலாம்.">Show that the lines of action of three non-parallel forces in equilibrium meet at one point.</p>
+      <div class="act-box"><b data-ta="🧰 தேவையானவை">🧰 You need</b><ul><li data-ta="ஒரு மெல்லிய தகடு (அட்டை போல)">A thin plate (e.g. cardboard)</li><li data-ta="இழைகள்">Strings</li></ul></div>
+      <div class="act-box"><b data-ta="📝 செய்முறை">📝 Steps</b><ol><li data-ta="மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல ஒவ்வொண்ணா இழையால தொங்கவிடு (உரு 12.13).">Hang the thin plate from three different places in turn, using a string.</li><li data-ta="ஒவ்வொரு தடவையும், இழை செல்லும் நேர்கோட்ட தகட்டு மேல குறிச்சுக்கோ.">Each time, mark on the plate the line the string makes, continued across the plate.</li><li data-ta="மூணு கோடுகளும் சந்திக்கும் புள்ளிய குறிச்சு, அத தகட்டோட புவியீர்ப்பு மையமா எடுத்துக்கோ.">Mark the point where the three lines meet and take it as the centre of gravity of the plate.</li><li data-ta="ரெண்டு இழைகளால தகட்ட சமநிலையில வெச்சு, அந்த இழைகளோட கோடுகளையும், புவியீர்ப்பு மையம் வழியா செங்குத்து கோட்டையும் குறிச்சுக்கோ.">Hold the plate in equilibrium with two strings and mark the lines of the two strings and the vertical line through the centre of gravity.</li></ol></div>
+      <details class="act-reveal"><summary data-ta="💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)">💡 What should you find? (tap)</summary><div class="act-res" data-ta="மூணு கோடுகளும் ஒரே புள்ளில சந்திக்கும். சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகள் ஒரே தளத்துல இருக்கணும், தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும், எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு சமமாகவும் எதிராகவும் இருக்கணும்.">All three lines meet at one point. For three non-parallel forces in equilibrium, the forces must lie in one plane, their lines of action must meet at a point, and the resultant of any two must equal the third in the opposite direction.</div></details>
+      <button class="btn act-done" data-act="12.4" data-ta="✅ நான் செஞ்சு பாத்தேன்! (+10 XP)">✅ I tried it! (+10 XP)</button>
+    </div>
+  </section>
+
+
+  <!-- ============================================================ -->
+  <!-- 2. EQUILIBRIUM LAB -->
+  <!-- ============================================================ -->
+  <section class="block" id="lab">
+    <div class="section-label">
+      <div class="num">4</div>
+      <div><h2 data-ta="சமநிலை லேப்">Interactive Equilibrium Lab</h2><div class="sub" data-ta="மேல்நோக்கிய விசைகளையும் நிறையையும் மாத்தி பாரு — பொருள் எப்போ ஓய்வுல நிக்குதுன்னு பாத்துக்கோ!">Change the upward forces and the weight — see exactly when the object stays still</div></div>
+    </div>
+
+    <div class="lab-card">
+      <div class="lg" id="lg">
+        <h4 id="lg_h"></h4>
+        <div class="goal" id="lg_goal"></div>
+        <div class="look" id="lg_look"></div>
+        <div class="lg-tries" id="lg_tries"></div>
+        <div class="lg-see" id="lg_see"></div>
+        <div class="lg-live" id="lg_live"></div>
+      </div>
+      <div class="ls" id="ls">
+        <div class="ls-top"><b id="ls_h"></b><span class="ls-hint" id="ls_hint"></span></div>
+        <svg id="ls_svg" viewBox="0 0 640 300" role="img" aria-label="lab cartoon"></svg>
+        <div class="ls-miss" id="ls_miss"></div>
+      </div>
+      <div class="lab-controls">
+        <div class="control">
+          <label for="f1Slider"><span data-ta="மேல்நோக்கிய விசை 1">Upward force 1</span>, F<sub>1</sub> = <b id="f1Val">40</b> N</label>
+          <input type="range" id="f1Slider" min="0" max="60" step="1" value="40">
+        </div>
+        <div class="control">
+          <label for="f2Slider"><span data-ta="மேல்நோக்கிய விசை 2">Upward force 2</span>, F<sub>2</sub> = <b id="f2Val">20</b> N</label>
+          <input type="range" id="f2Slider" min="0" max="60" step="1" value="20">
+        </div>
+        <div class="control">
+          <label for="wSlider"><span data-ta="நிறை (கீழ்நோக்கி)">Weight (down)</span>, W = <b id="wVal">60</b> N</label>
+          <input type="range" id="wSlider" min="10" max="100" step="1" value="60">
+        </div>
+      </div>
+
+      <div class="a-readout">
+        <span data-ta="நிகர விசை =">Net force =</span> <b id="netVal">0 N</b>
+        &nbsp;·&nbsp; <b id="eqStatus">⚖️ In equilibrium!</b>
+      </div>
+
+      <div class="track-wrap">
+        <svg id="eqSvg" viewBox="0 0 640 340" width="100%" style="min-width:480px;"></svg>
+      </div>
+
+      <p class="lab-hint" data-ta="F₂ ஐ 0 ஆக்கி, F₁ ஐ W க்கு சமமா வெச்சு பாரு — இது இரு விசை சமநிலை (கயிறுல தொங்கும் பொருள்). அப்புறம் F₁ + F₂ = W ஆக்கு — மூன்று சமாந்தர விசை சமநிலை (ஊஞ்சல்)! கூட்டுத்தொகை W க்கு சமமில்லாட்டா பொருள் நகருறத பாரு.">Set F₂ to 0 and F₁ equal to W — that's two-force equilibrium (an object on a rope). Then make F₁ + F₂ = W — three parallel forces (the swing)! Watch the object move whenever the sum doesn't match W.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 3. HOLD IT STILL MINI-GAME -->
+  <!-- ============================================================ -->
+  <section class="block" id="holdgame">
+    <div class="section-label">
+      <div class="num">5</div>
+      <div><h2 data-ta="🎮 அசையாம பிடி! சவால்">🎮 Hold It Still! Challenge</h2><div class="sub" data-ta="ஒவ்வொரு லெவலிலும், பொருள் ஓய்வுல நிக்கத் தேவையான விசையை யூகி!">Each level, guess the force that holds the object perfectly still!</div></div>
+    </div>
+
+    <div class="lab-card">
+      <div class="level-row" id="holdLevelRow"></div>
+
+      <div class="game-scene">
+        <div class="surface-label" id="holdLevelDesc">—</div>
+        <svg id="holdSvg" viewBox="0 0 560 120" width="100%" style="max-width:560px;"></svg>
+
+        <div class="control" style="max-width:400px;margin:14px auto 0;text-align:left;">
+          <label for="holdGuessSlider"><span data-ta="உன் யூகம்">Your guess</span> = <b id="holdGuessVal">0</b> N</label>
+          <input type="range" id="holdGuessSlider" min="0" max="100" step="1" value="0">
+        </div>
+
+        <div class="lab-buttons" style="justify-content:center;display:flex;margin-top:14px;">
+          <button class="btn primary" id="holdCheckBtn" data-ta="🔍 சரிபார்!">🔍 Check!</button>
+        </div>
+
+        <div class="game-result" id="holdResult"></div>
+        <div class="star-row" id="holdStars"></div>
+      </div>
+
+      <p class="lab-hint" data-ta="முதல்ல எந்த விசைகள் ஒரு பக்கம், எந்த விசை எதிர் பக்கம்னு பாரு. எதிர் பக்கம் மொத்தம் சமமா இருக்கணும்!">First spot which forces act one way and which act the other. The totals on each side must match!</p>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 4. SELF-CHECK QUIZ -->
+  <!-- ============================================================ -->
+  <section class="block" id="quiz">
+    <div class="section-label">
+      <div class="num">6</div>
+      <div><h2 data-ta="சுயபரிசோதனை குயிஸ்">Self-Check Quiz</h2><div class="sub" data-ta="விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!">Quick check before the walkthroughs</div></div>
+    </div>
+
+    <div class="quiz-score"><span data-ta="மதிப்பெண்:">Score:</span> <b id="quizScore">0</b> / <span id="quizTotal">5</span></div>
+
+    <div id="quizContainer"></div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 5. EQUILIBRIUM SORT GAME -->
+  <!-- ============================================================ -->
+  <section class="block" id="sortgame">
+    <div class="section-label">
+      <div class="num">7</div>
+      <div><h2 data-ta="🧩 சமநிலை சார்ட்">🧩 Equilibrium Sort</h2><div class="sub" data-ta="இரண்டு சின்ன சுற்றுகள் — விதியை இணை, அப்புறம் சூழ்நிலைகளை சமநிலையா இல்லையான்னு வரிசைப்படுத்து!">Two quick rounds — match each rule, then sort situations by whether they're in equilibrium!</div></div>
+    </div>
+
+    <div class="lab-card">
+      <h3 style="margin-bottom:10px;" data-ta="சுற்று 1 — விதியை இணை">Round 1 — Match the Rule</h3>
+      <p style="color:var(--text-faint);font-size:0.85rem;margin-top:-6px;" data-ta="ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு.">Tap a term, then tap its matching meaning.</p>
+      <div class="match-grid">
+        <div class="match-col">
+          <div class="mtitle" data-ta="வார்த்தைகள்">Terms</div>
+          <div id="matchTerms"></div>
+        </div>
+        <div class="match-col">
+          <div class="mtitle" data-ta="விளக்கங்கள்">Meanings</div>
+          <div id="matchDefs"></div>
+        </div>
+      </div>
+      <div class="game-result" id="matchResult"></div>
+
+      <h3 style="margin:22px 0 6px;" data-ta="சுற்று 2 — வரிசைப்படுத்து">Round 2 — Sort Them</h3>
+      <p style="color:var(--text-faint);font-size:0.85rem;margin-top:-6px;" data-ta="ஒவ்வொரு சூழ்நிலையும் சமநிலையில் இருக்குமான்னு வரிசைப்படுத்து.">Sort each situation by whether it's in equilibrium.</p>
+      <div class="sort-pool" id="sortPool"></div>
+      <div class="sort-bins">
+        <div class="sort-bin" id="binEq">
+          <div class="btitle" data-ta="⚖️ சமநிலையில்">⚖️ In equilibrium</div>
+          <div id="binEqItems"></div>
+        </div>
+        <div class="sort-bin" id="binNotEq">
+          <div class="btitle" data-ta="↗️ சமநிலையில் இல்ல">↗️ Not in equilibrium</div>
+          <div id="binNotEqItems"></div>
+        </div>
+      </div>
+      <div class="game-result" id="sortResult"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 6. CONCEPT WALKTHROUGHS -->
+  <!-- ============================================================ -->
+  <section class="block" id="walkthroughs">
+    <div class="section-label">
+      <div class="num">8</div>
+      <div><h2 data-ta="கருத்து விளக்கங்கள்">Concept Walkthroughs</h2><div class="sub" data-ta="பாடப்புத்தக கேள்விகளுக்கு படிப்படியான பகுத்தறிவு">Step-by-step reasoning for real textbook questions</div></div>
+    </div>
+
+    <!-- WT1 -->
+    <div class="qcard">
+      <span class="qtag" data-ta="பாடப்புத்தக கேள்வி · பாடம் 12, ப. 221">Textbook Question · Ch.12, p.221</span>
+      <div class="qtext" data-ta="ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?">A box rests on a table. What is the reason the box stays at rest?</div>
+      <div class="steps" data-qcard>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 1</span><span>தொடு, பாரு!</span>"><span>Step 1</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="முதல்ல பெட்டி மேல என்ன விசைகள் தாக்குதுன்னு பாரு: (1) பெட்டியோட நிறை W — கீழ்நோக்கி. (2) மேசையோட செவ்வன் மறுதாக்கம் R — மேல்நோக்கி.">First, list the forces on the box: (1) its weight W — downward; (2) the table's normal reaction R — upward.</p>
+          </div>
+        </div>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 2</span><span>தொடு, பாரு!</span>"><span>Step 2</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="இப்போ இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகளும் இருக்கான்னு சரிபார்: W = R (சம பருமன்) ✓, ஒண்ணு மேல் ஒண்ணு கீழ் (எதிர் திசை) ✓, ரெண்டும் ஒரே நேர்கோட்டில் ✓.">Now check all three conditions: W = R (equal) ✓, one up and one down (opposite) ✓, both along the same line ✓.</p>
+            <div class="note" data-ta="<b>முக்கிய கருத்து:</b> விளையுள் பூச்சியம் ஆனதால, பெட்டி ஓய்வுல இருக்கு."><b>Key idea:</b> the resultant is zero, so the box stays at rest.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn final-toggle hidden" data-ta="இறுதி விடையைப் பாரு">Show final answer</button>
+      <div class="final-answer hidden" data-ta="<b>இறுதி விடை:</b> பெட்டியோட நிறை (கீழ்நோக்கி) மேசையோட செவ்வன் மறுதாக்கத்துக்கு (மேல்நோக்கி) சமம், எதிர் திசை, ஒரே நேர்கோடு — அதனால விளையுள் பூச்சியம், பெட்டி சமநிலையில் ஓய்வுல இருக்கு.">
+        <b>Final answer:</b> The box's weight (down) equals the table's normal reaction (up), opposite and along the same line — so the resultant is zero and the box is in equilibrium at rest.
+      </div>
+    </div>
+
+    <!-- WT2 -->
+    <div class="qcard">
+      <span class="qtag" data-ta="பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220">Textbook Question · Ch.12, p.220</span>
+      <div class="qtext" data-ta="ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. (i) அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்? (ii) எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால் என்ன நடைபெறும்?">An object on a horizontal surface is pulled with 20 N in one direction. (i) What force must be applied in the opposite direction to bring it to rest? (ii) What happens if 25 N is applied in the opposite direction instead?</div>
+      <div class="steps" data-qcard>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 1</span><span>தொடு, பாரு!</span>"><span>Step 1</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="(i) ஓய்வுக்கு = சமநிலை = விளையுள் பூச்சியம். இரு விசை சமநிலைக்கு சம பருமன், எதிர் திசை, ஒரே நேர்கோடு வேணும். அதனால எதிர் திசையில, அதே நேர்கோட்டில் 20 N விசை பிரயோகிக்கணும்.">(i) At rest = equilibrium = zero resultant. Two-force equilibrium needs equal size, opposite direction, same line. So apply 20 N in the opposite direction along the same line.</p>
+          </div>
+        </div>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 2</span><span>தொடு, பாரு!</span>"><span>Step 2</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="(ii) இப்போ எதிர் திசையில 25 N. விளையுள் = 25 − 20 = 5 N, 25 N விசையின் திசையில். விளையுள் பூச்சியம் இல்ல — சமநிலை இல்ல.">(ii) Now 25 N opposes 20 N. Resultant = 25 − 20 = 5 N, in the direction of the 25 N force. It isn't zero — so no equilibrium.</p>
+            <div class="note" data-ta="<b>முக்கிய கருத்து:</b> சமநிலைப்படுத்தப்படாத 5 N விசை இருக்குறதால, பொருள் 25 N விசையின் திசையில நகர ஆரம்பிக்கும்."><b>Key idea:</b> with an unbalanced 5 N force, the object starts moving in the direction of the 25 N force.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn final-toggle hidden" data-ta="இறுதி விடையைப் பாரு">Show final answer</button>
+      <div class="final-answer hidden" data-ta="<b>இறுதி விடை:</b> (i) எதிர் திசையில் 20 N. (ii) நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும்.">
+        <b>Final answer:</b> (i) 20 N in the opposite direction. (ii) Net force 5 N toward the 25 N force — the object moves that way.
+      </div>
+    </div>
+
+    <!-- WT3 -->
+    <div class="qcard">
+      <span class="qtag" data-ta="பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220">Textbook Question · Ch.12, p.220</span>
+      <div class="qtext" data-ta="உருவில் காட்டப்பட்டுள்ள சாய்வாக தாக்கும் மூன்று விசைகளில் B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?">Of three slanting forces acting on a ring, if the resultant of B and C is known, what must be done to hold the ring at rest?</div>
+      <div class="steps" data-qcard>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 1</span><span>தொடு, பாரு!</span>"><span>Step 1</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="மூன்று சாய்ந்த விசைகளோட சமநிலைக்கான விதிய நினைவு படுத்து: இரு விசைகளின் விளையுள், மூன்றாம் விசைக்கு சமமா, எதிர் திசையில இருக்கணும்.">Recall the rule for three slanting forces: the resultant of two must equal the third, in the opposite direction.</p>
+          </div>
+        </div>
+        <div class="step">
+          <button class="step-toggle" data-ta="<span>படி 2</span><span>தொடு, பாரு!</span>"><span>Step 2</span><span>tap to reveal</span></button>
+          <div class="step-content hidden">
+            <p data-ta="B, C யோட விளையுள் அறியப்பட்டிருக்கு. அதனால மூன்றாவது விசை A ஐ, அந்த விளையுளுக்கு பருமனில் சமமா, எதிர் திசையில, ஒரே புள்ளில சந்திக்கும் கோட்டில பிரயோகிக்கணும்.">The resultant of B and C is known. So apply the third force A equal in size to that resultant, in the opposite direction, along a line through the same point.</p>
+            <div class="note" data-ta="<b>ஞாபகம் வெச்சுக்கோ:</b> மூணு தாக்கக் கோடுகளும் ஒரே புள்ளில சந்திக்கணும்."><b>Remember:</b> the three lines of action must meet at one point.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn final-toggle hidden" data-ta="இறுதி விடையைப் பாரு">Show final answer</button>
+      <div class="final-answer hidden" data-ta="<b>இறுதி விடை:</b> B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் ஒரு விசையை (A) அதே புள்ளியில் பிரயோகித்தால் வளையம் சமநிலையில் ஓய்வுல இருக்கும்.">
+        <b>Final answer:</b> Apply a force (A) equal in size to the resultant of B and C, in the opposite direction, at the same point — the ring will be in equilibrium at rest.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- 7. PRACTICE EXERCISES -->
+  <!-- ============================================================ -->
+  <section class="block" id="practice">
+    <div class="section-label">
+      <div class="num">9</div>
+      <div><h2 data-ta="பயிற்சி வினாக்கள்">Practice Exercises</h2><div class="sub" data-ta="பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு">Every practice question from the textbook — each with a full worked solution</div></div>
+    </div>
+
+    <div class="exgroup">
+      <h3><span class="chip" data-ta="அத்தியாய பயிற்சி">Chapter Exercise</span><span data-ta="பாடம் 12, ப. 220–221">Ch. 12, p.220–221</span></h3>
+
+      <div class="exitem">
+        <div class="exq"><span class="exnum">1(i).</span><span data-ta="ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்?">An object on a horizontal surface is pulled with 20 N in one direction. What force must be applied in the opposite direction to bring it to rest?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer" data-ta="எதிர் திசையில், அதே நேர்கோட்டில் <b>20 N</b> விசை (சம பருமன், எதிர் திசை, ஒரே நேர்கோடு).">A force of <b>20 N</b> in the opposite direction, along the same line (equal size, opposite direction, same line).</div>
+      </div>
+      <div class="exitem">
+        <div class="exq"><span class="exnum">1(ii).</span><span data-ta="அப்பொருளுக்கு எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால், என்ன நடைபெறும்?">What happens if a 25 N force is applied in the opposite direction instead?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer">
+          <div class="work">25 − 20 = <b>5 N</b></div>
+          <div data-ta="நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும் (சமநிலை இல்ல).">Net force is 5 N toward the 25 N force — the object moves that way (no equilibrium).</div>
+        </div>
+      </div>
+      <div class="exitem">
+        <div class="exq"><span class="exnum">2.</span><span data-ta="எஞ்சின் தொழிற்படாமல் இருக்கும் வாகனம் ஒன்று சிறிது தூரம் இயங்குவதற்கு அவ்வாகனத்தின் மீது எவ்விதமாக விசைகளைப் பிரயோகித்தல் வேண்டும்?">A vehicle with its engine off is to be moved a short distance. How should forces be applied to it?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer" data-ta="வாகனத்தை நகர்த்த, சமநிலை இல்லாத (விளையுள் பூச்சியமில்லாத) ஒரு விசை வேணும் — இயங்க வேண்டிய திசையில, உராய்வு போன்ற தடை விசைகளை விட அதிக விசையை (தள்ளுறது/இழுக்கிறது) பிரயோகிக்கணும்.">To move it you need an unbalanced force (non-zero resultant): push or pull in the desired direction with a force larger than the resisting forces such as friction.</div>
+      </div>
+      <div class="exitem">
+        <div class="exq"><span class="exnum">3.</span><span data-ta="மூன்று சமாந்தரமற்ற விசைகள் ஒரு வளையத்தின் மீது தாக்குகின்றன. B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?">Three non-parallel forces act on a ring. If the resultant of B and C is known, what must be done to keep the ring at rest?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer" data-ta="B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் மூன்றாவது விசை A ஐ, மூன்று கோடுகளும் ஒரே புள்ளில சந்திக்குமாறு பிரயோகிக்கணும் (விளக்கத்துக்கு Concept Walkthrough 3 பாரு).">Apply the third force A equal in size to the resultant of B and C and opposite in direction, so the three lines meet at one point (see Concept Walkthrough 3).</div>
+      </div>
+      <div class="exitem">
+        <div class="exq"><span class="exnum">4.</span><span data-ta="ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?">A box is placed on a table. What is the reason it stays at rest?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer" data-ta="பெட்டியோட நிறை (W) கீழ்நோக்கி; மேசையோட செவ்வன் மறுதாக்கம் (R) மேல்நோக்கி. இவை சமம், எதிர் திசை, ஒரே நேர்கோடு — விளையுள் பூச்சியம், அதனால் பெட்டி ஓய்வுல இருக்கு.">The box's weight (W) acts downward; the table's normal reaction (R) acts upward. They are equal, opposite and along the same line — resultant zero, so the box stays at rest.</div>
+      </div>
+      <div class="exitem">
+        <div class="exq"><span class="exnum">5.</span><span data-ta="ஒரு கிடை மேசை மீது உள்ள ஒரு பொருள் இரு கயிறுகளினால் இரு வேறுபட்ட விசைகளைப் பிரயோகித்து இரு பக்கங்களுக்கும் இழுக்கப்படுமெனின், அப்பொருளின் இயக்கத்தின் இயல்பு தொடர்பாக நீர் என்ன கூறுவீர்?">An object on a horizontal table is pulled to both sides by two cords with two different forces. What can you say about the nature of its motion?</span></div>
+        <button class="ex-toggle" data-ta="பதில் பாரு">Show answer</button>
+        <div class="ex-answer" data-ta="விசைகள் வேறுபட்டவை என்பதால் விளையுள் பூச்சியமில்ல — அது இரு விசைகளின் வித்தியாசத்துக்கு சமம், பெரிய விசையின் திசையில். அதனால் பொருள் சமநிலையில் இல்ல; பெரிய விசையின் பக்கம் நகரும் (அல்லது முடுக்கம் அடையும்). விசைகள் சமமா இருந்தா மட்டும் ஓய்வுல இருக்கும்.">Because the forces differ, the resultant is not zero — it equals the difference, in the direction of the larger force. So the object is not in equilibrium; it moves (accelerates) toward the larger pull. Only if the forces were equal would it stay at rest.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="recap">
+    <div class="section-label">
+      <div class="num">10</div>
+      <div><h2 data-ta="ஜாலி ரிகேப்">Fun Recap</h2><div class="sub" data-ta="ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு">Raja and Chittu go over the whole lesson once more, the fun way</div></div>
+    </div>
+    <div class="card c1">
+      <h3 data-ta="📖 ராஜாவோட காமிக்">📖 Raja's comic</h3>
+      <div class="cm-grid">
+      <div class="cm-panel"><span class="no">1</span><div class="sc">🎒</div><div class="cm-b r"><i data-ta="ராஜா:">Raja:</i> <span data-ta="என் பை கயிறுல தொங்குது, விழல. மந்திரமா?">My bag hangs from a rope and does not fall. Is it magic?</span></div></div>
+      <div class="cm-panel"><span class="no">2</span><div class="sc">⚖️</div><div class="cm-b c"><i data-ta="சிட்டு:">Chittu:</i> <span data-ta="இல்ல! நிறை கீழ = கயிறு இழுவை மேல. சமம், எதிர், ஒரே கோடு: சமநிலை.">No! Weight down = rope tension up. Equal, opposite, same line: equilibrium.</span></div></div>
+      <div class="cm-panel"><span class="no">3</span><div class="sc">🎢</div><div class="cm-b r"><i data-ta="ராஜா:">Raja:</i> <span data-ta="ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N.">And the swing? Rope 1 pulls 120 N and rope 2 pulls 180 N.</span></div></div>
+      <div class="cm-panel"><span class="no">4</span><div class="sc">➕</div><div class="cm-b c"><i data-ta="சிட்டு:">Chittu:</i> <span data-ta="F₁ + F₂ = W, அதனால நிறை 300 N. சாய்வான மூணு விசைகளோட கோடுகள் ஒரு புள்ளில சந்திக்கணும்.">F₁ + F₂ = W, so the weight is 300 N. For three slanting forces the lines must meet at one point.</span></div></div>
+      </div>
+    </div>
+    <div class="card c3">
+      <h3 data-ta="🎵 ஞாபக பாட்டு">🎵 Memory song</h3>
+      <div class="cm-rhyme" data-ta="ரெண்டு விசை: சமம், எதிர், ஒரே கோடு.<br>மூணு சமாந்தரம்: ரெண்டு கூடி மூணாவது.<br>சாய்வான மூணு: கோடுகள் ஒரு புள்ளில,<br>ரெண்டோட விளையுள் மூணாவதுக்கு எதிர்!">Two forces: equal, opposite, one line.<br>Three parallel: two add up to the third.<br>Three slanting: lines meet at a point,<br>and two make the third, reversed!</div>
+    </div>
+    <div class="card c2">
+      <h3 data-ta="🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்">🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>
+      <div class="gloss-wrap"><table class="cm-table"><tr><th data-ta="🐒 ராஜா சொல்றது (தப்பு)">🐒 Raja says (wrong)</th><th data-ta="🐦 சிட்டு சொல்றது (சரி)">🐦 Chittu says (right)</th></tr><tr><td class="w" data-ta="சம விசைகள் எப்பவும் சமநிலையில இருக்கும்.">Equal forces are always in equilibrium.</td><td class="ok" data-ta="ரெண்டு விசையும் எதிரா, ஒரே கோட்டுலயும் இருக்கணும்.">Two forces also need to be opposite and on the same line.</td></tr><tr><td class="w" data-ta="எந்த மூணு விசையும் சமநிலையாகிடும்.">Any three forces balance.</td><td class="ok" data-ta="ஒரே தளத்துல இருக்கணும், சமாந்தரமில்லன்னா கோடுகள் ஒரு புள்ளில சந்திக்கணும், ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்.">They must be in one plane, their lines must meet at a point (if not parallel), and the resultant of two must equal the third, reversed.</td></tr><tr><td class="w" data-ta="சமநிலைன்னா பொருள் நகராது.">Equilibrium means the object is not moving.</td><td class="ok" data-ta="விளையுள் பூச்சியம்னு அர்த்தம்: ஓய்வுல, இல்லன்னா சீரான வேகத்துல.">It means the resultant is zero: at rest, or moving at a steady speed.</td></tr></table></div>
+    </div>
+    <div class="card c4">
+      <h3 data-ta="⭐ கண்டிப்பா தெரியணும்">⭐ Must-know cheat sheet</h3>
+      <ul class="cm-must"><li data-ta="சமநிலை: எல்லா விசைகளோட விளையுள் பூச்சியம்">equilibrium: the resultant of all the forces is zero</li><li data-ta="ரெண்டு விசை: சம பருமன், எதிர் திசை, ஒரே கோடு (R = W, T = W)">two forces: equal size, opposite direction, same line (R = W, T = W)</li><li data-ta="ஒரு தளத்துல மூணு சமாந்தர விசைகள்: F₁ + F₂ = W">three parallel forces in one plane: F₁ + F₂ = W</li><li data-ta="மூணு சமாந்தரமற்ற விசைகள்: தாக்கக் கோடுகள் ஒரு புள்ளில சந்திக்கும்; ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்">three non-parallel forces: lines of action meet at one point; the resultant of two equals the third, opposite</li><li data-ta="வெவ்வேறு தொங்கு புள்ளிகளோட தூக்கு கோடுகள் சந்திக்கும் இடம்தான் புவியீர்ப்பு மையம்">the centre of gravity is where the plumb lines from different hanging points meet</li></ul>
+    </div>
+  </section>
+
+  <!-- ============================================================ -->
+  <!-- SUMMARY + GLOSSARY (textbook) -->
+  <!-- ============================================================ -->
+  <section class="block" id="summary">
+    <div class="section-label">
+      <div class="num">11</div>
+      <div><h2 data-ta="பாடச் சுருக்கம் & கலைச்சொற்கள்">Chapter Summary &amp; Key Terms</h2><div class="sub" data-ta="எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!">One last read before the exam!</div></div>
+    </div>
+    <div class="card c1">
+      <h3 data-ta="📌 பொழிப்பு — 5 முக்கிய புள்ளிகள்">📌 Summary — 5 key points</h3>
+      <ol class="sumlist"><li data-ta="ஒரு தளத்துல ஒரு பொருள் மேல தாக்கும் இரு விசைகள் பருமன்ல சமமாகவும், எதிர்த் திசையிலும் (ஒரே கோட்டுல) இருந்தா, அவை சமநிலையில இருக்கும்; பொருள் ஓய்வுல இருக்கும்.">If two forces acting on an object in one plane are equal in magnitude and opposite in direction (along one line), they are in equilibrium and the object is at rest.</li><li data-ta="மூன்று சமாந்தர விசைகள்ல, ரெண்டோட விளையுள் மூணாவதுக்கு சமமாகவும் எதிரா இருந்தா மூணும் சமநிலையில இருக்கும். உதாரணம்: ஒரு பக்கம் 20 N, மறுபக்கம் 10 N + 10 N.">For three parallel forces, if the resultant of two is equal to the third and acts in the opposite direction, the three forces are in equilibrium. Example: 20 N balanced by two 10 N forces on the other side.</li><li data-ta="ஒரு தளத்துல மூன்று சமாந்தரமற்ற விசைகள்ல, எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு எதிராக இருந்தா மூணும் சமநிலையில இருக்கும்; தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும்.">For three non-parallel forces in one plane, if the resultant of any two is opposite to the third, the three forces are in equilibrium, and their lines of action meet at a point.</li><li data-ta="A, B-யோட விளையுளுக்கு எதிரா, அதே அளவு விசை C-ய பிரயோகிச்சா, மூணு விசைகளும் (A, B, C) சமநிலையில இருக்கும்.">Applying a force C opposite to the resultant of A and B (of equal size) puts the three forces A, B and C in equilibrium.</li><li data-ta="மூணுக்கு மேல விசைகள் இருந்தாலும், தேவையான விசைகள பிரயோகிச்சு அவற்ற சமநிலைப்படுத்தலாம்.">When more than three forces act, they can still be balanced by applying suitable forces.</li></ol>
+    </div>
+    <div class="card c2">
+      <h3 data-ta="📖 கலைச்சொற்கள் (Tamil – English)">📖 Key terms (Tamil – English)</h3>
+      <div class="gloss-wrap"><table class="gloss">
+        <tr><th data-ta="தமிழ்">Tamil</th><th>English</th></tr>
+        <tr><td class="tt">விசை</td><td class="te">Force</td></tr><tr><td class="tt">விசைகளின் சமநிலை</td><td class="te">Equilibrium of forces</td></tr><tr><td class="tt">ஒரு தள விசைகளின் சமநிலை</td><td class="te">Equilibrium of co-planar forces</td></tr><tr><td class="tt">இரு விசைகளின் சமநிலை</td><td class="te">Equilibrium of two forces</td></tr><tr><td class="tt">மூன்று விசைகளின் சமநிலை</td><td class="te">Equilibrium of three forces</td></tr><tr><td class="tt">மூன்று சமாந்தர விசைகளின் சமநிலை</td><td class="te">Equilibrium of three parallel forces</td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <section class="block" id="fw_finish">
+    <div class="fw-card fw-finish" id="fw_fin"></div>
+  </section>
+
+  <footer data-ta="பாடம் 12: விசைகளின் சமநிலை — க.பொ.த (சா/த) பிசிக்ஸ் புத்தகத்திலிருந்து (தமிழ் மீடியம்). திருப்பி படிக்க உபயோகப்படுத்துங்க.<span class='note2'>ஆங்கிலப் பகுதி — மூலப் பாடப்புத்தகம் தமிழ் மீடியமாக இருந்ததால், இது புத்தகத்தின் உள்ளடக்கத்தை வெச்சு நான் எழுதிய ஆங்கில விளக்கம் — உத்தியோகபூர்வ ஆங்கில மீடியம் புத்தகத்தின் நேரடி மொழிபெயர்ப்பு இல்ல.</span>">Built from GCE O/L Physics — Chapter 12: Equilibrium of Forces (Tamil medium). For revision use.<span class="note2">The English text here — since the source textbook is Tamil-medium — is my own English explanation of the book's content, not a direct translation from an official English-medium textbook.</span></footer>
+</div>
+
+<script>
+/* ============================================================
+   GLOBAL HELPERS + I18N
+============================================================ */
+function safeGet(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
+function safeSet(key,val){ try{ localStorage.setItem(key,val); }catch(e){} }
+
+let APP_LANG = 'en';
+let openerLangHook = null;
+let eqLabLangHook = null;
+let themeLabelHook = null;
+let holdLangHook = null;
+let notesStageLangHook = null;
+
+function captureI18n(){
+  document.querySelectorAll('[data-ta]').forEach(function(e){
+    if(e.dataset.en === undefined){ e.dataset.en = e.innerHTML; }
+  });
+}
+function applyLang(lang){
+  APP_LANG = lang;
+  captureI18n();
+  document.querySelectorAll('[data-ta]').forEach(function(e){
+    e.innerHTML = (lang === 'ta') ? e.dataset.ta : e.dataset.en;
+  });
+  document.documentElement.lang = lang;
+  document.body.classList.toggle('lang-ta', lang === 'ta');
+  const langBtn = document.getElementById('langToggle');
+  if(langBtn){ langBtn.textContent = (lang === 'en') ? '🌐 தமிழ்' : '🌐 English'; }
+  if(themeLabelHook) themeLabelHook();
+  if(openerLangHook) openerLangHook();
+  if(eqLabLangHook) eqLabLangHook();
+  if(holdLangHook) holdLangHook();
+  if(notesStageLangHook) notesStageLangHook();
+  try { SCX.refreshBar(); } catch(e){}
+  safeSet('lessonLang', lang);
+}
+
+(function(){
+  const btn = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const saved = safeGet('lessonTheme');
+  if(saved){ root.setAttribute('data-theme', saved); }
+  function updateLabel(){
+    const cur = root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    if(APP_LANG === 'ta'){ btn.textContent = cur === 'light' ? '☀️ வெளிச்சம்' : '🌙 இருட்டு'; }
+    else { btn.textContent = cur === 'light' ? '☀️ Light' : '🌙 Dark'; }
+  }
+  themeLabelHook = updateLabel;
+  updateLabel();
+  btn.addEventListener('click', function(){
+    const cur = root.getAttribute('data-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+    const next = cur === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    safeSet('lessonTheme', next);
+    updateLabel();
+  });
+})();
+document.getElementById('langToggle').addEventListener('click', function(){
+  applyLang(APP_LANG === 'en' ? 'ta' : 'en');
+});
+
+const SVGNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs){
+  const e = document.createElementNS(SVGNS, tag);
+  for(const k in attrs){ e.setAttribute(k, attrs[k]); }
+  return e;
+}
+function cssVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+/* ============================================================
+   NOTES PATH: stepping-stone level-select
+============================================================ */
+(function(){
+  const stones = Array.from(document.querySelectorAll('.path-stone'));
+  const cards = Array.from(document.querySelectorAll('#notesStage > .card'));
+  const prevBtn = document.getElementById('notePrevBtn');
+  const nextBtn = document.getElementById('noteNextBtn');
+  const progressEl = document.getElementById('noteProgress');
+  if(!stones.length || !cards.length) return;
+
+  const visited = new Set([0]);
+  let current = 0;
+
+  function updateControls(){
+    progressEl.textContent = (current+1) + ' / ' + cards.length;
+    prevBtn.disabled = (current === 0);
+    prevBtn.style.opacity = prevBtn.disabled ? '0.4' : '1';
+    if(current === cards.length - 1){
+      nextBtn.textContent = (APP_LANG==='ta') ? 'எல்லாமே பார்த்தாச்சு ✓' : 'All explored ✓';
+      nextBtn.disabled = true;
+      nextBtn.style.opacity = '0.6';
+    } else {
+      nextBtn.textContent = (APP_LANG==='ta') ? 'அடுத்த தலைப்பு →' : 'Next topic →';
+      nextBtn.disabled = false;
+      nextBtn.style.opacity = '1';
+    }
+  }
+
+  function showIndex(idx, silent){
+    cards.forEach((c,i)=>{
+      c.classList.toggle('stage-active', i===idx);
+      c.classList.remove('dropping');
+      if(i===idx){ c.classList.add('revealed'); }
+    });
+    stones.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    void cards[idx].offsetWidth;
+    cards[idx].classList.add('dropping');
+    if(!visited.has(idx)){
+      visited.add(idx);
+      stones[idx].classList.add('visited');
+      if(typeof SCX !== 'undefined' && !silent){
+        SCX.addXP(5, 'New topic explored!', 'புதிய தலைப்பை பார்த்தாச்சு!');
+      }
+    }
+    current = idx;
+    updateControls();
+    if(!silent){
+      document.getElementById('notesPath').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  }
+
+  stones.forEach((s,i)=> s.addEventListener('click', ()=> showIndex(i)));
+  prevBtn.addEventListener('click', ()=>{ if(current>0) showIndex(current-1); });
+  nextBtn.addEventListener('click', ()=>{ if(current<cards.length-1) showIndex(current+1); });
+
+  stones[0].classList.add('active','visited');
+  cards[0].classList.add('stage-active');
+  updateControls();
+  notesStageLangHook = updateControls;
+})();
+
+/* ============================================================
+   EQUILIBRIUM LAB
+============================================================ */
+(function(){
+  const f1 = document.getElementById('f1Slider'), f2 = document.getElementById('f2Slider'), wS = document.getElementById('wSlider');
+  const f1Val = document.getElementById('f1Val'), f2Val = document.getElementById('f2Val'), wVal = document.getElementById('wVal');
+  const netVal = document.getElementById('netVal'), eqStatus = document.getElementById('eqStatus');
+  const svg = document.getElementById('eqSvg');
+
+  function arrow(x, yFrom, yTo, color){
+    svg.appendChild(el('line',{x1:x,y1:yFrom,x2:x,y2:yTo,stroke:color,'stroke-width':4,'stroke-linecap':'round'}));
+    const dir = yTo < yFrom ? -1 : 1;
+    svg.appendChild(el('polygon',{points:(x-7)+','+(yTo - dir*0)+' '+(x+7)+','+(yTo - dir*0)+' '+x+','+(yTo + dir*12), fill:color}));
+  }
+
+  function draw(){
+    const F1 = parseFloat(f1.value), F2 = parseFloat(f2.value), W = parseFloat(wS.value);
+    f1Val.textContent = F1.toFixed(0); f2Val.textContent = F2.toFixed(0); wVal.textContent = W.toFixed(0);
+    const net = F1 + F2 - W;
+    netVal.textContent = (net>0?'+':'') + net.toFixed(0) + ' N';
+    const balanced = Math.abs(net) < 0.5;
+    if(balanced){
+      eqStatus.textContent = (APP_LANG==='ta') ? '⚖️ சமநிலையில்!' : '⚖️ In equilibrium!';
+      eqStatus.style.color = cssVar('--good');
+    } else {
+      eqStatus.textContent = (APP_LANG==='ta') ? (net>0 ? '⬆️ மேல்நோக்கி நகரும்' : '⬇️ கீழ்நோக்கி நகரும்') : (net>0 ? '⬆️ Moves up' : '⬇️ Moves down');
+      eqStatus.style.color = cssVar('--accent-3');
+    }
+    svg.innerHTML = '';
+    const baseY = 170, cx = 320;
+    const off = Math.max(-35, Math.min(35, net*0.8));
+    const cy = baseY - off;
+    svg.appendChild(el('line',{x1:cx-150,y1:20,x2:cx+150,y2:20,stroke:cssVar('--text-faint'),'stroke-width':3}));
+    svg.appendChild(el('circle',{cx:cx,cy:cy,r:22,fill:cssVar('--accent'),stroke:cssVar('--bg'),'stroke-width':3}));
+    const s = 1.1;
+    if(F1>0){
+      arrow(cx-14, cy-22, cy-22 - F1*s, cssVar('--accent-2'));
+      const t = el('text',{x:cx-60,y:cy-22-F1*s/2,fill:cssVar('--accent-2'),'font-size':13,'font-weight':700}); t.textContent='F₁='+F1.toFixed(0)+' N'; svg.appendChild(t);
+    }
+    if(F2>0){
+      arrow(cx+14, cy-22, cy-22 - F2*s, cssVar('--good'));
+      const t = el('text',{x:cx+24,y:cy-22-F2*s/2,fill:cssVar('--good'),'font-size':13,'font-weight':700}); t.textContent='F₂='+F2.toFixed(0)+' N'; svg.appendChild(t);
+    }
+    arrow(cx, cy+22, cy+22 + W*s, cssVar('--danger'));
+    const tw = el('text',{x:cx+12,y:cy+22+W*s/2,fill:cssVar('--danger'),'font-size':13,'font-weight':700}); tw.textContent='W='+W.toFixed(0)+' N'; svg.appendChild(tw);
+  }
+  [f1,f2,wS].forEach(s=> s.addEventListener('input', draw));
+  draw();
+  eqLabLangHook = draw;
+})();
+
+/* ============================================================
+   HOLD IT STILL! MINI-GAME
+============================================================ */
+(function(){
+  const levels = [
+    { correct:20, en:'A block is pulled right with 20 N. Guess the force (to the left) that holds it at rest.', ta:'ஒரு பெட்டி வலப்புறம் 20 N விசையால் இழுக்கப்படுது. அதை ஓய்வுல பிடிக்க இடப்புறம் தேவையான விசையை யூகி.' },
+    { correct:35, en:'A 35 N weight hangs on a cord. Guess the tension that holds it at rest.', ta:'ஒரு 35 N நிறை கயிறுல தொங்குது. அது ஓய்வுல இருக்க தேவையான இழுவையை யூகி.' },
+    { correct:70, en:'A swing holds a child of weight 120 N. Rope 1 pulls up with 50 N. Guess the pull of rope 2.', ta:'ஒரு ஊஞ்சல்ல 120 N நிறையுள்ள பிள்ளை உக்காந்திருக்கு. கயிறு 1 மேல 50 N இழுக்குது. கயிறு 2 இழுவையை யூகி.' },
+    { correct:40, en:'Two upward forces of 15 N and 25 N hold a hanging load. Guess the load\'s weight.', ta:'15 N, 25 N ஆகிய ரெண்டு மேல்நோக்கிய விசைகள் ஒரு தொங்கும் சுமையை பிடிச்சிருக்கு. சுமையின் நிறையை யூகி.' },
+    { correct:54, en:'Boss level! A board weighs 84 N. Rope 1 pulls up 30 N. Guess the pull of rope 2.', ta:'பாஸ் லெவல்! ஒரு பலகையின் நிறை 84 N. கயிறு 1 மேல 30 N இழுக்குது. கயிறு 2 இழுவையை யூகி.' }
+  ];
+  const levelRow = document.getElementById('holdLevelRow');
+  const levelDesc = document.getElementById('holdLevelDesc');
+  const holdSvg = document.getElementById('holdSvg');
+  const guessSlider = document.getElementById('holdGuessSlider');
+  const guessVal = document.getElementById('holdGuessVal');
+  const checkBtn = document.getElementById('holdCheckBtn');
+  const resultEl = document.getElementById('holdResult');
+  const starsEl = document.getElementById('holdStars');
+
+  let curLevel = 0;
+  let bestStars = JSON.parse(safeGet('scx_hold_stars') || '[0,0,0,0,0]');
+
+  function drawScene(offset){
+    holdSvg.innerHTML = '';
+    const cx=280, cy=60+(offset||0);
+    holdSvg.appendChild(el('line',{x1:cx-100,y1:14,x2:cx+100,y2:14,stroke:cssVar('--text-faint'),'stroke-width':3}));
+    holdSvg.appendChild(el('circle',{cx:cx,cy:cy,r:18,fill:cssVar('--accent'),stroke:cssVar('--bg'),'stroke-width':3}));
+    holdSvg.appendChild(el('line',{x1:cx,y1:14,x2:cx,y2:cy-18,stroke:cssVar('--text-faint'),'stroke-width':2,'stroke-dasharray':'3 3'}));
+  }
+
+  function renderLevelRow(){
+    levelRow.innerHTML = '';
+    levels.forEach((lv,i)=>{
+      const b = document.createElement('div');
+      b.className = 'level-btn' + (i===curLevel ? ' active' : '');
+      const stars = bestStars[i] || 0;
+      b.innerHTML = '<div class="lnum2">'+(i+1)+'</div><div class="lstars">'+('★'.repeat(stars)+'☆'.repeat(3-stars))+'</div>';
+      b.addEventListener('click', ()=>{ curLevel = i; loadLevel(); });
+      levelRow.appendChild(b);
+    });
+  }
+  function loadLevel(){
+    renderLevelRow();
+    const lv = levels[curLevel];
+    levelDesc.textContent = (APP_LANG==='ta') ? lv.ta : lv.en;
+    resultEl.textContent = ''; resultEl.className = 'game-result';
+    starsEl.textContent = '';
+    drawScene(0);
+  }
+  guessSlider.addEventListener('input', ()=>{ guessVal.textContent = guessSlider.value; });
+
+  checkBtn.addEventListener('click', ()=>{
+    const lv = levels[curLevel];
+    const guess = parseFloat(guessSlider.value);
+    const err = Math.abs(guess - lv.correct);
+    let stars;
+    if(err <= 0.5) stars = 3;
+    else if(err <= 2) stars = 2;
+    else if(err <= 5) stars = 1;
+    else stars = 0;
+    drawScene(err <= 0.5 ? 0 : Math.max(-25, Math.min(25, (lv.correct - guess)*-1)));
+    if(stars === 0){
+      resultEl.textContent = (APP_LANG==='ta') ? '😅 நல்ல முயற்சி! சரியான பதில் '+lv.correct+' N.' : '😅 Nice try! The correct answer was '+lv.correct+' N.';
+      resultEl.className = 'game-result lose';
+      SCX.sndWrong();
+    } else {
+      resultEl.textContent = (APP_LANG==='ta') ? '🎉 சரியான விசை = '+lv.correct+' N — சமநிலை!' : '🎉 The correct force was '+lv.correct+' N — equilibrium!';
+      resultEl.className = 'game-result win';
+    }
+    starsEl.textContent = stars>0 ? ('★'.repeat(stars) + '☆'.repeat(3-stars)) : '';
+
+    const prevBest = bestStars[curLevel] || 0;
+    if(stars > prevBest){
+      bestStars[curLevel] = stars;
+      safeSet('scx_hold_stars', JSON.stringify(bestStars));
+      if(stars>0) SCX.pushItLevelResult(stars, bestStars.every(s=>s>0));
+    } else if(stars>0){
+      SCX.sndCorrect();
+    }
+    renderLevelRow();
+  });
+
+  loadLevel();
+  holdLangHook = function(){ levelDesc.textContent = (APP_LANG==='ta') ? levels[curLevel].ta : levels[curLevel].en; renderLevelRow(); };
+})();
+
+/* ============================================================
+   SELF-CHECK QUIZ
+============================================================ */
+(function(){
+  const questions = [
+    {
+      q: "Which set of conditions is needed for TWO forces to be in equilibrium?",
+      qTa: "இரு விசைகள் சமநிலையில் இருக்க தேவையான நிபந்தனைகள் எவை?",
+      opts: ["Equal size, opposite direction, same straight line", "Equal size, same direction", "Opposite direction only", "Any two forces on the same object"],
+      optsTa: ["சம பருமன், எதிர் திசை, ஒரே நேர்கோடு", "சம பருமன், ஒரே திசை", "எதிர் திசை மட்டும்", "ஒரே பொருள் மேல் தாக்கும் எந்த ரெண்டு விசைகளும்"],
+      correct: 0,
+      explain: "Two-force equilibrium needs all three: equal magnitude, opposite directions, and the same line of action.",
+      explainTa: "இரு விசை சமநிலைக்கு மூணும் வேணும்: சம பருமன், எதிர் திசை, ஒரே தாக்கக் கோடு."
+    },
+    {
+      q: "A book rests on a table. Which pair of forces balance each other?",
+      qTa: "மேசை மேல ஒரு புத்தகம் ஓய்வுல இருக்கு. எந்த ரெண்டு விசைகள் ஒண்ணையொண்ணு சமநிலைப்படுத்துது?",
+      opts: ["Weight and normal reaction", "Weight and friction", "Normal reaction and friction", "Weight and tension"],
+      optsTa: ["நிறையும் செவ்வன் மறுதாக்கமும்", "நிறையும் உராய்வும்", "செவ்வன் மறுதாக்கமும் உராய்வும்", "நிறையும் இழுவையும்"],
+      correct: 0,
+      explain: "The book's weight (down) is balanced by the table's normal reaction (up): equal, opposite, same line.",
+      explainTa: "புத்தகத்தின் நிறை (கீழ்) மேசையின் செவ்வன் மறுதாக்கத்தால் (மேல்) சமநிலைப்படுத்தப்படுது: சமம், எதிர், ஒரே கோடு."
+    },
+    {
+      q: "A child sits on a swing. The two ropes pull up with 120 N and 180 N. What is the child's weight?",
+      qTa: "ஊஞ்சல்ல ஒரு பிள்ளை உக்காந்திருக்கு. ரெண்டு கயிறுகள் மேல 120 N, 180 N இழுக்குது. பிள்ளையின் நிறை என்ன?",
+      opts: ["60 N", "300 N", "150 N", "21 600 N"],
+      optsTa: ["60 N", "300 N", "150 N", "21 600 N"],
+      correct: 1,
+      explain: "For three parallel forces in equilibrium: F₁ + F₂ = W, so W = 120 + 180 = 300 N.",
+      explainTa: "மூன்று சமாந்தர விசை சமநிலைக்கு: F₁ + F₂ = W, அதனால W = 120 + 180 = 300 N."
+    },
+    {
+      q: "What must be true of the lines of action of three non-parallel forces in equilibrium?",
+      qTa: "சமநிலையில் இருக்கும் மூன்று சமாந்தரமற்ற விசைகளின் தாக்கக் கோடுகளுக்கு என்ன இருக்கணும்?",
+      opts: ["They meet at a single point", "They are all parallel", "They are all equal in length", "They never cross"],
+      optsTa: ["ஒரே புள்ளில சந்திக்கணும்", "எல்லாம் சமாந்தரமா இருக்கணும்", "எல்லாம் சம நீளம்", "எப்பவும் சந்திக்கக்கூடாது"],
+      correct: 0,
+      explain: "Three non-parallel coplanar forces in equilibrium have lines of action meeting at one point, and the resultant of two equals the third, oppositely directed.",
+      explainTa: "சமநிலையில் இருக்கும் ஒரு தள சமாந்தரமற்ற மூன்று விசைகளின் கோடுகள் ஒரே புள்ளில சந்திக்கும்; ரெண்டின் விளையுள் மூன்றாவதுக்கு சமம், எதிர் திசை."
+    },
+    {
+      q: "A block is pulled with 20 N one way and 25 N the opposite way. What happens?",
+      qTa: "ஒரு பெட்டி ஒரு பக்கம் 20 N, எதிர் பக்கம் 25 N விசையால இழுக்கப்படுது. என்ன நடக்கும்?",
+      opts: ["It stays at rest", "It moves toward the 25 N side with a net force of 5 N", "It moves toward the 20 N side", "It moves with a net force of 45 N"],
+      optsTa: ["ஓய்வுல நிக்கும்", "25 N பக்கம் 5 N நிகர விசையோட நகரும்", "20 N பக்கம் நகரும்", "45 N நிகர விசையோட நகரும்"],
+      correct: 1,
+      explain: "25 − 20 = 5 N net force in the direction of the larger pull, so the block moves that way — no equilibrium.",
+      explainTa: "25 − 20 = 5 N நிகர விசை, பெரிய இழுவையின் திசையில் — அதனால் பெட்டி அத்திசையில நகரும்; சமநிலை இல்ல."
+    }
+  ];
+
+  const container = document.getElementById('quizContainer');
+  const scoreEl = document.getElementById('quizScore');
+  document.getElementById('quizTotal').textContent = questions.length;
+  let score = 0;
+
+  questions.forEach((item, qi)=>{
+    const card = document.createElement('div');
+    card.className = 'qz-card';
+    const qEl = document.createElement('div');
+    qEl.className = 'qz-q';
+    qEl.setAttribute('data-ta', (qi+1) + '. ' + item.qTa);
+    qEl.innerHTML = (qi+1) + '. ' + item.q;
+    card.appendChild(qEl);
+    const optsWrap = document.createElement('div');
+    optsWrap.className = 'qz-opts';
+    const explain = document.createElement('div');
+    explain.className = 'qz-explain';
+    explain.setAttribute('data-ta', item.explainTa);
+    explain.innerHTML = item.explain;
+
+    item.opts.forEach((optText, oi)=>{
+      const b = document.createElement('button');
+      b.className = 'qz-opt';
+      b.setAttribute('data-ta', item.optsTa[oi]);
+      b.innerHTML = optText;
+      b.addEventListener('click', ()=>{
+        const allBtns = optsWrap.querySelectorAll('.qz-opt');
+        if(allBtns[0].disabled) return;
+        allBtns.forEach(x=>x.disabled=true);
+        if(oi === item.correct){
+          b.classList.add('correct');
+          score++;
+          scoreEl.textContent = score;
+        } else {
+          b.classList.add('wrong');
+          allBtns[item.correct].classList.add('correct');
+        }
+        explain.classList.add('show');
+      });
+      optsWrap.appendChild(b);
+    });
+
+    card.appendChild(optsWrap);
+    card.appendChild(explain);
+    container.appendChild(card);
+  });
+
+  document.querySelectorAll('.qz-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(btn.classList.contains('correct')){ SCX.addXP(10, 'Correct answer!', 'சரியான பதில்!'); }
+    });
+  });
+  const scoreEl2 = document.getElementById('quizScore');
+  const totalEl2 = document.getElementById('quizTotal');
+  const obs = new MutationObserver(()=>{
+    const s = parseInt(scoreEl2.textContent,10)||0, t = parseInt(totalEl2.textContent,10)||5;
+    if(s===t){ SCX.awardBadge('ch12_quiz_ace'); }
+  });
+  obs.observe(scoreEl2, { childList:true, characterData:true, subtree:true });
+})();
+
+/* ============================================================
+   STEP-REVEAL FOR CONCEPT WALKTHROUGHS
+============================================================ */
+(function(){
+  let completed = 0;
+  const total = document.querySelectorAll('#walkthroughs [data-qcard]').length;
+  document.querySelectorAll('[data-qcard]').forEach(stepsWrap=>{
+    const steps = Array.from(stepsWrap.querySelectorAll('.step'));
+    const card = stepsWrap.closest('.qcard');
+    const finalToggle = card.querySelector('.final-toggle');
+    const finalAnswer = card.querySelector('.final-answer');
+
+    steps.forEach((step, i)=>{
+      const toggle = step.querySelector('.step-toggle');
+      const content = step.querySelector('.step-content');
+      if(i>0) toggle.parentElement.style.display = 'none';
+      toggle.addEventListener('click', ()=>{
+        content.classList.remove('hidden');
+        toggle.style.display = 'none';
+        if(i+1 < steps.length){ steps[i+1].style.display = ''; }
+        else { finalToggle.classList.remove('hidden'); }
+      });
+    });
+
+    finalToggle.addEventListener('click', ()=>{
+      finalAnswer.classList.remove('hidden');
+      finalToggle.classList.add('hidden');
+      completed++;
+      SCX.addXP(15, 'Walkthrough completed!', 'விளக்கம் முடிச்சாச்சு!');
+      if(completed >= total){ SCX.awardBadge('ch12_examples_master'); }
+    });
+  });
+})();
+
+/* ============================================================
+   REVEAL-ANSWER FOR PRACTICE EXERCISES (+ self-grade XP)
+============================================================ */
+(function(){
+  document.querySelectorAll('.ex-toggle').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const answer = btn.nextElementSibling;
+      const showing = answer.classList.toggle('show');
+      const hideLabel = { en: 'Hide answer', ta: 'பதிலை மறை' };
+      if(!btn.dataset.showLabel){ btn.dataset.showLabel = btn.textContent; }
+      if(!btn.dataset.showLabelTa){ btn.dataset.showLabelTa = btn.dataset.ta || ''; }
+      btn.textContent = showing ? hideLabel[APP_LANG] : (APP_LANG==='ta' ? btn.dataset.showLabelTa : btn.dataset.showLabel);
+      if(showing && !btn.dataset.graded){
+        const grade = document.createElement('div');
+        grade.style.marginTop = '10px'; grade.style.display = 'flex'; grade.style.gap = '8px';
+        const yesBtn = document.createElement('button');
+        yesBtn.className = 'btn'; yesBtn.style.fontSize = '0.8rem';
+        yesBtn.textContent = APP_LANG==='ta' ? '✅ சரியா பண்ணேன்' : '✅ Got it right';
+        const noBtn = document.createElement('button');
+        noBtn.className = 'btn'; noBtn.style.fontSize = '0.8rem';
+        noBtn.textContent = APP_LANG==='ta' ? '❌ தப்பா போச்சு' : '❌ I missed this';
+        function grade_done(correct){
+          btn.dataset.graded = '1'; grade.remove();
+          if(typeof SCX !== 'undefined'){ SCX.exerciseGraded(correct); }
+        }
+        yesBtn.addEventListener('click', ()=>grade_done(true));
+        noBtn.addEventListener('click', ()=>grade_done(false));
+        grade.appendChild(yesBtn); grade.appendChild(noBtn);
+        answer.appendChild(grade);
+      }
+    });
+  });
+})();
+
+/* ============================================================
+   FINAL BOOT
+============================================================ */
+
+/* ============================================================
+   RAJA & CHITTU STORY OPENER
+============================================================ */
+(function(){
+  const STORY = {"title": ["Why does the bag not fall?", "பை ஏன் கீழ விழல?"], "cta": ["Start the lesson: equilibrium of forces →", "பாடத்த ஆரம்பிக்கலாம்: விசைகளின் சமநிலை →"], "lines": [["R", "🎒🪢", "Chittu, my bag (60 N) hangs from a rope and does not fall. Is it magic?", "சிட்டு, என் பை (60 N) கயிறுல தொங்குது, கீழ விழல. இது மந்திரமா?"], ["C", "⚖️", "No magic! Weight pulls down 60 N and the rope pulls up 60 N. Equal, opposite, same line. The resultant is zero. That is equilibrium.", "மந்திரம் இல்ல! நிறை கீழ 60 N, கயிறு மேல 60 N. சமம், எதிர், ஒரே கோடு. விளையுள் பூச்சியம். அதுதான் சமநிலை."], ["R", "🎢", "And a swing with two ropes? Rope 1 pulls 120 N and rope 2 pulls 180 N.", "ரெண்டு கயிறு உள்ள ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N இழுக்குது."], ["C", "➕", "F₁ + F₂ = W. So Raja's weight is 120 + 180 = 300 N.", "F₁ + F₂ = W. அதனால ராஜாவோட நிறை 120 + 180 = 300 N."], ["R", "🖼️", "And the picture on our wall hangs by two slanting cords!", "நம்ம சுவர்ல படம் ரெண்டு சாய்வான கயிறுல தொங்குது!"], ["C", "📍", "Three forces, and their lines of action meet at one point. The resultant of two equals the third, opposite. That is equilibrium too.", "மூணு விசைகள், அவற்றோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும். ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர். அதுவும் சமநிலைதான்."], ["R", "🙈", "So any three forces will balance?", "அப்போ எந்த மூணு விசையும் சமநிலையாகிடுமா?"], ["C", "🚫", "No, Raja! They must be in one plane, meet at a point, and add up to zero.", "இல்ல ராஜா! ஒரே தளத்துல இருக்கணும், ஒரு புள்ளில சந்திக்கணும், கூட்டுத்தொகை பூச்சியமா இருக்கணும்."], ["R", "🚀", "Two forces, three forces, parallel or not. Let's go!", "ரெண்டு விசை, மூணு விசை, சமாந்தரம், சமாந்தரமில்ல. வாங்க போகலாம்!"]]};
+  const KEY = 'scx_story_c12';
+  function rajaSVG(){
+    return '<svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="so-bob">'+
+     '<path d="M146 196 C196 196 200 146 168 132" fill="none" stroke="#6b4220" stroke-width="11" stroke-linecap="round"/>'+
+     '<ellipse cx="82" cy="232" rx="19" ry="10" fill="#6b4220"/><ellipse cx="118" cy="232" rx="19" ry="10" fill="#6b4220"/>'+
+     '<ellipse cx="100" cy="186" rx="46" ry="48" fill="#e53935"/>'+
+     '<path d="M72 150 Q100 166 128 150" fill="none" stroke="#b71c1c" stroke-width="4" stroke-linecap="round"/>'+
+     '<ellipse cx="50" cy="180" rx="12" ry="24" fill="#8d5a2b" transform="rotate(14 50 180)"/>'+
+     '<g class="so-wave"><ellipse cx="152" cy="176" rx="12" ry="24" fill="#8d5a2b" transform="rotate(-18 152 176)"/></g>'+
+     '<circle cx="44" cy="98" r="19" fill="#8d5a2b"/><circle cx="44" cy="98" r="11" fill="#f0c79a"/>'+
+     '<circle cx="156" cy="98" r="19" fill="#8d5a2b"/><circle cx="156" cy="98" r="11" fill="#f0c79a"/>'+
+     '<circle cx="100" cy="94" r="56" fill="#8d5a2b"/>'+
+     '<path d="M90 40 q10 -18 20 0" fill="none" stroke="#6b4220" stroke-width="6" stroke-linecap="round"/>'+
+     '<ellipse cx="100" cy="110" rx="41" ry="37" fill="#f0c79a"/>'+
+     '<g class="so-blink"><circle cx="82" cy="92" r="12" fill="#fff"/><circle cx="118" cy="92" r="12" fill="#fff"/>'+
+     '<circle cx="85" cy="94" r="6" fill="#2b1a0a"/><circle cx="121" cy="94" r="6" fill="#2b1a0a"/>'+
+     '<circle cx="87" cy="91" r="2" fill="#fff"/><circle cx="123" cy="91" r="2" fill="#fff"/></g>'+
+     '<path d="M70 76 Q82 68 94 77" fill="none" stroke="#4a2c10" stroke-width="4" stroke-linecap="round"/>'+
+     '<path d="M106 77 Q118 68 130 76" fill="none" stroke="#4a2c10" stroke-width="4" stroke-linecap="round"/>'+
+     '<circle cx="94" cy="112" r="2.8" fill="#5b3a1a"/><circle cx="106" cy="112" r="2.8" fill="#5b3a1a"/>'+
+     '<g class="so-rm"><path d="M78 124 Q100 148 122 124 Q100 132 78 124 Z" fill="#7a1f1f"/><path d="M92 134 Q100 140 108 134 Q100 130 92 134Z" fill="#ff8a8a"/></g>'+
+     '</g></svg>';
+  }
+  function chittuSVG(){
+    return '<svg viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><g class="so-bob" style="animation-delay:.5s">'+
+     '<path d="M130 190 L170 222 L150 226 L124 206Z" fill="#7b4f27"/>'+
+     '<path d="M86 224 l-6 14 M86 224 l6 14 M114 224 l-6 14 M114 224 l6 14" stroke="#f29a2e" stroke-width="4" stroke-linecap="round"/>'+
+     '<ellipse cx="100" cy="166" rx="54" ry="62" fill="#a1713f"/>'+
+     '<ellipse cx="100" cy="182" rx="34" ry="44" fill="#f5e6c8"/>'+
+     '<ellipse cx="52" cy="168" rx="16" ry="38" fill="#7b4f27" transform="rotate(10 52 168)"/>'+
+     '<g class="so-wave"><ellipse cx="150" cy="166" rx="16" ry="38" fill="#7b4f27" transform="rotate(-10 150 166)"/></g>'+
+     '<circle cx="100" cy="90" r="48" fill="#a1713f"/>'+
+     '<path d="M56 78 Q100 36 144 78 Q100 62 56 78Z" fill="#6f4520"/>'+
+     '<ellipse cx="68" cy="104" rx="13" ry="10" fill="#f5e6c8"/><ellipse cx="132" cy="104" rx="13" ry="10" fill="#f5e6c8"/>'+
+     '<g class="so-blink"><circle cx="82" cy="86" r="11" fill="#fff"/><circle cx="118" cy="86" r="11" fill="#fff"/>'+
+     '<circle cx="84" cy="87" r="5.5" fill="#1a1a2e"/><circle cx="120" cy="87" r="5.5" fill="#1a1a2e"/>'+
+     '<circle cx="86" cy="85" r="1.8" fill="#fff"/><circle cx="122" cy="85" r="1.8" fill="#fff"/></g>'+
+     '<circle cx="82" cy="86" r="15" fill="none" stroke="#222" stroke-width="3"/><circle cx="118" cy="86" r="15" fill="none" stroke="#222" stroke-width="3"/>'+
+     '<path d="M97 86 h6" stroke="#222" stroke-width="3"/>'+
+     '<path d="M70 66 Q82 60 94 66" fill="none" stroke="#4a2c10" stroke-width="3.5" stroke-linecap="round"/>'+
+     '<path d="M106 66 Q118 60 130 66" fill="none" stroke="#4a2c10" stroke-width="3.5" stroke-linecap="round"/>'+
+     '<path d="M90 98 L110 98 L100 112 Z" fill="#f29a2e"/>'+
+     '<g class="so-cb"><path d="M93 108 L107 108 L100 119 Z" fill="#e0861c"/></g>'+
+     '<path d="M62 128 Q100 146 138 128 Q100 120 62 128Z" fill="#1e88e5"/>'+
+     '<path d="M118 132 L136 168 L120 170 L110 138Z" fill="#1565c0"/>'+
+     '</g></svg>';
+  }
+  const $ = id => document.getElementById(id);
+  $('so_sr').innerHTML = rajaSVG(); $('so_sc').innerHTML = chittuSVG();
+  let idx = 0, typing = null, full = '', awarded = false;
+  const tr = (arr) => (APP_LANG === 'ta' ? arr[1] : arr[0]);
+  function lineText(l){ return APP_LANG === 'ta' ? l[3] : l[2]; }
+  function stop(){ if(typing){ clearInterval(typing); typing = null; } }
+  function dots(){
+    const d = $('so_dots'); d.innerHTML = '';
+    STORY.lines.forEach((_, i) => { const e = document.createElement('i'); e.className = i < idx ? 'done' : (i === idx ? 'now' : ''); d.appendChild(e); });
+  }
+  function labels(){
+    $('so_title').textContent = tr(STORY.title);
+    $('so_nr').textContent = APP_LANG === 'ta' ? 'ராஜா 🐒' : 'Raja 🐒';
+    $('so_nc').textContent = APP_LANG === 'ta' ? 'சிட்டு 🐦' : 'Chittu 🐦';
+    $('so_prev').textContent = APP_LANG === 'ta' ? '← பின்னாடி' : '← Back';
+    $('so_next').textContent = APP_LANG === 'ta' ? 'அடுத்து →' : 'Next →';
+    $('so_go').textContent = tr(STORY.cta);
+  }
+  function show(i, instant){
+    stop();
+    idx = Math.max(0, Math.min(STORY.lines.length - 1, i));
+    const l = STORY.lines[idx], isR = l[0] === 'R';
+    $('so_cr').classList.toggle('on', isR); $('so_cc').classList.toggle('on', !isR);
+    $('so_cr').classList.toggle('talking', isR); $('so_cc').classList.toggle('talking', !isR);
+    $('so_bubble').className = 'so-bubble ' + (isR ? 'r' : 'c');
+    $('so_scene').textContent = l[1];
+    full = lineText(l); dots(); labels();
+    $('so_prev').disabled = idx === 0;
+    const last = idx === STORY.lines.length - 1;
+    $('so_cta').classList.toggle('show', last);
+    if(last){
+      if(!awarded){
+        awarded = true;
+        let seen = false; try{ seen = safeGet(KEY) === '1'; }catch(e){}
+        if(!seen){ safeSet(KEY, '1'); if(typeof SCX !== 'undefined'){ SCX.addXP(5, 'Story finished!', 'கதை முடிஞ்சது!'); } }
+      }
+    }
+    const done = () => { stop(); $('so_text').textContent = full; $('so_caret').style.display = 'none'; $('so_cr').classList.remove('talking'); $('so_cc').classList.remove('talking'); };
+    if(instant){ done(); return; }
+    $('so_text').textContent = ''; $('so_caret').style.display = '';
+    let n = 0;
+    typing = setInterval(() => { n += 2; $('so_text').textContent = full.slice(0, n); if(n >= full.length) done(); }, 28);
+  }
+  $('so_next').addEventListener('click', () => { if(typing){ show(idx, true); return; } if(idx < STORY.lines.length - 1) show(idx + 1); });
+  $('so_prev').addEventListener('click', () => { if(idx > 0) show(idx - 1); });
+  openerLangHook = function(){ show(idx, true); };
+  show(0);
+})();
+
+
+/* ============================================================
+   LESSON FRAMEWORK: path, next-step buttons, finish card, guided lab, animation
+============================================================ */
+(function(){
+  const LID = 'c12';
+  const NEXT_LESSON = null;
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const $ = id => document.getElementById(id);
+  const PHASES = [
+    {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
+    {k:'learn', en:'Learn',   ta:'கத்துக்க',   emoji:'📖'},
+    {k:'play',  en:'Play',    ta:'விளையாடு',   emoji:'🎮'},
+    {k:'check', en:'Check',   ta:'சோதிச்சுக்க', emoji:'✅'},
+    {k:'wrap',  en:'Wrap-up', ta:'முடிவு',      emoji:'🏁'}
+  ];
+  const KINDS = {
+    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
+    notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'learn'}, activities:{en:'Try it', ta:'செஞ்சு பாரு', e:'🧪', p:'learn'},
+    lab:{en:'Lab', ta:'லேப்', e:'🔬', p:'play'}, game:{en:'Game', ta:'விளையாட்டு', e:'🎮', p:'play'}, sortgame:{en:'Sort game', ta:'வரிசைப்படுத்து', e:'🧩', p:'play'},
+    quiz:{en:'Quiz', ta:'குயிஸ்', e:'📝', p:'check'}, examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'check'}, practice:{en:'Practice', ta:'பயிற்சி', e:'💪', p:'check'},
+    recap:{en:'Fun recap', ta:'ஜாலி ரிகேப்', e:'😄', p:'wrap'}, summary:{en:'Summary', ta:'சுருக்கம்', e:'📌', p:'wrap'}
+  };
+  const hasExercises = !!$('exercises');
+  function kindOf(id){
+    if(['holdgame','pushit','tugofwar','balancegame'].includes(id)) return 'game';
+    if(id === 'walkthroughs') return 'examples';
+    if(id === 'exercises') return 'practice';
+    if(id === 'practice') return hasExercises ? 'examples' : 'practice';
+    return KINDS[id] ? id : null;
+  }
+  const steps = [];
+  document.querySelectorAll('section.block').forEach(s => { const k = s.id && kindOf(s.id); if(k) steps.push({id:s.id, k:k, el:s}); });
+  const KEY = 'scx_path_' + LID;
+  let seen = {}; try{ seen = JSON.parse(safeGet(KEY) || '{}'); }catch(e){}
+  let cur = steps.length ? steps[0].id : null, finishedOnce = false;
+  const label = s => T(KINDS[s.k].en, KINDS[s.k].ta);
+
+  function stat(){ const n = steps.filter(s => seen[s.id]).length; return {n:n, total:steps.length}; }
+  function renderPath(){
+    const st = stat(), pct = Math.round(100 * st.n / st.total);
+    $('fw_ph').textContent = T('🧭 Your lesson path', '🧭 உன் பாட வழி');
+    $('fw_ps').textContent = T('Follow the road from the START to the FINISH. Each step is a short, easy part. Tap any step to jump to it.', 'START-ல இருந்து FINISH வரை இந்த வழியில போ. ஒவ்வொரு படியும் சின்னது, சுலபம். எந்த படியையும் தொட்டு அங்க போகலாம்.');
+    $('fw_pc').textContent = st.n + ' / ' + st.total + ' ' + T('steps done', 'படிகள் முடிஞ்சது');
+    $('fw_pb').style.width = pct + '%';
+    $('fw_phases').innerHTML = PHASES.map(ph => {
+      const list = steps.filter(s => KINDS[s.k].p === ph.k);
+      if(!list.length) return '';
+      return '<div class="fw-phase"><h4>' + ph.emoji + ' ' + T(ph.en, ph.ta) + '</h4><div class="fw-steps">' +
+        list.map(s => '<a class="fw-step' + (seen[s.id] ? ' done' : '') + (s.id === cur ? ' cur' : '') + '" href="#' + s.id + '"><span class="tick">✓</span>' + KINDS[s.k].e + ' ' + label(s) + '</a>').join('') + '</div></div>';
+    }).join('');
+    const nextStep = steps.find(s => !seen[s.id]) || steps[steps.length - 1];
+    const a = $('fw_start');
+    a.href = '#' + nextStep.id;
+    a.textContent = st.n === 0 ? T('▶ START here: ', '▶ இங்க START பண்ணு: ') + label(steps[0]) : (st.n >= st.total ? T('🏁 See the finish', '🏁 முடிவ பாரு') : T('▶ Continue: ', '▶ தொடரு: ') + label(nextStep));
+    if(st.n >= st.total) a.href = '#fw_finish';
+    $('fw_pt').textContent = T('About ' + Math.max(10, st.total * 3) + ' minutes in all. You can stop any time; your steps are remembered.', 'மொத்தம் சுமார் ' + Math.max(10, st.total * 3) + ' நிமிஷம். எப்ப வேணும்னாலும் நிறுத்தலாம்; நீ முடிச்ச படிகள் ஞாபகம் இருக்கும்.');
+  }
+  function renderNext(){
+    document.querySelectorAll('.fw-next').forEach(e => e.remove());
+    steps.forEach((s, i) => {
+      const n = steps[i + 1];
+      const box = document.createElement('div'); box.className = 'fw-next';
+      const to = n ? '#' + n.id : '#fw_finish';
+      box.innerHTML = '<a class="btn primary" href="' + to + '">' + (n ? T('Next: ', 'அடுத்து: ') + KINDS[n.k].e + ' ' + label(n) + ' →' : T('🏁 Finish the lesson →', '🏁 பாடத்த முடி →')) + '</a>' +
+        '<a class="small" href="#fw_path">' + T('↑ back to the path', '↑ வழிக்கு திரும்பு') + '</a>';
+      s.el.appendChild(box);
+    });
+  }
+  function renderFinish(){
+    const st = stat(), done = st.n >= st.total, f = $('fw_fin');
+    const xp = ($('xpTotal') || {}).textContent || '0', badges = ($('badgeCount') || {}).textContent || '0';
+    if(done){
+      f.innerHTML = '<div class="big">🎉🏁🎉</div><h2 class="fw-h">' + T('You finished this lesson!', 'இந்த பாடத்த முடிச்சுட்டே!') + '</h2>' +
+        '<p class="fw-sub">' + T('Well done! Raja and Chittu are proud of you.', 'சபாஷ்! ராஜாவும் சிட்டுவும் உன்ன நினைச்சு பெருமைப்படறாங்க.') + '</p>' +
+        '<div class="fw-chips"><span class="fw-chip">✅ ' + st.n + '/' + st.total + ' ' + T('steps', 'படிகள்') + '</span><span class="fw-chip">⭐ ' + xp + ' XP</span><span class="fw-chip">🏅 ' + badges + '/5 ' + T('badges', 'பேட்ஜ்') + '</span></div>';
+    } else {
+      const left = steps.filter(s => !seen[s.id]);
+      f.innerHTML = '<div class="big">🏁</div><h2 class="fw-h">' + T('The finish line', 'முடிவு கோடு') + '</h2>' +
+        '<p class="fw-sub">' + T('You have ' + left.length + ' step(s) left. Tap one to go there:', 'இன்னும் ' + left.length + ' படி(கள்) இருக்கு. ஒண்ண தொட்டு அங்க போ:') + '</p>' +
+        '<div class="fw-left">' + left.map(s => '<a class="btn" href="#' + s.id + '">' + KINDS[s.k].e + ' ' + label(s) + '</a>').join('') + '</div>' +
+        '<div class="fw-chips"><span class="fw-chip">✅ ' + st.n + '/' + st.total + '</span><span class="fw-chip">⭐ ' + xp + ' XP</span></div>';
+    }
+    f.innerHTML += '<div class="fw-go" style="justify-content:center">' +
+      (NEXT_LESSON ? '<a class="btn primary" href="' + NEXT_LESSON[0] + '">' + T('Next lesson: ', 'அடுத்த பாடம்: ') + T(NEXT_LESSON[1], NEXT_LESSON[2]) + ' →</a>' : '') +
+      '<a class="btn" href="index.html">' + T('Study hub', 'படிப்பு மையம்') + '</a><a class="btn" href="#fw_path">' + T('Back to the path', 'வழிக்கு திரும்பு') + '</a></div>';
+  }
+  function celebrate(){
+    if(finishedOnce) return; finishedOnce = true;
+    let did = false; try{ did = safeGet('scx_done_' + LID) === '1'; }catch(e){}
+    if(!did){
+      safeSet('scx_done_' + LID, '1');
+      if(typeof SCX !== 'undefined'){ SCX.addXP(20, 'Lesson complete!', 'பாடம் முடிஞ்சது!'); try{ SCX.confettiBurst(); }catch(e){} }
+    }
+  }
+  function mark(id){
+    if(!id || seen[id]) return;
+    seen[id] = 1; safeSet(KEY, JSON.stringify(seen)); refresh();
+    if(stat().n >= stat().total) celebrate();
+  }
+  function renderPill(){
+    let p = $('fw_pill');
+    if(!p){ p = document.createElement('a'); p.id = 'fw_pill'; p.className = 'fw-pill'; p.href = '#fw_path'; document.body.appendChild(p); }
+    const st = stat(), i = Math.max(0, steps.findIndex(s => s.id === cur));
+    p.style.display = (window.scrollY > 520) ? 'flex' : 'none';
+    p.innerHTML = '🧭 <span>' + T('Step', 'படி') + ' <b>' + (i + 1) + '/' + st.total + '</b> · ' + (steps[i] ? KINDS[steps[i].k].e + ' ' + label(steps[i]) : '') + '</span><span class="mini"><i style="width:' + Math.round(100 * st.n / st.total) + '%"></i></span>';
+  }
+  function refresh(){ renderPath(); renderNext(); renderFinish(); renderPill(); }
+
+  if('IntersectionObserver' in window){
+    const vis = {};
+    const io = new IntersectionObserver(es => {
+      es.forEach(e => {
+        const h = e.intersectionRect ? e.intersectionRect.height : 0;
+        vis[e.target.id] = h;
+        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3)){ mark(e.target.id); }
+      });
+      let best = null, bv = 0; steps.forEach(s => { if((vis[s.id] || 0) > bv){ bv = vis[s.id]; best = s.id; } });
+      if(best && best !== cur){ cur = best; renderPill(); renderPath(); }
+    }, {threshold:[0, .02, .05, .1, .2, .3, .5, .8, 1]});
+    steps.forEach(s => io.observe(s.el));
+  }
+  const prevHook = openerLangHook;
+  const hook = function(){ if(prevHook) prevHook(); refresh(); };
+  openerLangHook = hook;
+  refresh();
+  window.addEventListener('scroll', function(){ const p = $('fw_pill'); if(p) p.style.display = (window.scrollY > 520) ? 'flex' : 'none'; }, {passive:true});
+  window.__fwMark = mark;
+})();
+
+
+/* ============================================================
+   WATCH-IT CARTOON ENGINE
+============================================================ */
+(function(){
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  window.__fwMakeH = function(svg, VW, VH){
+  const NS = 'http://www.w3.org/2000/svg';
+  const C = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  /* stem-k: phones shrink the 640-wide stage to about half size, so cartoon text is scaled up to stay readable */
+  let _k = 0, _raw = false;
+  function getK(){
+    if(_k) return _k;
+    const cw = svg.getBoundingClientRect().width;
+    if(!cw) return 1;
+    _k = Math.max(1, Math.min(1.5, 10.5 / (13.5 * cw / VW)));
+    return _k;
+  }
+  window.addEventListener('resize', function(){ _k = 0; });
+  function E(tag, attrs, parent, text){
+    if(tag === 'text' && !_raw && attrs['font-size'] !== undefined && +attrs['font-size'] < 24){ attrs = Object.assign({}, attrs, {'font-size': +attrs['font-size'] * (+attrs['font-size'] <= 11 ? getK() : 1 + (getK() - 1) * 0.5)}); }
+    const e = document.createElementNS(NS, tag);
+    for(const k in attrs) e.setAttribute(k, attrs[k]);
+    if(text !== undefined) e.textContent = text;
+    (parent || svg).appendChild(e); return e;
+  }
+  /* ---------- characters ---------- */
+  function rajaMarkup(o){
+    var m = o.m || 0, eyes = o.eyes || 'n', aL = o.aL || 0, aR = o.aR || 0, fd = o.fd || 0, fl = o.fl || 0, tl = o.tail || 0, brow = o.brow || 'n', s = '';
+    s += '<path d="M146 196 C196 196 200 146 168 132" fill="none" stroke="#6b4220" stroke-width="11" stroke-linecap="round" transform="rotate(' + tl + ' 146 196)"/>';
+    s += '<ellipse cx="' + (82 + fd) + '" cy="' + (232 - Math.max(0, fl)) + '" rx="19" ry="10" fill="#6b4220"/><ellipse cx="' + (118 - fd) + '" cy="' + (232 - Math.max(0, -fl)) + '" rx="19" ry="10" fill="#6b4220"/>';
+    s += '<ellipse cx="100" cy="186" rx="46" ry="48" fill="#e53935"/><path d="M72 150 Q100 166 128 150" fill="none" stroke="#b71c1c" stroke-width="4" stroke-linecap="round"/>';
+    s += '<g transform="rotate(' + aL + ' 60 168)"><ellipse cx="50" cy="194" rx="12" ry="29" fill="#8d5a2b" transform="rotate(14 50 194)"/></g>';
+    s += '<g transform="rotate(' + (-aR) + ' 142 168)"><ellipse cx="152" cy="192" rx="12" ry="29" fill="#8d5a2b" transform="rotate(-18 152 192)"/></g>';
+    s += '<circle cx="44" cy="98" r="19" fill="#8d5a2b"/><circle cx="44" cy="98" r="11" fill="#f0c79a"/><circle cx="156" cy="98" r="19" fill="#8d5a2b"/><circle cx="156" cy="98" r="11" fill="#f0c79a"/>';
+    s += '<circle cx="100" cy="94" r="56" fill="#8d5a2b"/><path d="M90 40 q10 -18 20 0" fill="none" stroke="#6b4220" stroke-width="6" stroke-linecap="round"/><ellipse cx="100" cy="110" rx="41" ry="37" fill="#f0c79a"/>';
+    if(eyes === 'c'){ s += '<path d="M70 94 Q82 104 94 94 M106 94 Q118 104 130 94" fill="none" stroke="#2b1a0a" stroke-width="4" stroke-linecap="round"/>'; }
+    else if(eyes === 'x'){ s += '<path d="M74 86 l16 16 M90 86 l-16 16 M110 86 l16 16 M126 86 l-16 16" stroke="#2b1a0a" stroke-width="4" stroke-linecap="round"/>'; }
+    else if(eyes === 'w'){ s += '<circle cx="82" cy="92" r="15" fill="#fff"/><circle cx="118" cy="92" r="15" fill="#fff"/><circle cx="82" cy="93" r="5" fill="#2b1a0a"/><circle cx="118" cy="93" r="5" fill="#2b1a0a"/>'; }
+    else { s += '<circle cx="82" cy="92" r="12" fill="#fff"/><circle cx="118" cy="92" r="12" fill="#fff"/><circle cx="85" cy="94" r="6" fill="#2b1a0a"/><circle cx="121" cy="94" r="6" fill="#2b1a0a"/><circle cx="87" cy="91" r="2" fill="#fff"/><circle cx="123" cy="91" r="2" fill="#fff"/>'; }
+    if(brow === 'up') s += '<path d="M68 70 Q82 60 96 68 M104 68 Q118 60 132 70" fill="none" stroke="#4a2c10" stroke-width="4" stroke-linecap="round"/>';
+    else if(brow === 'down') s += '<path d="M70 70 L96 80 M130 70 L104 80" fill="none" stroke="#4a2c10" stroke-width="5" stroke-linecap="round"/>';
+    else s += '<path d="M70 76 Q82 68 94 77 M106 77 Q118 68 130 76" fill="none" stroke="#4a2c10" stroke-width="4" stroke-linecap="round"/>';
+    s += '<circle cx="94" cy="112" r="2.8" fill="#5b3a1a"/><circle cx="106" cy="112" r="2.8" fill="#5b3a1a"/>';
+    if(m > 0.08) s += '<ellipse cx="100" cy="' + (128 + m * 4) + '" rx="' + (12 + m * 6) + '" ry="' + (3 + m * 14) + '" fill="#7a1f1f"/><ellipse cx="100" cy="' + (136 + m * 8) + '" rx="8" ry="3" fill="#ff8a8a"/>';
+    else if(o.mood === 'sad') s += '<path d="M82 134 Q100 120 118 134" fill="none" stroke="#7a1f1f" stroke-width="4" stroke-linecap="round"/>';
+    else s += '<path d="M80 124 Q100 146 120 124" fill="none" stroke="#7a1f1f" stroke-width="4" stroke-linecap="round"/>';
+    return s;
+  }
+  function chittuMarkup(o){
+    var m = o.m || 0, eyes = o.eyes || 'n', wL = o.wL || 0, wR = o.wR || 0, brow = o.brow || 'n', s = '';
+    s += '<path d="M130 190 L170 222 L150 226 L124 206Z" fill="#7b4f27"/>';
+    if(!o.fly) s += '<path d="M86 224 l-6 14 M86 224 l6 14 M114 224 l-6 14 M114 224 l6 14" stroke="#f29a2e" stroke-width="4" stroke-linecap="round"/>';
+    else s += '<path d="M90 224 l-4 10 M110 224 l4 10" stroke="#f29a2e" stroke-width="4" stroke-linecap="round"/>';
+    s += '<ellipse cx="100" cy="166" rx="54" ry="62" fill="#a1713f"/><ellipse cx="100" cy="182" rx="34" ry="44" fill="#f5e6c8"/>';
+    s += '<g transform="rotate(' + (-wL) + ' 66 140)"><ellipse cx="52" cy="168" rx="16" ry="38" fill="#7b4f27" transform="rotate(10 52 168)"/></g>';
+    s += '<g transform="rotate(' + wR + ' 134 140)"><ellipse cx="150" cy="166" rx="16" ry="38" fill="#7b4f27" transform="rotate(-10 150 166)"/></g>';
+    s += '<circle cx="100" cy="90" r="48" fill="#a1713f"/><path d="M56 78 Q100 36 144 78 Q100 62 56 78Z" fill="#6f4520"/><ellipse cx="68" cy="104" rx="13" ry="10" fill="#f5e6c8"/><ellipse cx="132" cy="104" rx="13" ry="10" fill="#f5e6c8"/>';
+    if(eyes === 'c'){ s += '<path d="M72 88 Q82 96 92 88 M108 88 Q118 96 128 88" fill="none" stroke="#1a1a2e" stroke-width="4" stroke-linecap="round"/>'; }
+    else if(eyes === 'w'){ s += '<circle cx="82" cy="86" r="13" fill="#fff"/><circle cx="118" cy="86" r="13" fill="#fff"/><circle cx="82" cy="87" r="4.5" fill="#1a1a2e"/><circle cx="118" cy="87" r="4.5" fill="#1a1a2e"/>'; }
+    else { s += '<circle cx="82" cy="86" r="11" fill="#fff"/><circle cx="118" cy="86" r="11" fill="#fff"/><circle cx="84" cy="87" r="5.5" fill="#1a1a2e"/><circle cx="120" cy="87" r="5.5" fill="#1a1a2e"/><circle cx="86" cy="85" r="1.8" fill="#fff"/><circle cx="122" cy="85" r="1.8" fill="#fff"/>'; }
+    s += '<circle cx="82" cy="86" r="15" fill="none" stroke="#222" stroke-width="3"/><circle cx="118" cy="86" r="15" fill="none" stroke="#222" stroke-width="3"/><path d="M97 86 h6" stroke="#222" stroke-width="3"/>';
+    if(brow === 'up') s += '<path d="M68 62 Q82 54 96 62 M104 62 Q118 54 132 62" fill="none" stroke="#4a2c10" stroke-width="3.5" stroke-linecap="round"/>';
+    else s += '<path d="M70 66 Q82 60 94 66 M106 66 Q118 60 130 66" fill="none" stroke="#4a2c10" stroke-width="3.5" stroke-linecap="round"/>';
+    s += '<path d="M90 98 L110 98 L100 112 Z" fill="#f29a2e"/><path d="M93 108 L107 108 L100 119 Z" fill="#e0861c" transform="translate(0 ' + (m * 8) + ')"/>';
+    s += '<path d="M62 128 Q100 146 138 128 Q100 120 62 128Z" fill="#1e88e5"/><path d="M118 132 L136 168 L120 170 L110 138Z" fill="#1565c0"/>';
+    return s;
+  }
+  function wrap(txt, n){
+    var words = txt.split(' '), lines = [], cur = '';
+    words.forEach(function(w){ if((cur + ' ' + w).trim().length > n && cur){ lines.push(cur); cur = w; } else { cur = (cur + ' ' + w).trim(); } });
+    if(cur) lines.push(cur); return lines;
+  }
+  const H = {
+    E: E, C: C, _defs: null,
+    line: (x1, y1, x2, y2, col, w, dash) => E('line', {x1:x1, y1:y1, x2:x2, y2:y2, stroke:col, 'stroke-width':w || 3, 'stroke-linecap':'round', 'stroke-dasharray':dash || ''}),
+    arrow: (x1, y1, x2, y2, col, w) => {
+      w = w || 5; const a = Math.atan2(y2 - y1, x2 - x1), L = Math.hypot(x2 - x1, y2 - y1); if(L < 3) return;
+      const hl = Math.min(13, L * 0.6), hx = x2 - Math.cos(a) * hl, hy = y2 - Math.sin(a) * hl, hw = 4 + w * 0.7;
+      E('line', {x1:x1, y1:y1, x2:hx, y2:hy, stroke:col, 'stroke-width':w, 'stroke-linecap':'round'});
+      E('polygon', {points:[x2 + ',' + y2, (hx + Math.sin(a) * hw) + ',' + (hy - Math.cos(a) * hw), (hx - Math.sin(a) * hw) + ',' + (hy + Math.cos(a) * hw)].join(' '), fill:col});
+    },
+    text: (x, y, s, col, size, anchor, parent) => E('text', {x:x, y:y, fill:col || C('--text'), 'font-size':size || 14, 'text-anchor':anchor || 'middle'}, parent, s),
+    rect: (x, y, w, h, fill, rx, stroke, op) => E('rect', {x:x, y:y, width:w, height:h, rx:rx || 0, fill:fill, stroke:stroke || 'none', 'stroke-width':2, opacity:op === undefined ? 1 : op}),
+    circle: (x, y, r, fill, op) => E('circle', {cx:x, cy:y, r:r, fill:fill, opacity:op === undefined ? 1 : op}),
+    clamp: (v, a, b) => Math.max(a, Math.min(b, v)),
+    ease: t => t < 0 ? 0 : t > 1 ? 1 : t * t * (3 - 2 * t),
+    seg: (t, a, b) => H.clamp((t - a) / (b - a), 0, 1),
+    grad: function(id, c1, c2){
+      const g = E('linearGradient', {id:id, x1:0, y1:0, x2:0, y2:1}, H._defs);
+      E('stop', {offset:'0%', 'stop-color':c1}, g); E('stop', {offset:'100%', 'stop-color':c2}, g); return 'url(#' + id + ')';
+    },
+    shake: function(dx, dy){ svg.setAttribute('viewBox', (-dx) + ' ' + (-dy) + ' ' + VW + ' ' + VH); },
+    fade: function(t, b){ const o = Math.max(0, 1 - Math.abs(t - b) / 0.45); if(o > 0) H.rect(-10, -10, 660, 380, '#fff', 0, 'none', o); },
+    raja: function(x, y, s, o){
+      o = o || {};
+      const g = E('g', {transform:'translate(' + x + ',' + y + ') rotate(' + (o.rot || 0) + ') scale(' + ((o.flip ? -1 : 1) * s) + ',' + s + ') translate(-100,-246)'}, o.parent);
+      g.innerHTML = rajaMarkup(o); return g;
+    },
+    chittu: function(x, y, s, o){
+      o = o || {};
+      const g = E('g', {transform:'translate(' + x + ',' + y + ') rotate(' + (o.rot || 0) + ') scale(' + ((o.flip ? -1 : 1) * s) + ',' + s + ') translate(-100,-246)'}, o.parent);
+      g.innerHTML = chittuMarkup(o); return g;
+    },
+    star5: function(x, y, r, fill, rot){
+      const p = []; for(let i = 0; i < 10; i++){ const a = (rot || 0) + i * Math.PI / 5 - Math.PI / 2, rr = (i % 2 ? r * 0.45 : r); p.push((x + Math.cos(a) * rr).toFixed(1) + ',' + (y + Math.sin(a) * rr).toFixed(1)); }
+      return E('polygon', {points:p.join(' '), fill:fill});
+    },
+    dizzy: function(x, y, t, r){ for(let i = 0; i < 3; i++){ const a = t * 5 + i * 2.094; H.star5(x + Math.cos(a) * r, y + Math.sin(a) * r * 0.4, 7, '#ffd166', a); } },
+    sweat: function(x, y, t){ for(let i = 0; i < 2; i++){ const ph = ((t * 1.6 + i * 0.5) % 1), yy = y + ph * 26, xx = x + (i ? 16 : -16); E('path', {d:'M' + xx + ' ' + (yy - 8) + ' q-5 9 0 12 q5 -3 0 -12z', fill:'#5cc0f2', opacity:1 - ph}); } },
+    puff: function(x, y, age, col){ if(age > 0 && age < 1) E('circle', {cx:x, cy:y, r:6 + age * 26, fill:col || '#fff', opacity:Math.max(0, 0.75 - age * 0.75)}); },
+    spark: function(x, y, age, col){ if(age <= 0 || age >= 1) return; for(let i = 0; i < 8; i++){ const a = i * Math.PI / 4, r1 = 8 + age * 34; E('line', {x1:x + Math.cos(a) * r1, y1:y + Math.sin(a) * r1, x2:x + Math.cos(a) * (r1 + 10), y2:y + Math.sin(a) * (r1 + 10), stroke:col || '#ffd166', 'stroke-width':4, 'stroke-linecap':'round', opacity:Math.max(0, 1 - age)}); } },
+    burst: function(x, y, r, fill, label){
+      const p = []; for(let i = 0; i < 16; i++){ const a = i * Math.PI / 8, rr = (i % 2 ? r * 0.62 : r); p.push((x + Math.cos(a) * rr).toFixed(1) + ',' + (y + Math.sin(a) * rr).toFixed(1)); }
+      E('polygon', {points:p.join(' '), fill:fill, stroke:'#fff', 'stroke-width':3});
+      if(label) H.text(x, y + 6, label, '#3a0b0b', Math.max(14, r * 0.38));
+    },
+    say: function(x, y, pair, opt){
+      opt = opt || {};
+      const k = getK(), txt = T(pair[0], pair[1]), L = wrap(txt, Math.floor((opt.n || (APP_LANG === 'ta' ? 20 : 24)) / k)), w = Math.max.apply(null, L.map(l => l.length)) * (APP_LANG === 'ta' ? 8.4 : 7.2) * k + 22, h = L.length * 17 * k + 14;
+      const bx = H.clamp(x - w / 2, 6, 634 - w), by = Math.max(4, y - h);
+      const col = opt.col || '#ffffff';
+      E('rect', {x:bx, y:by, width:w, height:h, rx:12, fill:col, stroke:'#1b2236', 'stroke-width':2.5});
+      const tx = H.clamp(x, bx + 16, bx + w - 16);
+      E('polygon', {points:(tx - 7) + ',' + (by + h - 1) + ' ' + (tx + 7) + ',' + (by + h - 1) + ' ' + x + ',' + (by + h + 13), fill:col, stroke:'#1b2236', 'stroke-width':2.5});
+      E('rect', {x:tx - 6, y:by + h - 4, width:12, height:5, fill:col});
+      _raw = true; L.forEach((l, i) => H.text(bx + w / 2, by + 6.5 + 13.5 * k + i * 17 * k, l, '#1b2236', 13.5 * k)); _raw = false;
+    },
+    cloud: function(x, y, s){ [[0, 0, 22], [24, -8, 28], [52, 0, 22], [26, 6, 26]].forEach(c => H.circle(x + c[0] * s, y + c[1] * s, c[2] * s, '#fff', 0.9)); },
+    tree: function(x, y, s){ H.rect(x - 5 * s, y - 24 * s, 10 * s, 24 * s, '#8a5a2b'); H.circle(x, y - 40 * s, 24 * s, '#4caf50'); H.circle(x - 12 * s, y - 30 * s, 16 * s, '#43a047'); H.circle(x + 13 * s, y - 31 * s, 16 * s, '#66bb6a'); },
+    house: function(x, y, s){ H.rect(x - 30 * s, y - 36 * s, 60 * s, 36 * s, '#ffcc80', 3); E('polygon', {points:(x - 38 * s) + ',' + (y - 36 * s) + ' ' + x + ',' + (y - 66 * s) + ' ' + (x + 38 * s) + ',' + (y - 36 * s), fill:'#e57373'}); H.rect(x - 7 * s, y - 22 * s, 14 * s, 22 * s, '#8d6e63', 2); H.rect(x + 12 * s, y - 28 * s, 12 * s, 12 * s, '#81d4fa', 2); },
+    school: function(x, y, s){ H.rect(x - 46 * s, y - 40 * s, 92 * s, 40 * s, '#90caf9', 3); H.rect(x - 52 * s, y - 46 * s, 104 * s, 8 * s, '#5c6bc0', 2); H.rect(x - 8 * s, y - 24 * s, 16 * s, 24 * s, '#37474f', 2); for(let i = 0; i < 3; i++){ H.rect(x - 40 * s + i * 14 * s, y - 32 * s, 10 * s, 10 * s, '#fff', 2); H.rect(x + 16 * s + i * 0, y - 32 * s, 0, 0, '#fff'); } H.line(x + 36 * s, y - 46 * s, x + 36 * s, y - 80 * s, '#455a64', 3 * s); E('polygon', {points:(x + 36 * s) + ',' + (y - 80 * s) + ' ' + (x + 62 * s) + ',' + (y - 72 * s) + ' ' + (x + 36 * s) + ',' + (y - 64 * s), fill:'#ef5350'}); }
+  };
+    return H;
+  };
+})();
+
+(function(){
+  const CFG = {
+ dur: 30,
+ caps: [
+  {t:0, en:"Raja's bag hangs from a rope and does not fall. Is it magic?", ta:"ராஜாவோட பை கயிறுல தொங்குது, கீழ விழல. இது மந்திரமா?"},
+  {t:3.5, en:"No magic! The bag's weight W pulls DOWN with 60 N, and the rope pulls UP with 60 N. Equal, opposite, on the same line: the resultant is ZERO. That is EQUILIBRIUM.", ta:"மந்திரம் இல்ல! பையோட நிறை W கீழ 60 N-ல இழுக்குது, கயிறு மேல 60 N-ல இழுக்குது. சமம், எதிர், ஒரே கோடு: விளையுள் பூச்சியம். இதுதான் சமநிலை."},
+  {t:10, en:"Now Raja sits on a swing with two ropes. Rope 1 pulls up with 120 N and rope 2 pulls up with 180 N.", ta:"இப்போ ராஜா ரெண்டு கயிறு உள்ள ஊஞ்சல்ல உக்காந்திருக்கான். கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N இழுக்குது."},
+  {t:14, en:"Together they pull up with 120 + 180 = 300 N. This balances Raja's weight, W = 300 N. Three parallel forces in equilibrium: F₁ + F₂ = W.", ta:"சேர்ந்து மேல 120 + 180 = 300 N இழுக்குது. இது ராஜாவோட நிறை W = 300 N-ஐ சமநிலைப்படுத்துது. மூன்று சமாந்தர விசைகள் சமநிலையில்: F₁ + F₂ = W."},
+  {t:20, en:"A picture hangs from a nail on two slanting cords. Three forces act on it: tension F₁, tension F₂, and the weight W.", ta:"ஒரு படம் ஆணியில ரெண்டு சாய்வான கயிறுல தொங்குது. மூணு விசை அதுமேல: இழுவை F₁, இழுவை F₂, நிறை W."},
+  {t:24, en:"Extend the lines of the three forces. They all meet at ONE point (the nail). For three non-parallel forces in equilibrium, the lines of action meet at a point.", ta:"மூணு விசைகளோட கோடுகளையும் நீட்டு. எல்லாம் ஒரே புள்ளில (ஆணி) சந்திக்குது. சமநிலையில இருக்கும் மூணு சமாந்தரமற்ற விசைகளோட கோடுகள் ஒரு புள்ளில சந்திக்கும்."}
+ ],
+ sfx: [{t:0.8,s:'pop'},{t:4,s:'ding'},{t:10.6,s:'creak'},{t:15,s:'tada'},{t:21,s:'pop'},{t:25,s:'ding'}],
+ asks: [
+  {t:3.3, q:["Why does the bag NOT fall?","பை ஏன் கீழ விழல?"], o:[["The rope pulls up as hard as the weight pulls down","கயிறு நிறை இழுக்கற அளவு மேல இழுக்குது"],["It is magic","மந்திரம்"],["Because it is light","அது லேசா இருக்கறதால"]], c:0, why:["Equal and opposite forces on the same line give a zero resultant.","சமம், எதிர், ஒரே கோடு: விளையுள் பூச்சியம்."]},
+  {t:23.8, q:["Three non-parallel forces balance. Where do their lines of action meet?","சமநிலையில மூணு சமாந்தரமற்ற விசைகள். அவற்றோட கோடுகள் எங்க சந்திக்கும்?"], o:[["At one point","ஒரு புள்ளில"],["They never meet","எப்பவும் சந்திக்காது"],["They are all parallel","எல்லாம் சமாந்தரம்"]], c:0, why:["The lines of action of three non-parallel forces in equilibrium meet at a single point.","சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகளோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும்."]}
+ ],
+ draw: function(t, H){
+  if(t<9.6){
+    H.rect(0,0,640,360,'#fff0e1'); H.rect(0,0,640,150,'#ffe6c9'); H.rect(0,300,640,60,'#c9a77c'); H.rect(0,150,640,150,'#ffe9d2');
+    H.rect(460,50,130,150,'#bfe3ff',6,'#8a6a3d'); H.line(525,50,525,200,'#8a6a3d',4); H.line(460,125,590,125,'#8a6a3d',4);
+    var sway = 7*Math.exp(-0.9*t)*Math.sin(6*t), bx = 280, by = 190 + sway;
+    H.rect(180,28,200,14,'#8d6e63',4); H.circle(bx,42,7,'#455a64'); H.line(bx,42,bx,by-34,'#5d4037',4);
+    H.rect(bx-34,by-34,68,66,'#5c6bc0',16,'#303f9f'); H.rect(bx-26,by-48,52,16,'#7986cb',8); H.line(bx-18,by-8,bx+18,by-8,'#c5cae9',4);
+    var a1 = H.ease(H.seg(t,1.2,3)), ap = 0.9;
+    if(a1>0){ H.arrow(bx-46,by-30,bx-46,by-30-72*a1,'#0c9e83',8); H.arrow(bx+46,by+30,bx+46,by+30+72*a1,'#e53935',8); }
+    if(t>=3.5){ H.text(bx-52,by-98,'T = 60 N','#0c9e83',16,'end'); H.text(bx+52,by+112,'W = 60 N','#e53935',16,'start'); var g = 0.5+0.5*Math.sin(t*6); H.E('circle',{cx:bx,cy:by,r:64+g*6,fill:'none',stroke:'#ffd166','stroke-width':4,opacity:0.8}); H.text(bx,256,T('equal · opposite · same line','சமம் · எதிர் · ஒரே கோடு'),'#1b2236',13); }
+    H.raja(120,300,0.7,{eyes:(t>0.5&&t<3.5)?'w':'n', brow:(t>0.5&&t<3.5)?'up':'n', m:(t>0.5&&t<3.5)?0.8:0.3, aL:(t>3.5)?100:30, aR:(t>3.5)?100:30});
+    if(t<3.4) H.say(120,300-180,["How does it hang?!","எப்படி தொங்குது?!"],{col:'#fff1e0'});
+    H.chittu(520,300,0.6,{wL:t>3.5?50:0, wR:t>3.5?50:0, m:t>3.5?0.4:0.1});
+    if(t>=4&&t<9.6) H.say(520,300-166,["Equilibrium!","சமநிலை!"],{col:'#e6f6ff'});
+    H.fade(t,9.6);
+  } else if(t<19.6){
+    H.rect(0,0,640,360,'#d9f1ff'); H.rect(0,280,640,80,'#8fd17a'); H.cloud(80,50,1); H.cloud(470,44,1.2); H.tree(40,280,1); H.tree(600,280,1);
+    H.rect(150,24,340,14,'#8d6e63',5); H.line(180,38,150,282,'#8d6e63',8); H.line(460,38,490,282,'#8d6e63',8);
+    var r1 = 270, r2 = 390, sy = 130 + 6*Math.sin(Math.max(0,t-10.4)*3)*Math.exp(-0.4*Math.max(0,t-10.4));
+    H.line(r1,38,r1,sy,'#5d4037',4); H.line(r2,38,r2,sy,'#5d4037',4);
+    H.rect(r1-24,sy,r2-r1+48,12,'#ff9a4d',5,'#7a3b10');
+    H.raja(330,sy,0.5,{aL:40, aR:40, eyes:t>10.3?'n':'n', m:0.4});
+    var b1 = H.ease(H.seg(t,11,12.4)), b2 = H.ease(H.seg(t,12.2,13.6)), b3 = H.ease(H.seg(t,14.2,15.6));
+    if(b1>0) H.arrow(r1,sy-4,r1,sy-4-120*0.42*b1,'#0c9e83',8); if(b1>=1) H.text(r1-10,sy-34,'F₁ 120 N','#0c9e83',15,'end');
+    if(b2>0) H.arrow(r2,sy-4,r2,sy-4-180*0.42*b2,'#7b2ff7',8); if(b2>=1) H.text(r2+10,sy-50,'F₂ 180 N','#7b2ff7',15,'start');
+    if(b3>0) H.arrow(330,sy+18,330,sy+18+300*0.42*b3,'#e53935',10); if(b3>=1){ H.text(346,sy+110,'W = 300 N','#e53935',16,'start'); H.rect(440,196,170,30,'#0c9e83',10); H.text(525,216,'120 + 180 = 300 N','#fff',14); }
+    if(t>=10&&t<14) H.say(330,sy-150,["Whee, I am swinging!","ஐ, ஊஞ்சல் ஆடறேன்!"],{col:'#fff1e0'});
+    H.chittu(80,300,0.55,{wL:t>14.5?50:0, wR:t>14.5?50:0, m:t>14.5?0.4:0.1, eyes:'w'});
+    if(t>=15) H.say(80,300-150,["Up equals down!","மேல் = கீழ்!"],{col:'#e6f6ff'});
+    H.fade(t,9.6); H.fade(t,19.6);
+  } else {
+    H.rect(0,0,640,360,'#fff3e6'); H.rect(0,300,640,60,'#cdb28a');
+    var nx = 320, ny = 54;
+    H.circle(nx,ny,9,'#455a64'); H.circle(nx,ny,3,'#cfd8dc');
+    H.line(nx,ny,240,150,'#5d4037',4); H.line(nx,ny,400,150,'#5d4037',4);
+    H.rect(240,150,160,110,'#fff8e1',6,'#8d6e63'); H.rect(250,160,140,90,'#a5d6a7',4); H.circle(290,196,16,'#ffd54f'); H.E('polygon',{points:'260,240 320,190 380,240',fill:'#66bb6a'});
+    var s1 = H.ease(H.seg(t,20.6,22)), s2 = H.ease(H.seg(t,21.6,23)), s3 = H.ease(H.seg(t,22.4,24));
+    if(s1>0) H.arrow(240+30*s1*0,150,240+(nx-240)*0.45*s1,150-(150-ny)*0.45*s1,'#0c9e83',8);
+    if(s2>0) H.arrow(400,150,400+(nx-400)*0.45*s2,150-(150-ny)*0.45*s2,'#7b2ff7',8);
+    if(s3>0) H.arrow(320,262,320,262+64*s3,'#e53935',10);
+    if(t>=23){ H.text(190,110,'F₁','#0c9e83',17); H.text(450,110,'F₂','#7b2ff7',17); H.text(344,310,'W','#e53935',17,'start'); }
+    var ext = H.ease(H.seg(t,24,26.5));
+    if(ext>0){ H.line(240,150,240+(nx-240)*ext,150-(150-ny)*ext,'#0c9e83',3,'7 6'); H.line(400,150,400+(nx-400)*ext,150-(150-ny)*ext,'#7b2ff7',3,'7 6'); H.line(320,262,320,262-(262-ny)*ext,'#e53935',3,'7 6'); }
+    if(ext>=1){ H.spark(nx,ny,H.seg(t,26.5,28),'#ffd166'); var g2 = 0.5+0.5*Math.sin(t*7); H.E('circle',{cx:nx,cy:ny,r:16+g2*5,fill:'none',stroke:'#ffd166','stroke-width':4}); H.say(nx+70,ny+8,["ONE point!","ஒரே புள்ளி!"],{col:'#fffbe0'}); }
+    H.raja(110,300,0.62,{eyes:t>24?'w':'n', brow:t>24?'up':'n', m:t>24?0.7:0.3, aL:t>24?100:20, aR:t>24?100:20});
+    H.chittu(540,300,0.58,{wL:t>24?50:0, wR:t>24?50:0, m:t>24?0.4:0.1});
+    if(t>=20&&t<24) H.say(110,300-190,["A picture on the wall!","சுவர்ல ஒரு படம்!"],{col:'#fff1e0'});
+    H.fade(t,19.6);
+  }
+ }
+};
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const $ = id => document.getElementById(id);
+  const svg = $('fw_svg'); if(!svg) return;
+  const H = window.__fwMakeH(svg, 640, 360); const E = H.E, C = H.C;
+  /* ---------- sound ---------- */
+  let AC = null, soundOn = false;
+  function tone(f, d, type, vol, slide){
+    if(!soundOn) return;
+    try{
+      AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+      const o = AC.createOscillator(), g = AC.createGain(), t0 = AC.currentTime;
+      o.type = type || 'sine'; o.frequency.setValueAtTime(f, t0); if(slide) o.frequency.linearRampToValueAtTime(Math.max(30, f + slide), t0 + d);
+      g.gain.setValueAtTime(0.0001, t0); g.gain.exponentialRampToValueAtTime(vol || 0.2, t0 + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t0 + d);
+      o.connect(g); g.connect(AC.destination); o.start(t0); o.stop(t0 + d + 0.02);
+    }catch(e){}
+  }
+  const SFX = {
+    whoosh:() => tone(500, .35, 'sawtooth', .08, -380), thud:() => tone(110, .25, 'sine', .4, -70), boing:() => { tone(260, .3, 'sine', .25, 260); },
+    ding:() => { tone(880, .25, 'sine', .22); setTimeout(() => tone(1320, .3, 'sine', .2), 110); }, pop:() => tone(700, .12, 'triangle', .25, 300),
+    buzz:() => tone(160, .3, 'sawtooth', .15), tada:() => [523, 659, 784, 1047].forEach((f, i) => setTimeout(() => tone(f, .25, 'triangle', .22), i * 110)),
+    ouch:() => tone(420, .3, 'square', .1, -250), creak:() => tone(180, .4, 'sawtooth', .06, 60), zip:() => tone(900, .2, 'sine', .15, 500)
+  };
+  function sfx(n){ if(SFX[n]) SFX[n](); }
+  /* ---------- player ---------- */
+  let t = 0, playing = false, last = 0, auto = false, speed = 1, asked = {}, xpGiven = {}, finishedFx = false;
+  const asks = CFG.asks || [], sfxs = CFG.sfx || [];
+  function capIndex(){ let k = 0; CFG.caps.forEach((c, i) => { if(t >= c.t) k = i; }); return k; }
+  function paint(){
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox', '0 0 640 360');
+    H._defs = E('defs', {});
+    CFG.draw(t, H);
+    const k = capIndex(); $('fw_n').textContent = k + 1; $('fw_cap').textContent = T(CFG.caps[k].en, CFG.caps[k].ta);
+    $('fw_scrub').value = Math.round(1000 * t / CFG.dur);
+    $('fw_play').textContent = playing ? T('⏸ Pause', '⏸ நிறுத்து') : (t >= CFG.dur ? T('▶ Play again', '▶ திரும்ப ஓடு') : T('▶ Play', '▶ ஓடு'));
+    $('fw_rep').textContent = T('⟲ Replay', '⟲ மறுபடி');
+    $('fw_slow').textContent = speed < 1 ? T('🐢 Slow: on', '🐢 மெதுவா: ஆன்') : T('🐢 Slow: off', '🐢 மெதுவா: ஆஃப்');
+    $('fw_snd').textContent = soundOn ? T('🔊 Sound: on', '🔊 சத்தம்: ஆன்') : T('🔇 Sound: off', '🔇 சத்தம்: ஆஃப்');
+  }
+  function showAsk(a, idx){
+    const box = $('fw_ask'); box.hidden = false;
+    box.innerHTML = '<div class="aq">🤔 ' + T('Predict! ', 'கணிச்சு சொல்லு! ') + T(a.q[0], a.q[1]) + '</div><div class="ao">' + a.o.map((o, i) => '<button class="lg-try" data-i="' + i + '">' + T(o[0], o[1]) + '</button>').join('') + '</div><div class="ar"></div>';
+    box.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+      const i = +b.dataset.i, ok = i === a.c;
+      box.querySelectorAll('button').forEach((x, j) => { x.disabled = true; if(j === a.c) x.classList.add('on'); });
+      box.querySelector('.ar').innerHTML = (ok ? '🎉 <b>' + T('Yes!', 'ஆமா!') + '</b> ' : '💡 <b>' + T('Not quite. ', 'கொஞ்சம் தப்பு. ') + '</b>') + T(a.why[0], a.why[1]) + '<div><button class="btn primary" id="fw_go">' + T('Watch what happens ▶', 'என்ன ஆகுதுன்னு பாரு ▶') + '</button></div>';
+      if(ok && !xpGiven[idx]){ xpGiven[idx] = 1; if(typeof SCX !== 'undefined'){ try{ SCX.addXP(3, 'Good prediction!', 'சரியான கணிப்பு!'); }catch(e){} } }
+      sfx(ok ? 'ding' : 'buzz');
+      $('fw_go').addEventListener('click', () => { box.hidden = true; play(); });
+    }));
+  }
+  function tick(ts){
+    if(!playing) return;
+    const dt = Math.min(0.1, (ts - last) / 1000) * speed; last = ts;
+    const prev = t; t += dt;
+    for(let i = 0; i < sfxs.length; i++){ if(prev < sfxs[i].t && t >= sfxs[i].t) sfx(sfxs[i].s); }
+    for(let i = 0; i < asks.length; i++){
+      if(!asked[i] && prev < asks[i].t && t >= asks[i].t){ asked[i] = true; t = asks[i].t; playing = false; paint(); showAsk(asks[i], i); return; }
+    }
+    if(t >= CFG.dur){
+      t = CFG.dur; playing = false;
+      if(!finishedFx){ finishedFx = true; sfx('tada'); if(typeof SCX !== 'undefined'){ try{ SCX.confettiBurst(); }catch(e){} } }
+    }
+    paint(); if(playing) requestAnimationFrame(tick);
+  }
+  function play(){ if(t >= CFG.dur) t = 0; $('fw_ask').hidden = true; playing = true; last = performance.now(); requestAnimationFrame(tick); paint(); }
+  $('fw_play').addEventListener('click', () => { if(!$('fw_ask').hidden) return; if(playing){ playing = false; paint(); } else play(); if(window.__fwMark) window.__fwMark('watch'); });
+  $('fw_rep').addEventListener('click', () => { t = 0; asked = {}; finishedFx = false; $('fw_ask').hidden = true; play(); });
+  $('fw_slow').addEventListener('click', () => { speed = speed < 1 ? 1 : 0.5; paint(); });
+  $('fw_snd').addEventListener('click', () => { soundOn = !soundOn; if(soundOn) sfx('pop'); paint(); });
+  $('fw_scrub').addEventListener('input', () => {
+    playing = false; $('fw_ask').hidden = true; t = CFG.dur * (+$('fw_scrub').value) / 1000;
+    asks.forEach((a, i) => { if(a.t > t) asked[i] = false; else asked[i] = true; });
+    finishedFx = t >= CFG.dur; paint();
+  });
+  if('IntersectionObserver' in window){
+    new IntersectionObserver((es, o) => { es.forEach(e => { if(e.isIntersecting && !auto){ auto = true; if(!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) setTimeout(play, 600); o.disconnect(); } }); }, {threshold:.5}).observe($('watch'));
+  }
+  const prevHook = openerLangHook; openerLangHook = function(){ if(prevHook) prevHook(); paint(); };
+  window.__fwPaint = (tt) => { t = tt; paint(); };
+  window.__fwH = H;
+  paint();
+})();
+
+
+/* ============================================================
+   GUIDED LAB
+============================================================ */
+(function(){
+  const LAB = {
+ goal: ["Find out when an object stays still (equilibrium). Two forces pull UP (F₁ and F₂) and the weight W pulls DOWN. It stays still only when the upward forces add up to the weight.", "ஒரு பொருள் எப்ப அசையாம நிக்குதுன்னு (சமநிலை) கண்டுபிடி. ரெண்டு விசை மேல இழுக்குது (F₁, F₂), நிறை W கீழ இழுக்குது. மேல இழுக்கும் விசைகளோட கூட்டுத்தொகை நிறைக்கு சமமா இருந்தா மட்டும்தான் அசையாம நிக்கும்."],
+ look: ["a ball hangs from a bar. Purple and green arrows pull it up, the red arrow is its weight. The words next to the numbers tell you if it moves up, moves down, or stays still.", "ஒரு பந்து கம்பியில தொங்குது. ஊதா, பச்சை அம்புக்குறிகள் மேல இழுக்குது, சிவப்பு அதோட நிறை. எண்கள் பக்கத்துல இருக்கற வார்த்தைகள் அது மேல போகுதா, கீழ போகுதா, அசையாம நிக்குதான்னு சொல்லும்."],
+ tries: [
+  {l:["A bag on one rope","ஒரு கயிறுல பை"], set:{f1Slider:60, f2Slider:0, wSlider:60}, see:["Only one rope pulls up: 60 N. It equals the weight of 60 N, so the bag stays still. Two forces: equal, opposite, same line.", "ஒரு கயிறு மட்டும் 60 N மேல இழுக்குது. அது நிறை 60 N-க்கு சமம், அதனால பை அசையாம நிக்குது. ரெண்டு விசை: சமம், எதிர், ஒரே கோடு."]},
+  {l:["A swing with two ropes","ரெண்டு கயிறு ஊஞ்சல்"], set:{f1Slider:30, f2Slider:40, wSlider:70}, see:["30 + 40 = 70 N upward, and the weight is 70 N. Equal, so everything stays still. Three parallel forces: F₁ + F₂ = W.", "30 + 40 = 70 N மேல், நிறை 70 N. சமம், அதனால எல்லாம் அசையாம நிக்குது. மூன்று சமாந்தர விசைகள்: F₁ + F₂ = W."]},
+  {l:["Not balanced","சமநிலை இல்ல"], set:{f1Slider:20, f2Slider:20, wSlider:60}, see:["20 + 20 = 40 N is less than the weight of 60 N. There is 20 N of unbalanced force downward, so the ball sinks.", "20 + 20 = 40 N நிறை 60 N-ஐ விட குறைவு. 20 N சமநிலையற்ற விசை கீழ் நோக்கி இருக்கு, அதனால பந்து கீழ போகுது."]}
+ ],
+ live: function(){
+  var a = +document.getElementById('f1Slider').value, b = +document.getElementById('f2Slider').value, w = +document.getElementById('wSlider').value, up = a + b;
+  if(up === w) return ["Up: " + a + " + " + b + " = " + up + " N. Down: " + w + " N. Equal, so the resultant is zero and the ball stays still.", "மேல்: " + a + " + " + b + " = " + up + " N. கீழ்: " + w + " N. சமம், அதனால விளையுள் பூச்சியம், பந்து அசையாம நிக்கும்."];
+  return ["Up: " + up + " N. Down: " + w + " N. The " + (up > w ? "upward" : "downward") + " force is bigger by " + Math.abs(up - w) + " N, so the ball moves " + (up > w ? "up" : "down") + ".", "மேல்: " + up + " N. கீழ்: " + w + " N. " + (up > w ? "மேல்நோக்கிய" : "கீழ்நோக்கிய") + " விசை " + Math.abs(up - w) + " N அதிகம், அதனால பந்து " + (up > w ? "மேல" : "கீழ") + " போகுது."];
+ }
+};
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const $ = id => document.getElementById(id);
+  if(!$('lg')) return;
+  let chosen = -1;
+  function setVal(id, v){ const e = $(id); if(!e) return; e.value = v; e.dispatchEvent(new Event('input', {bubbles:true})); e.dispatchEvent(new Event('change', {bubbles:true})); }
+  function render(){
+    $('lg_h').textContent = T('🎯 How to use this lab', '🎯 இந்த லேப்ப எப்படி பயன்படுத்தறது');
+    $('lg_goal').textContent = T(LAB.goal[0], LAB.goal[1]);
+    $('lg_look').textContent = T('In the picture: ' + LAB.look[0], 'படத்துல: ' + LAB.look[1]);
+    $('lg_tries').innerHTML = '';
+    LAB.tries.forEach((tr, i) => {
+      const b = document.createElement('button'); b.className = 'lg-try' + (i === chosen ? ' on' : '');
+      b.textContent = (i + 1) + '. ' + T(tr.l[0], tr.l[1]);
+      b.addEventListener('click', () => {
+        chosen = i;
+        (tr.click || []).forEach(id => { const e = $(id); if(e) e.click(); });
+        Object.keys(tr.set || {}).forEach(id => setVal(id, tr.set[id]));
+        if(tr.play){ const r = $('resetBtn'), p = $('playBtn'); if(r) r.click(); if(p) setTimeout(() => p.click(), 60); }
+        render(); live();
+        if(window.__fwMark) window.__fwMark('lab');
+      });
+      $('lg_tries').appendChild(b);
+    });
+    const see = chosen >= 0 ? LAB.tries[chosen].see : null;
+    $('lg_see').innerHTML = see ? '👀 <b>' + T('What you should see: ', 'நீ பாக்கணும்: ') + '</b>' + T(see[0], see[1]) : '👆 ' + T('Press a "Try" button, and I will set the lab for you. Or move the sliders yourself.', '"Try" பட்டனை அழுத்து, நான் லேப்ப செட் பண்றேன். இல்லன்னா நீயே ஸ்லைடர நகர்த்து.');
+    live();
+  }
+  function live(){
+    let r = null; try{ r = LAB.live(); }catch(e){}
+    $('lg_live').innerHTML = r ? '💬 <b>' + T('Right now: ', 'இப்போ: ') + '</b>' + T(r[0], r[1]) : '';
+  }
+  const card = $('lg').closest('.lab-card');
+  ['input', 'click', 'change'].forEach(ev => card.addEventListener(ev, () => setTimeout(live, 30)));
+  const prev = openerLangHook; openerLangHook = function(){ if(prev) prev(); render(); };
+  render();
+})();
+
+
+/* ============================================================
+   CARTOON LAB STAGE (Raja and Chittu react to the sliders) + MISSIONS
+============================================================ */
+(function(){
+  const CFG = {
+ read: function(){ var g = function(i){ return +document.getElementById(i).value; };
+   var a = g('f1Slider'), b = g('f2Slider'), w = g('wSlider'); return {f1:a, f2:b, w:w, net:a + b - w}; },
+ missions: [
+  {en:"Balance Raja with ONE rope only (F₂ = 0).", ta:"ஒரே ஒரு கயிறால ராஜாவ சமநிலைப்படுத்து (F₂ = 0).", test:function(S){ return S.f2 === 0 && S.net === 0; }},
+  {en:"Balance him with BOTH ropes pulling (F₁ + F₂ = W).", ta:"ரெண்டு கயிறும் இழுக்க சமநிலைப்படுத்து (F₁ + F₂ = W).", test:function(S){ return S.f1 > 0 && S.f2 > 0 && S.net === 0; }},
+  {en:"Make Raja fly UP (the ropes must pull more than his weight).", ta:"ராஜா மேல பறக்கணும் (கயிறுகள் நிறைய விட அதிகமா இழுக்கணும்).", test:function(S){ return S.net > 0; }}
+ ],
+ draw: function(S, t, H){
+  var C = H.C, bal = S.net === 0, off = H.clamp(-S.net * 0.9, -48, 48), sy = 160 + off, k = 0.8;
+  H.rect(0,0,640,300,'#d9f1ff'); H.cloud(80,60,0.9); H.cloud(470,46,1.1); H.rect(0,270,640,30,'#8fd17a');
+  H.rect(150,24,340,14,'#8d6e63',5); H.line(180,38,150,272,'#8d6e63',8); H.line(460,38,490,272,'#8d6e63',8);
+  var r1 = 250, r2 = 390; H.line(r1,38,r1,sy,'#5d4037',4); H.line(r2,38,r2,sy,'#5d4037',4);
+  H.rect(r1 - 22,sy,r2 - r1 + 44,12,'#ff9a4d',5,'#7a3b10');
+  var state = bal ? 'ok' : (S.net < 0 ? 'fall' : 'fly');
+  H.raja(320,sy,0.5,{aL:state === 'ok' ? 20 : 120, aR:state === 'ok' ? 20 : 120, eyes:state === 'ok' ? 'n' : 'w', brow:state === 'ok' ? 'n' : 'up', m:state === 'ok' ? 0.15 : 0.9, tail:Math.sin(t * 6) * 10});
+  if(bal){ var g2 = 0.5 + 0.5 * Math.sin(t * 4); H.E('circle',{cx:320,cy:sy - 40,r:78 + g2 * 8,fill:'none',stroke:'#ffd166','stroke-width':4,opacity:0.85}); }
+  if(state === 'fall'){ H.sweat(326,sy - 134,t); for(var i = 0; i < 3; i++){ H.line(300 + i * 20,sy - 150 - i * 4,300 + i * 20,sy - 130 - i * 4,'#8ab',3); } }
+  if(state === 'fly'){ for(var j = 0; j < 3; j++){ H.line(296 + j * 28,sy + 30 + j * 4,296 + j * 28,sy + 56 + j * 4,'#fff',4); } }
+  if(S.f1 > 0) H.arrow(r1,sy - 6,r1,sy - 6 - S.f1 * k,'#0c9e83',8); H.text(r1 - 8,sy - 10 - S.f1 * k * 0.5,'F₁ ' + S.f1,'#0c9e83',14,'end');
+  if(S.f2 > 0) H.arrow(r2,sy - 6,r2,sy - 6 - S.f2 * k,'#7b2ff7',8); H.text(r2 + 8,sy - 10 - S.f2 * k * 0.5,'F₂ ' + S.f2,'#7b2ff7',14,'start');
+  H.arrow(320,sy + 16,320,sy + 16 + S.w * k * 0.9,'#e53935',9); H.text(334,sy + 30 + S.w * k * 0.45,'W ' + S.w,'#e53935',14,'start');
+  H.rect(14,12,256,34,'#fff',10,'#1b2236',0.94); H.text(24,34,T('Up: ','மேல்: ') + (S.f1 + S.f2) + ' N   ' + T('Down: ','கீழ்: ') + S.w + ' N','#1b2236',14,'start');
+  H.rect(470,12,160,32,bal ? '#0c9e83' : '#e53935',10); H.text(550,33,bal ? T('EQUILIBRIUM','சமநிலை') : (S.net < 0 ? T('falling ↓','கீழ விழறான் ↓') : T('flying ↑','மேல பறக்கறான் ↑')),'#fff',14);
+  H.chittu(560,270,0.45,{wL:bal ? 10 : 50, m:0.3, eyes:'w'});
+  var msg = bal ? ["Up = down: perfectly still!", "மேல் = கீழ்: அசையாம நிக்கறான்!"] : (S.net < 0 ? ["Not enough up-pull! Help!", "மேல இழுவை போதாது! காப்பாத்துங்க!"] : ["Too much up-pull! Wheee!", "மேல இழுவை அதிகம்! வீ!"]);
+  H.say(540,270 - 112,msg,{col:'#e6f6ff',n:20});
+ }
+};
+  const LID2 = 'c12';
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const $ = id => document.getElementById(id);
+  const svg = $('ls_svg'); if(!svg || !window.__fwMakeH) return;
+  const H = window.__fwMakeH(svg, 640, 300);
+  const done = [], allDone = {v:false};
+  CFG.missions.forEach((m, i) => { let d = false; try{ d = safeGet('scx_lab_' + LID2 + '_' + i) === '1'; }catch(e){} done[i] = d; });
+  let vis = false, t0 = performance.now(), cnt = 0, touched = false;
+  const labCard = $('ls').closest('.lab-card');
+  ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, () => { touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
+  function renderMissions(){
+    $('ls_h').textContent = T('🎬 Lab stage: watch Raja and Chittu react', '🎬 லேப் மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு');
+    $('ls_hint').textContent = T('Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி மிஷன்கள முடி!');
+    $('ls_miss').innerHTML = CFG.missions.map((m, i) => '<div class="ls-m' + (done[i] ? ' ok' : '') + '"><span class="ck">✓</span>' + T('Mission ' + (i + 1) + ': ' + m.en, 'மிஷன் ' + (i + 1) + ': ' + m.ta) + '</div>').join('');
+  }
+  function check(S){
+    if(!touched) return;
+    CFG.missions.forEach((m, i) => {
+      if(done[i]) return;
+      let ok = false; try{ ok = m.test(S); }catch(e){}
+      if(!ok) return;
+      done[i] = true; safeSet('scx_lab_' + LID2 + '_' + i, '1'); renderMissions();
+      if(typeof SCX !== 'undefined'){ try{ SCX.addXP(5, 'Lab mission complete!', 'லேப் மிஷன் முடிஞ்சது!'); }catch(e){} }
+      if(window.__fwMark) window.__fwMark('lab');
+      if(done.every(Boolean) && !allDone.v){ allDone.v = true; if(typeof SCX !== 'undefined'){ try{ SCX.addXP(10, 'All lab missions done!', 'எல்லா லேப் மிஷனும் முடிஞ்சது!'); SCX.confettiBurst(); }catch(e){} } }
+    });
+  }
+  function paint(){
+    const t = (performance.now() - t0) / 1000;
+    while(svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox', '0 0 640 300'); H._defs = H.E('defs', {});
+    let S = {}; try{ S = CFG.read(); }catch(e){}
+    try{ CFG.draw(S, t, H); }catch(e){ if(window.console) console.warn('lab stage', e); }
+    if((cnt++ % 6) === 0) check(S);
+  }
+  function loop(){ if(!vis) return; paint(); requestAnimationFrame(loop); }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(es => { es.forEach(e => { const was = vis; vis = e.isIntersecting; if(vis && !was) loop(); }); }, {threshold:.1}).observe($('ls'));
+  } else { vis = true; loop(); }
+  const prev = openerLangHook; openerLangHook = function(){ if(prev) prev(); renderMissions(); paint(); };
+  window.__lsPaint = paint;
+  renderMissions(); paint();
+})();
+
+
+applyLang(safeGet('lessonLang') || 'en');
+
+/* ============================================================
+   GAMIFICATION CORE: XP, levels, badges, streaks, sound, confetti
+============================================================ */
+const SCX = (function(){
+  const XP_KEY = 'scx_xp_total';
+  const BADGE_KEY = 'scx_badges';
+  const VISIT_KEY = 'scx_visit_dates';
+  const LEVEL_STEP = 50;
+
+  let _xpMem = null, _badgesMem = null, _visitMem = null;
+  function getXP(){ if(_xpMem===null){ _xpMem = parseInt(safeGet(XP_KEY)||'0',10)||0; } return _xpMem; }
+  function setXP(v){ _xpMem = v; safeSet(XP_KEY, String(v)); }
+  function getBadges(){ if(_badgesMem===null){ try{ _badgesMem = JSON.parse(safeGet(BADGE_KEY)||'[]'); }catch(e){ _badgesMem=[]; } } return _badgesMem; }
+  function setBadges(arr){ _badgesMem = arr; safeSet(BADGE_KEY, JSON.stringify(arr)); }
+
+  const ALL_BADGES = [
+    { id:'ch12_quiz_ace', icon:'🎯', en:'Quiz Ace', ta:'குயிஸ் ஏஸ்' },
+    { id:'ch12_examples_master', icon:'🧠', en:'Concept Master', ta:'கருத்து மாஸ்டர்' },
+    { id:'ch12_push_champ', icon:'⚖️', en:'Hold-It-Still Champion', ta:'அசையாம-பிடி சாம்பியன்' },
+    { id:'ch12_sort_master', icon:'🧩', en:'Sort Master', ta:'சார்ட் மாஸ்டர்' },
+    { id:'ch12_legend', icon:'🏆', en:'Equilibrium Legend', ta:'சமநிலை லெஜெண்ட்' }
+  ];
+
+  let actx = null;
+  function ctx(){ if(!actx){ try{ actx = new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } return actx; }
+  function beep(freq, dur, type, delay){
+    const c = ctx(); if(!c) return;
+    const t0 = c.currentTime + (delay||0);
+    const osc = c.createOscillator(); const gain = c.createGain();
+    osc.type = type || 'sine';
+    osc.frequency.setValueAtTime(freq, t0);
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(0.15, t0+0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0+dur);
+    osc.connect(gain); gain.connect(c.destination);
+    osc.start(t0); osc.stop(t0+dur+0.02);
+  }
+  function sndCorrect(){ beep(660,0.12,'sine',0); beep(880,0.15,'sine',0.1); }
+  function sndWrong(){ beep(180,0.2,'sawtooth',0); }
+  function sndFanfare(){ [523,659,784,1047].forEach((f,i)=>beep(f,0.2,'triangle',i*0.09)); }
+  function sndLevelUp(){ beep(440,0.1,'sine',0); beep(660,0.1,'sine',0.08); beep(990,0.18,'sine',0.16); }
+
+  const canvas = document.getElementById('confettiCanvas');
+  const cctx = canvas ? canvas.getContext('2d') : null;
+  function resizeCanvas(){ if(!canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  window.addEventListener('resize', resizeCanvas); resizeCanvas();
+  let particles = [];
+  function confettiBurst(){
+    if(!cctx) return;
+    const colors = [cssVar('--accent'), cssVar('--accent-2'), cssVar('--accent-3'), '#ffd166', '#ef476f'];
+    for(let i=0;i<70;i++){
+      particles.push({ x: canvas.width/2 + (Math.random()-0.5)*200, y: canvas.height*0.25,
+        vx: (Math.random()-0.5)*8, vy: Math.random()*-6 - 2, g: 0.25+Math.random()*0.15,
+        size: 4+Math.random()*5, color: colors[Math.floor(Math.random()*colors.length)],
+        rot: Math.random()*360, vr: (Math.random()-0.5)*12, life: 100 });
+    }
+    if(!confettiRunning){ confettiRunning = true; requestAnimationFrame(confettiTick); }
+  }
+  let confettiRunning = false;
+  function confettiTick(){
+    cctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.vy += p.g; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life--;
+      cctx.save(); cctx.translate(p.x,p.y); cctx.rotate(p.rot*Math.PI/180);
+      cctx.fillStyle = p.color; cctx.globalAlpha = Math.max(0, p.life/100);
+      cctx.fillRect(-p.size/2,-p.size/2,p.size,p.size); cctx.restore();
+    });
+    particles = particles.filter(p=>p.life>0 && p.y < canvas.height+50);
+    if(particles.length>0){ requestAnimationFrame(confettiTick); }
+    else { confettiRunning = false; cctx.clearRect(0,0,canvas.width,canvas.height); }
+  }
+
+  function toast(html){
+    const wrap = document.getElementById('toastWrap'); if(!wrap) return;
+    const t = document.createElement('div'); t.className = 'toast'; t.innerHTML = html;
+    wrap.appendChild(t);
+    setTimeout(()=>{ t.classList.add('fadeout'); setTimeout(()=>t.remove(), 400); }, 3200);
+  }
+
+  function refreshBar(){
+    const xp = getXP();
+    const level = Math.floor(xp / LEVEL_STEP) + 1;
+    const inLevel = xp % LEVEL_STEP;
+    const pct = Math.round((inLevel / LEVEL_STEP) * 100);
+    const xpLevelEl = document.getElementById('xpLevel');
+    const xpTotalEl = document.getElementById('xpTotal');
+    const xpFillEl = document.getElementById('xpBarFill');
+    if(xpLevelEl) xpLevelEl.textContent = level;
+    if(xpTotalEl) xpTotalEl.textContent = xp;
+    if(xpFillEl) xpFillEl.style.width = pct + '%';
+    const badges = getBadges().filter(id => id.indexOf('ch12_')===0);
+    const badgeCountEl = document.getElementById('badgeCount');
+    if(badgeCountEl) badgeCountEl.textContent = badges.length;
+    const panel = document.getElementById('badgesPanel');
+    if(panel){
+      panel.innerHTML = '';
+      ALL_BADGES.forEach(b=>{
+        const earned = getBadges().includes(b.id);
+        const pill = document.createElement('div');
+        pill.className = 'badge-pill' + (earned ? ' earned' : '');
+        pill.innerHTML = '<span class="bi">'+b.icon+'</span> ' + (APP_LANG==='ta'?b.ta:b.en);
+        panel.appendChild(pill);
+      });
+    }
+  }
+
+  function addXP(amount, reasonEn, reasonTa){
+    const before = getXP();
+    const beforeLevel = Math.floor(before / LEVEL_STEP);
+    const after = before + amount;
+    setXP(after);
+    const afterLevel = Math.floor(after / LEVEL_STEP);
+    refreshBar();
+    sndCorrect();
+    toast('<b>+'+amount+' XP</b><br>'+(APP_LANG==='ta'?reasonTa:reasonEn));
+    if(afterLevel > beforeLevel){
+      setTimeout(()=>{
+        sndLevelUp();
+        toast('🎉 <b>'+(APP_LANG==='ta'?'மட்டம் '+ (afterLevel+1) +'!':'Level '+(afterLevel+1)+'!')+'</b><br>'+(APP_LANG==='ta'?'இன்னும் தொடர்ந்து முன்னேறு!':'Keep going!'));
+      }, 350);
+    }
+  }
+
+  function awardBadge(id){
+    const badges = getBadges();
+    if(badges.includes(id)) return;
+    badges.push(id); setBadges(badges); refreshBar();
+    const meta = ALL_BADGES.find(b=>b.id===id);
+    if(!meta) return;
+    setTimeout(()=>{
+      sndFanfare(); confettiBurst();
+      toast('🏅 <b>'+(APP_LANG==='ta'?'புதிய பேட்ஜ்!':'New Badge!')+'</b><br>'+meta.icon+' '+(APP_LANG==='ta'?meta.ta:meta.en));
+    }, 200);
+    const specificIds = ['ch12_quiz_ace','ch12_examples_master','ch12_push_champ','ch12_sort_master'];
+    if(id!=='ch12_legend' && specificIds.every(sid=>badges.includes(sid))){
+      setTimeout(()=>awardBadge('ch12_legend'), 900);
+    }
+  }
+
+  function updateStreak(){
+    const today = new Date().toISOString().slice(0,10);
+    let dates = [];
+    if(_visitMem !== null){ dates = _visitMem; }
+    else { try{ dates = JSON.parse(safeGet(VISIT_KEY) || '[]'); }catch(e){} }
+    if(!dates.includes(today)){ dates.push(today); }
+    _visitMem = dates;
+    safeSet(VISIT_KEY, JSON.stringify(dates));
+    dates.sort();
+    let streak = 1;
+    for(let i=dates.length-1;i>0;i--){
+      const d1 = new Date(dates[i]), d2 = new Date(dates[i-1]);
+      const diffDays = Math.round((d1-d2)/86400000);
+      if(diffDays===1){ streak++; } else if(diffDays>1){ break; }
+    }
+    const el2 = document.getElementById('streakVal');
+    if(el2) el2.textContent = streak;
+  }
+
+  function exerciseGraded(correct){
+    if(correct){ addXP(8, 'Exercise correct!', 'பயிற்சி சரியா!'); }
+    else { addXP(3, 'Nice try — keep learning!', 'நல்ல முயற்சி — தொடர்ந்து படி!'); }
+  }
+  function pushItLevelResult(stars, allLevelsCleared){
+    if(stars>0) addXP(stars*10, 'Level cleared!', 'லெவல் முடிச்சாச்சு!');
+    if(allLevelsCleared) awardBadge('ch12_push_champ');
+  }
+  function sortGameComplete(){
+    addXP(20, 'Equilibrium Sort complete!', 'சமநிலை சார்ட் முடிச்சாச்சு!');
+    awardBadge('ch12_sort_master');
+  }
+
+  updateStreak();
+  refreshBar();
+
+  const badgesToggle = document.getElementById('badgesToggle');
+  if(badgesToggle){ badgesToggle.addEventListener('click', ()=>{ document.getElementById('badgesPanel').classList.toggle('show'); }); }
+
+  return { addXP, awardBadge, refreshBar, exerciseGraded, pushItLevelResult, sortGameComplete, sndCorrect, sndWrong, confettiBurst };
+})();
+SCX.refreshBar();
+
+/* ============================================================
+   EQUILIBRIUM SORT GAME
+============================================================ */
+(function(){
+  const terms = [
+    { id:'t1', en:'Equilibrium', ta:'சமநிலை', defEn:'The resultant of all forces on the object is zero', defTa:'பொருள் மேல தாக்கும் எல்லா விசைகளின் விளையுள் பூச்சியம்' },
+    { id:'t2', en:'Two-force equilibrium', ta:'இரு விசை சமநிலை', defEn:'Equal in size, opposite in direction, along the same line', defTa:'சம பருமன், எதிர் திசை, ஒரே நேர்கோடு' },
+    { id:'t3', en:'Three parallel forces', ta:'மூன்று சமாந்தர விசைகள்', defEn:'Resultant of two equals the third, opposite (e.g. F₁ + F₂ = W)', defTa:'ரெண்டின் விளையுள் மூன்றாவதுக்கு சமம், எதிர் (எ.கா F₁ + F₂ = W)' },
+    { id:'t4', en:'Three non-parallel forces', ta:'மூன்று சமாந்தரமற்ற விசைகள்', defEn:'Lines of action must meet at a single point', defTa:'தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும்' }
+  ];
+  const termsWrap = document.getElementById('matchTerms');
+  const defsWrap = document.getElementById('matchDefs');
+  const matchResult = document.getElementById('matchResult');
+  let selectedTerm = null, matchedCount = 0;
+  const defOrder = [...terms].sort(()=>Math.random()-0.5);
+
+  function renderMatch(){
+    termsWrap.innerHTML = '';
+    terms.forEach(t=>{
+      const tile = document.createElement('div');
+      tile.className = 'match-tile'; tile.dataset.id = t.id;
+      tile.setAttribute('data-ta', t.ta); tile.innerHTML = t.en;
+      tile.addEventListener('click', ()=>{
+        if(tile.classList.contains('matched')) return;
+        termsWrap.querySelectorAll('.match-tile').forEach(x=>x.classList.remove('selected'));
+        tile.classList.add('selected'); selectedTerm = t;
+      });
+      termsWrap.appendChild(tile);
+    });
+    defsWrap.innerHTML = '';
+    defOrder.forEach(t=>{
+      const tile = document.createElement('div');
+      tile.className = 'match-tile'; tile.dataset.id = t.id;
+      tile.setAttribute('data-ta', t.defTa); tile.innerHTML = t.defEn;
+      tile.addEventListener('click', ()=>{
+        if(tile.classList.contains('matched') || !selectedTerm) return;
+        if(tile.dataset.id === selectedTerm.id){
+          tile.classList.add('matched');
+          termsWrap.querySelector('[data-id="'+selectedTerm.id+'"]').classList.add('matched');
+          matchedCount++;
+          SCX.addXP(5, 'Correct match!', 'சரியான ஜோடி!');
+          selectedTerm = null;
+          if(matchedCount === terms.length){
+            matchResult.textContent = (APP_LANG==='ta') ? '🎉 எல்லாமே சரி!' : '🎉 All matched!';
+            matchResult.className = 'game-result win';
+          }
+        } else {
+          tile.classList.add('wrong');
+          SCX.sndWrong();
+          setTimeout(()=>tile.classList.remove('wrong'), 400);
+        }
+      });
+      defsWrap.appendChild(tile);
+    });
+  }
+  renderMatch();
+
+  const sortItems = [
+    { id:'s1', en:'Book resting on a table', ta:'மேசை மேல ஓய்வுல இருக்கும் புத்தகம்', bin:'eq' },
+    { id:'s2', en:'Block pulled 20 N right and 25 N left', ta:'20 N வலம், 25 N இடம் இழுக்கப்படும் பெட்டி', bin:'noteq' },
+    { id:'s3', en:'Child on a swing, ropes 120 N + 180 N, weight 300 N', ta:'ஊஞ்சல் பிள்ளை, கயிறுகள் 120 N + 180 N, நிறை 300 N', bin:'eq' },
+    { id:'s4', en:'12 N left and 12 N right, same line', ta:'12 N இடம், 12 N வலம், ஒரே கோடு', bin:'eq' },
+    { id:'s5', en:'Tug of war: 300 N vs 260 N', ta:'கயிறிழுத்தல்: 300 N vs 260 N', bin:'noteq' },
+    { id:'s6', en:'Picture hanging still on a wall', ta:'சுவர்ல அசையாம தொங்கும் படம்', bin:'eq' },
+    { id:'s7', en:'Ring pulled 10 N up and 6 N down', ta:'10 N மேல், 6 N கீழ் இழுக்கப்படும் வளையம்', bin:'noteq' },
+    { id:'s8', en:'Rope-pulled load with 20 N up but weight 35 N', ta:'20 N மேல் இழுவை, 35 N நிறை உள்ள சுமை', bin:'noteq' }
+  ];
+  const sortPool = document.getElementById('sortPool');
+  const binEqItems = document.getElementById('binEqItems');
+  const binNotEqItems = document.getElementById('binNotEqItems');
+  const sortResult = document.getElementById('sortResult');
+  let selectedChip = null, sortedCount = 0;
+
+  function renderSort(){
+    sortPool.innerHTML = '';
+    sortItems.forEach(it=>{
+      const chip = document.createElement('div');
+      chip.className = 'sort-chip'; chip.dataset.id = it.id;
+      chip.setAttribute('data-ta', it.ta); chip.innerHTML = it.en;
+      chip.addEventListener('click', ()=>{
+        sortPool.querySelectorAll('.sort-chip').forEach(x=>x.classList.remove('selected'));
+        chip.classList.add('selected'); selectedChip = it;
+      });
+      sortPool.appendChild(chip);
+    });
+  }
+  function tryPlace(binName, targetEl){
+    if(!selectedChip) return;
+    if(selectedChip.bin === binName){
+      const done = document.createElement('span');
+      done.className = 'schip';
+      done.textContent = APP_LANG==='ta' ? selectedChip.ta : selectedChip.en;
+      targetEl.appendChild(done);
+      const chipEl = sortPool.querySelector('[data-id="'+selectedChip.id+'"]');
+      if(chipEl) chipEl.remove();
+      sortedCount++;
+      SCX.addXP(5, 'Sorted correctly!', 'சரியா வரிசைப்படுத்தினே!');
+      selectedChip = null;
+      if(sortedCount === sortItems.length){
+        sortResult.textContent = (APP_LANG==='ta') ? '🎉 எல்லா சிப்பும் சரியா வரிசைப்படுத்தப்பட்டது!' : '🎉 All chips sorted correctly!';
+        sortResult.className = 'game-result win';
+        SCX.sortGameComplete();
+      }
+    } else {
+      const chipEl = sortPool.querySelector('[data-id="'+selectedChip.id+'"]');
+      if(chipEl){ chipEl.classList.add('wrong'); setTimeout(()=>chipEl.classList.remove('wrong'),400); }
+      SCX.sndWrong();
+    }
+  }
+  document.getElementById('binEq').addEventListener('click', ()=>tryPlace('eq', binEqItems));
+  document.getElementById('binNotEq').addEventListener('click', ()=>tryPlace('noteq', binNotEqItems));
+  renderSort();
+})();
+
+/* Re-sync language on all dynamically-created game elements */
+applyLang(APP_LANG);
+
+/* ============================================================
+   SCROLL-REVEAL
+============================================================ */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('.card, .qcard, .exgroup, .lab-card, .qz-card');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('revealed'); io.unobserve(entry.target); }
+    });
+  }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+  targets.forEach((el2,i)=>{
+    el2.classList.add('reveal-init');
+    el2.style.transitionDelay = Math.min(i%4,3)*0.06 + 's';
+    io.observe(el2);
+  });
+})();
+
+/* ============================================================
+   HANDS-ON ACTIVITIES: "I tried it!" XP (once per activity)
+============================================================ */
+(function(){
+  const KEY = 'scx_ch12_activities';
+  let done = [];
+  try{ done = JSON.parse(safeGet(KEY) || '[]'); }catch(e){}
+  function markDone(btn){
+    btn.disabled = true;
+    btn.dataset.en = '✅ Done — +10 XP';
+    btn.setAttribute('data-ta', '✅ முடிச்சாச்சு — +10 XP');
+  }
+  document.querySelectorAll('.act-done').forEach(btn=>{
+    if(done.includes(btn.dataset.act)){ markDone(btn); }
+    btn.addEventListener('click', ()=>{
+      if(btn.disabled) return;
+      done.push(btn.dataset.act); safeSet(KEY, JSON.stringify(done));
+      markDone(btn);
+      applyLang(APP_LANG);
+      if(typeof SCX !== 'undefined'){ SCX.addXP(10, 'Activity tried!', 'செயற்பாடு செஞ்சு பாத்தே!'); }
+    });
+  });
+  applyLang(APP_LANG);
+})();
+</script>
+</body>
+</html>

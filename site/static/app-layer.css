@@ -1,0 +1,93 @@
+/* STEM Cloud app layer: phone layout, touch targets, readability, motion.
+   Loaded after each lesson's own styles, so equal-specificity rules here win. */
+
+/* ---- readable "faint" text (was ~2.9:1 on light, ~4.4:1 on dark; now 5+:1 on both) ---- */
+:root{--text-faint:#8191ab}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--text-faint:#5d6b85}}
+:root[data-theme="light"]{--text-faint:#5d6b85}
+:root[data-theme="dark"]{--text-faint:#8191ab}
+
+/* ---- app feel ---- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button,a,summary,[role="button"],input,select,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.topbar{padding-top:env(safe-area-inset-top)}
+.xpbar{top:var(--stem-tb,53px)}
+.fw-pill{bottom:calc(12px + env(safe-area-inset-bottom))}
+.wrap{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+table.qtable{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* ---- account button + menu (inside the page header) ---- */
+.stem-acct{position:relative;display:inline-flex;flex:0 0 auto}
+.stem-acct.float{position:fixed;top:calc(10px + env(safe-area-inset-top));right:10px;z-index:95}
+.stem-av{width:40px;height:40px;border-radius:50%;border:2px solid var(--border,#2a3550);background:linear-gradient(135deg,var(--accent,#0f9d82),var(--accent-2,#6a55e8));color:#06121a;font-family:'Sora',system-ui,sans-serif;font-weight:800;font-size:1rem;line-height:1;cursor:pointer;padding:0;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.stem-menu{display:none;position:absolute;right:0;top:calc(100% + 8px);min-width:220px;max-width:min(300px,calc(100vw - 24px));background:var(--panel,#171f31);color:var(--text,#e9eef8);border:1px solid var(--border,#2a3550);border-radius:14px;padding:8px;box-shadow:var(--shadow,0 10px 30px rgba(0,0,0,.4));z-index:95;text-align:left}
+.stem-acct.open .stem-menu{display:block}
+.stem-menu .nm{font-weight:800;padding:4px 8px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stem-menu .st{color:var(--text-dim,#a9b6cc);font-size:.78rem;padding:0 8px 6px}
+.stem-menu a,.stem-menu button{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:8px;border:0;border-radius:10px;background:none;color:inherit;font-family:inherit;font-weight:600;font-size:.9rem;line-height:1.2;text-align:left;text-decoration:none;cursor:pointer}
+.stem-menu a:hover,.stem-menu button:hover{background:color-mix(in srgb,var(--accent-2,#6a55e8) 16%,transparent)}
+.stem-menu hr{border:0;border-top:1px solid var(--border,#2a3550);margin:4px 0}
+.stem-menu .hint{font-size:.78rem;color:var(--text-dim,#a9b6cc);padding:4px 8px 8px;line-height:1.4}
+.stem-menu-btn{display:none}
+
+/* ---- phones and tablets in portrait ---- */
+@media (max-width:760px){
+  .wrap{padding-left:14px;padding-right:14px}
+
+  /* light header: [menu] brand ........ [language] [account] */
+  .topbar .topbar-inner{padding:8px 14px;gap:8px;flex-wrap:nowrap}
+  .topbar .brand{flex:0 0 auto;font-size:.95rem;white-space:nowrap}
+  .topbar .brand span{display:none}
+  .topbar .toplink{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-flex;align-items:center;min-height:44px;font-size:.85rem}
+  .topbar .toggles{margin-left:auto;flex:0 0 auto;gap:8px;align-items:center}
+  #themeToggle{display:none}
+  .stem-menu-btn{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:1.2rem;cursor:pointer;padding:0}
+  .navlinks{display:none}
+  .navlinks.stem-open{display:flex;flex-direction:column;gap:2px;position:absolute;left:12px;right:12px;top:calc(100% + 6px);max-height:calc(100vh - var(--stem-tb,60px) - 24px);overflow-y:auto;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:8px;box-shadow:var(--shadow);z-index:80}
+  .navlinks.stem-open a{display:flex;align-items:center;min-height:44px;padding:8px 14px;font-size:.95rem;border-radius:12px}
+
+  /* XP strip stays on one line */
+  .xpbar-inner{flex-wrap:nowrap;gap:8px 10px;padding:6px 14px;overflow:hidden}
+  .xp-bar-track{min-width:24px}
+  [id]{scroll-margin-top:calc(var(--stem-sticky,100px) + 8px)}
+
+  /* cartoon stages use the full screen width (text inside scales with the stage) */
+  .lab-card{padding:14px}
+  .fw-anim svg,.lab-card #ls_svg{margin-left:-14px;width:calc(100% + 28px);max-width:none;border-radius:10px}
+
+  /* exam-style diagrams: native size, pan sideways inside their box instead of shrinking to unreadable */
+  .path-svg-wrap svg,.track-wrap svg,#pathSvg,#trackSvg{min-width:640px!important}
+  .qdiagram svg{min-width:560px!important}
+
+  /* the lab cartoon stays on screen while the sliders are moved */
+  .lab-card:has(.ls){display:flex;flex-direction:column}
+  .lab-card .ls{display:contents}
+  .lab-card .ls-top{order:-3;margin-top:4px}
+  .lab-card #ls_svg{order:-2}
+  .lab-card .ls-miss{order:-1}
+  .lab-card #ls_svg{position:sticky;top:calc(var(--stem-sticky,100px) + 4px);z-index:14;background:var(--panel);box-shadow:0 10px 16px -10px rgba(0,0,0,.5)}
+  .lab-card .ls-miss{margin-bottom:16px}
+}
+
+/* ---- touch devices: 44px targets ---- */
+@media (pointer:coarse),(max-width:760px){
+  button,.btn,summary,select,.navlinks a,.fw-step{min-height:44px}
+  .lang-toggle,.theme-toggle,.tbtn,.badges-btn,.toggle-btn,.ex-toggle,.lg-try,.path-btn{min-height:44px}
+  .navlinks a{display:inline-flex;align-items:center}
+  input[type="range"]{height:32px}
+  .fw-next a.small,.fw-next .small{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
+  .so-dots i{width:10px;height:10px}
+}
+
+/* ---- text that was 9 to 11px ---- */
+@media (max-width:760px){
+  .path-stone .ps-num,.ps-num{font-size:.7rem!important}
+  .ro-label,.qtag,.chip,.state,.state.game,.tag,.ps-check,small{font-size:.75rem!important}
+  sup,sub{font-size:max(.75em,12px)}
+}
+
+/* ---- motion: respect "reduce motion" ---- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}

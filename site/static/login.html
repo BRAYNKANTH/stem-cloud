@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEM Cloud · Log in</title>
+<meta name="theme-color" content="#0b0f17"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/static/icons/favicon-32.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">STEM <span>Cloud</span> 🐒🐦</div>
+  <p class="tag">O/L Physics with Raja and Chittu. Make an account to save your XP, badges and stars.</p>
+  <div class="card">
+    <div class="tabs" role="tablist">
+      <button type="button" id="tLogin" class="on" role="tab">Log in</button>
+      <button type="button" id="tSign" role="tab">Create account</button>
+    </div>
+    <form id="f" autocomplete="on">
+      <div id="nameRow" hidden>
+        <label for="dn">Your name (shown on your profile)</label>
+        <input type="text" id="dn" maxlength="30" autocomplete="nickname">
+        <div class="hint">A nickname is fine. Please don't use your full real name.</div>
+      </div>
+      <label for="un">Username</label>
+      <input type="text" id="un" maxlength="20" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      <div class="hint" id="unHint" hidden>3 to 20 letters, numbers or _ (no spaces).</div>
+      <label for="pw">Password</label>
+      <input type="password" id="pw" maxlength="200" autocomplete="current-password" required>
+      <div class="hint" id="pwHint" hidden>At least 8 characters. Don't reuse a password from another site.</div>
+      <button class="btn pri full" id="go" type="submit">Log in</button>
+      <div class="msg" id="msg" role="alert"></div>
+    </form>
+  </div>
+  <div class="row" style="justify-content:center"><button class="btn" id="inst" type="button" hidden>📲 Install the app</button></div>
+  <div class="foot">Forgot your password? Ask your teacher or the site admin to reset it.<br><a href="/privacy">Privacy</a></div>
+</div>
+<script>
+(function () {
+  var signup = false, $ = function (id) { return document.getElementById(id); };
+  /* a new person may be about to log in: forget the last student's offline lesson pages */
+  if (window.StemApp) window.StemApp.clearPageCache();
+  function showInstall() { var A = window.StemApp; $('inst').hidden = !(A && A.canInstall()); }
+  document.addEventListener('stem-install-change', showInstall);
+  $('inst').onclick = function () { if (window.StemApp) window.StemApp.install(); };
+  window.addEventListener('load', showInstall);
+  function mode(s) {
+    signup = s;
+    $('tLogin').className = s ? '' : 'on'; $('tSign').className = s ? 'on' : '';
+    $('nameRow').hidden = !s; $('unHint').hidden = !s; $('pwHint').hidden = !s;
+    $('go').textContent = s ? 'Create my account' : 'Log in';
+    $('pw').autocomplete = s ? 'new-password' : 'current-password';
+    $('msg').textContent = '';
+  }
+  $('tLogin').onclick = function () { mode(false); };
+  $('tSign').onclick = function () { mode(true); };
+  if (location.hash === '#signup') mode(true);
+  function next() {
+    var n = new URLSearchParams(location.search).get('next');
+    return n && n.charAt(0) === '/' && n.charAt(1) !== '/' && n.indexOf('\\') < 0 ? n : '/lessons/index.html';
+  }
+  $('f').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var m = $('msg'); m.className = 'msg'; m.textContent = '';
+    var body = { username: $('un').value, password: $('pw').value };
+    if (signup) body.display_name = $('dn').value;
+    $('go').disabled = true;
+    fetch(signup ? '/api/signup' : '/api/login', {
+      method: 'POST', credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
+      body: JSON.stringify(body)
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; }); })
+      .then(function (x) {
+        if (!x.ok) { m.className = 'msg err'; m.textContent = x.j.detail || 'Something went wrong. Please try again.'; $('go').disabled = false; return; }
+        m.className = 'msg ok'; m.textContent = 'Welcome! Opening your lessons…';
+        location.href = next();
+      })
+      .catch(function () { m.className = 'msg err'; m.textContent = 'Cannot reach the server. Check your internet.'; $('go').disabled = false; });
+  });
+})();
+</script>
+<script src="/static/pwa.js"></script>
+</body>
+</html>

@@ -29,10 +29,11 @@
   });
   window.addEventListener('appinstalled', function () { evt = null; document.dispatchEvent(new Event('stem-install-change')); });
 
+  /* register as soon as the page is parsed: waiting for 'load' would also wait for web fonts, which can take
+     very long on a slow phone connection */
   if ('serviceWorker' in navigator) {
-    window.addEventListener('load', function () {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function () {});
-    });
+    var reg = function () { navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function () {}); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', reg); else reg();
   }
 
   /* browser / status bar colour follows the page's own light or dark background */

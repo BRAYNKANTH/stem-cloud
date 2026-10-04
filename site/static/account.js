@@ -105,6 +105,14 @@
       if (tt && getComputedStyle(tt).display === 'none') {
         act('🌓 ' + L('Light / dark', 'வெளிச்சம் / இருட்டு'), function () { tt.click(); close(); });
       }
+      var calm = document.documentElement.classList.contains('stem-calm');
+      var mb = act('🎞 ' + L('Animations', 'அனிமேஷன்'), function () {
+        var off = !document.documentElement.classList.contains('stem-calm');
+        document.documentElement.classList.toggle('stem-calm', off);
+        try { localStorage.setItem('stem_motion', off ? 'off' : 'on'); } catch (e) {}
+        fill();
+      });
+      mb.appendChild(mk('span', 'sw' + (calm ? ' off' : ''), calm ? L('Off', 'ஆஃப்') : L('On', 'ஆன்')));
       var App = window.StemApp;
       if (App && App.canInstall()) {
         act('📲 ' + L('Install app', 'ஆப்பை நிறுவு'), function () { App.install().then(close); });

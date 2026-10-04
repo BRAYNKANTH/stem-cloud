@@ -210,7 +210,7 @@ def merge(key: str, old, new: str) -> str:
     try:
         if key == 'scx_xp_total':
             return str(max(int(old), int(new)))
-        if key in ('scx_badges', 'scx_ch5_activities'):
+        if key == 'scx_badges' or key.endswith('_activities'):
             return json.dumps(sorted(set(_json(old, [])) | set(_json(new, []))), ensure_ascii=False)
         if key == 'scx_visit_dates':
             return json.dumps(sorted(set(_json(old, [])) | set(_json(new, [])))[-400:])
@@ -220,7 +220,7 @@ def merge(key: str, old, new: str) -> str:
             return json.dumps([max(int(x), int(y)) for x, y in zip(a, b)])
         if key.startswith('scx_path_'):
             d = _json(old, {}); d.update({k: v for k, v in _json(new, {}).items() if v}); return json.dumps(d)
-        if key.startswith(('scx_done_', 'scx_story_', 'scx_lab_')):
+        if key.endswith('_done') or key.startswith(('scx_done_', 'scx_story_', 'scx_lab_')):
             return '1' if '1' in (old, new) else new
     except Exception:
         pass
@@ -420,11 +420,11 @@ localStorage.setItem('acct_owner',String(U.id));
 function J(v,d){try{return JSON.parse(v)}catch(e){return d}}
 function M(k,o,n){if(o===null||o===undefined)return n;try{
 if(k==='scx_xp_total')return String(Math.max(parseInt(o,10)||0,parseInt(n,10)||0));
-if(k==='scx_badges'||k==='scx_ch5_activities'){var s={};J(o,[]).concat(J(n,[])).forEach(function(x){s[x]=1});return JSON.stringify(Object.keys(s).sort())}
+if(k==='scx_badges'||/_activities$/.test(k)){var s={};J(o,[]).concat(J(n,[])).forEach(function(x){s[x]=1});return JSON.stringify(Object.keys(s).sort())}
 if(k==='scx_visit_dates'){var s2={};J(o,[]).concat(J(n,[])).forEach(function(x){s2[x]=1});return JSON.stringify(Object.keys(s2).sort().slice(-400))}
 if(/_stars$/.test(k)){var a=J(o,[]),b=J(n,[]),m=Math.max(a.length,b.length),r=[];for(var i=0;i<m;i++)r.push(Math.max(a[i]||0,b[i]||0));return JSON.stringify(r)}
 if(k.indexOf('scx_path_')===0){var d=J(o,{}),e=J(n,{});for(var x in e){if(e[x])d[x]=e[x]}return JSON.stringify(d)}
-if(/^scx_(done|story|lab)_/.test(k))return (o==='1'||n==='1')?'1':n;
+if(/_done$/.test(k)||/^scx_(done|story|lab)_/.test(k))return (o==='1'||n==='1')?'1':n;
 }catch(e){}return n}
 Object.keys(S).forEach(function(k){if(T(k))localStorage.setItem(k,M(k,localStorage.getItem(k),S[k]))});
 window.SCX_USER=U;window.__acctBoot=true;
@@ -437,6 +437,8 @@ APP_HEAD = (
     '<meta name="apple-mobile-web-app-title" content="STEM Cloud">'
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
     '<link rel="icon" type="image/png" href="/static/icons/favicon-32.png">'
+    # animations are ON unless the student switched them off in the account menu (applied before first paint)
+    '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )
 APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css">'
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/app-layer.js"></script>'

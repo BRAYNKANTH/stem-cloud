@@ -6,7 +6,7 @@
 <title>Equilibrium of Forces — Chapter 12 Physics (O/L)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap"></noscript>
 <style>
   :root{
     --bg:#0b0f17; --bg-alt:#101724; --panel:#141d2c; --panel-2:#182338; --border:#25324a;
@@ -329,7 +329,7 @@
   @keyframes so-tc{from{transform:translateY(0);}to{transform:translateY(5px);}}
   .so-wave{animation:so-wave 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:15% 85%;}
   @keyframes so-wave{0%,100%{transform:rotate(0);}50%{transform:rotate(-24deg);}}
-  @media (prefers-reduced-motion: reduce){.so-bob,.so-blink,.so-wave,.so-char.talking .so-rm,.so-char.talking .so-cb{animation:none;}}
+  html.stem-calm .so-bob,html.stem-calm .so-blink,html.stem-calm .so-wave,html.stem-calm .so-char.talking .so-rm,html.stem-calm .so-char.talking .so-cb{animation:none;}
 
   /* ================= lesson framework ================= */
   .fw-card{background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--accent);border-radius:18px;padding:20px 20px 18px;box-shadow:var(--shadow);}
@@ -393,7 +393,7 @@
   .cm-table th,.cm-table td{border:1px solid var(--border);padding:8px 12px;text-align:left;vertical-align:top;}
   .cm-table th{background:var(--panel-2);} .cm-table td.w{color:var(--accent-3);} .cm-table td.ok{color:var(--text);}
   .cm-must{margin:6px 0 0;padding-left:20px;color:var(--text-dim);} .cm-must li{margin-bottom:6px;} .cm-must b{color:var(--text);}
-  @media (prefers-reduced-motion: reduce){.fw-bar i{transition:none;}}
+  html.stem-calm .fw-bar i{transition:none;}
 
   .fw-anim{position:relative;}
   .fw-ask{position:absolute;left:14px;right:14px;top:14px;z-index:6;background:var(--panel);border:3px solid var(--accent-3);border-radius:16px;padding:12px 14px;box-shadow:0 14px 40px rgba(0,0,0,.45);}
@@ -1986,7 +1986,7 @@ function cssVar(name){ return getComputedStyle(document.documentElement).getProp
     finishedFx = t >= CFG.dur; paint();
   });
   if('IntersectionObserver' in window){
-    new IntersectionObserver((es, o) => { es.forEach(e => { if(e.isIntersecting && !auto){ auto = true; if(!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) setTimeout(play, 600); o.disconnect(); } }); }, {threshold:.5}).observe($('watch'));
+    new IntersectionObserver((es, o) => { es.forEach(e => { if(e.isIntersecting && !auto){ auto = true; if(!document.documentElement.classList.contains('stem-calm')) setTimeout(play, 600); o.disconnect(); } }); }, {threshold:.5}).observe($('watch'));
   }
   const prevHook = openerLangHook; openerLangHook = function(){ if(prevHook) prevHook(); paint(); };
   window.__fwPaint = (tt) => { t = tt; paint(); };

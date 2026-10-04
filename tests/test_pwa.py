@@ -24,8 +24,11 @@ def check(name, cond, extra=''):
 
 MEASURE = '''() => {
   const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+  const PADDED = '.badges-btn,.lang-toggle,.tbtn,.stem-av,.stem-menu-btn';      // look 36-40px, hit area is extended to 44px
   const tg = [...document.querySelectorAll('button,summary,select,.navlinks a')].filter(vis).filter(e => !e.closest('.navlinks:not(.stem-open)'));
-  const small = tg.filter(e => e.getBoundingClientRect().height < 43).map(e => (e.id || e.className || e.tagName) + ':' + Math.round(e.getBoundingClientRect().height));
+  const small = tg.filter(e => !e.matches(PADDED) && e.getBoundingClientRect().height < 43).map(e => (e.id || e.className || e.tagName) + ':' + Math.round(e.getBoundingClientRect().height));
+  [...document.querySelectorAll(PADDED)].filter(vis).forEach(e => { const r = e.getBoundingClientRect(), pad = (44 - r.height) / 2 - 1;
+    if (pad > 0) { const hit = document.elementFromPoint(r.left + r.width / 2, r.bottom + pad); if (!(hit === e || e.contains(hit))) small.push('hit-area:' + (e.id || e.className)); } });
   let minPx = 99, n; const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   while (n = w.nextNode()) { const e = n.parentElement; if (!n.textContent.trim() || !e || e.closest('script,style,svg') || !vis(e)) continue; minPx = Math.min(minPx, parseFloat(getComputedStyle(e).fontSize)); }
   return { scrollW: document.documentElement.scrollWidth, innerW: innerWidth, small: small, minPx: minPx };
@@ -56,7 +59,7 @@ def run():
             check('signup for test user', r.ok, r.status)
 
             # ---- installability (the same check Chrome runs before offering "Install")
-            page.goto(BASE + '/login')
+            page.goto(BASE + '/login', wait_until='domcontentloaded')
             cdp = ctx.new_cdp_session(page)
             man = cdp.send('Page.getAppManifest')
             check('manifest has no errors', not man.get('errors'), man.get('errors'))
@@ -67,7 +70,10 @@ def run():
             check('manifest is standalone with maskable icon', data.get('display') == 'standalone' and any(i.get('purpose') == 'maskable' for i in data.get('icons', [])), data.get('display'))
 
             # ---- service worker + precache
-            page.goto(BASE + '/lessons/index.html')
+            page.goto(BASE + '/lessons/index.html', wait_until='domcontentloaded')
+            # a page that was open while the worker installed becomes controlled on its next load (normal browser behaviour)
+            page.evaluate('navigator.serviceWorker.ready.then(() => true)')
+            page.reload(wait_until='domcontentloaded')
             page.wait_for_function('navigator.serviceWorker && navigator.serviceWorker.controller', timeout=15000)
             check('service worker controls the page', True)
             keys = page.evaluate('caches.keys()')
@@ -76,23 +82,23 @@ def run():
             check('offline page + app shell precached', '/static/offline.html' in cached and '/static/app-layer.css' in cached, cached)
 
             # ---- visit two lessons, then go offline
-            page.goto(BASE + '/lessons/chapter-05-friction.html')
+            page.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded')
             page.wait_for_selector('.stem-av')
-            page.goto(BASE + '/lessons/index.html')
+            page.goto(BASE + '/lessons/index.html', wait_until='domcontentloaded')
             page.wait_for_timeout(500)
             pk = page.evaluate("caches.keys().then(ks => ks.filter(k => k.startsWith('stemcloud-pages-')))")
             pages_cached = page.evaluate("caches.open(%s).then(c => c.keys()).then(ks => ks.map(k => new URL(k.url).pathname))" % json.dumps(pk[0])) if pk else []
             check('visited lessons are cached', '/lessons/chapter-05-friction.html' in pages_cached and '/lessons/index.html' in pages_cached, pages_cached)
 
             ctx.set_offline(True)
-            page.goto(BASE + '/lessons/chapter-05-friction.html')
+            page.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded')
             page.wait_for_selector('.stem-av', timeout=10000)
             check('visited lesson opens offline', 'Friction' in page.title())
-            page.goto(BASE + '/lessons/chapter-09-resultant-force.html')
+            page.goto(BASE + '/lessons/chapter-09-resultant-force.html', wait_until='domcontentloaded')
             check('unvisited lesson shows the friendly offline page', 'No internet right now' in page.content())
 
             # ---- XP earned offline is kept and synced when back online
-            page.goto(BASE + '/lessons/chapter-05-friction.html')
+            page.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded')
             page.wait_for_selector('.stem-av')
             page.evaluate("SCX.addXP(25, 'offline test')")
             page.wait_for_timeout(2500)
@@ -104,7 +110,7 @@ def run():
             check('offline XP reached the server after reconnecting', prog.get('scx_xp_total') == '25', prog.get('scx_xp_total'))
 
             # ---- log out wipes the offline lesson pages (shared-device privacy)
-            page.goto(BASE + '/lessons/index.html')
+            page.goto(BASE + '/lessons/index.html', wait_until='domcontentloaded')
             page.click('.stem-av')
             page.click('.stem-menu button:has-text("Log out")')
             page.wait_for_url('**/login', timeout=10000)
@@ -119,15 +125,38 @@ def run():
 
             # ---- phone layout on every page
             for name in PAGES:
-                page.goto(BASE + '/lessons/%s.html' % name)
+                page.goto(BASE + '/lessons/%s.html' % name, wait_until='domcontentloaded')
                 page.wait_for_timeout(900)
                 m = page.evaluate(MEASURE)
                 check('%s: no sideways scroll at 375px' % name, m['scrollW'] <= m['innerW'], (m['scrollW'], m['innerW']))
                 check('%s: buttons are 44px tall' % name, not m['small'], m['small'][:5])
                 check('%s: no text under 11px' % name, m['minPx'] >= 11, m['minPx'])
 
+            # ---- animations play even when the phone says "reduce motion" (battery saver / remove animations)
+            for reduced in ('reduce', 'no-preference'):
+                c2 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, reduced_motion=reduced)
+                c2.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'mot' + reduced[:2], 'password': 'LocalTest-5566'}))
+                p2 = c2.new_page(); p2.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded'); p2.wait_for_timeout(1200)
+                p2.evaluate("document.getElementById('watch').scrollIntoView({block:'center'})"); p2.mouse.wheel(0, 40); p2.wait_for_timeout(4500)
+                prog = int(p2.evaluate("document.getElementById('fw_scrub').value"))
+                dur = p2.evaluate("getComputedStyle(document.querySelector('.so-bob')).animationDuration")
+                check('Watch-it autoplays with reduce-motion=%s' % reduced, prog > 5, prog)
+                check('story animations run with reduce-motion=%s' % reduced, dur == '2.4s', dur)
+                c2.close()
+            # the in-app switch turns animations off, and the choice is remembered
+            c3 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True)
+            c3.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'motoff', 'password': 'LocalTest-5566'}))
+            p3 = c3.new_page(); p3.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded'); p3.wait_for_selector('.stem-av')
+            p3.click('.stem-av'); p3.click('.stem-menu button:has-text("Animations")')
+            check('animation switch sets calm mode', p3.evaluate("document.documentElement.classList.contains('stem-calm')"))
+            p3.reload(); p3.wait_for_timeout(800)
+            check('calm mode is remembered after reload', p3.evaluate("document.documentElement.classList.contains('stem-calm')"))
+            p3.evaluate("document.getElementById('watch').scrollIntoView({block:'center'})"); p3.mouse.wheel(0, 40); p3.wait_for_timeout(3000)
+            check('calm mode stops autoplay', int(p3.evaluate("document.getElementById('fw_scrub').value")) == 0)
+            c3.close()
+
             # ---- phone menu + account menu open
-            page.goto(BASE + '/lessons/chapter-05-friction.html')
+            page.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded')
             page.wait_for_selector('.stem-menu-btn')
             page.click('.stem-menu-btn')
             check('section menu opens', page.evaluate("document.querySelector('.navlinks').classList.contains('stem-open')"))

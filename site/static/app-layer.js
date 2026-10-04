@@ -33,4 +33,46 @@
     doc.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     window.addEventListener('resize', function () { if (window.innerWidth > 760) close(); });
   }
+
+  /* the "Step n/12" pill hides while scrolling down (when it covers the text) and returns on scroll up */
+  var lastY = window.pageYOffset, ticking = false;
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function () {
+      var y = window.pageYOffset, d = y - lastY;
+      if (y < 120 || d < -6) doc.body.classList.remove('stem-down');
+      else if (d > 12) doc.body.classList.add('stem-down');
+      lastY = y; ticking = false;
+    });
+  }, { passive: true });
+
+  /* New user onboarding banner helper */
+  function initOnboarding() {
+    if (!doc.getElementById('fw_path')) return;   /* lesson pages only: the hub has its own welcome card */
+    if (localStorage.getItem('stem_hide_onboarding')) return;
+    var hero = doc.querySelector('.hero') || doc.querySelector('.wrap');
+    if (!hero) return;
+    
+    var banner = doc.createElement('div');
+    banner.className = 'stem-welcome-banner';
+    banner.innerHTML = 
+      '<div class="icon">🚀</div>' +
+      '<div class="txt"><b>New to STEM Cloud?</b> Follow the numbered steps 🧭 in order: watch the animation 👀, experiment with the interactive lab 🧪, and test your knowledge to earn XP ⭐!</div>' +
+      '<button type="button" class="dismiss" aria-label="Close guide">✕</button>';
+    
+    var closeBtn = banner.querySelector('.dismiss');
+    closeBtn.onclick = function() {
+      banner.remove();
+      localStorage.setItem('stem_hide_onboarding', 'true');
+    };
+
+    hero.parentNode.insertBefore(banner, hero.nextSibling);
+  }
+
+  if (doc.readyState === 'loading') {
+    doc.addEventListener('DOMContentLoaded', initOnboarding);
+  } else {
+    initOnboarding();
+  }
 })();

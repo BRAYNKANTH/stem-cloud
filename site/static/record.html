@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>STEM Cloud · Record the voices</title>
+<link rel="stylesheet" href="/static/app.css">
+<style>
+  .wrap.rec{max-width:640px}
+  .tip{background:color-mix(in srgb,var(--acc) 12%,var(--card));border:1px solid color-mix(in srgb,var(--acc) 35%,var(--line));border-radius:14px;padding:12px 14px;font-size:.92rem;margin-bottom:14px}
+  .tip b{color:var(--acc)}
+  .pick{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .pick select{font:inherit;min-height:44px;padding:0 12px;border-radius:12px;border:1.5px solid var(--line);background:var(--field);color:var(--text)}
+  .line{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+  .line.done{border-color:var(--ok)}
+  .who{display:inline-flex;align-items:center;gap:6px;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;padding:3px 12px;border-radius:99px}
+  .who.R{background:#ffe3c2;color:#8a4a00}.who.C{background:#d4ecff;color:#0c4d7d}
+  .say{font-size:1.15rem;line-height:1.6;margin:10px 0 12px}
+  .ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .ctl .btn{min-height:44px}
+  .rec-on{background:var(--bad)!important;color:#fff!important;border:none!important;animation:pulse 1s infinite}
+  @keyframes pulse{50%{opacity:.7}}
+  .st{font-size:.85rem;color:var(--dim)}
+  .bar{position:sticky;bottom:0;padding:10px 0 calc(10px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 30%)}
+</style>
+</head>
+<body>
+<div class="wrap rec">
+  <div class="brand">STEM <span>Cloud</span> · Record the voices</div>
+  <div class="tip"><b>Say it like you would to a friend, not like the news.</b> Smile while you read. Raja is the cheeky monkey, Chittu is the clever sparrow.
+    Record in a quiet room, phone about a hand's width from your mouth. You can redo any line.</div>
+  <div class="pick">
+    <select id="story" aria-label="Story"></select>
+    <select id="lang" aria-label="Language"><option value="ta">தமிழ் (Tamil)</option><option value="en">English</option></select>
+  </div>
+  <div id="lines"></div>
+  <div class="bar"><button class="btn pri full" id="all" type="button">⬇ Download all my recordings</button>
+    <div class="hint" style="text-align:center">Then on your computer: <code>python tools/voice_lab.py import &lt;downloads folder&gt;</code></div></div>
+</div>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var DATA = null, takes = {}, rec = null, chunks = [], stream = null;
+  var TYPE = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'].filter(function (t) { return window.MediaRecorder && MediaRecorder.isTypeSupported(t); })[0] || '';
+  var EXT = TYPE.indexOf('mp4') >= 0 ? 'm4a' : (TYPE.indexOf('ogg') >= 0 ? 'ogg' : 'webm');
+
+  function key(i) { return $('story').value + '_' + $('lang').value + '_' + ('0' + i).slice(-2); }
+  function name(i) { return key(i) + '.' + EXT; }
+
+  function draw() {
+    var st = DATA[$('story').value], lg = $('lang').value, box = $('lines');
+    box.textContent = '';
+    st.lines.forEach(function (l, i) {
+      var d = document.createElement('div'); d.className = 'line' + (takes[key(i)] ? ' done' : ''); d.id = 'l' + i;
+      var who = document.createElement('span'); who.className = 'who ' + l.who; who.textContent = (l.who === 'R' ? '🐒 Raja' : '🐦 Chittu') + ' · line ' + (i + 1);
+      var say = document.createElement('div'); say.className = 'say'; say.textContent = l[lg];
+      var ctl = document.createElement('div'); ctl.className = 'ctl';
+      var b = document.createElement('button'); b.className = 'btn'; b.type = 'button'; b.textContent = '● Record'; b.setAttribute('data-act', 'rec');
+      var p = document.createElement('button'); p.className = 'btn'; p.type = 'button'; p.textContent = '▶ Play'; p.disabled = !takes[key(i)]; p.setAttribute('data-act', 'play');
+      var s = document.createElement('button'); s.className = 'btn'; s.type = 'button'; s.textContent = '⬇ Save'; s.disabled = !takes[key(i)]; s.setAttribute('data-act', 'save');
+      var t = document.createElement('span'); t.className = 'st'; t.textContent = takes[key(i)] ? '✓ recorded' : 'not recorded yet';
+      [b, p, s, t].forEach(function (e) { ctl.appendChild(e); });
+      [who, say, ctl].forEach(function (e) { d.appendChild(e); });
+      b.onclick = function () { toggle(i, b, t); };
+      p.onclick = function () { var a = new Audio(URL.createObjectURL(takes[key(i)].blob)); a.play(); };
+      s.onclick = function () { save(i); };
+      box.appendChild(d);
+    });
+  }
+  function save(i) {
+    var tk = takes[key(i)]; if (!tk) return;
+    var a = document.createElement('a'); a.href = URL.createObjectURL(tk.blob); a.download = tk.file; document.body.appendChild(a); a.click(); a.remove();
+  }
+  function stopStream() { if (stream) { stream.getTracks().forEach(function (t) { t.stop(); }); stream = null; } }
+  function toggle(i, btn, label) {
+    if (rec && rec.state === 'recording') { rec.stop(); return; }
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } }).then(function (s) {
+      stream = s; chunks = [];
+      rec = new MediaRecorder(s, TYPE ? { mimeType: TYPE } : undefined);
+      var started = Date.now();
+      rec.ondataavailable = function (e) { if (e.data && e.data.size) chunks.push(e.data); };
+      rec.onstop = function () {
+        var blob = new Blob(chunks, { type: rec.mimeType || TYPE || 'audio/webm' });
+        takes[key(i)] = { blob: blob, file: name(i), secs: ((Date.now() - started) / 1000).toFixed(1) };
+        stopStream(); btn.classList.remove('rec-on'); btn.textContent = '● Record again';
+        label.textContent = '✓ recorded ' + takes[key(i)].secs + ' s';
+        var d = $('l' + i); d.classList.add('done'); d.querySelector('[data-act=play]').disabled = false; d.querySelector('[data-act=save]').disabled = false;
+        var nx = $('l' + (i + 1)); if (nx) nx.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      };
+      rec.start(); btn.classList.add('rec-on'); btn.textContent = '■ Stop'; label.textContent = 'recording...';
+    }).catch(function () { label.textContent = 'Allow the microphone to record.'; });
+  }
+  $('all').onclick = function () {
+    var ks = Object.keys(takes), n = 0;
+    if (!ks.length) { alert('Record at least one line first.'); return; }
+    ks.forEach(function (k, idx) { setTimeout(function () { var a = document.createElement('a'); a.href = URL.createObjectURL(takes[k].blob); a.download = takes[k].file; document.body.appendChild(a); a.click(); a.remove(); }, idx * 350); n++; });
+  };
+  ['story', 'lang'].forEach(function (id) { $(id).addEventListener('change', draw); });
+
+  fetch('/static/audio/story/lines.json').then(function (r) { return r.json(); }).then(function (d) {
+    DATA = d; var sel = $('story');
+    Object.keys(d).forEach(function (k) { var o = document.createElement('option'); o.value = k; o.textContent = d[k].title[0]; sel.appendChild(o); });
+    draw();
+  });
+})();
+</script>
+</body>
+</html>

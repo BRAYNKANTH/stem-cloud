@@ -27,7 +27,7 @@ Object.defineProperty(window, 'SpeechSynthesisUtterance', { value: function (t) 
 Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {
   speak: function (u) { window.__spoken.push(u.text); setTimeout(function () { u.onend && u.onend(); }, 700); },
   cancel: function () {}, pause: function () {}, resume: function () {},
-  getVoices: function () { return [{ name: 'Test Tamil', lang: 'ta-IN' }, { name: 'Test English', lang: 'en-IN' }]; }, addEventListener: function () {} } });
+  getVoices: function () { return [{ name: 'Test Tamil', lang: 'ta-IN' }, { name: 'Test Tamil 2', lang: 'ta-LK' }, { name: 'Test English', lang: 'en-IN' }]; }, addEventListener: function () {} } });
 """
 
 VISIBLE = "[...document.querySelector('.wrap').children].filter(e => !e.classList.contains('stem-hide')).map(e => e.id || e.className.split(' ')[0])"
@@ -130,6 +130,12 @@ def run():
             check('story voice (English) speaks the current line', len(pg.evaluate('window.__spoken')) >= 1, pg.evaluate('window.__spoken'))
             swipe(-180)
             check('story voice speaks the next line too', len(pg.evaluate('window.__spoken')) >= 2)
+            lbl = lambda: pg.evaluate("document.querySelector('.so-voice span').textContent")
+            check('story voice button says Recorded voices first', lbl() == 'Recorded voices', lbl())
+            pg.click('.so-voice'); pg.wait_for_timeout(300)
+            check('a second tap switches to the phone voice', lbl() == 'Phone voice', lbl())
+            pg.click('.so-voice'); pg.wait_for_timeout(300)
+            check('a third tap turns the voices off', lbl() == 'Voices off', lbl())
             ctx.close()
 
             ctx = phone('pl4', 'ta')
@@ -162,6 +168,21 @@ def run():
             check('changing step stops the reading', not pg.is_visible('#stem-vp'))
             symb = pg.evaluate("StemVoice._speakable('A 5 N force moves it 3 m in 2 s: v = 6 m s-1, a = 2 m/s²', 'en')")
             check('units and symbols are spoken as words', 'newtons' in symb and 'metres per second squared' in symb and 'equals' in symb, symb)
+            ta = pg.evaluate("StemVoice._speakable('சீசாவ (see-saw) எப்படி 300 N வைக்கறது?', 'ta')")
+            check('Tamil speech skips English glosses like (see-saw) and speaks units in Tamil', 'see-saw' not in ta and 'நியூட்டன்' in ta, ta)
+            ctx.close()
+
+            # Tamil: natural pace and a choice of voices
+            ctx = phone('pl5b', 'ta')
+            pg, _ = open_lesson(ctx, 'chapter-05-friction')
+            pg.evaluate('StemPlayer.go(3)'); pg.wait_for_timeout(500)
+            pg.click('.sb-listen'); pg.wait_for_timeout(600)
+            check('Tamil reading starts at a brisk 1.1x, not slowed down', pg.evaluate("document.querySelector('#stem-vp [data-a=rate]').textContent") == '1.1×')
+            pg.click('#stem-vp [data-a="voice"]'); pg.wait_for_timeout(400)
+            saved = pg.evaluate("localStorage.getItem('stem_voice_ta')")
+            check('the voice button switches to another installed Tamil voice and remembers it', saved in ('Test Tamil', 'Test Tamil 2') and pg.locator('.stem-toast').count() >= 1, saved)
+            pg.click('#stem-vp [data-a="voice"]'); pg.wait_for_timeout(300)
+            check('pressing it again cycles to the next voice', pg.evaluate("localStorage.getItem('stem_voice_ta')") != saved)
             ctx.close()
 
             # ------------------------------------------------------------ textbook questions

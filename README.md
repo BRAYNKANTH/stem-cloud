@@ -13,8 +13,10 @@ vercel.json         routes everything to the function and bundles site/
 tests/test_flow.py  39 account/API checks (SQLite and real Postgres)
 tests/test_pwa.py   real-browser checks: installability, offline, cache privacy, phone layout, animations (Edge/Chrome)
 tests/test_player.py  real-browser checks: lesson player, story swipe, read-aloud, textbook questions, lab
+tests/test_voice_lab.py  voice tools: recorder page, import, re-render
 tools/sync_lessons.py   copies updated lessons from the course workspace into site/lessons
 tools/make_icons.py     redraws the app icons
+tools/voice_lab.py      audition Tamil voices, re-record the stories, import real recordings (see "Making the voices natural")
 ```
 
 ## It is an installable app (PWA) and works on phones
@@ -81,6 +83,23 @@ Covers sign-up, login, CSRF, progress merge rules, lesson gating, path traversal
 - On a shared computer, switching accounts clears the previous student's local progress so it can't leak into the next account.
 - Passwords are salted scrypt hashes. Sessions are random tokens (only a hash is stored) in `HttpOnly`, `SameSite=Lax`, `Secure` cookies, valid 30 days. Every write needs an `X-Requested-With` header (CSRF defence). Login, sign-up and password changes are rate-limited per IP, with counters in the database so the limit holds across Vercel instances.
 - `/admin` lists students with XP and badge counts, resets a password (shows a temporary one to tell the student) or deletes an account. Students can change name or password and delete their own account at `/account`.
+
+## Making the voices natural
+
+Speech engines are trained on formal reading (news, audiobooks), so casual spoken Tamil can sound stiff. What the app does about it:
+- Tamil is read at a brisk 1.1x (not slowed down), English glosses such as "(see-saw)" are skipped, units are spoken as words.
+- In the reading controls the microphone button cycles through **every voice installed on the phone** and remembers the choice (Google Tamil is usually more natural than the others).
+- In the story, the voices button cycles *Recorded voices* / *Phone voice* / *Off*, and recordings follow the speed setting.
+
+For a truly natural sound, replace the story recordings (needs `pip install edge-tts imageio-ffmpeg`):
+
+1. **Audition the neural voices** (needs internet): `python tools/voice_lab.py sample`, then open `tools/voice_lab_out/index.html` and listen. Pick the voices that sound like someone talking, not reading.
+2. **Re-record all stories with them:**
+   `python tools/voice_lab.py render --raja ta-IN-ValluvarNeural --chittu ta-IN-PallaviNeural --rate +8%`
+   (add `--lang en` with English voices to record the English story lines too; old files are backed up in `tools/voice_lab_out/backup`).
+3. **Or use real human voices (best):** run the app, open `/static/record.html` on a phone, pick a story and language, and have a teacher or student read each line the way they would say it to a friend. Save the files, then `python tools/voice_lab.py import <downloads folder>` converts them (trims silence, evens out loudness, makes mp3s) and puts them in the right place.
+
+Commit `site/static/audio/` and push. Recordings are never cached by the service worker, so new ones are used straight away.
 
 ## Privacy (students are children)
 

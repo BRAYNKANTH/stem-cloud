@@ -1,0 +1,320 @@
+{
+ "c4": {
+  "title": [
+   "Why did I fly forward?",
+   "நான் ஏன் முன்னாடி பறந்தேன்?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Ouch! The bus braked suddenly and I flew forward into the seat in front!",
+    "ta": "ஐயோ! பஸ் திடீர்னு பிரேக் போட்டுச்சு, நான் முன்னாடி சீட்டுல போய் இடிச்சேன்!"
+   },
+   {
+    "who": "C",
+    "en": "The bus stopped, but your body wanted to keep moving. That is inertia, Newton's first law.",
+    "ta": "பஸ் நின்னுடுச்சு, ஆனா உன் உடம்பு தொடர்ந்து போகணும்னு நினைச்சுச்சு. அதுதான் சடத்துவம், நியூற்றனின் முதலாவது விதி."
+   },
+   {
+    "who": "R",
+    "en": "Then why is a cart full of stones harder to push than an empty one?",
+    "ta": "அப்போ கல் நிரப்பின வண்டி, காலி வண்டிய விட தள்ள கஷ்டம் ஏன்?"
+   },
+   {
+    "who": "C",
+    "en": "Second law, F = ma. Push with 20 N: a 10 kg cart gets a = 2 m/s², but a 40 kg cart gets only 0.5 m/s². More mass, less acceleration.",
+    "ta": "இரண்டாவது விதி, F = ma. 20 N-ல தள்ளினா: 10 kg வண்டிக்கு a = 2 m/s², ஆனா 40 kg வண்டிக்கு 0.5 m/s² தான். திணிவு அதிகம்னா ஆர்முடுகல் குறைவு."
+   },
+   {
+    "who": "R",
+    "en": "And when I punched the wall, my hand hurt!",
+    "ta": "நான் சுவர குத்தினப்ப என் கை வலிச்சுது!"
+   },
+   {
+    "who": "C",
+    "en": "Third law: the wall pushed back on your hand with an equal and opposite force. Action and reaction!",
+    "ta": "மூன்றாவது விதி: சுவர் உன் கை மேல சமமான எதிர் விசையில திரும்ப தள்ளுச்சு. தாக்கம் – மறுதாக்கம்!"
+   },
+   {
+    "who": "R",
+    "en": "My mass is 30 kg. So what is my weight?",
+    "ta": "என் திணிவு 30 kg. அப்போ என் நிறை எவ்வளவு?"
+   },
+   {
+    "who": "C",
+    "en": "Weight = m × g = 30 × 10 = 300 N. Mass is the matter in you; weight is the Earth's pull on you.",
+    "ta": "நிறை = m × g = 30 × 10 = 300 N. திணிவு உன்கிட்ட இருக்கற சடப்பொருள்; நிறை உன் மேல புவி இழுக்கற விசை."
+   },
+   {
+    "who": "R",
+    "en": "Newton's three laws, momentum, mass and weight... Let's go!",
+    "ta": "நியூற்றனின் மூணு விதிகள், உந்தம், திணிவு, நிறை... வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "c5": {
+  "title": [
+   "Why did Raja slip?",
+   "ராஜா ஏன் வழுக்கினான்?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Look Chittu, I'm ice-skating on the mopped floor! Weeee... oh no... THUD!",
+    "ta": "பாரு சிட்டு, மாப் போட்ட தரையில ஐஸ் ஸ்கேட்டிங் பண்றேன்! வீ... ஐயோ... தொம்!"
+   },
+   {
+    "who": "C",
+    "en": "You slipped because the mopped floor has very little friction. Friction is the force that opposes sliding between two surfaces.",
+    "ta": "நீ வழுக்குனதுக்கு காரணம், மாப் போட்ட தரையில உராய்வு ரொம்ப குறைவு. உராய்வுன்னா ரெண்டு மேற்பரப்புகளுக்கு நடுவுல சறுக்குறத எதிர்க்கும் விசை."
+   },
+   {
+    "who": "R",
+    "en": "Chittu, when I rub my hands they get warm!",
+    "ta": "சிட்டு, கைய தேய்ச்சா சூடாகுது!"
+   },
+   {
+    "who": "C",
+    "en": "Good catch! Friction always makes heat. That is how people made fire by rubbing sticks.",
+    "ta": "சரியா பிடிச்சே! உராய்வு எப்பவும் சூடு உண்டாக்கும். அதனாலதான் மரத்துண்டுகள தேய்ச்சு நெருப்பு உண்டாக்கினாங்க."
+   },
+   {
+    "who": "R",
+    "en": "If I wear giant slippers, there is more contact area, so more friction. Right?",
+    "ta": "நான் பெரிய செருப்பு போட்டா தொடுகை பரப்பு அதிகம், அதனால உராய்வும் அதிகம். சரியா?"
+   },
+   {
+    "who": "C",
+    "en": "Wrong, Raja! Contact area does NOT affect friction. Only the roughness of the surfaces and the weight pressing down matter.",
+    "ta": "தப்பு ராஜா! தொடுகைப் பரப்பளவு உராய்வ பாதிக்காது. மேற்பரப்போட கரடுமுரடும், அழுத்தும் எடையும்தான் பாதிக்கும்."
+   },
+   {
+    "who": "R",
+    "en": "So that is why they sprinkle powder on a carrom board!",
+    "ta": "அதான் கரம் போர்டுல பொடி தூவுறாங்களா!"
+   },
+   {
+    "who": "C",
+    "en": "Yes, and why bus tyres have grooves. Sometimes we need less friction, sometimes more.",
+    "ta": "ஆமா, பஸ் டயர்ல கோடுகள் இருக்கறதும் அதுக்குத்தான். சில நேரம் உராய்வு குறைவா வேணும், சில நேரம் அதிகமா வேணும்."
+   },
+   {
+    "who": "R",
+    "en": "Static, limiting, dynamic friction... Let's go!",
+    "ta": "நிலையியல், எல்லை, இயக்கவியல் உராய்வு... வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "c9": {
+  "title": [
+   "Who wins the tug of war?",
+   "கயிறிழுக்கறதுல யாரு ஜெயிப்பா?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Tug of war, Chittu! My team pulls with 300 N and your team pulls with 260 N!",
+    "ta": "கயிறிழுக்கற போட்டி சிட்டு! என் டீம் 300 N-ல இழுக்குது, உன் டீம் 260 N-ல இழுக்குது!"
+   },
+   {
+    "who": "C",
+    "en": "Who wins, and by how much?",
+    "ta": "யாரு ஜெயிப்பாங்க, எவ்வளவு வித்தியாசத்துல?"
+   },
+   {
+    "who": "R",
+    "en": "Me... by... a lot?",
+    "ta": "நான்... நிறைய... வித்தியாசத்துல?"
+   },
+   {
+    "who": "C",
+    "en": "The two forces are opposite, so we subtract: 300 − 260 = 40 N. The resultant force is 40 N, towards your side.",
+    "ta": "ரெண்டு விசையும் எதிர்த் திசையில, அதனால கழிக்கணும்: 300 − 260 = 40 N. விளையுள் விசை 40 N, உன் பக்கம்."
+   },
+   {
+    "who": "R",
+    "en": "And if two friends push a cart the SAME way, 8 N and 6 N?",
+    "ta": "ரெண்டு நண்பர்கள் ஒரே பக்கம் வண்டிய தள்ளினா, 8 N, 6 N?"
+   },
+   {
+    "who": "C",
+    "en": "Same direction, so we add: 8 + 6 = 14 N.",
+    "ta": "ஒரே திசை, அதனால கூட்டணும்: 8 + 6 = 14 N."
+   },
+   {
+    "who": "R",
+    "en": "What if the two pushes are at an angle, like when two players hit the ball?",
+    "ta": "ரெண்டு தள்ளல் சாய்வா இருந்தா என்ன? ரெண்டு பேர் பந்த அடிக்கற மாதிரி?"
+   },
+   {
+    "who": "C",
+    "en": "Then the resultant points in a direction between the two forces.",
+    "ta": "அப்போ விளையுள், அவ்விரு விசைகளுக்கும் நடுவுல இருக்கற திசையில இருக்கும்."
+   },
+   {
+    "who": "R",
+    "en": "One force that does the job of many! Let's go!",
+    "ta": "பல விசைகளோட வேலைய செய்யற ஒரே விசை! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "c11": {
+  "title": [
+   "How do we balance the seesaw?",
+   "சீசாவ எப்படி சமநிலையில வைக்கறது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I'm heavy (300 N) and you are light (100 N). How can we balance the seesaw?",
+    "ta": "சிட்டு, நான் பாரம் (300 N), நீ லேசு (100 N). சீசாவ எப்படி சமநிலையில வைக்கறது?"
+   },
+   {
+    "who": "C",
+    "en": "The heavier one sits closer to the middle. Raja sits 1 m from the pivot. How far should I sit?",
+    "ta": "பாரமானவன் நடுவுக்கு பக்கத்துல உக்காரணும். ராஜா நடுவுல இருந்து 1 m-ல உக்கார்றான். நான் எவ்வளவு தூரத்துல உக்காரணும்?"
+   },
+   {
+    "who": "R",
+    "en": "Er... 100 m?",
+    "ta": "ம்ம்... 100 m?"
+   },
+   {
+    "who": "C",
+    "en": "Use moments: force × distance. Raja: 300 × 1 = 300 N m. Mine must also be 300: 100 × d = 300, so d = 3 m.",
+    "ta": "திருப்பம் பயன்படுத்து: விசை × தூரம். ராஜா: 300 × 1 = 300 N m. என்னோடதும் 300 வேணும்: 100 × d = 300, அதனால d = 3 m."
+   },
+   {
+    "who": "R",
+    "en": "Why is the door handle on the far side from the hinges?",
+    "ta": "கதவோட கைப்பிடி கீல்ல இருந்து தூரமா இருக்கறது ஏன்?"
+   },
+   {
+    "who": "C",
+    "en": "The farther from the hinge, the smaller the force you need. A spanner works the same way.",
+    "ta": "கீல்ல இருந்து தூரமா இருந்தா குறைவான விசையே போதும். ஸ்பேனரும் இதே மாதிரிதான்."
+   },
+   {
+    "who": "R",
+    "en": "And opening a tap with two fingers?",
+    "ta": "ரெண்டு விரல்ல குழாய திறக்கறது?"
+   },
+   {
+    "who": "C",
+    "en": "That is a couple: two equal and opposite parallel forces, making it turn easily.",
+    "ta": "அதுதான் இணை: சமமான, எதிரான, சமாந்தரமான ரெண்டு விசைகள்; அது எளிதா சுழற்றும்."
+   },
+   {
+    "who": "R",
+    "en": "Moments, balance and couples! Let's go!",
+    "ta": "திருப்பம், சமநிலை, இணை! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "c12": {
+  "title": [
+   "Why does the bag not fall?",
+   "பை ஏன் கீழ விழல?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, my bag (60 N) hangs from a rope and does not fall. Is it magic?",
+    "ta": "சிட்டு, என் பை (60 N) கயிறுல தொங்குது, கீழ விழல. இது மந்திரமா?"
+   },
+   {
+    "who": "C",
+    "en": "No magic! Weight pulls down 60 N and the rope pulls up 60 N. Equal, opposite, same line. The resultant is zero. That is equilibrium.",
+    "ta": "மந்திரம் இல்ல! நிறை கீழ 60 N, கயிறு மேல 60 N. சமம், எதிர், ஒரே கோடு. விளையுள் பூச்சியம். அதுதான் சமநிலை."
+   },
+   {
+    "who": "R",
+    "en": "And a swing with two ropes? Rope 1 pulls 120 N and rope 2 pulls 180 N.",
+    "ta": "ரெண்டு கயிறு உள்ள ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N இழுக்குது."
+   },
+   {
+    "who": "C",
+    "en": "F₁ + F₂ = W. So Raja's weight is 120 + 180 = 300 N.",
+    "ta": "F₁ + F₂ = W. அதனால ராஜாவோட நிறை 120 + 180 = 300 N."
+   },
+   {
+    "who": "R",
+    "en": "And the picture on our wall hangs by two slanting cords!",
+    "ta": "நம்ம சுவர்ல படம் ரெண்டு சாய்வான கயிறுல தொங்குது!"
+   },
+   {
+    "who": "C",
+    "en": "Three forces, and their lines of action meet at one point. The resultant of two equals the third, opposite. That is equilibrium too.",
+    "ta": "மூணு விசைகள், அவற்றோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும். ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர். அதுவும் சமநிலைதான்."
+   },
+   {
+    "who": "R",
+    "en": "So any three forces will balance?",
+    "ta": "அப்போ எந்த மூணு விசையும் சமநிலையாகிடுமா?"
+   },
+   {
+    "who": "C",
+    "en": "No, Raja! They must be in one plane, meet at a point, and add up to zero.",
+    "ta": "இல்ல ராஜா! ஒரே தளத்துல இருக்கணும், ஒரு புள்ளில சந்திக்கணும், கூட்டுத்தொகை பூச்சியமா இருக்கணும்."
+   },
+   {
+    "who": "R",
+    "en": "Two forces, three forces, parallel or not. Let's go!",
+    "ta": "ரெண்டு விசை, மூணு விசை, சமாந்தரம், சமாந்தரமில்ல. வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "u2": {
+  "title": [
+   "Who walked farther?",
+   "யாரு அதிக தூரம் நடந்தாங்க?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, let's race to school! I'll take the long road: 100 m down the lane, 400 m along the main road, then 300 m to the gate!",
+    "ta": "சிட்டு, ஸ்கூலுக்கு ரேஸ் போகலாமா! நான் நீளமான ரோட்டுல போறேன்: சந்துல 100 m, மெயின் ரோட்டுல 400 m, அப்புறம் கேட் வரைக்கும் 300 m!"
+   },
+   {
+    "who": "C",
+    "en": "I'm a sparrow, Raja. I'll fly straight from home to school.",
+    "ta": "நான் குருவி ராஜா. வீட்டுல இருந்து ஸ்கூலுக்கு நேரா பறந்து வருவேன்."
+   },
+   {
+    "who": "R",
+    "en": "Ha ha! I walk 800 m and you only 500 m. I'm the stronger one!",
+    "ta": "ஹா ஹா! நான் 800 m நடக்கறேன், நீ வெறும் 500 m தான். நான்தான் ஸ்ட்ராங்!"
+   },
+   {
+    "who": "C",
+    "en": "You're right, your DISTANCE is 800 m. But from home to school, both of us end up 500 m from where we started, in the same direction. That is the DISPLACEMENT.",
+    "ta": "ஆமா, உன் தூரம் 800 m. ஆனா வீட்டுல இருந்து ஸ்கூலுக்கு, ரெண்டு பேருமே ஆரம்ப இடத்துல இருந்து ஒரே திசையில 500 m தூரத்துலதான் வந்து நிக்கறோம். அதுதான் இடப்பெயர்ச்சி."
+   },
+   {
+    "who": "R",
+    "en": "Same displacement, different distance? Whoa!",
+    "ta": "ஒரே இடப்பெயர்ச்சி, வேற வேற தூரமா? அட!"
+   },
+   {
+    "who": "C",
+    "en": "And if you took 400 s: speed = 800 ÷ 400 = 2 m/s, but velocity = 500 ÷ 400 = 1.25 m/s.",
+    "ta": "நீ 400 s எடுத்தா: கதி = 800 ÷ 400 = 2 m/s, ஆனா வேகம் (திசைவேகம்) = 500 ÷ 400 = 1.25 m/s."
+   },
+   {
+    "who": "R",
+    "en": "So distance, displacement, speed, velocity... and graphs and acceleration too?",
+    "ta": "அப்போ தூரம், இடப்பெயர்ச்சி, கதி, வேகம்... அப்புறம் வரைபுகளும் ஆர்முடுகலும் கூட வருமா?"
+   },
+   {
+    "who": "C",
+    "en": "Yes! One easy step at a time, with lots of examples.",
+    "ta": "ஆமா! ஒவ்வொரு படியா, நிறைய உதாரணத்தோட."
+   },
+   {
+    "who": "R",
+    "en": "Then what are we waiting for? Let's go now!",
+    "ta": "அப்போ என்ன காத்திருக்கோம்? வாங்க இப்போ போகலாம்!"
+   }
+  ]
+ }
+}

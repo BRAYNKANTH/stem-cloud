@@ -27,7 +27,8 @@
     play: SVGO + '<path d="M8 5v14l11-7z" fill="currentColor"/></svg>',
     prev: SVGO + '<path d="M6 5v14M19 5 9 12l10 7z" fill="currentColor"/></svg>',
     next: SVGO + '<path d="M18 5v14M5 5l10 7L5 19z" fill="currentColor"/></svg>',
-    stop: SVGO + '<path d="M6 6l12 12M18 6 6 18"/></svg>'
+    stop: SVGO + '<path d="M6 6l12 12M18 6 6 18"/></svg>',
+    mic: SVGO + '<rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>'
   };
 
   /* ------------------------------------------------------------------ voices */
@@ -38,7 +39,10 @@
   var FEMALE = /female|zira|heera|neerja|swara|pallavi|sonia|susan|hazel|samantha|karen|lekha|vani|kalpana|aditi|raveena|priya/i;
   var MALE = /\bmale\b|ravi|prabhat|valluvar|hemant|david|mark|guy|daniel|alex|rishi|kumar|madhur/i;
   function hasVoice(lg) { return voices.some(function (v) { return vlang(v).indexOf(lg) === 0; }); }
+  function voicesFor(lg) { return voices.filter(function (v) { return vlang(v).indexOf(lg) === 0; }); }
   function pickVoice(lg, who) {
+    var saved = store('stem_voice_' + lg);                      /* the voice the student chose */
+    if (saved) { var sv = voices.filter(function (v) { return v.name === saved; })[0]; if (sv) return sv; }
     var prefixes = lg === 'ta' ? ['ta'] : ['en-in', 'en-gb', 'en-us', 'en'];
     for (var i = 0; i < prefixes.length; i++) {
       var m = voices.filter(function (v) { return vlang(v).indexOf(prefixes[i]) === 0; });
@@ -76,6 +80,7 @@
     t = String(t).replace(/[₀-₄]/g, function (c) { return ' ' + SUB[c]; });
     t = t.replace(/[←-⇿⌀-⏿☀-➿⬀-⯿️‍]|[\uD83C-\uD83E][\uDC00-\uDFFF]/g, ' ');   /* emoji and arrows, ticks */
     (lg === 'ta' ? TA : EN).forEach(function (r) { t = t.replace(r[0], r[1]); });
+    if (lg === 'ta') t = t.replace(/\s*\([^)]*[A-Za-z][^)]*\)/g, ' ');
     return t.replace(/\s+/g, ' ').trim();
   }
   function chunks(t) {                                              /* sentences, split further if very long (some engines stop after ~15 s) */
@@ -106,7 +111,7 @@
       var v = pickVoice(lg, o.who);
       u.lang = lg === 'ta' ? 'ta-IN' : 'en-IN';
       if (v) { u.voice = v; u.lang = v.lang; }
-      u.rate = (o.rate || state.rate) * (lg === 'ta' ? 0.95 : 1);
+      u.rate = o.rate || state.rate;
       u.pitch = o.who === 'R' ? 1.12 : (o.who === 'C' ? 1.3 : 1);
       u.onend = nextPart; u.onerror = function () { if (my === gen) nextPart(); };
       try { synth.speak(u); } catch (e) { if (done) done(); }
@@ -124,8 +129,9 @@
   }
 
   /* ------------------------------------------------------------------ read-aloud for a step */
-  var state = { rate: parseFloat(store('stem_rate')) || 1, list: [], i: -1, on: false, paused: false };
-  var RATES = [0.8, 1, 1.2, 1.5];
+  function defaultRate() { return parseFloat(store('stem_rate')) || (lang() === 'ta' ? 1.1 : 1); }   /* spoken Tamil is brisk; a slow voice sounds like a news reader */
+  var state = { rate: defaultRate(), list: [], i: -1, on: false, paused: false };
+  var RATES = [0.9, 1, 1.1, 1.25, 1.5];
   var SEL = 'h1,h2,h3,h4,p,li,dt,dd,blockquote,figcaption,.fw-sub,.sub,.work,.note,.exq > span:not(.exnum),.qlead,.qpart > .qt,.so-title,.fw-hint';
   var SKIP = '#stem-bar,#stem-vp,.stem-map,.stem-menu,nav,button,script,style,svg,.stem-nospeak,.so-hint,.stem-toast,.topbar,.xpbar,.stem-welcome-banner';
 
@@ -195,12 +201,23 @@
   function pauseReading() { stamp++; silence(); state.paused = true; setBtn(); }
   function resumeReading() { state.paused = false; readAt(state.i); }
 
+  function changeVoice() {                                          /* cycle through the voices installed on this phone */
+    loadVoices();
+    var lg = lang(), list = voicesFor(lg);
+    if (!list.length) { needTamilVoice() || toast(L('No other voice found on this phone.', 'இந்த போன்ல வேற குரல் இல்ல.')); return; }
+    var cur = pickVoice(lg, null), k = list.indexOf(cur);
+    var nv = list[(k + 1) % list.length];
+    store('stem_voice_' + lg, nv.name);
+    toast((lg === 'ta' ? 'குரல்: ' : 'Voice: ') + nv.name + (list.length > 1 ? ' (' + ((list.indexOf(nv)) + 1) + '/' + list.length + ')' : ''));
+    if (state.on && !state.paused) { stamp++; readAt(state.i); }
+  }
   function buildVp() {
     if (vp) return;
     vp = mk('div', '', '');
     vp.id = 'stem-vp'; vp.setAttribute('role', 'group'); vp.setAttribute('aria-label', 'Reading controls');
     vp.innerHTML = '<button type="button" data-a="prev" aria-label="Previous">' + ICON.prev + '</button><button type="button" data-a="pp" aria-label="Pause">' + ICON.pause + '</button>' +
       '<button type="button" data-a="next" aria-label="Next">' + ICON.next + '</button><button type="button" data-a="rate" aria-label="Speed">1×</button>' +
+      '<button type="button" data-a="voice" aria-label="Change voice">' + ICON.mic + '</button>' +
       '<span class="vp-pos"></span><button type="button" data-a="stop" aria-label="Stop">' + ICON.stop + '</button>';
     vp.addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return; var a = b.getAttribute('data-a');
@@ -208,6 +225,7 @@
       else if (a === 'next') { stamp++; readAt(state.i + 1); }
       else if (a === 'pp') { state.paused ? resumeReading() : pauseReading(); }
       else if (a === 'rate') { state.rate = RATES[(RATES.indexOf(state.rate) + 1) % RATES.length]; store('stem_rate', String(state.rate)); if (!state.paused) { stamp++; readAt(state.i); } setBtn(); }
+      else if (a === 'voice') { changeVoice(); }
       else if (a === 'stop') stopReading();
     });
     doc.body.appendChild(vp);
@@ -233,27 +251,37 @@
   }
 
   /* ------------------------------------------------------------------ story voices */
-  var storyOn = store('stem_story_voice') === 'on', lastLine = null, storyBtn = null;
+  var MODES = ['off', 'rec', 'tts'];
+  var storyMode = store('stem_story_mode') || (store('stem_story_voice') === 'on' ? 'rec' : 'off');
+  var lastLine = null, storyBtn = null;
   function storyVisible() { var s = doc.getElementById('story'); return !!(s && s.offsetParent !== null); }
   function playLine(d) {
     silence();
-    if (!d) return;
-    var lg = lang();
+    if (!d || storyMode === 'off') return;
     function viaTTS() { if (needTamilVoice()) return; speak(d.text, { who: d.who }); }
-    if (lg === 'ta') {
-      var a = new Audio('/static/audio/story/' + d.id + '/line' + ('0' + d.i).slice(-2) + '.mp3');
-      audio = a; var my = gen;
-      a.addEventListener('error', function () { if (my === gen) { audio = null; viaTTS(); } });
-      var p = a.play(); if (p && p.catch) p.catch(function () { if (my === gen) { audio = null; viaTTS(); } });
-    } else viaTTS();
+    if (storyMode === 'tts') { viaTTS(); return; }
+    /* recordings: Tamil in /audio/story/<id>/lineNN.mp3, English (when recorded) in /audio/story/<id>/en/lineNN.mp3 */
+    var a = new Audio('/static/audio/story/' + d.id + '/' + (lang() === 'ta' ? '' : 'en/') + 'line' + ('0' + d.i).slice(-2) + '.mp3');
+    a.playbackRate = state.rate;
+    try { a.preservesPitch = true; a.mozPreservesPitch = true; a.webkitPreservesPitch = true; } catch (e) {}
+    audio = a; var my = gen;
+    a.addEventListener('error', function () { if (my === gen) { audio = null; viaTTS(); } });
+    var p = a.play(); if (p && p.catch) p.catch(function () { if (my === gen) { audio = null; viaTTS(); } });
   }
   function toggleStory() {
-    storyOn = !storyOn; store('stem_story_voice', storyOn ? 'on' : 'off');
+    storyMode = MODES[(MODES.indexOf(storyMode) + 1) % MODES.length]; store('stem_story_mode', storyMode);
     paintStory();
-    if (storyOn) { if (!hasTTS && lang() !== 'ta') { toast(L('This browser cannot read aloud.', 'இந்த பிரவுசர் படிச்சுக் காட்ட முடியாது.')); return; } playLine(lastLine); } else silence();
+    if (storyMode === 'off') { silence(); return; }
+    if (storyMode === 'tts' && !hasTTS) { toast(L('This browser cannot read aloud.', 'இந்த பிரவுசர் படிச்சுக் காட்ட முடியாது.')); return; }
+    playLine(lastLine);
   }
   function paintStory() {
-    if (storyBtn) { storyBtn.setAttribute('aria-pressed', String(storyOn)); storyBtn.classList.toggle('on', storyOn); storyBtn.innerHTML = (storyOn ? ICON.speaker : ICON.speaker.replace('<path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>', '<path d="M16 9l5 6M21 9l-5 6"/>')) + '<span>' + (storyOn ? L('Voices on', 'குரல் ஆன்') : L('Voices off', 'குரல் ஆஃப்')) + '</span>'; }
+    if (!storyBtn) return;
+    var on = storyMode !== 'off';
+    var off = ICON.speaker.replace('<path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>', '<path d="M16 9l5 6M21 9l-5 6"/>');
+    var label = storyMode === 'rec' ? L('Recorded voices', 'பதிவு செஞ்ச குரல்') : (storyMode === 'tts' ? L('Phone voice', 'போன் குரல்') : L('Voices off', 'குரல் ஆஃப்'));
+    storyBtn.setAttribute('aria-pressed', String(on)); storyBtn.classList.toggle('on', on);
+    storyBtn.innerHTML = (on ? ICON.speaker : off) + '<span>' + label + '</span>';
   }
   function mountStory() {
     var head = doc.querySelector('.so-head'); if (!head) return;
@@ -261,7 +289,7 @@
     storyBtn.addEventListener('click', toggleStory); paintStory();
     window.addEventListener('stem-story-line', function (e) {
       lastLine = e.detail;
-      if (storyOn && storyVisible()) playLine(lastLine);
+      if (storyMode !== 'off' && storyVisible()) playLine(lastLine);
     });
     var lt = doc.getElementById('langToggle'); if (lt) lt.addEventListener('click', function () { setTimeout(paintStory, 80); });
   }
@@ -270,7 +298,7 @@
   doc.addEventListener('stem-step', function () { stopReading(); silence(); });
   doc.addEventListener('visibilitychange', function () { if (doc.hidden) { stopReading(); } });
   window.addEventListener('pagehide', function () { silence(); });
-  var lt2 = doc.getElementById('langToggle'); if (lt2) lt2.addEventListener('click', function () { stopReading(); silence(); setTimeout(setBtn, 80); });
+  var lt2 = doc.getElementById('langToggle'); if (lt2) lt2.addEventListener('click', function () { stopReading(); silence(); setTimeout(function () { if (!store('stem_rate')) state.rate = defaultRate(); setBtn(); }, 80); });
 
   window.StemVoice = { speak: function (t, o) { return speak(t, o); }, stop: function () { stopReading(); silence(); }, available: hasTTS, hasTamil: function () { loadVoices(); return hasVoice('ta'); }, _speakable: speakable, _chunks: chunks };
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', function () { mountBar(); mountStory(); }); else { mountBar(); mountStory(); }

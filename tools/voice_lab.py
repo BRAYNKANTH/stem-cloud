@@ -193,7 +193,8 @@ def cmd_sample(a):
             for k, (label, who, text) in enumerate(samples[:2]):
                 f = 'sample_gemini_%s_%d.mp3' % (v, k)
                 wav = os.path.join(OUT, f.replace('.mp3', '.wav'))
-                open(wav, 'wb').write(gemini_wav(speech(text, 'ta'), v, STYLE[who], key, a.model))
+                audio = gemini_wav(speech(text, 'ta'), v, STYLE[who], key, a.model)      # fetch first, so a failure leaves no empty file
+                open(wav, 'wb').write(audio)
                 to_mp3(wav, os.path.join(OUT, f)); os.remove(wav)
                 rows.append((v, 'Gemini', 'casual style for ' + label, label, f))
                 print('.', end='', flush=True); time.sleep(a.delay)
@@ -241,7 +242,8 @@ def cmd_render(a):
         print('Tip: free keys allow only a few requests a minute, so this takes a few minutes. You can stop and run again with --only c5,u2 for some stories.')
         for sid, i, line, dst in plan():
             wav = dst + '.wav'
-            open(wav, 'wb').write(gemini_wav(speech(line[a.lang], a.lang), voices[line['who']], style[line['who']], key, a.model))
+            audio = gemini_wav(speech(line[a.lang], a.lang), voices[line['who']], style[line['who']], key, a.model)
+            open(wav, 'wb').write(audio)
             to_mp3(wav, dst); os.remove(wav)
             n += 1; print('%s line%02d (%s, %s) ok' % (sid, i, NAMES[line['who']], voices[line['who']]), flush=True)
             time.sleep(a.delay)

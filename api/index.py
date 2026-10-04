@@ -440,8 +440,11 @@ APP_HEAD = (
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )
-APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css">'
+APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
+# order matters: player.js builds the lesson bar that voice.js adds its button to
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/app-layer.js"></script>'
+               '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
+               '<script src="/static/voice.js"></script><script src="/static/questions.js"></script>'
                '<script src="/static/account.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 

@@ -113,6 +113,14 @@
         fill();
       });
       mb.appendChild(mk('span', 'sw' + (calm ? ' off' : ''), calm ? L('Off', 'ஆஃப்') : L('On', 'ஆன்')));
+      if (document.getElementById('fw_path')) {
+        var scroll = false; try { scroll = localStorage.getItem('stem_view') === 'scroll'; } catch (e) {}
+        var vb = act('📖 ' + L('Whole lesson on one page', 'முழு பாடமும் ஒரே பக்கத்தில்'), function () {
+          try { localStorage.setItem('stem_view', scroll ? 'steps' : 'scroll'); } catch (e) {}
+          location.href = location.pathname + location.search;
+        });
+        vb.appendChild(mk('span', 'sw' + (scroll ? '' : ' off'), scroll ? L('On', 'ஆன்') : L('Off', 'ஆஃப்')));
+      }
       var App = window.StemApp;
       if (App && App.canInstall()) {
         act('📲 ' + L('Install app', 'ஆப்பை நிறுவு'), function () { App.install().then(close); });

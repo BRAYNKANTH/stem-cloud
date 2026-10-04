@@ -25,6 +25,7 @@
     var close = function () { nav.classList.remove('stem-open'); b.setAttribute('aria-expanded', 'false'); b.textContent = '☰'; };
     b.addEventListener('click', function (e) {
       e.stopPropagation();
+      if (window.StemPlayer && window.StemPlayer.active) { window.StemPlayer.openMap(); return; }   /* lesson map instead of the link list */
       var open = nav.classList.toggle('stem-open');
       b.setAttribute('aria-expanded', String(open)); b.textContent = open ? '✕' : '☰';
     });
@@ -56,11 +57,19 @@
     
     var banner = doc.createElement('div');
     banner.className = 'stem-welcome-banner';
-    banner.innerHTML = 
+    function text() {
+      var ta = false; try { ta = localStorage.getItem('lessonLang') === 'ta'; } catch (e) {}
+      return ta
+        ? '<b>எப்படி வேலை செய்யுது:</b> <b>தொடங்கு ›</b> அழுத்து, அப்புறம் ஒவ்வொரு படியா <b>அடுத்து ›</b>. கதைய ஸ்வைப் பண்ணு 👉, 🔊 அழுத்தினா எந்த பக்கத்தையும் படிச்சுக் காட்டும்.'
+        : '<b>How it works:</b> tap <b>Start ›</b>, then <b>Next ›</b> through each step. Swipe the story 👉, and tap 🔊 to hear any page read aloud.';
+    }
+    banner.innerHTML =
       '<div class="icon">🚀</div>' +
-      '<div class="txt"><b>New to STEM Cloud?</b> Follow the numbered steps 🧭 in order: watch the animation 👀, experiment with the interactive lab 🧪, and test your knowledge to earn XP ⭐!</div>' +
+      '<div class="txt">' + text() + '</div>' +
       '<button type="button" class="dismiss" aria-label="Close guide">✕</button>';
-    
+    var lt = doc.getElementById('langToggle');
+    if (lt) lt.addEventListener('click', function () { setTimeout(function () { var t = banner.querySelector('.txt'); if (t) t.innerHTML = text(); }, 80); });
+
     var closeBtn = banner.querySelector('.dismiss');
     closeBtn.onclick = function() {
       banner.remove();

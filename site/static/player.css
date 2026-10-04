@@ -1,0 +1,134 @@
+/* STEM Cloud lesson player, story swipe, voice controls and textbook-question layout.
+   Loaded after app-layer.css on lesson pages. */
+
+/* ======================================================================
+   LESSON PLAYER: one step at a time, bottom bar, lesson map
+   ====================================================================== */
+.stem-hide{display:none!important}
+html.stem-player .fw-next,html.stem-player .fw-pill{display:none!important}
+html.stem-player body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+html.stem-player .wrap{padding-bottom:36px}
+.stem-enter{animation:stem-in .3s ease both}
+@keyframes stem-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes stem-fade{from{opacity:0}to{opacity:1}}
+@keyframes stem-up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+
+#stem-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--panel) 90%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--border);box-shadow:0 -10px 24px -14px rgba(0,0,0,.4)}
+.sb-btn{flex:0 0 auto;min-width:48px;height:48px;border-radius:14px;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-family:inherit;font-weight:800;font-size:1.4rem;line-height:1;cursor:pointer;padding:0 14px;display:inline-flex;align-items:center;justify-content:center}
+.sb-btn:disabled{opacity:.3;cursor:default}
+.sb-next{min-width:96px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:var(--on-accent);font-size:.95rem;box-shadow:0 8px 18px -10px var(--accent-2)}
+.sb-slot{display:contents}
+.sb-listen{font-size:1.15rem;padding:0}
+.sb-listen.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 18%,transparent)}
+.sb-mid{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:7px;justify-content:center;background:none;border:0;padding:2px 6px;min-height:48px;color:var(--text);cursor:pointer;text-align:left;font-family:inherit}
+.sb-title{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-track{display:flex;gap:3px}
+.sb-track i{flex:1;height:5px;border-radius:3px;background:var(--border)}
+.sb-track i.done{background:color-mix(in srgb,var(--accent) 55%,var(--border))}
+.sb-track i.cur{background:var(--accent-3,#ff9f6b)}
+@media (min-width:900px){
+  #stem-bar{left:50%;right:auto;transform:translateX(-50%);width:min(700px,calc(100% - 32px));bottom:16px;border-radius:22px;border:1px solid var(--border)}
+  html.stem-player body{padding-bottom:110px}
+}
+
+.stem-map{position:fixed;inset:0;z-index:120;display:flex;align-items:flex-end;justify-content:center}
+.sm-back{position:absolute;inset:0;background:rgba(5,10,20,.55);animation:stem-fade .2s}
+.sm-sheet{position:relative;width:min(560px,100%);max-height:82vh;display:flex;flex-direction:column;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:22px 22px 0 0;padding:8px 14px calc(14px + env(safe-area-inset-bottom));box-shadow:0 -20px 40px -20px rgba(0,0,0,.5);animation:stem-up .25s ease}
+.sm-grip{width:44px;height:5px;border-radius:3px;background:var(--border);margin:4px auto 10px}
+.sm-head{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 10px}
+.sm-head span{color:var(--text-dim);font-size:.85rem}
+.sm-list{overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.sm-item{display:flex;align-items:center;gap:12px;min-height:52px;padding:6px 12px;border-radius:14px;border:1.5px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-family:inherit;font-weight:600;font-size:1rem;text-align:left;cursor:pointer}
+.sm-n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--bg);border:2px solid var(--border);font-size:.85rem;font-weight:800}
+.sm-item.done .sm-n{background:var(--good);border-color:var(--good);color:#06231c}
+.sm-item.cur{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--panel))}
+
+/* "Tap to watch" instead of a sudden auto-start */
+.stem-poster{position:absolute;z-index:6;border:0;padding:0;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;font-family:inherit;border-radius:10px;background:linear-gradient(180deg,rgba(10,20,40,.2),rgba(10,20,40,.55))}
+.pp-btn{width:76px;height:76px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding-left:6px;font-size:2rem;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);box-shadow:0 10px 30px -8px rgba(0,0,0,.6);animation:stem-pulse 1.8s ease-in-out infinite}
+.pp-cap{font-weight:800;font-size:1rem;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+@keyframes stem-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+/* ======================================================================
+   STORY: swipe between Raja and Chittu
+   ====================================================================== */
+.so-stage{touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.so-bubble{cursor:pointer}
+.so-ctrls{justify-content:center;flex-wrap:nowrap}
+.so-ctrls button{flex:0 0 auto;width:44px;min-width:44px;min-height:44px;padding:0;border-radius:50%;font-size:0}
+#so_prev::before{content:'‹';font-size:1.7rem;line-height:1}
+#so_next::before{content:'›';font-size:1.7rem;line-height:1}
+#so_prev:disabled{opacity:.3}
+.so-ctrls .so-dots{justify-content:center;flex:1;min-width:0}
+@media (pointer:coarse){.so-ctrls button{display:none}}
+.so-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;color:var(--text-faint);font-size:.85rem;font-weight:600}
+.so-finger{display:inline-block;animation:so-swipe 1.6s ease-in-out infinite}
+.so-hint.quiet .so-finger{animation:none;opacity:0;width:0;overflow:hidden}
+@keyframes so-swipe{0%,100%{transform:translateX(-14px)}50%{transform:translateX(14px)}}
+.so-in-r{animation:so-from-r .3s ease both}
+.so-in-l{animation:so-from-l .3s ease both}
+@keyframes so-from-r{from{transform:translateX(28px);opacity:0}to{transform:none;opacity:1}}
+@keyframes so-from-l{from{transform:translateX(-28px);opacity:0}to{transform:none;opacity:1}}
+.so-wobble{animation:so-wob .35s}
+@keyframes so-wob{0%,100%{transform:none}30%{transform:translateX(-8px)}60%{transform:translateX(8px)}}
+.so-voice{position:relative;margin-left:auto;min-height:36px;padding:4px 12px;border-radius:99px;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-family:inherit;font-weight:700;font-size:.8rem;cursor:pointer}
+.so-voice::after{content:'';position:absolute;inset:-5px}
+.so-voice.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent)}
+
+/* ======================================================================
+   VOICE: read-aloud controls
+   ====================================================================== */
+#stem-vp{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:2px;padding:6px 10px;border-radius:99px;background:var(--panel);color:var(--text);border:1px solid var(--border);box-shadow:0 12px 30px -10px rgba(0,0,0,.5);max-width:calc(100vw - 20px)}
+#stem-vp button{min-width:44px;height:44px;border-radius:50%;border:0;background:none;color:var(--text);font-family:inherit;font-size:1.1rem;font-weight:700;cursor:pointer;padding:0}
+#stem-vp [data-a="rate"]{font-size:.85rem;min-width:52px;border-radius:99px;background:var(--panel-2,var(--bg))}
+.vp-pos{font-size:.75rem;color:var(--text-faint);padding:0 6px;font-variant-numeric:tabular-nums}
+.stem-reading{background:color-mix(in srgb,var(--accent) 20%,transparent)!important;box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 20%,transparent);border-radius:6px}
+.stem-toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:130;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#10192b;color:#fff;font-size:.9rem;line-height:1.4;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:opacity .25s,transform .25s}
+.stem-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ======================================================================
+   TEXTBOOK QUESTIONS: aligned parts, aligned numbers, tap-to-enlarge diagrams
+   ====================================================================== */
+.qlead{display:block}
+.qpart{display:flex;gap:8px;align-items:flex-start;margin-top:6px}
+.qpart .ql{flex:0 0 auto;min-width:2.2em;color:var(--accent-3,#d9762f);font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.9em}
+.qpart .qt{flex:1 1 auto;min-width:0}
+.exq{display:flex;gap:10px;align-items:flex-start}
+.exq > span:not(.exnum){flex:1 1 auto;min-width:0}
+.exq .exnum{flex:0 0 auto;min-width:2.6em;white-space:nowrap}
+@media (max-width:560px){
+  .exq{flex-direction:column;gap:2px}
+  .exq .exnum{min-width:0}
+}
+.qdiagram{cursor:zoom-in}
+.qdiagram.pannable{-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+.qd-cap{margin:-8px 2px 14px;font-size:.78rem;color:var(--text-faint);font-weight:600}
+.stem-lightbox{position:fixed;inset:0;z-index:140;background:rgba(5,10,20,.82);display:flex;flex-direction:column}
+.lb-bar{display:flex;align-items:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 14px 8px;color:#fff}
+.lb-bar span{flex:1;font-size:.78rem;opacity:.75}
+.lb-bar button{width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:1.1rem;cursor:pointer}
+.lb-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;background:var(--panel,#fff);margin:0 10px calc(10px + env(safe-area-inset-bottom));border-radius:14px;padding:12px;touch-action:pan-x pan-y pinch-zoom}
+
+/* story card sized to fit one phone screen: characters, bubble, dots and the swipe hint all visible above the bar */
+.so-head{flex-wrap:wrap;gap:8px 10px;margin-bottom:8px}
+.so-chip{order:1}
+.so-voice{order:2;display:inline-flex;align-items:center;gap:6px}
+.so-voice svg{width:18px;height:18px}
+.so-title{order:3;flex:1 0 100%}
+@media (max-width:760px){
+  .so-stage{padding:12px 12px 10px}
+  .so-chars{gap:4px}
+  .so-char svg{max-width:112px}
+  .so-nm{font-size:.82rem}
+  .so-scene{min-height:1.9rem;font-size:1.5rem;letter-spacing:4px;margin:2px 0 0}
+  .so-bubble{min-height:74px;margin:12px 2px 6px;padding:10px 14px;font-size:1rem}
+  .so-ctrls{margin-top:2px}
+  .so-hint{margin-top:2px}
+}
+
+/* the page's own XP / badge pop-ups sit above the lesson bar */
+html.stem-player #toastWrap{bottom:calc(92px + env(safe-area-inset-bottom));right:12px;max-width:min(280px,calc(100vw - 24px))}
+
+/* the pinned lab cartoon: sticky only works if no ancestor clips or transforms, and the cartoon keeps its proportions */
+html.stem-player .lab-card:has(.ls){overflow:visible!important;transform:none!important}
+.lab-card:has(.ls) #ls_svg{aspect-ratio:640/300;height:auto;flex:0 0 auto}

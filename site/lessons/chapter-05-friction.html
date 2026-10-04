@@ -1756,6 +1756,7 @@ function cssVar(name){ return getComputedStyle(document.documentElement).getProp
     $('so_bubble').className = 'so-bubble ' + (isR ? 'r' : 'c');
     $('so_scene').textContent = l[1];
     full = lineText(l); dots(); labels();
+    try{ window.dispatchEvent(new CustomEvent('stem-story-line', {detail:{who:l[0], text:full, i:idx, id:KEY.replace('scx_story_','')}})); }catch(e){}
     $('so_prev').disabled = idx === 0;
     const last = idx === STORY.lines.length - 1;
     $('so_cta').classList.toggle('show', last);
@@ -1775,6 +1776,7 @@ function cssVar(name){ return getComputedStyle(document.documentElement).getProp
   $('so_next').addEventListener('click', () => { if(typing){ show(idx, true); return; } if(idx < STORY.lines.length - 1) show(idx + 1); });
   $('so_prev').addEventListener('click', () => { if(idx > 0) show(idx - 1); });
   openerLangHook = function(){ show(idx, true); };
+  window.__soShow = show;
   show(0);
 })();
 
@@ -2198,7 +2200,7 @@ function cssVar(name){ return getComputedStyle(document.documentElement).getProp
     finishedFx = t >= CFG.dur; paint();
   });
   if('IntersectionObserver' in window){
-    new IntersectionObserver((es, o) => { es.forEach(e => { if(e.isIntersecting && !auto){ auto = true; if(!document.documentElement.classList.contains('stem-calm')) setTimeout(play, 600); o.disconnect(); } }); }, {threshold:.5}).observe($('watch'));
+    new IntersectionObserver((es, o) => { es.forEach(e => { if(e.isIntersecting && !auto){ auto = true; if(!document.documentElement.classList.contains('stem-calm') && !document.documentElement.classList.contains('stem-player')) setTimeout(play, 600); o.disconnect(); } }); }, {threshold:.5}).observe($('watch'));
   }
   const prevHook = openerLangHook; openerLangHook = function(){ if(prevHook) prevHook(); paint(); };
   window.__fwPaint = (tt) => { t = tt; paint(); };

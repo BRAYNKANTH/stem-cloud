@@ -3,12 +3,13 @@
  * - lesson pages: network first (always fresh progress), last visited copy when offline
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v2';
+var VERSION = 'v3';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
 var PRECACHE = [
-  '/static/offline.html', '/static/app.css', '/static/app-layer.css', '/static/app-layer.js', '/static/pwa.js', '/static/account.js',
+  '/static/offline.html', '/static/app.css', '/static/app-layer.css', '/static/player.css', '/static/app-layer.js', '/static/pwa.js', '/static/account.js',
+  '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js',
   '/static/icons/icon-192.png', '/static/icons/favicon-32.png', '/static/brand/logo-mark.png', '/manifest.webmanifest'
 ];
 
@@ -48,6 +49,7 @@ self.addEventListener('fetch', function (e) {
     return;
   }
   if (url.pathname.indexOf('/api/') === 0 || url.pathname === '/healthz') return;
+  if (url.pathname.indexOf('/static/audio/') === 0) return;      /* audio needs Range requests, which the Cache API cannot answer (breaks Safari): always from the network */
 
   if (url.pathname.indexOf('/static/') === 0 || url.pathname === '/manifest.webmanifest') {
     e.respondWith(swr(req, STATIC));

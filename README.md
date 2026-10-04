@@ -93,7 +93,15 @@ Speech engines are trained on formal reading (news, audiobooks), so casual spoke
 
 For a truly natural sound, replace the story recordings (needs `pip install edge-tts imageio-ffmpeg`):
 
-1. **Audition the neural voices** (needs internet): `python tools/voice_lab.py sample`, then open `tools/voice_lab_out/index.html` and listen. Pick the voices that sound like someone talking, not reading.
+0. **Try Google Gemini voices first** (more expressive, accepts a "casual, like talking to a friend" style, supports Tamil). Get a free key at https://aistudio.google.com/apikey (your Google AI Pro plan is billed separately from this developer key, and the free key needs no payment), then:
+   ```bash
+   pip install imageio-ffmpeg
+   set GEMINI_API_KEY=your-key          (PowerShell: $env:GEMINI_API_KEY="your-key")
+   python tools/voice_lab.py sample --engine gemini        # listen to 10 voices on real lines: tools/voice_lab_out/index.html
+   python tools/voice_lab.py render --engine gemini --raja Puck --chittu Leda
+   ```
+   Free keys are rate limited, so this runs slowly (about 7 s per line, 54 lines); use `--only c5,u2` to do a few stories at a time. If Google says the TTS model is not available on the free tier, enable billing on the key's project (a few lines of speech cost very little) or use one of the other routes. The default model is `gemini-3.8-flash-tts` (see https://ai.google.dev/gemini-api/docs/speech-generation if Google renames it; change it with `--model`). Change how the characters sound with `--style-raja "..."` / `--style-chittu "..."`. The key is only ever read from your computer's environment and sent to Google in a header; never commit it.
+1. **Audition the Microsoft neural voices** (needs internet): `python tools/voice_lab.py sample`, then open `tools/voice_lab_out/index.html` and listen. Pick the voices that sound like someone talking, not reading.
 2. **Re-record all stories with them:**
    `python tools/voice_lab.py render --raja ta-IN-ValluvarNeural --chittu ta-IN-PallaviNeural --rate +8%`
    (add `--lang en` with English voices to record the English story lines too; old files are backed up in `tools/voice_lab_out/backup`).

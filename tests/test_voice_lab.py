@@ -51,12 +51,66 @@ def run():
     real = edge_tts.Communicate
     edge_tts.Communicate = Fake
     lab.AUDIO = os.path.join(tmp, 'audio'); lab.OUT = os.path.join(tmp, 'out')
-    args = types.SimpleNamespace(lang='ta', raja='ta-IN-ValluvarNeural', chittu='ta-IN-PallaviNeural', rate='+8%', pitch_raja='+0Hz', pitch_chittu='+0Hz', only='c5')
+    args = types.SimpleNamespace(engine='edge', lang='ta', raja='ta-IN-ValluvarNeural', chittu='ta-IN-PallaviNeural', rate='+8%', pitch_raja='+0Hz', pitch_chittu='+0Hz',
+                                 style_raja='', style_chittu='', key='', model='', delay=0, only='c5')
     lab.cmd_render(args)
     edge_tts.Communicate = real
     files = sorted(os.listdir(os.path.join(lab.AUDIO, 'c5')))
     check('render writes line00..line08 for the chosen story', files == ['line%02d.mp3' % i for i in range(9)], files)
     check('Raja and Chittu get their own voices at the chosen speed', {m[0] for m in made} == {'ta-IN-ValluvarNeural', 'ta-IN-PallaviNeural'} and {m[1] for m in made} == {'+8%'}, set(made))
+
+    # ---------------------------------------------------------------- Gemini engine (service faked, response shaped like Google's documentation)
+    import base64, io, math, struct, urllib.error, wave
+    pcm = b''.join(struct.pack('<h', int(9000 * math.sin(2 * math.pi * 330 * t / 24000))) for t in range(24000))      # 1 s tone, 24 kHz 16-bit mono
+    buf = io.BytesIO()
+    with wave.open(buf, 'wb') as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
+    sent, state = [], {'n': 0, 'headerless': False}
+
+    class FakeResp:
+        def __init__(self, payload): self.payload = payload
+        def read(self): return json.dumps(self.payload).encode('utf-8')
+
+    def fake_urlopen(req, timeout=0):
+        state['n'] += 1
+        if state['n'] == 1:                                        # the free tier is rate limited: first call is refused
+            raise urllib.error.HTTPError(req.full_url, 429, 'Too Many Requests', {}, io.BytesIO(b'{"error":"slow down"}'))
+        sent.append((json.loads(req.data.decode('utf-8')), dict(req.header_items())))
+        audio = pcm if state['headerless'] else buf.getvalue()
+        return FakeResp({'steps': [{'type': 'model_output', 'content': [{'type': 'audio', 'mime_type': 'audio/wav', 'data': base64.b64encode(audio).decode()}]}]})
+
+    real_open, real_sleep = lab.urllib.request.urlopen, lab.time.sleep
+    lab.urllib.request.urlopen, lab.time.sleep = fake_urlopen, lambda s: None
+    lab.AUDIO = os.path.join(tmp, 'gemini_audio')
+    g = types.SimpleNamespace(engine='gemini', lang='ta', raja='Puck', chittu='Leda', rate='+8%', pitch_raja='+0Hz', pitch_chittu='+0Hz', style_raja='', style_chittu='',
+                              key='test-key', model=lab.GEMINI_MODEL, delay=0, only='c5')
+    lab.cmd_render(g)
+    files = sorted(os.listdir(os.path.join(lab.AUDIO, 'c5')))
+    check('Gemini render writes all 9 lines as mp3 (after retrying the rate-limit refusal)', files == ['line%02d.mp3' % i for i in range(9)], files)
+    check('a refused request (429) was retried, not skipped', state['n'] == 10, state['n'])
+    body0, hdr0 = sent[0]
+    check('request follows the documented shape (model, voice, style, wav 24 kHz)',
+          body0['model'] == lab.GEMINI_MODEL and body0['generation_config']['speech_config'][0]['voice'] == 'Puck'
+          and body0['input'][0]['content'][0]['annotations'][0]['type'] == 'speech_metadata' and body0['response_format']['sample_rate'] == 24000, body0)
+    check('the API key travels in a header, not in the URL', hdr0.get('X-goog-api-key') == 'test-key' and 'key=' not in lab.GEMINI_URL, hdr0)
+    sp = lambda k: sent[k][0]['generation_config']['speech_config'][0]['voice']
+    st_ = lambda k: sent[k][0]['input'][0]['content'][0]['annotations'][0]['style']
+    check('Raja gets Puck + a boy style, Chittu gets Leda + a girl style', sp(0) == 'Puck' and 'boy' in st_(0) and sp(1) == 'Leda' and 'girl' in st_(1), (sp(0), st_(0)[:40], sp(1), st_(1)[:40]))
+    txt0 = sent[0][0]['input'][0]['content'][0]['text']
+    check('the text sent is exactly the spoken Tamil line, with no stage directions', txt0 == lab.speech(st['c5']['lines'][0]['ta'], 'ta') and '<' not in txt0, txt0)
+    mp = os.path.join(lab.AUDIO, 'c5', 'line00.mp3'); head = open(mp, 'rb').read(3)
+    check('the result is a real mp3', os.path.getsize(mp) > 1500 and (head == b'ID3' or head[:1] == bytes([255])), (os.path.getsize(mp), head))
+    state.update(n=1, headerless=True); sent.clear()                   # n=1 so the 429 branch is skipped; audio now arrives as raw PCM without a WAV header
+    g.only = 'u2'; lab.AUDIO = os.path.join(tmp, 'gemini_audio2')
+    lab.cmd_render(g)
+    check('raw 16-bit PCM audio (no WAV header) is also handled', os.path.getsize(os.path.join(lab.AUDIO, 'u2', 'line00.mp3')) > 1500)
+    lab.urllib.request.urlopen, lab.time.sleep = real_open, real_sleep
+    try:
+        lab.api_key(types.SimpleNamespace(key=''))
+        no_key_ok = os.environ.get('GEMINI_API_KEY') is not None
+    except SystemExit as e:
+        no_key_ok = 'aistudio.google.com/apikey' in str(e)
+    check('without a key it tells you where to get a free one', no_key_ok)
 
     # ---------------------------------------------------------------- recorder page -> import
     env = dict(os.environ, DB_PATH=os.path.join(tmp, 't.db'))

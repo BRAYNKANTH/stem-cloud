@@ -5,7 +5,7 @@ GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, thr
 ```
 api/index.py        the whole backend (FastAPI): accounts, progress sync, admin, serves the lessons
 site/lessons/       the lesson pages (served only to logged-in students)
-site/static/        login/account/admin/privacy pages, account.js (sync + account menu),
+public/static/       login/account/admin/privacy pages, account.js (sync + account menu),
                     pwa.js + sw.js + manifest (installable app), app-layer.css/js (phone layout),
                     player.js/css (lesson player), story.js (swipe), voice.js (read aloud), questions.js (textbook questions),
                     audio/story/ (neural Tamil story voices), brand/, icons/
@@ -25,14 +25,14 @@ tools/voice_lab.py      audition Tamil voices, re-record the stories, import rea
 - **Offline:** lessons a student has already opened still work without internet, and XP earned offline syncs when the connection returns. Anything not opened before shows a friendly "no internet" page.
 - **Phones:** one-line header (menu, language, account), 44px touch targets, text never below 11px, cartoon stages use the full width and scale their speech bubbles, the lab cartoon stays pinned while sliders are moved, diagrams keep a readable size and pan sideways, `prefers-reduced-motion` is respected.
 - **Animations always play** (cartoons, labs, story openers), even when the phone is in battery-saver / "remove animations" mode, which would otherwise freeze them. A student who is sensitive to motion can switch them off in the account menu (*Animations: On/Off*); the choice is remembered on that device.
-- **Branding:** the logo lives in `site/static/brand/` (`logo-mark.png` is the cut-out cloud used in headers and icons). Run `python tools/make_icons.py` after changing it to rebuild the app icons. Colours (navy and sky blue) are defined once at the top of `site/static/app-layer.css` and `site/static/app.css`.
+- **Branding:** the logo lives in `public/static/brand/` (`logo-mark.png` is the cut-out cloud used in headers and icons). Run `python tools/make_icons.py` after changing it to rebuild the app icons. Colours (navy and sky blue) are defined once at the top of `public/static/app-layer.css` and `public/static/app.css`.
 - **Fast on slow connections:** web fonts load without blocking the page, and the service worker registers as soon as the page is parsed.
 - **Lesson player:** every lesson is a guided path instead of one 20,000-pixel scroll. One step at a time (Story, Watch it, Notes, ...), a bottom bar with Back / progress / Next, and a lesson map (tap the progress, or the menu button). The browser's Back button works step by step, deep links like `chapter-05-friction.html#quiz` open that step, and nothing starts by itself: the animation shows a *Tap to watch* poster. A student who prefers the long page can switch it in the account menu (*Whole lesson on one page*).
 - **Story by swiping:** swipe left/right (or tap the bubble, or use arrow keys) between Raja's and Chittu's lines. The big Next/Back buttons only remain on mouse devices.
-- **Voice:** the speaker button in the bar reads the current step aloud, sentence by sentence, with the sentence highlighted, pause / skip / speed controls, and units and symbols spoken as words ("5 N" becomes "5 newtons"). In the story, *Voices on* plays the **neural Tamil recordings** of Raja and Chittu (`site/static/audio/story/<chapter>/lineNN.mp3`); English story lines and all other text use the phone's own speech engine. If a phone has no Tamil voice installed, it says so and explains how to install one. To add neural English recordings later, render the lines with `edge-tts` (`en-IN-PrabhatNeural` for Raja, `en-IN-NeerjaNeural` for Chittu) into `audio/story/<id>/en/lineNN.mp3` and extend `playLine()` in `voice.js`.
+- **Voice:** the speaker button in the bar reads the current step aloud, sentence by sentence, with the sentence highlighted, pause / skip / speed controls, and units and symbols spoken as words ("5 N" becomes "5 newtons"). In the story, *Voices on* plays the **neural Tamil recordings** of Raja and Chittu (`public/static/audio/story/<chapter>/lineNN.mp3`); English story lines and all other text use the phone's own speech engine. If a phone has no Tamil voice installed, it says so and explains how to install one. To add neural English recordings later, render the lines with `edge-tts` (`en-IN-PrabhatNeural` for Raja, `en-IN-NeerjaNeural` for Chittu) into `audio/story/<id>/en/lineNN.mp3` and extend `playLine()` in `voice.js`.
 - **Textbook questions:** multi-part questions such as "(i) ... (ii) ... (iii) ..." are laid out as aligned rows, question numbers no longer shift the text, and tapping a diagram opens it full screen at a readable size.
 - **Shared devices:** the offline copies of lesson pages hold one student's progress, so they are wiped on logout and whenever the login page opens.
-- **Releasing changes to the app files:** the service worker serves `site/static/*` instantly from cache and refreshes it in the background (new files show on the second visit). To force an immediate refresh for everyone after a release, bump `VERSION` at the top of `site/static/sw.js` (story audio is never cached by the worker, so recordings can be replaced freely).
+- **Releasing changes to the app files:** the service worker serves `public/static/*` instantly from cache and refreshes it in the background (new files show on the second visit). To force an immediate refresh for everyone after a release, bump `VERSION` at the top of `public/static/sw.js` (story audio is never cached by the worker, so recordings can be replaced freely).
 
 ## Deploy on Vercel
 
@@ -107,7 +107,7 @@ For a truly natural sound, replace the story recordings (needs `pip install edge
    (add `--lang en` with English voices to record the English story lines too; old files are backed up in `tools/voice_lab_out/backup`).
 3. **Or use real human voices (best):** run the app, open `/static/record.html` on a phone, pick a story and language, and have a teacher or student read each line the way they would say it to a friend. Save the files, then `python tools/voice_lab.py import <downloads folder>` converts them (trims silence, evens out loudness, makes mp3s) and puts them in the right place.
 
-Commit `site/static/audio/` and push. Recordings are never cached by the service worker, so new ones are used straight away.
+Commit `public/static/audio/` and push. Recordings are never cached by the service worker, so new ones are used straight away.
 
 ## Privacy (students are children)
 

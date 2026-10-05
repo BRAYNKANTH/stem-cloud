@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Builds the app icons from the STEM Cloud logo mark (site/static/brand/logo-mark.png).
+"""Builds the app icons from the STEM Cloud logo mark (public/static/brand/logo-mark.png).
 Run: python tools/make_icons.py"""
 import os
 from PIL import Image, ImageDraw
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-MARK = Image.open(os.path.join(HERE, '..', 'site', 'static', 'brand', 'logo-mark.png')).convert('RGBA')
-OUT = os.path.join(HERE, '..', 'site', 'static', 'icons')
+MARK = Image.open(os.path.join(HERE, '..', 'public', 'static', 'brand', 'logo-mark.png')).convert('RGBA')
+OUT = os.path.join(HERE, '..', 'public', 'static', 'icons')
 S = 1024
 
 def tile(rounded):

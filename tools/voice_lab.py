@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Voice lab for the Raja and Chittu story voices.
 
-  python tools/voice_lab.py lines                      rebuild site/static/audio/story/lines.json from the lesson pages
+  python tools/voice_lab.py lines                      rebuild public/static/audio/story/lines.json from the lesson pages
   python tools/voice_lab.py sample                     audition the Tamil voices on real story lines (needs internet)
   python tools/voice_lab.py render --raja ta-IN-ValluvarNeural --chittu ta-IN-PallaviNeural --rate +8%
                                                        re-record all story lines with Microsoft neural voices (needs internet)
@@ -18,7 +18,7 @@ import argparse, asyncio, base64, glob, html, io, json, os, re, shutil, subproce
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.normpath(os.path.join(HERE, '..'))
 LESSONS = os.path.join(ROOT, 'site', 'lessons')
-AUDIO = os.path.join(ROOT, 'site', 'static', 'audio', 'story')
+AUDIO = os.path.join(ROOT, 'public', 'static', 'audio', 'story')
 OUT = os.path.join(HERE, 'voice_lab_out')
 NAMES = {'R': 'Raja', 'C': 'Chittu'}
 

@@ -19,7 +19,7 @@ from fastapi.staticfiles import StaticFiles
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 LESSONS = (SITE / 'lessons').resolve()
-STATIC = SITE / 'static'
+STATIC = ROOT / 'public' / 'static'      # Vercel serves public/ straight from its CDN; the app mounts the same folder for local use and the HTML pages
 ON_VERCEL = bool(os.environ.get('VERCEL'))
 ADMIN_USERS = {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}
 TRUST_PROXY = ON_VERCEL or os.environ.get('TRUST_PROXY') == '1'
@@ -152,19 +152,24 @@ def new_session(con, user_id: int, resp: Response, req: Request):
     con.execute('INSERT INTO sessions(token_hash,user_id,created_at,expires) VALUES(?,?,?,?)', (sha(tok), user_id, now, now + SESSION_DAYS * 86400))
     resp.set_cookie(COOKIE, tok, max_age=SESSION_DAYS * 86400, httponly=True, samesite='lax', secure=is_secure(req), path='/')
 
-def current_user(req: Request):
+def _user_on(con, tok: str):
+    now = int(time.time())
+    row = con.execute('SELECT u.* FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=? AND s.expires>?', (sha(tok), now)).fetchone()
+    if not row:
+        return None
+    row = dict(row)
+    if now - row['last_seen'] > 60:
+        con.execute('UPDATE users SET last_seen=? WHERE id=?', (now, row['id']))
+    return row
+
+def current_user(req: Request, con=None):
     tok = req.cookies.get(COOKIE)
     if not tok:
         return None
+    if con is not None:                 # caller already holds a connection: do not open (and TLS-handshake) a second one
+        return _user_on(con, tok)
     with db() as con:
-        now = int(time.time())
-        row = con.execute('SELECT u.* FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=? AND s.expires>?', (sha(tok), now)).fetchone()
-        if not row:
-            return None
-        row = dict(row)
-        if now - row['last_seen'] > 60:
-            con.execute('UPDATE users SET last_seen=? WHERE id=?', (now, row['id']))
-        return row
+        return _user_on(con, tok)
 
 def need_user(req: Request):
     u = current_user(req)
@@ -226,9 +231,11 @@ def merge(key: str, old, new: str) -> str:
         pass
     return new
 
-def load_progress(uid: int) -> dict:
-    with db() as con:
-        return {r['k']: r['v'] for r in con.execute('SELECT k,v FROM progress WHERE user_id=?', (uid,)).fetchall()}
+def load_progress(uid: int, con=None) -> dict:
+    if con is None:
+        with db() as con:
+            return load_progress(uid, con)
+    return {r['k']: r['v'] for r in con.execute('SELECT k,v FROM progress WHERE user_id=?', (uid,)).fetchall()}
 
 def save_progress(uid: int, items: dict) -> dict:
     now = int(time.time())
@@ -448,15 +455,26 @@ APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/app-l
                '<script src="/static/account.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 
-def render_lesson(path: Path, user: dict) -> HTMLResponse:
-    html = path.read_text(encoding='utf-8')
-    boot = BOOT % (js_json(public(user)), js_json(load_progress(user['id'])))
-    vp = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
-    html = VIEWPORT_RE.sub(vp, html, 1) if VIEWPORT_RE.search(html) else html.replace('<head>', '<head>' + vp, 1)
-    html = html.replace('<head>', '<head>' + boot + APP_HEAD, 1) if '<head>' in html else boot + html
-    html = html.replace('</head>', APP_TAIL_CSS + '</head>', 1)
-    html = html.replace('</body>', APP_TAIL_JS + '</body>', 1) if '</body>' in html else html + APP_TAIL_JS
-    return HTMLResponse(html)
+_MARK = '<!--STEM-BOOT-->'
+_tpl = {}
+
+def _template(path: Path) -> str:
+    """The lesson with everything that is the same for every student already inserted (cached per instance)."""
+    key = (str(path), path.stat().st_mtime_ns)
+    html = _tpl.get(key)
+    if html is None:
+        html = path.read_text(encoding='utf-8')
+        vp = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
+        html = VIEWPORT_RE.sub(vp, html, 1) if VIEWPORT_RE.search(html) else html.replace('<head>', '<head>' + vp, 1)
+        html = html.replace('<head>', '<head>' + _MARK + APP_HEAD, 1) if '<head>' in html else _MARK + html
+        html = html.replace('</head>', APP_TAIL_CSS + '</head>', 1)
+        html = html.replace('</body>', APP_TAIL_JS + '</body>', 1) if '</body>' in html else html + APP_TAIL_JS
+        _tpl.clear(); _tpl[key] = html
+    return html
+
+def render_lesson(path: Path, user: dict, progress: dict) -> HTMLResponse:
+    boot = BOOT % (js_json(public(user)), js_json(progress))
+    return HTMLResponse(_template(path).replace(_MARK, boot, 1))
 
 @app.get('/')
 def home(req: Request):
@@ -480,16 +498,17 @@ def lessons_root():
 
 @app.get('/lessons/{rel:path}')
 def lessons(rel: str, req: Request):
-    u = current_user(req)
-    if not u:
-        if rel.endswith('.html'):
-            return RedirectResponse('/login?next=' + '/lessons/' + rel, status_code=302)
-        raise HTTPException(401, 'Please log in.')
     p = (LESSONS / rel).resolve()
-    if LESSONS not in p.parents or not p.is_file():
-        raise HTTPException(404, 'Not found.')
-    if p.suffix == '.html':
-        return render_lesson(p, u)
+    with db() as con:                    # one database connection for the whole page: session check and the student's progress
+        u = current_user(req, con)
+        if not u:
+            if rel.endswith('.html'):
+                return RedirectResponse('/login?next=' + '/lessons/' + rel, status_code=302)
+            raise HTTPException(401, 'Please log in.')
+        if LESSONS not in p.parents or not p.is_file():
+            raise HTTPException(404, 'Not found.')
+        if p.suffix == '.html':
+            return render_lesson(p, u, load_progress(u['id'], con))
     return FileResponse(p)
 
 @app.get('/login')

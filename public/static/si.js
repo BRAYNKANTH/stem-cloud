@@ -72,7 +72,8 @@
     el.__siNow = si; el.innerHTML = si;
   }
   function translateEl(el) {
-    if (!el || el.nodeType !== 1 || SKIP.test(el.tagName) || el.closest('svg,[data-no-si]')) return;
+    if (!el || el.nodeType !== 1 || SKIP.test(el.tagName) || el.closest('[data-no-si]')) return;
+    if (el.closest('svg') && !(/^(text|tspan)$/i.test(el.tagName) && !el.children.length)) return;     /* a drawing: only its plain text labels are translated */
     if (el.tagName === 'TD' && el.classList.contains('tt') && el.nextElementSibling && el.nextElementSibling.classList.contains('te')) {
       /* glossary table: the Tamil column shows the Sinhala term, found by its English neighbour ("@Work") */
       var gs = lookup('@' + norm(el.nextElementSibling.textContent));

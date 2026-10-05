@@ -39,13 +39,46 @@
     if (el) el.textContent = statusText();
   }
 
+  function handleKickedOut() {
+    if (window.__kickedOutHandled) return;
+    window.__kickedOutHandled = true;
+    if (window.StemApp) window.StemApp.clearPageCache();
+
+    var b = document.createElement('div');
+    b.id = 'kickedOverlay';
+    b.style.cssText = 'position:fixed;inset:0;background:rgba(11,15,23,0.96);z-index:999999;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#fff;font-family:system-ui,sans-serif;backdrop-filter:blur(8px);';
+    b.innerHTML = '<div style="max-width:380px;background:#141d2c;border:1.5px solid #ff7a8f;border-radius:20px;padding:26px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.6)">'
+      + '<div style="font-size:2.8rem;margin-bottom:8px">📱⚠️</div>'
+      + '<h2 style="margin:0 0 8px;font-size:1.25rem;color:#ff7a8f">Device Limit Reached</h2>'
+      + '<p style="margin:0 0 16px;color:#a7b3c8;font-size:0.92rem;line-height:1.5">You were logged out because this account was logged into on another device (maximum 2 active devices allowed).</p>'
+      + '<button id="reloginBtn" style="background:#4cc3f0;color:#06182b;border:none;border-radius:12px;padding:12px 24px;font-weight:700;font-size:0.95rem;cursor:pointer">Log in on this device</button>'
+      + '</div>';
+    document.body.appendChild(b);
+    var relogin = document.getElementById('reloginBtn');
+    if (relogin) {
+      relogin.onclick = function () {
+        location.href = '/login?next=' + encodeURIComponent(location.pathname);
+      };
+    }
+  }
+
+  function checkSession() {
+    if (!navigator.onLine || window.__kickedOutHandled) return;
+    fetch('/api/me', { credentials: 'same-origin', headers: { 'X-Requested-With': 'stemcloud' } })
+      .then(function (r) {
+        if (r.status === 401) handleKickedOut();
+      }).catch(function () {});
+  }
+  setInterval(checkSession, 15000);
+  window.addEventListener('focus', checkSession);
+
   function push(all, keepalive) {
     var body = snapshot(all);
     if (!Object.keys(body).length) { setStatus('saved'); return Promise.resolve(); }
     dirty = {}; setStatus('saving');
     return fetch('/api/progress', { method: 'PUT', headers: HDR, body: JSON.stringify(body), credentials: 'same-origin', keepalive: !!keepalive })
       .then(function (r) {
-        if (r.status === 401) { setStatus('login'); return; }
+        if (r.status === 401) { setStatus('login'); handleKickedOut(); return; }
         if (!r.ok) throw new Error('http ' + r.status);
         setStatus('saved');
       })

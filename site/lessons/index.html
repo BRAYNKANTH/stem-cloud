@@ -175,17 +175,16 @@ document.getElementById('langToggle').addEventListener('click', function(){ appl
 ============================================================ */
 const WELCOME = { file:'intro-physics-is-easy.html', en:'Meet Raja and Chittu', ta:'ராஜா, சிட்டுவ சந்திங்க' };
 const MODULES = [
-  { id:'mech', icon:'⚙️', en:'Mechanics', ta:'இயக்கவியல்' },
-  { id:'g10',  icon:'🔟', en:'Grade 10 · Part II', ta:'தரம் 10 · பகுதி II' },
+  { id:'g10',  icon:'🔟', en:'Grade 10', ta:'தரம் 10' },
   { id:'g11',  icon:'🎓', en:'Grade 11', ta:'தரம் 11' }
 ];
 const LESSONS = [
-  { m:'mech', n:'2',  lid:'u2',     steps:12, file:'unit-02-motion-in-a-straight-line.html', en:'Motion in a Straight Line', ta:'நேர்க்கோட்டு இயக்கம்' },
-  { m:'mech', n:'4',  lid:'c4',     steps:13, file:'chapter-04-newtons-laws.html', en:"Newton's Laws of Motion", ta:'நியூற்றனின் இயக்க விதிகள்' },
-  { m:'mech', n:'5',  lid:'c5',     steps:13, file:'chapter-05-friction.html', en:'Friction', ta:'உராய்வு' },
-  { m:'mech', n:'9',  lid:'c9',     steps:13, file:'chapter-09-resultant-force.html', en:'Resultant Force', ta:'விளையுள் விசை' },
-  { m:'mech', n:'11', lid:'c11',    steps:13, file:'chapter-11-turning-effect.html', en:'Turning Effect of Forces', ta:'விசையின் திரும்பல் விளைவு' },
-  { m:'mech', n:'12', lid:'c12',    steps:13, file:'chapter-12-equilibrium.html', en:'Equilibrium of Forces', ta:'விசைகளின் சமநிலை' },
+  { m:'g10',  n:'2',  lid:'u2',     steps:12, file:'unit-02-motion-in-a-straight-line.html', en:'Motion in a Straight Line', ta:'நேர்க்கோட்டு இயக்கம்' },
+  { m:'g10',  n:'4',  lid:'c4',     steps:13, file:'chapter-04-newtons-laws.html', en:"Newton's Laws of Motion", ta:'நியூற்றனின் இயக்க விதிகள்' },
+  { m:'g10',  n:'5',  lid:'c5',     steps:13, file:'chapter-05-friction.html', en:'Friction', ta:'உராய்வு' },
+  { m:'g10',  n:'9',  lid:'c9',     steps:13, file:'chapter-09-resultant-force.html', en:'Resultant Force', ta:'விளையுள் விசை' },
+  { m:'g10',  n:'11', lid:'c11',    steps:13, file:'chapter-11-turning-effect.html', en:'Turning Effect of Forces', ta:'விசையின் திரும்பல் விளைவு' },
+  { m:'g10',  n:'12', lid:'c12',    steps:13, file:'chapter-12-equilibrium.html', en:'Equilibrium of Forces', ta:'விசைகளின் சமநிலை' },
   { m:'g10',  n:'15', lid:'g10c15', steps:13, file:'g10-chapter-15-hydrostatic-pressure.html', en:'Pressure of Liquids', ta:'திரவ அமுக்கம்' },
   { m:'g10',  n:'18', lid:'g10c18', steps:13, file:'g10-chapter-18-work-energy-power.html', en:'Work, Energy and Power', ta:'வேலை, சக்தி, வலு' },
   { m:'g10',  n:'19', lid:'g10c19', steps:13, file:'g10-chapter-19-current-electricity.html', en:'Current Electricity', ta:'ஓட்ட மின்னியல்' },
@@ -267,7 +266,7 @@ function render(){
     const items = LESSONS.map((l, i) => [l, prog[i]]).filter(x => x[0].m === m.id);
     const mDone = items.filter(x => x[1].done).length;
     const holdsNow = items.some(x => x[0].file === nowFile);
-    const open = (m.id in OPEN) ? OPEN[m.id] : (holdsNow || (m.id === 'mech' && nowFile === WELCOME.file));
+    const open = (m.id in OPEN) ? OPEN[m.id] : (holdsNow || (m.id === 'g10' && nowFile === WELCOME.file));
     h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : '') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
     items.forEach(function(x){
       const l = x[0], p = x[1];

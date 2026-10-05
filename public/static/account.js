@@ -110,6 +110,7 @@
         var off = !document.documentElement.classList.contains('stem-calm');
         document.documentElement.classList.toggle('stem-calm', off);
         try { localStorage.setItem('stem_motion', off ? 'off' : 'on'); } catch (e) {}
+        try { window.dispatchEvent(new Event('stem-calm-change')); } catch (e) {}
         fill();
       });
       mb.appendChild(mk('span', 'sw' + (calm ? ' off' : ''), calm ? L('Off', 'ஆஃப்') : L('On', 'ஆன்')));

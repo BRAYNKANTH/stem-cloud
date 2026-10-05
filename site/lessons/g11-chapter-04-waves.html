@@ -740,7 +740,7 @@
         <svg id="labSvg" viewBox="0 0 520 300" role="img" aria-label="lab"></svg>
       </div>
 
-      <p class="lab-hint" data-ta="அலையோட கதி v = f λ, ஆவர்த்தன காலம் T = 1 ÷ f. f, λ மட்டும்தான் கதிய மாத்தும்; வீச்சம் அலையோட பெருமைய (ஒலின்னா உரப்ப) மாத்தும்.">The wave speed is v = f λ and the period is T = 1 ÷ f. Only f and λ change the speed; the amplitude changes how big the wave is (and how loud a sound would be).</p>
+      <p class="lab-hint" data-ta="அலையோட கதி v = f λ, ஆவர்த்தன காலம் T = 1 ÷ f. f, λ மட்டும்தான் கதிய மாத்தும்; வீச்சம் அலையோட பெருமைய (ஒலின்னா உரப்ப) மாத்தும். அலைய நல்லா பாக்க படம் 8 மடங்கு மெதுவா ஓடுது.">The wave speed is v = f λ and the period is T = 1 ÷ f. Only f and λ change the speed; the amplitude changes how big the wave is (and how loud a sound would be). The picture is slowed down 8 times so you can follow every wave.</p>
     </div>
   </section>
 
@@ -1147,8 +1147,7 @@ function captureI18n(){
   });
 }
 function applyLang(lang){
-  window.STEM_LANG = lang; if(window.StemSI) StemSI.revert();      /* Sinhala: the lesson runs in English, si.js swaps the text */
-  APP_LANG = (lang === 'si') ? 'en' : lang;
+  APP_LANG = lang;
   captureI18n();
   document.querySelectorAll('[data-ta]').forEach(function(e){
     e.innerHTML = (lang === 'ta') ? e.dataset.ta : e.dataset.en;
@@ -1164,8 +1163,6 @@ function applyLang(lang){
   if(notesStageLangHook) notesStageLangHook();
   try { SCX.refreshBar(); } catch(e){}
   safeSet('lessonLang', lang);
-  if(window.StemSI){ if(lang === 'si') StemSI.apply(); StemSI.labelBtn(document.getElementById('langToggle')); }
-  try{ window.dispatchEvent(new Event('stem-lang')); }catch(e){}
 }
 
 (function(){
@@ -1801,7 +1798,7 @@ function makeDraw(svg){
       es.forEach(e => {
         const h = e.intersectionRect ? e.intersectionRect.height : 0;
         vis[e.target.id] = h;
-        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3)){ mark(e.target.id); }
+        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3) && !document.documentElement.classList.contains('stem-player')){ mark(e.target.id); }
       });
       let best = null, bv = 0; steps.forEach(s => { if((vis[s.id] || 0) > bv){ bv = vis[s.id]; best = s.id; } });
       if(best && best !== cur){ cur = best; renderPill(); renderPath(); }
@@ -1813,7 +1810,7 @@ function makeDraw(svg){
   openerLangHook = hook;
   refresh();
   window.addEventListener('scroll', function(){ const p = $('fw_pill'); if(p) p.style.display = (window.scrollY > 520) ? 'flex' : 'none'; }, {passive:true});
-  window.__fwMark = mark;
+  window.__fwMarkReal = mark; window.__fwMark = function(id){ if(document.documentElement.classList.contains('stem-player')) return; mark(id); };   /* the lesson player marks real completion */
 })();
 
 
@@ -1987,13 +1984,13 @@ function makeDraw(svg){
   } else if(t < 19.6){
     H.rect(0, 0, 640, 360, '#f5f1ff');
     var spd = 5;
-    H.text(320, 36, 'transverse', '#5b2bd1', 20); H.text(320, 206, 'longitudinal', '#c62828', 20);
+    var ta_ = (typeof APP_LANG !== 'undefined' && APP_LANG === 'ta'); H.text(320, 36, ta_ ? 'குறுக்கலை' : 'transverse', '#5b2bd1', 20); H.text(320, 206, ta_ ? 'நெட்டாங்கு அலை' : 'longitudinal', '#c62828', 20);
     var pts = '', x, ph = (t - 9.6) * spd;
     for(x = 60; x <= 580; x += 4){ pts += (x === 60 ? 'M' : 'L') + x + ' ' + (110 - 34 * Math.sin((x - 60) / 50 - ph)); }
     H.E('path', {d: pts, fill: 'none', stroke: '#5b2bd1', 'stroke-width': 5, 'stroke-linecap': 'round'});
     var rx = 300, ry = 110 - 34 * Math.sin((rx - 60) / 50 - ph);
     H.rect(rx - 6, ry - 6, 12, 12, '#e53935', 3);
-    H.arrow(60, 156, 580, 156, '#43a047', 4); H.text(320, 176, 'wave direction', '#2e7d32', 14);
+    H.arrow(60, 156, 580, 156, '#43a047', 4); H.text(320, 176, (typeof APP_LANG !== 'undefined' && APP_LANG === 'ta') ? 'அலை திசை' : 'wave direction', '#2e7d32', 14);
     for(var j = 0; j < 40; j++){ var bx2 = 60 + j * 13, sh = 7 * Math.sin((bx2 - 60) / 50 - (t - 9.6) * spd * (t > 14.8 ? 1 : 0)); H.line(bx2 + sh, 232, bx2 + sh, 300, '#c62828', 3); }
     var tx = 300 + 7 * Math.sin((300 - 60) / 50 - (t - 9.6) * spd * (t > 14.8 ? 1 : 0)); H.rect(tx - 5, 262, 10, 10, '#1976d2', 2);
     H.arrow(60, 332, 580, 332, '#43a047', 4);
@@ -2079,7 +2076,14 @@ function makeDraw(svg){
     }
     paint(); if(playing) requestAnimationFrame(tick);
   }
-  function play(){ if(t >= CFG.dur) t = 0; $('fw_ask').hidden = true; playing = true; last = performance.now(); requestAnimationFrame(tick); paint(); }
+  function stepCalm(){            /* animations off: each press moves on to the next caption (or stops at a question) */
+    $('fw_ask').hidden = true; playing = false;
+    if(t >= CFG.dur){ t = 0; asked = {}; finishedFx = false; }
+    let target = CFG.dur; for(let i = 0; i < CFG.caps.length; i++){ if(CFG.caps[i].t > t + 0.01){ target = CFG.caps[i].t; break; } }
+    for(let i = 0; i < asks.length; i++){ if(!asked[i] && asks[i].t > t && asks[i].t <= target){ asked[i] = true; t = asks[i].t; paint(); showAsk(asks[i], i); return; } }
+    t = target; if(t >= CFG.dur) finishedFx = true; paint();
+  }
+  function play(){ if(document.documentElement.classList.contains('stem-calm')){ stepCalm(); return; } if(t >= CFG.dur) t = 0; $('fw_ask').hidden = true; playing = true; last = performance.now(); requestAnimationFrame(tick); paint(); }
   $('fw_play').addEventListener('click', () => { if(!$('fw_ask').hidden) return; if(playing){ playing = false; paint(); } else play(); if(window.__fwMark) window.__fwMark('watch'); });
   $('fw_rep').addEventListener('click', () => { t = 0; asked = {}; finishedFx = false; $('fw_ask').hidden = true; play(); });
   $('fw_slow').addEventListener('click', () => { speed = speed < 1 ? 1 : 0.5; paint(); });
@@ -2094,6 +2098,7 @@ function makeDraw(svg){
   }
   const prevHook = openerLangHook; openerLangHook = function(){ if(prevHook) prevHook(); paint(); };
   window.__fwPaint = (tt) => { t = tt; paint(); };
+  document.addEventListener('stem-step', e => { if(e.detail && e.detail.id !== 'watch' && playing){ playing = false; paint(); } });   /* leaving Watch pauses it */
   window.__fwH = H;
   paint();
 })();
@@ -2164,10 +2169,10 @@ function makeDraw(svg){
  missions: [
   {en:"Make the wave speed exactly 4 m s⁻¹.", ta:"அலையோட கதிய சரியா 4 m s⁻¹ ஆக்கு.", test:function(S){ return Math.abs(S.v - 4) < 0.001; }},
   {en:"Make the biggest wave: amplitude 5 cm.", ta:"மிகப் பெரிய அலைய உருவாக்கு: வீச்சம் 5 cm.", test:function(S){ return S.A === 5; }},
-  {en:"Make a shrill note: frequency 8 Hz or more.", ta:"கீச்சுக் குரல் உருவாக்கு: மீடிறன் 8 Hz அல்லது மேல.", test:function(S){ return S.f >= 8; }}
+  {en:"Make a fast-vibrating wave: frequency 8 Hz or more.", ta:"வேகமா அதிரும் அலைய உருவாக்கு: மீடிறன் 8 Hz அல்லது மேல.", test:function(S){ return S.f >= 8; }}
  ],
  draw: function(S, t, H){
-  var C = H.C, amp = S.A * 9, wl = S.L * 120, pts = '', x, sp = S.f * 0.9;
+  var C = H.C, amp = S.A * 9, wl = S.L * 120, pts = '', x, sp = 2 * Math.PI * S.f / 8;
   H.rect(0, 0, 640, 300, '#eef6ff'); H.cloud(80, 34, 0.7);
   for(x = 130; x <= 600; x += 4){ pts += (x === 130 ? 'M' : 'L') + x + ' ' + (150 - amp * Math.sin(2 * Math.PI * (x - 130) / wl - t * sp)); }
   H.E('path', {d: pts, fill: 'none', stroke: '#1976d2', 'stroke-width': 5, 'stroke-linecap': 'round'});
@@ -2190,7 +2195,7 @@ function makeDraw(svg){
   CFG.missions.forEach((m, i) => { let d = false; try{ d = safeGet('scx_lab_' + LID2 + '_' + i) === '1'; }catch(e){} done[i] = d; });
   let vis = false, t0 = performance.now(), cnt = 0, touched = false;
   const labCard = $('ls').closest('.lab-card');
-  ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, () => { touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
+  ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, (e) => { if(!(e.target.closest && e.target.closest('input[type=range],select,.lg-try'))) return; touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
   function renderMissions(){
     $('ls_h').textContent = T('🎬 Lab stage: watch Raja and Chittu react', '🎬 லேப் மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு');
     $('ls_hint').textContent = T('Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி மிஷன்கள முடி!');
@@ -2216,9 +2221,14 @@ function makeDraw(svg){
     try{ CFG.draw(S, t, H); }catch(e){ if(window.console) console.warn('lab stage', e); }
     if((cnt++ % 6) === 0) check(S);
   }
-  function loop(){ if(!vis) return; paint(); requestAnimationFrame(loop); }
+  let looping = false;
+  const __calm = () => document.documentElement.classList.contains('stem-calm');
+  function loop(ts){ if(!vis){ looping = false; return; } if(!(ts - (loop.last || 0) < 32)){ loop.last = ts || 0; paint(); }   /* about 30 frames a second: the stage is redrawn from scratch each time */
+    if(__calm()){ looping = false; } else { looping = true; requestAnimationFrame(loop); } }
+  labCard.addEventListener('input', () => { if(vis && __calm()) paint(); });
+  window.addEventListener('stem-calm-change', () => { if(!vis) return; if(__calm()) paint(); else if(!looping) loop(); });
   if('IntersectionObserver' in window){
-    new IntersectionObserver(es => { es.forEach(e => { const was = vis; vis = e.isIntersecting; if(vis && !was) loop(); }); }, {threshold:.1}).observe($('ls'));
+    new IntersectionObserver(es => { es.forEach(e => { const was = vis; vis = e.isIntersecting; if(vis && !was) loop(); }); }, {threshold:.1}).observe(svg);   /* the stage itself: on phones #ls has display:contents and never 'intersects' */
   } else { vis = true; loop(); }
   const prev = openerLangHook; openerLangHook = function(){ if(prev) prev(); renderMissions(); paint(); };
   window.__lsPaint = paint;
@@ -2272,7 +2282,7 @@ const SCX = (function(){
   function resizeCanvas(){ if(!canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   window.addEventListener('resize', resizeCanvas); resizeCanvas();
   let particles = [];
-  function confettiBurst(){
+  function confettiBurst(){ /*calm*/ if(document.documentElement.classList.contains('stem-calm')) return;
     if(!cctx) return;
     const colors = [cssVar('--accent'), cssVar('--accent-2'), cssVar('--accent-3'), '#ffd166', '#ef476f'];
     for(let i=0;i<70;i++){
@@ -2483,7 +2493,7 @@ SCX.refreshBar();
     if(selectedChip.bin === binName){
       const done = document.createElement('span');
       done.className = 'schip';
-      done.textContent = APP_LANG==='ta' ? selectedChip.ta : selectedChip.en;
+      done.setAttribute('data-ta', selectedChip.ta); done.dataset.en = selectedChip.en; done.innerHTML = APP_LANG==='ta' ? selectedChip.ta : selectedChip.en;   /* a placed chip follows the language */
       targetEl.appendChild(done);
       const chipEl = sortPool.querySelector('[data-id="'+selectedChip.id+'"]');
       if(chipEl) chipEl.remove();

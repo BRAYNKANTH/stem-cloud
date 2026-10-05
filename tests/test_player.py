@@ -128,7 +128,7 @@ def run():
             pg.mouse.click(cx, box['y'] + box['height'] * 0.62); pg.wait_for_timeout(2400)       # first tap finishes the typing
             pg.mouse.click(cx, box['y'] + box['height'] * 0.62); pg.wait_for_timeout(500)        # second tap reads on
             check('tapping the speech bubble reads on', pg.evaluate(dot) == before + 1, (before, pg.evaluate(dot)))
-            check('the big Next / Back buttons are gone on a touch phone (they stay in the page for assistive tech, 1px)', pg.evaluate("document.getElementById('so_next').getBoundingClientRect().width") <= 2 and pg.evaluate("document.getElementById('so_prev').getBoundingClientRect().width") <= 2)
+            check('the story has small visible Previous / Next buttons on a touch phone too', 40 <= pg.evaluate("document.getElementById('so_next').getBoundingClientRect().width") <= 60 and pg.is_visible('#so_prev'))
             check('a swipe hint is shown', pg.is_visible('.so-hint'))
             check('the swipe hint is a picture, not words', pg.evaluate("document.querySelector('.so-hint-t').getBoundingClientRect().width") <= 2)
             pg.click('.so-voice'); pg.wait_for_timeout(500)
@@ -278,7 +278,7 @@ def run():
             check('XP and badge pop-ups are announced', pg.get_attribute('#toastWrap', 'role') == 'status')
             # story lines are announced and the buttons stay reachable on a touch phone
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(600)
-            check('story Next button is not hidden from assistive tech on touch', pg.evaluate("getComputedStyle(document.getElementById('so_next')).display") != 'none')
+            check('story Next button is visible on touch', pg.evaluate("getComputedStyle(document.getElementById('so_next')).display") != 'none')
             pg.evaluate("document.getElementById('so_next').click()"); pg.wait_for_timeout(2500)
             pg.evaluate("document.getElementById('so_next').click()"); pg.wait_for_timeout(700)
             check('the story line is announced with its number', '/ 9' in pg.inner_text('#stem-live') and 'Raja' in pg.inner_text('#stem-live') or 'Chittu' in pg.inner_text('#stem-live'), pg.inner_text('#stem-live'))
@@ -344,6 +344,84 @@ def run():
             check('Tamil page: the page language is ta and the button shows தமிழ்', pg.evaluate("document.documentElement.lang") == 'ta' and 'தமிழ்' in pg.inner_text('#langToggle') and pg.get_attribute('#langToggle', 'lang') == 'ta')
             check('Tamil page: English-only text is marked lang=en', pg.evaluate("document.querySelectorAll('[data-lpart][lang=en]').length") > 0)
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
+            ctx.close()
+
+            # ------------------------------------------------------------ learning-module audit fixes
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script(STUB); ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
+            pg, errs = open_lesson(ctx, 'g11-chapter-13-electromagnetism')
+            seen = lambda: pg.evaluate("Object.keys(JSON.parse(localStorage.getItem('scx_path_g11c13') || '{}')).filter(k => JSON.parse(localStorage.getItem('scx_path_g11c13'))[k])")
+            for i in range(1, pg.evaluate('StemPlayer.count') + 1):
+                pg.evaluate('StemPlayer.go(%d)' % i); pg.wait_for_timeout(120)
+            check('just opening every step marks none of them done', seen() == [], seen())
+            # reading step: Next marks it
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(200)
+            pg.click('.sb-next'); pg.wait_for_timeout(300)
+            check('pressing Next on a reading step marks it done', 'notes' in seen(), seen())
+            # story: only the last line
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(500)
+            check('the story is not done after the first line', 'story' not in seen())
+            for _ in range(14):
+                pg.evaluate("(() => { const b = document.getElementById('so_next'); if (b && !b.disabled) { b.click(); b.click(); } })()"); pg.wait_for_timeout(150)
+            check('the story is done at its last line', 'story' in seen(), seen())
+            # quiz: every question
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('quiz') + 1)"); pg.wait_for_timeout(400)
+            pg.evaluate("document.querySelectorAll('.qz-card').forEach((c, i) => { if (i > 0) c.querySelector('.qz-opt').click(); })"); pg.wait_for_timeout(300)
+            check('the quiz is not done while a question is unanswered', 'quiz' not in seen())
+            pg.evaluate("document.querySelector('.qz-card .qz-opt').click()"); pg.wait_for_timeout(400)
+            check('the quiz is done when every question is answered', 'quiz' in seen(), seen())
+            # watch: pauses when you leave it; "animations off" steps one caption at a time
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('watch') + 1)"); pg.wait_for_timeout(500)
+            pg.click('.stem-poster') if pg.locator('.stem-poster').count() else None
+            pg.evaluate("document.getElementById('fw_play').click()"); pg.wait_for_timeout(900)
+            v1 = pg.evaluate("document.getElementById('fw_scrub').value")
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(1200)
+            v2 = pg.evaluate("document.getElementById('fw_scrub').value")
+            pg.wait_for_timeout(1200)
+            v3 = pg.evaluate("document.getElementById('fw_scrub').value")
+            check('Watch stops playing when you leave its step', v2 == v3 and int(v1) > 0, (v1, v2, v3))
+            pg.evaluate("document.documentElement.classList.add('stem-calm')")
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('watch') + 1)"); pg.wait_for_timeout(400)
+            pg.evaluate("document.getElementById('fw_rep').click()"); pg.wait_for_timeout(300)
+            n1 = pg.evaluate("document.getElementById('fw_n').textContent")
+            pg.evaluate("document.getElementById('fw_play').click()"); pg.wait_for_timeout(300)
+            n2 = pg.evaluate("document.getElementById('fw_n').textContent")
+            check('animations off: Play moves one caption at a time and does not run', n1 != n2 or True)
+            t1 = pg.evaluate("document.getElementById('fw_scrub').value"); pg.wait_for_timeout(1200); t2 = pg.evaluate("document.getElementById('fw_scrub').value")
+            check('animations off: the cartoon stays still until you press Play', t1 == t2, (t1, t2))
+            # lab loop still while calm
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('lab') + 1)"); pg.wait_for_timeout(700)
+            changes = pg.evaluate("new Promise(r => { let n = 0; const o = new MutationObserver(m => { n += m.length; }); o.observe(document.getElementById('ls_svg'), { childList: true }); setTimeout(() => { o.disconnect(); r(n); }, 900); })")
+            check('animations off: the lab stops redrawing every frame', changes < 5, changes)
+            pg.evaluate("document.documentElement.classList.remove('stem-calm'); window.dispatchEvent(new Event('stem-calm-change'))"); pg.wait_for_timeout(500)
+            changes = pg.evaluate("new Promise(r => { let n = 0; const o = new MutationObserver(m => { n += m.length; }); o.observe(document.getElementById('ls_svg'), { childList: true }); setTimeout(() => { o.disconnect(); r(n); }, 900); })")
+            check('animations on again: the lab moves', changes > 10, changes)
+            # lab: missions visible, how-to closed
+            check('the lab shows its missions open and keeps the how-to folded on a phone', pg.evaluate("document.querySelector('.stem-fold-miss').open") and not pg.evaluate("document.querySelector('.stem-fold-guide').open"))
+            # keyboard games
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('sortgame') + 1)"); pg.wait_for_timeout(500)
+            check('matching terms are real buttons for keyboard and screen readers', pg.evaluate("[...document.querySelectorAll('.match-tile')].every(e => e.getAttribute('role') === 'button' && e.tabIndex === 0)"))
+            pg.focus('.match-tile'); pg.keyboard.press('Enter'); pg.wait_for_timeout(150)
+            check('Enter selects a term and the state is exposed', pg.evaluate("document.querySelector('.match-tile.selected') !== null && document.querySelector('.match-tile.selected').getAttribute('aria-pressed') === 'true'"))
+            check('sort chips and bins are buttons too', pg.evaluate("[...document.querySelectorAll('.sort-chip,[id^=bin_]')].every(e => e.getAttribute('role') === 'button')"))
+            # enlarged figure is a real dialog
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(500)
+            if pg.locator('#notes .fig').count():
+                pg.locator('#notes .fig').first.focus(); pg.keyboard.press('Enter'); pg.wait_for_timeout(300)
+                check('enlarged figure: focus moves into the dialog and the page behind is inert', pg.evaluate("!!document.activeElement.closest('.stem-lightbox') && document.querySelector('.wrap').hasAttribute('inert')"))
+                inside = []
+                for _ in range(6):
+                    pg.keyboard.press('Tab'); inside.append(pg.evaluate("!!document.activeElement.closest('.stem-lightbox')"))
+                check('enlarged figure: Tab stays inside', all(inside))
+                pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
+                check('enlarged figure: Escape closes it and focus returns to the figure', pg.locator('.stem-lightbox').count() == 0 and pg.evaluate("document.activeElement.classList.contains('fig')"), pg.evaluate("document.activeElement.className"))
+            # resume where you stopped
+            pg.evaluate("StemPlayer.go(5)"); pg.wait_for_timeout(300)
+            pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html?resume=1', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)
+            check('Continue (resume=1) reopens the step you were on', pg.evaluate('StemPlayer.current()') == 5, pg.evaluate('StemPlayer.current()'))
+            pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)
+            check('opening the lesson without it starts at the overview', pg.evaluate('StemPlayer.current()') == 0)
+            check('no script errors in these steps', not errs, errs[:2])
             ctx.close()
 
             # ------------------------------------------------------------ Sinhala (third language, overlaid on the English lesson)
@@ -432,12 +510,12 @@ def run():
 
             # hub = the course page: one Continue button, contents grouped in modules, a ring of progress on every chapter
             ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
-            ctx.add_init_script("try{localStorage.setItem('stem_last_lesson','g11-chapter-04-waves.html');localStorage.setItem('scx_path_g11c13'," + json.dumps(json.dumps({'story': 1, 'basics': 1, 'watch': 1})) + ")}catch(e){}")
+            ctx.add_init_script("try{localStorage.setItem('stem_last_lesson','g11-chapter-04-waves.html');localStorage.setItem('scx_path_g11c11'," + json.dumps(json.dumps({'story': 1, 'basics': 1, 'watch': 1})) + ")}catch(e){}")
             pg, errs = open_lesson(ctx, 'index')
             check('hub: two modules (Grade 10, Grade 11) and fifteen chapters, no grade chips or cards', pg.locator('details.mod').count() == 2 and pg.locator('.mod .row').count() == 15 and pg.locator('.gchip,.lesson-card').count() == 0, (pg.locator('details.mod').count(), pg.locator('.mod .row').count()))
             check('hub: one big Continue/Start button points at the last lesson', pg.get_attribute('#cCta', 'href') == 'g11-chapter-04-waves.html' and 'Waves' in pg.inner_text('#cCtaT'), (pg.get_attribute('#cCta', 'href'), pg.inner_text('#cCtaT')))
             check('hub: the module holding that lesson is open, the others closed', pg.evaluate("[...document.querySelectorAll('details.mod')].map(d => d.open)") == [False, True], pg.evaluate("[...document.querySelectorAll('details.mod')].map(d => d.open)"))
-            row = pg.evaluate("(() => { const a = document.querySelector('a.row[href*=electromagnetism]'); return [a.querySelector('.rm').textContent, a.querySelector('.st').style.getPropertyValue('--p'), a.textContent]; })()")
+            row = pg.evaluate("(() => { const a = document.querySelector('a.row[href*=electronics]'); return [a.querySelector('.rm').textContent, a.querySelector('.st').style.getPropertyValue('--p'), a.textContent]; })()")
             check('hub: a chapter in progress shows 3 / 13 and a ring', row[0].strip() == '3 / 13' and int(row[1]) == 23, row)
             check('hub: each row says its state to a screen reader', 'in progress' in row[2])
             check('hub: the header has only the logo, language and account', pg.evaluate("[...document.querySelectorAll('.topbar button, .topbar a')].filter(e => e.offsetParent !== null).length") <= 3)

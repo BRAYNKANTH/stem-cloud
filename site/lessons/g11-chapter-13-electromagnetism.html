@@ -1199,8 +1199,7 @@ function captureI18n(){
   });
 }
 function applyLang(lang){
-  window.STEM_LANG = lang; if(window.StemSI) StemSI.revert();      /* Sinhala: the lesson runs in English, si.js swaps the text */
-  APP_LANG = (lang === 'si') ? 'en' : lang;
+  APP_LANG = lang;
   captureI18n();
   document.querySelectorAll('[data-ta]').forEach(function(e){
     e.innerHTML = (lang === 'ta') ? e.dataset.ta : e.dataset.en;
@@ -1216,8 +1215,6 @@ function applyLang(lang){
   if(notesStageLangHook) notesStageLangHook();
   try { SCX.refreshBar(); } catch(e){}
   safeSet('lessonLang', lang);
-  if(window.StemSI){ if(lang === 'si') StemSI.apply(); StemSI.labelBtn(document.getElementById('langToggle')); }
-  try{ window.dispatchEvent(new Event('stem-lang')); }catch(e){}
 }
 
 (function(){
@@ -1835,7 +1832,7 @@ function makeDraw(svg){
       es.forEach(e => {
         const h = e.intersectionRect ? e.intersectionRect.height : 0;
         vis[e.target.id] = h;
-        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3)){ mark(e.target.id); }
+        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3) && !document.documentElement.classList.contains('stem-player')){ mark(e.target.id); }
       });
       let best = null, bv = 0; steps.forEach(s => { if((vis[s.id] || 0) > bv){ bv = vis[s.id]; best = s.id; } });
       if(best && best !== cur){ cur = best; renderPill(); renderPath(); }
@@ -1847,7 +1844,7 @@ function makeDraw(svg){
   openerLangHook = hook;
   refresh();
   window.addEventListener('scroll', function(){ const p = $('fw_pill'); if(p) p.style.display = (window.scrollY > 520) ? 'flex' : 'none'; }, {passive:true});
-  window.__fwMark = mark;
+  window.__fwMarkReal = mark; window.__fwMark = function(id){ if(document.documentElement.classList.contains('stem-player')) return; mark(id); };   /* the lesson player marks real completion */
 })();
 
 
@@ -2120,7 +2117,14 @@ function makeDraw(svg){
     }
     paint(); if(playing) requestAnimationFrame(tick);
   }
-  function play(){ if(t >= CFG.dur) t = 0; $('fw_ask').hidden = true; playing = true; last = performance.now(); requestAnimationFrame(tick); paint(); }
+  function stepCalm(){            /* animations off: each press moves on to the next caption (or stops at a question) */
+    $('fw_ask').hidden = true; playing = false;
+    if(t >= CFG.dur){ t = 0; asked = {}; finishedFx = false; }
+    let target = CFG.dur; for(let i = 0; i < CFG.caps.length; i++){ if(CFG.caps[i].t > t + 0.01){ target = CFG.caps[i].t; break; } }
+    for(let i = 0; i < asks.length; i++){ if(!asked[i] && asks[i].t > t && asks[i].t <= target){ asked[i] = true; t = asks[i].t; paint(); showAsk(asks[i], i); return; } }
+    t = target; if(t >= CFG.dur) finishedFx = true; paint();
+  }
+  function play(){ if(document.documentElement.classList.contains('stem-calm')){ stepCalm(); return; } if(t >= CFG.dur) t = 0; $('fw_ask').hidden = true; playing = true; last = performance.now(); requestAnimationFrame(tick); paint(); }
   $('fw_play').addEventListener('click', () => { if(!$('fw_ask').hidden) return; if(playing){ playing = false; paint(); } else play(); if(window.__fwMark) window.__fwMark('watch'); });
   $('fw_rep').addEventListener('click', () => { t = 0; asked = {}; finishedFx = false; $('fw_ask').hidden = true; play(); });
   $('fw_slow').addEventListener('click', () => { speed = speed < 1 ? 1 : 0.5; paint(); });
@@ -2135,6 +2139,7 @@ function makeDraw(svg){
   }
   const prevHook = openerLangHook; openerLangHook = function(){ if(prevHook) prevHook(); paint(); };
   window.__fwPaint = (tt) => { t = tt; paint(); };
+  document.addEventListener('stem-step', e => { if(e.detail && e.detail.id !== 'watch' && playing){ playing = false; paint(); } });   /* leaving Watch pauses it */
   window.__fwH = H;
   paint();
 })();
@@ -2215,7 +2220,7 @@ function makeDraw(svg){
   for(var j = 0; j < Math.min(12, Math.max(2, Math.round(S.Ns / 200))); j++) H.E('path', {d: 'M386 ' + (82 + j * 11) + ' h28', fill: 'none', stroke: '#00897b', 'stroke-width': 4});
   H.text(130, 150, 'V_p = ' + S.Vp + ' V', '#c62828', 17, 'end'); H.text(430, 150, 'V_s = ' + (Math.round(S.Vs * 100) / 100) + ' V', '#00695c', 17, 'start');
   H.text(130, 176, 'N_p = ' + S.Np, '#c62828', 14, 'end'); H.text(430, 176, 'N_s = ' + S.Ns, '#00695c', 14, 'start');
-  H.text(320, 52, up ? 'step-up transformer' : (down ? 'step-down transformer' : 'equal turns'), '#1b2236', 18);
+  var ta_ = (typeof APP_LANG !== 'undefined' && APP_LANG === 'ta'); H.text(320, 52, up ? (ta_ ? 'படிகூட்டு நிலைமாற்றி' : 'step-up transformer') : (down ? (ta_ ? 'படிகுறை நிலைமாற்றி' : 'step-down transformer') : (ta_ ? 'சம சுற்றுகள்' : 'equal turns')), '#1b2236', 18);
   H.raja(60, 292, 0.5, {eyes: up ? 'w' : 'n', m: up ? 0.7 : 0.3, brow: up ? 'up' : 'n', aL: 40});
   H.chittu(590, 292, 0.45, {wL: down ? 50 : 0, m: 0.3, eyes: 'w'});
   var msg = up ? ["Voltage up, current down!","வோல்ற்றளவு ஏறுது, மின்னோட்டம் இறங்குது!"] : (down ? ["Voltage down, current up!","வோல்ற்றளவு இறங்குது, மின்னோட்டம் ஏறுது!"] : ["Same voltage and current.","அதே வோல்ற்றளவு, மின்னோட்டம்."]);
@@ -2231,7 +2236,7 @@ function makeDraw(svg){
   CFG.missions.forEach((m, i) => { let d = false; try{ d = safeGet('scx_lab_' + LID2 + '_' + i) === '1'; }catch(e){} done[i] = d; });
   let vis = false, t0 = performance.now(), cnt = 0, touched = false;
   const labCard = $('ls').closest('.lab-card');
-  ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, () => { touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
+  ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, (e) => { if(!(e.target.closest && e.target.closest('input[type=range],select,.lg-try'))) return; touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
   function renderMissions(){
     $('ls_h').textContent = T('🎬 Lab stage: watch Raja and Chittu react', '🎬 லேப் மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு');
     $('ls_hint').textContent = T('Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி மிஷன்கள முடி!');
@@ -2257,9 +2262,14 @@ function makeDraw(svg){
     try{ CFG.draw(S, t, H); }catch(e){ if(window.console) console.warn('lab stage', e); }
     if((cnt++ % 6) === 0) check(S);
   }
-  function loop(){ if(!vis) return; paint(); requestAnimationFrame(loop); }
+  let looping = false;
+  const __calm = () => document.documentElement.classList.contains('stem-calm');
+  function loop(ts){ if(!vis){ looping = false; return; } if(!(ts - (loop.last || 0) < 32)){ loop.last = ts || 0; paint(); }   /* about 30 frames a second: the stage is redrawn from scratch each time */
+    if(__calm()){ looping = false; } else { looping = true; requestAnimationFrame(loop); } }
+  labCard.addEventListener('input', () => { if(vis && __calm()) paint(); });
+  window.addEventListener('stem-calm-change', () => { if(!vis) return; if(__calm()) paint(); else if(!looping) loop(); });
   if('IntersectionObserver' in window){
-    new IntersectionObserver(es => { es.forEach(e => { const was = vis; vis = e.isIntersecting; if(vis && !was) loop(); }); }, {threshold:.1}).observe($('ls'));
+    new IntersectionObserver(es => { es.forEach(e => { const was = vis; vis = e.isIntersecting; if(vis && !was) loop(); }); }, {threshold:.1}).observe(svg);   /* the stage itself: on phones #ls has display:contents and never 'intersects' */
   } else { vis = true; loop(); }
   const prev = openerLangHook; openerLangHook = function(){ if(prev) prev(); renderMissions(); paint(); };
   window.__lsPaint = paint;
@@ -2313,7 +2323,7 @@ const SCX = (function(){
   function resizeCanvas(){ if(!canvas) return; canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
   window.addEventListener('resize', resizeCanvas); resizeCanvas();
   let particles = [];
-  function confettiBurst(){
+  function confettiBurst(){ /*calm*/ if(document.documentElement.classList.contains('stem-calm')) return;
     if(!cctx) return;
     const colors = [cssVar('--accent'), cssVar('--accent-2'), cssVar('--accent-3'), '#ffd166', '#ef476f'];
     for(let i=0;i<70;i++){
@@ -2524,7 +2534,7 @@ SCX.refreshBar();
     if(selectedChip.bin === binName){
       const done = document.createElement('span');
       done.className = 'schip';
-      done.textContent = APP_LANG==='ta' ? selectedChip.ta : selectedChip.en;
+      done.setAttribute('data-ta', selectedChip.ta); done.dataset.en = selectedChip.en; done.innerHTML = APP_LANG==='ta' ? selectedChip.ta : selectedChip.en;   /* a placed chip follows the language */
       targetEl.appendChild(done);
       const chipEl = sortPool.querySelector('[data-id="'+selectedChip.id+'"]');
       if(chipEl) chipEl.remove();

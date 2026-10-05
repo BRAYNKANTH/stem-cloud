@@ -60,9 +60,7 @@ html.stem-player .wrap{padding-bottom:36px}
 #so_next::before{content:'›';font-size:1.7rem;line-height:1}
 #so_prev:disabled{opacity:.3}
 .so-ctrls .so-dots{justify-content:center;flex:1;min-width:0}
-@media (pointer:coarse){
-  .so-ctrls button:not(:focus){position:absolute;width:1px;height:1px;min-width:0;min-height:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
-}
+.so-ctrls button{width:48px;height:48px;min-width:48px}      /* small visible Previous / Next on touch too: swiping is a shortcut, not the only way */
 .so-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;color:var(--text-faint);font-size:.85rem;font-weight:600}
 .so-finger{display:inline-block;animation:so-swipe 1.6s ease-in-out infinite}
 .so-hint.quiet .so-finger{animation:none;opacity:0;width:0;overflow:hidden}

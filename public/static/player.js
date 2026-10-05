@@ -127,6 +127,52 @@
   }
   ov.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) go(parseInt(b.getAttribute('data-go'), 10)); });
 
+  /* ------------------------------------------------------------------ what counts as "done": doing the step, not seeing it
+     reading steps: pressing Next; story: the last line; watch: the end; lab: every mission; quiz: every question answered; games: a star / both sort rounds */
+  var PASSIVE = ['basics', 'notes', 'activities', 'examples', 'practice', 'exercises', 'walkthroughs', 'recap', 'summary'];
+  function real(id) { if (ids.indexOf(id) >= 0 && window.__fwMarkReal) window.__fwMarkReal(id); }
+  function markPassive(i) { var id = ids[i - 1]; if (PASSIVE.indexOf(id) >= 0) real(id); }
+  window.addEventListener('stem-story-line', function (e) { var n = doc.querySelectorAll('.so-dots i').length; if (e.detail && n && e.detail.i === n - 1) real('story'); });
+  setInterval(function () { var s = doc.getElementById('fw_scrub'); if (s && +s.value >= 995) real('watch'); }, 800);
+  doc.addEventListener('click', function (e) {
+    if (!e.target.closest || !e.target.closest('.qz-opt')) return;
+    setTimeout(function () { var cards = doc.querySelectorAll('.qz-card'); if (cards.length && [].every.call(cards, function (c) { return c.querySelector('.qz-opt:disabled'); })) real('quiz'); }, 150);
+  });
+  try {
+    if (typeof SCX !== 'undefined') {
+      var GAMES = ['holdgame', 'pushit', 'tugofwar', 'balancegame', 'challenge'];
+      var gl = SCX.pushItLevelResult, sg = SCX.sortGameComplete;
+      if (gl) SCX.pushItLevelResult = function () { var r = gl.apply(this, arguments); GAMES.forEach(real); return r; };
+      if (sg) SCX.sortGameComplete = function () { var r = sg.apply(this, arguments); real('sortgame'); return r; };
+    }
+  } catch (e) {}
+
+
+  /* ------------------------------------------------------------------ the matching and sorting games work with the keyboard and say what is selected */
+  var GAMESEL = '.match-tile, .sort-chip, [id^="bin_"]';
+  function enhanceGames() {
+    [].forEach.call(doc.querySelectorAll(GAMESEL), function (el) {
+      if (!el.hasAttribute('role')) { el.setAttribute('role', 'button'); el.setAttribute('tabindex', '0'); }
+      el.setAttribute('aria-pressed', String(el.classList.contains('selected')));
+      if (el.classList.contains('matched')) el.setAttribute('aria-disabled', 'true'); else el.removeAttribute('aria-disabled');
+    });
+  }
+  doc.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var t = e.target.closest && e.target.closest(GAMESEL); if (!t) return;
+    e.preventDefault(); t.click(); setTimeout(enhanceGames, 30);
+  });
+  doc.addEventListener('click', function (e) { if (e.target.closest && e.target.closest(GAMESEL)) setTimeout(function () { enhanceGames(); if (window.StemLive) { var s = doc.querySelector('.match-tile.selected, .sort-chip.selected'); if (s) window.StemLive.say(L('Selected: ', 'தேர்ந்தெடுத்தது: ') + s.textContent.trim()); } }, 30); });
+  var sortPool = doc.getElementById('sortPool');
+  try {
+    new MutationObserver(function () {
+      enhanceGames();
+      if (doc.activeElement === doc.body && sortPool && sortPool.offsetParent !== null) { var nxt = sortPool.querySelector('.sort-chip') || doc.querySelector('[id^="bin_"]'); if (nxt) nxt.focus({ preventScroll: true }); }   /* the chip you just placed is gone: focus goes on */
+    }).observe(doc.getElementById('sortgame') || doc.body, { childList: true, subtree: true });
+  } catch (e) {}
+  doc.addEventListener('stem-step', function () { setTimeout(enhanceGames, 100); });
+  enhanceGames();
+
   /* ------------------------------------------------------------------ dialogs: focus goes in, Tab stays in, the page behind is inert, focus goes back */
   var FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])';
   function openModal(el, first) {
@@ -191,6 +237,7 @@
   function go(i, o) {
     o = o || {};
     i = Math.max(0, Math.min(LAST, i));
+    if (o.next && cur >= 1 && cur <= N && i === cur + 1) markPassive(cur);
     var prev = cur, changed = prev !== i;
     cur = i; visited[i] = 1;
     root.setAttribute('data-stem-step', i === 0 ? 'start' : (i === LAST ? 'finish' : 'mid'));
@@ -270,7 +317,7 @@
   bNext.addEventListener('click', function () {
     try { localStorage.setItem('stem_next_taps', String(taps() + 1)); } catch (e) {}
     if (cur === LAST) { var hub = doc.querySelector('.crumb a, a[href$="index.html"]'); location.href = hub ? hub.getAttribute('href') : 'index.html'; return; }
-    go(cur + 1);
+    go(cur + 1, { next: true });
   });
   bMid.addEventListener('click', openMap);
 
@@ -314,6 +361,7 @@
       missFold.classList.toggle('all-done', all.length > 0 && ok.length === all.length);
       if (ok.length > lastOk && lastOk >= 0 && window.StemLive) window.StemLive.say('🎯 ' + L('Mission done', 'மிஷன் முடிஞ்சது') + ': ' + ok.length + ' / ' + all.length);
       lastOk = ok.length;
+      if (all.length && ok.length === all.length) real('lab');
     }
     if (guideFold) guideFold.querySelector('.sf-t').textContent = 'ℹ️ ' + L('How to use this lab', 'இந்த லேப்பை எப்படி பயன்படுத்துவது');
   }
@@ -322,7 +370,7 @@
     if (!card || card === labCard) return;
     labCard = card;
     var phone = window.innerWidth <= 760;
-    missFold = fold('stem-fold-miss', false);
+    missFold = fold('stem-fold-miss', true);
     miss.parentNode.insertBefore(missFold, miss); missFold.appendChild(miss);
     if (guide) { guideFold = fold('stem-fold-guide', !phone); guide.parentNode.insertBefore(guideFold, guide); guideFold.appendChild(guide); card.appendChild(guideFold); }
     labText();
@@ -360,9 +408,13 @@
 
   /* ------------------------------------------------------------------ start */
   root.classList.add('stem-player');
+  window.StemModal = { open: openModal, close: closeModal };
   window.StemPlayer = { active: true, openCoach: openCoach, focusStep: focusStep, go: go, openMap: openMap, count: N, current: function () { return cur; }, stepIds: ids, stepOf: stepOf, label: label };
   var h0 = location.hash.slice(1), t0 = h0 ? doc.getElementById(h0) : null;
   var inner = t0 && t0 !== topOf(t0) ? t0 : null;                 /* a link to something inside a step: scroll to it */
-  go(t0 ? stepOf(t0) : 0, { silent: true, scrollTo: inner });
+  var resume = /[?&]resume=1\b/.test(location.search), savedStep = 0;
+  try { savedStep = parseInt(localStorage.getItem('stem_step_' + location.pathname.split('/').pop()) || '0', 10) || 0; } catch (e) {}
+  if (resume) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} }
+  go(t0 ? stepOf(t0) : (resume && savedStep >= 1 && savedStep <= N ? savedStep : 0), { silent: true, scrollTo: inner });
   if (!coachSeen()) setTimeout(openCoach, 500);
 })();

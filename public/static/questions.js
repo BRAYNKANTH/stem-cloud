@@ -44,7 +44,8 @@
 
   /* ---------------------------------------------------------------- diagrams */
   var box = null;
-  function closeBox() { if (box) { box.remove(); box = null; doc.removeEventListener('keydown', onKey); } }
+  var boxModal = null;
+  function closeBox() { if (box) { box.remove(); box = null; doc.removeEventListener('keydown', onKey); var m = boxModal; boxModal = null; if (m && window.StemModal) window.StemModal.close(m); } }
   function onKey(e) { if (e.key === 'Escape') closeBox(); }
   function openBox(svg) {
     closeBox();
@@ -58,7 +59,10 @@
     box.querySelector('.lb-body').appendChild(c);
     box.querySelector('button').addEventListener('click', closeBox);
     box.addEventListener('click', function (e) { if (e.target === box) closeBox(); });
+    box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', (lang === 'ta' ? 'படம்' : 'Diagram'));
     doc.body.appendChild(box); doc.addEventListener('keydown', onKey);
+    if (window.StemModal) boxModal = window.StemModal.open(box, box.querySelector('button'));
+    else box.querySelector('button').focus();
   }
   doc.addEventListener('click', function (e) {
     var d = e.target.closest && e.target.closest('.qdiagram');

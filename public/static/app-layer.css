@@ -112,17 +112,7 @@ table.qtable{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrol
 }
 @keyframes stemSlideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
-/* Header tag connecting quiz question to the animation above */
-.fw-ask::before{
-  content:"💡 Quiz Question — Look at the diagram above:";
-  display:block;
-  font-size:.8rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.05em;
-  color:var(--accent-3,#ff9f6b);
-  margin-bottom:8px;
-}
+/* the prediction box already says "Predict!" in the chosen language; the English-only heading that used to sit above it is gone */
 
 /* ---- NEW USER ONBOARDING & CLEAN LAYOUT ---- */
 .stem-welcome-banner{

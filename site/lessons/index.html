@@ -252,7 +252,7 @@ function render(){
   } else {
     target = LESSONS[idx]; const p = prog[idx];
     word = p.seen > 0 ? t('Continue', 'தொடர்', 'ඉදිරියට') : t('Start', 'தொடங்கு', 'ආරම්භ කරන්න');
-    cta.href = target.file;
+    cta.href = target.file + (p.seen > 0 ? '?resume=1' : '');
     document.getElementById('cCtaT').textContent = t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + target.n + ' · ' + t(target.en, target.ta, target.si) + (p.seen > 0 ? ' · ' + p.seen + '/' + target.steps : '');
   }
   document.getElementById('cCtaW').textContent = word;

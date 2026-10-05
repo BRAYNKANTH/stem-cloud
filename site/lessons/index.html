@@ -61,7 +61,7 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 16px 80px;}
 
   /* ---------- the course ---------- */
-  .course{padding:22px 0 6px;}
+  .course{padding:14px 0 6px;}
   .c-kicker{margin:0 0 6px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-text);}
   .course h1{font-size:1.9rem;line-height:1.2;}
   .c-sub{margin:6px 0 0;color:var(--text-dim);font-size:1rem;}
@@ -123,9 +123,7 @@
 <div class="wrap" id="main" role="main" tabindex="-1">
 
   <section class="course" aria-labelledby="cTitle">
-    <p class="c-kicker" data-ta="🎓 க.பொ.த (சா/த)" data-si="🎓 සාමාන්‍ය පෙළ (සා.පෙළ)">🎓 G.C.E. O/L</p>
-    <h1 id="cTitle" data-ta="பிசிக்ஸ்: படிப்படியா" data-si="භෞතික විද්‍යාව: පියවරෙන් පියවර">Physics, step by step</h1>
-    <p class="c-sub" data-ta="ராஜா, சிட்டு கூட சுலபமா கத்துக்கலாம்." data-si="රාජා සහ චිට්ටු සමඟ පහසුවෙන් ඉගෙන ගන්න.">Easy lessons with Raja and Chittu.</p>
+    <h1 id="cTitle" class="sr-only" data-ta="பிசிக்ஸ்: படிப்படியா" data-si="භෞතික විද්‍යාව: පියවරෙන් පියවර">Physics, step by step</h1>
     <div class="c-stats" id="cStats"></div>
     <div class="c-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cBarBox"><i id="cBar"></i></div>
     <a class="c-cta" id="cCta" href="#"><span class="pl" aria-hidden="true">▶</span><span class="tx"><b id="cCtaW"></b><span id="cCtaT"></span></span></a>
@@ -178,7 +176,6 @@ function applyLang(lang){
    THE COURSE: modules -> chapters.
    lid = the id the lesson stores its steps under, steps = steps in the lesson.
 ============================================================ */
-const WELCOME = { file:'intro-physics-is-easy.html', en:'Meet Raja and Chittu', ta:'ராஜா, சிட்டுவ சந்திங்க', si:'රාජා සහ චිට්ටු හඳුනා ගන්න' };
 const MODULES = [
   { id:'g10',  icon:'🔟', en:'Grade 10', ta:'தரம் 10', si:'10 ශ්‍රේණිය' },
   { id:'g11',  icon:'🎓', en:'Grade 11', ta:'தரம் 11', si:'11 ශ්‍රේණිය' }
@@ -226,7 +223,6 @@ const OPEN = {};      /* modules the student opened or closed by hand */
 function render(){
   const xp = parseInt(safeGet('scx_xp_total') || '0', 10) || 0;
   const badges = readJSON('scx_badges', []).length;
-  const introSeen = safeGet('stem_intro_seen') === '1';
   const prog = LESSONS.map(progressOf);
   const doneN = prog.filter(p => p.done).length;
 
@@ -247,10 +243,8 @@ function render(){
   if(idx < 0) idx = prog.findIndex(p => !p.done);
   const cta = document.getElementById('cCta');
   let target, word;
-  if(!introSeen && doneN === 0 && !lastFile){
-    target = WELCOME; word = t('Start the course', 'பாடத்த தொடங்கு', 'පාඨමාලාව අරඹන්න');
-    cta.href = WELCOME.file; document.getElementById('cCtaT').textContent = t(WELCOME.en, WELCOME.ta, WELCOME.si);
-  } else if(idx < 0){
+  if(idx < 0 && doneN === 0){ idx = 0; }
+  if(idx < 0){
     target = LESSONS[LESSONS.length - 1]; word = t('Review', 'திருப்பி பாரு', 'නැවත බලන්න');
     cta.href = target.file; document.getElementById('cCtaT').textContent = t(target.en, target.ta, target.si);
   } else {
@@ -263,22 +257,19 @@ function render(){
   const nowFile = target.file;
 
   /* contents */
-  const other = APP_LANG === 'en' ? 'ta' : 'en';
-  let h = '<div class="intro"><a class="row' + (nowFile === WELCOME.file ? ' now' : '') + '" href="' + WELCOME.file + '" data-welcome="1">' +
-    '<span class="st' + (introSeen ? ' done' : '') + '" aria-hidden="true"><span>' + (introSeen ? '✓' : '👋') + '</span></span>' +
-    '<span class="rt"><b>' + t(WELCOME.en, WELCOME.ta, WELCOME.si) + '</b><small lang="' + other + '">' + (WELCOME[other] || WELCOME.en) + '</small></span></a></div>';
+  let h = '';
   MODULES.forEach(function(m){
     const items = LESSONS.map((l, i) => [l, prog[i]]).filter(x => x[0].m === m.id);
     const mDone = items.filter(x => x[1].done).length;
     const holdsNow = items.some(x => x[0].file === nowFile);
-    const open = (m.id in OPEN) ? OPEN[m.id] : (holdsNow || (m.id === 'g10' && nowFile === WELCOME.file));
+    const open = (m.id in OPEN) ? OPEN[m.id] : holdsNow;
     h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : '') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta, m.si) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
     items.forEach(function(x){
       const l = x[0], p = x[1];
       const state = p.done ? t('completed', 'முடிஞ்சது', 'අවසන්') : (p.seen ? t('in progress', 'நடந்துட்டிருக்கு', 'සිදුවෙමින් පවතී') : t('not started', 'ஆரம்பிக்கல', 'ආරම්භ කර නැත'));
       h += '<li><a class="row' + (l.file === nowFile ? ' now' : '') + '" href="' + l.file + '">' +
         '<span class="st' + (p.done ? ' done' : '') + '" style="--p:' + p.pct + '" aria-hidden="true"><span>' + (p.done ? '✓' : l.n) + '</span></span>' +
-        '<span class="rt"><b>' + t(l.en, l.ta, l.si) + '</b><small lang="' + other + '">' + (l[other] || l.en) + '</small></span>' +
+        '<span class="rt"><b>' + t(l.en, l.ta, l.si) + '</b></span>' +
         '<span class="rm" aria-hidden="true">' + (p.seen && !p.done ? p.seen + ' / ' + l.steps : l.steps + ' ' + t('steps', 'படிகள்', 'පියවර')) + '</span>' +
         '<span class="sr-only">' + t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + l.n + ', ' + state + (p.seen && !p.done ? ', ' + p.seen + ' / ' + l.steps : '') + '</span></a></li>';
     });
@@ -287,8 +278,6 @@ function render(){
   const tocEl = document.getElementById('toc');
   tocEl.innerHTML = h;
   tocEl.querySelectorAll('details.mod').forEach(function(d){ d.addEventListener('toggle', function(){ OPEN[d.dataset.m] = d.open; }); });
-  const w = tocEl.querySelector('[data-welcome]'); if(w) w.addEventListener('click', function(){ safeSet('stem_intro_seen', '1'); });
-  cta.onclick = function(){ if(cta.getAttribute('href') === WELCOME.file) safeSet('stem_intro_seen', '1'); };
 }
 
 hubRenderHook = render;

@@ -1,6 +1,6 @@
 /* STEM Cloud lesson player.
  * A lesson is one long page of 12 sections. On every screen size this turns it into a guided path:
- * one step at a time, a bottom bar (Back / progress / Next), a lesson map, and no sudden auto-start.
+ * one step at a time, a step bar under the header (Back / step / Next and a chip for every step), a lesson map, and no sudden auto-start.
  * "Show whole lesson as one page" in the account menu turns it off (stem_view = scroll). */
 (function () {
   'use strict';
@@ -55,13 +55,24 @@
   var bar = mk('nav', '', '');
   bar.id = 'stem-bar'; bar.setAttribute('aria-label', 'Lesson steps');
   bar.innerHTML =
+    '<div class="sb-row">' +
     '<button type="button" class="sb-btn sb-back" aria-label="Previous step"><span aria-hidden="true">‹</span></button>' +
     '<span class="sb-slot" id="sb-slot"></span>' +
-    '<button type="button" class="sb-mid" aria-haspopup="dialog"><span class="sb-title"></span><span class="sb-track"></span></button>' +
-    '<button type="button" class="sb-btn sb-next primary"></button>';
+    '<button type="button" class="sb-mid" aria-haspopup="dialog"><span class="sb-title"></span></button>' +
+    '<button type="button" class="sb-btn sb-next primary"></button>' +
+    '</div>';
   var bBack = bar.querySelector('.sb-back'), bNext = bar.querySelector('.sb-next'), bMid = bar.querySelector('.sb-mid');
-  var bTitle = bar.querySelector('.sb-title'), bTrack = bar.querySelector('.sb-track');
-  doc.body.appendChild(bar);
+  var bTitle = bar.querySelector('.sb-title'), bStrip = mk('div', 'sb-strip', ''); bStrip.setAttribute('role', 'group'); bStrip.setAttribute('aria-label', L('All steps', 'எல்லா படிகளும்'));
+  /* the step controls sit at the top, under the header: back / next, the step you are on, and every step one tap away */
+  var topbarEl = doc.querySelector('.topbar');
+  if (topbarEl && topbarEl.parentNode) topbarEl.parentNode.insertBefore(bar, topbarEl.nextSibling); else doc.body.insertBefore(bar, doc.body.firstChild);
+  bar.parentNode.insertBefore(bStrip, bar.nextSibling);          /* the step chips scroll away with the page; only Back / Next stay pinned */
+
+  /* the same two buttons again at the very end of a step, so nobody has to scroll back up (not fixed: it is part of the page) */
+  var endNav = mk('nav', 'stem-end', '<button type="button" class="se-back"></button><button type="button" class="se-next primary"></button>');
+  endNav.id = 'stem-end'; endNav.setAttribute('aria-label', 'Lesson steps');
+  var eBack = endNav.querySelector('.se-back'), eNext = endNav.querySelector('.se-next');
+  doc.body.appendChild(endNav);
 
   /* header of a lesson, like a course player: back to the contents, the chapter title, where you are */
   var inner = doc.querySelector('.topbar-inner');
@@ -82,15 +93,33 @@
   function stepIcon(i) { if (i === 0) return '🏠'; if (i === LAST) return '🏁'; var m = label(i).match(/^(\S+)\s/); return m ? m[1] : '•'; }
   function stepWord(i) { var l = label(i); return i >= 1 && i <= N ? l.replace(/^\S+\s+/, '') : l; }
   function taps() { try { return parseInt(localStorage.getItem('stem_next_taps') || '0', 10) || 0; } catch (e) { return 0; } }
+  /* one chip per step (icon + number); the one you are on is highlighted and kept in view, done ones carry a tick */
+  function renderStrip() {
+    var h = '';
+    for (var k = 0; k <= LAST; k++) {
+      var done = k >= 1 && k <= N && (visited[k] || isDone(k)) && k !== cur;
+      h += '<button type="button" class="sb-chip' + (k === cur ? ' cur' : '') + (done ? ' done' : '') + '" data-i="' + k + '" aria-label="' + (k >= 1 && k <= N ? L('Step ', 'படி ') + k + ': ' : '') + stepWord(k).replace(/"/g, '') + '"' + (k === cur ? ' aria-current="step"' : '') + '>' +
+        '<span class="sc-ic" aria-hidden="true">' + stepIcon(k) + '</span>' + (k >= 1 && k <= N ? '<span class="sc-n" aria-hidden="true">' + k + '</span>' : '') + (done ? '<i class="sc-ok" aria-hidden="true">✓</i>' : '') + '</button>';
+    }
+    bStrip.innerHTML = h;
+    var c = bStrip.querySelector('.sb-chip.cur');
+    if (c) bStrip.scrollLeft = Math.max(0, c.offsetLeft - (bStrip.clientWidth - c.offsetWidth) / 2);
+  }
+  function renderEnd() {
+    var i = cur, nxt = i === LAST ? null : label(i + 1);
+    eBack.hidden = i <= 0; eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Back', 'பின்னாடி') + '</span>';
+    eBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி'));
+    eNext.innerHTML = '<span>' + (i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? stepWord(i + 1) : '')) + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
+    eNext.setAttribute('aria-label', i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : L('Next: ', 'அடுத்து: ') + (nxt || ''));
+    endNav.hidden = i === 0;
+  }
   function renderBar() {
     var i = cur;
-    bTitle.innerHTML = '<span class="sb-ic" aria-hidden="true">' + stepIcon(i) + '</span>' + (i >= 1 && i <= N ? '<span class="sb-n">' + i + ' / ' + N + '</span>' : '') + '<span class="sb-w">' + stepWord(i) + '</span>';
-    var seg = '';
-    for (var k = 1; k <= N; k++) seg += '<i class="' + (k === i ? 'cur ' : '') + ((visited[k] || isDone(k)) && k !== i ? 'done' : '') + '"></i>';
-    bTrack.innerHTML = seg;
+    bTitle.innerHTML = '<span class="sb-ic" aria-hidden="true">' + stepIcon(i) + '</span>' + (i >= 1 && i <= N ? '<span class="sb-n">' + i + ' / ' + N + '</span>' : '') + '<span class="sb-w">' + stepWord(i) + '</span><span class="sb-caret" aria-hidden="true">▾</span>';
+    renderStrip();
     if (ct) ct.querySelector('small').textContent = i === 0 ? '' : (i >= 1 && i <= N ? i + ' / ' + N + ' · ' + stepWord(i) : stepWord(i));
-    renderOverview();
-    bBack.disabled = i === 0;
+    renderOverview(); renderEnd();
+    bBack.disabled = i === 0; eBack.disabled = i === 0;
     bBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி')); bBack.title = bBack.getAttribute('aria-label');
     var nxt = i === LAST ? null : label(i + 1);
     var nl = nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்');
@@ -320,11 +349,14 @@
     go(cur + 1, { next: true });
   });
   bMid.addEventListener('click', openMap);
+  bStrip.addEventListener('click', function (e) { var c = e.target.closest('.sb-chip'); if (c) go(parseInt(c.getAttribute('data-i'), 10)); });
+  eBack.addEventListener('click', function () { go(cur - 1); });
+  eNext.addEventListener('click', function () { bNext.click(); });
 
   /* in-page links jump to the right step (works for the path card, "Start", story button, nav links ...) */
   doc.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]');
-    if (!a || a.closest('#stem-bar') || a.classList.contains('skip-link') || e.defaultPrevented) return;
+    if (!a || a.closest('#stem-bar, #stem-end') || a.classList.contains('skip-link') || e.defaultPrevented) return;
     var h = a.getAttribute('href') || '';
     var m = h.match(/#(.+)$/);
     if (!m) return;

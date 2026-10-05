@@ -73,7 +73,7 @@
     <h2 style="margin:0 0 10px">Registered Users</h2>
     <div class="msg" id="msg" role="status"></div>
     <div class="tw"><table>
-      <thead><tr><th>User</th><th>Role</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
+      <thead><tr><th>User</th><th>Role</th><th>Devices</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
   </div>
@@ -203,13 +203,14 @@
         p.textContent = u.role;
         rc.appendChild(p);
 
+        cell(tr, (u.devices || 0) + ' / 2 active');
         cell(tr, u.xp);
         cell(tr, u.badges);
         cell(tr, d(u.created_at));
         cell(tr, ago(u.last_seen));
 
         var ac = cell(tr, '');
-        btn(ac, 'Reset password', '', function () {
+        btn(ac, 'Reset pw', '', function () {
           var pw = randomPassword();
           post('/api/admin/reset', { id: u.id, password: pw }).then(function () {
             msg(true, 'New password for @' + u.username + ': ' + pw + '  (student can change it in My account)');
@@ -217,6 +218,16 @@
             msg(false, e.message);
           });
         });
+        if (u.devices > 0) {
+          btn(ac, 'Logout devices', '', function () {
+            post('/api/admin/kick-devices', { id: u.id }).then(function () {
+              msg(true, 'Logged out all devices for @' + u.username);
+              load();
+            }).catch(function (e) {
+              msg(false, e.message);
+            });
+          });
+        }
         var del = btn(ac, 'Delete', 'bad', function () {
           if (armed !== u.id) {
             armed = u.id;

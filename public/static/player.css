@@ -2,33 +2,50 @@
    Loaded after app-layer.css on lesson pages. */
 
 /* ======================================================================
-   LESSON PLAYER: one step at a time, bottom bar, lesson map
+   LESSON PLAYER: one step at a time, a step bar at the top, lesson map
    ====================================================================== */
 .stem-hide{display:none!important}
 html.stem-player .fw-next,html.stem-player .fw-pill{display:none!important}
-html.stem-player body{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+html.stem-player body{padding-bottom:env(safe-area-inset-bottom)}
 html.stem-player .wrap{padding-bottom:36px}
 .stem-enter{animation:stem-in .3s ease both}
 @keyframes stem-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes stem-fade{from{opacity:0}to{opacity:1}}
 @keyframes stem-up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
 
-#stem-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;gap:8px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--panel) 90%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid var(--border);box-shadow:0 -10px 24px -14px rgba(0,0,0,.4)}
+#stem-bar{position:sticky;top:var(--stem-tb,57px);z-index:45;padding:6px 12px;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.sb-row{display:flex;align-items:center;gap:8px;max-width:760px;margin:0 auto}
 .sb-btn{flex:0 0 auto;min-width:48px;height:48px;border-radius:14px;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-family:inherit;font-weight:800;font-size:1.4rem;line-height:1;cursor:pointer;padding:0 14px;display:inline-flex;align-items:center;justify-content:center}
 .sb-btn:disabled{opacity:.3;cursor:default}
-.sb-next{min-width:96px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:var(--on-accent);font-size:.95rem;box-shadow:0 8px 18px -10px var(--accent-2)}
+.sb-next{min-width:64px;background:linear-gradient(135deg,var(--accent),var(--accent-2));border:none;color:var(--on-accent);font-size:1.5rem;box-shadow:0 8px 18px -10px var(--accent-2)}
 .sb-slot{display:contents}
 .sb-listen{font-size:1.15rem;padding:0}
 .sb-listen.on{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 18%,transparent)}
-.sb-mid{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:7px;justify-content:center;background:none;border:0;padding:2px 6px;min-height:48px;color:var(--text);cursor:pointer;text-align:left;font-family:inherit}
-.sb-title{font-weight:700;font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sb-track{display:flex;gap:3px}
-.sb-track i{flex:1;height:5px;border-radius:3px;background:var(--border)}
-.sb-track i.done{background:color-mix(in srgb,var(--accent) 55%,var(--border))}
-.sb-track i.cur{background:var(--accent-3,#ff9f6b)}
-@media (min-width:900px){
-  #stem-bar{left:50%;right:auto;transform:translateX(-50%);width:min(700px,calc(100% - 32px));bottom:16px;border-radius:22px;border:1px solid var(--border)}
-  html.stem-player body{padding-bottom:110px}
+.sb-mid{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;background:none;border:1px solid transparent;border-radius:14px;padding:2px 6px;min-height:48px;color:var(--text);cursor:pointer;font-family:inherit}
+.sb-mid:hover{background:var(--panel-2,var(--panel))}
+.sb-title{display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.9rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.sb-caret{font-size:.8rem;color:var(--text-faint)}
+/* a chip for every step: tap one to go straight there */
+.sb-strip{position:relative;display:flex;gap:6px;overflow-x:auto;padding:10px 16px 2px;max-width:760px;margin:0 auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.sb-strip::-webkit-scrollbar{display:none}
+.sb-chip{position:relative;flex:0 0 auto;scroll-snap-align:center;min-width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-family:inherit;cursor:pointer;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:0 6px;line-height:1}
+.sb-chip .sc-ic{font-size:1.15rem}
+.sb-chip .sc-n{font-size:.68rem;font-weight:800;color:var(--text-dim);font-variant-numeric:tabular-nums;margin-top:1px}
+.sb-chip.cur{background:color-mix(in srgb,var(--accent) 22%,var(--panel));border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.sb-chip.cur .sc-n{color:var(--text)}
+.sb-chip.done{border-color:color-mix(in srgb,var(--good,#2eb67d) 60%,var(--border))}
+.sb-chip .sc-ok{position:absolute;top:-5px;right:-4px;width:16px;height:16px;border-radius:50%;background:var(--good,#2eb67d);color:#fff;font-style:normal;font-size:.62rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+html.stem-player[data-stem-step="start"] .sb-strip{display:none}
+/* the same Back / Next again under the step, in the flow of the page */
+.stem-end{display:flex;gap:10px;justify-content:space-between;align-items:center;max-width:760px;margin:0 auto;padding:6px 16px 28px}
+.stem-end[hidden]{display:none}
+.stem-end button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border-radius:16px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-family:inherit;font-weight:700;font-size:1rem;padding:0 18px;cursor:pointer}
+.stem-end button[hidden]{display:none}
+.stem-end .se-back{flex:0 0 auto}
+.stem-end .se-next{flex:1 1 auto;margin-left:auto;max-width:420px;border:0;color:var(--on-accent);background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 18px -10px var(--accent-2)}
+.stem-end .se-next span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stem-end button:disabled{opacity:.45}
+
 }
 
 .stem-map{position:fixed;inset:0;z-index:120;display:flex;align-items:flex-end;justify-content:center}
@@ -78,12 +95,12 @@ html.stem-player .wrap{padding-bottom:36px}
 /* ======================================================================
    VOICE: read-aloud controls
    ====================================================================== */
-#stem-vp{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(92px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:2px;padding:6px 10px;border-radius:99px;background:var(--panel);color:var(--text);border:1px solid var(--border);box-shadow:0 12px 30px -10px rgba(0,0,0,.5);max-width:calc(100vw - 20px)}
+#stem-vp{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:2px;padding:6px 10px;border-radius:99px;background:var(--panel);color:var(--text);border:1px solid var(--border);box-shadow:0 12px 30px -10px rgba(0,0,0,.5);max-width:calc(100vw - 20px)}
 #stem-vp button{min-width:44px;height:44px;border-radius:50%;border:0;background:none;color:var(--text);font-family:inherit;font-size:1.1rem;font-weight:700;cursor:pointer;padding:0}
 #stem-vp [data-a="rate"]{font-size:.85rem;min-width:52px;border-radius:99px;background:var(--panel-2,var(--bg))}
 .vp-pos{font-size:.75rem;color:var(--text-faint);padding:0 6px;font-variant-numeric:tabular-nums}
 .stem-reading{background:color-mix(in srgb,var(--accent) 20%,transparent)!important;box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 20%,transparent);border-radius:6px}
-.stem-toast{position:fixed;left:50%;bottom:calc(100px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:130;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#10192b;color:#fff;font-size:.9rem;line-height:1.4;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:opacity .25s,transform .25s}
+.stem-toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:130;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#10192b;color:#fff;font-size:.9rem;line-height:1.4;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:opacity .25s,transform .25s}
 .stem-toast.show{opacity:1;transform:translate(-50%,0)}
 
 /* ======================================================================
@@ -126,8 +143,9 @@ html.stem-player .wrap{padding-bottom:36px}
   .so-hint{margin-top:2px}
 }
 
+
 /* the page's own XP / badge pop-ups sit above the lesson bar */
-html.stem-player #toastWrap{bottom:calc(92px + env(safe-area-inset-bottom));right:12px;max-width:min(280px,calc(100vw - 24px))}
+html.stem-player #toastWrap{bottom:calc(16px + env(safe-area-inset-bottom));right:12px;max-width:min(280px,calc(100vw - 24px))}
 
 /* the pinned lab cartoon: sticky only works if no ancestor clips or transforms, and the cartoon keeps its proportions */
 html.stem-player .lab-card:has(.ls){overflow:visible!important;transform:none!important}
@@ -137,7 +155,6 @@ html.stem-player .lab-card:has(.ls){overflow:visible!important;transform:none!im
    MORE ROOM TO LEARN: the XP strip only shows on the first and last step
    ====================================================================== */
 html.stem-player[data-stem-step="mid"] .xpbar{display:none}
-html.stem-player[data-stem-step="mid"]{--stem-sticky:var(--stem-tb,57px)}
 /* the lesson map is the one navigation: the legacy 13-link strip goes, the menu button stays at every width */
 html.stem-player .navlinks{display:none!important}
 html.stem-player .stem-menu-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:1.15rem;cursor:pointer;padding:0}
@@ -146,6 +163,7 @@ html.stem-player .stem-menu-btn{position:relative;display:inline-flex;align-item
 
 /* the Back arrow should look disabled, not just faint */
 .sb-btn:disabled{opacity:.45;background:transparent;border-style:dashed;color:var(--text-faint)}
+html.stem-player .xpbar{top:calc(var(--stem-tb,53px) + var(--stem-nav,0px))}
 
 /* ======================================================================
    FIGURES ON PHONES: readable size, scroll sideways, tap to enlarge
@@ -204,13 +222,10 @@ body:not(.lang-ta) .fig-hint .ta,body.lang-ta .fig-hint .en{display:none}
 .so-voice .sv-phone{font-size:1.2rem}
 
 /* the bottom bar: icon + "5 / 12" + dots, one round Next button */
-.sb-title{display:flex;align-items:center;gap:8px;font-size:.9rem}
 .sb-ic{font-size:1.35rem;line-height:1}
 .sb-n{font-variant-numeric:tabular-nums;font-weight:800}
 .sb-w{display:none}
 @media (min-width:900px){.sb-w{display:inline;font-weight:600;color:var(--text-dim)}}
-.sb-next{min-width:84px;font-size:1.5rem;border-radius:18px}
-.sb-back{min-width:52px}
 .sb-pulse{animation:sb-pulse 1.5s ease-in-out infinite}
 @keyframes sb-pulse{0%,100%{box-shadow:0 8px 18px -10px var(--accent-2),0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}50%{box-shadow:0 8px 18px -10px var(--accent-2),0 0 0 12px transparent}}
 
@@ -279,7 +294,7 @@ html.stem-player .hero .lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-bo
 /* ======================================================================
    ACCESSIBILITY (player)
    ====================================================================== */
-html.stem-player{scroll-padding-bottom:110px}
+html.stem-player{scroll-padding-bottom:24px}
 .sm-calm{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-size:1.1rem;cursor:pointer;padding:0}
 .sm-calm[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,var(--panel));box-shadow:inset 0 0 0 2px var(--accent)}
 /* decorative loops stop after a few turns, and stop entirely when the phone asks for reduced motion (the lesson animations keep working) */
@@ -289,9 +304,10 @@ html.stem-player{scroll-padding-bottom:110px}
   .so-finger,.co-finger,.co-wave,.co-map-list i,.pp-btn,.sb-pulse{animation:none!important}
 }
 @media (max-width:340px){
-  #stem-bar{gap:4px;padding-left:6px;padding-right:6px}
+  #stem-bar{padding-left:6px;padding-right:6px}
+  .sb-row{gap:4px}
   .sb-btn{min-width:44px;padding:0 6px}
-  .sb-next{min-width:60px}
+  .sb-next{min-width:56px}
   .sb-mid{padding:2px 2px}
   .sb-ic{font-size:1.15rem}
 }

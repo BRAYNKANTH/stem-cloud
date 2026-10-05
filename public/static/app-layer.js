@@ -5,9 +5,10 @@
   var tb = doc.querySelector('.topbar'), xp = doc.querySelector('.xpbar');
 
   function measure() {
-    var h1 = tb ? tb.offsetHeight : 0, h2 = xp ? xp.offsetHeight : 0;
+    var h1 = tb ? tb.offsetHeight : 0, h2 = xp ? xp.offsetHeight : 0, nb = doc.getElementById('stem-bar'), h3 = nb ? nb.offsetHeight : 0;
     root.style.setProperty('--stem-tb', h1 + 'px');
-    root.style.setProperty('--stem-sticky', (h1 + h2) + 'px');
+    root.style.setProperty('--stem-nav', h3 + 'px');             /* the lesson's step bar sits under the header */
+    root.style.setProperty('--stem-sticky', (h1 + h3 + h2) + 'px');
   }
   measure();
   window.addEventListener('resize', measure);

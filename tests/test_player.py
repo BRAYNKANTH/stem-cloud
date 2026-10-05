@@ -96,6 +96,19 @@ def run():
             check('lesson map lists all steps', pg.locator('.sm-item').count() == 15, pg.locator('.sm-item').count())
             pg.click('.sm-item[data-i="12"]'); pg.wait_for_timeout(300)
             check('map jumps to a step', pg.evaluate("StemPlayer.current()") == 12)
+            # step navigation lives at the top: Back / Next under the header, a chip for every step, the same Back / Next at the end of the step
+            pg.evaluate("StemPlayer.go(5)"); pg.wait_for_timeout(300)
+            check('the step bar is at the top, under the header, not at the bottom', pg.evaluate("(() => { const b = document.getElementById('stem-bar'), t = document.querySelector('.topbar'); const r = b.getBoundingClientRect(); return getComputedStyle(b).position === 'sticky' && r.top < 140 && r.top >= t.getBoundingClientRect().bottom - 2; })()"))
+            check('nothing is fixed to the bottom edge of the screen', pg.evaluate("[...document.querySelectorAll('body *')].filter(e => { const c = getComputedStyle(e); return c.position === 'fixed' && e.offsetParent === null && e.getBoundingClientRect().height > 0 && e.getBoundingClientRect().bottom >= innerHeight - 4 && e.tagName !== 'CANVAS' && !e.closest('[role=dialog]') && !/stem-(map|coach|lightbox|live|toast)/.test(e.className + e.id); }).length") == 0)
+            check('a chip for every step (start, 13 steps, finish), the current one is marked', pg.locator('.sb-chip').count() == 15 and pg.locator('.sb-chip[aria-current="step"]').get_attribute('data-i') == '5')
+            pg.click('.sb-chip[data-i="2"]'); pg.wait_for_timeout(300)
+            check('tapping a chip goes straight to that step', pg.evaluate("StemPlayer.current()") == 2)
+            check('the chips are at least 44px to tap', pg.evaluate("document.querySelector('.sb-chip').getBoundingClientRect().height") >= 44)
+            check('Back / Next sit at the end of the step too', pg.is_visible('#stem-end .se-next') and pg.is_visible('#stem-end .se-back'))
+            pg.click('#stem-end .se-next'); pg.wait_for_timeout(300)
+            check('the end-of-step Next moves on', pg.evaluate("StemPlayer.current()") == 3)
+            pg.click('#stem-end .se-back'); pg.wait_for_timeout(300)
+            check('the end-of-step Back goes back', pg.evaluate("StemPlayer.current()") == 2)
             pg.evaluate("StemPlayer.go(14)"); pg.wait_for_timeout(300)
             check('finish step shows the footer and finish card', 'fw_finish' in pg.evaluate(VISIBLE))
             # deep link
@@ -229,7 +242,8 @@ def run():
             check('lab missions do not sit under the cartoon', g[1] >= g[0] - 1, g)
             pg.evaluate('window.scrollTo(0, 320)'); pg.wait_for_timeout(500)
             top = pg.evaluate("document.getElementById('ls_svg').getBoundingClientRect().top")
-            check('lab cartoon stays pinned just under the header (the XP strip is hidden mid-lesson)', 55 <= top <= 85, top)
+            barb = pg.evaluate("document.getElementById('stem-bar').getBoundingClientRect().bottom")
+            check('lab cartoon stays pinned just under the header and the step bar', barb - 2 <= top <= barb + 25, (top, barb))
             ctx.close()
 
             # ------------------------------------------------------------ design-critique fixes

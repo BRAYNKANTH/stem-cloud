@@ -145,10 +145,21 @@ def client_ip(req: Request) -> str:
 def is_secure(req: Request) -> bool:
     return req.url.scheme == 'https' or req.headers.get('x-forwarded-proto') == 'https'
 
+MAX_DEVICES = 2
+
 def new_session(con, user_id: int, resp: Response, req: Request):
     tok = secrets.token_urlsafe(32)
     now = int(time.time())
     con.execute('DELETE FROM sessions WHERE user_id=? AND expires<?', (user_id, now))
+    
+    # Allow at most MAX_DEVICES (2) concurrent active sessions.
+    # If the user reaches the limit, delete the oldest session so sharing kicks people off.
+    rows = con.execute('SELECT token_hash FROM sessions WHERE user_id=? ORDER BY created_at ASC', (user_id,)).fetchall()
+    if len(rows) >= MAX_DEVICES:
+        excess = len(rows) - (MAX_DEVICES - 1)
+        for r in rows[:excess]:
+            con.execute('DELETE FROM sessions WHERE token_hash=?', (r['token_hash'],))
+
     con.execute('INSERT INTO sessions(token_hash,user_id,created_at,expires) VALUES(?,?,?,?)', (sha(tok), user_id, now, now + SESSION_DAYS * 86400))
     resp.set_cookie(COOKIE, tok, max_age=SESSION_DAYS * 86400, httponly=True, samesite='lax', secure=is_secure(req), path='/')
 
@@ -382,14 +393,25 @@ def api_admin_users(req: Request):
     need_admin(req)
     out = []
     with db() as con:
+        now = int(time.time())
+        devices = {r['user_id']: r['c'] for r in con.execute('SELECT user_id, COUNT(*) AS c FROM sessions WHERE expires>? GROUP BY user_id', (now,)).fetchall()}
         prog = {}
         for r in con.execute("SELECT user_id,k,v FROM progress WHERE k IN ('scx_xp_total','scx_badges')").fetchall():
             prog.setdefault(r['user_id'], {})[r['k']] = r['v']
         for r in con.execute('SELECT id,username,display_name,role,created_at,last_seen FROM users ORDER BY last_seen DESC').fetchall():
             p = prog.get(r['id'], {})
             out.append({'id': r['id'], 'username': r['username'], 'display_name': r['display_name'], 'role': r['role'], 'created_at': r['created_at'], 'last_seen': r['last_seen'],
+                        'devices': devices.get(r['id'], 0),
                         'xp': int(p.get('scx_xp_total') or 0), 'badges': len(_json(p.get('scx_badges', '[]'), []))})
     return {'users': out}
+
+@app.post('/api/admin/kick-devices')
+async def api_admin_kick_devices(req: Request):
+    need_csrf(req); need_admin(req)
+    uid = int(body_json(await req.json()).get('id', 0))
+    with db() as con:
+        con.execute('DELETE FROM sessions WHERE user_id=?', (uid,))
+    return {'ok': True}
 
 @app.post('/api/admin/create-user')
 async def api_admin_create_user(req: Request):
@@ -462,6 +484,22 @@ if(/_done$/.test(k)||/^scx_(done|story|lab)_/.test(k))return (o==='1'||n==='1')?
 }catch(e){}return n}
 Object.keys(S).forEach(function(k){if(T(k))localStorage.setItem(k,M(k,localStorage.getItem(k),S[k]))});
 window.SCX_USER=U;window.__acctBoot=true;
+localStorage.setItem('scx_lease_ts',String(Date.now()));
+var lease=parseInt(localStorage.getItem('scx_lease_ts')||'0',10);
+if(lease&&(Date.now()-lease>7*86400*1000)){
+  window.__scxLeaseExpired=true;
+  window.addEventListener('DOMContentLoaded',function(){
+    var b=document.createElement('div');
+    b.style.cssText='position:fixed;inset:0;background:rgba(11,15,23,0.97);z-index:999999;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#fff;font-family:system-ui,sans-serif;backdrop-filter:blur(8px);';
+    b.innerHTML='<div style="max-width:380px;background:#141d2c;border:1.5px solid #25324a;border-radius:20px;padding:26px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.5)">'
+      +'<div style="font-size:2.8rem;margin-bottom:8px">⏳</div>'
+      +'<h2 style="margin:0 0 8px;font-size:1.25rem;color:#4cc3f0">Offline Pass Expired</h2>'
+      +'<p style="margin:0 0 16px;color:#a7b3c8;font-size:0.92rem;line-height:1.5">You have been offline for over 7 days. Please connect to the internet once to re-verify your active student license.</p>'
+      +'<button onclick="location.reload()" style="background:#4cc3f0;color:#06182b;border:none;border-radius:12px;padding:12px 20px;font-weight:700;font-size:0.95rem;cursor:pointer">Reconnect &amp; Refresh</button>'
+      +'</div>';
+    document.body.appendChild(b);
+  });
+}
 }catch(e){}})();</script>'''
 
 APP_HEAD = (

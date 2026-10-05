@@ -4,61 +4,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>STEM Cloud · Admin</title>
-<meta name="theme-color" content="#f1f6fc"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" href="/static/icons/favicon-32.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
+<meta name="theme-color" content="#f1f6fc"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png"><link rel="icon" type="image/png" href="/static/brand/logo-mark.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
 <div class="wrap wide">
   <div class="brand">STEM <span>Cloud</span> · Admin</div>
   <p class="tag"><a class="lnk" href="/lessons/index.html">← Lessons</a> · <a class="lnk" href="/account">My account</a></p>
+  
   <div class="card">
-    <div class="stats"><div class="stat"><span>Students</span><b id="nu">0</b></div><div class="stat"><span>Active in last 7 days</span><b id="na">0</b></div><div class="stat"><span>Total XP</span><b id="nx">0</b></div></div>
+    <div class="stats">
+      <div class="stat"><span>Students</span><b id="nu">0</b></div>
+      <div class="stat"><span>Active in last 7 days</span><b id="na">0</b></div>
+      <div class="stat"><span>Total XP</span><b id="nx">0</b></div>
+    </div>
   </div>
+
+  <!-- Create New Account Card (Admin Only) -->
   <div class="card">
+    <h2 style="margin:0 0 6px">➕ Create New Account</h2>
+    <p style="margin:0 0 14px;color:var(--dim);font-size:.88rem">Admins create accounts for students and fellow teachers. Public registration is closed.</p>
+    
+    <form id="createForm" autocomplete="off">
+      <div class="create-grid">
+        <div>
+          <label for="newDn">Display Name</label>
+          <input type="text" id="newDn" maxlength="30" placeholder="e.g. Kamal Perera" required>
+        </div>
+        <div>
+          <label for="newUn">Username</label>
+          <input type="text" id="newUn" maxlength="20" placeholder="e.g. kamal_p" autocapitalize="none" spellcheck="false" required>
+          <div class="hint">3-20 letters, numbers, or _ (no spaces)</div>
+        </div>
+        <div>
+          <label for="newPw">Password</label>
+          <div class="pw-gen-wrap">
+            <input type="text" id="newPw" maxlength="200" placeholder="Password" required>
+            <button class="btn pw-gen-btn" id="genPwBtn" type="button" title="Generate strong random password">🎲 Generate</button>
+          </div>
+        </div>
+        <div>
+          <label for="newRole">Role</label>
+          <select id="newRole">
+            <option value="student" selected>Student</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <div class="full-w" style="margin-top:6px">
+          <button class="btn pri" id="createSubmitBtn" type="submit">Create Account</button>
+        </div>
+      </div>
+    </form>
+
+    <div id="credResult" hidden>
+      <div class="cred-card">
+        <b>✅ Account Created Successfully!</b>
+        <p style="margin:6px 0;font-size:.88rem">Share these login details with the student:</p>
+        <div class="cred-row" id="credText"></div>
+        <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn sm" id="copyCredBtn" type="button">📋 Copy Login Details</button>
+          <button class="btn sm" id="shareWaBtn" type="button" style="background:#25D366;color:#fff;border-color:#25D366">💬 Send via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Management Table -->
+  <div class="card">
+    <h2 style="margin:0 0 10px">Registered Users</h2>
     <div class="msg" id="msg" role="status"></div>
     <div class="tw"><table>
-      <thead><tr><th>User</th><th>Role</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th></th></tr></thead>
+      <thead><tr><th>User</th><th>Role</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
   </div>
 </div>
+
 <script>
 (function () {
   var $ = function (i) { return document.getElementById(i); };
   var H = { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' };
   var armed = null;
+  var lastCreated = null;
+
   function post(url, body) {
     return fetch(url, { method: 'POST', headers: H, credentials: 'same-origin', body: JSON.stringify(body) })
-      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) throw new Error(j.detail || 'Failed'); return j; }); });
+      .then(function (r) {
+        return r.json().catch(function () { return {}; }).then(function (j) {
+          if (!r.ok) throw new Error(j.detail || 'Request failed');
+          return j;
+        });
+      });
   }
+
+  function randomPassword() {
+    return 'Phys-' + Math.random().toString(36).slice(2, 8) + Math.floor(Math.random() * 90 + 10);
+  }
+
+  $('genPwBtn').onclick = function () {
+    $('newPw').value = randomPassword();
+  };
+
+  // Generate initial random password on load
+  $('newPw').value = randomPassword();
+
+  $('createForm').onsubmit = function (e) {
+    e.preventDefault();
+    var dn = $('newDn').value.trim();
+    var un = $('newUn').value.trim().toLowerCase();
+    var pw = $('newPw').value;
+    var role = $('newRole').value;
+
+    $('createSubmitBtn').disabled = true;
+    post('/api/admin/create-user', {
+      username: un,
+      display_name: dn,
+      password: pw,
+      role: role
+    }).then(function (res) {
+      $('createSubmitBtn').disabled = false;
+      lastCreated = { username: un, password: pw, display_name: dn, role: role };
+      $('credResult').hidden = false;
+      $('credText').textContent = 'Username: ' + un + ' | Password: ' + pw + ' (Role: ' + role + ')';
+      
+      msg(true, 'Created user @' + un + ' successfully.');
+      $('newDn').value = '';
+      $('newUn').value = '';
+      $('newPw').value = randomPassword();
+      load();
+    }).catch(function (err) {
+      $('createSubmitBtn').disabled = false;
+      msg(false, err.message);
+    });
+  };
+
+  $('copyCredBtn').onclick = function () {
+    if (!lastCreated) return;
+    var info = 'STEM Cloud Physics Login\nUsername: ' + lastCreated.username + '\nPassword: ' + lastCreated.password + '\nLogin here: ' + window.location.origin + '/login';
+    navigator.clipboard.writeText(info).then(function () {
+      $('copyCredBtn').textContent = '✅ Copied!';
+      setTimeout(function () { $('copyCredBtn').textContent = '📋 Copy Login Details'; }, 2000);
+    });
+  };
+
+  $('shareWaBtn').onclick = function () {
+    if (!lastCreated) return;
+    var text = encodeURIComponent('Welcome to STEM Cloud Physics!\n\nHere are your login details:\nUsername: ' + lastCreated.username + '\nPassword: ' + lastCreated.password + '\n\nLog in here: ' + window.location.origin + '/login');
+    window.open('https://wa.me/?text=' + text, '_blank');
+  };
+
   function d(t) { return t ? new Date(t * 1000).toLocaleDateString() : ''; }
-  function ago(t) { var s = Math.max(0, Date.now() / 1000 - t); return s < 90 ? 'just now' : s < 5400 ? Math.round(s / 60) + ' min ago' : s < 129600 ? Math.round(s / 3600) + ' h ago' : Math.round(s / 86400) + ' days ago'; }
-  function msg(ok, t) { $('msg').className = 'msg ' + (ok ? 'ok' : 'err'); $('msg').textContent = t; }
-  function cell(tr, text, cls) { var td = document.createElement('td'); if (cls) td.className = cls; td.textContent = text; tr.appendChild(td); return td; }
-  function btn(td, label, cls, fn) { var b = document.createElement('button'); b.type = 'button'; b.className = 'btn sm ' + (cls || ''); b.textContent = label; b.onclick = fn; td.appendChild(b); td.appendChild(document.createTextNode(' ')); return b; }
+  function ago(t) {
+    var s = Math.max(0, Date.now() / 1000 - t);
+    return s < 90 ? 'just now' : s < 5400 ? Math.round(s / 60) + ' min ago' : s < 129600 ? Math.round(s / 3600) + ' h ago' : Math.round(s / 86400) + ' days ago';
+  }
+  function msg(ok, t) {
+    $('msg').className = 'msg ' + (ok ? 'ok' : 'err');
+    $('msg').textContent = t;
+  }
+  function cell(tr, text, cls) {
+    var td = document.createElement('td');
+    if (cls) td.className = cls;
+    td.textContent = text;
+    tr.appendChild(td);
+    return td;
+  }
+  function btn(td, label, cls, fn) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'btn sm ' + (cls || '');
+    b.textContent = label;
+    b.onclick = fn;
+    td.appendChild(b);
+    td.appendChild(document.createTextNode(' '));
+    return b;
+  }
+
   function load() {
-    fetch('/api/admin/users', { credentials: 'same-origin' }).then(function (r) { if (r.status === 401) location.href = '/login?next=/admin'; if (!r.ok) throw new Error('Not allowed'); return r.json(); }).then(function (j) {
+    fetch('/api/admin/users', { credentials: 'same-origin' }).then(function (r) {
+      if (r.status === 401) location.href = '/login?next=/admin';
+      if (!r.ok) throw new Error('Not allowed');
+      return r.json();
+    }).then(function (j) {
       var tb = $('rows'); tb.textContent = '';
       var week = Date.now() / 1000 - 7 * 86400, act = 0, xp = 0;
       j.users.forEach(function (u) {
-        if (u.last_seen > week) act++; xp += u.xp;
+        if (u.last_seen > week) act++;
+        xp += u.xp;
         var tr = document.createElement('tr');
-        var c = cell(tr, u.display_name); var s = document.createElement('div'); s.className = 'hint'; s.textContent = '@' + u.username; c.appendChild(s);
-        var rc = cell(tr, ''); var p = document.createElement('span'); p.className = 'pill ' + u.role; p.textContent = u.role; rc.appendChild(p);
-        cell(tr, u.xp); cell(tr, u.badges); cell(tr, d(u.created_at)); cell(tr, ago(u.last_seen));
+        var c = cell(tr, u.display_name);
+        var s = document.createElement('div');
+        s.className = 'hint';
+        s.textContent = '@' + u.username;
+        c.appendChild(s);
+
+        var rc = cell(tr, '');
+        var p = document.createElement('span');
+        p.className = 'pill ' + u.role;
+        p.textContent = u.role;
+        rc.appendChild(p);
+
+        cell(tr, u.xp);
+        cell(tr, u.badges);
+        cell(tr, d(u.created_at));
+        cell(tr, ago(u.last_seen));
+
         var ac = cell(tr, '');
         btn(ac, 'Reset password', '', function () {
-          var pw = 'Phys-' + Math.random().toString(36).slice(2, 8) + Math.floor(Math.random() * 90 + 10);
-          post('/api/admin/reset', { id: u.id, password: pw }).then(function () { msg(true, 'New password for @' + u.username + ': ' + pw + '  (tell them, then they can change it in My account)'); }).catch(function (e) { msg(false, e.message); });
+          var pw = randomPassword();
+          post('/api/admin/reset', { id: u.id, password: pw }).then(function () {
+            msg(true, 'New password for @' + u.username + ': ' + pw + '  (student can change it in My account)');
+          }).catch(function (e) {
+            msg(false, e.message);
+          });
         });
         var del = btn(ac, 'Delete', 'bad', function () {
-          if (armed !== u.id) { armed = u.id; del.textContent = 'Click again to confirm'; return; }
-          post('/api/admin/delete', { id: u.id }).then(function () { armed = null; msg(true, 'Deleted @' + u.username); load(); }).catch(function (e) { msg(false, e.message); armed = null; del.textContent = 'Delete'; });
+          if (armed !== u.id) {
+            armed = u.id;
+            del.textContent = 'Click again to confirm';
+            return;
+          }
+          post('/api/admin/delete', { id: u.id }).then(function () {
+            armed = null;
+            msg(true, 'Deleted @' + u.username);
+            load();
+          }).catch(function (e) {
+            msg(false, e.message);
+            armed = null;
+            del.textContent = 'Delete';
+          });
         });
         tb.appendChild(tr);
       });
-      $('nu').textContent = j.users.length; $('na').textContent = act; $('nx').textContent = xp;
-    }).catch(function (e) { msg(false, e.message); });
+      $('nu').textContent = j.users.length;
+      $('na').textContent = act;
+      $('nx').textContent = xp;
+    }).catch(function (e) {
+      msg(false, e.message);
+    });
   }
+
   load();
 })();
 </script>

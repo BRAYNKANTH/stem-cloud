@@ -7,7 +7,7 @@
 import http.cookiejar, json, os, subprocess, sys, tempfile, time, urllib.error, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PORT = 8765
+PORT = 8775
 BASE = 'http://127.0.0.1:%d' % PORT
 
 
@@ -56,14 +56,18 @@ def scenario(mode):
     check('signup ok, first user is admin', s == 200 and j['user']['role'] == 'admin', (s, j))
     s, j, _, _ = a.call('POST', '/api/signup', {'username': 'ann_1', 'password': 'secret123'}, csrf=False)
     check('signup without CSRF header is refused', s == 403, s)
-    s, j, _, _ = b.call('POST', '/api/signup', {'username': 'ANN_1', 'password': 'secret123'})
-    check('duplicate username (case-insensitive) refused', s == 409, (s, j))
-    s, j, _, _ = b.call('POST', '/api/signup', {'username': 'bo', 'password': 'secret123'})
-    check('short username refused', s == 400, s)
-    s, j, _, _ = b.call('POST', '/api/signup', {'username': 'bob', 'password': 'short'})
-    check('short password refused', s == 400, s)
-    s, j, _, _ = b.call('POST', '/api/signup', {'username': 'bob', 'password': 'secret456', 'display_name': '<b>Bob</b>'})
-    check('second user is a student', s == 200 and j['user']['role'] == 'student', (s, j))
+    s, j, _, _ = b.call('POST', '/api/signup', {'username': 'bob', 'password': 'secret456'})
+    check('public signup blocked once admin exists', s == 403, (s, j))
+    s, j, _, _ = a.call('POST', '/api/admin/create-user', {'username': 'ann_1', 'password': 'secret123', 'role': 'student'})
+    check('duplicate username refused on admin create', s == 409, (s, j))
+    s, j, _, _ = a.call('POST', '/api/admin/create-user', {'username': 'bo', 'password': 'secret123', 'role': 'student'})
+    check('short username refused on admin create', s == 400, s)
+    s, j, _, _ = a.call('POST', '/api/admin/create-user', {'username': 'bob', 'password': 'short', 'role': 'student'})
+    check('short password refused on admin create', s == 400, s)
+    s, j, _, _ = a.call('POST', '/api/admin/create-user', {'username': 'bob', 'password': 'secret456', 'display_name': '<b>Bob</b>', 'role': 'student'})
+    check('admin creates student account', s == 200 and j['user']['role'] == 'student', (s, j))
+    s, j, _, _ = b.call('POST', '/api/login', {'username': 'bob', 'password': 'secret456'})
+    check('student logs in with admin-created credentials', s == 200 and j['user']['role'] == 'student', (s, j))
 
     s, _, _, h = anon.call('GET', '/lessons/index.html')
     check('lessons redirect to login when logged out', s == 302 and '/login' in (h.get('location') or ''), (s, h.get('location')))

@@ -279,10 +279,12 @@ async def api_signup(req: Request):
         raise HTTPException(400, 'Username: 3 to 20 letters, numbers or underscore.')
     if len(pw) < 8 or len(pw) > 200:
         raise HTTPException(400, 'Password must be at least 8 characters.')
-    pwh = hash_pw(pw)
     with db() as con:
-        first = con.execute('SELECT COUNT(*) AS c FROM users').fetchone()['c'] == 0
-        role = 'admin' if (first or username in ADMIN_USERS) else 'student'
+        count = con.execute('SELECT COUNT(*) AS c FROM users').fetchone()['c']
+        if count > 0:
+            raise HTTPException(403, 'Public account creation is disabled. Please contact the administrator on WhatsApp to get an account.')
+        role = 'admin'
+        pwh = hash_pw(pw)
         now = int(time.time())
         try:
             uid = con.execute('INSERT INTO users(username,display_name,pw,role,created_at,last_seen) VALUES(?,?,?,?,?,?) RETURNING id',
@@ -389,6 +391,30 @@ def api_admin_users(req: Request):
                         'xp': int(p.get('scx_xp_total') or 0), 'badges': len(_json(p.get('scx_badges', '[]'), []))})
     return {'users': out}
 
+@app.post('/api/admin/create-user')
+async def api_admin_create_user(req: Request):
+    need_csrf(req); need_admin(req)
+    d = body_json(await req.json())
+    username = str(d.get('username', '')).strip().lower()
+    pw = str(d.get('password', ''))
+    name = str(d.get('display_name', '')).strip()[:30] or username
+    role = str(d.get('role', 'student')).strip().lower()
+    if role not in ('student', 'admin'):
+        role = 'student'
+    if not USER_RE.match(username):
+        raise HTTPException(400, 'Username must be 3 to 20 letters, numbers or underscore.')
+    if len(pw) < 8 or len(pw) > 200:
+        raise HTTPException(400, 'Password must be at least 8 characters.')
+    pwh = hash_pw(pw)
+    now = int(time.time())
+    with db() as con:
+        try:
+            uid = con.execute('INSERT INTO users(username,display_name,pw,role,created_at,last_seen) VALUES(?,?,?,?,?,?) RETURNING id',
+                              (username, name, pwh, role, now, now)).fetchone()['id']
+        except INTEGRITY:
+            raise HTTPException(409, f'Username @{username} is already taken.')
+    return {'ok': True, 'user': {'id': uid, 'username': username, 'display_name': name, 'role': role}}
+
 @app.post('/api/admin/reset')
 async def api_admin_reset(req: Request):
     need_csrf(req); need_admin(req)
@@ -445,7 +471,9 @@ APP_HEAD = (
     '<meta name="apple-mobile-web-app-title" content="STEM Cloud">'
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" media="print" onload="this.media=&quot;all&quot;">'
-    '<link rel="icon" type="image/png" href="/static/icons/favicon-32.png">'
+    '<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">'
+    '<link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">'
+    '<link rel="icon" type="image/png" href="/static/brand/logo-mark.png">'
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )
@@ -554,6 +582,9 @@ def apple_icon():
 
 @app.get('/favicon.ico')
 def favicon():
+    ico = STATIC / 'icons' / 'favicon.ico'
+    if ico.exists():
+        return FileResponse(ico, media_type='image/x-icon', headers={'Cache-Control': 'public, max-age=86400'})
     return FileResponse(STATIC / 'icons' / 'favicon-32.png', media_type='image/png', headers={'Cache-Control': 'public, max-age=86400'})
 
 app.mount('/static', StaticFiles(directory=str(STATIC)), name='static')

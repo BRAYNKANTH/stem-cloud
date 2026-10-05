@@ -21,7 +21,7 @@ SITE = ROOT / 'site'
 LESSONS = (SITE / 'lessons').resolve()
 STATIC = ROOT / 'public' / 'static'      # Vercel serves public/ straight from its CDN; the app mounts the same folder for local use and the HTML pages
 ON_VERCEL = bool(os.environ.get('VERCEL'))
-ADMIN_USERS = {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}
+ADMIN_USERS = {'admin', 'brayn'} | {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}
 TRUST_PROXY = ON_VERCEL or os.environ.get('TRUST_PROXY') == '1'
 SESSION_DAYS = 30
 COOKIE = 'sid'
@@ -97,7 +97,8 @@ def _ensure_schema(raw):
     for stmt in SCHEMA:
         c.execute(stmt)
     try:
-        c.execute('ALTER TABLE sessions ADD COLUMN device_name TEXT DEFAULT ""')
+        # Postgres: IF NOT EXISTS (a failed statement would abort the whole schema transaction); SQLite has no IF NOT EXISTS and raises when the column exists
+        c.execute("ALTER TABLE sessions ADD COLUMN IF NOT EXISTS device_name TEXT DEFAULT ''" if PG else "ALTER TABLE sessions ADD COLUMN device_name TEXT DEFAULT ''")
     except Exception:
         pass
     raw.commit()
@@ -343,10 +344,22 @@ async def api_login(req: Request):
     kick_id = str(d.get('kick_device', '')).strip()
     with db() as con:
         row = con.execute('SELECT * FROM users WHERE username=?', (username,)).fetchone()
-        ok = bool(row) and check_pw(pw, row['pw'])
         if not row:
-            check_pw(pw, 'scrypt$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=')   # keep timing similar
-        if not ok:
+            count = con.execute('SELECT COUNT(*) AS c FROM users').fetchone()['c']
+            if count == 0 and (username in ADMIN_USERS or not USER_RE.match(username)):
+                if not USER_RE.match(username):
+                    raise HTTPException(400, 'Username: 3 to 20 letters, numbers or underscore.')
+                if len(pw) < 8:
+                    raise HTTPException(400, 'Password must be at least 8 characters.')
+                pwh = hash_pw(pw)
+                now = int(time.time())
+                uid = con.execute('INSERT INTO users(username,display_name,pw,role,created_at,last_seen) VALUES(?,?,?,?,?,?) RETURNING id',
+                                  (username, username.capitalize(), pwh, 'admin', now, now)).fetchone()['id']
+                row = con.execute('SELECT * FROM users WHERE id=?', (uid,)).fetchone()
+            else:
+                check_pw(pw, 'scrypt$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=')   # keep timing similar
+                raise HTTPException(401, 'Wrong username or password.')
+        elif not check_pw(pw, row['pw']):
             raise HTTPException(401, 'Wrong username or password.')
         row = dict(row)
         if username in ADMIN_USERS and row['role'] != 'admin':
@@ -357,9 +370,9 @@ async def api_login(req: Request):
         con.execute('DELETE FROM sessions WHERE user_id=? AND expires<?', (row['id'], now))
 
         try:
-            active = con.execute('SELECT token_hash, created_at, COALESCE(device_name, "") AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+            active = con.execute("SELECT token_hash, created_at, COALESCE(device_name, '') AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC", (row['id'],)).fetchall()
         except Exception:
-            active = con.execute('SELECT token_hash, created_at, "" AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+            active = con.execute("SELECT token_hash, created_at, '' AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC", (row['id'],)).fetchall()
 
         if kick_id:
             if kick_id == 'all':
@@ -367,9 +380,9 @@ async def api_login(req: Request):
             else:
                 con.execute('DELETE FROM sessions WHERE user_id=? AND token_hash=?', (row['id'], kick_id))
             try:
-                active = con.execute('SELECT token_hash, created_at, COALESCE(device_name, "") AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+                active = con.execute("SELECT token_hash, created_at, COALESCE(device_name, '') AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC", (row['id'],)).fetchall()
             except Exception:
-                active = con.execute('SELECT token_hash, created_at, "" AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+                active = con.execute("SELECT token_hash, created_at, '' AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC", (row['id'],)).fetchall()
             while len(active) >= MAX_DEVICES:
                 con.execute('DELETE FROM sessions WHERE user_id=? AND token_hash=?', (row['id'], active[0]['token_hash']))
                 active.pop(0)

@@ -221,6 +221,6 @@ input[type="range"]{height:44px}
 }
 
 /* links inside lesson text read as links and pass contrast; the number badge on orange becomes white on the darker orange */
-.wrap p a,.wrap li a,.wrap .sub a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px}
+.wrap :is(p,li,.sub) a:not([class]){color:var(--accent-text);text-decoration:underline;text-underline-offset:2px}
 @media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .fw-cap .n{color:#fff}}
 :root[data-theme="light"] .fw-cap .n{color:#fff}

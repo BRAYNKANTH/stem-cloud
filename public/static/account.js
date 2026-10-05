@@ -97,7 +97,7 @@
       var st = mk('div', 'st', statusText()); st.id = 'acctStatus'; menu.appendChild(st);
       function link(t, h) { var a = mk('a', '', t); a.href = h; menu.appendChild(a); }
       function act(t, fn) { var b = mk('button', '', t); b.type = 'button'; b.onclick = fn; menu.appendChild(b); return b; }
-      link('🏠 ' + L('All lessons', 'எல்லா பாடங்கள்'), '/lessons/index.html');
+      link('🏠 ' + L('Course contents', 'பாட உள்ளடக்கம்'), '/lessons/index.html');
       link('👤 ' + L('My account', 'என் கணக்கு'), '/account');
       if (U.role === 'admin') link('🛠 Admin', '/admin');
 
@@ -113,13 +113,8 @@
         fill();
       });
       mb.appendChild(mk('span', 'sw' + (calm ? ' off' : ''), calm ? L('Off', 'ஆஃப்') : L('On', 'ஆன்')));
-      if (document.getElementById('fw_path')) {
-        var scroll = false; try { scroll = localStorage.getItem('stem_view') === 'scroll'; } catch (e) {}
-        var vb = act('📖 ' + L('Whole lesson on one page', 'முழு பாடமும் ஒரே பக்கத்தில்'), function () {
-          try { localStorage.setItem('stem_view', scroll ? 'steps' : 'scroll'); } catch (e) {}
-          location.href = location.pathname + location.search;
-        });
-        vb.appendChild(mk('span', 'sw' + (scroll ? '' : ' off'), scroll ? L('On', 'ஆன்') : L('Off', 'ஆஃப்')));
+      if (window.StemPlayer && window.StemPlayer.openCoach) {
+        act('❓ ' + L('How it works', 'எப்படி வேலை செய்யுது'), function () { close(); window.StemPlayer.openCoach(); });
       }
       var App = window.StemApp;
       if (App && App.canInstall()) {

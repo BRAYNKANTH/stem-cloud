@@ -161,9 +161,9 @@ def run():
 
             # ---- header menu opens the lesson map (phone), account menu opens
             page.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded')
-            page.wait_for_selector('.stem-menu-btn')
-            page.click('.stem-menu-btn')
-            check('menu button opens the lesson map', page.is_visible('.stem-map .sm-item'))
+            page.wait_for_selector('.sb-mid')
+            page.click('.sb-mid')
+            check('the progress button in the bar opens the lesson map', page.is_visible('.stem-map .sm-item'))
             page.click('.stem-map .sm-item[data-i="8"]')
             check('choosing a step in the map goes there', page.evaluate('StemPlayer.current()') == 8 and not page.is_visible('.stem-map'))
             page.click('.stem-av')

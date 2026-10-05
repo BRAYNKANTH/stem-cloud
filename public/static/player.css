@@ -297,3 +297,40 @@ html.stem-player{scroll-padding-bottom:110px}
   .sb-mid{padding:2px 2px}
   .sb-ic{font-size:1.15rem}
 }
+
+/* ======================================================================
+   COURSE-STYLE LESSON: back arrow, chapter title, one overview, one list
+   ====================================================================== */
+html.stem-player .xpbar,
+html.stem-player .topbar .brand,
+html.stem-player .stem-menu-btn,
+html.stem-player #themeToggle,
+html.stem-player .hero .crumb{display:none!important}
+.stem-back{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:1.3rem;font-weight:800;text-decoration:none}
+.stem-ct{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.stem-ct b{font-size:.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stem-ct small{font-size:.78rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:1em;font-variant-numeric:tabular-nums}
+html.stem-player .topbar .toggles{margin-left:0}
+
+html.stem-player #fw_path .fw-card{display:none}
+html.stem-player .hero{padding-bottom:6px}
+.stem-ov{margin-top:6px}
+.ov-meta{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 14px;font-weight:700;color:var(--text-dim);font-size:.95rem}
+.ov-meta b{color:var(--text)}
+.ov-cta{display:flex;align-items:center;gap:14px;width:100%;padding:14px 16px;border:0;border-radius:18px;text-align:left;cursor:pointer;font-family:inherit;color:var(--on-accent);background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 12px 26px -14px var(--accent-2)}
+.ov-pl{flex:0 0 auto;width:48px;height:48px;border-radius:50%;background:color-mix(in srgb,var(--on-accent) 18%,transparent);display:flex;align-items:center;justify-content:center;font-size:1.4rem;padding-left:3px}
+.ov-tx{display:flex;flex-direction:column;min-width:0}
+.ov-tx b{font-size:1.05rem}
+.ov-tx small{font-size:.9rem;opacity:.92}
+.ov-toc{margin-top:18px}
+.ov-ph{margin:16px 2px 6px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim)}
+.ov-toc ol{list-style:none;margin:0;padding:0;background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.ov-toc li+li .ov-it{border-top:1px solid var(--border)}
+.ov-it{display:flex;align-items:center;gap:12px;width:100%;min-height:52px;padding:8px 14px;border:0;background:none;color:var(--text);font-family:inherit;font-size:1rem;font-weight:600;text-align:left;cursor:pointer}
+.ov-it:hover{background:var(--panel-2,var(--bg))}
+.ov-it.now{background:color-mix(in srgb,var(--accent) 10%,var(--panel))}
+.ov-n{flex:0 0 auto;width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;border:2px solid var(--border);color:var(--text-dim);font-variant-numeric:tabular-nums}
+.ov-it.done .ov-n{background:var(--good);border-color:var(--good);color:#fff}
+.ov-ic{font-size:1.25rem;line-height:1}
+.ov-w{flex:1;min-width:0}
+html.stem-player #fw_fin a[href="#fw_path"]{display:none}

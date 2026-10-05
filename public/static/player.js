@@ -63,6 +63,19 @@
   var bTitle = bar.querySelector('.sb-title'), bTrack = bar.querySelector('.sb-track');
   doc.body.appendChild(bar);
 
+  /* header of a lesson, like a course player: back to the contents, the chapter title, where you are */
+  var inner = doc.querySelector('.topbar-inner');
+  var ct = null;
+  if (inner) {
+    var back = mk('a', 'stem-back', '<span aria-hidden="true">←</span>');
+    back.href = '/lessons/index.html'; back.setAttribute('aria-label', L('Course contents', 'பாட உள்ளடக்கம்')); back.title = back.getAttribute('aria-label');
+    ct = mk('div', 'stem-ct', '<b></b><small></small>');
+    inner.insertBefore(ct, inner.firstChild); inner.insertBefore(back, inner.firstChild);
+    ct.querySelector('b').textContent = (doc.querySelector('.hero h1') || {}).textContent || doc.title;
+    var lt0 = doc.getElementById('langToggle');
+    if (lt0) lt0.addEventListener('click', function () { setTimeout(function () { var hh = doc.querySelector('.hero h1'); if (hh && ct) ct.querySelector('b').textContent = hh.textContent; back.setAttribute('aria-label', L('Course contents', 'பாட உள்ளடக்கம்')); back.title = back.getAttribute('aria-label'); }, 150); });
+  }
+
   var cur = -1, visited = {};
 
   /* the bar speaks in icons: step icon + "5 / 12" + progress dots, and one big round button (the words stay as tooltips / screen-reader labels) */
@@ -75,6 +88,8 @@
     var seg = '';
     for (var k = 1; k <= N; k++) seg += '<i class="' + (k === i ? 'cur ' : '') + ((visited[k] || isDone(k)) && k !== i ? 'done' : '') + '"></i>';
     bTrack.innerHTML = seg;
+    if (ct) ct.querySelector('small').textContent = i === 0 ? '' : (i >= 1 && i <= N ? i + ' / ' + N + ' · ' + stepWord(i) : stepWord(i));
+    renderOverview();
     bBack.disabled = i === 0;
     bBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி')); bBack.title = bBack.getAttribute('aria-label');
     var nxt = i === LAST ? null : label(i + 1);
@@ -88,6 +103,29 @@
     var id = i >= 1 && i <= N ? ids[i - 1] : null;
     if (id) { var na = doc.querySelector('.navlinks a[href="#' + id + '"]'); if (na) na.setAttribute('aria-current', 'step'); }
   }
+
+  /* ------------------------------------------------------------------ chapter overview (first step): length, one big Start / Continue, the steps in order */
+  var ov = mk('div', 'stem-ov', ''); pathBox.appendChild(ov);
+  function nextUndone() { for (var k = 1; k <= N; k++) if (!isDone(k) && !visited[k]) return k; for (k = 1; k <= N; k++) if (!isDone(k)) return k; return N; }
+  function renderOverview() {
+    var links = pathLinks(), doneN = 0, h = '', first = nextUndone();
+    for (var k = 1; k <= N; k++) if (isDone(k)) doneN++;
+    var started = doneN > 0 || Object.keys(visited).length > 1;
+    h += '<div class="ov-meta"><span>📚 <b>' + N + '</b></span><span>⏱ <b>~' + Math.max(10, N * 3) + '</b> ' + L('min', 'நிமி') + '</span><span>✅ <b>' + doneN + ' / ' + N + '</b></span></div>';
+    h += '<button type="button" class="ov-cta" data-go="' + (doneN >= N ? 0 : first) + '"><span class="ov-pl" aria-hidden="true">' + (doneN >= N ? '↻' : '▶') + '</span><span class="ov-tx"><b>' + (doneN >= N ? L('Review', 'திருப்பி பாரு') : (started ? L('Continue', 'தொடர்') : L('Start', 'தொடங்கு'))) + '</b><small>' + (doneN >= N ? '' : stepWord(first)) + '</small></span></button>';
+    var groups = [].slice.call(doc.querySelectorAll('#fw_phases .fw-phase'));
+    h += '<div class="ov-toc">';
+    groups.forEach(function (g) {
+      var t = g.querySelector('h4'); h += '<div class="ov-ph">' + (t ? t.textContent : '') + '</div><ol>';
+      [].forEach.call(g.querySelectorAll('a.fw-step'), function (a) {
+        var i = links.indexOf(a) + 1, done = isDone(i), lab = label(i), m = lab.match(/^(\S+)\s+(.*)$/);
+        h += '<li><button type="button" class="ov-it' + (done ? ' done' : '') + (i === first && doneN < N ? ' now' : '') + '" data-go="' + i + '"><span class="ov-n" aria-hidden="true">' + (done ? '✓' : i) + '</span><span class="ov-ic" aria-hidden="true">' + (m ? m[1] : '') + '</span><span class="ov-w">' + (m ? m[2] : lab) + '</span><span class="sr-only">' + (done ? L('done', 'முடிஞ்சது') : '') + '</span></button></li>';
+      });
+      h += '</ol>';
+    });
+    ov.innerHTML = h + '</div>';
+  }
+  ov.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) go(parseInt(b.getAttribute('data-go'), 10)); });
 
   /* ------------------------------------------------------------------ dialogs: focus goes in, Tab stays in, the page behind is inert, focus goes back */
   var FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])';
@@ -185,7 +223,7 @@
     var done = 0; for (var k = 1; k <= N; k++) if (isDone(k)) done++;
     mapEl = mk('div', 'stem-map', '');
     var h = '<div class="sm-back"></div><div class="sm-sheet" role="dialog" aria-modal="true" aria-label="' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '">' +
-      '<div class="sm-grip"></div><div class="sm-head"><b aria-hidden="true">🗺️</b><span class="sm-count">✅ ' + done + ' / ' + N + '</span><button type="button" class="sm-calm" aria-pressed="' + (root.classList.contains('stem-calm') ? 'true' : 'false') + '" aria-label="' + L('Pause animations', 'அனிமேஷன் நிறுத்து') + '" title="' + L('Pause animations', 'அனிமேஷன் நிறுத்து') + '">🎞️</button><button type="button" class="sm-help" aria-label="' + L('How it works', 'எப்படி வேலை செய்யுது') + '" title="' + L('How it works', 'எப்படி வேலை செய்யுது') + '">❓</button><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div>' + statLine() + '<div class="sm-list">';
+      '<div class="sm-grip"></div><div class="sm-head"><b aria-hidden="true">🗺️</b><span class="sm-count">✅ ' + done + ' / ' + N + '</span><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div><div class="sm-list">';
     for (var i = 0; i <= LAST; i++) {
       var mark = i === 0 ? '🏠' : (i === LAST ? '🏁' : (isDone(i) ? '✓' : i));
       h += '<button type="button" class="sm-item' + (i === cur ? ' cur' : '') + (i >= 1 && i <= N && isDone(i) ? ' done' : '') + '" data-i="' + i + '"><span class="sm-n">' + mark + '</span><span class="sm-l">' + label(i) + '</span></button>';
@@ -195,17 +233,11 @@
     doc.body.appendChild(mapEl);
     mapEl.querySelector('.sm-back').addEventListener('click', closeMap);
     mapEl.querySelector('.sm-close').addEventListener('click', closeMap);
-    mapEl.querySelector('.sm-help').addEventListener('click', function () { var opener = mapModal && mapModal.opener; closeMap(); openCoach(); if (coachModal && opener) coachModal.opener = opener; });
     mapEl.addEventListener('click', function (e) { var b = e.target.closest('.sm-item'); if (b) { closeMap(); go(parseInt(b.getAttribute('data-i'), 10)); } });
     doc.addEventListener('keydown', mapKey);
     var c = mapEl.querySelector('.sm-item.cur'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'center' });
     mapModal = openModal(mapEl, c || mapEl.querySelector('.sm-close'));
-    mapEl.querySelector('.sm-calm').addEventListener('click', function (e) {
-      var off = !root.classList.contains('stem-calm');
-      root.classList.toggle('stem-calm', off); try { localStorage.setItem('stem_motion', off ? 'off' : 'on'); } catch (x) {}
-      e.currentTarget.setAttribute('aria-pressed', String(off));
-      if (window.StemLive) window.StemLive.say(off ? L('Animations paused', 'அனிமேஷன் நிறுத்தப்பட்டது') : L('Animations on', 'அனிமேஷன் ஓடுது'));
-    });
+
   }
 
   /* ------------------------------------------------------------------ first-visit coach: how the app works, shown with moving pictures */
@@ -220,7 +252,7 @@
       ['co-swipe', '<span class="co-arr">‹</span><span class="co-finger">👆</span><span class="co-arr">›</span>', L('Swipe', 'ஸ்வைப்')],
       ['co-play', '<span class="co-mock round">▶</span><span class="co-finger">👆</span>', L('Play', 'ஓடு')],
       ['co-listen', '<span class="co-spk">🔊</span><i class="co-wave"></i><i class="co-wave w2"></i>', L('Listen', 'கேள்')],
-      ['co-map', '<span class="co-mock sq">☰</span><span class="co-map-list"><i></i><i></i><i></i></span>', L('Map', 'வரைபடம்')],
+      ['co-map', '<span class="co-mock sq">5/13</span><span class="co-map-list"><i></i><i></i><i></i></span>', L('Contents', 'பட்டியல்')],
       ['co-lang', '<span class="co-mock pill">🌐 தமிழ்</span><span class="co-finger">👆</span>', L('Language', 'மொழி')]
     ];
     coachEl = mk('div', 'stem-coach', '<div class="co-card" role="dialog" aria-modal="true" aria-label="' + L('How it works', 'எப்படி வேலை செய்யுது') + '">' +

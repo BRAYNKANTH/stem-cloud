@@ -451,7 +451,7 @@ APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="s
 # order matters: player.js builds the lesson bar that voice.js adds its button to
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
-               '<script src="/static/voice.js"></script><script src="/static/questions.js"></script>'
+               '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 

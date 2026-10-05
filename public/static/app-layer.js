@@ -64,7 +64,7 @@
   /* New user onboarding banner helper */
   function initOnboarding() {
     if (!doc.getElementById('fw_path')) return;   /* lesson pages only: the hub has its own welcome card */
-    if (localStorage.getItem('stem_hide_onboarding')) return;
+    if (localStorage.getItem('stem_hide_onboarding') || window.StemPlayer) return;     /* the picture coach (player.js) replaces this text banner */
     var hero = doc.querySelector('.hero') || doc.querySelector('.wrap');
     if (!hero) return;
     

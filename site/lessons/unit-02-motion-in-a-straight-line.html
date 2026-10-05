@@ -553,6 +553,16 @@ body.lang-ta .step-content .work{font-family:'Noto Sans Tamil','JetBrains Mono',
     </div>
   </section>
 
+  <!--BASICS-->
+  <section class="block" id="basics">
+    <div class="section-label"><div class="num" aria-hidden="true">🧒</div><div><h2 data-ta="முதல்ல இருந்து: பொருட்கள் எப்படி நகரும்?">Start from zero: how do things move?</h2><div class="sub" data-ta="பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்.">No big words yet. Let us start easy.</div></div></div>
+    <div class="bs-hook"><span aria-hidden="true">🤔</span><p data-ta="நீ வீட்டில இருந்து ஸ்கூலுக்கு நடக்கிறே. எவ்வளவு தூரம், எவ்வளவு வேகம்னு எப்படி சொல்றது?">You walk from home to school. How do we say how far you went, and how fast?</p></div>
+    <ol class="bs-list"><li class="bs-card"><div class="bs-ic" aria-hidden="true">🚶</div><div class="bs-body"><h3 data-ta="நகரறது என்றால் இடம் மாறுறது">Moving means changing place</h3><p data-ta="வீட்டில ஒரு இடத்துல இருக்கே. ஸ்கூல்ல வேற இடத்துல. இடம் மாறிச்சு, அதான் நகர்ந்திருக்கே.">At home you are in one place. At school you are in another. Your place changed, so you moved.</p><div class="bs-pic" aria-hidden="true">🏠 ➜ ➜ ➜ 🏫</div></div></li><li class="bs-card"><div class="bs-ic" aria-hidden="true">📏</div><div class="bs-body"><h3 data-ta="தூரம்: எவ்வளவு பாதை">Distance: how much road</h3><p data-ta="நடந்த பாதை எவ்வளவு நீளம்னு சொல்றதுதான் தூரம். மீட்டர் (m), கிலோமீட்டர் (km) ல அளப்போம்.">Distance is how long the path was. We count it in metres (m) or kilometres (km).</p><div class="bs-pic" aria-hidden="true">🏠 ───── 500 m ───── 🏫</div></div></li><li class="bs-card"><div class="bs-ic" aria-hidden="true">⏱️</div><div class="bs-body"><h3 data-ta="நேரம்: எவ்வளவு நேரம் ஆச்சு">Time: how long it took</h3><p data-ta="நேரத்த வினாடி (s), நிமிஷத்துல எண்ணுவோம். நடக்கறத விட சைக்கிள்ல குறைவான நேரம்தான்.">We count time in seconds (s) or minutes. A bike takes less time than walking.</p><div class="bs-pic" aria-hidden="true">🚶 10 min   🚲 3 min</div></div></li><li class="bs-card"><div class="bs-ic" aria-hidden="true">💨</div><div class="bs-body"><h3 data-ta="வேகம்: எவ்வளவு வேகமா">Speed: how fast</h3><p data-ta="ஒரு வினாடில எவ்வளவு தூரம் போறோம்ங்கறதுதான் வேகம். அதே நேரத்துல அதிக தூரம் போனா வேகம் அதிகம்.">Speed is how much distance you cover in one second. More distance in the same time means faster.</p><div class="bs-pic" aria-hidden="true">🐢 slow    🐇 fast</div></div></li><li class="bs-card"><div class="bs-ic" aria-hidden="true">🧭</div><div class="bs-body"><h3 data-ta="திசையும் முக்கியம்">Direction matters too</h3><p data-ta="கிழக்கே 5 m போறதும் மேற்கே 5 m போறதும் ஒண்ணு இல்ல. திசையோட சேர்ந்த வேகத்த திசைவேகம்னு சொல்வோம்.">Going 5 m east is not the same as 5 m west. Speed with a direction is called velocity.</p><div class="bs-pic" aria-hidden="true">⬅️ west   east ➡️</div></div></li></ol>
+    <div class="bs-home"><span aria-hidden="true">🏠</span><p data-ta="10 அடி நடந்து வினாடி எண்ணு. அப்புறம் அதே 10 அடிய வேகமா நடந்து பாரு.">Walk 10 steps and count the seconds. Then walk the same 10 steps faster.</p></div>
+    <div class="bs-bridge"><span aria-hidden="true">🌉</span><p data-ta="ஐடியா புரிஞ்சுது. இனி அத சரியா அளக்கலாம்.">Now you know the idea. Next we measure it exactly.</p></div>
+  </section>
+  <!--/BASICS-->
+
   <section class="block" id="watch">
     <div class="section-label">
       <div class="num">1</div>
@@ -2244,7 +2254,8 @@ drawAxisLineGraph('q4Svg', [
     {k:'wrap',  en:'Wrap-up', ta:'முடிவு',      emoji:'🏁'}
   ];
   const KINDS = {
-    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
+    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'},
+    basics:{en:'Basics', ta:'அடிப்படை', e:'🧒', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
     notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'learn'}, activities:{en:'Try it', ta:'செஞ்சு பாரு', e:'🧪', p:'learn'},
     lab:{en:'Lab', ta:'லேப்', e:'🔬', p:'play'}, game:{en:'Game', ta:'விளையாட்டு', e:'🎮', p:'play'}, sortgame:{en:'Sort game', ta:'வரிசைப்படுத்து', e:'🧩', p:'play'},
     quiz:{en:'Quiz', ta:'குயிஸ்', e:'📝', p:'check'}, examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'check'}, practice:{en:'Practice', ta:'பயிற்சி', e:'💪', p:'check'},

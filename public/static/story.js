@@ -15,12 +15,12 @@
   /* a quiet hint instead of big buttons */
   var hint = doc.createElement('div');
   hint.className = 'so-hint';
-  hint.innerHTML = '<span class="so-finger" aria-hidden="true">👆</span><span class="so-hint-t"></span>';
+  hint.innerHTML = '<span class="so-arr" aria-hidden="true">‹</span><span class="so-finger" aria-hidden="true">👆</span><span class="so-arr" aria-hidden="true">›</span><span class="so-hint-t"></span>';
   var ctrls = stage.querySelector('.so-ctrls');
   if (ctrls) ctrls.parentNode.insertBefore(hint, ctrls.nextSibling);
   function hintText() {
     var t = hint.querySelector('.so-hint-t');
-    t.textContent = lang() === 'ta' ? '‹ தொடர்ந்து படிக்க ஸ்வைப் பண்ணு ›' : '‹ swipe to read on ›';
+    t.textContent = lang() === 'ta' ? 'தொடர்ந்து படிக்க ஸ்வைப் பண்ணு' : 'swipe to read on';   /* read by screen readers only; sighted students see the moving finger */
     hint.classList.toggle('quiet', swipes >= 3);
   }
   hintText();

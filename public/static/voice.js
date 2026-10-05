@@ -133,7 +133,7 @@
   var state = { rate: defaultRate(), list: [], i: -1, on: false, paused: false };
   var RATES = [0.9, 1, 1.1, 1.25, 1.5];
   var SEL = 'h1,h2,h3,h4,p,li,dt,dd,blockquote,figcaption,.fw-sub,.sub,.work,.note,.exq > span:not(.exnum),.qlead,.qpart > .qt,.so-title,.fw-hint';
-  var SKIP = '#stem-bar,#stem-vp,.stem-map,.stem-menu,nav,button,script,style,svg,.stem-nospeak,.so-hint,.stem-toast,.topbar,.xpbar,.stem-welcome-banner';
+  var SKIP = '#stem-bar,#stem-vp,.stem-map,.stem-menu,nav,button,script,style,svg,.stem-nospeak,.so-hint,.stem-toast,.topbar,.xpbar,.stem-welcome-banner,.bs-pic,.bs-ic,.stem-coach';
 
   function visibleRoots() {
     var wrap = doc.querySelector('.wrap'), r = [];
@@ -281,7 +281,9 @@
     var off = ICON.speaker.replace('<path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>', '<path d="M16 9l5 6M21 9l-5 6"/>');
     var label = storyMode === 'rec' ? L('Recorded voices', 'பதிவு செஞ்ச குரல்') : (storyMode === 'tts' ? L('Phone voice', 'போன் குரல்') : L('Voices off', 'குரல் ஆஃப்'));
     storyBtn.setAttribute('aria-pressed', String(on)); storyBtn.classList.toggle('on', on);
-    storyBtn.innerHTML = (on ? ICON.speaker : off) + '<span>' + label + '</span>';
+    /* icon only: speaker = recorded voices, phone = the phone's own voice, crossed speaker = off (the words stay as the tooltip / screen-reader label) */
+    storyBtn.innerHTML = storyMode === 'tts' ? '<span class="sv-phone" aria-hidden="true">📱</span>' : (on ? ICON.speaker : off);
+    storyBtn.setAttribute('aria-label', label); storyBtn.title = label;
   }
   function mountStory() {
     var head = doc.querySelector('.so-head'); if (!head) return;

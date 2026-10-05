@@ -180,3 +180,97 @@ body:not(.lang-ta) .fig-hint .ta,body.lang-ta .fig-hint .en{display:none}
   .lab-card .lab-hint{order:3}
   .lab-card .stem-fold-guide{order:4}
 }
+
+/* ======================================================================
+   ICON-FIRST: round icon controls, a wordless bottom bar, a picture coach
+   ====================================================================== */
+/* animation controls: four round buttons and the time slider on one line */
+.fw-ctl{display:flex;align-items:center;gap:10px;flex-wrap:nowrap}
+.fw-ctl .icon-btn{flex:0 0 auto;width:52px;height:52px;min-width:52px;padding:0;border-radius:50%;font-size:1.4rem;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.fw-ctl #fw_play{width:60px;height:60px;min-width:60px;font-size:1.6rem;padding-left:3px}
+.fw-ctl .icon-btn[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,var(--panel))}
+.fw-ctl .icon-btn[aria-pressed="false"]{opacity:.7}
+.fw-ctl input[type=range]{flex:1 1 60px;min-width:60px}
+.ex-toggle.icon-btn{width:52px;height:48px;min-width:52px;padding:0;justify-content:center;font-size:1.3rem}
+.ex-toggle.icon-btn::before{content:none}
+.pp-cap{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}      /* "Tap to watch": the big play button says it */
+
+/* story: the swipe hint is a moving finger, nothing to read */
+.so-hint{gap:14px;font-size:1.6rem}
+.so-hint .so-arr{color:var(--text-faint);font-weight:800;font-size:1.8rem;line-height:1}
+.so-hint-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.so-voice{width:44px;min-width:44px;height:44px;padding:0;justify-content:center;border-radius:50%}
+.so-voice svg{width:22px;height:22px}
+.so-voice .sv-phone{font-size:1.2rem}
+
+/* the bottom bar: icon + "5 / 12" + dots, one round Next button */
+.sb-title{display:flex;align-items:center;gap:8px;font-size:.9rem}
+.sb-ic{font-size:1.35rem;line-height:1}
+.sb-n{font-variant-numeric:tabular-nums;font-weight:800}
+.sb-w{display:none}
+@media (min-width:900px){.sb-w{display:inline;font-weight:600;color:var(--text-dim)}}
+.sb-next{min-width:84px;font-size:1.5rem;border-radius:18px}
+.sb-back{min-width:52px}
+.sb-pulse{animation:sb-pulse 1.5s ease-in-out infinite}
+@keyframes sb-pulse{0%,100%{box-shadow:0 8px 18px -10px var(--accent-2),0 0 0 0 color-mix(in srgb,var(--accent) 55%,transparent)}50%{box-shadow:0 8px 18px -10px var(--accent-2),0 0 0 12px transparent}}
+
+/* start screen: the road, not instructions */
+html.stem-player .fw-sub,html.stem-player #fw_pt{display:none}
+html.stem-player .hero .lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* XP strip and lesson map: numbers with icons, no words */
+.badges-btn span[data-ta],.xp-chip span[data-ta]{display:none}
+.sm-head{align-items:center;gap:10px}
+.sm-head b{font-size:1.4rem}
+.sm-count{margin-right:auto;font-weight:800;font-size:1rem;color:var(--text)}
+.sm-help,.sm-close{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-size:1.1rem;cursor:pointer;padding:0}
+.sm-stats{gap:6px 16px;font-size:1rem}
+
+/* first-visit coach: six moving pictures and one big tick */
+.stem-coach{position:fixed;inset:0;z-index:150;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(5,10,20,.7);animation:stem-fade .25s}
+.co-card{width:min(420px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel);color:var(--text);border:1px solid var(--border);border-radius:24px;padding:18px 16px 20px;text-align:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);animation:stem-up .3s ease}
+.co-hero{font-size:2.4rem;line-height:1;margin-bottom:10px}
+.co-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.co-tile{display:flex;flex-direction:column;align-items:center;gap:6px}
+.co-tile b{font-size:.9rem;color:var(--text-dim)}
+.co-demo{position:relative;width:100%;height:92px;border-radius:16px;background:var(--panel-2,var(--bg));border:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:8px;overflow:hidden;font-size:1.6rem}
+.co-mock{min-width:56px;height:44px;padding:0 12px;border-radius:14px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);font-weight:800}
+.co-mock.round{width:48px;min-width:48px;height:48px;border-radius:50%;padding:0 0 0 3px}
+.co-mock.sq{min-width:44px;background:var(--panel);color:var(--text);border:1px solid var(--border)}
+.co-mock.pill{border-radius:99px;font-size:.9rem;background:var(--panel);color:var(--accent);border:1.5px solid var(--accent)}
+.co-finger{position:absolute;right:26%;bottom:6px;font-size:1.5rem;animation:co-tap 1.6s ease-in-out infinite}
+.co-swipe .co-finger{position:static;animation:co-slide 1.8s ease-in-out infinite}
+.co-arr{font-size:2rem;font-weight:800;color:var(--text-faint)}
+.co-spk{font-size:2rem}
+.co-wave{width:10px;height:22px;border:3px solid var(--accent);border-left:0;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;opacity:0;animation:co-wave 1.4s ease-out infinite}
+.co-wave.w2{width:18px;height:34px;animation-delay:.35s}
+.co-map-list{display:flex;flex-direction:column;gap:4px;margin-left:6px}
+.co-map-list i{display:block;width:44px;height:8px;border-radius:4px;background:var(--border);animation:co-pop 1.8s ease-in-out infinite}
+.co-map-list i:nth-child(2){animation-delay:.3s}.co-map-list i:nth-child(3){animation-delay:.6s}
+@keyframes co-tap{0%,100%{transform:translate(0,0) scale(1)}45%{transform:translate(-6px,-12px) scale(.9)}}
+@keyframes co-slide{0%,100%{transform:translateX(-14px)}50%{transform:translateX(14px)}}
+@keyframes co-wave{0%{opacity:0;transform:scale(.6)}30%{opacity:1}100%{opacity:0;transform:scale(1.2)}}
+@keyframes co-pop{0%,100%{background:var(--border)}40%{background:var(--accent)}}
+.co-ok{margin:16px auto 0;display:flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:var(--on-accent);font-size:2rem;font-weight:800;cursor:pointer;box-shadow:0 12px 26px -10px var(--accent-2)}
+.co-ok:focus-visible{outline:4px solid var(--accent-3,#ff9f6b);outline-offset:3px}
+
+/* ======================================================================
+   START FROM ZERO: the grade-5 step before the real lesson
+   ====================================================================== */
+.bs-hook{display:flex;gap:12px;align-items:flex-start;margin:6px 0 18px;padding:14px 16px;border-radius:18px;background:color-mix(in srgb,var(--accent-3,#ff9f6b) 14%,var(--panel));border:2px solid color-mix(in srgb,var(--accent-3,#ff9f6b) 55%,var(--border))}
+.bs-hook>span{font-size:1.8rem;line-height:1}
+.bs-hook p{margin:0;font-size:1.08rem;font-weight:700;line-height:1.45;color:var(--text)}
+.bs-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;position:relative}
+.bs-card{display:flex;gap:14px;align-items:flex-start;padding:14px;border-radius:18px;background:var(--panel);border:1px solid var(--border);box-shadow:var(--shadow,0 6px 18px -12px rgba(0,0,0,.35));animation:stem-in .45s ease both}
+.bs-card:nth-child(2){animation-delay:.07s}.bs-card:nth-child(3){animation-delay:.14s}.bs-card:nth-child(4){animation-delay:.21s}.bs-card:nth-child(5){animation-delay:.28s}
+.bs-ic{flex:0 0 auto;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;background:color-mix(in srgb,var(--accent) 16%,var(--panel-2,var(--panel)));border:2px solid color-mix(in srgb,var(--accent) 45%,var(--border))}
+.bs-body{flex:1 1 auto;min-width:0}
+.bs-body h3{margin:0 0 4px;font-size:1.08rem;line-height:1.3}
+.bs-body p{margin:0;font-size:1rem;line-height:1.55;color:var(--text-dim)}
+.bs-pic{margin-top:10px;padding:8px 12px;border-radius:12px;background:var(--panel-2,var(--bg));border:1px dashed var(--border);font-size:1.25rem;letter-spacing:.04em;text-align:center;overflow-wrap:anywhere}
+.bs-home,.bs-bridge{display:flex;gap:12px;align-items:center;margin-top:16px;padding:12px 16px;border-radius:16px}
+.bs-home{border:2px dashed var(--border);background:var(--panel-2,var(--panel))}
+.bs-bridge{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 20%,var(--panel)),color-mix(in srgb,var(--accent-2) 20%,var(--panel)));border:1px solid color-mix(in srgb,var(--accent) 45%,var(--border))}
+.bs-home>span,.bs-bridge>span{font-size:1.6rem;line-height:1}
+.bs-home p,.bs-bridge p{margin:0;font-size:.98rem;line-height:1.5;font-weight:600}
+.bs-bridge p{font-weight:800}

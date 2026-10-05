@@ -50,6 +50,7 @@ def run():
         with sync_playwright() as p:
             browser = p.chromium.launch(channel='msedge', headless=True)
             ctx = browser.new_context(viewport={'width': 375, 'height': 812}, has_touch=True)
+            ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
             page = ctx.new_page()
             errors = []
             page.on('pageerror', lambda e: errors.append(str(e)))
@@ -135,6 +136,7 @@ def run():
             # ---- animations work even when the phone says "reduce motion" (battery saver / remove animations)
             for reduced in ('reduce', 'no-preference'):
                 c2 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, reduced_motion=reduced)
+                c2.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
                 c2.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'mot' + reduced[:2], 'password': 'LocalTest-5566'}))
                 p2 = c2.new_page(); p2.goto(BASE + '/lessons/chapter-05-friction.html#watch', wait_until='domcontentloaded'); p2.wait_for_timeout(2500)
                 check('no sudden start with reduce-motion=%s: waits for a tap' % reduced, p2.locator('.stem-poster').count() == 1 and int(p2.evaluate("document.getElementById('fw_scrub').value")) == 0)
@@ -147,6 +149,7 @@ def run():
                 c2.close()
             # the in-app switch turns animations off, and the choice is remembered
             c3 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True)
+            c3.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
             c3.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'motoff', 'password': 'LocalTest-5566'}))
             p3 = c3.new_page(); p3.goto(BASE + '/lessons/chapter-05-friction.html#story', wait_until='domcontentloaded'); p3.wait_for_selector('.stem-av')
             p3.click('.stem-av'); p3.click('.stem-menu button:has-text("Animations")')

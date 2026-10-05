@@ -169,6 +169,7 @@
     .pline{display:none;} .overall{margin-top:10px;}
   }
 
+  .go-round{flex:0 0 auto;width:52px;height:52px;padding:0;border-radius:50%;font-size:1.3rem;display:inline-flex;align-items:center;justify-content:center;padding-left:3px;}
   .reveal-init{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease;}
   .reveal-init.revealed{opacity:1;transform:translateY(0);}
   footer{text-align:center;color:var(--text-faint);font-size:0.8rem;padding:50px 0 10px;}
@@ -200,8 +201,8 @@
 
   <!-- Start here -->
   <div class="nextup reveal-init" id="startHere" style="margin-top:0;margin-bottom:18px;">
-    <div class="ntxt" data-ta="🐒🐦 <b>புதுசா வந்தீங்களா?</b> ராஜா & சிட்டு உங்க ரெண்டு டீச்சர்ஸ் — முதல்ல அவங்கள சந்திச்சு, ஃபிசிக்ஸ் எவ்வளவு ஈசின்னு பாருங்க!"><b>New here?</b> 🐒🐦 Meet Raja and Chittu, your two teachers, and see how easy physics really is!</div>
-    <a class="btn" href="intro-physics-is-easy.html" data-ta="வரவேற்பை பாரு →">Start with the welcome →</a>
+    <div class="ntxt" data-ta="🐒🐦 <b>புதுசா வந்தீங்களா?</b> ராஜா & சிட்டுவ சந்திங்க!"><b>New here?</b> 🐒🐦 Meet Raja and Chittu!</div>
+    <a class="btn go-round" href="intro-physics-is-easy.html" aria-label="Start with the welcome" title="Start with the welcome">▶</a>
   </div>
 
   <!-- Player card -->
@@ -469,15 +470,15 @@ function render(){
     const nm = gradeLabel(target) + ' — ' + t(target.en, target.ta);
     const resumed = target === last;
     document.getElementById('nextTxt').innerHTML = resumed
-      ? t('▶️ <b>Continue where you left off:</b> ' + nm + ' (' + n + '/5 badges)', '▶️ <b>விட்ட இடத்துல இருந்து தொடர்:</b> ' + nm + ' (' + n + '/5 பேட்ஜ்)')
+      ? t('<b>▶️ Continue</b> · ' + nm + ' · 🏅 ' + n + '/5', '<b>▶️ தொடர்</b> · ' + nm + ' · 🏅 ' + n + '/5')
       : n === 0
-        ? t('🚀 <b>Start here:</b> ' + nm, '🚀 <b>இங்க ஆரம்பி:</b> ' + nm)
-        : t('🎯 <b>Keep going:</b> ' + nm + ' (' + n + '/5 badges)', '🎯 <b>தொடர்ந்து போ:</b> ' + nm + ' (' + n + '/5 பேட்ஜ்)');
-    btn.href = target.file; btn.textContent = resumed ? t('Resume →', 'தொடர் →') : t('Open lesson →', 'பாடத்தைத் திற →');
+        ? t('<b>🚀 Start</b> · ' + nm, '<b>🚀 ஆரம்பி</b> · ' + nm)
+        : t('<b>🎯 Keep going</b> · ' + nm + ' · 🏅 ' + n + '/5', '<b>🎯 தொடர்ந்து போ</b> · ' + nm + ' · 🏅 ' + n + '/5');
+    btn.href = target.file; btn.textContent = '▶'; btn.setAttribute('aria-label', resumed ? t('Resume', 'தொடர்') : t('Open lesson', 'பாடத்தைத் திற')); btn.title = btn.getAttribute('aria-label'); btn.classList.add('go-round');
   } else {
     const pool = LESSONS.filter(inGrade);
     document.getElementById('nextTxt').innerHTML = t('🏆 <b>Everything here is mastered!</b> Revisit any lesson to keep your streak going.', '🏆 <b>இங்க எல்லாமே மாஸ்டர்!</b> ஸ்ட்ரீக் தொடர எந்த பாடத்தையும் மறுபடி பாரு.');
-    btn.href = pool[pool.length - 1].file; btn.textContent = t('Revise →', 'திருப்பி படி →');
+    btn.href = pool[pool.length - 1].file; btn.textContent = '↻'; btn.setAttribute('aria-label', t('Revise', 'திருப்பி படி')); btn.title = btn.getAttribute('aria-label'); btn.classList.add('go-round');
   }
   renderGradeBar();
 
@@ -492,15 +493,15 @@ function render(){
     if(l.badges){
       const n = l.badges.filter(b => earned.includes(b)).length;
       stateHtml = n === l.badges.length
-        ? '<span class="state done">' + t('🏆 Mastered', '🏆 மாஸ்டர்') + '</span>'
-        : '<span class="state game">' + t('🎮 Game mode', '🎮 கேம் மோட்') + '</span>';
+        ? '<span class="state done" title="' + t('Mastered', 'மாஸ்டர்') + '" aria-label="' + t('Mastered', 'மாஸ்டர்') + '">🏆</span>'
+        : '<span class="state game" title="' + t('Game mode', 'கேம் மோட்') + '" aria-label="' + t('Game mode', 'கேம் மோட்') + '">🎮</span>';
       const bs = readJSON(l.stars, [0,0,0,0,0]);
       const st = bs.reduce((x, y) => x + (y || 0), 0);
       progHtml = '<div class="prog">' +
-        '<div class="row"><span>' + t('Badges', 'பேட்ஜ்') + '</span><div class="pips">' +
+        '<div class="row"><span aria-hidden="true">🏅</span><div class="pips" title="' + t('Badges', 'பேட்ஜ்') + '">' +
           l.badges.map((b, i) => '<span class="pip' + (earned.includes(b) ? ' on' : '') + '">' + ICONS[i] + '</span>').join('') +
           '</div><b>' + n + '/5</b></div>' +
-        '<div class="row"><span>' + t('Game stars', 'கேம் நட்சத்திரம்') + '</span><span class="stars">' + '★'.repeat(Math.min(st,15) ? Math.ceil(st/3) : 0) + '☆'.repeat(5 - (st ? Math.ceil(st/3) : 0)) + '</span><b>' + st + '/15</b></div>' +
+        '<div class="row"><span aria-hidden="true">⭐</span><span class="stars" title="' + t('Game stars', 'கேம் நட்சத்திரம்') + '">' + '★'.repeat(Math.min(st,15) ? Math.ceil(st/3) : 0) + '☆'.repeat(5 - (st ? Math.ceil(st/3) : 0)) + '</span><b>' + st + '/15</b></div>' +
         '</div>';
     } else {
       stateHtml = '<span class="state classic">' + t('Classic', 'கிளாசிக்') + '</span>';

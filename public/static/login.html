@@ -262,6 +262,22 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
   </div>
 </div>
 
+<!-- Device Limit Reached Modal -->
+<div class="device-modal-backdrop" id="deviceModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="devModalTitle">
+  <div class="device-modal">
+    <div style="font-size:2.8rem;text-align:center;margin-bottom:8px">📱⚠️</div>
+    <h3 id="devModalTitle" style="margin:0 0 6px;text-align:center;font-size:1.25rem;color:var(--text)">Device Limit Reached</h3>
+    <p style="margin:0 0 16px;color:var(--dim);font-size:.88rem;text-align:center;line-height:1.45">
+      Your account is already signed in on <strong>2 devices</strong> (maximum allowed). To sign in on this device, please select which device to log out:
+    </p>
+    <div id="deviceList" style="max-height:220px;overflow-y:auto;margin-bottom:14px"></div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <button class="btn sm bad full" id="kickAllDevicesBtn" type="button" style="padding:10px">🚪 Log out all other devices &amp; sign in</button>
+      <button class="btn sm full" id="cancelDeviceModalBtn" type="button">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
@@ -288,6 +304,115 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
     return n && n.charAt(0) === '/' && n.charAt(1) !== '/' && n.indexOf('\\') < 0 ? n : '/lessons/index.html';
   }
 
+  /* Device Limit Management */
+  var pendingCreds = null;
+
+  function timeAgo(ts) {
+    if (!ts) return 'recently';
+    var diff = Math.floor(Date.now() / 1000 - ts);
+    if (diff < 60) return 'just now';
+    if (diff < 3600) return Math.floor(diff / 60) + ' min ago';
+    if (diff < 86400) return Math.floor(diff / 3600) + ' hr ago';
+    var days = Math.floor(diff / 86400);
+    return days === 1 ? 'yesterday' : days + ' days ago';
+  }
+
+  function esc(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function showDeviceModal(creds, devices) {
+    pendingCreds = creds;
+    var list = $('deviceList');
+    list.innerHTML = '';
+
+    if (!devices || !devices.length) {
+      list.innerHTML = '<div style="color:var(--dim);text-align:center;padding:12px;font-size:0.9rem">Active session records found. Click below to reset:</div>';
+    } else {
+      devices.forEach(function (dev, idx) {
+        var row = document.createElement('div');
+        row.className = 'device-row';
+        row.innerHTML = 
+          '<div class="device-info">' +
+            '<b>' + esc(dev.name || ('Device ' + (idx + 1))) + '</b>' +
+            '<small>Signed in ' + timeAgo(dev.created_at) + '</small>' +
+          '</div>' +
+          '<button class="btn sm bad kick-btn" type="button" data-dev-id="' + esc(dev.id) + '">Log out &amp; Sign in</button>';
+        list.appendChild(row);
+      });
+    }
+
+    var kickButtons = list.querySelectorAll('.kick-btn');
+    for (var i = 0; i < kickButtons.length; i++) {
+      kickButtons[i].addEventListener('click', function () {
+        var devId = this.getAttribute('data-dev-id');
+        doLoginWithKick(devId, this);
+      });
+    }
+
+    $('deviceModalBackdrop').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDeviceModal() {
+    $('deviceModalBackdrop').classList.remove('open');
+    document.body.style.overflow = '';
+    pendingCreds = null;
+  }
+
+  function doLoginWithKick(kickId, btnEl) {
+    if (!pendingCreds) return;
+    if (btnEl) {
+      btnEl.disabled = true;
+      btnEl.textContent = 'Switching…';
+    }
+    $('kickAllDevicesBtn').disabled = true;
+    var m = $('msg');
+    m.className = 'msg';
+    m.textContent = '';
+
+    var payload = {
+      username: pendingCreds.username,
+      password: pendingCreds.password,
+      kick_device: kickId
+    };
+
+    fetch('/api/login', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+    }).then(function (x) {
+      if (!x.ok) {
+        closeDeviceModal();
+        m.className = 'msg err';
+        m.textContent = x.j.detail || 'Could not complete login. Please try again.';
+        $('go').disabled = false;
+        return;
+      }
+      closeDeviceModal();
+      m.className = 'msg ok';
+      m.textContent = 'Device switched successfully! Opening your lessons…';
+      location.href = next();
+    }).catch(function () {
+      closeDeviceModal();
+      m.className = 'msg err';
+      m.textContent = 'Cannot reach the server. Check your internet connection.';
+      $('go').disabled = false;
+    });
+  }
+
+  $('kickAllDevicesBtn').onclick = function () {
+    this.textContent = 'Switching all…';
+    doLoginWithKick('all', this);
+  };
+  $('cancelDeviceModalBtn').onclick = closeDeviceModal;
+  $('deviceModalBackdrop').onclick = function (e) {
+    if (e.target === $('deviceModalBackdrop')) closeDeviceModal();
+  };
+
   /* Login Form Submit */
   $('f').addEventListener('submit', function (e) {
     e.preventDefault();
@@ -301,8 +426,13 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
       headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
       body: JSON.stringify(body)
     }).then(function (r) {
-      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
+      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
     }).then(function (x) {
+      if (x.status === 409 && x.j && x.j.device_limit) {
+        $('go').disabled = false;
+        showDeviceModal(body, x.j.devices || []);
+        return;
+      }
       if (!x.ok) {
         m.className = 'msg err';
         m.textContent = x.j.detail || 'Wrong username or password.';
@@ -375,6 +505,10 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
   }
 
   window.addEventListener('keydown', function (e) {
+    if ($('deviceModalBackdrop') && $('deviceModalBackdrop').classList.contains('open')) {
+      if (e.key === 'Escape') closeDeviceModal();
+      return;
+    }
     if (!$('tourBackdrop').classList.contains('open')) return;
     if (e.key === 'Escape') closeTour();
     if (e.key === 'ArrowRight') $('tourNextBtn').click();

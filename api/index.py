@@ -96,6 +96,10 @@ def _ensure_schema(raw):
         c.execute('SELECT pg_advisory_xact_lock(7364201)')   # two cold starts creating tables at once
     for stmt in SCHEMA:
         c.execute(stmt)
+    try:
+        c.execute('ALTER TABLE sessions ADD COLUMN device_name TEXT DEFAULT ""')
+    except Exception:
+        pass
     raw.commit()
     _ready = True
 
@@ -147,20 +151,45 @@ def is_secure(req: Request) -> bool:
 
 MAX_DEVICES = 2
 
+def parse_device_name(ua_str: str) -> str:
+    ua = (ua_str or '').lower()
+    os_name = 'Device'
+    if 'android' in ua:
+        os_name = 'Android Phone'
+    elif 'iphone' in ua:
+        os_name = 'iPhone'
+    elif 'ipad' in ua:
+        os_name = 'iPad'
+    elif 'windows' in ua:
+        os_name = 'Windows PC'
+    elif 'macintosh' in ua or 'mac os' in ua:
+        os_name = 'Mac'
+    elif 'linux' in ua:
+        os_name = 'Linux PC'
+
+    browser = 'Browser'
+    if 'edg' in ua:
+        browser = 'Edge'
+    elif 'chrome' in ua or 'crios' in ua:
+        browser = 'Chrome'
+    elif 'safari' in ua:
+        browser = 'Safari'
+    elif 'firefox' in ua or 'fxios' in ua:
+        browser = 'Firefox'
+
+    return f"{browser} ({os_name})"
+
 def new_session(con, user_id: int, resp: Response, req: Request):
     tok = secrets.token_urlsafe(32)
     now = int(time.time())
     con.execute('DELETE FROM sessions WHERE user_id=? AND expires<?', (user_id, now))
-    
-    # Allow at most MAX_DEVICES (2) concurrent active sessions.
-    # If the user reaches the limit, delete the oldest session so sharing kicks people off.
-    rows = con.execute('SELECT token_hash FROM sessions WHERE user_id=? ORDER BY created_at ASC', (user_id,)).fetchall()
-    if len(rows) >= MAX_DEVICES:
-        excess = len(rows) - (MAX_DEVICES - 1)
-        for r in rows[:excess]:
-            con.execute('DELETE FROM sessions WHERE token_hash=?', (r['token_hash'],))
-
-    con.execute('INSERT INTO sessions(token_hash,user_id,created_at,expires) VALUES(?,?,?,?)', (sha(tok), user_id, now, now + SESSION_DAYS * 86400))
+    dev_name = parse_device_name(req.headers.get('user-agent', ''))
+    try:
+        con.execute('INSERT INTO sessions(token_hash,user_id,created_at,expires,device_name) VALUES(?,?,?,?,?)',
+                    (sha(tok), user_id, now, now + SESSION_DAYS * 86400, dev_name))
+    except Exception:
+        con.execute('INSERT INTO sessions(token_hash,user_id,created_at,expires) VALUES(?,?,?,?)',
+                    (sha(tok), user_id, now, now + SESSION_DAYS * 86400))
     resp.set_cookie(COOKIE, tok, max_age=SESSION_DAYS * 86400, httponly=True, samesite='lax', secure=is_secure(req), path='/')
 
 def _user_on(con, tok: str):
@@ -311,6 +340,7 @@ async def api_login(req: Request):
     need_csrf(req); rate(req, 'login', 12, 300)
     d = body_json(await req.json())
     username = str(d.get('username', '')).strip().lower(); pw = str(d.get('password', ''))
+    kick_id = str(d.get('kick_device', '')).strip()
     with db() as con:
         row = con.execute('SELECT * FROM users WHERE username=?', (username,)).fetchone()
         ok = bool(row) and check_pw(pw, row['pw'])
@@ -322,6 +352,43 @@ async def api_login(req: Request):
         if username in ADMIN_USERS and row['role'] != 'admin':
             con.execute("UPDATE users SET role='admin' WHERE id=?", (row['id'],))
             row['role'] = 'admin'
+
+        now = int(time.time())
+        con.execute('DELETE FROM sessions WHERE user_id=? AND expires<?', (row['id'], now))
+
+        try:
+            active = con.execute('SELECT token_hash, created_at, COALESCE(device_name, "") AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+        except Exception:
+            active = con.execute('SELECT token_hash, created_at, "" AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+
+        if kick_id:
+            if kick_id == 'all':
+                con.execute('DELETE FROM sessions WHERE user_id=?', (row['id'],))
+            else:
+                con.execute('DELETE FROM sessions WHERE user_id=? AND token_hash=?', (row['id'], kick_id))
+            try:
+                active = con.execute('SELECT token_hash, created_at, COALESCE(device_name, "") AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+            except Exception:
+                active = con.execute('SELECT token_hash, created_at, "" AS device_name FROM sessions WHERE user_id=? ORDER BY created_at ASC', (row['id'],)).fetchall()
+            while len(active) >= MAX_DEVICES:
+                con.execute('DELETE FROM sessions WHERE user_id=? AND token_hash=?', (row['id'], active[0]['token_hash']))
+                active.pop(0)
+        elif len(active) >= MAX_DEVICES:
+            device_list = []
+            for idx, s in enumerate(active, 1):
+                device_list.append({
+                    'id': s['token_hash'],
+                    'name': s['device_name'] or f"Device {idx}",
+                    'created_at': s['created_at']
+                })
+            return JSONResponse({
+                'ok': False,
+                'device_limit': True,
+                'detail': 'Account is already active on 2 devices.',
+                'message': 'You are currently logged in on 2 devices. Please choose which device to log out to continue on this device:',
+                'devices': device_list
+            }, status_code=409)
+
         resp = JSONResponse({'ok': True, 'user': public(row)})
         new_session(con, row['id'], resp, req)
     return resp

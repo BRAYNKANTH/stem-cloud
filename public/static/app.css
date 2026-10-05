@@ -107,3 +107,13 @@ select{width:100%;font:inherit;font-size:1rem;color:var(--text);background:var(-
 .tour-dot.active{width:22px;border-radius:99px;background:var(--acc)}
 .tour-nav-btns{display:flex;gap:8px}
 
+/* Device limit modal on login */
+.device-modal-backdrop{position:fixed;inset:0;background:rgba(8,14,26,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:2500;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.device-modal-backdrop.open{opacity:1;pointer-events:auto}
+.device-modal{background:var(--card);border:1.5px solid var(--line);border-radius:22px;max-width:460px;width:100%;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.6);transform:scale(.95);transition:transform .2s ease}
+.device-modal-backdrop.open .device-modal{transform:scale(1)}
+.device-row{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--field);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.device-info b{display:block;font-size:.95rem;color:var(--text)}
+.device-info small{color:var(--dim);font-size:.82rem}
+
+

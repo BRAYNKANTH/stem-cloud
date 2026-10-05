@@ -473,6 +473,10 @@ def run():
             pg.evaluate("StemPlayer.go(0)"); pg.wait_for_timeout(500)
             check('Sinhala: a finished chapter shows no unfinished-translation note', pg.locator('.stem-si-note').count() == 0)
             check('Sinhala: the glossary shows Sinhala terms, English stays English', pg.evaluate("(()=>{const r=document.querySelector('table.gloss tr:nth-child(2)'); return r && /[\u0D80-\u0DFF]/.test(r.children[0].textContent) && r.children[1].textContent.trim()==='Work'})()"))
+            pg.goto(BASE + '/lessons/g10-chapter-19-current-electricity.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
+            check('Sinhala: chapter 19 is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'ධාරා විද්‍යුතය' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(800)
+            check('Sinhala: drawing labels are translated too (atom figure)', pg.evaluate("[...document.querySelectorAll('#notes svg text')].some(t => /[\u0D80-\u0DFF]/.test(t.textContent))") and not pg.evaluate("[...document.querySelectorAll('#notes svg text')].some(t => /[A-Za-z]{5,}/.test(t.textContent))"))
             pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)     # the chosen language (Sinhala) is remembered
             check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)

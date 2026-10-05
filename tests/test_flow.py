@@ -144,6 +144,24 @@ def scenario(mode):
     s2, j2, _, _ = a.call('GET', '/api/progress')
     check('progress survives logout and login', s == 200 and j2['progress']['scx_xp_total'] == '120', (s, s2))
 
+    # Test 2-device limit and device kick flow
+    dev1, dev2, dev3 = Client(), Client(), Client()
+    s, _, _, _ = dev1.call('POST', '/api/login', {'username': 'ann_1', 'password': 'secret123', 'kick_device': 'all'})
+    check('dev1 login ok with all previous cleared', s == 200, s)
+    s, _, _, _ = dev2.call('POST', '/api/login', {'username': 'ann_1', 'password': 'secret123'})
+    check('dev2 login ok (2nd device)', s == 200, s)
+    s, j, _, _ = dev3.call('POST', '/api/login', {'username': 'ann_1', 'password': 'secret123'})
+    check('dev3 blocked with 409 device limit', s == 409 and j.get('device_limit') and len(j.get('devices', [])) == 2, (s, j))
+    first_dev_id = j['devices'][0]['id']
+    s, j, _, _ = dev3.call('POST', '/api/login', {'username': 'ann_1', 'password': 'secret123', 'kick_device': first_dev_id})
+    check('dev3 login ok after kicking dev1', s == 200, (s, j))
+    s, _, _, _ = dev1.call('GET', '/api/me')
+    check('kicked dev1 session is invalidated', s == 401, s)
+    s, _, _, _ = dev2.call('GET', '/api/me')
+    check('dev2 session still active', s == 200, s)
+    s, _, _, _ = dev3.call('GET', '/api/me')
+    check('dev3 session active', s == 200, s)
+
     codes = [Client().call('POST', '/api/login', {'username': 'ann_1', 'password': 'bad'})[0] for _ in range(14)]
     check('login is rate-limited', 429 in codes, codes)
 

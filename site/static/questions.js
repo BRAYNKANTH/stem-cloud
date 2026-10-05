@@ -79,6 +79,30 @@
       }
     });
   }
+  /* lesson figures (.fig): a readable minimum width on phones (sideways scroll), and tap to enlarge */
+  function markFigs() {
+    [].forEach.call(doc.querySelectorAll('.fig'), function (f) {
+      var svg = f.querySelector('svg'); if (!svg) return;
+      var vb = (svg.getAttribute('viewBox') || '').split(/\s+/).map(Number);
+      if (vb.length === 4 && vb[2] > 0) { f.style.setProperty('--fw', Math.round(Math.min(vb[2] * 0.92, 620)) + 'px'); f.style.setProperty('--far', vb[2] + ' / ' + vb[3]); }
+      f.classList.toggle('pannable', f.scrollWidth > f.clientWidth + 6 && f.scrollLeft < f.scrollWidth - f.clientWidth - 6);
+      if (f.classList.contains('zoomable')) return;
+      f.classList.add('zoomable'); f.setAttribute('role', 'button'); f.setAttribute('tabindex', '0'); f.setAttribute('aria-label', 'Open figure full screen');
+      var h = doc.createElement('div'); h.className = 'fig-hint'; h.innerHTML = '<span class="en">⤢ Tap to enlarge</span><span class="ta">⤢ பெரிதாக்க தொடு</span>';
+      f.appendChild(h);
+    });
+  }
+  doc.addEventListener('click', function (e) {
+    var f = e.target.closest && e.target.closest('.fig.zoomable');
+    if (!f || e.target.closest('button,a,input')) return;
+    var svg = f.querySelector('svg'); if (svg) openBox(svg);
+  });
+  doc.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList && e.target.classList.contains('zoomable')) { e.preventDefault(); var s = e.target.querySelector('svg'); if (s) openBox(s); } });
+  markFigs();
+  window.addEventListener('resize', markFigs);
+  doc.addEventListener('scroll', function (e) { if (e.target.classList && e.target.classList.contains('fig')) markFigs(); }, true);
+  doc.addEventListener('stem-step', function () { setTimeout(markFigs, 120); });
+
   window.addEventListener('resize', mark);
   doc.addEventListener('stem-step', function () { setTimeout(mark, 150); });
   doc.addEventListener('scroll', function (e) { if (e.target.classList && e.target.classList.contains('qdiagram')) mark(); }, true);

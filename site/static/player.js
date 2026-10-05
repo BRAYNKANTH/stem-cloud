@@ -102,6 +102,7 @@
     i = Math.max(0, Math.min(LAST, i));
     var prev = cur, changed = prev !== i;
     cur = i; visited[i] = 1;
+    root.setAttribute('data-stem-step', i === 0 ? 'start' : (i === LAST ? 'finish' : 'mid'));
     applyVis(changed && !o.silent);
     if (o.scrollTo) { o.scrollTo.scrollIntoView({ block: 'start' }); }
     else if (!o.keepScroll) window.scrollTo(0, 0);
@@ -117,6 +118,12 @@
 
   /* ------------------------------------------------------------------ map */
   var mapEl = null;
+  /* the XP strip only shows on the first and last step; the map carries the same numbers */
+  function txt(id) { var e = doc.getElementById(id); return e ? e.textContent : '0'; }
+  function statLine() {
+    if (!doc.getElementById('xpLevel')) return '';
+    return '<div class="sm-stats"><span>⭐ ' + L('Lv', 'மட்டம்') + ' <b>' + txt('xpLevel') + '</b></span><span><b>' + txt('xpTotal') + '</b> XP</span><span>🔥 <b>' + txt('streakVal') + '</b></span><span>🏅 <b>' + txt('badgeCount') + '</b>/5</span></div>';
+  }
   function closeMap() { if (mapEl) { mapEl.remove(); mapEl = null; doc.removeEventListener('keydown', mapKey); } }
   function mapKey(e) { if (e.key === 'Escape') closeMap(); }
   function openMap() {
@@ -124,7 +131,7 @@
     var done = 0; for (var k = 1; k <= N; k++) if (isDone(k)) done++;
     mapEl = mk('div', 'stem-map', '');
     var h = '<div class="sm-back"></div><div class="sm-sheet" role="dialog" aria-modal="true" aria-label="' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '">' +
-      '<div class="sm-grip"></div><div class="sm-head"><b>' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '</b><span>' + done + ' / ' + N + ' ' + L('done', 'முடிந்தது') + '</span></div><div class="sm-list">';
+      '<div class="sm-grip"></div><div class="sm-head"><b>' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '</b><span>' + done + ' / ' + N + ' ' + L('done', 'முடிந்தது') + '</span></div>' + statLine() + '<div class="sm-list">';
     for (var i = 0; i <= LAST; i++) {
       var mark = i === 0 ? '🏠' : (i === LAST ? '🏁' : (isDone(i) ? '✓' : i));
       h += '<button type="button" class="sm-item' + (i === cur ? ' cur' : '') + (i >= 1 && i <= N && isDone(i) ? ' done' : '') + '" data-i="' + i + '"><span class="sm-n">' + mark + '</span><span class="sm-l">' + label(i) + '</span></button>';
@@ -171,6 +178,36 @@
   var rebar = function () { if (cur >= 0) renderBar(); };
   try { var mo = new MutationObserver(rebar); mo.observe(doc.getElementById('fw_phases'), { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] }); } catch (e) {}
   window.addEventListener('storage', rebar);
+
+  /* ------------------------------------------------------------------ lab step: cartoon, sliders, then the extras folded away */
+  function fold(cls, open) {
+    var d = mk('details', 'stem-fold ' + cls), sm = mk('summary', '', '<span class="sf-t"></span><span class="sf-n"></span>');
+    d.appendChild(sm); if (open) d.open = true; return d;
+  }
+  var labCard = null, missFold = null, guideFold = null;
+  function labText() {
+    if (missFold) {
+      var all = doc.querySelectorAll('#ls_miss .ls-m'), ok = doc.querySelectorAll('#ls_miss .ls-m.ok');
+      missFold.querySelector('.sf-t').textContent = '🎯 ' + L('Missions', 'மிஷன்கள்');
+      missFold.querySelector('.sf-n').textContent = ok.length + ' / ' + all.length;
+      missFold.classList.toggle('all-done', all.length > 0 && ok.length === all.length);
+    }
+    if (guideFold) guideFold.querySelector('.sf-t').textContent = 'ℹ️ ' + L('How to use this lab', 'இந்த லேப்பை எப்படி பயன்படுத்துவது');
+  }
+  function foldLab() {
+    var miss = doc.getElementById('ls_miss'), guide = doc.getElementById('lg'), card = miss && miss.closest('.lab-card');
+    if (!card || card === labCard) return;
+    labCard = card;
+    var phone = window.innerWidth <= 760;
+    missFold = fold('stem-fold-miss', false);
+    miss.parentNode.insertBefore(missFold, miss); missFold.appendChild(miss);
+    if (guide) { guideFold = fold('stem-fold-guide', !phone); guide.parentNode.insertBefore(guideFold, guide); guideFold.appendChild(guide); card.appendChild(guideFold); }
+    labText();
+    try { new MutationObserver(labText).observe(miss, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] }); } catch (e) {}
+    var lt = doc.getElementById('langToggle'); if (lt) lt.addEventListener('click', function () { setTimeout(labText, 120); });
+  }
+  doc.addEventListener('stem-step', function (e) { if (e.detail.id === 'lab') foldLab(); });
+  foldLab();
 
   /* ------------------------------------------------------------------ "Tap to watch" instead of a sudden auto-start */
   function poster() {

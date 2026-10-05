@@ -48,6 +48,19 @@
     });
   }, { passive: true });
 
+  /* remember the lesson for the hub's "continue where you left off" card */
+  try { if (doc.getElementById('fw_path')) localStorage.setItem('stem_last_lesson', location.pathname.split('/').pop()); } catch (e) {}
+
+  /* the language button names the language it switches to, for screen readers and as a tooltip */
+  function langLabel() {
+    var lt = doc.getElementById('langToggle'); if (!lt) return;
+    var ta = false; try { ta = localStorage.getItem('lessonLang') === 'ta'; } catch (e) {}
+    var l = ta ? 'Switch to English' : 'தமிழுக்கு மாற்று (Switch to Tamil)';
+    lt.setAttribute('aria-label', l); lt.title = l;
+  }
+  langLabel();
+  var ltb = doc.getElementById('langToggle'); if (ltb) ltb.addEventListener('click', function () { setTimeout(langLabel, 120); });
+
   /* New user onboarding banner helper */
   function initOnboarding() {
     if (!doc.getElementById('fw_path')) return;   /* lesson pages only: the hub has its own welcome card */
@@ -77,6 +90,9 @@
     };
 
     hero.parentNode.insertBefore(banner, hero.nextSibling);
+    doc.addEventListener('stem-step', function (e) {
+      if (e.detail && e.detail.index > 0) { banner.remove(); try { localStorage.setItem('stem_hide_onboarding', 'true'); } catch (x) {} }
+    });
   }
 
   if (doc.readyState === 'loading') {

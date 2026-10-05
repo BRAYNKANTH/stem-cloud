@@ -132,3 +132,51 @@ html.stem-player #toastWrap{bottom:calc(92px + env(safe-area-inset-bottom));righ
 /* the pinned lab cartoon: sticky only works if no ancestor clips or transforms, and the cartoon keeps its proportions */
 html.stem-player .lab-card:has(.ls){overflow:visible!important;transform:none!important}
 .lab-card:has(.ls) #ls_svg{aspect-ratio:640/300;height:auto;flex:0 0 auto}
+
+/* ======================================================================
+   MORE ROOM TO LEARN: the XP strip only shows on the first and last step
+   ====================================================================== */
+html.stem-player[data-stem-step="mid"] .xpbar{display:none}
+html.stem-player[data-stem-step="mid"]{--stem-sticky:var(--stem-tb,57px)}
+/* the lesson map is the one navigation: the legacy 13-link strip goes, the menu button stays at every width */
+html.stem-player .navlinks{display:none!important}
+html.stem-player .stem-menu-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;width:40px;height:40px;border-radius:12px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:1.15rem;cursor:pointer;padding:0}
+.sm-stats{display:flex;flex-wrap:wrap;gap:6px 14px;padding:0 4px 12px;color:var(--text-dim);font-size:.85rem}
+.sm-stats b{color:var(--text)}
+
+/* the Back arrow should look disabled, not just faint */
+.sb-btn:disabled{opacity:.45;background:transparent;border-style:dashed;color:var(--text-faint)}
+
+/* ======================================================================
+   FIGURES ON PHONES: readable size, scroll sideways, tap to enlarge
+   ====================================================================== */
+.fig-hint{display:none;margin-top:4px;font-size:.78rem;font-weight:700;color:var(--accent)}
+body:not(.lang-ta) .fig-hint .ta,body.lang-ta .fig-hint .en{display:none}
+.fig.zoomable{cursor:zoom-in}
+@media (max-width:640px){
+  .fig{overflow-x:auto;-webkit-overflow-scrolling:touch;text-align:left}
+  .fig svg{width:max(100%,var(--fw,0px));max-width:none;height:auto;aspect-ratio:var(--far,auto);margin:0}
+  .fig .figcap,.fig .fig-hint{position:sticky;left:0;max-width:calc(100vw - 56px)}
+  .fig.zoomable .fig-hint{display:block}
+  .fig.pannable svg{-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+}
+
+/* ======================================================================
+   LAB STEP: cartoon, sliders, readout; missions and the how-to are folded away
+   ====================================================================== */
+.stem-fold{margin:12px 0;border:1px solid var(--border);border-radius:14px;background:var(--panel-2,var(--panel))}
+.stem-fold>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:6px 14px;font-weight:800;font-size:.95rem;cursor:pointer;list-style:none}
+.stem-fold>summary::-webkit-details-marker{display:none}
+.stem-fold>summary::after{content:'▾';margin-left:10px;color:var(--text-faint);transition:transform .2s}
+.stem-fold[open]>summary::after{transform:rotate(180deg)}
+.stem-fold .sf-n{font-variant-numeric:tabular-nums;color:var(--accent);margin-left:auto}
+.stem-fold.all-done .sf-n{color:var(--good)}
+.stem-fold>:not(summary){padding:0 14px 14px;margin:0}
+.stem-fold .ls-miss{margin:0;padding:0}
+.stem-fold-guide .lg{margin:0;padding:0;background:none;border:0}
+@media (max-width:760px){
+  .lab-card .stem-fold-miss{order:1}
+  .lab-card .lab-svg-wrap{order:2}
+  .lab-card .lab-hint{order:3}
+  .lab-card .stem-fold-guide{order:4}
+}

@@ -11,7 +11,9 @@ from playwright.sync_api import sync_playwright
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8767
 BASE = 'http://localhost:%d' % PORT
-LESSONS = ['chapter-04-newtons-laws', 'chapter-05-friction', 'chapter-09-resultant-force', 'chapter-11-turning-effect', 'chapter-12-equilibrium', 'unit-02-motion-in-a-straight-line']
+LESSONS = ['chapter-04-newtons-laws', 'chapter-05-friction', 'chapter-09-resultant-force', 'chapter-11-turning-effect', 'chapter-12-equilibrium', 'unit-02-motion-in-a-straight-line',
+           'g10-chapter-15-hydrostatic-pressure', 'g10-chapter-18-work-energy-power', 'g10-chapter-19-current-electricity', 'g11-chapter-04-waves', 'g11-chapter-05-geometrical-optics',
+           'g11-chapter-09-heat', 'g11-chapter-10-electric-appliances', 'g11-chapter-11-electronics', 'g11-chapter-13-electromagnetism']
 fails = []
 
 

@@ -1,6 +1,6 @@
 # STEM Cloud
 
-GCE O/L Physics with Raja and Chittu: six lessons, games, labs and animations, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
+GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, three Grade 10 Part II and six Grade 11 physics chapters), each with a story, a watch-it cartoon, notes, textbook activities, an interactive lab, a challenge game, a quiz, a sort game, worked examples, every textbook exercise with an answer, a recap and a Tamil-English glossary, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
 
 ```
 api/index.py        the whole backend (FastAPI): accounts, progress sync, admin, serves the lessons

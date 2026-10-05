@@ -31,7 +31,7 @@ def run():
 
     # ---------------------------------------------------------------- story data and speech normaliser
     st = lab.load_stories()
-    check('all six stories are read from the lesson pages', sorted(st) == ['c11', 'c12', 'c4', 'c5', 'c9', 'u2'], sorted(st))
+    check('all fifteen stories are read from the lesson pages', sorted(st) == sorted(['c11', 'c12', 'c4', 'c5', 'c9', 'u2', 'g10c15', 'g10c18', 'g10c19', 'g11c04', 'g11c05', 'g11c09', 'g11c10', 'g11c11', 'g11c13']), sorted(st))
     check('every story has 9 lines, Raja first', all(len(v['lines']) == 9 and v['lines'][0]['who'] == 'R' for v in st.values()))
     lines_json = json.load(open(os.path.join(lab.AUDIO, 'lines.json'), encoding='utf-8'))
     check('lines.json (used by the recorder) matches the lesson pages', lines_json == st)

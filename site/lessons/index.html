@@ -200,6 +200,16 @@
     <div class="grid" id="gridForce"></div>
   </div>
 
+  <div class="strand">
+    <div class="strand-label"><h2 data-ta="தரம் 10 · பகுதி II பிசிக்ஸ்">Grade 10 · Part II Physics</h2><span class="count" data-ta="3 பாடங்கள்">3 chapters</span></div>
+    <div class="grid" id="gridG10"></div>
+  </div>
+
+  <div class="strand">
+    <div class="strand-label"><h2 data-ta="தரம் 11 பிசிக்ஸ்">Grade 11 Physics</h2><span class="count" data-ta="6 பாடங்கள்">6 chapters</span></div>
+    <div class="grid" id="gridG11"></div>
+  </div>
+
   <footer data-ta="STEM Cloud — க.பொ.த (சா/த) பிசிக்ஸ் திருப்பி படிக்குதல். உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது.">STEM Cloud — GCE O/L Physics revision. Your progress is saved to your account.</footer>
 </div>
 
@@ -259,7 +269,7 @@ document.getElementById('langToggle').addEventListener('click', function(){
    LESSON CATALOGUE
    badges: ids as stored by each lesson in scx_badges (Ch5 predates the
    chapter prefix). stars: per-game best-stars key (5 levels x 3 stars).
-   badges === null → lesson not upgraded to game mode yet (all six lessons are upgraded now).
+   badges === null → lesson not upgraded to game mode yet (all lessons are upgraded now).
 ============================================================ */
 const ICONS = ['🎯','🧠','🎮','🧩','🏆'];
 const LESSONS = [
@@ -292,7 +302,52 @@ const LESSONS = [
     en:'Equilibrium of Forces', ta:'விசைகளின் சமநிலை',
     descEn:'Equilibrium under two, three parallel, and three non-parallel forces.', descTa:'இரு, மூன்று சமாந்தர, மூன்று சமாந்தரமற்ற விசைகளின் கீழ் சமநிலை.',
     tags:[['Equilibrium Lab','சமநிலை லேப்'],['Hold It Still!','அசையாம பிடி!'],['Sort Game','சார்ட் கேம்']],
-    badges:['ch12_quiz_ace','ch12_examples_master','ch12_push_champ','ch12_sort_master','ch12_legend'], stars:'scx_hold_stars' }
+    badges:['ch12_quiz_ace','ch12_examples_master','ch12_push_champ','ch12_sort_master','ch12_legend'], stars:'scx_hold_stars' },
+  { strand:'g10', n:'15', file:'g10-chapter-15-hydrostatic-pressure.html', c:'c1',
+    en:'Pressure of Liquids', ta:'திரவ அமுக்கம்',
+    descEn:'Pressure, P = hρg, hydraulic machines, atmospheric pressure, upthrust and Archimedes.', descTa:'அமுக்கம், P = hρg, நீரியல் இயந்திரங்கள், வளிமண்டல அமுக்கம், மேலுதைப்பு, ஆர்க்கிமிடிஸ்.',
+    tags:[['Pressure Lab','அமுக்க லேப்'],['Pressure Challenge','அமுக்க சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g10c15_quiz_ace','g10c15_examples_master','g10c15_push_champ','g10c15_sort_master','g10c15_legend'], stars:'scx_g10c15_stars' },
+  { strand:'g10', n:'18', file:'g10-chapter-18-work-energy-power.html', c:'c2',
+    en:'Work, Energy and Power', ta:'வேலை, சக்தி, வலு',
+    descEn:'Work, kinetic and potential energy, energy changes and power.', descTa:'வேலை, இயக்க, அழுத்த சக்தி, சக்தி மாற்றங்கள், வலு.',
+    tags:[['Energy Lab','சக்தி லேப்'],['Energy Challenge','சக்தி சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g10c18_quiz_ace','g10c18_examples_master','g10c18_push_champ','g10c18_sort_master','g10c18_legend'], stars:'scx_g10c18_stars' },
+  { strand:'g10', n:'19', file:'g10-chapter-19-current-electricity.html', c:'c3',
+    en:'Current Electricity', ta:'ஓட்ட மின்னியல்',
+    descEn:"Static and current electricity, Ohm's law, resistors in series and parallel.", descTa:'நிலைமின்னியல், ஓட்ட மின்னியல், ஓமின் விதி, தொடர், சமாந்தரத் தடையிகள்.',
+    tags:[['Ohm Lab','ஓம் லேப்'],['Circuit Challenge','சுற்று சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g10c19_quiz_ace','g10c19_examples_master','g10c19_push_champ','g10c19_sort_master','g10c19_legend'], stars:'scx_g10c19_stars' },
+  { strand:'g11', n:'4', file:'g11-chapter-04-waves.html', c:'c1',
+    en:'Waves and their Applications', ta:'அலைகளும் அவற்றின் பயன்பாடுகளும்',
+    descEn:'Transverse and longitudinal waves, the electromagnetic spectrum, sound, ultrasound and instruments.', descTa:'குறுக்கலை, நெட்டாங்கு அலை, மின்காந்தத் திருசியம், ஒலி, கழியொலி, இசைக் கருவிகள்.',
+    tags:[['Wave Lab','அலை லேப்'],['Wave Challenge','அலை சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c04_quiz_ace','g11c04_examples_master','g11c04_push_champ','g11c04_sort_master','g11c04_legend'], stars:'scx_g11c04_stars' },
+  { strand:'g11', n:'5', file:'g11-chapter-05-geometrical-optics.html', c:'c2',
+    en:'Geometrical Optics', ta:'வடிவவியல் ஒளியியல்',
+    descEn:'Reflection, curved mirrors, refraction, total internal reflection and lenses with ray diagrams.', descTa:'தெறிப்பு, வளைவு ஆடிகள், முறிவு, முழு அகத் தெறிப்பு, வில்லைகள், கதிர் வரைபடங்கள்.',
+    tags:[['Lens Lab','வில்லை லேப்'],['Optics Challenge','ஒளியியல் சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c05_quiz_ace','g11c05_examples_master','g11c05_push_champ','g11c05_sort_master','g11c05_legend'], stars:'scx_g11c05_stars' },
+  { strand:'g11', n:'9', file:'g11-chapter-09-heat.html', c:'c3',
+    en:'Heat', ta:'வெப்பம்',
+    descEn:'Temperature, heat, specific heat capacity, latent heat, expansion, conduction, convection and radiation.', descTa:'வெப்பநிலை, வெப்பம், தன்வெப்பக் கொள்ளளவு, மறை வெப்பம், விரிவு, கடத்தல், காவுகை, கதிர்வீச்சு.',
+    tags:[['Heat Lab','வெப்ப லேப்'],['Heat Challenge','வெப்ப சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c09_quiz_ace','g11c09_examples_master','g11c09_push_champ','g11c09_sort_master','g11c09_legend'], stars:'scx_g11c09_stars' },
+  { strand:'g11', n:'10', file:'g11-chapter-10-electric-appliances.html', c:'c1',
+    en:'Power and Energy of Electric Appliances', ta:'மின் உபகரணங்களோட வலுவும் சக்தியும்',
+    descEn:'P = VI, E = Pt, kilowatt hours, efficiency and the domestic circuit.', descTa:'P = VI, E = Pt, கிலோவாட் மணி, திறன், வீட்டு மின்சுற்று.',
+    tags:[['Energy Bill Lab','மின் கட்டண லேப்'],['Power Challenge','வலு சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c10_quiz_ace','g11c10_examples_master','g11c10_push_champ','g11c10_sort_master','g11c10_legend'], stars:'scx_g11c10_stars' },
+  { strand:'g11', n:'11', file:'g11-chapter-11-electronics.html', c:'c2',
+    en:'Electronics', ta:'மின்னணுவியல்',
+    descEn:'Semiconductors, diodes, rectification, LEDs, solar cells and transistors.', descTa:'குறை கடத்திகள், இருவாயிகள், சீராக்கல், LED, சூரிய மின்கலம், திரான்சிற்றர்.',
+    tags:[['Switch Lab','சுவிட்ச் லேப்'],['Electronics Challenge','மின்னணு சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c11_quiz_ace','g11c11_examples_master','g11c11_push_champ','g11c11_sort_master','g11c11_legend'], stars:'scx_g11c11_stars' },
+  { strand:'g11', n:'13', file:'g11-chapter-13-electromagnetism.html', c:'c3',
+    en:'Electromagnetism and Induction', ta:'மின்காந்தவியலும் தூண்டலும்',
+    descEn:'Magnetic effect of a current, motors, induction, dynamos and transformers.', descTa:'மின்னோட்டத்தோட காந்த விளைவு, மோட்டார், தூண்டல், டைனமோ, நிலைமாற்றி.',
+    tags:[['Transformer Lab','நிலைமாற்றி லேப்'],['Induction Challenge','தூண்டல் சவால்'],['Sort Game','சார்ட் கேம்']],
+    badges:['g11c13_quiz_ace','g11c13_examples_master','g11c13_push_champ','g11c13_sort_master','g11c13_legend'], stars:'scx_g11c13_stars' }
 ];
 
 function readJSON(key, fallback){ try{ const v = safeGet(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; } }
@@ -357,8 +412,8 @@ function render(){
   }
 
   /* Cards */
-  const gridKin = document.getElementById('gridKin'), gridForce = document.getElementById('gridForce');
-  gridKin.innerHTML = ''; gridForce.innerHTML = '';
+  const gridKin = document.getElementById('gridKin'), gridForce = document.getElementById('gridForce'), gridG10 = document.getElementById('gridG10'), gridG11 = document.getElementById('gridG11');
+  gridKin.innerHTML = ''; gridForce.innerHTML = ''; gridG10.innerHTML = ''; gridG11.innerHTML = '';
   LESSONS.forEach(l => {
     const a = document.createElement('a');
     a.className = 'lesson-card ' + l.c;
@@ -390,7 +445,7 @@ function render(){
       '<div class="tags">' + l.tags.map(g => '<span class="tag">' + t(g[0], g[1]) + '</span>').join('') + '</div>' +
       progHtml +
       '<div class="go">' + t('Open lesson →', 'பாடத்தைத் திற →') + '</div>';
-    (l.strand === 'kin' ? gridKin : gridForce).appendChild(a);
+    ({kin: gridKin, force: gridForce, g10: gridG10, g11: gridG11})[l.strand].appendChild(a);
   });
   observeReveal();
 }

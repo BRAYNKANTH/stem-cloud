@@ -264,6 +264,483 @@
    }
   ]
  },
+ "g10c15": {
+  "title": [
+   "Why do my ears hurt under water?",
+   "தண்ணிக்குள்ள என் காது ஏன் வலிக்குது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, when I dive deep into the lake my ears hurt! Why?",
+    "ta": "சிட்டு, நான் ஏரில ஆழமா முழுகினா என் காது வலிக்குது! ஏன்?"
+   },
+   {
+    "who": "C",
+    "en": "Because water pressure grows with depth, Raja. P = h ρ g: the deeper you go (bigger h), the bigger the pressure.",
+    "ta": "ஏன்னா ஆழம் கூடக்கூட நீரோட அமுக்கம் கூடும் ராஜா. P = h ρ g: ஆழம் (h) கூடினா அமுக்கமும் கூடும்."
+   },
+   {
+    "who": "R",
+    "en": "And when I drink juice with a straw, my mouth pulls the juice up, right?",
+    "ta": "ஜூஸ் ஸ்ட்ராவால குடிக்கறப்ப என் வாய்தான் அத மேல இழுக்குது, சரியா?"
+   },
+   {
+    "who": "C",
+    "en": "Not really! You lower the pressure inside the straw, and the atmospheric pressure outside pushes the juice up.",
+    "ta": "இல்ல! நீ ஸ்ட்ரா உள்ள அமுக்கத்த குறைக்கற, வெளிய இருக்கற வளிமண்டல அமுக்கம் ஜூஸ மேல தள்ளுது."
+   },
+   {
+    "who": "R",
+    "en": "Then why does a huge iron ship float, but my small stone sinks?",
+    "ta": "அப்போ பெரிய இரும்புக் கப்பல் மிதக்குது, என் சின்ன கல்லு ஏன் மூழ்குது?"
+   },
+   {
+    "who": "C",
+    "en": "Upthrust! The water pushes up with a force equal to the weight of the water displaced. The ship displaces so much water that this equals its weight.",
+    "ta": "மேலுதைப்பு! இடம்பெயர்த்த நீரோட நிறைக்கு சமமான விசையால நீர் மேல தள்ளுது. கப்பல் நிறைய நீர இடம்பெயர்த்து தன் நிறைக்கு சமமான மேலுதைப்ப பெறுது."
+   },
+   {
+    "who": "R",
+    "en": "And how can a small push lift a big car at the garage?",
+    "ta": "கராஜ்ல சின்ன அழுத்தம் ஒரு பெரிய காரை எப்படி தூக்குது?"
+   },
+   {
+    "who": "C",
+    "en": "Pressure travels through the oil. A small piston pushes, and the same pressure on a large piston gives a big force.",
+    "ta": "அமுக்கம் எண்ணெய் வழியா கடத்தப்படுது. சின்ன பிஸ்டன் தள்ளுது, பெரிய பிஸ்டன்ல அதே அமுக்கம் பெரிய விசைய தருது."
+   },
+   {
+    "who": "R",
+    "en": "Pressure, atmosphere, upthrust and hydraulics! Let's go!",
+    "ta": "அமுக்கம், வளிமண்டலம், மேலுதைப்பு, நீரியல்! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g10c18": {
+  "title": [
+   "Why does the bike roll up the hill by itself?",
+   "சைக்கிள் தானா மலை மேல ஏறுதே, எப்படி?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I rode fast and then stopped pedalling, but my bike still climbed the hill a bit! How?",
+    "ta": "சிட்டு, நான் வேகமா ஓட்டிட்டு பெடல் அழுத்தறத நிறுத்தினேன், ஆனாலும் சைக்கிள் கொஞ்சம் மலை ஏறிச்சு! எப்படி?"
+   },
+   {
+    "who": "C",
+    "en": "Your moving bike has kinetic energy, Raja: Ek = ½ m v². Going up, that energy changes into potential energy.",
+    "ta": "ஓடற உன் சைக்கிள்ல இயக்கச் சக்தி இருக்கு ராஜா: Ek = ½ m v². மேல ஏறும்போது அது அழுத்த சக்தியா மாறுது."
+   },
+   {
+    "who": "R",
+    "en": "And when I lift this 5 kg bag up 3 metres, am I doing work?",
+    "ta": "இந்த 5 kg பையை 3 மீற்றர் தூக்கறேன், நான் வேலை செய்யறேனா?"
+   },
+   {
+    "who": "C",
+    "en": "Yes! Work = force × distance moved in the direction of the force. Weight is 50 N, so 50 × 3 = 150 J.",
+    "ta": "ஆமா! வேலை = விசை × விசையோட திசையில நகர்ந்த தூரம். நிறை 50 N, அதனால 50 × 3 = 150 J."
+   },
+   {
+    "who": "R",
+    "en": "So that 150 J goes somewhere?",
+    "ta": "அப்போ அந்த 150 J எங்கயாவது போகுதா?"
+   },
+   {
+    "who": "C",
+    "en": "It is stored in the bag as gravitational potential energy: Ep = m g h. Let it fall and it turns back into kinetic energy.",
+    "ta": "அது பையில புவியீர்ப்பு அழுத்த சக்தியா சேமிக்கப்படுது: Ep = m g h. விழ விட்டா திரும்ப இயக்கச் சக்தியா மாறும்."
+   },
+   {
+    "who": "R",
+    "en": "You lifted it slowly, I lift it fast. Is there any difference?",
+    "ta": "நீ மெதுவா தூக்கின, நான் வேகமா தூக்கறேன். ஏதாவது வித்தியாசம் இருக்கா?"
+   },
+   {
+    "who": "C",
+    "en": "Same work, but you are more powerful! Power = work ÷ time, measured in watts.",
+    "ta": "வேலை அதேதான், ஆனா நீ அதிக வலு! வலு = வேலை ÷ நேரம், அலகு வாட்."
+   },
+   {
+    "who": "R",
+    "en": "Work, energy and power! Let's go!",
+    "ta": "வேலை, சக்தி, வலு! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g10c19": {
+  "title": [
+   "Why do paper bits jump to my comb?",
+   "என் சீப்புக்கு காகிதத் துண்டுகள் ஏன் தாவுது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I rubbed my comb on my hair and now it picks up tiny bits of paper!",
+    "ta": "சிட்டு, சீப்ப தலைமுடில தேய்ச்சேன், இப்போ அது சின்ன காகிதத் துண்டுகள தூக்குது!"
+   },
+   {
+    "who": "C",
+    "en": "That is static electricity, Raja. Rubbing moves electrons from one surface to another, and the charges just sit there.",
+    "ta": "அது நிலைமின்னியல் ராஜா. தேய்க்கறப்ப இலத்திரன்கள் ஒரு மேற்பரப்புல இருந்து இன்னொண்ணுக்கு போகும், மின்னேற்றங்கள் அங்கயே இருக்கும்."
+   },
+   {
+    "who": "R",
+    "en": "And the bulb at home? Charges are not sitting still there!",
+    "ta": "வீட்டு மின்குமிழ்? அங்க மின்னேற்றங்கள் சும்மா இருக்கலயே!"
+   },
+   {
+    "who": "C",
+    "en": "Right! When charges flow through a wire, that is an electric current: current electricity. A cell pushes the electrons round the circuit.",
+    "ta": "சரியா சொன்ன! மின்னேற்றங்கள் கம்பி வழியா ஓடினா அது மின்னோட்டம்: ஓட்ட மின்னியல். மின்கலம் இலத்திரன்கள சுற்றுக்குள்ள தள்ளுது."
+   },
+   {
+    "who": "R",
+    "en": "What makes them flow?",
+    "ta": "அவற்றை ஓட வைக்கறது எது?"
+   },
+   {
+    "who": "C",
+    "en": "A potential difference, like water pressure from a tank. The bigger it is, the bigger the current. And a resistance holds the flow back: V = I R.",
+    "ta": "அழுத்த வித்தியாசம், தொட்டில இருந்து வர்ற நீர் அமுக்கம் மாதிரி. அது பெருசானா மின்னோட்டமும் பெருசு. தடை ஓட்டத்த தடுக்கும்: V = I R."
+   },
+   {
+    "who": "R",
+    "en": "So how do we join many resistors?",
+    "ta": "அப்போ நிறைய தடைகள எப்படி இணைக்கறது?"
+   },
+   {
+    "who": "C",
+    "en": "In series they add up, R = R₁ + R₂. In parallel, 1/R = 1/R₁ + 1/R₂. We will try both!",
+    "ta": "தொடரா இணைச்சா கூட்டும், R = R₁ + R₂. சமாந்தரமா இணைச்சா 1/R = 1/R₁ + 1/R₂. ரெண்டையும் செஞ்சு பாக்கலாம்!"
+   },
+   {
+    "who": "R",
+    "en": "Charges, current, voltage and resistance! Let's go!",
+    "ta": "மின்னேற்றம், மின்னோட்டம், வோல்ற்றளவு, தடை! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g11c04": {
+  "title": [
+   "How does a pebble tell the whole pond?",
+   "ஒரு கூழாங்கல் முழு குளத்துக்கும் எப்படி சொல்லுது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I dropped a pebble in the pond and ripples spread all over. Did the water travel?",
+    "ta": "சிட்டு, குளத்துல கூழாங்கல் போட்டேன், அலைகள் எல்லா பக்கமும் பரவுது. நீர் பயணம் பண்ணுதா?"
+   },
+   {
+    "who": "C",
+    "en": "No, Raja! A wave carries energy, not the water. Each bit of water only moves up and down.",
+    "ta": "இல்ல ராஜா! அலை சக்திய கொண்டு போகுது, நீர கொண்டு போகல. ஒவ்வொரு நீர்த் துணிக்கையும் மேல கீழ மட்டும்தான் அசையும்."
+   },
+   {
+    "who": "R",
+    "en": "But the Sun's light reaches us through empty space. What kind of wave is that?",
+    "ta": "ஆனா சூரிய ஒளி வெற்று வெளி வழியா நம்ம கிட்ட வருதே. அது என்ன வகை அலை?"
+   },
+   {
+    "who": "C",
+    "en": "An electromagnetic wave. It needs no medium and travels at 3 × 10⁸ m s⁻¹. Radio, light, X-rays are all family.",
+    "ta": "மின்காந்த அலை. அதுக்கு ஊடகம் வேணாம், 3 × 10⁸ m s⁻¹ வேகத்துல போகும். ரேடியோ, ஒளி, X-கதிர் எல்லாம் ஒரே குடும்பம்."
+   },
+   {
+    "who": "R",
+    "en": "Then why do I hear thunder after I see the lightning?",
+    "ta": "அப்போ மின்னலை பாத்த பிறகுதான் இடி ஏன் கேக்குது?"
+   },
+   {
+    "who": "C",
+    "en": "Sound is a mechanical wave, only about 330 m s⁻¹. Light is a million times faster, so it reaches you first.",
+    "ta": "ஒலி ஒரு பொறிமுறை அலை, சுமார் 330 m s⁻¹ தான். ஒளி பத்து இலட்சம் மடங்கு வேகம், அதனால முதல்ல வந்திடுது."
+   },
+   {
+    "who": "R",
+    "en": "And how can I tell a violin from a piano, playing the same note?",
+    "ta": "ஒரே சுரத்த வாசிச்சாலும் வயலினையும் பியானோவையும் எப்படி பிரிச்சு அறியறேன்?"
+   },
+   {
+    "who": "C",
+    "en": "Pitch, loudness and quality! Frequency, amplitude and the shape of the wave. Let's explore them all.",
+    "ta": "சுருதி, உரப்பு, ஒலியின் பண்பு! மீடிறன், வீச்சம், அலை வடிவம். எல்லாத்தையும் பாக்கலாம்."
+   },
+   {
+    "who": "R",
+    "en": "Waves everywhere! Let's go!",
+    "ta": "எங்கும் அலைகள்! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g11c05": {
+  "title": [
+   "Why does my pencil look broken in water?",
+   "தண்ணிக்குள்ள என் பென்சில் ஏன் உடைஞ்சு தெரியுது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I put my pencil in a glass of water and it looks bent! Is it broken?",
+    "ta": "சிட்டு, பென்சிலை தண்ணி கிளாஸ்ல போட்டேன், வளைஞ்சு தெரியுது! உடைஞ்சிடுச்சா?"
+   },
+   {
+    "who": "C",
+    "en": "No, Raja! Light bends when it goes from water to air. That is refraction.",
+    "ta": "இல்ல ராஜா! ஒளி நீர்ல இருந்து காற்றுக்கு போறப்ப வளையுது. அதுக்கு முறிவுன்னு பேரு."
+   },
+   {
+    "who": "R",
+    "en": "And in the bathroom mirror my face is the same size, but in the dentist's mirror it is huge!",
+    "ta": "குளியலறை கண்ணாடில என் முகம் அதே அளவு, ஆனா பல் டாக்டர் ஆடில ரொம்ப பெருசா தெரியுது!"
+   },
+   {
+    "who": "C",
+    "en": "Plane mirrors give same-size virtual images. A concave mirror gives a bigger image when you hold it close. A convex mirror always gives a smaller one.",
+    "ta": "தட்டை ஆடி அதே அளவு மாய விம்பம் தரும். குழிவு ஆடிய கிட்ட பிடிச்சா பெரிய விம்பம். குவிவு ஆடி எப்பவும் சிறிய விம்பம்."
+   },
+   {
+    "who": "R",
+    "en": "And a magnifying glass?",
+    "ta": "பூதக்கண்ணாடி?"
+   },
+   {
+    "who": "C",
+    "en": "That is a convex lens. Hold the object closer than its focal length and you get an upright, magnified, virtual image.",
+    "ta": "அது குவிவு வில்லை. பொருள குவிவு நீளத்துக்குள்ள பிடிச்சா நிமிர்ந்த, பெருக்கிய, மாய விம்பம் கிடைக்கும்."
+   },
+   {
+    "who": "R",
+    "en": "How does the Internet travel in glass fibres?",
+    "ta": "இன்டர்நெட் கண்ணாடி இழைகள்ல எப்படி போகுது?"
+   },
+   {
+    "who": "C",
+    "en": "Total internal reflection! Light keeps bouncing inside the fibre and never leaks out. Let us explore it all.",
+    "ta": "முழு அகத் தெறிப்பு! ஒளி இழைக்குள்ளயே மோதிட்டு போகும், வெளிய கசியாது. எல்லாத்தையும் பாக்கலாம்."
+   },
+   {
+    "who": "R",
+    "en": "Mirrors, refraction and lenses! Let's go!",
+    "ta": "ஆடிகள், முறிவு, வில்லைகள்! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g11c09": {
+  "title": [
+   "Why does a hot cup of tea cool down?",
+   "சூடான தேநீர் ஏன் ஆறுது?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, my tea is going cold and the cup is getting warm. Where does the heat go?",
+    "ta": "சிட்டு, என் தேநீர் ஆறுது, கப் சூடாகுது. வெப்பம் எங்க போகுது?"
+   },
+   {
+    "who": "C",
+    "en": "Heat always flows from the hotter thing to the colder thing, Raja, until both have the same temperature.",
+    "ta": "வெப்பம் எப்பவும் சூடான பொருள்ல இருந்து குளிர்ந்த பொருளுக்கு போகும் ராஜா, ரெண்டும் ஒரே வெப்பநிலை வர்ற வரை."
+   },
+   {
+    "who": "R",
+    "en": "Why is the sea cooler than the beach sand at noon?",
+    "ta": "மத்தியானம் மணல விட கடல் ஏன் குளிர்ச்சியா இருக்கு?"
+   },
+   {
+    "who": "C",
+    "en": "Water has a big specific heat capacity: 4200 J kg⁻¹ K⁻¹. It needs lots of heat for each degree. Q = m c θ.",
+    "ta": "நீருக்கு பெரிய தன்வெப்பக் கொள்ளளவு: 4200 J kg⁻¹ K⁻¹. ஒவ்வொரு பாகைக்கும் நிறைய வெப்பம் வேணும். Q = m c θ."
+   },
+   {
+    "who": "R",
+    "en": "And when ice melts, the thermometer stays at 0 °C even though I keep heating. Is it broken?",
+    "ta": "ஐஸ் உருகறப்ப நான் சூடாக்கிட்டே இருந்தாலும் வெப்பமானி 0 °C-லயே நிக்குது. உடைஞ்சிடுச்சா?"
+   },
+   {
+    "who": "C",
+    "en": "No! The heat goes into breaking the bonds. That hidden heat is latent heat.",
+    "ta": "இல்ல! வெப்பம் பிணைப்புகள உடைக்க செலவாகுது. அந்த மறைஞ்சிருக்கற வெப்பம்தான் மறை வெப்பம்."
+   },
+   {
+    "who": "R",
+    "en": "And the Sun's heat reaches us through empty space!",
+    "ta": "சூரிய வெப்பம் வெற்று வெளி வழியாவும் வருதே!"
+   },
+   {
+    "who": "C",
+    "en": "That is radiation. Conduction, convection and radiation are the three ways heat travels. Let us explore.",
+    "ta": "அது கதிர்வீச்சு. கடத்தல், காவுகை, கதிர்வீச்சு: வெப்பம் பயணிக்கும் மூணு வழிகள். ஆராயலாம்."
+   },
+   {
+    "who": "R",
+    "en": "Heat, here we come!",
+    "ta": "வெப்பமே, வந்துட்டோம்!"
+   }
+  ]
+ },
+ "g11c10": {
+  "title": [
+   "Why does a 2000 W oven need so much current?",
+   "2000 W அடுப்புக்கு ஏன் இவ்வளவு மின்னோட்டம் வேணும்?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, my bulb says 12 V, 2 A. What does that tell me?",
+    "ta": "சிட்டு, என் குமிழ்ல 12 V, 2 A-ன்னு போட்டிருக்கு. இது எனக்கு என்ன சொல்லுது?"
+   },
+   {
+    "who": "C",
+    "en": "Multiply them! Power P = V I = 12 × 2 = 24 W. That is how fast it uses energy.",
+    "ta": "பெருக்கு! வலு P = V I = 12 × 2 = 24 W. அது எவ்வளவு வேகமா சக்திய பயன்படுத்துதுன்னு அர்த்தம்."
+   },
+   {
+    "who": "R",
+    "en": "And what does the electricity bill count?",
+    "ta": "மின் கட்டணத்துல என்ன கணக்கிடறாங்க?"
+   },
+   {
+    "who": "C",
+    "en": "Energy: E = P t, in kilowatt hours. 1 kW h = 3 600 000 J. The meter counts the units.",
+    "ta": "சக்தி: E = P t, கிலோவாட் மணில. 1 kW h = 3 600 000 J. மீற்றர் அலகுகள எண்ணுது."
+   },
+   {
+    "who": "R",
+    "en": "My mum says the main switch has a trip switch too. What is that for?",
+    "ta": "அம்மா பிரதான சுவிட்ச்ல ட்ரிப் சுவிட்சும் இருக்குன்னு சொல்றாங்க. அது எதுக்கு?"
+   },
+   {
+    "who": "C",
+    "en": "The RCCB cuts the power when current leaks, to protect people. MCBs and fuses stop overloads, to protect the wires.",
+    "ta": "RCCB மின் கசிவு ஏற்பட்டா மின்சாரத்த துண்டிச்சு மனிதர்கள காக்கும். MCB, உருகிகள் அதிக மின்னோட்டத்த தடுத்து கம்பிகள காக்கும்."
+   },
+   {
+    "who": "R",
+    "en": "Why are all the bulbs and plugs in a house connected in parallel?",
+    "ta": "வீட்டுல எல்லா குமிழ்களும் குதைகளும் ஏன் சமாந்தரமா இணைக்கப்படுது?"
+   },
+   {
+    "who": "C",
+    "en": "So each gets the full 230 V and can be switched on and off on its own. Let us explore.",
+    "ta": "அப்போதான் ஒவ்வொண்ணுக்கும் முழு 230 V கிடைக்கும், தனித்தனியா அணைக்கவும் ஏத்தவும் முடியும். ஆராயலாம்."
+   },
+   {
+    "who": "R",
+    "en": "Power, energy and safety! Let's go!",
+    "ta": "வலு, சக்தி, பாதுகாப்பு! வாங்க போகலாம்!"
+   }
+  ]
+ },
+ "g11c11": {
+  "title": [
+   "What is inside the phone in my pocket?",
+   "என் பாக்கெட்ல இருக்கற போன்ல என்ன இருக்கு?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, my phone, TV and radio all work with tiny electronic parts. What are they made of?",
+    "ta": "சிட்டு, என் போன், TV, ரேடியோ எல்லாம் சின்ன மின்னணு பாகங்களால இயங்குது. அவை எதால செய்யப்பட்டிருக்கு?"
+   },
+   {
+    "who": "C",
+    "en": "Mostly silicon, Raja, a semiconductor. It conducts a little, and we can change how much by doping it.",
+    "ta": "பெரும்பாலும் சிலிக்கன், ராஜா, ஒரு குறை கடத்தி. கொஞ்சமா கடத்தும், மாசூட்டி எவ்வளவுன்னு மாத்தலாம்."
+   },
+   {
+    "who": "R",
+    "en": "What happens when a p-type and an n-type piece touch?",
+    "ta": "p-வகையும் n-வகையும் தொட்டா என்ன நடக்கும்?"
+   },
+   {
+    "who": "C",
+    "en": "You get a p-n junction, a diode: current flows one way only. That lets us turn AC into DC.",
+    "ta": "p-n சந்தி கிடைக்கும், அதுதான் இருவாயி: மின்னோட்டம் ஒரு பக்கம் மட்டும்தான் போகும். அதனால AC-ய DC ஆக மாத்தலாம்."
+   },
+   {
+    "who": "R",
+    "en": "And the LED in my torch?",
+    "ta": "என் டார்ச்ல இருக்கற LED?"
+   },
+   {
+    "who": "C",
+    "en": "A diode that glows when forward biased. And with two junctions, we get a transistor.",
+    "ta": "முன்முகக்கோடல் செய்யும்போது ஒளிரும் இருவாயி. ரெண்டு சந்திகள் இருந்தா திரான்சிற்றர்."
+   },
+   {
+    "who": "R",
+    "en": "What does a transistor do?",
+    "ta": "திரான்சிற்றர் என்ன செய்யும்?"
+   },
+   {
+    "who": "C",
+    "en": "Two jobs: amplify a small signal into a big one, or act as a switch. Let us build circuits!",
+    "ta": "ரெண்டு வேலை: சின்ன சமிக்ஞையை பெருசா விரிவாக்கும், இல்லன்னா சுவிட்சா வேலை செய்யும். சுற்றுகள் செய்யலாம்!"
+   },
+   {
+    "who": "R",
+    "en": "Electronics, here we come!",
+    "ta": "மின்னணுவியலே, வந்துட்டோம்!"
+   }
+  ]
+ },
+ "g11c13": {
+  "title": [
+   "How can a magnet make electricity?",
+   "ஒரு காந்தம் எப்படி மின்சாரத்த உண்டாக்கும்?"
+  ],
+  "lines": [
+   {
+    "who": "R",
+    "en": "Chittu, I put a compass near a wire and when I switched on the battery the needle moved!",
+    "ta": "சிட்டு, ஒரு கம்பிக்கு பக்கத்துல திசைகாட்டிய வெச்சு மின்கலத்த ஆன் பண்ணினேன், ஊசி நகர்ந்துச்சு!"
+   },
+   {
+    "who": "C",
+    "en": "A current makes a magnetic field, Raja. That is what Oersted discovered. The right hand grip rule gives its direction.",
+    "ta": "மின்னோட்டம் காந்தப்புலத்த உண்டாக்கும் ராஜா. இதத்தான் ஓர்ஸ்டெட் கண்டுபிடிச்சாரு. வலக்கைப் பிடி விதி அதோட திசைய தரும்."
+   },
+   {
+    "who": "R",
+    "en": "And if I put that wire between magnet poles?",
+    "ta": "அந்த கம்பிய காந்த முனைகளுக்கு இடையில வெச்சா?"
+   },
+   {
+    "who": "C",
+    "en": "It feels a force! Fleming's left hand rule gives the direction. That force turns motors and moves loud speaker cones.",
+    "ta": "அது ஒரு விசைய உணரும்! ஃபிளெமிங் இடக்கை விதி திசைய தரும். அந்த விசைதான் மோட்டார்கள சுத்தி ஒலிபெருக்கி கூம்புகள அசைக்குது."
+   },
+   {
+    "who": "R",
+    "en": "My bicycle lamp has no battery, but it lights up when I ride!",
+    "ta": "என் சைக்கிள் விளக்குல மின்கலம் இல்ல, ஆனா ஓட்டினா எரியுது!"
+   },
+   {
+    "who": "C",
+    "en": "The dynamo does the reverse: moving a magnet near a coil makes an EMF. That is electromagnetic induction, discovered by Faraday.",
+    "ta": "டைனமோ அதுக்கு நேர்மாறா செய்யுது: சுருளுக்கு பக்கத்துல காந்தம் நகர்ந்தா மின்னியக்க விசை உண்டாகும். இது மின்காந்தத் தூண்டல், ஃபாரடே கண்டுபிடிச்சாரு."
+   },
+   {
+    "who": "R",
+    "en": "How does electricity reach our town from the power station?",
+    "ta": "மின் நிலையத்துல இருந்து நம்ம ஊருக்கு மின்சாரம் எப்படி வருது?"
+   },
+   {
+    "who": "C",
+    "en": "Transformers raise the voltage for the journey and lower it again for homes: Vp ÷ Vs = Np ÷ Ns.",
+    "ta": "நிலைமாற்றிகள் பயணத்துக்கு வோல்ற்றளவ உயர்த்தி வீடுகளுக்கு திரும்ப குறைக்குது: Vp ÷ Vs = Np ÷ Ns."
+   },
+   {
+    "who": "R",
+    "en": "Magnets, motors and generators! Let's go!",
+    "ta": "காந்தங்கள், மோட்டார்கள், ஜெனரேட்டர்கள்! வாங்க போகலாம்!"
+   }
+  ]
+ },
  "u2": {
   "title": [
    "Who walked farther?",

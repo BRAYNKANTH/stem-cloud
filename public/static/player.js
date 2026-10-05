@@ -436,6 +436,21 @@
     var id = e.detail.id;
     if (id === 'watch') setTimeout(poster, 60);
     if (id === 'story' && !storyShown) { storyShown = true; if (window.__soShow) setTimeout(function () { window.__soShow(0); }, 120); }
+    if (id === 'fw_finish') {
+      var fin = doc.getElementById('fw_finish');
+      if (fin && !fin.querySelector('.stem-past-bridge')) {
+        var pb = mk('div', 'stem-past-bridge',
+          '<div style="background:var(--panel-2,var(--panel));border:1.5px solid var(--border);border-radius:18px;padding:18px 20px;margin-top:20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:var(--shadow)">' +
+            '<div style="display:flex;align-items:center;gap:14px">' +
+              '<span style="font-size:2rem" aria-hidden="true">📝</span>' +
+              '<div><b style="font-size:1.05rem;color:var(--text);display:block;margin-bottom:2px">' + L('Practice O/L Past Paper Questions', 'சா/த பரீட்சை வினாத்தாள்களை பயிற்சி செய்') + '</b>' +
+              '<span style="font-size:.88rem;color:var(--text-dim)">' + L('Test your exam readiness with past papers & explanations', 'விளக்கங்களுடன் மாதிரி மற்றும் கடந்த வினாத்தாள்கள்') + '</span></div>' +
+            '</div>' +
+            '<a href="/lessons/past-papers.html" class="btn primary" style="text-decoration:none;font-size:.92rem;font-weight:700;padding:10px 18px;border-radius:12px;display:inline-flex;align-items:center;gap:8px">' + L('Open Past Papers →', 'வினாத்தாள்கள் →') + '</a>' +
+          '</div>');
+        fin.appendChild(pb);
+      }
+    }
   });
 
   /* ------------------------------------------------------------------ start */

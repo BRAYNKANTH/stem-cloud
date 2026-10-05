@@ -453,8 +453,18 @@ def past_state(req: Request):
         rows = con.execute('SELECT event_id,question_id,result,created_at FROM past_attempts WHERE user_id=? '
                            'ORDER BY created_at,event_id', (u['id'],)).fetchall()
         bookmarks = [r['question_id'] for r in con.execute('SELECT question_id FROM past_bookmarks WHERE user_id=?', (u['id'],)).fetchall()]
-    return {'attempts': [dict(id=r['event_id'], question=r['question_id'], result=json.loads(r['result']),
-                              at=r['created_at']) for r in rows], 'bookmarks': bookmarks}
+    bank = past_questions()
+    attempts = []
+    for r in rows:
+        q = bank.get(r['question_id'])
+        if not q:
+            continue
+        result = json.loads(r['result'])
+        if q['type'] == 'written':
+            labels = {p['label'] for p in q['parts']}
+            result['answers'] = {k:v for k,v in result.get('answers', {}).items() if k in labels}
+        attempts.append(dict(id=r['event_id'], question=r['question_id'], result=result, at=r['created_at']))
+    return {'attempts': attempts, 'bookmarks': [q for q in bookmarks if q in bank]}
 
 
 @app.post('/api/past-papers/attempts')
@@ -659,22 +669,6 @@ if(/_done$/.test(k)||/^scx_(done|story|lab)_/.test(k))return (o==='1'||n==='1')?
 }catch(e){}return n}
 Object.keys(S).forEach(function(k){if(T(k))localStorage.setItem(k,M(k,localStorage.getItem(k),S[k]))});
 window.SCX_USER=U;window.__acctBoot=true;
-localStorage.setItem('scx_lease_ts',String(Date.now()));
-var lease=parseInt(localStorage.getItem('scx_lease_ts')||'0',10);
-if(lease&&(Date.now()-lease>7*86400*1000)){
-  window.__scxLeaseExpired=true;
-  window.addEventListener('DOMContentLoaded',function(){
-    var b=document.createElement('div');
-    b.style.cssText='position:fixed;inset:0;background:rgba(11,15,23,0.97);z-index:999999;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#fff;font-family:system-ui,sans-serif;backdrop-filter:blur(8px);';
-    b.innerHTML='<div style="max-width:380px;background:#141d2c;border:1.5px solid #25324a;border-radius:20px;padding:26px 20px;box-shadow:0 20px 50px rgba(0,0,0,0.5)">'
-      +'<div style="font-size:2.8rem;margin-bottom:8px">⏳</div>'
-      +'<h2 style="margin:0 0 8px;font-size:1.25rem;color:#4cc3f0">Offline Pass Expired</h2>'
-      +'<p style="margin:0 0 16px;color:#a7b3c8;font-size:0.92rem;line-height:1.5">You have been offline for over 7 days. Please connect to the internet once to re-verify your active student license.</p>'
-      +'<button onclick="location.reload()" style="background:#4cc3f0;color:#06182b;border:none;border-radius:12px;padding:12px 20px;font-weight:700;font-size:0.95rem;cursor:pointer">Reconnect &amp; Refresh</button>'
-      +'</div>';
-    document.body.appendChild(b);
-  });
-}
 }catch(e){}})();</script>'''
 
 APP_HEAD = (

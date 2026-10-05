@@ -303,13 +303,22 @@ html.stem-player{scroll-padding-bottom:24px}
 @media (prefers-reduced-motion:reduce){
   .so-finger,.co-finger,.co-wave,.co-map-list i,.pp-btn,.sb-pulse{animation:none!important}
 }
+@media (max-width:600px){
+  #stem-bar{padding:4px 8px}
+  .sb-row{gap:6px}
+  .sb-btn{min-width:44px;height:44px;padding:0 8px;font-size:1.25rem;border-radius:12px}
+  .sb-next{min-width:58px}
+  .sb-mid{min-height:44px;padding:2px 4px}
+  .sb-title{font-size:.85rem}
+  .stem-back{width:40px;height:40px;font-size:1.15rem}
+}
 @media (max-width:340px){
-  #stem-bar{padding-left:6px;padding-right:6px}
+  #stem-bar{padding-left:4px;padding-right:4px}
   .sb-row{gap:4px}
-  .sb-btn{min-width:44px;padding:0 6px}
-  .sb-next{min-width:56px}
+  .sb-btn{min-width:40px;padding:0 4px}
+  .sb-next{min-width:52px}
   .sb-mid{padding:2px 2px}
-  .sb-ic{font-size:1.15rem}
+  .sb-ic{font-size:1.1rem}
 }
 
 /* ======================================================================

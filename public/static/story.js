@@ -83,6 +83,15 @@
   stage.addEventListener('pointerup', end);
   stage.addEventListener('pointercancel', end);
 
+  /* screen readers: say which line this is and read it (the typing effect would otherwise be read letter by letter) */
+  stage.setAttribute('role', 'group'); stage.setAttribute('aria-roledescription', 'story');
+  stage.setAttribute('aria-label', lang() === 'ta' ? 'ராஜா சிட்டு கதை' : 'Raja and Chittu story');
+  window.addEventListener('stem-story-line', function (e) {
+    var n = doc.querySelectorAll('.so-dots i').length, d = e.detail || {};
+    var who = d.who === 'R' ? 'Raja' : (d.who === 'C' ? 'Chittu' : (d.who || ''));
+    if (d.i > 0 && window.StemLive && stage.offsetParent) window.StemLive.say((d.i + 1) + ' / ' + n + '. ' + (who ? who + ': ' : '') + (d.text || ''));   /* the first line is read after the step announcement, by focus */
+  });
+
   /* keyboard: arrow keys while the story is on screen */
   doc.addEventListener('keydown', function (e) {
     if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;

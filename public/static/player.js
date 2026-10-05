@@ -89,6 +89,31 @@
     if (id) { var na = doc.querySelector('.navlinks a[href="#' + id + '"]'); if (na) na.setAttribute('aria-current', 'step'); }
   }
 
+  /* ------------------------------------------------------------------ dialogs: focus goes in, Tab stays in, the page behind is inert, focus goes back */
+  var FOCUSABLE = 'button:not([disabled]),a[href],input:not([disabled]),select,textarea,[tabindex]:not([tabindex="-1"])';
+  function openModal(el, first) {
+    var m = { el: el, opener: doc.activeElement, inert: [] };
+    [].forEach.call(doc.body.children, function (c) { if (c === el || c.id === 'stem-live' || /^(SCRIPT|STYLE)$/.test(c.tagName) || c.hasAttribute('inert')) return; c.setAttribute('inert', ''); m.inert.push(c); });
+    m.key = function (e) {
+      if (e.key !== 'Tab') return;
+      var f = [].filter.call(el.querySelectorAll(FOCUSABLE), function (n) { return n.offsetParent !== null; });
+      if (!f.length) return;
+      var a = doc.activeElement, i = f.indexOf(a);
+      if (e.shiftKey && (i <= 0)) { e.preventDefault(); f[f.length - 1].focus(); }
+      else if (!e.shiftKey && (i === -1 || i === f.length - 1)) { e.preventDefault(); f[0].focus(); }
+    };
+    doc.addEventListener('keydown', m.key, true);
+    (first || el.querySelector(FOCUSABLE) || el).focus({ preventScroll: true });
+    return m;
+  }
+  function closeModal(m) {
+    if (!m) return;
+    doc.removeEventListener('keydown', m.key, true);
+    m.inert.forEach(function (c) { c.removeAttribute('inert'); });
+    var o = m.opener;
+    if (o && doc.contains(o) && o.focus) o.focus({ preventScroll: true }); else focusStep();
+  }
+
   /* ------------------------------------------------------------------ go */
   function applyVis(animate) {
     var kids = [].slice.call(wrap.children); if (footer) kids.push(footer);
@@ -100,6 +125,28 @@
   }
   /* things added to the page after start-up (the welcome banner ...) get hidden on the right steps too */
   try { new MutationObserver(function () { if (cur >= 0) applyVis(false); }).observe(wrap, { childList: true }); } catch (e) {}
+
+  /* the page title, a spoken "Step 3 of 13" and focus on the new step's heading: a screen-reader user hears where they are */
+  var baseTitle = doc.title;
+  var h1 = mk('h1', 'sr-only', ''); h1.id = 'stem-h1'; h1.textContent = (doc.querySelector('.hero h1') || {}).textContent || baseTitle; wrap.insertBefore(h1, wrap.firstChild);
+  function stepHeading() {
+    var kids = [].filter.call(wrap.children, function (e) { return e !== h1 && !e.classList.contains('stem-hide') && e.offsetParent !== null; });
+    var H = 'h1,h2,h3,[role=heading]';
+    for (var k = 0; k < kids.length; k++) { var h = kids[k].matches(H) ? kids[k] : kids[k].querySelector(H); if (h) return h; }
+    return kids[0] || null;
+  }
+  function focusStep() {
+    var h = stepHeading() || wrap;
+    if (!h.hasAttribute('tabindex')) h.setAttribute('tabindex', '-1');
+    h.setAttribute('data-stem-focus', ''); h.focus({ preventScroll: true });
+  }
+  function announce(i, move, quiet) {
+    h1.hidden = i === 0;                                           /* the start step has the visible lesson title */
+    var word = stepWord(i);
+    doc.title = (i === 0 ? '' : word + ' · ') + baseTitle;
+    if (!quiet && window.StemLive) window.StemLive.say(i === 0 ? L('Lesson start', 'பாடத்தின் தொடக்கம்') : (i >= 1 && i <= N ? L('Step ', 'படி ') + i + L(' of ', ' / ') + N + ': ' : '') + word);
+    if (move) focusStep();
+  }
 
   function hashFor(i) { return i === 0 ? location.pathname + location.search : '#' + (i === LAST ? 'fw_finish' : ids[i - 1]); }
 
@@ -117,27 +164,28 @@
     }
     try { localStorage.setItem('stem_step_' + location.pathname.split('/').pop(), String(i)); } catch (e) {}
     renderBar();
+    announce(i, changed && !o.silent && !o.scrollTo, prev === -1);
     if (changed && prev !== -1) buzz(6);
     window.dispatchEvent(new Event('resize'));
     doc.dispatchEvent(new CustomEvent('stem-step', { detail: { index: i, id: i >= 1 && i <= N ? ids[i - 1] : (i === 0 ? 'start' : 'fw_finish'), first: !!changed } }));
   }
 
   /* ------------------------------------------------------------------ map */
-  var mapEl = null;
+  var mapEl = null, mapModal = null;
   /* the XP strip only shows on the first and last step; the map carries the same numbers */
   function txt(id) { var e = doc.getElementById(id); return e ? e.textContent : '0'; }
   function statLine() {
     if (!doc.getElementById('xpLevel')) return '';
     return '<div class="sm-stats"><span title="' + L('Level', 'மட்டம்') + '">⭐ <b>' + txt('xpLevel') + '</b></span><span title="XP">✨ <b>' + txt('xpTotal') + '</b></span><span title="' + L('Streak', 'ஸ்ட்ரீக்') + '">🔥 <b>' + txt('streakVal') + '</b></span><span title="' + L('Badges', 'பேட்ஜ்') + '">🏅 <b>' + txt('badgeCount') + '</b>/5</span></div>';
   }
-  function closeMap() { if (mapEl) { mapEl.remove(); mapEl = null; doc.removeEventListener('keydown', mapKey); } }
+  function closeMap() { if (mapEl) { mapEl.remove(); mapEl = null; doc.removeEventListener('keydown', mapKey); var m = mapModal; mapModal = null; closeModal(m); } }
   function mapKey(e) { if (e.key === 'Escape') closeMap(); }
   function openMap() {
     closeMap();
     var done = 0; for (var k = 1; k <= N; k++) if (isDone(k)) done++;
     mapEl = mk('div', 'stem-map', '');
     var h = '<div class="sm-back"></div><div class="sm-sheet" role="dialog" aria-modal="true" aria-label="' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '">' +
-      '<div class="sm-grip"></div><div class="sm-head"><b aria-hidden="true">🗺️</b><span class="sm-count">✅ ' + done + ' / ' + N + '</span><button type="button" class="sm-help" aria-label="' + L('How it works', 'எப்படி வேலை செய்யுது') + '" title="' + L('How it works', 'எப்படி வேலை செய்யுது') + '">❓</button><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div>' + statLine() + '<div class="sm-list">';
+      '<div class="sm-grip"></div><div class="sm-head"><b aria-hidden="true">🗺️</b><span class="sm-count">✅ ' + done + ' / ' + N + '</span><button type="button" class="sm-calm" aria-pressed="' + (root.classList.contains('stem-calm') ? 'true' : 'false') + '" aria-label="' + L('Pause animations', 'அனிமேஷன் நிறுத்து') + '" title="' + L('Pause animations', 'அனிமேஷன் நிறுத்து') + '">🎞️</button><button type="button" class="sm-help" aria-label="' + L('How it works', 'எப்படி வேலை செய்யுது') + '" title="' + L('How it works', 'எப்படி வேலை செய்யுது') + '">❓</button><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div>' + statLine() + '<div class="sm-list">';
     for (var i = 0; i <= LAST; i++) {
       var mark = i === 0 ? '🏠' : (i === LAST ? '🏁' : (isDone(i) ? '✓' : i));
       h += '<button type="button" class="sm-item' + (i === cur ? ' cur' : '') + (i >= 1 && i <= N && isDone(i) ? ' done' : '') + '" data-i="' + i + '"><span class="sm-n">' + mark + '</span><span class="sm-l">' + label(i) + '</span></button>';
@@ -147,16 +195,23 @@
     doc.body.appendChild(mapEl);
     mapEl.querySelector('.sm-back').addEventListener('click', closeMap);
     mapEl.querySelector('.sm-close').addEventListener('click', closeMap);
-    mapEl.querySelector('.sm-help').addEventListener('click', function () { closeMap(); openCoach(); });
+    mapEl.querySelector('.sm-help').addEventListener('click', function () { var opener = mapModal && mapModal.opener; closeMap(); openCoach(); if (coachModal && opener) coachModal.opener = opener; });
     mapEl.addEventListener('click', function (e) { var b = e.target.closest('.sm-item'); if (b) { closeMap(); go(parseInt(b.getAttribute('data-i'), 10)); } });
     doc.addEventListener('keydown', mapKey);
     var c = mapEl.querySelector('.sm-item.cur'); if (c && c.scrollIntoView) c.scrollIntoView({ block: 'center' });
+    mapModal = openModal(mapEl, c || mapEl.querySelector('.sm-close'));
+    mapEl.querySelector('.sm-calm').addEventListener('click', function (e) {
+      var off = !root.classList.contains('stem-calm');
+      root.classList.toggle('stem-calm', off); try { localStorage.setItem('stem_motion', off ? 'off' : 'on'); } catch (x) {}
+      e.currentTarget.setAttribute('aria-pressed', String(off));
+      if (window.StemLive) window.StemLive.say(off ? L('Animations paused', 'அனிமேஷன் நிறுத்தப்பட்டது') : L('Animations on', 'அனிமேஷன் ஓடுது'));
+    });
   }
 
   /* ------------------------------------------------------------------ first-visit coach: how the app works, shown with moving pictures */
-  var coachEl = null;
+  var coachEl = null, coachModal = null;
   function coachSeen() { try { return !!(localStorage.getItem('stem_coach_done') || localStorage.getItem('stem_hide_onboarding')); } catch (e) { return true; } }
-  function closeCoach() { if (coachEl) { coachEl.remove(); coachEl = null; doc.removeEventListener('keydown', coachKey); } try { localStorage.setItem('stem_coach_done', '1'); } catch (e) {} }
+  function closeCoach() { if (coachEl) { coachEl.remove(); coachEl = null; doc.removeEventListener('keydown', coachKey); var m = coachModal; coachModal = null; closeModal(m); } try { localStorage.setItem('stem_coach_done', '1'); } catch (e) {} }
   function coachKey(e) { if (e.key === 'Escape') closeCoach(); }
   function openCoach() {
     if (coachEl) return;
@@ -174,7 +229,7 @@
       '</div><button type="button" class="co-ok" aria-label="' + L('Got it, start learning', 'புரிஞ்சுது, படிக்கலாம்') + '">✔</button></div>');
     doc.body.appendChild(coachEl);
     coachEl.querySelector('.co-ok').addEventListener('click', closeCoach);
-    coachEl.querySelector('.co-ok').focus();
+    coachModal = openModal(coachEl, coachEl.querySelector('.co-ok'));
     doc.addEventListener('keydown', coachKey);
   }
 
@@ -190,7 +245,7 @@
   /* in-page links jump to the right step (works for the path card, "Start", story button, nav links ...) */
   doc.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]');
-    if (!a || a.closest('#stem-bar') || e.defaultPrevented) return;
+    if (!a || a.closest('#stem-bar') || a.classList.contains('skip-link') || e.defaultPrevented) return;
     var h = a.getAttribute('href') || '';
     var m = h.match(/#(.+)$/);
     if (!m) return;
@@ -218,13 +273,15 @@
     var d = mk('details', 'stem-fold ' + cls), sm = mk('summary', '', '<span class="sf-t"></span><span class="sf-n"></span>');
     d.appendChild(sm); if (open) d.open = true; return d;
   }
-  var labCard = null, missFold = null, guideFold = null;
+  var labCard = null, missFold = null, guideFold = null, lastOk = -1;
   function labText() {
     if (missFold) {
       var all = doc.querySelectorAll('#ls_miss .ls-m'), ok = doc.querySelectorAll('#ls_miss .ls-m.ok');
       missFold.querySelector('.sf-t').textContent = '🎯 ' + L('Missions', 'மிஷன்கள்');
       missFold.querySelector('.sf-n').textContent = ok.length + ' / ' + all.length;
       missFold.classList.toggle('all-done', all.length > 0 && ok.length === all.length);
+      if (ok.length > lastOk && lastOk >= 0 && window.StemLive) window.StemLive.say('🎯 ' + L('Mission done', 'மிஷன் முடிஞ்சது') + ': ' + ok.length + ' / ' + all.length);
+      lastOk = ok.length;
     }
     if (guideFold) guideFold.querySelector('.sf-t').textContent = 'ℹ️ ' + L('How to use this lab', 'இந்த லேப்பை எப்படி பயன்படுத்துவது');
   }
@@ -271,7 +328,7 @@
 
   /* ------------------------------------------------------------------ start */
   root.classList.add('stem-player');
-  window.StemPlayer = { active: true, openCoach: openCoach, go: go, openMap: openMap, count: N, current: function () { return cur; }, stepIds: ids, stepOf: stepOf, label: label };
+  window.StemPlayer = { active: true, openCoach: openCoach, focusStep: focusStep, go: go, openMap: openMap, count: N, current: function () { return cur; }, stepIds: ids, stepOf: stepOf, label: label };
   var h0 = location.hash.slice(1), t0 = h0 ? doc.getElementById(h0) : null;
   var inner = t0 && t0 !== topOf(t0) ? t0 : null;                 /* a link to something inside a step: scroll to it */
   go(t0 ? stepOf(t0) : 0, { silent: true, scrollTo: inner });

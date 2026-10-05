@@ -60,7 +60,9 @@ html.stem-player .wrap{padding-bottom:36px}
 #so_next::before{content:'›';font-size:1.7rem;line-height:1}
 #so_prev:disabled{opacity:.3}
 .so-ctrls .so-dots{justify-content:center;flex:1;min-width:0}
-@media (pointer:coarse){.so-ctrls button{display:none}}
+@media (pointer:coarse){
+  .so-ctrls button:not(:focus){position:absolute;width:1px;height:1px;min-width:0;min-height:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0}
+}
 .so-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px;color:var(--text-faint);font-size:.85rem;font-weight:600}
 .so-finger{display:inline-block;animation:so-swipe 1.6s ease-in-out infinite}
 .so-hint.quiet .so-finger{animation:none;opacity:0;width:0;overflow:hidden}
@@ -274,3 +276,24 @@ html.stem-player .hero .lead{display:-webkit-box;-webkit-line-clamp:3;-webkit-bo
 .bs-home>span,.bs-bridge>span{font-size:1.6rem;line-height:1}
 .bs-home p,.bs-bridge p{margin:0;font-size:.98rem;line-height:1.5;font-weight:600}
 .bs-bridge p{font-weight:800}
+
+
+/* ======================================================================
+   ACCESSIBILITY (player)
+   ====================================================================== */
+html.stem-player{scroll-padding-bottom:110px}
+.sm-calm{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-size:1.1rem;cursor:pointer;padding:0}
+.sm-calm[aria-pressed="true"]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 22%,var(--panel));box-shadow:inset 0 0 0 2px var(--accent)}
+/* decorative loops stop after a few turns, and stop entirely when the phone asks for reduced motion (the lesson animations keep working) */
+.so-finger,.co-finger,.co-wave,.co-map-list i,.pp-btn{animation-iteration-count:4}
+.sb-pulse{animation-iteration-count:5}
+@media (prefers-reduced-motion:reduce){
+  .so-finger,.co-finger,.co-wave,.co-map-list i,.pp-btn,.sb-pulse{animation:none!important}
+}
+@media (max-width:340px){
+  #stem-bar{gap:4px;padding-left:6px;padding-right:6px}
+  .sb-btn{min-width:44px;padding:0 6px}
+  .sb-next{min-width:60px}
+  .sb-mid{padding:2px 2px}
+  .sb-ic{font-size:1.15rem}
+}

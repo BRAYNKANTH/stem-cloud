@@ -3,9 +3,12 @@
 
 /* ---- brand colours (from the STEM Cloud logo: navy + sky blue). "good" stays green for ticks. ---- */
 :root{--accent:#4cc3f0;--accent-2:#8aa8ff;--on-accent:#06182b;--text-faint:#8191ab}
-@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--accent:#0b72bd;--accent-2:#2c4fbf;--on-accent:#ffffff;--text-faint:#5d6b85}}
-:root[data-theme="light"]{--accent:#0b72bd;--accent-2:#2c4fbf;--on-accent:#ffffff;--text-faint:#5d6b85}
-:root[data-theme="dark"]{--accent:#4cc3f0;--accent-2:#8aa8ff;--on-accent:#06182b;--text-faint:#8191ab}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--accent:#0b72bd;--accent-2:#2c4fbf;--on-accent:#ffffff;--text-faint:#5d6b85;--accent-3:#9c4a0c;--good:#08705d;--accent-text:#08558c;--text-dim:#2f3a55;--raja:#9c4a0c;--chittu:#1f6f9f}}
+:root[data-theme="light"]{--accent:#0b72bd;--accent-2:#2c4fbf;--on-accent:#ffffff;--text-faint:#5d6b85;--accent-3:#9c4a0c;--good:#08705d;--accent-text:#08558c;--text-dim:#2f3a55;--raja:#9c4a0c;--chittu:#1f6f9f}
+:root[data-theme="dark"]{--accent:#4cc3f0;--accent-2:#8aa8ff;--on-accent:#06182b;--text-faint:#8191ab;--accent-text:#4cc3f0;--raja:#e8a050;--chittu:#4aa8dc}
+:root{--accent-text:var(--accent);--raja:#e8a050;--chittu:#4aa8dc}
+.kicker{color:var(--accent-text)}
+.so-char.r .so-nm{color:var(--raja)}.so-char.c .so-nm{color:var(--chittu)}
 .btn.primary,.section-label .num,.slabel .num{color:var(--on-accent)}
 
 /* ---- logo in the header ---- */
@@ -193,3 +196,31 @@ table.qtable{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrol
    Animations play by default, even when the phone is in battery-saver / "remove animations" mode (which would
    otherwise freeze the cartoons). Anyone can switch them off in the account menu: that sets html.stem-calm. */
 html.stem-calm *,html.stem-calm *::before,html.stem-calm *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+
+
+/* ======================================================================
+   ACCESSIBILITY
+   ====================================================================== */
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:300;padding:12px 18px;border-radius:12px;background:var(--panel);color:var(--text);border:2px solid var(--accent);font-weight:800;text-decoration:none;transition:top .15s}
+.skip-link:focus{top:calc(10px + env(safe-area-inset-top))}
+[data-stem-focus]:focus,#stem-main:focus,.wrap:focus{outline:none}
+/* a disabled control is shown with a dashed edge as well as a lighter colour */
+button:disabled,.btn:disabled{border-style:dashed}
+/* visible keyboard focus everywhere, two colours so it shows on light, dark and blue */
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* sliders and small links reach 44px */
+input[type="range"]{height:44px}
+.crumb a,footer a,a.privacy{display:inline-flex;align-items:center;min-height:44px;padding:0 4px}
+.fw-step{min-height:44px}
+/* very small phones (320px): nothing is wider than the screen */
+@media (max-width:340px){
+  .topbar .brand{font-size:0}
+  .topbar .topbar-inner{padding-left:8px;padding-right:8px;gap:6px}
+  .lang-toggle{padding-left:8px;padding-right:8px}
+}
+
+/* links inside lesson text read as links and pass contrast; the number badge on orange becomes white on the darker orange */
+.wrap p a,.wrap li a,.wrap .sub a{color:var(--accent-text);text-decoration:underline;text-underline-offset:2px}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) .fw-cap .n{color:#fff}}
+:root[data-theme="light"] .fw-cap .n{color:#fff}

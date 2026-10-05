@@ -32,7 +32,7 @@ Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {
   getVoices: function () { return [{ name: 'Test Tamil', lang: 'ta-IN' }, { name: 'Test Tamil 2', lang: 'ta-LK' }, { name: 'Test English', lang: 'en-IN' }]; }, addEventListener: function () {} } });
 """
 
-VISIBLE = "[...document.querySelector('.wrap').children].filter(e => !e.classList.contains('stem-hide')).map(e => e.id || e.className.split(' ')[0])"
+VISIBLE = "[...document.querySelector('.wrap').children].filter(e => !e.classList.contains('stem-hide') && e.id !== 'stem-h1').map(e => e.id || e.className.split(' ')[0])"
 
 
 def run():
@@ -128,7 +128,7 @@ def run():
             pg.mouse.click(cx, box['y'] + box['height'] * 0.62); pg.wait_for_timeout(2400)       # first tap finishes the typing
             pg.mouse.click(cx, box['y'] + box['height'] * 0.62); pg.wait_for_timeout(500)        # second tap reads on
             check('tapping the speech bubble reads on', pg.evaluate(dot) == before + 1, (before, pg.evaluate(dot)))
-            check('the big Next / Back buttons are gone on a touch phone', not pg.is_visible('#so_next') and not pg.is_visible('#so_prev'))
+            check('the big Next / Back buttons are gone on a touch phone (they stay in the page for assistive tech, 1px)', pg.evaluate("document.getElementById('so_next').getBoundingClientRect().width") <= 2 and pg.evaluate("document.getElementById('so_prev').getBoundingClientRect().width") <= 2)
             check('a swipe hint is shown', pg.is_visible('.so-hint'))
             check('the swipe hint is a picture, not words', pg.evaluate("document.querySelector('.so-hint-t').getBoundingClientRect().width") <= 2)
             pg.click('.so-voice'); pg.wait_for_timeout(500)
@@ -237,7 +237,7 @@ def run():
             pg.click('.sb-mid'); pg.wait_for_timeout(300)
             check('the lesson map carries level, XP, streak and badges', pg.locator('.sm-stats').count() == 1 and '⭐' in pg.inner_text('.sm-stats') and '🔥' in pg.inner_text('.sm-stats'), pg.inner_text('.sm-sheet')[:80])
             pg.keyboard.press('Escape')
-            check('the language button names its target', 'Tamil' in (pg.get_attribute('#langToggle', 'aria-label') or ''), pg.get_attribute('#langToggle', 'aria-label'))
+            check('the language button names its target (the word it shows, plus a tooltip)', pg.get_attribute('#langToggle', 'aria-label') == 'தமிழ்' and 'Tamil' in (pg.get_attribute('#langToggle', 'title') or ''), pg.get_attribute('#langToggle', 'aria-label'))
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('watch') + 1)"); pg.wait_for_timeout(700)
             ctl = pg.evaluate("['fw_play','fw_rep','fw_slow','fw_snd'].map(id => { const b = document.getElementById(id); return [b.textContent.trim(), /\\p{L}/u.test(b.textContent), (b.getAttribute('aria-label') || '').length > 2]; })")
             check('animation controls are icons with spoken names', all((not c[1]) and c[2] for c in ctl), ctl)
@@ -257,6 +257,98 @@ def run():
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('practice') + 1)"); pg.wait_for_timeout(500)
             b = pg.evaluate("(() => { const e = document.querySelector('#practice .ex-toggle'); const c = getComputedStyle(e); return {w: c.borderTopWidth, bg: c.backgroundColor}; })()")
             check('"Show answer" looks like a button', b['w'] not in ('0px', '1px'), b)
+            ctx.close()
+
+            # ------------------------------------------------------------ accessibility (WCAG 2.1 AA audit fixes)
+            ACT = "try{localStorage.setItem('stem_coach_done','1')}catch(e){}"
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script(STUB); ctx.add_init_script(ACT)
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power')
+            check('landmarks: one main and one banner', pg.evaluate("[document.querySelectorAll('[role=main]').length, document.querySelectorAll('[role=banner]').length]") == [1, 1])
+            check('a skip link exists', pg.locator('.skip-link').count() == 1)
+            pg.keyboard.press('Tab')
+            check('the skip link is the first thing a keyboard reaches', pg.evaluate("document.activeElement.className") == 'skip-link', pg.evaluate("document.activeElement.className"))
+            pg.keyboard.press('Enter'); pg.wait_for_timeout(300)
+            check('the skip link moves focus into the lesson', pg.evaluate("!!document.activeElement.closest('.wrap')"), pg.evaluate("document.activeElement.tagName + '.' + document.activeElement.className"))
+            # a step change is spoken and focus follows
+            pg.click('.sb-next'); pg.wait_for_timeout(500)
+            check('changing step is announced', 'Step 1 of 13' in pg.inner_text('#stem-live') or 'Step 1' in pg.inner_text('#stem-live'), pg.inner_text('#stem-live'))
+            check('focus moves to the new step heading', pg.evaluate("document.activeElement.matches('h1,h2,h3,[role=heading]') && !!document.activeElement.closest('.wrap')"), pg.evaluate("document.activeElement.tagName"))
+            check('the page title names the step', pg.title().count('·') >= 1, pg.title())
+            check('every middle step has a level-1 heading for assistive tech', pg.evaluate("document.getElementById('stem-h1') && !document.getElementById('stem-h1').hidden"))
+            check('XP and badge pop-ups are announced', pg.get_attribute('#toastWrap', 'role') == 'status')
+            # story lines are announced and the buttons stay reachable on a touch phone
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(600)
+            check('story Next button is not hidden from assistive tech on touch', pg.evaluate("getComputedStyle(document.getElementById('so_next')).display") != 'none')
+            pg.evaluate("document.getElementById('so_next').click()"); pg.wait_for_timeout(2500)
+            pg.evaluate("document.getElementById('so_next').click()"); pg.wait_for_timeout(700)
+            check('the story line is announced with its number', '/ 9' in pg.inner_text('#stem-live') and 'Raja' in pg.inner_text('#stem-live') or 'Chittu' in pg.inner_text('#stem-live'), pg.inner_text('#stem-live'))
+            # dialogs: focus in, Tab trapped, background inert, Escape closes, focus returns
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(400)
+            pg.click('.sb-mid'); pg.wait_for_timeout(400)
+            check('map: focus moves into the dialog', pg.evaluate("!!document.activeElement.closest('.sm-sheet')"))
+            check('map: the page behind is inert', pg.evaluate("document.querySelector('.wrap').hasAttribute('inert')"))
+            inside = []
+            for _ in range(24):
+                pg.keyboard.press('Tab'); inside.append(pg.evaluate("!!document.activeElement.closest('.sm-sheet')"))
+            check('map: Tab never leaves the dialog', all(inside))
+            pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
+            check('map: Escape closes it and focus returns to the bar', pg.locator('.stem-map').count() == 0 and pg.evaluate("document.activeElement.className.indexOf('sb-mid') >= 0"), pg.evaluate("document.activeElement.className"))
+            check('map: the page is interactive again', not pg.evaluate("document.querySelector('.wrap').hasAttribute('inert')"))
+            # pause animations switch is in the map
+            pg.click('.sb-mid'); pg.wait_for_timeout(300); pg.click('.sm-calm'); pg.wait_for_timeout(200)
+            check('the map has a pause-animations switch that works', pg.evaluate("document.documentElement.classList.contains('stem-calm')") and pg.get_attribute('.sm-calm', 'aria-pressed') == 'true')
+            pg.click('.sm-calm'); pg.keyboard.press('Escape'); pg.wait_for_timeout(200)
+            # names, roles, colours
+            check('the animation time slider has a real name', pg.evaluate("document.getElementById('fw_scrub').getAttribute('aria-label')") == 'Animation time')
+            check('the sound button does not repeat its state in its name', pg.evaluate("/on|off/i.test(document.getElementById('fw_snd').getAttribute('aria-label'))") is False, pg.evaluate("document.getElementById('fw_snd').getAttribute('aria-label')"))
+            check('the language button is named by the word it shows', pg.get_attribute('#langToggle', 'aria-label') == 'தமிழ்' and pg.get_attribute('#langToggle', 'lang') == 'ta')
+            check('the account menu is a disclosure, not a half-built ARIA menu', pg.evaluate("document.querySelector('.stem-menu').getAttribute('role')") == 'group' and pg.evaluate("document.querySelector('.stem-av').getAttribute('aria-haspopup')") is None)
+            pg.evaluate("StemPlayer.go(0)"); pg.wait_for_timeout(300)
+            check('phase titles are level 3 headings (no h2 to h4 jump)', pg.evaluate("[...document.querySelectorAll('.fw-phase h4')].every(h => h.getAttribute('aria-level') === '3')"))
+            pg.evaluate("document.documentElement.setAttribute('data-theme','light')")
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(500)
+            col = pg.evaluate("[getComputedStyle(document.getElementById('so_nr')).color, getComputedStyle(document.getElementById('so_nc')).color, getComputedStyle(document.querySelector('.so-chip')).color]")
+            check('light theme: Raja, Chittu and the story chip use the darker, readable colours', col == ['rgb(156, 74, 12)', 'rgb(31, 111, 159)', 'rgb(156, 74, 12)'], col)
+            ctx.close()
+
+            # coach dialog behaves like the map
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power'); pg.wait_for_timeout(500)
+            check('coach: focus starts on the big tick', pg.evaluate("document.activeElement.className") == 'co-ok')
+            seq = []
+            for _ in range(6):
+                pg.keyboard.press('Tab'); seq.append(pg.evaluate("!!document.activeElement.closest('.stem-coach')"))
+            check('coach: Tab stays inside', all(seq))
+            pg.keyboard.press('Escape'); pg.wait_for_timeout(300)
+            check('coach: Escape closes it and the page is usable again', pg.locator('.stem-coach').count() == 0 and not pg.evaluate("document.querySelector('.wrap').hasAttribute('inert')"))
+            ctx.close()
+
+            # very small phone: nothing wider than the screen on any step
+            ctx = browser.new_context(viewport={'width': 320, 'height': 640}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script(ACT)
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power'); bad = []
+            for i in range(pg.evaluate('StemPlayer.count + 2')):
+                pg.evaluate('StemPlayer.go(%d)' % i); pg.wait_for_timeout(150)
+                if pg.evaluate('document.documentElement.scrollWidth > document.documentElement.clientWidth + 1'): bad.append(i)
+            check('a 320px phone: no step scrolls sideways', not bad, bad)
+            ctx.close()
+
+            # reduced motion: the decorative loops stop, the lesson animations still work
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state, reduced_motion='reduce')
+            ctx.add_init_script(ACT)
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power')
+            check('reduced motion: the pulsing Next button stops', pg.evaluate("getComputedStyle(document.querySelector('.sb-next')).animationName") == 'none')
+            ctx.close()
+
+            # Tamil: foreign-language parts are marked
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script(ACT)
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power')
+            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(1500)
+            check('Tamil page: the page language is ta and the button says English in English', pg.evaluate("document.documentElement.lang") == 'ta' and pg.get_attribute('#langToggle', 'lang') == 'en')
+            check('Tamil page: English-only text is marked lang=en', pg.evaluate("document.querySelectorAll('[data-lpart][lang=en]').length") > 0)
+            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
             ctx.close()
 
             # first visit: the picture coach shows once, one big tick closes it for good

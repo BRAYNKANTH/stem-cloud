@@ -86,9 +86,9 @@
   function build() {
     var wrap = mk('div', 'stem-acct');
     var av = mk('button', 'stem-av', (U.display_name || U.username || '?').trim().charAt(0).toUpperCase());
-    av.type = 'button'; av.setAttribute('aria-haspopup', 'true'); av.setAttribute('aria-expanded', 'false');
+    av.type = 'button'; av.setAttribute('aria-expanded', 'false');
     av.setAttribute('aria-label', 'Account: ' + (U.display_name || U.username));
-    var menu = mk('div', 'stem-menu'); menu.setAttribute('role', 'menu');
+    var menu = mk('div', 'stem-menu'); menu.setAttribute('role', 'group'); menu.setAttribute('aria-label', 'Account');      /* a disclosure with normal links and buttons, not an ARIA menu */
     wrap.appendChild(av); wrap.appendChild(menu);
 
     function fill() {
@@ -139,7 +139,7 @@
       wrap.classList.toggle('open', open); av.setAttribute('aria-expanded', String(open));
     });
     document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) close(); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && wrap.classList.contains('open')) { close(); av.focus(); } });
     document.addEventListener('stem-install-change', function () { if (wrap.classList.contains('open')) fill(); });
 
     var host = document.querySelector('.topbar .toggles') || document.querySelector('.topbar-inner');

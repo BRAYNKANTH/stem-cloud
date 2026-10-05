@@ -121,7 +121,7 @@
   .state.classic{color:var(--text-faint);background:var(--panel-2);border:1px solid var(--border);}
   .state.done{color:#3a2600;background:linear-gradient(135deg,#ffd166,#ff9f6b);}
   .lesson-card h3{font-size:1.08rem;margin:0;}
-  .lesson-card .ta-title{color:var(--board-accent, var(--accent));font-size:0.9rem;font-family:'Noto Sans Tamil',sans-serif;margin:-6px 0 0;}
+  .lesson-card .ta-title{color:color-mix(in srgb, var(--board-accent, var(--accent)) 78%, var(--text));font-size:0.9rem;font-family:'Noto Sans Tamil',sans-serif;margin:-6px 0 0;}
   .lesson-card p{color:var(--text-dim);font-size:0.86rem;margin:0;flex:1;}
   .tags{display:flex;gap:6px;flex-wrap:wrap;}
   .tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--accent-3);background:color-mix(in srgb, var(--accent-3) 16%, transparent);border-radius:6px;padding:3px 8px;}
@@ -170,6 +170,14 @@
   }
 
   .go-round{flex:0 0 auto;width:52px;height:52px;padding:0;border-radius:50%;font-size:1.3rem;display:inline-flex;align-items:center;justify-content:center;padding-left:3px;}
+  .sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important;}
+  .skip-link{position:fixed;left:12px;top:-80px;z-index:300;padding:12px 18px;border-radius:12px;background:var(--panel);color:var(--text);border:2px solid var(--accent);font-weight:800;text-decoration:none;transition:top .15s;}
+  .skip-link:focus{top:12px;}
+  #main:focus{outline:none;}
+  :focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .kicker{color:#08558c;}}
+  :root[data-theme="light"] .kicker{color:#08558c;}
+  footer a{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;}
   .reveal-init{opacity:0;transform:translateY(18px);transition:opacity .55s ease, transform .55s ease;}
   .reveal-init.revealed{opacity:1;transform:translateY(0);}
   footer{text-align:center;color:var(--text-faint);font-size:0.8rem;padding:50px 0 10px;}
@@ -177,7 +185,8 @@
 </head>
 <body>
 
-<div class="topbar">
+<a class="skip-link" href="#main" data-ta="பாடங்களுக்கு நேரா போ">Skip to the lessons</a>
+<div class="topbar" role="banner">
   <div class="topbar-inner">
     <div class="brand">STEM Cloud <span>·</span> <span data-ta="O/L பிசிக்ஸ்">O/L Physics</span></div>
     <div class="toggles">
@@ -187,7 +196,7 @@
   </div>
 </div>
 
-<div class="wrap">
+<div class="wrap" id="main" role="main" tabindex="-1">
   <div class="hero">
     <span class="kicker" data-ta="க.பொ.த (சா/த) · பிசிக்ஸ் படிப்பு மையம்">G.C.E. O/L · Physics Study Hub</span>
     <h1 data-ta="எல்லா பாடங்களும் ஒரே இடத்துல!">All Your Lessons, In One Place</h1>
@@ -248,6 +257,7 @@
     <div class="grid" id="gridG11"></div>
   </div>
 
+  <div id="hubLive" class="sr-only" role="status" aria-live="polite"></div>
   <footer data-ta="STEM Cloud — க.பொ.த (சா/த) பிசிக்ஸ் திருப்பி படிக்குதல். உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது.">STEM Cloud — GCE O/L Physics revision. Your progress is saved to your account.</footer>
 </div>
 
@@ -273,7 +283,7 @@ function applyLang(lang){
   document.documentElement.lang = lang;
   document.body.classList.toggle('lang-ta', lang === 'ta');
   const langBtn = document.getElementById('langToggle');
-  if(langBtn){ langBtn.textContent = (lang === 'en') ? '🌐 தமிழ்' : '🌐 English'; var ll = lang === 'en' ? 'தமிழுக்கு மாற்று (Switch to Tamil)' : 'Switch to English'; langBtn.setAttribute('aria-label', ll); langBtn.title = ll; }
+  if(langBtn){ langBtn.textContent = (lang === 'en') ? '🌐 தமிழ்' : '🌐 English'; langBtn.setAttribute('aria-label', lang === 'en' ? 'தமிழ்' : 'English'); langBtn.setAttribute('lang', lang === 'en' ? 'ta' : 'en'); langBtn.title = lang === 'en' ? 'Switch to Tamil' : 'Switch to English'; }
   if(themeLabelHook) themeLabelHook();
   if(hubRenderHook) hubRenderHook();
   safeSet('lessonLang', lang);
@@ -414,7 +424,7 @@ function gradeLabel(l){
 }
 let GRADE = safeGet('stem_grade') || 'all';
 if(['all','mech','g10','g11'].indexOf(GRADE) < 0) GRADE = 'all';
-function setGrade(g){ GRADE = g; safeSet('stem_grade', g); render(); }
+function setGrade(g){ GRADE = g; safeSet('stem_grade', g); render(); var n = LESSONS.filter(inGrade).length; document.getElementById('hubLive').textContent = n + ' ' + t('lessons shown', 'பாடங்கள் காட்டப்படுது'); }
 function inGrade(l){ return GRADE === 'all' || gradeOf(l) === GRADE; }
 function renderGradeBar(){
   const bar = document.getElementById('gradeBar');
@@ -511,7 +521,7 @@ function render(){
       '<div class="wm">' + l.n + '</div>' +
       '<div class="top"><div class="lnum">' + gradeLabel(l) + '</div>' + stateHtml + '</div>' +
       '<h3>' + t(l.en, l.ta) + '</h3>' +
-      '<div class="ta-title">' + (APP_LANG === 'ta' ? l.en : l.ta) + '</div>' +
+      '<div class="ta-title" lang="' + (APP_LANG === 'ta' ? 'en' : 'ta') + '">' + (APP_LANG === 'ta' ? l.en : l.ta) + '</div>' +
       '<p>' + t(l.descEn, l.descTa) + '</p>' +
       '<div class="tags">' + l.tags.map(g => '<span class="tag">' + t(g[0], g[1]) + '</span>').join('') + '</div>' +
       progHtml +

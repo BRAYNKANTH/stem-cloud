@@ -28,6 +28,7 @@
     b.dataset.words = t; b.dataset.icon = r.icon;
     b.textContent = r.icon;
     var w = words(t) || t;
+    if (r.pressed !== undefined) w = w.replace(/\s*:\s*(on|off|ஆன்|ஆஃப்)\s*$/i, '');         /* aria-pressed already says on / off */
     b.setAttribute('aria-label', w); b.title = w;
     if (r.pressed !== undefined) b.setAttribute('aria-pressed', String(!!r.pressed));
     b.classList.add('icon-btn');
@@ -47,6 +48,15 @@
     });
   }
 
-  function run() { Object.keys(SKINS).forEach(function (sel) { wire(sel, SKINS[sel]); }); }
+  /* the animation time slider: a real name and a value in words */
+  function slider() {
+    var s = doc.getElementById('fw_scrub'); if (!s) return;
+    var ta = false; try { ta = localStorage.getItem('lessonLang') === 'ta'; } catch (e) {}
+    s.setAttribute('aria-label', ta ? 'அனிமேஷன் நேரம்' : 'Animation time');
+    var upd = function () { var max = parseFloat(s.max) || 1000; s.setAttribute('aria-valuetext', Math.round(parseFloat(s.value) / max * 100) + '%'); };
+    s.addEventListener('input', upd); upd();
+    var tick = setInterval(upd, 1000); setTimeout(function () { clearInterval(tick); }, 600000);
+  }
+  function run() { Object.keys(SKINS).forEach(function (sel) { wire(sel, SKINS[sel]); }); slider(); }
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', run); else run();
 })();

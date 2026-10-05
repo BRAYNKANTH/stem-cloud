@@ -48,6 +48,59 @@
     });
   }, { passive: true });
 
+  /* ---- accessibility: one polite live region for the whole page, landmarks, a skip link ---- */
+  function A(en, ta) { var l = null; try { l = localStorage.getItem('lessonLang'); } catch (e) {} return l === 'ta' ? ta : en; }
+  var live = doc.createElement('div');
+  live.id = 'stem-live'; live.className = 'sr-only'; live.setAttribute('role', 'status'); live.setAttribute('aria-live', 'polite'); live.setAttribute('aria-atomic', 'true');
+  doc.body.appendChild(live);
+  var liveTimer = null;
+  window.StemLive = { say: function (t) { clearTimeout(liveTimer); live.textContent = ''; liveTimer = setTimeout(function () { live.textContent = t; }, 60); } };
+
+  var main = doc.querySelector('.wrap');
+  if (main) { main.id = main.id || 'stem-main'; main.setAttribute('role', 'main'); main.setAttribute('tabindex', '-1'); }
+  if (tb) tb.setAttribute('role', 'banner');
+  if (main) {
+    var skip = doc.createElement('a');
+    skip.className = 'skip-link'; skip.href = '#' + main.id;
+    skip.textContent = A('Skip to the lesson', 'பாடத்துக்கு நேரா போ');
+    skip.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (window.StemPlayer && window.StemPlayer.focusStep) window.StemPlayer.focusStep(); else main.focus();
+    });
+    doc.body.insertBefore(skip, doc.body.firstChild);
+    window.addEventListener('stem-lang', function () { skip.textContent = A('Skip to the lesson', 'பாடத்துக்கு நேரா போ'); });
+  }
+  /* XP / badge pop-ups, quiz and game feedback are announced */
+  var tw = doc.getElementById('toastWrap'); if (tw) { tw.setAttribute('role', 'status'); tw.setAttribute('aria-live', 'polite'); }
+  [].forEach.call(doc.querySelectorAll('#gameResult,#sortResult,.qz-explain,#fw_ask,#quizScore,.quiz-score'), function (e) { e.setAttribute('aria-live', 'polite'); });
+  /* the path card's phase titles are h4 in the lesson files: make them h3 so the outline has no gap */
+  function fixHeadings() {
+    [].forEach.call(doc.querySelectorAll('.fw-phase h4'), function (h) { h.setAttribute('role', 'heading'); h.setAttribute('aria-level', '3'); });
+    [].forEach.call(doc.querySelectorAll('.so-title'), function (h) { h.setAttribute('role', 'heading'); h.setAttribute('aria-level', '2'); });
+  }
+  fixHeadings();
+  var ph = doc.getElementById('fw_phases');
+  if (ph && window.MutationObserver) new MutationObserver(function () { fixHeadings(); }).observe(ph, { childList: true });
+
+  /* language of parts: English words inside Tamil pages (and the reverse) are marked so a screen reader switches voice */
+  var langTimer = null;
+  function markParts() {
+    var page = doc.documentElement.lang === 'ta' ? 'ta' : 'en';
+    [].forEach.call(doc.querySelectorAll('.wrap *, .topbar *, #stem-bar *'), function (el) {
+      if (el.children.length || /^(SCRIPT|STYLE|SVG|PATH|TEXT|TSPAN)$/i.test(el.tagName) || el.closest('svg')) return;
+      var t = el.textContent; if (!t || t.length < 3) return;
+      var ta = /[\u0B80-\u0BFF]/.test(t), la = /[A-Za-z]{3,}/.test(t), want = null;
+      if (page === 'ta' && !ta && la) want = 'en'; else if (page === 'en' && ta && !la) want = 'ta';
+      if (want) { if (el.getAttribute('lang') !== want) { el.setAttribute('lang', want); el.setAttribute('data-lpart', '1'); } }
+      else if (el.hasAttribute('data-lpart')) { el.removeAttribute('lang'); el.removeAttribute('data-lpart'); }
+    });
+  }
+  function soon() { clearTimeout(langTimer); langTimer = setTimeout(markParts, 250); }
+  doc.addEventListener('stem-step', soon);
+  var ltg = doc.getElementById('langToggle');
+  if (ltg) ltg.addEventListener('click', function () { setTimeout(function () { window.dispatchEvent(new Event('stem-lang')); soon(); }, 120); });
+  setTimeout(markParts, 800);
+
   /* remember the lesson for the hub's "continue where you left off" card */
   try { if (doc.getElementById('fw_path')) localStorage.setItem('stem_last_lesson', location.pathname.split('/').pop()); } catch (e) {}
 
@@ -55,8 +108,9 @@
   function langLabel() {
     var lt = doc.getElementById('langToggle'); if (!lt) return;
     var ta = false; try { ta = localStorage.getItem('lessonLang') === 'ta'; } catch (e) {}
-    var l = ta ? 'Switch to English' : 'தமிழுக்கு மாற்று (Switch to Tamil)';
-    lt.setAttribute('aria-label', l); lt.title = l;
+    var name = ta ? 'English' : 'தமிழ்';                              /* the visible word, in its own language */
+    lt.setAttribute('aria-label', name); lt.setAttribute('lang', ta ? 'en' : 'ta');
+    lt.title = ta ? 'Switch to English' : 'Switch to Tamil';
   }
   langLabel();
   var ltb = doc.getElementById('langToggle'); if (ltb) ltb.addEventListener('click', function () { setTimeout(langLabel, 120); });

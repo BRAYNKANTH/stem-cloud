@@ -2057,7 +2057,8 @@ function cssVar(name){
     $('so_cr').classList.toggle('talking', isR); $('so_cc').classList.toggle('talking', !isR);
     $('so_bubble').className = 'so-bubble ' + (isR ? 'r' : 'c');
     $('so_scene').textContent = l[1];
-    full = lineText(l); dots(); labels();
+    full = lineText(l); if(window.STEM_LANG === 'si' && window.StemSI) full = StemSI.t(full);   /* Sinhala: type the translated line */
+    dots(); labels();
     try{ window.dispatchEvent(new CustomEvent('stem-story-line', {detail:{who:l[0], text:full, i:idx, id:KEY.replace('scx_story_','')}})); }catch(e){}
     $('so_prev').disabled = idx === 0;
     const last = idx === STORY.lines.length - 1;
@@ -2089,7 +2090,7 @@ function cssVar(name){
 (function(){
   const LID = 'c4';
   const NEXT_LESSON = ["chapter-05-friction.html", "Friction", "உராய்வு"];
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
     {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
@@ -2218,7 +2219,7 @@ function cssVar(name){
    WATCH-IT CARTOON ENGINE
 ============================================================ */
 (function(){
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   window.__fwMakeH = function(svg, VW, VH){
   const NS = 'http://www.w3.org/2000/svg';
   const C = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -2332,7 +2333,7 @@ function cssVar(name){
     },
     say: function(x, y, pair, opt){
       opt = opt || {};
-      const k = getK(), txt = T(pair[0], pair[1]), L = wrap(txt, Math.floor((opt.n || (APP_LANG === 'ta' ? 20 : 24)) / k)), w = Math.max.apply(null, L.map(l => l.length)) * (APP_LANG === 'ta' ? 8.4 : 7.2) * k + 22, h = L.length * 17 * k + 14;
+      const k = getK(), txt = T(pair[0], pair[1]), L = wrap(txt, Math.floor((opt.n || ((APP_LANG === 'ta' || window.STEM_LANG === 'si') ? 20 : 24)) / k)), w = Math.max.apply(null, L.map(l => l.length)) * ((APP_LANG === 'ta') ? 8.4 : (window.STEM_LANG === 'si' ? 10 : 7.2)) * k + 22, h = L.length * 17 * k + 14;
       const bx = H.clamp(x - w / 2, 6, 634 - w), by = Math.max(4, y - h);
       const col = opt.col || '#ffffff';
       E('rect', {x:bx, y:by, width:w, height:h, rx:12, fill:col, stroke:'#1b2236', 'stroke-width':2.5});
@@ -2425,7 +2426,7 @@ function cssVar(name){
   }
  }
 };
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const svg = $('fw_svg'); if(!svg) return;
   const H = window.__fwMakeH(svg, 640, 360); const E = H.E, C = H.C;
@@ -2537,7 +2538,7 @@ function cssVar(name){
   return ["a = F ÷ m = " + F + " ÷ " + m + " = " + a.toFixed(2) + " m/s². " + (F > 0 ? "The speed goes up by " : "The speed changes by ") + Math.abs(a).toFixed(2) + " m/s every second" + (F < 0 ? " (the push is backwards)." : "."), "a = F ÷ m = " + F + " ÷ " + m + " = " + a.toFixed(2) + " m/s². ஒவ்வொரு விநாடியும் வேகம் " + Math.abs(a).toFixed(2) + " m/s " + (F > 0 ? "கூடுது." : "மாறுது (தள்ளல் பின்னாடி).")];
  }
 };
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   if(!$('lg')) return;
   let chosen = -1;
@@ -2610,7 +2611,7 @@ function cssVar(name){
  }
 };
   const LID2 = 'c4';
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const svg = $('ls_svg'); if(!svg || !window.__fwMakeH) return;
   const H = window.__fwMakeH(svg, 640, 300);

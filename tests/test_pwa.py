@@ -59,6 +59,15 @@ def run():
             r = ctx.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'pwatest', 'password': 'LocalTest-9911', 'display_name': 'Pwa'}))
             check('signup for test user', r.ok, r.status)
 
+            closed = []
+
+            def add_user(c, name, pw):          # public signup is closed once an admin exists: then the admin (pwatest) creates the account and it logs in
+                r_ = None if closed else c.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': name, 'password': pw}))
+                if r_ is None or r_.status == 403:
+                    closed.append(1)
+                    ctx.request.post(BASE + '/api/admin/create-user', headers=H, data=json.dumps({'username': name, 'password': pw, 'role': 'student'}))
+                    c.request.post(BASE + '/api/login', headers=H, data=json.dumps({'username': name, 'password': pw}))
+
             # ---- installability (the same check Chrome runs before offering "Install")
             page.goto(BASE + '/login', wait_until='domcontentloaded')
             cdp = ctx.new_cdp_session(page)
@@ -137,7 +146,7 @@ def run():
             for reduced in ('reduce', 'no-preference'):
                 c2 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, reduced_motion=reduced)
                 c2.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
-                c2.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'mot' + reduced[:2], 'password': 'LocalTest-5566'}))
+                add_user(c2, 'mot' + reduced[:2], 'LocalTest-5566')
                 p2 = c2.new_page(); p2.goto(BASE + '/lessons/chapter-05-friction.html#watch', wait_until='domcontentloaded'); p2.wait_for_timeout(2500)
                 check('no sudden start with reduce-motion=%s: waits for a tap' % reduced, p2.locator('.stem-poster').count() == 1 and int(p2.evaluate("document.getElementById('fw_scrub').value")) == 0)
                 p2.click('.stem-poster'); p2.wait_for_timeout(3500)
@@ -150,7 +159,7 @@ def run():
             # the in-app switch turns animations off, and the choice is remembered
             c3 = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True)
             c3.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
-            c3.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'motoff', 'password': 'LocalTest-5566'}))
+            add_user(c3, 'motoff', 'LocalTest-5566')
             p3 = c3.new_page(); p3.goto(BASE + '/lessons/chapter-05-friction.html#story', wait_until='domcontentloaded'); p3.wait_for_selector('.stem-av')
             p3.click('.stem-av'); p3.click('.stem-menu button:has-text("Animations")')
             check('animation switch sets calm mode', p3.evaluate("document.documentElement.classList.contains('stem-calm')"))

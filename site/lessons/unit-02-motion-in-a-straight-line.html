@@ -2215,7 +2215,8 @@ drawAxisLineGraph('q4Svg', [
     $('so_cr').classList.toggle('talking', isR); $('so_cc').classList.toggle('talking', !isR);
     $('so_bubble').className = 'so-bubble ' + (isR ? 'r' : 'c');
     $('so_scene').textContent = l[1];
-    full = lineText(l); dots(); labels();
+    full = lineText(l); if(window.STEM_LANG === 'si' && window.StemSI) full = StemSI.t(full);   /* Sinhala: type the translated line */
+    dots(); labels();
     try{ window.dispatchEvent(new CustomEvent('stem-story-line', {detail:{who:l[0], text:full, i:idx, id:KEY.replace('scx_story_','')}})); }catch(e){}
     $('so_prev').disabled = idx === 0;
     const last = idx === STORY.lines.length - 1;
@@ -2247,7 +2248,7 @@ drawAxisLineGraph('q4Svg', [
 (function(){
   const LID = 'u2';
   const NEXT_LESSON = ["chapter-04-newtons-laws.html", "Newton's Laws of Motion", "நியூற்றனின் இயக்க விதிகள்"];
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
     {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
@@ -2376,7 +2377,7 @@ drawAxisLineGraph('q4Svg', [
    WATCH-IT CARTOON ENGINE
 ============================================================ */
 (function(){
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   window.__fwMakeH = function(svg, VW, VH){
   const NS = 'http://www.w3.org/2000/svg';
   const C = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -2490,7 +2491,7 @@ drawAxisLineGraph('q4Svg', [
     },
     say: function(x, y, pair, opt){
       opt = opt || {};
-      const k = getK(), txt = T(pair[0], pair[1]), L = wrap(txt, Math.floor((opt.n || (APP_LANG === 'ta' ? 20 : 24)) / k)), w = Math.max.apply(null, L.map(l => l.length)) * (APP_LANG === 'ta' ? 8.4 : 7.2) * k + 22, h = L.length * 17 * k + 14;
+      const k = getK(), txt = T(pair[0], pair[1]), L = wrap(txt, Math.floor((opt.n || ((APP_LANG === 'ta' || window.STEM_LANG === 'si') ? 20 : 24)) / k)), w = Math.max.apply(null, L.map(l => l.length)) * ((APP_LANG === 'ta') ? 8.4 : (window.STEM_LANG === 'si' ? 10 : 7.2)) * k + 22, h = L.length * 17 * k + 14;
       const bx = H.clamp(x - w / 2, 6, 634 - w), by = Math.max(4, y - h);
       const col = opt.col || '#ffffff';
       E('rect', {x:bx, y:by, width:w, height:h, rx:12, fill:col, stroke:'#1b2236', 'stroke-width':2.5});
@@ -2562,7 +2563,7 @@ drawAxisLineGraph('q4Svg', [
   }
  }
 };
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const svg = $('fw_svg'); if(!svg) return;
   const H = window.__fwMakeH(svg, 640, 360); const E = H.E, C = H.C;
@@ -2675,7 +2676,7 @@ drawAxisLineGraph('q4Svg', [
   return ["Slowing down by " + Math.abs(a) + " m/s every second. After " + tt + " s the body stops for a moment and then moves the other way, so distance and displacement start to differ.", "ஒவ்வொரு விநாடியும் வேகம் " + Math.abs(a) + " m/s குறையுது. " + tt + " s-க்கு பிறகு பொருள் ஒரு நிமிஷம் நின்னு எதிர்ப்பக்கம் போகுது, அதனால தூரமும் இடப்பெயர்ச்சியும் வேறுபட ஆரம்பிக்குது."];
  }
 };
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   if(!$('lg')) return;
   let chosen = -1;
@@ -2748,7 +2749,7 @@ drawAxisLineGraph('q4Svg', [
  }
 };
   const LID2 = 'u2';
-  const T = (en, ta) => (APP_LANG === 'ta' ? ta : en);
+  const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const svg = $('ls_svg'); if(!svg || !window.__fwMakeH) return;
   const H = window.__fwMakeH(svg, 640, 300);

@@ -51,13 +51,25 @@ def run():
         with sync_playwright() as p:
             browser = p.chromium.launch(channel='msedge', headless=True)
 
+            adm = browser.new_context()
+            adm.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': 'adm_root', 'password': 'LocalTest-2468'}))     # the first account is the admin
+
+            closed = []
+
+            def adm_post(path, body):
+                return adm.request.post(BASE + path, headers=H, data=json.dumps(body))
+
             def phone(user, lang='en'):
                 ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True)
                 ctx.add_init_script(STUB)
                 ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
                 if lang != 'en':
                     ctx.add_init_script("try{localStorage.setItem('lessonLang','%s')}catch(e){}" % lang)
-                ctx.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': user, 'password': 'LocalTest-2468'}))
+                r_ = None if closed else ctx.request.post(BASE + '/api/signup', headers=H, data=json.dumps({'username': user, 'password': 'LocalTest-2468'}))
+                if r_ is None or r_.status == 403:            # public signup is closed once an admin exists: the admin creates the account, then it logs in
+                    closed.append(1)
+                    adm_post('/api/admin/create-user', {'username': user, 'password': 'LocalTest-2468', 'role': 'student'})
+                    ctx.request.post(BASE + '/api/login', headers=H, data=json.dumps({'username': user, 'password': 'LocalTest-2468'}))
                 return ctx
 
             def open_lesson(ctx, name, hash_=''):
@@ -445,7 +457,12 @@ def run():
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(700)
             check('Sinhala: text with no translation yet stays English (no blanks, no errors)', len(pg.inner_text('#notes')) > 200 and not errs, errs[:2])
             pg.evaluate("StemPlayer.go(0)"); pg.wait_for_timeout(500)
-            check('Sinhala: the unfinished-translation note shows on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
+            check('Sinhala: a finished chapter shows no unfinished-translation note', pg.locator('.stem-si-note').count() == 0)
+            check('Sinhala: the glossary shows Sinhala terms, English stays English', pg.evaluate("(()=>{const r=document.querySelector('table.gloss tr:nth-child(2)'); return r && /[\u0D80-\u0DFF]/.test(r.children[0].textContent) && r.children[1].textContent.trim()==='Work'})()"))
+            pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)     # the chosen language (Sinhala) is remembered
+            check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)
+            pg.goto(BASE + '/lessons/g10-chapter-18-work-energy-power.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)
             pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(1200)
             check('back to Tamil: Tamil text, no Sinhala left behind', 'வேலை' in pg.inner_text('.hero h1') and not re.search('[\u0D80-\u0DFF]', pg.inner_text('.hero')) and pg.locator('.stem-si-note').count() == 0, pg.inner_text('.hero h1'))
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(900)

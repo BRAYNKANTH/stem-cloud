@@ -73,6 +73,17 @@
   }
   function translateEl(el) {
     if (!el || el.nodeType !== 1 || SKIP.test(el.tagName) || el.closest('svg,[data-no-si]')) return;
+    if (el.tagName === 'TD' && el.classList.contains('tt') && el.nextElementSibling && el.nextElementSibling.classList.contains('te')) {
+      /* glossary table: the Tamil column shows the Sinhala term, found by its English neighbour ("@Work") */
+      var gs = lookup('@' + norm(el.nextElementSibling.textContent));
+      if (gs !== null && el.innerHTML !== gs) setHTML(el, gs);
+      return;
+    }
+    if (el.tagName === 'TD' && el.classList.contains('te') && el.closest('table.gloss')) return;   /* the English column stays English */
+    if (el.tagName === 'TH' && el.previousElementSibling === null && el.closest('table.gloss')) {
+      if (el.innerHTML !== 'සිංහල') setHTML(el, 'සිංහල');         /* the glossary's first column is the Sinhala one here */
+      return;
+    }
     var k = unitKey(el), si;
     if (k && /[A-Za-z]/.test(k)) {
       si = lookup(k);

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Visually transcribed 2015 pilot. Build data; render source assets with import_past_papers.py.
 
 Tamil prompts preserve the meaning/option order; English prompts are teaching translations.
@@ -37,10 +38,10 @@ mcq(3,'biology','Cells',1,'Which plant-cell structure is non-living?', 'தா�
     [('Chloroplast','பச்சையவுருமணி'),('Cell wall','கலச்சுவர்'),('Golgi body','கொல்கியுடலி'),('Mitochondrion','இழைமணி')],
     ('The cell wall is a non-living supporting layer outside the cell membrane.','கலச்சவ்வுக்கு வெளியே உள்ள கலச்சுவர் உயிரற்ற ஆதரவுப் படையாகும்.'),
     [('A living organelle for photosynthesis.','ஒளித்தொகுப்புக்குரிய உயிருள்ள புன்னங்கம்.'),('A non-living cellulose supporting layer.','செல்லுலோசால் ஆன உயிரற்ற ஆதரவுப் படை.'),('An organelle that processes and packages materials.','பொருட்களைச் செயலாக்கிப் பொதிக்கும் புன்னங்கம்.'),('An organelle involved in respiration.','சுவாசத்தில் பங்குபற்றும் புன்னங்கம்.')])
-mcq(4,'biology','Human body',1,'How many incisors should a healthy adult have on both sides of the upper jaw?', 'வளர்ந்த ஆரோக்கியமான நபரின் மேற்றாடையின் இரு பக்கங்களிலும் இருக்க வேண்டிய முன்வெட்டுப் பற்களின் எண்ணிக்கை என்ன?',
+mcq(4,'biology','Human body',1,'How many premolars should a healthy adult have on both sides of the upper jaw?', 'வளர்ந்த ஆரோக்கியமான நபரின் மேற்றாடையின் இரு பக்கங்களிலும் இருக்க வேண்டிய முன்கடைவாய்ப் பற்களின் எண்ணிக்கை என்ன?',
     [('Two','இரண்டு'),('Four','நான்கு'),('Six','ஆறு'),('Eight','எட்டு')],
-    ('There are two upper incisors on each side: 2 + 2 = 4.','மேற்றாடையின் ஒவ்வொரு பக்கத்திலும் இரண்டு முன்வெட்டுப் பற்கள் உள்ளன. மொத்தம் 2 + 2 = 4.'),
-    [('Counts only one side.','ஒரு பக்கத்தை மட்டும் கணக்கிடுகிறது.'),('Counts both sides of the upper jaw.','மேற்றாடையின் இரு பக்கங்களையும் கணக்கிடுகிறது.'),('Not the adult upper-incisor count.','வளர்ந்தவரின் மேல் முன்வெட்டுப் பற்களின் எண்ணிக்கை இதுவல்ல.'),('Eight counts incisors in both jaws.','எட்டு என்பது இரு தாடைகளிலுள்ள மொத்த முன்வெட்டுப் பற்கள்.')])
+    ('There are two upper premolars on each side: 2 + 2 = 4. Premolars lie between the canine and molars.','மேற்றாடையின் ஒவ்வொரு பக்கத்திலும் இரண்டு முன்கடைவாய்ப் பற்கள் உள்ளன. மொத்தம் 2 + 2 = 4. அவை கோரைப்பல்லுக்கும் கடைவாய்ப் பற்களுக்கும் இடையில் உள்ளன.'),
+    [('Counts only one side.','ஒரு பக்கத்தை மட்டும் கணக்கிடுகிறது.'),('Counts both sides of the upper jaw.','மேற்றாடையின் இரு பக்கங்களையும் கணக்கிடுகிறது.'),('Not the adult upper-premolar count.','வளர்ந்தவரின் மேல் முன்கடைவாய்ப் பற்களின் எண்ணிக்கை இதுவல்ல.'),('Eight counts premolars in both jaws.','எட்டு என்பது இரு தாடைகளிலுள்ள மொத்த முன்கடைவாய்ப் பற்கள்.')])
 mcq(5,'physics','Diffusion',1,'Cinnamon-oil smell spreads through air after the bottle is opened. Which transport process is this?', 'கறுவா எண்ணெய்ப் போத்தலைத் திறந்ததும் மணம் வளியில் பரவுவது எந்தக் கொண்டு செல்லல் முறையாகும்?',
     [('Osmosis','திணிவுப்பாய்ச்சல்'),('Transpiration','ஆவியுயிர்ப்பு'),('Evaporation','ஆவியாதல்'),('Diffusion','பரவல்')],
     ('Vapour molecules spread from a region of higher concentration to lower concentration: diffusion.','ஆவித் துணிக்கைகள் அதிக செறிவுள்ள இடத்திலிருந்து குறைந்த செறிவுள்ள இடத்திற்குப் பரவுகின்றன.'),
@@ -53,16 +54,16 @@ mcq(7,'biology','Digestion',1,'Which enzyme digests protein in an alkaline mediu
     [('Trypsin','திரிப்சின்'),('Peptidase','பெப்டிடேசு'),('Pepsin','பெப்சின்'),('Lipase','இலிப்பேசு')],
     ('Trypsin acts on proteins in the alkaline small intestine. Peptidase mainly acts on shorter peptides.','திரிப்சின் சிறுகுடலின் கார ஊடகத்தில் புரதத்தைச் சமிபாடடையச் செய்கிறது. பெப்டிடேசு சிறிய பெப்டைடுகளில் செயற்படும்.'),
     [('Digests protein in an alkaline medium.','கார ஊடகத்தில் புரதத்தைச் சமிபாடடையச் செய்கிறது.'),('Acts on peptides rather than the initial protein digestion tested here.','இங்கு கேட்கப்படும் ஆரம்ப புரதச் சமிபாட்டை விட பெப்டைடுகளில் செயற்படுகிறது.'),('Requires an acidic stomach medium.','இரைப்பையின் அமில ஊடகம் தேவை.'),('Digests fats, not proteins.','கொழுப்பைச் சமிபாடடையச் செய்கிறது; புரதத்தை அல்ல.')])
-mcq(8,'biology','Respiratory system',1,'A student has a red throat, sore throat, fever and hoarse voice. Which condition fits best?', 'தொண்டை சிவத்தல், தொண்டை நோவு, காய்ச்சல், குரல் கரகரப்பு உள்ள மாணவருக்குப் பொருத்தமான நோய் நிலை எது?',
-    [('Pneumonia','நுரையீரல் அழற்சி'),('Bronchitis','மூச்சுக்குழாய் அழற்சி'),('Tuberculosis','காசநோய்'),('Laryngitis','குரல்வளை அழற்சி')],
+mcq(8,'biology','Respiratory system',1,'A class teacher misses school for two days with a red throat, sore throat and loss of voice. Which condition fits the exam scenario?', 'தொண்டை சிவத்தல், தொண்டை நோவு, குரல் வெளிவராமை காரணமாக வகுப்பாசிரியர் இரண்டு நாட்கள் பாடசாலைக்கு வரவில்லை. பரீட்சைச் சூழலில் பொருத்தமான நோய் நிலை எது?',
+    [('Ilaippu (original Tamil term; English translation awaiting review)','இளைப்பு'),('Gastritis','இரைப்பையழற்சி'),('Tuberculosis','காசநோய்'),('Laryngitis','குரல்வளையழற்சி')],
     ('Inflammation of the larynx affects the vocal cords and causes hoarseness. This is an exam scenario, not a diagnosis guide.','குரல்வளை அழற்சி குரல்நாண்களைப் பாதித்து குரல் கரகரப்பை ஏற்படுத்தும். இது பரீட்சைச் சூழ்நிலை வினா.'),
-    [('Primarily affects lung tissue.','முக்கியமாக நுரையீரல் திசுவைப் பாதிக்கும்.'),('Primarily affects the bronchi.','முக்கியமாக மூச்சுக்குழாய்களைப் பாதிக்கும்.'),('The listed acute throat and voice symptoms do not specifically indicate TB.','இந்தத் தொண்டை மற்றும் குரல் அறிகுறிகள் காசநோயைக் குறிப்பாகக் காட்டவில்லை.'),('Best fits the hoarse voice and sore throat.','குரல் கரகரப்புக்கும் தொண்டை நோவுக்கும் மிகப் பொருத்தமானது.')])
+    [('Not the keyed answer to this loss-of-voice scenario; the original Tamil term is retained pending translation review.','குரல் வெளிவராமைக்கான விடைக்குறிப்பின் தெரிவு இதுவல்ல; மூலத் தமிழ்ச் சொல் மொழிபெயர்ப்பு மீளாய்விற்காகப் பேணப்பட்டுள்ளது.'),('Gastritis affects the stomach lining, not the larynx.','இரைப்பையழற்சி இரைப்பை அகப்படையைப் பாதிக்கும்; குரல்வளையை அல்ல.'),('The listed acute throat and voice symptoms do not specifically indicate TB.','இந்தத் தொண்டை மற்றும் குரல் அறிகுறிகள் காசநோயைக் குறிப்பாகக் காட்டவில்லை.'),('Best fits the loss of voice and sore throat.','குரல் வெளிவராமைக்கும் தொண்டை நோவுக்கும் மிகப் பொருத்தமானது.')])
 mcq(9,'physics','Vision',1,'Where does a clear image form in an eye with normal vision?', 'பார்வைக் குறைபாடற்ற கண்ணில் தெளிவான விம்பம் எங்கு உருவாகும்?',
     [('Very near the lens','கண்வில்லைக்கு மிக அருகில்'),('Between lens and retina','கண்வில்லைக்கும் விழித்திரைக்கும் இடையில்'),('On the retina','விழித்திரையில்'),('Behind the retina','விழித்திரைக்குப் பின்னால்')],
     ('The eye focuses light onto the retina; its receptors detect the image.','கண் ஒளியை விழித்திரையில் குவிக்கிறது; அங்குள்ள ஒளியுணரிகள் விம்பத்தை உணர்கின்றன.'),
     [('The retina must receive the focused image.','குவிக்கப்பட்ட விம்பம் விழித்திரையில் விழ வேண்டும்.'),('An image in front of the retina is not normal focusing.','விழித்திரைக்கு முன்னால் விம்பம் உருவாவது சாதாரணக் குவிப்பு அல்ல.'),('Correct location for normal vision.','சாதாரணப் பார்வைக்குரிய சரியான இடம்.'),('An image behind the retina indicates a focusing error.','விழித்திரைக்குப் பின்னால் விம்பம் உருவாவது குவிப்புக் குறைபாடு.')],['g11-chapter-05-geometrical-optics'])
 mcq(10,'biology','Inheritance',1,'Both sons of a couple are colour-blind. Which statement can be made with certainty in the usual X-linked inheritance model?', 'ஒரு பெற்றோருக்குப் பிறந்த இரு மகன்களும் நிறக்குருடு. வழக்கமான X-இணைந்த மரபுரிமை மாதிரியில் நிச்சயமாகக் கூறக்கூடியது எது?',
-    [('Mother carries the colour-blindness allele','தாய் நிறக்குருட்டுக்குரிய மரபலகைக் கொண்டுள்ளார்'),('Father is colour-blind','தந்தை நிறக்குருடு'),('Mother or father is colour-blind','தாய் அல்லது தந்தை நிறக்குருடு'),('Both parents are colour-blind','தாய், தந்தை இருவரும் நிறக்குருடு')],
+    [('Mother is colour-blind (original option wording)','தாய் நிறக்குருடு (மூலத் தெரிவின் சொற்கள்)'),('Father is colour-blind','தந்தை நிறக்குருடு'),('Mother or father is colour-blind','தாய் அல்லது தந்தை நிறக்குருடு'),('Both parents are colour-blind','தாய், தந்தை இருவரும் நிறக்குருடு')],
     ('A son receives his X chromosome from his mother and Y from his father. The mother must carry the affected allele; she need not herself have affected vision.','மகன் X நிறமூர்த்தத்தைத் தாயிடமிருந்தும் Y-ஐத் தந்தையிடமிருந்தும் பெறுகிறான். எனவே தாய் குறித்த மரபலகைக் கொண்டிருக்க வேண்டும்; தாய்க்கு நோய் வெளிப்பட வேண்டியதில்லை.'),
     [('The affected X allele comes from the mother; distinguish a carrier from an affected person.','பாதிக்கப்பட்ட X மரபலகு தாயிடமிருந்து வரும்; காவியையும் நோய் வெளிப்படுபவரையும் வேறுபடுத்துக.'),('The father gives a son Y, not X.','தந்தை மகனுக்கு Y-ஐ வழங்குகிறார்; X-ஐ அல்ல.'),('The inheritance establishes the maternal allele, not that either parent must visibly be affected.','தாயின் மரபலகை உறுதிப்படுத்துகிறது; பெற்றோரில் ஒருவருக்கு நோய் வெளிப்பட வேண்டும் என்பதல்ல.'),('Neither the father’s status nor visible symptoms in the mother follow.','தந்தையின் நிலையும் தாயில் நோய் வெளிப்படுவதும் இதிலிருந்து உறுதியாகாது.')])
 mcq(11,'biology','Plant tissues',1,'Samples A and B contain parenchyma and sclerenchyma respectively. Which pair fits?', 'A, B மாதிரிகளில் முறையே புடைக்கலவிழையமும் வல்லுருக்கலவிழையமும் காணப்படுகின்றன. பொருத்தமான தாவரப் பகுதிகள் எவை?',
@@ -197,4 +198,42 @@ def written(n, subjects, topics, pages, en, ta, parts):
         type='written', subjects=subjects, topics=topics, pages=pages, prompt=bi(en,ta), parts=parts,
         marks=15 if n<=4 else 20, lessons=sorted({l for p in parts for l in p['lessons']}),
         answerVerification='model-solution', sourceChecked=True))
+
+from pilot_2015_written import append_written
+append_written(written, part)
+for q in questions:
+    if q['type']=='mcq' and q['number'] in (2,8,17,18,22,27,28,30,31,32,34,36):
+        q['figure']=f'/lessons/past-papers/2015/mcq-{q["number"]:02}.jpg'
+questions[9]['editorialWarning']=bi('The official key selects option 1, but its wording is imprecise: an affected son must inherit the allele from his mother, who can be a carrier without being colour-blind. The scan and original option are preserved; score follows the historical key.',
+    'அதிகாரப்பூர்வ விடை தெரிவு 1; ஆனால் சொற்கள் துல்லியமற்றவை. பாதிக்கப்பட்ட மகன் மரபலகைத் தாயிடமிருந்து பெறுகிறான்; தாய்க்கு நோய் வெளிப்படாமல் காவியாக இருக்கலாம். மூலத் தெரிவும் தாளும் பேணப்பட்டுள்ளன; புள்ளிகள் வரலாற்று விடைக்குறிப்பைப் பின்பற்றும்.')
+questions[7]['translationReview']=dict(option=1,term='இளைப்பு',note='English meaning of this regional source term requires Tamil-medium teacher confirmation.')
+questions[16]['sourceDescription']=bi('Diagram description: zinc is on the left and copper on the right, in dilute sulfuric acid. The arrow on the external wire points from copper towards zinc.',
+    'பட விளக்கம்: ஐதான சல்பூரிக் அமிலத்தில் இடப்புறம் துத்தநாகமும் வலப்புறம் செம்பும் உள்ளன. வெளிக்கம்பியின் அம்பு செம்பிலிருந்து துத்தநாகத்தை நோக்குகிறது.')
+questions[27]['sourceDescription']=bi('The chip is viewed from above, with its notch on the left and the marker beside the lower-left pin. Read the upper and lower rows from left to right.',
+    'மேலிருந்து பார்க்கும் சில்லுவின் வெட்டு இடப்புறத்திலும் குறி கீழ் இடப்புற முனையருகிலும் உள்ளன. மேல், கீழ் வரிசைகளை இடமிருந்து வலமாக வாசிக்கவும்.')
+questions[27]['options']=[bi(f'Diagram {i+1}: upper row {a}; lower row {b}',f'படம் {i+1}: மேல் வரிசை {a}; கீழ் வரிசை {b}')
+    for i,(a,b) in enumerate([('1, 2, 3, 4','8, 7, 6, 5'),('8, 7, 6, 5','1, 2, 3, 4'),('5, 6, 7, 8','1, 2, 3, 4'),('1, 2, 3, 4','5, 6, 7, 8')])]
+questions[30]['sourceDescription']=bi('Water heights above the bottom points: P = 12 cm, Q = 12 cm, R = 15 cm, S = 14 cm. All containers contain the same water.',
+    'அடிப்புள்ளிகளுக்கு மேலுள்ள நீரின் உயரங்கள்: P = 12 cm, Q = 12 cm, R = 15 cm, S = 14 cm. எல்லாப் பாத்திரங்களிலும் அதே நீர் உள்ளது.')
+questions[42]['sourceDescription']=bi('Electron-diagram description: (1) two X atoms share one pair; (2) one Y shares one pair with each of four X atoms; (3) one Z shares one pair with each of three X atoms and has one lone pair. X, Y, Z are placeholders, with atomic numbers below 10.',
+    'இலத்திரன் பட விளக்கம்: (1) இரண்டு X அணுக்கள் ஒரு சோடியைப் பகிர்கின்றன; (2) Y நான்கு X அணுக்களுடன் ஒவ்வொரு சோடியைப் பகிர்கிறது; (3) Z மூன்று X அணுக்களுடன் ஒவ்வொரு சோடியைப் பகிர்ந்து ஒரு தனிச்சோடியைக் கொண்டுள்ளது. X, Y, Z குறியீடுகளின் அணு எண்கள் 10 இற்குக் குறைவு.')
+questions[48]['sourceDescription']=bi('Velocity–time graph: velocity increases uniformly from 0 to 60 m s⁻¹ over 40 s; a horizontal segment follows; velocity then decreases uniformly to zero over 20 s. The horizontal segment covers 15,000 m.',
+    'வேகம்–நேர வரைபு: 40 s இல் வேகம் சீராக 0 இலிருந்து 60 m s⁻¹ ஆகும்; பின் கிடைப் பகுதி; பின் 20 s இல் சீராக பூச்சியமாகக் குறையும். கிடைப் பகுதியில் 15,000 m பயணிக்கிறது.')
+
+bank = dict(schemaVersion=1, year=2015, title=bi('O/L Science 2015 — Tamil-medium pilot','சா/த விஞ்ஞானம் 2015 — தமிழ் முன்னோடி'),
+    sourceLanguage='ta', teacherReviewed=False, status='pilot',
+    editorialNote=bi('Tamil teaching paraphrases and English translations. Use the original scan for exact wording and diagrams. MCQ choices are checked against the Department of Examinations key. All explanations and written answers are model solutions awaiting teacher review.',
+        'தமிழ் கற்பித்தல் மீளுரைகளும் ஆங்கில மொழிபெயர்ப்புக்களும். சரியான மூலச் சொற்களுக்கும் படங்களுக்கும் மூலத்தாளைப் பார்க்கவும். தெரிவு விடைகள் பரீட்சைத் திணைக்கள விடைக்குறிப்புடன் சரிபார்க்கப்பட்டன. விளக்கங்களும் எழுத்து விடைகளும் ஆசிரியர் மீளாய்வை எதிர்பார்க்கும் மாதிரி விடைகள்.'),
+    keySource=SOURCE, sourcePdf='/lessons/past-papers/2015/source.pdf',
+    papers=[dict(id='I', minutes=60, questionCount=40, instructions=bi('Answer all 40 questions. Results use one point per correct answer, out of 40.','40 வினாக்களுக்கும் விடையளிக்கவும். சரியான விடைக்கு ஒரு புள்ளி; மொத்தம் 40.')),
+        dict(id='II', minutes=180, questionCount=10, instructions=bi('Answer all four Section A questions; in Section B answer one Biology question (5 or 6), one Chemistry question (7 or 8), and one Physics question (9 or 10). Written responses are self-checked; no automatic essay marks.','A பகுதியின் நான்கு வினாக்களுக்கும்; B பகுதியில் உயிரியல் (5 அல்லது 6), இரசாயனவியல் (7 அல்லது 8), பௌதிகவியல் (9 அல்லது 10) இல் ஒவ்வொன்றிற்கும் விடையளிக்கவும். எழுத்து விடைகளுக்குத் தன்னிலை மதிப்பீடு; தானியங்கி புள்ளிகள் இல்லை.'))],
+    questions=questions)
+
+if __name__ == '__main__':
+    assert len(questions) == 50
+    assert len({q['id'] for q in questions}) == 50
+    assert [q['correct']+1 for q in questions[:40]] == KEY
+    OUT.mkdir(parents=True,exist_ok=True)
+    (OUT/'2015.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    print(f'Built {len(questions)} questions and {sum(len(q.get("parts",[])) for q in questions)} written subparts.')
 

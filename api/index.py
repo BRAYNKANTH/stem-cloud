@@ -488,22 +488,28 @@ async def past_save(req: Request):
             answers = e.get('answers', {})
             labels = {p['label'] for p in q['parts']}
             if (not isinstance(answers,dict) or any(k not in labels or not isinstance(v,str) or len(v)>2000 for k,v in answers.items())
-                    or sum(len(v) for v in answers.values())>30000 or e.get('selfCheck') not in (None,'needs-work','understood')):
+                    or e.get('selfCheck') not in (None,'needs-work','understood')):
                 raise HTTPException(400, 'Invalid written response.')
             clean.update(answers=answers, selfCheck=e.get('selfCheck'))
             result = dict(type='written', answers=answers, selfCheck=e.get('selfCheck'), mode=e['mode'])
         validated.append((clean,result))
-    saved=[]; now=int(time.time())
+    saved=[]; now=int(time.time()*1000)
     with db() as con:
+        last=con.execute('SELECT MAX(created_at) AS at FROM past_attempts WHERE user_id=?',(u['id'],)).fetchone()['at']
+        now=max(now,(last or 0)+1)
         for clean,result in validated:
             payload=json.dumps(clean,sort_keys=True,ensure_ascii=False)
-            old=con.execute('SELECT payload,result FROM past_attempts WHERE user_id=? AND event_id=?',(u['id'],clean['id'])).fetchone()
+            old=con.execute('SELECT payload,result,created_at FROM past_attempts WHERE user_id=? AND event_id=?',(u['id'],clean['id'])).fetchone()
             if old and old['payload'] != payload:
                 raise HTTPException(409, 'Attempt ID was already used. Retry with the original response.')
             con.execute('INSERT INTO past_attempts(user_id,event_id,question_id,payload,result,created_at) VALUES(?,?,?,?,?,?) '
                         'ON CONFLICT(user_id,event_id) DO NOTHING',
                         (u['id'],clean['id'],clean['question'],payload,json.dumps(result,ensure_ascii=False),now))
-            saved.append(dict(id=clean['id'],question=clean['question'],result=json.loads(old['result']) if old else result,at=now))
+            stored=con.execute('SELECT payload,result,created_at FROM past_attempts WHERE user_id=? AND event_id=?',(u['id'],clean['id'])).fetchone()
+            if stored['payload']!=payload:
+                raise HTTPException(409, 'Attempt ID was already used.')
+            saved.append(dict(id=clean['id'],question=clean['question'],result=json.loads(stored['result']),at=stored['created_at']))
+            now+=1
     return {'attempts':saved}
 
 
@@ -689,7 +695,7 @@ APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="s
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
-               '<script src="/static/account.js"></script>')
+               '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 
 _MARK = '<!--STEM-BOOT-->'

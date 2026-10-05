@@ -10,6 +10,7 @@ var FONTS = 'stemcloud-fonts-' + VERSION;
 var PRECACHE = [
   '/static/offline.html', '/static/app.css', '/static/app-layer.css', '/static/player.css', '/static/app-layer.js', '/static/pwa.js', '/static/account.js',
   '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js', '/static/icons.js', '/static/si.js',
+  '/static/past-papers.js', '/static/past-papers.css', '/static/past-paper-links.js',
   '/static/icons/icon-192.png', '/static/icons/icon-512.png', '/static/icons/icon-maskable-512.png', '/static/icons/favicon-32.png', '/static/icons/favicon.ico', '/static/brand/logo-mark.png', '/manifest.webmanifest'
 ];
 
@@ -53,6 +54,16 @@ self.addEventListener('fetch', function (e) {
 
   if (url.pathname.indexOf('/static/') === 0 || url.pathname === '/manifest.webmanifest') {
     e.respondWith(swr(req, STATIC));
+    return;
+  }
+
+  /* Authenticated question-bank data/images use the private page cache; wiped on logout.
+   * PDFs stay on the network because viewers may request byte ranges. */
+  if (url.pathname.indexOf('/lessons/past-papers/') === 0 && /\.(json|jpg)$/.test(url.pathname)) {
+    e.respondWith(fetch(req).then(function(res) {
+      if(res.ok && !res.redirected) {var copy=res.clone();caches.open(PAGES).then(function(c){c.put(req,copy);});}
+      return res;
+    }).catch(function(){return caches.open(PAGES).then(function(c){return c.match(req);}).then(function(hit){return hit||Response.error();});}));
     return;
   }
 

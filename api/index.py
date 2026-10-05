@@ -687,6 +687,13 @@ APP_HEAD = (
     '<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">'
     '<link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">'
     '<link rel="icon" type="image/png" href="/static/brand/logo-mark.png">'
+    # the chosen language is set before first paint and the page stays hidden until it has been applied (lessons: when the player has started, and for Sinhala when its words are in),
+    # so a page never shows English for a moment and then flips; a failsafe shows it after 4 seconds whatever happens
+    '<style>html.stem-boot body{visibility:hidden}</style>'
+    '<script>try{var _l=localStorage.getItem("lessonLang")||"en",_h=document.documentElement;_h.lang=_l;_h.classList.add("stem-boot");'
+    '(function(){var d=false,w=_l==="si";function go(){if(d)return;d=true;_h.classList.remove("stem-boot")}'
+    'document.addEventListener("stem-step",function(){if(!w)setTimeout(go,250)},{once:true});window.addEventListener("stem-si-coverage",function(){setTimeout(go,250)},{once:true});'
+    'document.addEventListener("DOMContentLoaded",function(){setTimeout(go,document.getElementById("fw_path")?1800:40)});setTimeout(go,4000)})()}catch(e){}</script>'
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )

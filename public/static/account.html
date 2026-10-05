@@ -5,50 +5,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>STEM Cloud · My account</title>
 <meta name="theme-color" content="#f1f6fc"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png"><link rel="icon" type="image/png" href="/static/brand/logo-mark.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
-<style>a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<style>html[lang=si] body{font-family:"Noto Sans Sinhala",system-ui,sans-serif}.langrow{display:flex;gap:8px;flex-wrap:wrap}.langrow button{min-height:44px;flex:1 1 90px}.langrow button[aria-pressed="true"]{outline:2px solid var(--acc,#0a6bb8)}a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
 </style></head>
 <body>
 <div class="wrap">
-  <div class="brand">STEM <span>Cloud</span> · My account</div>
-  <p class="tag"><a class="lnk" href="/lessons/index.html">← Back to lessons</a></p>
+  <div class="brand">STEM <span>Cloud</span> <span data-t="· My account">· My account</span></div>
+  <p class="tag"><a class="lnk" href="/lessons/index.html" data-t="← Back to lessons">← Back to lessons</a></p>
 
   <div class="card">
     <h2 id="who">…</h2>
     <div class="stats">
       <div class="stat"><span>XP</span><b id="xp">0</b></div>
-      <div class="stat"><span>Badges</span><b id="bd">0</b></div>
+      <div class="stat"><span data-t="Badges">Badges</span><b id="bd">0</b></div>
     </div>
   </div>
 
   <div class="card">
-    <h2>Change my name</h2>
-    <input type="text" id="dn" maxlength="30" aria-label="Display name">
-    <button class="btn pri full" id="saveName" type="button">Save name</button>
+    <h2 data-t="Language">Language</h2>
+    <div class="langrow" role="group" aria-label="Language"><button class="btn" type="button" data-lang="en" lang="en">English</button><button class="btn" type="button" data-lang="ta" lang="ta">தமிழ்</button><button class="btn" type="button" data-lang="si" lang="si">සිංහල</button></div>
+  </div>
+
+  <div class="card">
+    <h2 data-t="Change my name">Change my name</h2>
+    <input type="text" id="dn" maxlength="30" aria-label="Display name" data-t-aria="Display name">
+    <button class="btn pri full" id="saveName" type="button" data-t="Save name">Save name</button>
     <div class="msg" id="m1"></div>
   </div>
 
   <div class="card">
-    <h2>Change my password</h2>
-    <label for="op">Current password</label>
+    <h2 data-t="Change my password">Change my password</h2>
+    <label for="op" data-t="Current password">Current password</label>
     <input type="password" id="op" autocomplete="current-password">
-    <label for="np">New password</label>
+    <label for="np" data-t="New password">New password</label>
     <input type="password" id="np" autocomplete="new-password">
-    <div class="hint">At least 8 characters. Other devices will be logged out.</div>
-    <button class="btn pri full" id="savePw" type="button">Change password</button>
+    <div class="hint" data-t="At least 8 characters. Other devices will be logged out.">At least 8 characters. Other devices will be logged out.</div>
+    <button class="btn pri full" id="savePw" type="button" data-t="Change password">Change password</button>
     <div class="msg" id="m2"></div>
   </div>
 
   <div class="card">
-    <h2>Delete my account</h2>
-    <p class="hint">This removes your account and all your saved progress for good. It cannot be undone.</p>
-    <label for="dp">Type your password to confirm</label>
+    <h2 data-t="Delete my account">Delete my account</h2>
+    <p class="hint" data-t="This removes your account and all your saved progress for good. It cannot be undone.">This removes your account and all your saved progress for good. It cannot be undone.</p>
+    <label for="dp" data-t="Type your password to confirm">Type your password to confirm</label>
     <input type="password" id="dp" autocomplete="current-password">
-    <button class="btn bad full" id="del" type="button">Delete my account</button>
+    <button class="btn bad full" id="del" type="button" data-t="Delete my account">Delete my account</button>
     <div class="msg" id="m3"></div>
   </div>
 
-  <div class="row"><button class="btn" id="out" type="button">Log out</button><a class="btn" id="adm" href="/admin" hidden>Admin</a></div>
-  <div class="foot"><a href="/privacy">Privacy</a></div>
+  <div class="row"><button class="btn" id="out" type="button" data-t="Log out">Log out</button><a class="btn" id="adm" href="/admin" hidden>Admin</a></div>
+  <div class="foot"><a href="/privacy" data-t="Privacy">Privacy</a></div>
 </div>
 <script>
 (function () {
@@ -58,6 +64,28 @@
     return fetch(url, { method: 'POST', headers: H, credentials: 'same-origin', body: JSON.stringify(body || {}) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (!r.ok) throw new Error(j.detail || 'Something went wrong.'); return j; }); });
   }
+  /* language: the choice made in the lessons (stored on this phone) is used here too */
+  var D = {
+    '· My account': ['· என் கணக்கு', '· මගේ ගිණුම'], '← Back to lessons': ['← பாடங்களுக்கு திரும்பு', '← පාඩම් වෙත ආපසු'], 'Badges': ['பேட்ஜ்கள்', 'පදක්කම්'],
+    'Language': ['மொழி', 'භාෂාව'], 'Change my name': ['என் பேரை மாத்து', 'මගේ නම වෙනස් කරන්න'], 'Display name': ['காட்டும் பேர்', 'පෙන්වන නම'], 'Save name': ['பேரை சேமி', 'නම සුරකින්න'],
+    'Change my password': ['என் பாஸ்வேர்டை மாத்து', 'මගේ මුරපදය වෙනස් කරන්න'], 'Current password': ['இப்போதைய பாஸ்வேர்டு', 'දැනට ඇති මුරපදය'], 'New password': ['புது பாஸ்வேர்டு', 'නව මුරපදය'],
+    'At least 8 characters. Other devices will be logged out.': ['குறைஞ்சது 8 எழுத்து. மத்த சாதனங்கள்ல லாகவுட் ஆகிடும்.', 'අවම වශයෙන් අක්ෂර 8ක්. අනෙක් උපාංගවලින් ඉවත් වේ.'],
+    'Change password': ['பாஸ்வேர்டை மாத்து', 'මුරපදය වෙනස් කරන්න'], 'Delete my account': ['என் கணக்கை அழி', 'මගේ ගිණුම මකන්න'],
+    'This removes your account and all your saved progress for good. It cannot be undone.': ['இது உன் கணக்கையும் சேமிச்ச முன்னேற்றத்தையும் நிரந்தரமா அழிக்கும். திரும்ப எடுக்க முடியாது.', 'මෙය ඔබේ ගිණුම සහ සුරකින ලද සියලු ප්‍රගතිය සදහටම මකා දමයි. ආපසු හැරවිය නොහැක.'],
+    'Type your password to confirm': ['உறுதிப்படுத்த உன் பாஸ்வேர்டை டைப் பண்ணு', 'තහවුරු කිරීමට ඔබේ මුරපදය ටයිප් කරන්න'], 'Log out': ['லாகவுட்', 'ඉවත් වන්න'], 'Privacy': ['தனியுரிமை', 'පෞද්ගලිකත්වය'],
+    'Saved ✓': ['சேமிச்சாச்சு ✓', 'සුරැකිණි ✓'], 'Password changed ✓': ['பாஸ்வேர்டு மாறிடுச்சு ✓', 'මුරපදය වෙනස් විය ✓']
+  };
+  function lang() { try { var l = localStorage.getItem('lessonLang'); return l === 'ta' || l === 'si' ? l : 'en'; } catch (e) { return 'en'; } }
+  function T(en) { var l = lang(), d = D[en]; return l === 'en' || !d ? en : d[l === 'ta' ? 0 : 1]; }
+  function applyLang() {
+    var l = lang(); document.documentElement.lang = l;
+    [].forEach.call(document.querySelectorAll('[data-t]'), function (e) { e.textContent = T(e.getAttribute('data-t')); });
+    [].forEach.call(document.querySelectorAll('[data-t-aria]'), function (e) { e.setAttribute('aria-label', T(e.getAttribute('data-t-aria'))); });
+    [].forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === l)); });
+    document.title = 'STEM Cloud · ' + T('· My account').replace(/^· /, '');
+  }
+  [].forEach.call(document.querySelectorAll('[data-lang]'), function (b) { b.onclick = function () { try { localStorage.setItem('lessonLang', b.getAttribute('data-lang')); } catch (e) {} applyLang(); }; });
+  applyLang();
   function show(id, ok, t) { var m = $(id); m.className = 'msg ' + (ok ? 'ok' : 'err'); m.textContent = t; }
   fetch('/api/me', { credentials: 'same-origin' }).then(function (r) { if (!r.ok) location.href = '/login?next=/account'; return r.json(); }).then(function (j) {
     $('who').textContent = j.user.display_name + ' (@' + j.user.username + ')';
@@ -69,8 +97,8 @@
     $('xp').textContent = parseInt(p.scx_xp_total || '0', 10) || 0;
     try { $('bd').textContent = JSON.parse(p.scx_badges || '[]').length; } catch (e) {}
   });
-  $('saveName').onclick = function () { post('/api/account/name', { display_name: $('dn').value }).then(function () { show('m1', true, 'Saved ✓'); }).catch(function (e) { show('m1', false, e.message); }); };
-  $('savePw').onclick = function () { post('/api/account/password', { old: $('op').value, new: $('np').value }).then(function () { $('op').value = $('np').value = ''; show('m2', true, 'Password changed ✓'); }).catch(function (e) { show('m2', false, e.message); }); };
+  $('saveName').onclick = function () { post('/api/account/name', { display_name: $('dn').value }).then(function () { show('m1', true, T('Saved ✓')); }).catch(function (e) { show('m1', false, e.message); }); };
+  $('savePw').onclick = function () { post('/api/account/password', { old: $('op').value, new: $('np').value }).then(function () { $('op').value = $('np').value = ''; show('m2', true, T('Password changed ✓')); }).catch(function (e) { show('m2', false, e.message); }); };
   $('del').onclick = function () { post('/api/account/delete', { password: $('dp').value }).then(function () {
     try { Object.keys(localStorage).filter(function (k) { return /^(scx_|stem_pp_|lessonLang$|lessonTheme$|acct_owner$)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
     if (window.StemApp) window.StemApp.clearPageCache();

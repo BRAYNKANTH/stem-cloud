@@ -503,6 +503,26 @@ def run():
             check('the lesson account menu has no Admin entry', pg.locator('.stem-menu a[href="/admin"]').count() == 0, pg.inner_text('.stem-menu'))
             ctx.close()
 
+            # the chosen language is kept across pages: a page never shows English first and flips; the account page follows it too
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
+            pg = ctx.new_page()
+            pg.goto(BASE + '/lessons/index.html', wait_until='domcontentloaded'); pg.evaluate("localStorage.setItem('lessonLang','ta')")
+            for name, sel, want in (('chapter-05-friction', '.hero h1', 'உராய்வு'), ('index', 'h1', 'பிசிக்ஸ்')):
+                pg.goto(BASE + '/lessons/%s.html' % name, wait_until='commit')
+                pg.wait_for_function("getComputedStyle(document.body).visibility === 'visible'", timeout=8000)
+                first = pg.evaluate("(document.querySelector('%s') || {}).textContent || ''" % sel)
+                check('Tamil is kept: %s is already in Tamil the first time it is shown' % name, want in first and pg.evaluate("document.documentElement.lang") == 'ta', first[:40])
+            pg.goto(BASE + '/account', wait_until='domcontentloaded'); pg.wait_for_timeout(600)
+            check('the account page is in Tamil when Tamil is chosen', 'என் கணக்கு' in pg.inner_text('.brand') and 'மொழி' in pg.inner_text('body'), pg.inner_text('.brand'))
+            pg.click('button[data-lang="si"]'); pg.wait_for_timeout(300)
+            check('choosing Sinhala on the account page changes it and keeps it', 'මගේ ගිණුම' in pg.inner_text('.brand') and pg.evaluate("localStorage.getItem('lessonLang')") == 'si')
+            pg.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='commit')
+            pg.wait_for_function("getComputedStyle(document.body).visibility === 'visible'", timeout=8000)
+            check('...and the next lesson page opens in Sinhala', 'ඝර්ෂණය' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.evaluate("localStorage.setItem('lessonLang','en')")
+            ctx.close()
+
             # the hub in Sinhala
             ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
             pg, errs = open_lesson(ctx, 'index')

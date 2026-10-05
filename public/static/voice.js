@@ -7,8 +7,9 @@
   var doc = document, synth = window.speechSynthesis;
   var hasTTS = !!(synth && window.SpeechSynthesisUtterance);
 
-  function lang() { try { return (typeof APP_LANG !== 'undefined' ? APP_LANG : localStorage.getItem('lessonLang')) === 'ta' ? 'ta' : 'en'; } catch (e) { return 'en'; } }
-  function L(en, ta) { return lang() === 'ta' ? ta : en; }
+  function lang() { try { var l = window.stemLang ? window.stemLang() : (typeof APP_LANG !== 'undefined' ? APP_LANG : localStorage.getItem('lessonLang')); return l === 'ta' ? 'ta' : (l === 'si' ? 'si' : 'en'); } catch (e) { return 'en'; } }
+  function L(en, ta) { var l = lang(); return l === 'ta' ? ta : (l === 'si' && window.StemSI ? window.StemSI.t(en) : en); }
+  var SI_NOVOICE = 'මෙම දුරකථනයේ සිංහල හඬ ස්ථාපනය කර නැත. Settings > Text-to-speech (Google) වෙත ගොස් සිංහල හඬ බාගන්න.';
   function mk(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
   function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) {} return null; }
   function calm() { return doc.documentElement.classList.contains('stem-calm'); }
@@ -43,7 +44,7 @@
   function pickVoice(lg, who) {
     var saved = store('stem_voice_' + lg);                      /* the voice the student chose */
     if (saved) { var sv = voices.filter(function (v) { return v.name === saved; })[0]; if (sv) return sv; }
-    var prefixes = lg === 'ta' ? ['ta'] : ['en-in', 'en-gb', 'en-us', 'en'];
+    var prefixes = lg === 'ta' ? ['ta'] : (lg === 'si' ? ['si'] : ['en-in', 'en-gb', 'en-us', 'en']);
     for (var i = 0; i < prefixes.length; i++) {
       var m = voices.filter(function (v) { return vlang(v).indexOf(prefixes[i]) === 0; });
       if (!m.length) continue;
@@ -79,7 +80,7 @@
   function speakable(t, lg) {
     t = String(t).replace(/[₀-₄]/g, function (c) { return ' ' + SUB[c]; });
     t = t.replace(/[←-⇿⌀-⏿☀-➿⬀-⯿️‍]|[\uD83C-\uD83E][\uDC00-\uDFFF]/g, ' ');   /* emoji and arrows, ticks */
-    (lg === 'ta' ? TA : EN).forEach(function (r) { t = t.replace(r[0], r[1]); });
+    (lg === 'ta' ? TA : (lg === 'si' ? [] : EN)).forEach(function (r) { t = t.replace(r[0], r[1]); });
     if (lg === 'ta') t = t.replace(/\s*\([^)]*[A-Za-z][^)]*\)/g, ' ');
     return t.replace(/\s+/g, ' ').trim();
   }
@@ -109,7 +110,7 @@
       if (i >= parts.length) { if (done) done(); return; }
       var u = new SpeechSynthesisUtterance(parts[i++]);
       var v = pickVoice(lg, o.who);
-      u.lang = lg === 'ta' ? 'ta-IN' : 'en-IN';
+      u.lang = lg === 'ta' ? 'ta-IN' : (lg === 'si' ? 'si-LK' : 'en-IN');
       if (v) { u.voice = v; u.lang = v.lang; }
       u.rate = o.rate || state.rate;
       u.pitch = o.who === 'R' ? 1.12 : (o.who === 'C' ? 1.3 : 1);
@@ -121,6 +122,7 @@
     return my;
   }
   function needTamilVoice() {
+    if (lang() === 'si' && hasTTS) { loadVoices(); if (hasVoice('si')) return false; toast(SI_NOVOICE); return true; }
     if (lang() !== 'ta' || !hasTTS) return false;
     loadVoices();
     if (hasVoice('ta')) return false;
@@ -258,8 +260,8 @@
   function playLine(d) {
     silence();
     if (!d || storyMode === 'off') return;
-    function viaTTS() { if (needTamilVoice()) return; speak(d.text, { who: d.who }); }
-    if (storyMode === 'tts') { viaTTS(); return; }
+    function viaTTS() { if (needTamilVoice()) return; speak(lang() === 'si' && window.StemSI ? window.StemSI.t(d.text) : d.text, { who: d.who }); }
+    if (storyMode === 'tts' || lang() === 'si') { viaTTS(); return; }                /* Sinhala: no recordings yet, the phone's own voice reads the translated line */
     /* recordings: Tamil in /audio/story/<id>/lineNN.mp3, English (when recorded) in /audio/story/<id>/en/lineNN.mp3 */
     var a = new Audio('/static/audio/story/' + d.id + '/' + (lang() === 'ta' ? '' : 'en/') + 'line' + ('0' + d.i).slice(-2) + '.mp3');
     a.playbackRate = state.rate;

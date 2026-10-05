@@ -3,13 +3,13 @@
  * - lesson pages: network first (always fresh progress), last visited copy when offline
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v7';
+var VERSION = 'v9';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
 var PRECACHE = [
   '/static/offline.html', '/static/app.css', '/static/app-layer.css', '/static/player.css', '/static/app-layer.js', '/static/pwa.js', '/static/account.js',
-  '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js', '/static/icons.js',
+  '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js', '/static/icons.js', '/static/si.js',
   '/static/icons/icon-192.png', '/static/icons/favicon-32.png', '/static/brand/logo-mark.png', '/manifest.webmanifest'
 ];
 

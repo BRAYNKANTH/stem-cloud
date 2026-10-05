@@ -32,9 +32,13 @@
   html,body{margin:0;padding:0;}
   body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;}
   body.lang-ta{font-family:'Noto Sans Tamil','Inter',system-ui,sans-serif;}
+  body.lang-si{font-family:'Inter','Noto Sans Sinhala',system-ui,sans-serif;}
   h1,h2,h3{font-family:'Sora',system-ui,sans-serif;color:var(--text);margin:0;}
   body.lang-ta h1,body.lang-ta h2,body.lang-ta h3{font-family:'Noto Sans Tamil','Sora',sans-serif;}
+  body.lang-si h1,body.lang-si h2,body.lang-si h3,body.lang-si .mod>summary .mt{font-family:'Sora','Noto Sans Sinhala',sans-serif;}
+  body.lang-si p,body.lang-si .rt b{line-height:1.7;}
   a{color:var(--accent-text);}
+  body.lang-si *,body.lang-ta *{letter-spacing:normal!important;}
   .sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important;}
   .skip-link{position:fixed;left:12px;top:-80px;z-index:300;padding:12px 18px;border-radius:12px;background:var(--panel);color:var(--text);border:2px solid var(--accent);font-weight:800;text-decoration:none;transition:top .15s;}
   .skip-link:focus{top:12px;}
@@ -101,7 +105,7 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main" data-ta="பாடங்களுக்கு நேரா போ">Skip to the lessons</a>
+<a class="skip-link" href="#main" data-ta="பாடங்களுக்கு நேரா போ" data-si="පාඩම් වෙත කෙලින්ම යන්න">Skip to the lessons</a>
 <div class="topbar" role="banner">
   <div class="topbar-inner">
     <div class="brand">STEM Cloud</div>
@@ -115,20 +119,20 @@
 <div class="wrap" id="main" role="main" tabindex="-1">
 
   <section class="course" aria-labelledby="cTitle">
-    <p class="c-kicker" data-ta="🎓 க.பொ.த (சா/த)">🎓 G.C.E. O/L</p>
-    <h1 id="cTitle" data-ta="பிசிக்ஸ்: படிப்படியா">Physics, step by step</h1>
-    <p class="c-sub" data-ta="ராஜா, சிட்டு கூட சுலபமா கத்துக்கலாம்.">Easy lessons with Raja and Chittu.</p>
+    <p class="c-kicker" data-ta="🎓 க.பொ.த (சா/த)" data-si="🎓 සාමාන්‍ය පෙළ (සා.පෙළ)">🎓 G.C.E. O/L</p>
+    <h1 id="cTitle" data-ta="பிசிக்ஸ்: படிப்படியா" data-si="භෞතික විද්‍යාව: පියවරෙන් පියවර">Physics, step by step</h1>
+    <p class="c-sub" data-ta="ராஜா, சிட்டு கூட சுலபமா கத்துக்கலாம்." data-si="රාජා සහ චිට්ටු සමඟ පහසුවෙන් ඉගෙන ගන්න.">Easy lessons with Raja and Chittu.</p>
     <div class="c-stats" id="cStats"></div>
     <div class="c-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cBarBox"><i id="cBar"></i></div>
     <a class="c-cta" id="cCta" href="#"><span class="pl" aria-hidden="true">▶</span><span class="tx"><b id="cCtaW"></b><span id="cCtaT"></span></span></a>
   </section>
 
   <section class="toc" aria-labelledby="tocT">
-    <h2 id="tocT" data-ta="பாட உள்ளடக்கம்">Contents</h2>
+    <h2 id="tocT" data-ta="பாட உள்ளடக்கம்" data-si="පාඨමාලා පටුන">Contents</h2>
     <div id="toc"></div>
   </section>
 
-  <footer data-ta="STEM Cloud — உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது.">STEM Cloud — your progress is saved to your account.</footer>
+  <footer data-ta="STEM Cloud — உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது." data-si="STEM Cloud — ඔබේ ප්‍රගතිය ඔබේ ගිණුමේ සුරැකේ.">STEM Cloud — your progress is saved to your account.</footer>
 </div>
 
 <script>
@@ -138,21 +142,19 @@ function readJSON(key, fallback){ try{ const v = safeGet(key); return v ? JSON.p
 
 let APP_LANG = 'en';
 let hubRenderHook = null;
-function t(en, ta){ return APP_LANG === 'ta' ? ta : en; }
+function t(en, ta, si){ return APP_LANG === 'ta' ? ta : (APP_LANG === 'si' && si ? si : en); }
 
 function captureI18n(){ document.querySelectorAll('[data-ta]').forEach(function(e){ if(e.dataset.en === undefined){ e.dataset.en = e.innerHTML; } }); }
 function applyLang(lang){
   APP_LANG = lang;
   captureI18n();
-  document.querySelectorAll('[data-ta]').forEach(function(e){ e.innerHTML = (lang === 'ta') ? e.dataset.ta : e.dataset.en; });
+  window.STEM_LANG = lang;
+  document.querySelectorAll('[data-ta]').forEach(function(e){ e.innerHTML = (lang === 'ta') ? e.dataset.ta : (lang === 'si' && e.dataset.si ? e.dataset.si : e.dataset.en); });
   document.documentElement.lang = lang;
   document.body.classList.toggle('lang-ta', lang === 'ta');
+  document.body.classList.toggle('lang-si', lang === 'si');
   const langBtn = document.getElementById('langToggle');
-  if(langBtn){
-    langBtn.textContent = (lang === 'en') ? '🌐 தமிழ்' : '🌐 English';
-    langBtn.setAttribute('aria-label', lang === 'en' ? 'தமிழ்' : 'English'); langBtn.setAttribute('lang', lang === 'en' ? 'ta' : 'en');
-    langBtn.title = lang === 'en' ? 'Switch to Tamil' : 'Switch to English';
-  }
+  if(langBtn){ langBtn.textContent = '🌐 ' + (lang === 'ta' ? 'தமிழ்' : lang === 'si' ? 'සිංහල' : 'English'); if(window.StemSI) StemSI.labelBtn(langBtn); }
   if(hubRenderHook) hubRenderHook();
   safeSet('lessonLang', lang);
 }
@@ -167,33 +169,32 @@ function applyLang(lang){
     root.setAttribute('data-theme', next); safeSet('lessonTheme', next);
   });
 })();
-document.getElementById('langToggle').addEventListener('click', function(){ applyLang(APP_LANG === 'en' ? 'ta' : 'en'); });
 
 /* ============================================================
    THE COURSE: modules -> chapters.
    lid = the id the lesson stores its steps under, steps = steps in the lesson.
 ============================================================ */
-const WELCOME = { file:'intro-physics-is-easy.html', en:'Meet Raja and Chittu', ta:'ராஜா, சிட்டுவ சந்திங்க' };
+const WELCOME = { file:'intro-physics-is-easy.html', en:'Meet Raja and Chittu', ta:'ராஜா, சிட்டுவ சந்திங்க', si:'රාජා සහ චිට්ටු හඳුනා ගන්න' };
 const MODULES = [
-  { id:'g10',  icon:'🔟', en:'Grade 10', ta:'தரம் 10' },
-  { id:'g11',  icon:'🎓', en:'Grade 11', ta:'தரம் 11' }
+  { id:'g10',  icon:'🔟', en:'Grade 10', ta:'தரம் 10', si:'10 ශ්‍රේණිය' },
+  { id:'g11',  icon:'🎓', en:'Grade 11', ta:'தரம் 11', si:'11 ශ්‍රේණිය' }
 ];
 const LESSONS = [
-  { m:'g10',  n:'2',  lid:'u2',     steps:12, file:'unit-02-motion-in-a-straight-line.html', en:'Motion in a Straight Line', ta:'நேர்க்கோட்டு இயக்கம்' },
-  { m:'g10',  n:'4',  lid:'c4',     steps:13, file:'chapter-04-newtons-laws.html', en:"Newton's Laws of Motion", ta:'நியூற்றனின் இயக்க விதிகள்' },
-  { m:'g10',  n:'5',  lid:'c5',     steps:13, file:'chapter-05-friction.html', en:'Friction', ta:'உராய்வு' },
-  { m:'g10',  n:'9',  lid:'c9',     steps:13, file:'chapter-09-resultant-force.html', en:'Resultant Force', ta:'விளையுள் விசை' },
-  { m:'g10',  n:'11', lid:'c11',    steps:13, file:'chapter-11-turning-effect.html', en:'Turning Effect of Forces', ta:'விசையின் திரும்பல் விளைவு' },
-  { m:'g10',  n:'12', lid:'c12',    steps:13, file:'chapter-12-equilibrium.html', en:'Equilibrium of Forces', ta:'விசைகளின் சமநிலை' },
-  { m:'g10',  n:'15', lid:'g10c15', steps:13, file:'g10-chapter-15-hydrostatic-pressure.html', en:'Pressure of Liquids', ta:'திரவ அமுக்கம்' },
-  { m:'g10',  n:'18', lid:'g10c18', steps:13, file:'g10-chapter-18-work-energy-power.html', en:'Work, Energy and Power', ta:'வேலை, சக்தி, வலு' },
-  { m:'g10',  n:'19', lid:'g10c19', steps:13, file:'g10-chapter-19-current-electricity.html', en:'Current Electricity', ta:'ஓட்ட மின்னியல்' },
-  { m:'g11',  n:'4',  lid:'g11c04', steps:13, file:'g11-chapter-04-waves.html', en:'Waves and their Applications', ta:'அலைகளும் அவற்றின் பயன்பாடுகளும்' },
-  { m:'g11',  n:'5',  lid:'g11c05', steps:13, file:'g11-chapter-05-geometrical-optics.html', en:'Geometrical Optics', ta:'வடிவவியல் ஒளியியல்' },
-  { m:'g11',  n:'9',  lid:'g11c09', steps:13, file:'g11-chapter-09-heat.html', en:'Heat', ta:'வெப்பம்' },
-  { m:'g11',  n:'10', lid:'g11c10', steps:13, file:'g11-chapter-10-electric-appliances.html', en:'Power and Energy of Electric Appliances', ta:'மின் உபகரணங்களோட வலுவும் சக்தியும்' },
-  { m:'g11',  n:'11', lid:'g11c11', steps:13, file:'g11-chapter-11-electronics.html', en:'Electronics', ta:'மின்னணுவியல்' },
-  { m:'g11',  n:'13', lid:'g11c13', steps:13, file:'g11-chapter-13-electromagnetism.html', en:'Electromagnetism and Induction', ta:'மின்காந்தவியலும் தூண்டலும்' }
+  { m:'g10',  n:'2',  lid:'u2',     steps:12, file:'unit-02-motion-in-a-straight-line.html', en:'Motion in a Straight Line', ta:'நேர்க்கோட்டு இயக்கம்', si:'සරල රේඛීය චලිතය' },
+  { m:'g10',  n:'4',  lid:'c4',     steps:13, file:'chapter-04-newtons-laws.html', en:"Newton's Laws of Motion", ta:'நியூற்றனின் இயக்க விதிகள்', si:'චලිතය පිළිබඳ නිව්ටන් නියම' },
+  { m:'g10',  n:'5',  lid:'c5',     steps:13, file:'chapter-05-friction.html', en:'Friction', ta:'உராய்வு', si:'ඝර්ෂණය' },
+  { m:'g10',  n:'9',  lid:'c9',     steps:13, file:'chapter-09-resultant-force.html', en:'Resultant Force', ta:'விளையுள் விசை', si:'සම්ප්‍රයුක්ත බලය' },
+  { m:'g10',  n:'11', lid:'c11',    steps:13, file:'chapter-11-turning-effect.html', en:'Turning Effect of Forces', ta:'விசையின் திரும்பல் விளைவு', si:'බලයක භ්‍රමණ ආචරණය' },
+  { m:'g10',  n:'12', lid:'c12',    steps:13, file:'chapter-12-equilibrium.html', en:'Equilibrium of Forces', ta:'விசைகளின் சமநிலை', si:'බල සමතුලිතතාව' },
+  { m:'g10',  n:'15', lid:'g10c15', steps:13, file:'g10-chapter-15-hydrostatic-pressure.html', en:'Pressure of Liquids', ta:'திரவ அமுக்கம்', si:'ද්‍රවස්ථිති පීඩනය හා එහි යෙදීම්' },
+  { m:'g10',  n:'18', lid:'g10c18', steps:13, file:'g10-chapter-18-work-energy-power.html', en:'Work, Energy and Power', ta:'வேலை, சக்தி, வலு', si:'කාර්යය, ශක්තිය හා ජවය' },
+  { m:'g10',  n:'19', lid:'g10c19', steps:13, file:'g10-chapter-19-current-electricity.html', en:'Current Electricity', ta:'ஓட்ட மின்னியல்', si:'ධාරා විද්‍යුතය' },
+  { m:'g11',  n:'4',  lid:'g11c04', steps:13, file:'g11-chapter-04-waves.html', en:'Waves and their Applications', ta:'அலைகளும் அவற்றின் பயன்பாடுகளும்', si:'තරංග සහ ඒවායේ යෙදීම්' },
+  { m:'g11',  n:'5',  lid:'g11c05', steps:13, file:'g11-chapter-05-geometrical-optics.html', en:'Geometrical Optics', ta:'வடிவவியல் ஒளியியல்', si:'ප්‍රකාශ විද්‍යාව' },
+  { m:'g11',  n:'9',  lid:'g11c09', steps:13, file:'g11-chapter-09-heat.html', en:'Heat', ta:'வெப்பம்', si:'තාපය' },
+  { m:'g11',  n:'10', lid:'g11c10', steps:13, file:'g11-chapter-10-electric-appliances.html', en:'Power and Energy of Electric Appliances', ta:'மின் உபகரணங்களோட வலுவும் சக்தியும்', si:'විදුලි උපකරණවල ජවය හා ශක්තිය' },
+  { m:'g11',  n:'11', lid:'g11c11', steps:13, file:'g11-chapter-11-electronics.html', en:'Electronics', ta:'மின்னணுவியல்', si:'ඉලෙක්ට්‍රොනික විද්‍යාව' },
+  { m:'g11',  n:'13', lid:'g11c13', steps:13, file:'g11-chapter-13-electromagnetism.html', en:'Electromagnetism and Induction', ta:'மின்காந்தவியலும் தூண்டலும்', si:'විද්‍යුත් චුම්බකත්වය සහ විද්‍යුත් චුම්බක ප්‍රේරණය' }
 ];
 
 /* Today counts as a visit, same rule as the lesson pages. */
@@ -226,14 +227,14 @@ function render(){
   const doneN = prog.filter(p => p.done).length;
 
   document.getElementById('cStats').innerHTML =
-    '<span title="' + t('Chapters finished', 'முடிச்ச பாடங்கள்') + '">✅ <b>' + doneN + '</b> / ' + LESSONS.length + '</span>' +
+    '<span title="' + t('Chapters finished', 'முடிச்ச பாடங்கள்', 'අවසන් කළ පරිච්ඡේද') + '">✅ <b>' + doneN + '</b> / ' + LESSONS.length + '</span>' +
     '<span title="XP">⭐ <b>' + xp + '</b></span>' +
-    '<span title="' + t('Day streak', 'தினசரி ஸ்ட்ரீக்') + '">🔥 <b>' + streakDays() + '</b></span>' +
-    '<span title="' + t('Badges', 'பேட்ஜ்') + '">🏅 <b>' + badges + '</b></span>';
+    '<span title="' + t('Day streak', 'தினசரி ஸ்ட்ரீக்', 'දිනපතා අඛණ්ඩතාව') + '">🔥 <b>' + streakDays() + '</b></span>' +
+    '<span title="' + t('Badges', 'பேட்ஜ்', 'පදක්කම්') + '">🏅 <b>' + badges + '</b></span>';
   const pct = Math.round(prog.reduce((a, p) => a + p.pct, 0) / LESSONS.length);
   document.getElementById('cBar').style.width = pct + '%';
   document.getElementById('cBarBox').setAttribute('aria-valuenow', pct);
-  document.getElementById('cBarBox').setAttribute('aria-label', t('Course progress', 'பாட முன்னேற்றம்'));
+  document.getElementById('cBarBox').setAttribute('aria-label', t('Course progress', 'பாட முன்னேற்றம்', 'පාඨමාලා ප්‍රගතිය'));
 
   /* where to go next: the lesson you were in, else the first one not finished (the welcome first for a new student) */
   const lastFile = safeGet('stem_last_lesson');
@@ -243,39 +244,39 @@ function render(){
   const cta = document.getElementById('cCta');
   let target, word;
   if(!introSeen && doneN === 0 && !lastFile){
-    target = WELCOME; word = t('Start the course', 'பாடத்த தொடங்கு');
-    cta.href = WELCOME.file; document.getElementById('cCtaT').textContent = t(WELCOME.en, WELCOME.ta);
+    target = WELCOME; word = t('Start the course', 'பாடத்த தொடங்கு', 'පාඨමාලාව අරඹන්න');
+    cta.href = WELCOME.file; document.getElementById('cCtaT').textContent = t(WELCOME.en, WELCOME.ta, WELCOME.si);
   } else if(idx < 0){
-    target = LESSONS[LESSONS.length - 1]; word = t('Review', 'திருப்பி பாரு');
-    cta.href = target.file; document.getElementById('cCtaT').textContent = t(target.en, target.ta);
+    target = LESSONS[LESSONS.length - 1]; word = t('Review', 'திருப்பி பாரு', 'නැවත බලන්න');
+    cta.href = target.file; document.getElementById('cCtaT').textContent = t(target.en, target.ta, target.si);
   } else {
     target = LESSONS[idx]; const p = prog[idx];
-    word = p.seen > 0 ? t('Continue', 'தொடர்') : t('Start', 'தொடங்கு');
+    word = p.seen > 0 ? t('Continue', 'தொடர்', 'ඉදිරියට') : t('Start', 'தொடங்கு', 'ආරම්භ කරන්න');
     cta.href = target.file;
-    document.getElementById('cCtaT').textContent = t('Chapter ', 'அத். ') + target.n + ' · ' + t(target.en, target.ta) + (p.seen > 0 ? ' · ' + p.seen + '/' + target.steps : '');
+    document.getElementById('cCtaT').textContent = t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + target.n + ' · ' + t(target.en, target.ta, target.si) + (p.seen > 0 ? ' · ' + p.seen + '/' + target.steps : '');
   }
   document.getElementById('cCtaW').textContent = word;
   const nowFile = target.file;
 
   /* contents */
-  const other = APP_LANG === 'ta' ? 'en' : 'ta';
+  const other = APP_LANG === 'en' ? 'ta' : 'en';
   let h = '<div class="intro"><a class="row' + (nowFile === WELCOME.file ? ' now' : '') + '" href="' + WELCOME.file + '" data-welcome="1">' +
     '<span class="st' + (introSeen ? ' done' : '') + '" aria-hidden="true"><span>' + (introSeen ? '✓' : '👋') + '</span></span>' +
-    '<span class="rt"><b>' + t(WELCOME.en, WELCOME.ta) + '</b><small lang="' + other + '">' + WELCOME[other] + '</small></span></a></div>';
+    '<span class="rt"><b>' + t(WELCOME.en, WELCOME.ta, WELCOME.si) + '</b><small lang="' + other + '">' + (WELCOME[other] || WELCOME.en) + '</small></span></a></div>';
   MODULES.forEach(function(m){
     const items = LESSONS.map((l, i) => [l, prog[i]]).filter(x => x[0].m === m.id);
     const mDone = items.filter(x => x[1].done).length;
     const holdsNow = items.some(x => x[0].file === nowFile);
     const open = (m.id in OPEN) ? OPEN[m.id] : (holdsNow || (m.id === 'g10' && nowFile === WELCOME.file));
-    h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : '') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
+    h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : '') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta, m.si) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
     items.forEach(function(x){
       const l = x[0], p = x[1];
-      const state = p.done ? t('completed', 'முடிஞ்சது') : (p.seen ? t('in progress', 'நடந்துட்டிருக்கு') : t('not started', 'ஆரம்பிக்கல'));
+      const state = p.done ? t('completed', 'முடிஞ்சது', 'අවසන්') : (p.seen ? t('in progress', 'நடந்துட்டிருக்கு', 'සිදුවෙමින් පවතී') : t('not started', 'ஆரம்பிக்கல', 'ආරම්භ කර නැත'));
       h += '<li><a class="row' + (l.file === nowFile ? ' now' : '') + '" href="' + l.file + '">' +
         '<span class="st' + (p.done ? ' done' : '') + '" style="--p:' + p.pct + '" aria-hidden="true"><span>' + (p.done ? '✓' : l.n) + '</span></span>' +
-        '<span class="rt"><b>' + t(l.en, l.ta) + '</b><small lang="' + other + '">' + l[other] + '</small></span>' +
-        '<span class="rm" aria-hidden="true">' + (p.seen && !p.done ? p.seen + ' / ' + l.steps : l.steps + ' ' + t('steps', 'படிகள்')) + '</span>' +
-        '<span class="sr-only">' + t('Chapter ', 'அத். ') + l.n + ', ' + state + (p.seen && !p.done ? ', ' + p.seen + ' / ' + l.steps : '') + '</span></a></li>';
+        '<span class="rt"><b>' + t(l.en, l.ta, l.si) + '</b><small lang="' + other + '">' + (l[other] || l.en) + '</small></span>' +
+        '<span class="rm" aria-hidden="true">' + (p.seen && !p.done ? p.seen + ' / ' + l.steps : l.steps + ' ' + t('steps', 'படிகள்', 'පියවර')) + '</span>' +
+        '<span class="sr-only">' + t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + l.n + ', ' + state + (p.seen && !p.done ? ', ' + p.seen + ' / ' + l.steps : '') + '</span></a></li>';
     });
     h += '</ol></details>';
   });

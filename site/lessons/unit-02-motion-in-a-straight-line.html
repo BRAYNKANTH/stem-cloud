@@ -1431,7 +1431,8 @@ function captureI18n(){
 }
 
 function applyLang(lang){
-  APP_LANG = lang;
+  window.STEM_LANG = lang; if(window.StemSI) StemSI.revert();      /* Sinhala: the lesson runs in English, si.js swaps the text */
+  APP_LANG = (lang === 'si') ? 'en' : lang;
   captureI18n();
   document.querySelectorAll('[data-ta]').forEach(function(e){
     e.innerHTML = (lang === 'ta') ? e.dataset.ta : e.dataset.en;
@@ -1448,6 +1449,8 @@ function applyLang(lang){
   if(motionLabLangHook) motionLabLangHook();
   if(pathExplorerLangHook) pathExplorerLangHook();
   safeSet('lessonLang', lang);
+  if(window.StemSI){ if(lang === 'si') StemSI.apply(); StemSI.labelBtn(document.getElementById('langToggle')); }
+  try{ window.dispatchEvent(new Event('stem-lang')); }catch(e){}
 }
 
 /* ============================================================
@@ -3067,7 +3070,7 @@ SCX.refreshBar();
 })();
 
 /* Re-sync language on all dynamically-created game elements */
-applyLang(APP_LANG);
+applyLang(window.STEM_LANG || APP_LANG);
 
 /* ============================================================
    SCROLL-REVEAL

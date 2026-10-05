@@ -1,0 +1,16 @@
+{
+"Start from zero: tiny electric helpers": "මුල සිට: කුඩා විදුලි සහායකයෝ",
+"Your phone, a calculator and a remote all have tiny parts that control electricity. What are they?": "ඔබේ දුරකථනයේ, කැල්කියුලේටරයේ සහ රිමෝට් එකේ විදුලිය පාලනය කරන කුඩා කොටස් තිබෙනවා. ඒවා මොනවාද?",
+"Three kinds of materials": "ද්‍රව්‍ය වර්ග තුනක්",
+"Some let current through, some block it, and some are in the middle. The in-between ones are special.": "සමහරක් ධාරාව ගලා යාමට ඉඩ දෙයි, සමහරක් වළක්වයි, සමහරක් ඒ දෙක අතරයි. අතර ඇති ඒවා විශේෂයි.",
+"A one-way street": "එක් මං මාර්ගයක්",
+"A diode lets current go one way only, like a gate that opens one way.": "ඩයෝඩයක් ධාරාව ගලා යාමට ඉඩ දෙන්නේ එක් පැත්තකට පමණයි, එක් පැත්තකට පමණක් විවෘත වන ගේට්ටුවක් මෙන්.",
+"A tiny light": "කුඩා ආලෝකයක්",
+"An LED glows when current flows the right way through it.": "ධාරාව නිවැරදි පැත්තට ගලන විට LED එකක් දැල්වෙනවා.",
+"A tap you control with a whisper": "කොඳුරුවකින් පාලනය කළ හැකි ටැප් එකක්",
+"A transistor uses a tiny current to switch a big current on or off, like a tap.": "ට්‍රාන්සිස්ටරයක් කුඩා ධාරාවකින් විශාල ධාරාවක් ටැප් එකක් මෙන් ක්‍රියාත්මක හෝ නිශ්ක්‍රීය කරයි.",
+"Look at an old torch or toy. Find the bulb or LED, the battery and the switch.": "පරණ ටෝච් එකක් හෝ සෙල්ලම් බඩුවක් බලන්න. බල්බය හෝ LED, බැටරිය සහ ස්විචය සොයා ගන්න.",
+"Now let's see how these parts are built and used.": "දැන් මේ කොටස් සාදන හා භාවිතා කරන ආකාරය බලමු.",
+"Electronics": "ඉලෙක්ට්‍රොනික විද්‍යාව",
+"What is inside a phone? Semiconductors, doping, the p-n junction diode, rectification, LEDs, solar cells and transistors as amplifiers and switches.": "දුරකථනයක් ඇතුළත ඇත්තේ කුමක්ද? අර්ධ සන්නායක, මාත්‍රණය, p-n සන්ධි ඩයෝඩය, සෘජුකරණය, LED, සූර්ය කෝෂ සහ වර්ධක හා ස්විච් ලෙස ට්‍රාන්සිස්ටර."
+}

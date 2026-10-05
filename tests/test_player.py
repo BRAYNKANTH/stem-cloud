@@ -4,7 +4,7 @@
     python tests/test_player.py
 Speech is replaced by a recording stub, so the test checks exactly what would be spoken.
 """
-import json, os, subprocess, sys, tempfile, time, urllib.request
+import json, os, re, subprocess, sys, tempfile, time, urllib.request
 
 from playwright.sync_api import sync_playwright
 
@@ -205,7 +205,7 @@ def run():
             check('the diagram closes again', pg.locator('.stem-lightbox').count() == 0)
             # language switch keeps the parts
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('exercises') + 1)"); pg.wait_for_timeout(300)
-            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(900)
+            pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(900)
             check('parts are re-formatted after switching to Tamil', pg.locator('#exercises .qpart').count() >= 4, pg.locator('#exercises .qpart').count())
             ctx.close()
 
@@ -236,7 +236,7 @@ def run():
             pg.click('.sb-mid'); pg.wait_for_timeout(300)
             check('the lesson map is just the list of steps (no stats, help or switches)', pg.locator('.sm-stats,.sm-help,.sm-calm').count() == 0 and pg.locator('.sm-item').count() == 15)
             pg.keyboard.press('Escape')
-            check('the language button names its target (the word it shows, plus a tooltip)', pg.get_attribute('#langToggle', 'aria-label') == 'தமிழ்' and 'Tamil' in (pg.get_attribute('#langToggle', 'title') or ''), pg.get_attribute('#langToggle', 'aria-label'))
+            check('the language button shows the current language and says it opens a list', pg.get_attribute('#langToggle', 'aria-label') == 'Language: English' and pg.get_attribute('#langToggle', 'aria-haspopup') == 'true', pg.get_attribute('#langToggle', 'aria-label'))
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('watch') + 1)"); pg.wait_for_timeout(700)
             ctl = pg.evaluate("['fw_play','fw_rep','fw_slow','fw_snd'].map(id => { const b = document.getElementById(id); return [b.textContent.trim(), /\\p{L}/u.test(b.textContent), (b.getAttribute('aria-label') || '').length > 2]; })")
             check('animation controls are icons with spoken names', all((not c[1]) and c[2] for c in ctl), ctl)
@@ -297,7 +297,7 @@ def run():
             # names, roles, colours
             check('the animation time slider has a real name', pg.evaluate("document.getElementById('fw_scrub').getAttribute('aria-label')") == 'Animation time')
             check('the sound button does not repeat its state in its name', pg.evaluate("/on|off/i.test(document.getElementById('fw_snd').getAttribute('aria-label'))") is False, pg.evaluate("document.getElementById('fw_snd').getAttribute('aria-label')"))
-            check('the language button is named by the word it shows', pg.get_attribute('#langToggle', 'aria-label') == 'தமிழ்' and pg.get_attribute('#langToggle', 'lang') == 'ta')
+            check('the language button text matches its name', 'English' in pg.inner_text('#langToggle') and 'English' in pg.get_attribute('#langToggle', 'aria-label'))
             check('the account menu is a disclosure, not a half-built ARIA menu', pg.evaluate("document.querySelector('.stem-menu').getAttribute('role')") == 'group' and pg.evaluate("document.querySelector('.stem-av').getAttribute('aria-haspopup')") is None)
             pg.evaluate("StemPlayer.go(0)"); pg.wait_for_timeout(300)
             check('phase titles are level 3 headings (no h2 to h4 jump)', pg.evaluate("[...document.querySelectorAll('.fw-phase h4')].every(h => h.getAttribute('aria-level') === '3')"))
@@ -340,10 +340,50 @@ def run():
             ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
             ctx.add_init_script(ACT)
             pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power')
-            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(1500)
-            check('Tamil page: the page language is ta and the button says English in English', pg.evaluate("document.documentElement.lang") == 'ta' and pg.get_attribute('#langToggle', 'lang') == 'en')
+            pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(1500)
+            check('Tamil page: the page language is ta and the button shows தமிழ்', pg.evaluate("document.documentElement.lang") == 'ta' and 'தமிழ்' in pg.inner_text('#langToggle') and pg.get_attribute('#langToggle', 'lang') == 'ta')
             check('Tamil page: English-only text is marked lang=en', pg.evaluate("document.querySelectorAll('[data-lpart][lang=en]').length") > 0)
-            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
+            ctx.close()
+
+            # ------------------------------------------------------------ Sinhala (third language, overlaid on the English lesson)
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
+            pg, errs = open_lesson(ctx, 'g10-chapter-18-work-energy-power')
+            pg.click('#langToggle'); pg.wait_for_timeout(300)
+            check('the language button opens a list of three languages', pg.locator('.stem-langpop button').count() == 3 and pg.inner_text('.stem-langpop').count('සිංහල') == 1, pg.inner_text('.stem-langpop'))
+            pg.keyboard.press('Escape'); pg.wait_for_timeout(200)
+            check('Escape closes the language list and focus returns to the button', pg.locator('.stem-langpop').count() == 0 and pg.evaluate("document.activeElement.id") == 'langToggle')
+            pg.click('#langToggle'); pg.wait_for_timeout(200); pg.click('.stem-langpop button[data-l="si"]'); pg.wait_for_timeout(1800)
+            check('Sinhala: the page language is si and the font class is on', pg.evaluate("document.documentElement.lang") == 'si' and pg.evaluate("document.body.classList.contains('lang-si')"))
+            check('Sinhala: the button shows සිංහල', 'සිංහල' in pg.inner_text('#langToggle') and pg.get_attribute('#langToggle', 'lang') == 'si', pg.inner_text('#langToggle'))
+            check('Sinhala: the chapter title comes from the textbook', 'කාර්යය, ශක්තිය හා ජවය' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            check('Sinhala: the kicker uses numbers inside a translated pattern', '10 ශ්‍රේණිය · 18 පරිච්ඡේදය' in pg.inner_text('.hero .kicker'), pg.inner_text('.hero .kicker'))
+            check('Sinhala: step names in the overview are translated', 'කතාව' in pg.inner_text('.stem-ov') and 'මූලික කරුණු' in pg.inner_text('.stem-ov'), pg.inner_text('.stem-ov')[:120])
+            pg.wait_for_timeout(2500)
+            check('Sinhala: the bottom bar and header are translated', 'කතාව' in (pg.get_attribute('.sb-next', 'aria-label') or '') or 'ඊළඟ' in (pg.get_attribute('.sb-next', 'aria-label') or '') or 'අරඹන්න' in (pg.get_attribute('.sb-next', 'aria-label') or ''), pg.get_attribute('.sb-next', 'aria-label'))
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('basics') + 1)"); pg.wait_for_timeout(700)
+            check('Sinhala: the start-from-zero step is in Sinhala', 'ඔබ දවස පුරා' in pg.inner_text('#basics') and not re.search('[A-Za-z]{4,}', pg.inner_text('#basics .bs-card h3')), pg.inner_text('#basics .bs-card h3'))
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('notes') + 1)"); pg.wait_for_timeout(700)
+            check('Sinhala: text with no translation yet stays English (no blanks, no errors)', len(pg.inner_text('#notes')) > 200 and not errs, errs[:2])
+            pg.evaluate("StemPlayer.go(0)"); pg.wait_for_timeout(500)
+            check('Sinhala: the unfinished-translation note shows on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
+            pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(1200)
+            check('back to Tamil: Tamil text, no Sinhala left behind', 'வேலை' in pg.inner_text('.hero h1') and not re.search('[\u0D80-\u0DFF]', pg.inner_text('.hero')) and pg.locator('.stem-si-note').count() == 0, pg.inner_text('.hero h1'))
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(900)
+            check('back to English: English text, no Sinhala left behind', 'Work, Energy and Power' in pg.inner_text('.hero h1') and not re.search('[\u0D80-\u0DFF]', pg.inner_text('.wrap')))
+            pg.evaluate("applyLang('si')"); pg.wait_for_timeout(1200); pg.reload(wait_until='domcontentloaded'); pg.wait_for_timeout(2000)
+            check('Sinhala is remembered after a reload', pg.evaluate("document.documentElement.lang") == 'si' and 'කාර්යය' in pg.inner_text('.hero h1'))
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(600)
+            ctx.close()
+
+            # the hub in Sinhala
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
+            pg, errs = open_lesson(ctx, 'index')
+            pg.click('#langToggle'); pg.wait_for_timeout(200); pg.click('.stem-langpop button[data-l="si"]'); pg.wait_for_timeout(800)
+            check('Sinhala hub: modules and chapter names are Sinhala', '10 ශ්‍රේණිය' in pg.inner_text('details.mod[data-m="g10"] summary') and 'ධාරා විද්‍යුතය' in pg.inner_text('#toc'), pg.inner_text('#toc')[:100])
+            check('Sinhala hub: the continue button is Sinhala', re.search('[\u0D80-\u0DFF]', pg.inner_text('#cCtaW')) is not None, pg.inner_text('#cCtaW'))
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(500)
             ctx.close()
 
             # ------------------------------------------------------------ course-style lesson (like an online course player)
@@ -378,9 +418,9 @@ def run():
             pg.click('.co-ok'); pg.wait_for_timeout(200)
             # Tamil text in the start-from-zero step
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('basics') + 1)"); pg.wait_for_timeout(300)
-            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(900)
+            pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(900)
             check('the start-from-zero step switches to Tamil', pg.evaluate("/[\\u0B80-\\u0BFF]/.test(document.querySelector('#basics .bs-card h3').textContent)"))
-            pg.evaluate("document.getElementById('langToggle').click()"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
+            pg.evaluate("applyLang('en')"); pg.wait_for_timeout(900)      # back to English: the language is saved to the account
             ctx.close()
 
             ctx = browser.new_context(viewport={'width': 1280, 'height': 800}, storage_state=state)

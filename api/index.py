@@ -426,6 +426,7 @@ if(owner&&owner!==String(U.id)){Object.keys(localStorage).filter(T).forEach(func
 localStorage.setItem('acct_owner',String(U.id));
 function J(v,d){try{return JSON.parse(v)}catch(e){return d}}
 function M(k,o,n){if(o===null||o===undefined)return n;try{
+if(k==='lessonLang'||k==='lessonTheme')return o;
 if(k==='scx_xp_total')return String(Math.max(parseInt(o,10)||0,parseInt(n,10)||0));
 if(k==='scx_badges'||/_activities$/.test(k)){var s={};J(o,[]).concat(J(n,[])).forEach(function(x){s[x]=1});return JSON.stringify(Object.keys(s).sort())}
 if(k==='scx_visit_dates'){var s2={};J(o,[]).concat(J(n,[])).forEach(function(x){s2[x]=1});return JSON.stringify(Object.keys(s2).sort().slice(-400))}
@@ -443,13 +444,14 @@ APP_HEAD = (
     '<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">'
     '<meta name="apple-mobile-web-app-title" content="STEM Cloud">'
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" media="print" onload="this.media=&quot;all&quot;">'
     '<link rel="icon" type="image/png" href="/static/icons/favicon-32.png">'
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )
 APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
 # order matters: player.js builds the lesson bar that voice.js adds its button to
-APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/app-layer.js"></script>'
+APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script>')

@@ -97,23 +97,14 @@
   }
   function soon() { clearTimeout(langTimer); langTimer = setTimeout(markParts, 250); }
   doc.addEventListener('stem-step', soon);
-  var ltg = doc.getElementById('langToggle');
-  if (ltg) ltg.addEventListener('click', function () { setTimeout(function () { window.dispatchEvent(new Event('stem-lang')); soon(); }, 120); });
+  window.addEventListener('stem-lang', function () { setTimeout(soon, 100); });
   setTimeout(markParts, 800);
 
   /* remember the lesson for the hub's "continue where you left off" card */
   try { if (doc.getElementById('fw_path')) localStorage.setItem('stem_last_lesson', location.pathname.split('/').pop()); } catch (e) {}
 
   /* the language button names the language it switches to, for screen readers and as a tooltip */
-  function langLabel() {
-    var lt = doc.getElementById('langToggle'); if (!lt) return;
-    var ta = false; try { ta = localStorage.getItem('lessonLang') === 'ta'; } catch (e) {}
-    var name = ta ? 'English' : 'தமிழ்';                              /* the visible word, in its own language */
-    lt.setAttribute('aria-label', name); lt.setAttribute('lang', ta ? 'en' : 'ta');
-    lt.title = ta ? 'Switch to English' : 'Switch to Tamil';
-  }
-  langLabel();
-  var ltb = doc.getElementById('langToggle'); if (ltb) ltb.addEventListener('click', function () { setTimeout(langLabel, 120); });
+  /* the language button (English / தமிழ் / සිංහල) is labelled and opened by si.js */
 
   /* New user onboarding banner helper */
   function initOnboarding() {

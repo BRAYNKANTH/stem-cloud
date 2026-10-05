@@ -1,0 +1,16 @@
+{
+"Start from zero: how electricity flows": "මුල සිට: විදුලිය ගලන ආකාරය",
+"Press a switch and the light comes on instantly. What is travelling through the wire?": "ස්විචය එබූ විගස බල්බය දැල්වෙනවා. වයරය තුළින් ගමන් කරන්නේ කුමක්ද?",
+"Think of water in a pipe": "බටයක ජලය ගැන සිතන්න",
+"Electric current is a flow of tiny charges in a wire, like water flowing in a pipe.": "විද්‍යුත් ධාරාව යනු බටයක ජලය ගලන්නාක් මෙන් වයරයක ඇති කුඩා ආරෝපණ ගලා යාමයි.",
+"The battery is the pump": "බැටරිය යනු පොම්පයයි",
+"A battery pushes the charges around, like a pump pushes water.": "ජලය පොම්පයෙන් තල්ලු කරන්නාක් මෙන් බැටරිය ආරෝපණ වටේට තල්ලු කරයි.",
+"A circuit is a loop": "පරිපථයක් යනු වළල්ලකි",
+"The path must make a full loop. A switch opens or closes the loop.": "මාවත සම්පූර්ණ වළල්ලක් විය යුතුයි. ස්විචයකින් එම වළල්ල විවෘත හෝ වසා දැමිය හැකියි.",
+"Some things let it flow": "සමහර දේවල් ගලා යාමට ඉඩ දෙයි",
+"Metals like copper let current flow. Plastic and rubber do not.": "තඹ වැනි ලෝහ ධාරාව ගලා යාමට ඉඩ දෙයි. ප්ලාස්ටික් සහ රබර් ඉඩ දෙන්නේ නැහැ.",
+"Look at a torch: find the battery, the switch and the bulb. Can you trace the loop?": "ටෝච් එකක් බලන්න: බැටරිය, ස්විචය සහ බල්බය සොයා ගන්න. පරිපථ වළල්ල පෙන්විය හැකිද?",
+"Now let's measure current, voltage and resistance.": "දැන් ධාරාව, විභව අන්තරය සහ ප්‍රතිරෝධය මනිමු.",
+"Current Electricity": "ධාරා විද්‍යුතය",
+"Why does a rubbed comb pick up paper but a bulb needs a cell? Charges, current, voltage, Ohm's law and resistors in series and parallel, step by step.": "අතුල්ලපු පනාවකට කඩදාසි අදින්න පුළුවන් වුවත් බල්බයකට කෝෂයක් අවශ්‍ය වන්නේ ඇයි? ආරෝපණ, ධාරාව, වෝල්ටීයතාව, ඕම්ගේ නියමය සහ ශ්‍රේණිගත හා සමාන්තරගත ප්‍රතිරෝධක, පියවරෙන් පියවර."
+}

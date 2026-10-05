@@ -1,0 +1,16 @@
+{
+"Start from zero: electricity at home": "මුල සිට: ගෙදර විදුලිය",
+"A kettle heats, a fan spins and a bulb glows. All three use the same electricity. How?": "කේතලයක් රත් වෙනවා, විදුලි පංකාවක් කැරකෙනවා, බල්බයක් දැල්වෙනවා. තුනටම එකම විදුලිය. කොහොමද?",
+"The plug brings power": "ප්ලග් එක බලය ගෙන එයි",
+"Electricity comes from the wall socket through wires into the appliance.": "විදුලිය බිත්තියේ සොකට් එකෙන් වයර් හරහා උපකරණයට පැමිණෙනවා.",
+"Some appliances make heat": "සමහර උපකරණ තාපය නිපදවයි",
+"A kettle or an iron has a wire that gets hot when current flows through it.": "කේතලයක හෝ ඉස්තිරික්කයක ධාරාව ගලන විට රත් වන වයරයක් තිබෙනවා.",
+"Some make things move": "සමහර ඒවා දේවල් චලනය කරයි",
+"A fan has a motor. Electricity makes the motor spin the blades.": "පංකාවක මෝටරයක් තිබේ. විදුලිය මගින් මෝටරය පෙති කරකවයි.",
+"Safety comes first": "ආරක්ෂාව ප්‍රථමයි",
+"A fuse is a thin wire that melts if too much current flows, so it protects you. Never touch plugs with wet hands.": "ෆියුසය යනු අධික ධාරාවක් ගලන විට දියවී යන සිහින් කම්බියකි, එය ඔබව ආරක්ෂා කරයි. තෙත් අතින් ප්ලග් ස්පර්ශ නොකරන්න.",
+"With a grown-up, look at the labels on 3 appliances. Can you find the power in watts (W)?": "වැඩිහිටියෙකු සමඟ උපකරණ 3ක ලේබල බලන්න. වොට් (W) වලින් ජවය ලියා තිබෙනවාද?",
+"Now let's learn how power, wiring and safety really work.": "දැන් ජවය, රැහැන්කරණය සහ ආරක්ෂාව ක්‍රියා කරන ආකාරය බලමු.",
+"Power and Energy of Electric Appliances": "විදුලි උපකරණවල ජවය හා ශක්තිය",
+"How much power does a bulb use, what does the electricity bill count, and how does the house circuit keep you safe? P = V I, E = P t, kilowatt hours and domestic wiring.": "බල්බයක් භාවිතා කරන ජවය කොපමණද, විදුලි බිල ගණන් කරන්නේ කුමක්ද, ගෙදර පරිපථය ඔබව ආරක්ෂා කරන්නේ කෙසේද? P = V I, E = P t, කිලෝවොට් පැය සහ ගෘහස්ථ රැහැන්කරණය."
+}

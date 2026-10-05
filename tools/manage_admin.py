@@ -3,7 +3,7 @@
 
 Usage:
     python tools/manage_admin.py list
-    python tools/manage_admin.py create [username] [password] [display_name]
+    python tools/manage_admin.py create <username> <password> [display_name]
 """
 import os, sys, time
 
@@ -55,9 +55,10 @@ if __name__ == '__main__':
     if cmd == 'list':
         list_users()
     elif cmd in ('create', 'set'):
-        u = args[1] if len(args) > 1 else 'admin'
-        p = args[2] if len(args) > 2 else 'AdminPass123'
+        if len(args) < 3:
+            sys.exit("Usage: python tools/manage_admin.py create <username> <password> [display_name]   (there is no default password)")
+        u, p = args[1], args[2]
         d = args[3] if len(args) > 3 else 'Site Admin'
         create_or_reset_admin(u, p, d)
     else:
-        print("Usage: python tools/manage_admin.py [list|create] [username] [password] [display_name]")
+        print("Usage: python tools/manage_admin.py [list|create] <username> <password> [display_name]")

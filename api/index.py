@@ -21,7 +21,7 @@ SITE = ROOT / 'site'
 LESSONS = (SITE / 'lessons').resolve()
 STATIC = ROOT / 'public' / 'static'      # Vercel serves public/ straight from its CDN; the app mounts the same folder for local use and the HTML pages
 ON_VERCEL = bool(os.environ.get('VERCEL'))
-ADMIN_USERS = {'admin', 'brayn'} | {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}
+ADMIN_USERS = {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}      # no built-in admin names: admins are made with tools/manage_admin.py or by an admin
 TRUST_PROXY = ON_VERCEL or os.environ.get('TRUST_PROXY') == '1'
 SESSION_DAYS = 30
 COOKIE = 'sid'
@@ -351,7 +351,10 @@ async def api_login(req: Request):
     with db() as con:
         row = con.execute('SELECT * FROM users WHERE username=?', (username,)).fetchone()
         if not row:
-            if username in ADMIN_USERS:
+            count = con.execute('SELECT COUNT(*) AS c FROM users').fetchone()['c']
+            if count == 0:                      # a brand-new empty database: the first login creates the first admin
+                if not USER_RE.match(username):
+                    raise HTTPException(400, 'Username: 3 to 20 letters, numbers or underscore.')
                 if len(pw) < 8:
                     raise HTTPException(400, 'Password must be at least 8 characters.')
                 pwh = hash_pw(pw)
@@ -360,26 +363,10 @@ async def api_login(req: Request):
                                   (username, username.capitalize(), pwh, 'admin', now, now)).fetchone()['id']
                 row = con.execute('SELECT * FROM users WHERE id=?', (uid,)).fetchone()
             else:
-                count = con.execute('SELECT COUNT(*) AS c FROM users').fetchone()['c']
-                if count == 0:
-                    if not USER_RE.match(username):
-                        raise HTTPException(400, 'Username: 3 to 20 letters, numbers or underscore.')
-                    if len(pw) < 8:
-                        raise HTTPException(400, 'Password must be at least 8 characters.')
-                    pwh = hash_pw(pw)
-                    now = int(time.time())
-                    uid = con.execute('INSERT INTO users(username,display_name,pw,role,created_at,last_seen) VALUES(?,?,?,?,?,?) RETURNING id',
-                                      (username, username.capitalize(), pwh, 'admin', now, now)).fetchone()['id']
-                    row = con.execute('SELECT * FROM users WHERE id=?', (uid,)).fetchone()
-                else:
-                    check_pw(pw, 'scrypt$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=')   # keep timing similar
-                    raise HTTPException(401, 'Wrong username or password.')
+                check_pw(pw, 'scrypt$AAAAAAAAAAAAAAAAAAAAAA==$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=')   # keep timing similar
+                raise HTTPException(401, 'Wrong username or password.')
         else:
-            matched = check_pw(pw, row['pw'])
-            if not matched and username in ADMIN_USERS and pw == 'AdminPass123':
-                con.execute("UPDATE users SET pw=?, role='admin' WHERE id=?", (hash_pw(pw), row['id']))
-                matched = True
-            if not matched:
+            if not check_pw(pw, row['pw']):
                 raise HTTPException(401, 'Wrong username or password.')
 
         row = dict(row)

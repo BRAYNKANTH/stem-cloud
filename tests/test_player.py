@@ -490,6 +490,19 @@ def run():
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(600)
             ctx.close()
 
+            # admin and student areas are separate: an admin signs in to the admin panel, the lesson menu has no Admin entry, the admin panel does not link into the lessons
+            ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True)
+            ctx.add_init_script("try{localStorage.setItem('stem_coach_done','1')}catch(e){}")
+            pg = ctx.new_page()
+            pg.goto(BASE + '/login', wait_until='domcontentloaded'); pg.wait_for_timeout(600)
+            pg.fill('#un', 'adm_root'); pg.fill('#pw', 'LocalTest-2468'); pg.click('#go'); pg.wait_for_timeout(2500)
+            check('an admin signing in lands on the admin panel', pg.url.rstrip('/').endswith('/admin'), pg.url)
+            check('the admin panel has no link into the study lessons', pg.locator('a[href*="/lessons/"]').count() == 0)
+            pg.goto(BASE + '/lessons/chapter-05-friction.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)
+            pg.click('.stem-av'); pg.wait_for_timeout(300)
+            check('the lesson account menu has no Admin entry', pg.locator('.stem-menu a[href="/admin"]').count() == 0, pg.inner_text('.stem-menu'))
+            ctx.close()
+
             # the hub in Sinhala
             ctx = browser.new_context(viewport={'width': 393, 'height': 760}, is_mobile=True, has_touch=True, storage_state=state)
             pg, errs = open_lesson(ctx, 'index')

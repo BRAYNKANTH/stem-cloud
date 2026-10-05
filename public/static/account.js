@@ -132,7 +132,6 @@
       function act(t, fn) { var b = mk('button', '', t); b.type = 'button'; b.onclick = fn; menu.appendChild(b); return b; }
       link('🏠 ' + L('Course contents', 'பாட உள்ளடக்கம்'), '/lessons/index.html');
       link('👤 ' + L('My account', 'என் கணக்கு'), '/account');
-      if (U.role === 'admin') link('🛠 Admin', '/admin');
 
       var tt = document.getElementById('themeToggle');
       if (tt && getComputedStyle(tt).display === 'none') {

@@ -299,9 +299,9 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
     this.textContent = show ? '🙈' : '👁';
   };
 
-  function next() {
+  function next(role) {
     var n = new URLSearchParams(location.search).get('next');
-    return n && n.charAt(0) === '/' && n.charAt(1) !== '/' && n.indexOf('\\') < 0 ? n : '/lessons/index.html';
+    return n && n.charAt(0) === '/' && n.charAt(1) !== '/' && n.indexOf('\\') < 0 ? n : (role === 'admin' ? '/admin' : '/lessons/index.html');
   }
 
   /* Device Limit Management */
@@ -394,8 +394,9 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
       }
       closeDeviceModal();
       m.className = 'msg ok';
-      m.textContent = 'Device switched successfully! Opening your lessons…';
-      location.href = next();
+      var adm1 = x.j && x.j.user && x.j.user.role === 'admin';
+      m.textContent = 'Device switched successfully! ' + (adm1 ? 'Opening the admin panel…' : 'Opening your lessons…');
+      location.href = next(adm1 ? 'admin' : '');
     }).catch(function () {
       closeDeviceModal();
       m.className = 'msg err';
@@ -440,8 +441,9 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
         return;
       }
       m.className = 'msg ok';
-      m.textContent = 'Welcome back! Opening your lessons…';
-      location.href = next();
+      var adm2 = x.j && x.j.user && x.j.user.role === 'admin';
+      m.textContent = 'Welcome back! ' + (adm2 ? 'Opening the admin panel…' : 'Opening your lessons…');
+      location.href = next(adm2 ? 'admin' : '');
     }).catch(function () {
       m.className = 'msg err';
       m.textContent = 'Cannot reach the server. Check your internet connection.';

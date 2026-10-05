@@ -62,7 +62,7 @@
   fetch('/api/me', { credentials: 'same-origin' }).then(function (r) { if (!r.ok) location.href = '/login?next=/account'; return r.json(); }).then(function (j) {
     $('who').textContent = j.user.display_name + ' (@' + j.user.username + ')';
     $('dn').value = j.user.display_name;
-    if (j.user.role === 'admin') $('adm').hidden = false;
+    if (j.user.role === 'admin') { $('adm').hidden = false; var bk = document.querySelector('p.tag a.lnk'); if (bk) { bk.href = '/admin'; bk.textContent = '← Admin panel'; } }
   });
   fetch('/api/progress', { credentials: 'same-origin' }).then(function (r) { return r.json(); }).then(function (j) {
     var p = j.progress || {};
@@ -72,7 +72,7 @@
   $('saveName').onclick = function () { post('/api/account/name', { display_name: $('dn').value }).then(function () { show('m1', true, 'Saved ✓'); }).catch(function (e) { show('m1', false, e.message); }); };
   $('savePw').onclick = function () { post('/api/account/password', { old: $('op').value, new: $('np').value }).then(function () { $('op').value = $('np').value = ''; show('m2', true, 'Password changed ✓'); }).catch(function (e) { show('m2', false, e.message); }); };
   $('del').onclick = function () { post('/api/account/delete', { password: $('dp').value }).then(function () {
-    try { Object.keys(localStorage).filter(function (k) { return /^(scx_|lessonLang$|lessonTheme$|acct_owner$)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
+    try { Object.keys(localStorage).filter(function (k) { return /^(scx_|stem_pp_|lessonLang$|lessonTheme$|acct_owner$)/.test(k); }).forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
     if (window.StemApp) window.StemApp.clearPageCache();
     location.href = '/login'; }).catch(function (e) { show('m3', false, e.message); }); };
   $('out').onclick = function () { if (window.StemApp) window.StemApp.clearPageCache(); post('/api/logout').then(function () { location.href = '/login'; }); };

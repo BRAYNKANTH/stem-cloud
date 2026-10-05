@@ -37,7 +37,7 @@ def main():
                     32:(4,105,115,1080,250),34:(4,105,452,1080,630),36:(4,105,715,1080,1025)}
                 for number,(page,x0,y0,x1,y1) in panels.items():
                     doc[page-1].get_pixmap(matrix=fitz.Matrix(2,2),clip=fitz.Rect(x0/2,y0/2,x1/2,y1/2)).save(dest/f'mcq-{number:02}.jpg',jpg_quality=90)
-                entry.update(bank='/lessons/past-papers/2015.json',mcqCount=40,writtenCount=10)
+                entry.update(bank='/lessons/past-papers/2015.json',scope="physics",mcqCount=14,writtenCount=5)
             catalog.append(entry)
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/'catalog.json').write_text(json.dumps(dict(schemaVersion=1,papers=catalog),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

@@ -220,19 +220,51 @@ questions[42]['sourceDescription']=bi('Electron-diagram description: (1) two X a
 questions[48]['sourceDescription']=bi('Velocity–time graph: velocity increases uniformly from 0 to 60 m s⁻¹ over 40 s; a horizontal segment follows; velocity then decreases uniformly to zero over 20 s. The horizontal segment covers 15,000 m.',
     'வேகம்–நேர வரைபு: 40 s இல் வேகம் சீராக 0 இலிருந்து 60 m s⁻¹ ஆகும்; பின் கிடைப் பகுதி; பின் 20 s இல் சீராக பூச்சியமாகக் குறையும். கிடைப் பகுதியில் 15,000 m பயணிக்கிறது.')
 
-bank = dict(schemaVersion=1, year=2015, title=bi('O/L Science 2015 — Tamil-medium pilot','சா/த விஞ்ஞானம் 2015 — தமிழ் முன்னோடி'),
+# Publish only substantive physics questions; retain original source numbering.
+physics_mcqs = {5, 9, *range(25, 37)}
+physics_questions = []
+for q in questions:
+    if q['type'] == 'mcq':
+        if q['number'] in physics_mcqs:
+            physics_questions.append(q)
+        continue
+    original_parts = q['parts']
+    q['parts'] = [p for p in original_parts if p['subject'] == 'physics']
+    if not q['parts']:
+        continue
+    q['subjects'] = ['physics']
+    q['lessons'] = sorted({l for p in q['parts'] for l in p['lessons']})
+    if len(q['parts']) != len(original_parts):
+        q.pop('marks', None)  # Source total includes excluded science subparts.
+        q.pop('sourceDescription', None)
+        q['physicsSubset'] = True
+    if q['number'] == 1:
+        q['prompt'] = bi('Waves and a floating ship: answer the physics subparts below.', 'அலைகளும் மிதக்கும் கப்பலும்: கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு விடையளிக்கவும்.')
+        q['topics'] = ['Waves', 'Buoyancy']
+    if q['number'] == 3:
+        q['prompt'] = bi('A balloon is cooled at constant pressure. Answer the gas-law subparts below.', 'மாறா அமுக்கத்தில் பலூன் குளிர்விக்கப்படுகிறது. கீழுள்ள வாயு விதிப் பகுதிகளுக்கு விடையளிக்கவும்.')
+        q['topics'] = ['Gas laws']
+    physics_questions.append(q)
+questions = physics_questions
+
+bank = dict(schemaVersion=2, scope="physics", year=2015, title=bi('O/L Physics questions 2015 — Tamil-medium pilot','சா/த பௌதிகவியல் வினாக்கள் 2015 — தமிழ் முன்னோடி'),
     sourceLanguage='ta', teacherReviewed=False, status='pilot',
     editorialNote=bi('Tamil teaching paraphrases and English translations. Use the original scan for exact wording and diagrams. MCQ choices are checked against the Department of Examinations key. All explanations and written answers are model solutions awaiting teacher review.',
         'தமிழ் கற்பித்தல் மீளுரைகளும் ஆங்கில மொழிபெயர்ப்புக்களும். சரியான மூலச் சொற்களுக்கும் படங்களுக்கும் மூலத்தாளைப் பார்க்கவும். தெரிவு விடைகள் பரீட்சைத் திணைக்கள விடைக்குறிப்புடன் சரிபார்க்கப்பட்டன. விளக்கங்களும் எழுத்து விடைகளும் ஆசிரியர் மீளாய்வை எதிர்பார்க்கும் மாதிரி விடைகள்.'),
     keySource=SOURCE, sourcePdf='/lessons/past-papers/2015/source.pdf',
-    papers=[dict(id='I', minutes=60, questionCount=40, instructions=bi('Answer all 40 questions. Results use one point per correct answer, out of 40.','40 வினாக்களுக்கும் விடையளிக்கவும். சரியான விடைக்கு ஒரு புள்ளி; மொத்தம் 40.')),
-        dict(id='II', minutes=180, questionCount=10, instructions=bi('Answer all four Section A questions; in Section B answer one Biology question (5 or 6), one Chemistry question (7 or 8), and one Physics question (9 or 10). Written responses are self-checked; no automatic essay marks.','A பகுதியின் நான்கு வினாக்களுக்கும்; B பகுதியில் உயிரியல் (5 அல்லது 6), இரசாயனவியல் (7 அல்லது 8), பௌதிகவியல் (9 அல்லது 10) இல் ஒவ்வொன்றிற்கும் விடையளிக்கவும். எழுத்து விடைகளுக்குத் தன்னிலை மதிப்பீடு; தானியங்கி புள்ளிகள் இல்லை.'))],
+    papers=[dict(id='I', minutes=30, questionCount=14, instructions=bi('Physics subset practice: answer all 14 MCQs in 30 minutes. This is not the complete Science paper.', 'பௌதிகவியல் பயிற்சி: 30 நிமிடங்களில் 14 தெரிவு வினாக்களுக்கும் விடையளிக்கவும். இது முழு விஞ்ஞான வினாத்தாள் அல்ல.')),
+        dict(id='II', minutes=90, questionCount=5, instructions=bi('Physics subset practice: attempt all five written questions in 90 minutes. Questions 1 and 3 contain only their physics subparts. Use model answers for self-checking; no automatic written marks.', 'பௌதிகவியல் பயிற்சி: 90 நிமிடங்களில் ஐந்து எழுத்து வினாக்களுக்கும் முயற்சிக்கவும். வினாக்கள் 1, 3 இல் பௌதிகவியல் பகுதிகள் மட்டும் உள்ளன. மாதிரி விடைகளுடன் தன்னிலை மதிப்பீடு செய்க; தானியங்கி புள்ளிகள் இல்லை.'))],
     questions=questions)
 
+from pilot_physics_explanations import enrich
+enrich(bank)
+
 if __name__ == '__main__':
-    assert len(questions) == 50
-    assert len({q['id'] for q in questions}) == 50
-    assert [q['correct']+1 for q in questions[:40]] == KEY
+    assert len(questions) == 19
+    assert len({q['id'] for q in questions}) == 19
+    assert all(q['correct']+1 == KEY[q['number']-1] for q in questions if q['type']=='mcq')
+    assert all(q['subjects']==['physics'] for q in questions)
+    assert all(p['subject']=='physics' for q in questions for p in q.get('parts',[]))
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/'2015.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f'Built {len(questions)} questions and {sum(len(q.get("parts",[])) for q in questions)} written subparts.')

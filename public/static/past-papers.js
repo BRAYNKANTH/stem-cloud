@@ -4,10 +4,10 @@
   const $ = id => document.getElementById(id), H = {'Content-Type':'application/json','X-Requested-With':'stemcloud'};
   const user = window.SCX_USER;
   if (!user) { $('pp-status').textContent='Please sign in to use Past Papers.'; return; }
-  const key = 'stem_pp_' + user.id;
+  const legacyKey = 'stem_pp_' + user.id, key = 'stem_pp_physics_' + user.id;
   let state, bank, catalog, current, visible=[], lesson=new URLSearchParams(location.search).get('lesson')||'', syncing=false;
   let lang=localStorage.getItem('lessonLang')==='ta'?'ta':'en';
-  try { state=JSON.parse(localStorage.getItem(key)||'{}'); } catch (_) { state={}; }
+  try { state=JSON.parse(localStorage.getItem(key)||localStorage.getItem(legacyKey)||'{}'); } catch (_) { state={}; }
   state=Object.assign({drafts:{},events:[],pending:[],bookmarks:[],bookmarkPending:{},exam:null},state);
   if(state.exam)delete state.exam.finishing; // a reload must not retain an in-memory submission lock
   const t=(en,ta)=>lang==='ta'?ta:en, tr=o=>o?.[lang]||o?.en||'', esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -75,17 +75,17 @@
   function stats() {
     if (!bank) return;
     const attempts=bank.questions.filter(q=>hasResponse(latest(q)?.result)), mcqs=attempts.filter(q=>q.type==='mcq');
-    $('pp-stats').textContent=t(`${attempts.length}/50 questions attempted · ${mcqs.filter(q=>latest(q).result.correct).length}/${mcqs.length} latest MCQs correct · ${state.bookmarks.length} bookmarked`,
-      `50 இல் ${attempts.length} வினாக்கள் முயற்சிக்கப்பட்டன · அண்மைய தெரிவு விடைகள் ${mcqs.filter(q=>latest(q).result.correct).length}/${mcqs.length} சரி · ${state.bookmarks.length} சேமிப்புகள்`);
+    $('pp-stats').textContent=t(`${attempts.length}/${bank.questions.length} questions attempted · ${mcqs.filter(q=>latest(q).result.correct).length}/${mcqs.length} latest MCQs correct · ${state.bookmarks.length} bookmarked`,
+      `${bank.questions.length} இல் ${attempts.length} வினாக்கள் முயற்சிக்கப்பட்டன · அண்மைய தெரிவு விடைகள் ${mcqs.filter(q=>latest(q).result.correct).length}/${mcqs.length} சரி · ${state.bookmarks.length} சேமிப்புகள்`);
   }
   function applyLang(l) {
     lang=l==='ta'?'ta':'en'; localStorage.setItem('lessonLang',lang); document.documentElement.lang=lang;
     document.querySelectorAll('[data-en][data-ta]').forEach(e=>e.textContent=e.dataset[lang]);
     $('pp-en').setAttribute('aria-pressed',lang==='en'); $('pp-ta').setAttribute('aria-pressed',lang==='ta');
     const sets={
-      'pp-subject':['All subjects','Biology','Chemistry','Physics'], 'pp-type':['All types','MCQ','Written'],
+      'pp-type':['All types','MCQ','Written'],
       'pp-review':['All questions','Bookmarked','Needs practice','Not attempted']};
-    const tas={'pp-subject':['எல்லாப் பாடங்களும்','உயிரியல்','இரசாயனவியல்','பௌதிகவியல்'], 'pp-type':['எல்லா வகைகளும்','தெரிவு','எழுத்து'], 'pp-review':['எல்லா வினாக்களும்','சேமிப்புகள்','பயிற்சி தேவை','முயற்சிக்காதவை']};
+    const tas={'pp-type':['எல்லா வகைகளும்','தெரிவு','எழுத்து'], 'pp-review':['எல்லா வினாக்களும்','சேமிப்புகள்','பயிற்சி தேவை','முயற்சிக்காதவை']};
     Object.keys(sets).forEach(k=>[...$(k).options].forEach((o,i)=>o.textContent=lang==='ta'?tas[k][i]:sets[k][i]));
     if (bank) {
       $('pp-note').textContent=tr(bank.editorialNote);
@@ -100,9 +100,9 @@
   $('pp-en').onclick=()=>applyLang('en'); $('pp-ta').onclick=()=>applyLang('ta');
   function filters(reset=true) {
     if (!bank) return;
-    const s=$('pp-subject').value, type=$('pp-type').value, topic=$('pp-topic').value, review=$('pp-review').value, search=$('pp-search').value.trim().toLowerCase();
+    const type=$('pp-type').value, topic=$('pp-topic').value, review=$('pp-review').value, search=$('pp-search').value.trim().toLowerCase();
     visible=bank.questions.filter(q=>active()?q.paper===state.exam.paper:
-      (!s||q.subjects.includes(s))&&(!type||q.type===type)&&(!topic||q.topics.includes(topic))&&(!lesson||q.lessons.includes(lesson))&&
+      (!type||q.type===type)&&(!topic||q.topics.includes(topic))&&(!lesson||q.lessons.includes(lesson))&&
       (!search||JSON.stringify([q.prompt,q.topics,q.parts?.map(p=>p.prompt)]).toLowerCase().includes(search))&&
       (!review||review==='saved'&&state.bookmarks.includes(q.id)||review==='weak'&&weak(q)||review==='unattempted'&&!hasResponse(latest(q)?.result)));
     if (reset||!visible.some(q=>q.id===current)) current=visible[0]?.id;
@@ -117,7 +117,7 @@
     });
     render(); stats();
   }
-  function qLabel(q) { return t(`Paper ${q.paper} · Q${q.number}${q.section==='A'?' · compulsory':''}`,`தாள் ${q.paper} · வினா ${q.number}${q.section==='A'?' · கட்டாயம்':''}`); }
+  function qLabel(q) { return t(`Paper ${q.paper} · Q${q.number}`,`தாள் ${q.paper} · வினா ${q.number}`); }
   function draft(q) {
     if (active()) return state.exam.responses[q.id]||(state.exam.responses[q.id]={answers:{}});
     const d=state.drafts[q.id]||(state.drafts[q.id]={answers:{},choice:null});
@@ -128,12 +128,30 @@
     return d;
   }
   function scan(q) {
-    return `<details class="pp-scan" ${q.type==='written'?'open':''}><summary>${esc(t('Original Tamil pages · open full image to zoom','மூலத் தமிழ் பக்கங்கள் · பெரிதாக்க முழுப்படத்தைத் திறக்கவும்'))}</summary>${q.pages.map(n=>{
+    return `<details class="pp-scan" ><summary>${esc(t('Original Science source pages · may include other subjects','மூலத் தமிழ் பக்கங்கள் · பெரிதாக்க முழுப்படத்தைத் திறக்கவும்'))}</summary>${q.pages.map(n=>{
       const url='/lessons/past-papers/2015/page-'+String(n).padStart(2,'0')+'.jpg';
       return `<a href="${url}" target="_blank" rel="noopener">${esc(t('Open source page '+n+' ↗','மூலப் பக்கம் '+n+' ↗'))}</a><img src="${url}" loading="lazy" alt="${esc(t('Original Tamil paper, PDF page '+n+'; digital question text follows the scan.','மூலத் தமிழ் வினாத்தாள், PDF பக்கம் '+n+'; இலக்க வினா உரை கீழே உள்ளது.'))}">`;
     }).join('')}</details>`;
   }
   function steps(list) { return list?.length?'<ol>'+list.map(s=>'<li>'+esc(tr(s))+'</li>').join('')+'</ol>':''; }
+  function workedSteps(list) {
+    return list?.length?'<h4>'+esc(t('Worked steps','விடை காணும் படிகள்'))+'</h4>'+steps(list):'';
+  }
+  function teachingIntro(item) {
+    const d=item.detailedExplanation;
+    if(!d)return '';
+    return `<div class="pp-teaching"><h4>${esc(t('Concept to understand','புரிந்துகொள்ள வேண்டிய கருத்து'))}</h4><p>${esc(tr(d.concept))}</p><h4>${esc(t('Why this works','இது ஏன் பொருந்துகிறது'))}</h4><p>${esc(tr(d.reasoning))}</p></div>`;
+  }
+  function teachingTail(item) {
+    const d=item.detailedExplanation;
+    if(!d)return links(item.lessons);
+    const refs=(item.references||[]).filter(r=>r.kind==='lesson').map(r=>`<li><a href="${esc(r.url)}">${esc(t(`Grade ${r.grade} · Chapter ${r.chapter}: `,`தரம் ${r.grade} · அத்தியாயம் ${r.chapter}: `)+tr(r.title))}</a></li>`).join('');
+    const books=(item.references||[]).filter(r=>r.kind==='textbook').sort((a,b)=>(a.language===lang?0:1)-(b.language===lang?0:1));
+    const pageRange=r=>r.printedPages[0]===r.printedPages[1]?String(r.printedPages[0]):r.printedPages.join('–');
+    const bookRows=books.map(r=>`<li><a class="pp-book-ref" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(tr(r.title)+' · '+(r.language==='ta'?t('Tamil','தமிழ்'):t('English','ஆங்கிலம்'))+' · '+t('printed p. ','அச்சுப் ப. ')+pageRange(r))} ↗</a><p>${esc(tr(r.section))} · ${esc(r.support==='direct'?t('Supports this answer','இவ்விடையை ஆதரிக்கிறது'):t('Related reading','தொடர்புடைய வாசிப்பு'))}</p>${r.note?'<p class="pp-muted">'+esc(tr(r.note))+'</p>':''}</li>`).join('');
+    const coverage=item.textbookReferenceStatus==='not-matched'?t('No matching passage verified in the supplied textbooks for this answer.','இவ்விடைக்கு வழங்கிய பாடநூல்களில் பொருத்தமான பகுதி உறுதிப்படுத்தப்படவில்லை.'):item.textbookReferenceStatus==='related-only'?t('The linked pages explain related principles; they do not directly verify the complete answer.','இணைத்த பக்கங்கள் தொடர்புடைய தத்துவங்களை விளக்குகின்றன; முழு விடையையும் நேரடியாக உறுதிப்படுத்தவில்லை.'):'';
+    return `<aside class="pp-mistake"><h4>${esc(t('Common mistake','பொதுவான தவறு'))}</h4><p>${esc(tr(d.commonMistake))}</p></aside><details class="pp-similar"><summary>${esc(t('Try a similar question','இதே போன்ற வினாவை முயற்சிக்கவும்'))}</summary><p>${esc(tr(d.practice.question))}</p><details><summary>${esc(t('Show practice answer','பயிற்சி விடையைக் காட்டவும்'))}</summary><p>${esc(tr(d.practice.answer))}</p></details></details><div class="pp-references">${refs?'<h4>'+esc(t('Lesson chapter references','பாட அத்தியாய மேற்கோள்கள்'))+'</h4><ul>'+refs+'</ul>':''}<h4>${esc(t('Textbook references','பாடநூல் மேற்கோள்கள்'))}</h4>${bookRows?'<ul class="pp-book-references">'+bookRows+'</ul>':''}${coverage?'<p class="pp-muted">'+esc(coverage)+'</p>':''}${books.length?'<p class="pp-muted">'+esc(t('Links open the matching PDF page. Printed page numbers differ between Tamil and English editions. These pages support learning; the worked solution remains a model answer.','இணைப்புகள் பொருத்தமான PDF பக்கத்தைத் திறக்கும். தமிழ், ஆங்கிலப் பதிப்புகளில் அச்சுப் பக்க எண்கள் வேறுபடும். இவை கற்றலை ஆதரிக்கும்; விடை மாதிரி விடையாகவே உள்ளது.'))+'</p>':''}</div>`;
+  }
   function modelDiagram(q,p) {
     if(q.number===3&&p.label==='C(iii)') return '<svg class="pp-model-diagram" viewBox="0 0 400 260" role="img" aria-label="Charles law graph: volume V vertically, absolute temperature T in kelvin horizontally; straight line through origin"><g fill="none" stroke="black" stroke-width="2"><path d="M60 30V215H360 M55 40L60 30L65 40 M350 210L360 215L350 220 M60 215L320 50"/></g><g font-size="17" fill="black"><text x="28" y="35">V</text><text x="300" y="245">T (K)</text><text x="42" y="240">0</text><text x="100" y="55">Constant pressure</text></g></svg>';
     if(q.number===4&&p.label==='C(ii)') return '<svg class="pp-model-diagram" viewBox="0 0 400 160" role="img" aria-label="Two-input OR gate: inputs A and B, output Q"><path d="M105 35 Q150 80 105 125 Q220 135 260 80 Q220 25 105 35Z" fill="none" stroke="black" stroke-width="3"/><path d="M40 55H120 M40 105H120 M260 80H350" stroke="black" stroke-width="3"/><text x="15" y="60">A</text><text x="15" y="110">B</text><text x="360" y="85">Q</text></svg>';
@@ -147,23 +165,21 @@
     const d=draft(q), previous=latest(q), reveal=!active()&&previous;
     area.setAttribute('aria-label',qLabel(q)); document.title=qLabel(q)+' · Past Papers · STEM Cloud';
     let html=`<div class="pp-qhead"><div><h2>${esc(qLabel(q))}</h2><span class="pp-tag">${esc(q.topics.map(topic).join(' · '))}${q.marks?' · '+q.marks+' '+esc(t('source marks','மூலப் புள்ளிகள்')):''}</span></div><button type="button" id="pp-bookmark" aria-pressed="${state.bookmarks.includes(q.id)}">${esc(t('Bookmark','சேமிக்கவும்'))}</button></div><p>${esc(tr(q.prompt))}</p>`;
-    if (active()&&q.section==='B') html+=`<button type="button" id="pp-choose" aria-pressed="${state.exam.selected.includes(q.id)}">${esc(state.exam.selected.includes(q.id)?t('Selected for this subject','இப்பாடத்திற்குத் தேர்ந்தது'):t('Use this question for '+subject(q.subjects[0]),subject(q.subjects[0])+' இற்கு இவ்வினாவைத் தேர்க'))}</button>`;
     if (q.figure) html+=`<figure><a href="${q.figure}" target="_blank" rel="noopener"><img src="${q.figure}" alt="${esc(t('Original diagram or typography for question '+q.number+'; open image for detail.','வினா '+q.number+' இன் மூலப் படம்; விவரத்திற்கு படத்தைத் திறக்கவும்.'))}"></a><figcaption>${esc(t('Original question panel — option numbers follow the scan.','மூல வினாப் பகுதி — தெரிவு எண்கள் மூலத்தாளின் வரிசையில்.'))}</figcaption></figure>`;
     if(q.sourceDescription)html+='<p class="pp-muted">'+esc(tr(q.sourceDescription))+'</p>';
     if (q.type==='mcq') {
       html+=`<fieldset class="pp-options"><legend>${esc(t('Choose one answer','ஒரு விடையைத் தேர்க'))}</legend>${q.options.map((o,i)=>`<label><input type="radio" name="pp-choice" value="${i}" ${d.choice===i?'checked':''}><span>${i+1}. ${esc(tr(o))}</span></label>`).join('')}</fieldset>`;
       if(!active()) html+=`<button type="button" id="pp-check" ${Number.isInteger(d.choice)?'':'disabled'}>${esc(t('Check answer','விடையைச் சரிபார்க்கவும்'))}</button><details><summary>${esc(t('Hint','குறிப்பு'))}</summary><p>${esc(tr(q.hint))}</p></details>`;
-      if(reveal) html+=`<section class="pp-feedback"><h3>${esc(previous.result.correct?t('Correct on your last attempt','அண்மைய முயற்சி சரி'):t('Review your last attempt','அண்மைய முயற்சியை மீள்பார்க'))}</h3><p>${esc(t('Correct option','சரியான தெரிவு'))}: ${q.correct+1}</p>${q.editorialWarning?'<p class="pp-notice">'+esc(tr(q.editorialWarning))+'</p>':''}<p>${esc(tr(q.explanation))}</p>${steps(q.steps)}<details><summary>${esc(t('Why the other options do not fit','ஏனைய தெரிவுகள் ஏன் பொருந்தவில்லை'))}</summary><ol>${q.optionExplanations.map(o=>'<li>'+esc(tr(o))+'</li>').join('')}</ol></details>${links(q.lessons)}</section>`;
+      if(reveal) html+=`<section class="pp-feedback"><h3>${esc(previous.result.correct?t('Correct on your last attempt','அண்மைய முயற்சி சரி'):t('Review your last attempt','அண்மைய முயற்சியை மீள்பார்க'))}</h3><p>${esc(t('Correct option','சரியான தெரிவு'))}: ${q.correct+1}</p>${q.editorialWarning?'<p class="pp-notice">'+esc(tr(q.editorialWarning))+'</p>':''}<p>${esc(tr(q.explanation))}</p>${teachingIntro(q)}${workedSteps(q.steps)}<details><summary>${esc(t('Why the other options do not fit','ஏனைய தெரிவுகள் ஏன் பொருந்தவில்லை'))}</summary><ol>${q.optionExplanations.map(o=>'<li>'+esc(tr(o))+'</li>').join('')}</ol></details>${teachingTail(q)}</section>`;
       html+=scan(q);
     } else {
       html+=scan(q);
-      html+=q.parts.map((p,i)=>`<section class="pp-part"><h3>${esc(p.label)} · ${esc(subject(p.subject))}</h3><p>${esc(tr(p.prompt))}</p><label for="pp-answer-${i}">${esc(t('Your answer','உங்கள் விடை'))}</label><textarea id="pp-answer-${i}" data-part="${esc(p.label)}" maxlength="2000">${esc(d.answers[p.label]||'')}</textarea>${active()?'':`<details><summary>${esc(t('Hint','குறிப்பு'))}</summary><p>${esc(tr(p.hint))}</p></details><details class="pp-solution"><summary>${esc(t('Show model answer · self-check','மாதிரி விடை · தன்னிலை மதிப்பீடு'))}</summary><div class="pp-feedback"><p>${esc(tr(p.answer))}</p>${steps(p.steps)}${modelDiagram(q,p)}${links(p.lessons)}</div></details>`}</section>`).join('');
+      html+=q.parts.map((p,i)=>`<section class="pp-part"><h3>${esc(p.label)} · ${esc(subject(p.subject))}</h3><p>${esc(tr(p.prompt))}</p><label for="pp-answer-${i}">${esc(t('Your answer','உங்கள் விடை'))}</label><textarea id="pp-answer-${i}" data-part="${esc(p.label)}" maxlength="2000">${esc(d.answers[p.label]||'')}</textarea>${active()?'':`<details><summary>${esc(t('Hint','குறிப்பு'))}</summary><p>${esc(tr(p.hint))}</p></details><details class="pp-solution"><summary>${esc(t('Show model answer · self-check','மாதிரி விடை · தன்னிலை மதிப்பீடு'))}</summary><div class="pp-feedback"><p>${esc(tr(p.answer))}</p>${teachingIntro(p)}${workedSteps(p.steps)}${modelDiagram(q,p)}${teachingTail(p)}</div></details>`}</section>`).join('');
       if(!active()) html+=`<div class="pp-row"><button type="button" id="pp-save-written">${esc(t('Save written attempt','எழுத்து முயற்சியைச் சேமிக்கவும்'))}</button><button type="button" data-self="needs-work">${esc(t('Needs more practice','மேலும் பயிற்சி தேவை'))}</button><button type="button" data-self="understood">${esc(t('I understand after checking','சரிபார்த்த பின் புரிந்தது'))}</button></div><p>${esc(t('Self-check only; no automatic written marks.','தன்னிலை மதிப்பீடு மட்டும்; தானியங்கி எழுத்துப் புள்ளிகள் இல்லை.'))}</p>`;
     }
     html+=`<div class="pp-row"><button type="button" id="pp-prev">${esc(t('Previous question','முந்தைய வினா'))}</button><button type="button" id="pp-next">${esc(t('Next question','அடுத்த வினா'))}</button></div>`;
     area.innerHTML=html;
     $('pp-bookmark').onclick=()=> { const saved=!state.bookmarks.includes(q.id); state.bookmarks=state.bookmarks.filter(x=>x!==q.id); if(saved)state.bookmarks.push(q.id); state.bookmarkPending[q.id]=saved; persist(); filters(false); sync(); };
-    if($('pp-choose')) $('pp-choose').onclick=()=> { state.exam.selected=state.exam.selected.filter(id=>bank.questions.find(x=>x.id===id).section==='A'||bank.questions.find(x=>x.id===id).subjects[0]!==q.subjects[0]); state.exam.selected.push(q.id); persist(); filters(false); examBar(); };
     area.querySelectorAll('[name=pp-choice]').forEach(r=>r.onchange=()=> { d.choice=Number(r.value); d.touched=true; persist(); if($('pp-check'))$('pp-check').disabled=false; examProgress(); });
     if($('pp-check')) $('pp-check').onclick=()=> { enqueue([{id:id(),question:q.id,mode:'practice',choice:d.choice}]); filters(false); };
     area.querySelectorAll('textarea').forEach(a=>a.oninput=()=> {d.answers[a.dataset.part]=a.value; d.touched=true; persist(); examProgress(); status(t('Draft saved on this device. Submit or save an attempt to sync it.','வரைவு இச்சாதனத்தில் சேமிக்கப்பட்டது. ஒத்திசைக்க முயற்சியைச் சேமிக்கவும் அல்லது சமர்ப்பிக்கவும்.'));});
@@ -183,7 +199,7 @@
   async function startExam(paper) {
     const p=bank.papers.find(x=>x.id===paper);
     if(!await confirm(t('Start timed paper '+paper,'நேரத் தாள் '+paper+' தொடங்குக'),tr(p.instructions)+' '+t('The clock continues if you reload or leave this page. Answers and the deadline are saved on this device.','மீளேற்றினாலும் வெளியேறினாலும் நேரம் தொடரும். விடைகளும் முடிவுநேரமும் இச்சாதனத்தில் சேமிக்கப்படும்.')))return;
-    state.exam={paper,deadline:Date.now()+p.minutes*60000,responses:{},selected:bank.questions.filter(q=>q.paper===paper&&(paper==='I'||q.section==='A')).map(q=>q.id)};
+    state.exam={scope:"physics",paper,deadline:Date.now()+p.minutes*60000,responses:{},selected:bank.questions.filter(q=>q.paper===paper).map(q=>q.id)};
     $('pp-result').hidden=true; persist(); examBar(); filters(); tick();
   }
   function examBar() {
@@ -201,12 +217,11 @@
     if(!left) finishExam(true);
   }
   function examResult(e) {
-    return t(e.expired?'Time ended. ':'Paper submitted. ',e.expired?'நேரம் முடிந்தது. ':'தாள் சமர்ப்பிக்கப்பட்டது. ')+(e.paper==='I'?t(`${e.score}/40 correct. Review individual explanations below.`,`${e.score}/40 சரி. கீழே தனித்தனி விளக்கங்களை மீள்பார்க.`):t(`${e.selected.length} written questions saved for self-checking; no automatic marks.`,`${e.selected.length} எழுத்து வினாக்கள் தன்னிலை மதிப்பீட்டிற்குச் சேமிக்கப்பட்டன; தானியங்கி புள்ளிகள் இல்லை.`));
+    return t(e.expired?'Time ended. ':'Paper submitted. ',e.expired?'நேரம் முடிந்தது. ':'தாள் சமர்ப்பிக்கப்பட்டது. ')+(e.paper==='I'?t(`${e.score}/${e.selected.length} correct. Review individual explanations below.`,`${e.score}/${e.selected.length} சரி. கீழே தனித்தனி விளக்கங்களை மீள்பார்க.`):t(`${e.selected.length} written questions saved for self-checking; no automatic marks.`,`${e.selected.length} எழுத்து வினாக்கள் தன்னிலை மதிப்பீட்டிற்குச் சேமிக்கப்பட்டன; தானியங்கி புள்ளிகள் இல்லை.`));
   }
   async function finishExam(expired=false) {
     if(!active()||state.exam.finishing)return;
     const e=state.exam;
-    if(!expired&&e.paper==='II'&&e.selected.length!==7) {status(t('Choose one Section B question from each subject before submitting.','சமர்ப்பிக்குமுன் B பகுதியில் ஒவ்வொரு பாடத்திலும் ஒரு வினாவைத் தேர்க.'));return;}
     e.finishing=true;
     if(!expired&&!await confirm(t('Submit this paper?','இத்தாளைச் சமர்ப்பிக்கவா?'),t('Unanswered MCQs receive zero. Model answers become available after submission.','விடையற்ற தெரிவு வினாக்களுக்கு பூச்சியம். சமர்ப்பித்த பின் மாதிரி விடைகள் கிடைக்கும்.'))) {delete e.finishing;return;}
     const events=e.selected.map(q=> {const r=e.responses[q]||{};return Object.assign({id:id(),question:q,mode:'exam'},e.paper==='I'?{choice:r.choice??null}:{answers:structuredClone(r.answers||{}),selfCheck:null});});
@@ -223,9 +238,9 @@
   $('pp-exam-i').onclick=()=>startExam('I'); $('pp-exam-ii').onclick=()=>startExam('II');
   $('pp-submit').onclick=()=>finishExam();
   $('pp-exit').onclick=async()=> {if(await confirm(t('Leave timed paper?','நேரத் தாளிலிருந்து வெளியேறவா?'),t('This ends the timed session on this device. Your responses remain as drafts; no score will be recorded.','இச்சாதனத்தின் நேர அமர்வு முடியும். விடைகள் வரைவாக இருக்கும்; புள்ளிகள் பதிவாகாது.'))) {for(const q of Object.keys(state.exam.responses))state.drafts[q]=state.exam.responses[q]; state.exam=null; persist(); examBar(); filters();}};
-  ['pp-subject','pp-type','pp-topic','pp-review'].forEach(k=>$(k).onchange=()=>filters());
+  ['pp-type','pp-topic','pp-review'].forEach(k=>$(k).onchange=()=>filters());
   $('pp-search').oninput=()=>filters();
-  $('pp-clear').onclick=()=> {['pp-subject','pp-type','pp-topic','pp-review','pp-search'].forEach(k=>$(k).value=''); lesson=''; filters();};
+  $('pp-clear').onclick=()=> {['pp-type','pp-topic','pp-review','pp-search'].forEach(k=>$(k).value=''); lesson=''; filters();};
   $('pp-year').onchange=()=> { const entry=catalog.papers.find(p=>String(p.year)===$('pp-year').value); if(entry.year!==2015){status(t(`${entry.examLabel} is catalogued but not extracted yet. The 2015 pilot remains open.`,`${entry.examLabel} பட்டியலிடப்பட்டுள்ளது; இன்னும் பிரித்தெடுக்கப்படவில்லை. 2015 முன்னோடி திறந்துள்ளது.`)); $('pp-year').value='2015';}};
   window.addEventListener('online',()=>sync());
   document.addEventListener('visibilitychange',()=> {if(!document.hidden)tick();});
@@ -235,6 +250,23 @@
       const responses=await Promise.all([fetch('/lessons/past-papers/2015.json'),fetch('/lessons/past-papers/catalog.json')]);
       if(responses.some(r=>!r.ok||r.redirected))throw new Error('Bank not available');
       [bank,catalog]=await Promise.all(responses.map(r=>r.json()));
+      if(bank.scope!=='physics')throw new Error('Physics bank requires an online refresh');
+      const byId=new Map(bank.questions.map(q=>[q.id,q]));
+      const cleanAnswers=(qid,answers)=>Object.fromEntries(Object.entries(answers||{}).filter(([label])=>byId.get(qid)?.parts?.some(p=>p.label===label)));
+      state.drafts=Object.fromEntries(Object.entries(state.drafts).filter(([qid])=>byId.has(qid)).map(([qid,d])=>[qid,{...d,answers:cleanAnswers(qid,d.answers)}]));
+      state.events=state.events.filter(e=>byId.has(e.question)).map(e=>({...e,result:{...e.result,...(e.result.type==='written'?{answers:cleanAnswers(e.question,e.result.answers)}:{})}}));
+      state.pending=state.pending.filter(e=>byId.has(e.question)).map(e=> {
+        if(!e.answers)return e;
+        const answers=cleanAnswers(e.question,e.answers);
+        return {...e,answers,id:JSON.stringify(answers)===JSON.stringify(e.answers)?e.id:id()};
+      });
+      state.bookmarks=state.bookmarks.filter(qid=>byId.has(qid));
+      state.bookmarkPending=Object.fromEntries(Object.entries(state.bookmarkPending).filter(([qid])=>byId.has(qid)));
+      if(state.exam&&state.exam.scope!=='physics') {
+        for(const [qid,d] of Object.entries(state.exam.responses||{}))if(byId.has(qid))state.drafts[qid]={...d,answers:cleanAnswers(qid,d.answers)};
+        state.exam=null;
+      }
+      persist();
       $('pp-filter-panel').open=innerWidth>760;
       $('pp-year').innerHTML=catalog.papers.map(p=>`<option value="${p.year}">${esc(p.examLabel)} · ${esc(p.year===2015?t('pilot','முன்னோடி'):t('pending','நிலுவை'))}</option>`).join('');
       $('pp-topic').innerHTML='<option value="">'+esc(t('All topics','எல்லாத் தலைப்புகளும்'))+'</option>'+[...new Set(bank.questions.flatMap(q=>q.topics))].sort().map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');

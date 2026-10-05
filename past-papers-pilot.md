@@ -1,48 +1,31 @@
-# Past Papers — 2015 pilot
+# Physics past-paper pilot
 
-Open **Past Papers → Open question bank** from the course hub, or `/lessons/past-papers.html` after signing in.
+The 2015 Tamil-medium O/L Science paper provides **14 physics MCQs and 39 physics written subparts across five original questions**. Biology, Chemistry and general science trivia are excluded from the published bank. Mixed written questions 1 and 3 retain only physics subparts and original labels; their full-source marks are omitted.
 
-## Delivered
+Open Course contents → Past Papers → Open question bank, or `/lessons/past-papers.html` after signing in. Relevant physics lessons link to topic practice. Changes are local until deployed. The other eight supplied years remain catalogued pending extraction.
 
-- 2015 Tamil-medium Science: 40 MCQs and all 10 written questions, with 118 individually labelled subparts across Biology, Chemistry and Physics.
-- Tamil teaching paraphrases, English teaching translations, independently authored explanations, option feedback, calculation steps and model drawings for Charles’s law, the Ohm-law circuit, OR gate and photodiode.
-- Original 12-page PDF and page images; diagram-dependent MCQs retain source panels. Original wording/diagrams remain available for comparison.
-- Subject, type, topic, search, bookmark, unattempted and needs-practice filters. Relevant existing physics lessons link into this bank.
-- Paper I: 60-minute practice, 40 questions, one point per correct answer. Paper II: 180 minutes, four compulsory questions plus one Biology, one Chemistry and one Physics question. Written responses are self-checked, with no automatic essay marks.
-- Drafts and timed deadlines persist on the current device. Submitted attempts and bookmarks sync to the signed-in account, independently of lesson XP. Offline submissions retry with their original IDs to avoid duplicates. Account deletion removes stored attempts and bookmarks.
-- Previously visited bank pages/data and images can reopen offline. Original PDFs remain online because PDF viewers use byte-range requests. Private caches clear through the existing logout flow.
-- All nine supplied source papers are catalogued with filename, page count and SHA-256. **2016–2023 remain pending extraction.** The last paper retains its printed exam label `2023 (2024)`.
+All 53 answers include bilingual teaching notes: the concept, explanatory reasoning, a common mistake and a similar practice question with its answer revealed separately. MCQs also include checked choices, option reasoning and hints. Written questions include model answers, worked calculations and explanatory diagrams where appropriate. Original complete Science scans/PDF are optional source references containing all subjects; they are not practice questions in this physics bank.
 
-## Content status
+`tools/pilot_physics_explanations.py` authors the teaching notes. Available lesson references are checked against the course index and show grade, chapter and title. The 13 supplied textbook PDFs/chapter extracts are catalogued under `site/lessons/textbooks/` as unchanged originals. `tools/textbook_sources.py` maps the verified passages, with independent printed and PDF page numbers for each language. There are 71 textbook links across 49 answers: 39 answers have direct support, 10 have only related reading, and four have no verified match. Related reading is labelled explicitly and does not claim to verify the complete answer. `textbookReferenceStatus` is `verified-with-coverage-gaps`. Prepared explanations work offline after caching and do not make live AI calls. Follow-up chat remains a separate optional feature.
 
-This is a **pilot awaiting Tamil-medium science teacher review**, not an approved official answer book. Prompts are teaching paraphrases, not claimed verbatim OCR. The papers are image scans and were transcribed visually.
+Timed exercises are custom physics practice: 14 MCQs in 30 minutes, or five written questions in 90 minutes. These subsets are not complete official Science examinations. Written answers are self-checked, without automatic marks. Attempts do not award lesson XP.
 
-MCQ option numbers were checked against the [Department of Examinations 2015 Science evaluation report](https://www.doenets.lk/documents/evaluation-reports/ol/2015/english/evol15E_Science.pdf), printed page 18. Explanations and written answers are model solutions; no per-subpart official marks are invented.
+MCQ choices were checked against the Department of Examinations 2015 key. Explanations, translations and written model solutions still require teacher review. `teacherReviewed` remains false.
 
-Review these items before marking the pilot teacher-approved:
-
-1. Paper I Q8, option 1: the regional Tamil term `இளைப்பு` is retained. Its English translation is explicitly awaiting confirmation; other options preserve gastritis, tuberculosis and laryngitis. A source panel is displayed.
-2. Paper I Q10: the historical key selects “mother is colour-blind”. Modern X-linked reasoning establishes that the mother carries the allele, which does not require her to be affected. The original option is retained and the discrepancy is explained after submission.
-3. Paper II Q10(iii): distinguish the exam’s conventional diode terminal labels from reverse bias in operation. CdS/CdSe is identified as a historical syllabus answer, with a note that these photoconductive materials are not universal modern photodiode materials.
-4. Review every Tamil paraphrase, English translation, model answer and diagram against the source before changing `teacherReviewed` to true.
-
-## Maintain/import
-
-The production app reads `site/lessons/past-papers/2015.json`. Python transcription sources are `tools/build_2015_pilot.py` and `tools/pilot_2015_written.py`.
+## Maintain
 
 ```powershell
+python tools/import_textbooks.py --source-dir 'C:/Users/T.BRAYNKANTH/Downloads'
 python tools/build_2015_pilot.py
 python tools/import_past_papers.py --source-dir 'C:/Users/T.BRAYNKANTH/Downloads/gce ol past paper/tamil'
 ```
 
-The import tool requires PyMuPDF only on the machine building assets. Production dependencies are unchanged. It renders/copies 2015 and catalogues other years; it does not claim automatic Tamil OCR or generate answers for unreviewed years.
+The build script preserves the original transcription, then publishes an explicit physics MCQ selection and physics-only written subparts. Apply the same scope to future imports. Production reads `site/lessons/past-papers/2015.json`.
 
-The API adds `past_attempts` and `past_bookmarks` tables through the existing schema initialization. Submitted events are validated and MCQs graded on the server. Stable event IDs make replay idempotent. Stored answers are escaped when rendered. User ownership and the existing CSRF header apply to all mutations. Timed practice runs locally; it is not a supervised or cheat-resistant examination system.
+The API validates against the published physics bank. Historical nonphysics attempts remain in the database but are hidden from physics account state; removed written labels are omitted. Old device data is retained while eligible physics work migrates to `stem_pp_physics_<user>`. Mixed-subject timed sessions reset, retaining physics responses as drafts. Changed queued written payloads receive new event IDs to avoid conflicting with saved immutable attempts.
 
-To add another year, prepare and verify a separate bank and original assets, update the catalog, and extend both UI selection and server question loading. Do not make a year available merely by changing its catalog status.
+Service-worker cache version v18 refreshes the old bank. The UI rejects cached banks without the physics scope marker. Offline question-bank use requires an initial successful online visit. Original textbook PDFs require a connection and stay outside the service-worker cache so native PDF byte-range requests work.
 
 ## Validation
 
-`tests/test_past_papers.py` uses a disposable database and installed Edge to verify scoring, validation, CSRF, account isolation, persistence, cross-device submitted responses, timed-paper rules, offline retries, language switching and mobile layout. Existing `tests/test_pwa.py` checks offline/cache privacy and `tests/test_player.py` checks lesson navigation and accessibility.
-
-Past-paper checks and the existing PWA suite passed. The lesson regression run passed its navigation, mobile layout, story, voice, animation, accessibility and language checks, then stopped at an admin-login selector timeout (`#u` while the current login form uses `#un`). The full lesson suite is therefore not reported as passing.
+`python -X utf8 tests/test_past_papers.py` runs installed Edge with a disposable database. It checks physics-only content, removed-question rejection, legacy migration, scoring, CSRF, account isolation, drafts, timed practice, offline replay, Tamil switching, textbook page links, authenticated PDF range requests and mobile layout. The import command verifies every mapped printed/PDF page endpoint directly against the supplied file. Original bytes are recorded with SHA-256 checksums in the source catalog.

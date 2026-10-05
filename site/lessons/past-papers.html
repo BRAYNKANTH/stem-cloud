@@ -6,14 +6,13 @@
 <header class="pp-header topbar"><a href="/lessons/index.html">← STEM Cloud</a><div class="toggles"><button type="button" id="pp-en" aria-pressed="true">English</button><button type="button" id="pp-ta" aria-pressed="false">தமிழ்</button></div></header>
 <main class="pp-main">
 <h1 data-en="Past Papers" data-ta="கடந்த பரீட்சை வினாத்தாள்கள்">Past Papers</h1>
-<p data-en="O/L Science · Biology, Chemistry and Physics" data-ta="சா/த விஞ்ஞானம் · உயிரியல், இரசாயனவியல், பௌதிகவியல்">O/L Science · Biology, Chemistry and Physics</p>
+<p data-en="O/L Science · Physics questions only" data-ta="சா/த விஞ்ஞானம் · பௌதிகவியல் வினாக்கள் மட்டும்">O/L Science · Physics questions only</p>
 <p id="pp-status" role="status">Loading question bank…</p>
-<details class="pp-notice"><summary data-en="2015 pilot · teacher review pending" data-ta="2015 முன்னோடி · ஆசிரியர் மீளாய்வு நிலுவையில்">2015 pilot · teacher review pending</summary><p id="pp-note"></p><a id="pp-key" href="#" target="_blank" rel="noopener" data-en="Department of Examinations MCQ key" data-ta="பரீட்சைத் திணைக்களத் தெரிவு விடைகள்">Department of Examinations MCQ key</a><p><a id="pp-pdf" href="#" target="_blank" rel="noopener" data-en="Open original Tamil PDF" data-ta="மூலத் தமிழ் PDF ஐத் திறக்கவும்">Open original Tamil PDF</a></p></details>
+<details class="pp-notice"><summary data-en="2015 pilot · teacher review pending" data-ta="2015 முன்னோடி · ஆசிரியர் மீளாய்வு நிலுவையில்">2015 pilot · teacher review pending</summary><p id="pp-note"></p><a id="pp-key" href="#" target="_blank" rel="noopener" data-en="Department of Examinations MCQ key" data-ta="பரீட்சைத் திணைக்களத் தெரிவு விடைகள்">Department of Examinations MCQ key</a><p><a id="pp-pdf" href="#" target="_blank" rel="noopener" data-en="Open original Science PDF (all subjects)" data-ta="மூலத் தமிழ் PDF ஐத் திறக்கவும்">Open original Science PDF (all subjects)</a></p></details>
 <section id="pp-controls" hidden aria-label="Question filters">
 <details id="pp-filter-panel"><summary data-en="Filter questions" data-ta="வினாக்களை வடிகட்டுக">Filter questions</summary>
 <div class="pp-filters">
 <label><span data-en="Year" data-ta="ஆண்டு">Year</span><select id="pp-year"><option>2015</option></select></label>
-<label><span data-en="Subject" data-ta="பாடம்">Subject</span><select id="pp-subject"><option value="">All subjects</option><option value="biology">Biology</option><option value="chemistry">Chemistry</option><option value="physics">Physics</option></select></label>
 <label><span data-en="Question type" data-ta="வினா வகை">Question type</span><select id="pp-type"><option value="">All types</option><option value="mcq">MCQ</option><option value="written">Written</option></select></label>
 <label><span data-en="Topic" data-ta="தலைப்பு">Topic</span><select id="pp-topic"><option value="">All topics</option></select></label>
 <label><span data-en="Review" data-ta="மீள்பார்வை">Review</span><select id="pp-review"><option value="">All questions</option><option value="saved">Bookmarked</option><option value="weak">Needs practice</option><option value="unattempted">Not attempted</option></select></label>
@@ -22,7 +21,7 @@
 <p id="pp-lesson" hidden></p><button type="button" id="pp-clear" data-en="Clear filters" data-ta="வடிகட்டிகளை நீக்கவும்">Clear filters</button>
 </details>
 <p id="pp-stats"></p>
-<div class="pp-exam-actions"><button type="button" id="pp-exam-i" data-en="Start Paper I · 60 minutes" data-ta="தாள் I தொடங்குக · 60 நிமிடம்">Start Paper I · 60 minutes</button><button type="button" id="pp-exam-ii" data-en="Start Paper II · 180 minutes" data-ta="தாள் II தொடங்குக · 180 நிமிடம்">Start Paper II · 180 minutes</button></div>
+<div class="pp-exam-actions"><button type="button" id="pp-exam-i" data-en="Timed physics MCQs · 30 minutes" data-ta="பௌதிகவியல் தெரிவுப் பயிற்சி · 30 நிமிடம்">Timed physics MCQs · 30 minutes</button><button type="button" id="pp-exam-ii" data-en="Timed physics written practice · 90 minutes" data-ta="பௌதிகவியல் எழுத்துப் பயிற்சி · 90 நிமிடம்">Timed physics written practice · 90 minutes</button></div>
 </section>
 <section id="pp-exam-bar" hidden aria-label="Timed paper"><h2 id="pp-exam-title"></h2><p id="pp-instructions"></p><p><strong id="pp-clock" aria-label="Time remaining"></strong> <span id="pp-answered"></span></p><button type="button" id="pp-submit" data-en="Submit paper" data-ta="தாளைச் சமர்ப்பிக்கவும்">Submit paper</button><button type="button" id="pp-exit" data-en="Leave timed paper" data-ta="நேரத் தாளிலிருந்து வெளியேறுக">Leave timed paper</button></section>
 <p id="pp-result" role="status" hidden></p>

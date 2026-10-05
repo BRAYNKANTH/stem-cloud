@@ -9,8 +9,9 @@
       "sourceSha256": "32c42a5829d7a5e38bc1c9030833ff3159af881e4a4243cc77aba5316864da1a",
       "pages": 12,
       "bank": "/lessons/past-papers/2015.json",
-      "mcqCount": 40,
-      "writtenCount": 10
+      "mcqCount": 14,
+      "writtenCount": 5,
+      "scope": "physics"
     },
     {
       "year": 2016,

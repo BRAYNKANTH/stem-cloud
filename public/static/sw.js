@@ -3,7 +3,7 @@
  * - lesson pages: network first (always fresh progress), last visited copy when offline
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v16';
+var VERSION = 'v18';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -50,6 +50,7 @@ self.addEventListener('fetch', function (e) {
     return;
   }
   if (url.pathname.indexOf('/api/') === 0 || url.pathname === '/healthz') return;
+  if (url.pathname.indexOf('/lessons/') === 0 && /\.pdf$/i.test(url.pathname)) return; /* native PDF viewers need byte ranges; keep originals on the network */
   if (url.pathname.indexOf('/static/audio/') === 0) return;      /* audio needs Range requests, which the Cache API cannot answer (breaks Safari): always from the network */
 
   if (url.pathname.indexOf('/static/') === 0 || url.pathname === '/manifest.webmanifest') {

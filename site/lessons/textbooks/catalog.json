@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "books": [
+    {
+      "id": "g10-p2-ta",
+      "sourceFilename": "Science part II G10 T.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "II",
+      "chapter": null,
+      "title": {
+        "en": "Science · Grade 10 · Part II",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+      },
+      "pages": 236,
+      "sha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+      "bytes": 35668432,
+      "url": "/lessons/textbooks/g10-p2-ta.pdf"
+    },
+    {
+      "id": "g10-c09-ta",
+      "sourceFilename": "Chapter 09 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 9,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 9",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 9"
+      },
+      "pages": 12,
+      "sha256": "e852c5435f75d0d6f8934d621e2a7064113bfb2d45eda03e8f805ff4c4c24fb8",
+      "bytes": 1141275,
+      "url": "/lessons/textbooks/g10-c09-ta.pdf"
+    },
+    {
+      "id": "g10-c11-ta",
+      "sourceFilename": "Chapter 11 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 11,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 11",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 11"
+      },
+      "pages": 12,
+      "sha256": "15f42c165fa46a74a2541ec5dc68218d2e863a1513a1e40b4f547ad87c93f81d",
+      "bytes": 885701,
+      "url": "/lessons/textbooks/g10-c11-ta.pdf"
+    },
+    {
+      "id": "g10-c12-ta",
+      "sourceFilename": "Chapter 12 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 12,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 12",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 12"
+      },
+      "pages": 11,
+      "sha256": "d4bfbcf1f79fd187917a4e4101161149f012d3737dd23bcffd6cd219cea93d52",
+      "bytes": 1027324,
+      "url": "/lessons/textbooks/g10-c12-ta.pdf"
+    },
+    {
+      "id": "g10-c04-ta",
+      "sourceFilename": "Chapter 04 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 4,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 4",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 4"
+      },
+      "pages": 15,
+      "sha256": "3d8e81611d676c46cdccbd4598b1cb1deb06a424f78db58dae2f03455a3f5724",
+      "bytes": 1537504,
+      "url": "/lessons/textbooks/g10-c04-ta.pdf"
+    },
+    {
+      "id": "g10-c02-ta",
+      "sourceFilename": "Chapter 02 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 2,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 2",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 2"
+      },
+      "pages": 28,
+      "sha256": "4d2961544bd8c3e35f6d976a7f133e9a0c902b1b1aa177e31a24bd92c60a8841",
+      "bytes": 725573,
+      "url": "/lessons/textbooks/g10-c02-ta.pdf"
+    },
+    {
+      "id": "g10-c05-ta",
+      "sourceFilename": "Chapter 05 Physics.pdf",
+      "language": "ta",
+      "grade": 10,
+      "part": "I",
+      "chapter": 5,
+      "title": {
+        "en": "Science · Grade 10 · Part I · Chapter 5",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 5"
+      },
+      "pages": 12,
+      "sha256": "d5146af39ab608eee8377ae2638c3e6fbfe89363ee3b5a1f74fb5b0c1eac6769",
+      "bytes": 2274196,
+      "url": "/lessons/textbooks/g10-c05-ta.pdf"
+    },
+    {
+      "id": "g10-p2-en",
+      "sourceFilename": "science G-10 P-II E (1).pdf",
+      "language": "en",
+      "grade": 10,
+      "part": "II",
+      "chapter": null,
+      "title": {
+        "en": "Science · Grade 10 · Part II",
+        "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+      },
+      "pages": 202,
+      "sha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+      "bytes": 12056022,
+      "url": "/lessons/textbooks/g10-p2-en.pdf"
+    },
+    {
+      "id": "g11-p2-en",
+      "sourceFilename": "science G-11  P-II E.pdf",
+      "language": "en",
+      "grade": 11,
+      "part": "II",
+      "chapter": null,
+      "title": {
+        "en": "Science · Grade 11 · Part II",
+        "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+      },
+      "pages": 224,
+      "sha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+      "bytes": 4861497,
+      "url": "/lessons/textbooks/g11-p2-en.pdf"
+    },
+    {
+      "id": "g11-p1-en",
+      "sourceFilename": "science G-11 P-I E.pdf",
+      "language": "en",
+      "grade": 11,
+      "part": "I",
+      "chapter": null,
+      "title": {
+        "en": "Science · Grade 11 · Part I",
+        "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி I"
+      },
+      "pages": 220,
+      "sha256": "5ae11e0b008e540a2fac43016ff3865303186b5ccc749cea488ca1f41a02ae29",
+      "bytes": 9025380,
+      "url": "/lessons/textbooks/g11-p1-en.pdf"
+    },
+    {
+      "id": "g11-c13-ta",
+      "sourceFilename": "13.pdf",
+      "language": "ta",
+      "grade": 11,
+      "part": "II",
+      "chapter": 13,
+      "title": {
+        "en": "Science · Grade 11 · Part II · Chapter 13",
+        "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 13"
+      },
+      "pages": 40,
+      "sha256": "bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319",
+      "bytes": 962334,
+      "url": "/lessons/textbooks/g11-c13-ta.pdf"
+    },
+    {
+      "id": "g11-c11-ta",
+      "sourceFilename": "11.pdf",
+      "language": "ta",
+      "grade": 11,
+      "part": "II",
+      "chapter": 11,
+      "title": {
+        "en": "Science · Grade 11 · Part II · Chapter 11",
+        "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 11"
+      },
+      "pages": 31,
+      "sha256": "da2facda888116d239732235b8c31460f73a9f19d39b2cbdf2a8a97ec7d2a9cf",
+      "bytes": 874295,
+      "url": "/lessons/textbooks/g11-c11-ta.pdf"
+    },
+    {
+      "id": "g11-c10-ta",
+      "sourceFilename": "10.pdf",
+      "language": "ta",
+      "grade": 11,
+      "part": "II",
+      "chapter": 10,
+      "title": {
+        "en": "Science · Grade 11 · Part II · Chapter 10",
+        "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 10"
+      },
+      "pages": 19,
+      "sha256": "bc3e4717f1c3f1888245fd770899b6f0487928c0224bb91e7f908cadba13227c",
+      "bytes": 1828168,
+      "url": "/lessons/textbooks/g11-c10-ta.pdf"
+    }
+  ]
+}

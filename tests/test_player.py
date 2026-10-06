@@ -481,6 +481,11 @@ def run():
             check('Sinhala: chapter 15 is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'ද්‍රවස්ථිති' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
             pg.goto(BASE + '/lessons/chapter-04-newtons-laws.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
             check('Sinhala: chapter 4 is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'නිව්ටන්' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.goto(BASE + '/lessons/g11-chapter-11-electronics.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
+            check('Sinhala: the electronics chapter is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'ඉලෙක්ට්‍රොනික' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('lab') + 1)"); pg.wait_for_timeout(1500)
+            seen = [pg.evaluate("[...document.querySelectorAll('#lab svg text')].some(t => /bulb (ON|OFF)/.test(t.textContent))") for _ in range(8) if not pg.wait_for_timeout(60)]
+            check('Sinhala: a lab drawing that is redrawn all the time never flashes English labels', not any(seen), seen)
             pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)     # the chosen language (Sinhala) is remembered
             check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)

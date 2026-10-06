@@ -151,11 +151,14 @@
         if (t && pending.indexOf(t) < 0) pending.push(t);
         if (m.type === 'childList') [].forEach.call(m.addedNodes, function (n) { if (n.nodeType === 1 && pending.indexOf(n) < 0) pending.push(n); });
       });
-      if (timer) return;                                    /* one flush for everything that changed in the last moment (never drop earlier targets) */
-      timer = setTimeout(function () {
+      function flush() {
         timer = null; var set = pending; pending = [];
         busy = true; try { set.forEach(function (n) { if (doc.contains(n)) walk(n); }); } finally { busy = false; }
-      }, 40);
+      }
+      /* a drawing that a lab redraws every frame must be translated before the next paint, or its labels flash in English */
+      if (pending.length && pending.every(function (n) { return n.closest && n.closest('svg'); })) { if (timer) { clearTimeout(timer); } flush(); return; }
+      if (timer) return;                                    /* one flush for everything that changed in the last moment (never drop earlier targets) */
+      timer = setTimeout(flush, 40);
     });
     obs.observe(doc.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });
   }

@@ -105,29 +105,73 @@
     var c = bStrip.querySelector('.sb-chip.cur');
     if (c) bStrip.scrollLeft = Math.max(0, c.offsetLeft - (bStrip.clientWidth - c.offsetWidth) / 2);
   }
+  function getActiveSubstep() {
+    if (cur < 1 || cur > N) return null;
+    var stepId = ids[cur - 1];
+    var stepEl = stepId ? doc.getElementById(stepId) : null;
+    if (!stepEl) return null;
+    var cards = [].slice.call(stepEl.querySelectorAll('#notesStage > .card'));
+    var progEl = stepEl.querySelector('#noteProgress');
+    var nextBtn = stepEl.querySelector('#noteNextBtn');
+    var prevBtn = stepEl.querySelector('#notePrevBtn');
+    if (!cards.length || !progEl) return null;
+    var activeCard = stepEl.querySelector('#notesStage > .card.stage-active') || cards[0];
+    var idx = cards.indexOf(activeCard);
+    if (idx < 0) idx = 0;
+    var total = cards.length;
+    var hasMore = idx < total - 1 && (!nextBtn || !nextBtn.disabled);
+    return {
+      stepEl: stepEl,
+      cards: cards,
+      cardIdx: idx,
+      total: total,
+      nextBtn: nextBtn,
+      prevBtn: prevBtn,
+      progEl: progEl,
+      hasMore: hasMore
+    };
+  }
   function renderEnd() {
     var i = cur, nxt = i === LAST ? null : label(i + 1);
-    eBack.hidden = i <= 0; eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Back', 'பின்னாடி') + '</span>';
-    eBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி'));
-    var nextText = i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? L('Next: ', 'அடுத்து: ') + stepWord(i + 1) : L('Next', 'அடுத்து'));
-    eNext.innerHTML = '<span>' + nextText + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
-    eNext.setAttribute('aria-label', i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : L('Next: ', 'அடுத்து: ') + (nxt || ''));
+    var sub = getActiveSubstep();
+    eBack.hidden = i <= 0;
+    if (sub && sub.cardIdx > 0) {
+      eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Previous subtopic', 'முந்தைய தலைப்பு') + '</span>';
+      eBack.setAttribute('aria-label', L('Previous subtopic', 'முந்தைய தலைப்பு'));
+    } else {
+      eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Back', 'பின்னாடி') + '</span>';
+      eBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி'));
+    }
+
+    if (sub && sub.hasMore) {
+      var nextNum = sub.cardIdx + 2;
+      var subText = L('Next subtopic (', 'அடுத்த தலைப்பு (') + nextNum + '/' + sub.total + ')';
+      eNext.innerHTML = '<span>' + subText + '</span><span aria-hidden="true">➜</span>';
+      eNext.setAttribute('aria-label', subText);
+    } else {
+      var nextText = i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? (sub ? L('Complete & Continue: ', 'முடித்து தொடர்: ') : L('Next: ', 'அடுத்து: ')) + stepWord(i + 1) : L('Next', 'அடுத்து'));
+      eNext.innerHTML = '<span>' + nextText + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
+      eNext.setAttribute('aria-label', i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt || ''));
+    }
     endNav.hidden = i === 0;
   }
   function renderBar() {
     var i = cur;
-    bTitle.innerHTML = '<span class="sb-ic" aria-hidden="true">' + stepIcon(i) + '</span>' + (i >= 1 && i <= N ? '<span class="sb-n">' + i + ' / ' + N + '</span>' : '') + '<span class="sb-w">' + stepWord(i) + '</span><span class="sb-caret" aria-hidden="true">▾</span>';
+    var sub = getActiveSubstep();
+    var subSuffix = (sub && sub.total > 1) ? ' (' + (sub.cardIdx + 1) + '/' + sub.total + ')' : '';
+    bTitle.innerHTML = '<span class="sb-ic" aria-hidden="true">' + stepIcon(i) + '</span>' + (i >= 1 && i <= N ? '<span class="sb-n">' + i + ' / ' + N + '</span>' : '') + '<span class="sb-w">' + stepWord(i) + subSuffix + '</span><span class="sb-caret" aria-hidden="true">▾</span>';
     renderStrip();
-    if (ct) ct.querySelector('small').textContent = i === 0 ? '' : (i >= 1 && i <= N ? i + ' / ' + N + ' · ' + stepWord(i) : stepWord(i));
+    if (ct) ct.querySelector('small').textContent = i === 0 ? '' : (i >= 1 && i <= N ? i + ' / ' + N + ' · ' + stepWord(i) + subSuffix : stepWord(i));
     renderOverview(); renderEnd();
     bBack.disabled = i === 0; eBack.disabled = i === 0;
-    bBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி')); bBack.title = bBack.getAttribute('aria-label');
+    bBack.setAttribute('aria-label', (sub && sub.cardIdx > 0) ? L('Previous subtopic', 'முந்தைய தலைப்பு') : L('Previous step', 'முந்தைய படி'));
+    bBack.title = bBack.getAttribute('aria-label');
     var nxt = i === LAST ? null : label(i + 1);
-    var nl = nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்');
+    var nl = (sub && sub.hasMore) ? (L('Next subtopic (', 'அடுத்த தலைப்பு (') + (sub.cardIdx + 2) + '/' + sub.total + ')') : (nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்'));
     bNext.innerHTML = '<span aria-hidden="true">' + (i === 0 ? '▶' : (i === N ? '🏁' : (i === LAST ? '🏠' : '➜'))) + '</span>';
     bNext.setAttribute('aria-label', i === 0 ? L('Start the lesson', 'பாடத்த தொடங்கு') : nl); bNext.title = bNext.getAttribute('aria-label');
     bNext.classList.toggle('sb-pulse', i === 0 && taps() < 2);
-    bMid.setAttribute('aria-label', (i >= 1 && i <= N ? L('Step ', 'படி ') + i + ' / ' + N + ': ' : '') + stepWord(i) + '. ' + L('Open lesson map', 'பாடத்தின் வரைபடம்'));
+    bMid.setAttribute('aria-label', (i >= 1 && i <= N ? L('Step ', 'படி ') + i + ' / ' + N + ': ' : '') + stepWord(i) + subSuffix + '. ' + L('Open lesson map', 'பாடத்தின் வரைபடம்'));
     /* header menu button and nav links show where you are */
     [].forEach.call(doc.querySelectorAll('.navlinks a'), function (a) { a.removeAttribute('aria-current'); });
     var id = i >= 1 && i <= N ? ids[i - 1] : null;
@@ -354,16 +398,53 @@
   }
 
   /* ------------------------------------------------------------------ events */
-  bBack.addEventListener('click', function () { go(cur - 1); });
+  bBack.addEventListener('click', function () {
+    var sub = getActiveSubstep();
+    if (sub && sub.cardIdx > 0 && sub.prevBtn) {
+      sub.prevBtn.click();
+      setTimeout(function () {
+        renderEnd();
+        renderBar();
+        var st = doc.getElementById('notesStage') || doc.getElementById('notesPath');
+        if (st) st.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 40);
+      return;
+    }
+    go(cur - 1);
+  });
   bNext.addEventListener('click', function () {
     try { localStorage.setItem('stem_next_taps', String(taps() + 1)); } catch (e) {}
     if (cur === LAST) { var hub = doc.querySelector('.crumb a, a[href$="index.html"]'); location.href = hub ? hub.getAttribute('href') : 'index.html'; return; }
+
+    var sub = getActiveSubstep();
+    if (sub && sub.hasMore && sub.nextBtn) {
+      sub.nextBtn.click();
+      setTimeout(function () {
+        renderEnd();
+        renderBar();
+        var st = doc.getElementById('notesStage') || doc.getElementById('notesPath');
+        if (st) st.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 40);
+      return;
+    }
+
     go(cur + 1, { next: true });
   });
   bMid.addEventListener('click', openMap);
   bStrip.addEventListener('click', function (e) { var c = e.target.closest('.sb-chip'); if (c) go(parseInt(c.getAttribute('data-i'), 10)); });
-  eBack.addEventListener('click', function () { go(cur - 1); });
+  eBack.addEventListener('click', function () { bBack.click(); });
   eNext.addEventListener('click', function () { bNext.click(); });
+
+  /* synchronize bottom and top bars whenever a subtopic is selected manually */
+  doc.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+    if (e.target.closest('.path-stone, .sns-pill, #noteNextBtn, #notePrevBtn')) {
+      setTimeout(function () {
+        renderEnd();
+        renderBar();
+      }, 50);
+    }
+  });
 
   /* in-page links jump to the right step (works for the path card, "Start", story button, nav links ...) */
   doc.addEventListener('click', function (e) {

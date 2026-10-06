@@ -479,6 +479,8 @@ def run():
             check('Sinhala: drawing labels are translated too (atom figure)', pg.evaluate("[...document.querySelectorAll('#notes svg text')].some(t => /[\u0D80-\u0DFF]/.test(t.textContent))") and not pg.evaluate("[...document.querySelectorAll('#notes svg text')].some(t => /[A-Za-z]{5,}/.test(t.textContent))"))
             pg.goto(BASE + '/lessons/g10-chapter-15-hydrostatic-pressure.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
             check('Sinhala: chapter 15 is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'ද්‍රවස්ථිති' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.goto(BASE + '/lessons/chapter-04-newtons-laws.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
+            check('Sinhala: chapter 4 is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'නිව්ටන්' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
             pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)     # the chosen language (Sinhala) is remembered
             check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)

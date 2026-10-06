@@ -1,0 +1,4113 @@
+{
+  "schemaVersion": 2,
+  "scope": "physics",
+  "year": 2019,
+  "title": {
+    "en": "O/L Physics 2019",
+    "ta": "சா/த பௌதிகவியல் 2019"
+  },
+  "sourceLanguage": "ta",
+  "teacherReviewed": false,
+  "status": "model-answers",
+  "editorialNote": {
+    "en": "Physics-only teaching paraphrases and English translations; use scans for exact wording and diagrams. Independently worked model answers, not an official marking scheme; teacher review pending. Textbook links are related reading. ",
+    "ta": "பௌதிகவியல் கற்பித்தல் மீளுரைகளும் ஆங்கில மொழிபெயர்ப்புகளும். மூலச் சொற்களுக்கும் படங்களுக்கும் மூலத்தாளைப் பார்க்கவும். இவை அதிகாரபூர்வ விடைக்குறிப்பு அல்ல; ஆசிரியர் மீளாய்வு நிலுவையிலுள்ள மாதிரி விடைகள். பாடநூல் இணைப்புகள் தொடர்புடைய வாசிப்பு. "
+  },
+  "sourcePdf": "/lessons/past-papers/2019/source.pdf",
+  "sourceSha256": "5941ba88a6192ab144c900a43b2da21dc91485d8df76f279b733cd09e8c0f7fc",
+  "coverageNote": {
+    "en": "",
+    "ta": ""
+  },
+  "papers": [
+    {
+      "id": "I",
+      "questionCount": 12,
+      "instructions": {
+        "en": "Physics-only practice: 12 questions. No time limit; submit when ready. Written answers use self-checking. ",
+        "ta": "பௌதிகவியல் பயிற்சி: 12 வினாக்கள். நேர வரம்பு இல்லை; தயாரானதும் சமர்ப்பிக்கவும். எழுத்து விடைகளுக்குத் தன்னிலை மதிப்பீடு. "
+      }
+    },
+    {
+      "id": "II",
+      "questionCount": 5,
+      "instructions": {
+        "en": "Physics-only practice: 5 questions. No time limit; submit when ready. Written answers use self-checking. ",
+        "ta": "பௌதிகவியல் பயிற்சி: 5 வினாக்கள். நேர வரம்பு இல்லை; தயாரானதும் சமர்ப்பிக்கவும். எழுத்து விடைகளுக்குத் தன்னிலை மதிப்பீடு. "
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "ol2019-i-03",
+      "number": 3,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Measurement"
+      ],
+      "lessons": [],
+      "pages": [
+        1
+      ],
+      "prompt": {
+        "en": "Which is NOT a scalar quantity?",
+        "ta": "பின்வருவனவற்றுள் காவிக் கணியம் அல்லாதது எது?"
+      },
+      "options": [
+        {
+          "en": "Displacement",
+          "ta": "இடப்பெயர்ச்சி"
+        },
+        {
+          "en": "Distance",
+          "ta": "தூரம்"
+        },
+        {
+          "en": "Pressure",
+          "ta": "அமுக்கம்"
+        },
+        {
+          "en": "Work",
+          "ta": "வேலை"
+        }
+      ],
+      "correct": 0,
+      "explanation": {
+        "en": "Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+        "ta": "இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+      },
+      "steps": [
+        {
+          "en": "Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        }
+      ],
+      "hint": {
+        "en": "SI units identify the physical quantity.",
+        "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "SI units identify the physical quantity.",
+          "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+        },
+        "reasoning": {
+          "en": "Displacement has magnitude and direction, so it is a vector. Distance, pressure and work have magnitude only and are scalars.",
+          "ta": "இடப்பெயர்ச்சி பருமனும் திசையும் உடைய காவிக் கணியம் அல்லாத ஆரிக் கணியம். தூரம், அமுக்கம், வேலை பருமன் மட்டும் உடைய காவிக் கணியங்கள்."
+        },
+        "commonMistake": {
+          "en": "Check dimensions rather than memorising a symbol alone.",
+          "ta": "குறியீட்டை மட்டும் மனப்பாடம் செய்யாமல் பரிமாணங்களைச் சரிபார்க்கவும்."
+        },
+        "practice": {
+          "question": {
+            "en": "What is the SI unit of force?",
+            "ta": "விசையின் SI அலகு என்ன?"
+          },
+          "answer": {
+            "en": "N = kg m s⁻².",
+            "ta": "N = kg m s⁻²."
+          }
+        }
+      },
+      "references": [],
+      "textbookReferenceStatus": "not-matched"
+    },
+    {
+      "id": "ol2019-i-11",
+      "number": 11,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Forces"
+      ],
+      "lessons": [
+        "chapter-09-resultant-force",
+        "chapter-11-turning-effect",
+        "chapter-12-equilibrium"
+      ],
+      "pages": [
+        2
+      ],
+      "prompt": {
+        "en": "A person weighs 600 N on Earth; Moon gravity is one-sixth. Find Moon weight.",
+        "ta": "புவியில் 600 N நிறையுள்ள மனிதனின் சந்திர நிறை என்ன? சந்திர ஈர்ப்பு ஆறிலொரு பங்கு."
+      },
+      "options": [
+        {
+          "en": "60 N",
+          "ta": "60 N"
+        },
+        {
+          "en": "100 N",
+          "ta": "100 N"
+        },
+        {
+          "en": "360 N",
+          "ta": "360 N"
+        },
+        {
+          "en": "600 N",
+          "ta": "600 N"
+        }
+      ],
+      "correct": 1,
+      "explanation": {
+        "en": "Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+        "ta": "மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+      },
+      "steps": [
+        {
+          "en": "Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        }
+      ],
+      "hint": {
+        "en": "The resultant is the signed sum of forces in a chosen direction.",
+        "ta": "தேர்ந்த திசையிலுள்ள விசைகளின் குறியுடன் கூட்டுத்தொகை விளையுள் விசை."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        },
+        {
+          "en": "Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "The resultant is the signed sum of forces in a chosen direction.",
+          "ta": "தேர்ந்த திசையிலுள்ள விசைகளின் குறியுடன் கூட்டுத்தொகை விளையுள் விசை."
+        },
+        "reasoning": {
+          "en": "Weight is proportional to g for fixed mass: 600/6 = 100 N. Mass does not change.",
+          "ta": "மாறா திணிவிற்கு நிறை g இற்கு நேர்விகிதம்: 600/6 = 100 N. திணிவு மாறாது."
+        },
+        "commonMistake": {
+          "en": "Opposite forces subtract; they are not added as if they acted together.",
+          "ta": "எதிர் விசைகள் கழிக்கப்படும்; ஒரே திசை விசைகள் போலக் கூட்ட வேண்டாம்."
+        },
+        "practice": {
+          "question": {
+            "en": "A 50 N push acts against 30 N friction. Find the resultant.",
+            "ta": "50 N தள்ளுவிசைக்கு எதிராக 30 N உராய்வு உள்ளது. விளையுள் விசையைக் காண்க."
+          },
+          "answer": {
+            "en": "20 N in the direction of the push.",
+            "ta": "தள்ளும் திசையில் 20 N."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-c09-ta",
+          "chapter": 9,
+          "section": {
+            "en": "9.2 Resultant of forces in one line",
+            "ta": "9.2 ஒரே கோட்டிலுள்ள விசைகளின் விளையுள்"
+          },
+          "printedPages": [
+            165,
+            166
+          ],
+          "pdfPages": [
+            2,
+            3
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "I",
+          "title": {
+            "en": "Science · Grade 10 · Part I · Chapter 9",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 9"
+          },
+          "sourceFilename": "Chapter 09 Physics.pdf",
+          "sourceSha256": "e852c5435f75d0d6f8934d621e2a7064113bfb2d45eda03e8f805ff4c4c24fb8",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-c09-ta.pdf#page=2",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g10-c05-ta",
+          "chapter": 5,
+          "section": {
+            "en": "5.1 Nature of friction",
+            "ta": "5.1 உராய்வின் இயல்பு"
+          },
+          "printedPages": [
+            104,
+            104
+          ],
+          "pdfPages": [
+            1,
+            1
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "I",
+          "title": {
+            "en": "Science · Grade 10 · Part I · Chapter 5",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 5"
+          },
+          "sourceFilename": "Chapter 05 Physics.pdf",
+          "sourceSha256": "d5146af39ab608eee8377ae2638c3e6fbfe89363ee3b5a1f74fb5b0c1eac6769",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-c05-ta.pdf#page=1",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 9,
+          "title": {
+            "en": "Resultant Force",
+            "ta": "விளையுள் விசை"
+          },
+          "url": "/lessons/chapter-09-resultant-force.html",
+          "verifiedAgainst": "course-index"
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 11,
+          "title": {
+            "en": "Turning Effect of Forces",
+            "ta": "விசையின் திரும்பல் விளைவு"
+          },
+          "url": "/lessons/chapter-11-turning-effect.html",
+          "verifiedAgainst": "course-index"
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 12,
+          "title": {
+            "en": "Equilibrium of Forces",
+            "ta": "விசைகளின் சமநிலை"
+          },
+          "url": "/lessons/chapter-12-equilibrium.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-15",
+      "number": 15,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Motion"
+      ],
+      "lessons": [
+        "unit-02-motion-in-a-straight-line"
+      ],
+      "pages": [
+        2
+      ],
+      "prompt": {
+        "en": "Velocity rises 0→10 m/s in 10 s, stays constant until 20 s and falls to zero at 25 s. Which source statement is correct?",
+        "ta": "வேகம் 10 s இல் 0→10 m/s, 20 s வரை மாறாது, 25 s இல் பூச்சியம். சரியான மூலக் கூற்று எது?"
+      },
+      "options": [
+        {
+          "en": "Deceleration is 2 m s⁻²",
+          "ta": "அமர்முடுகல் 2 m s⁻²"
+        },
+        {
+          "en": "Displacement is zero",
+          "ta": "இடப்பெயர்ச்சி பூச்சியம்"
+        },
+        {
+          "en": "Acceleration is 10 m s⁻²",
+          "ta": "ஆர்முடுகல் 10 m s⁻²"
+        },
+        {
+          "en": "Travels at 10 m/s for 20 s",
+          "ta": "10 m/s இல் 20 s இயங்கும்"
+        }
+      ],
+      "correct": 0,
+      "explanation": {
+        "en": "Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+        "ta": "அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+      },
+      "steps": [
+        {
+          "en": "Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        }
+      ],
+      "hint": {
+        "en": "On a velocity–time graph, height gives velocity, slope gives acceleration, area gives displacement.",
+        "ta": "வேகம்–நேர வரைபில் உயரம் வேகம்; சரிவு ஆர்முடுகல்; பரப்பளவு இடப்பெயர்ச்சி."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "On a velocity–time graph, height gives velocity, slope gives acceleration, area gives displacement.",
+          "ta": "வேகம்–நேர வரைபில் உயரம் வேகம்; சரிவு ஆர்முடுகல்; பரப்பளவு இடப்பெயர்ச்சி."
+        },
+        "reasoning": {
+          "en": "Deceleration magnitude = (10−0)/(25−20) = 2 m s⁻². Initial acceleration is 1 m s⁻²; constant-speed interval is 10 s; displacement is positive.",
+          "ta": "அமர்முடுகல் பருமன் = (10−0)/(25−20) = 2 m s⁻². தொடக்க ஆர்முடுகல் 1 m s⁻²; மாறா வேக இடைவெளி 10 s; இடப்பெயர்ச்சி நேரானது."
+        },
+        "commonMistake": {
+          "en": "Do not confuse slope with distance, or a duration with an absolute time-coordinate.",
+          "ta": "சரிவைத் தூரத்துடனும் கால இடைவெளியை நேர ஆயத்துடனும் குழப்ப வேண்டாம்."
+        },
+        "practice": {
+          "question": {
+            "en": "Velocity rises uniformly from 0 to 20 m s⁻¹ in 10 s. Find distance during this interval.",
+            "ta": "வேகம் 10 s இல் சீராக 0 இலிருந்து 20 m s⁻¹ ஆகிறது. இக்காலத் தூரத்தைக் காண்க."
+          },
+          "answer": {
+            "en": "Triangle area = ½ × 10 × 20 = 100 m.",
+            "ta": "முக்கோணப் பரப்பு = ½ × 10 × 20 = 100 m."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-c02-ta",
+          "chapter": 2,
+          "section": {
+            "en": "Velocity–time graphs: displacement from area",
+            "ta": "வேகம்–நேர வரைபு: பரப்பிலிருந்து இடப்பெயர்ச்சி"
+          },
+          "printedPages": [
+            40,
+            43
+          ],
+          "pdfPages": [
+            15,
+            18
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "I",
+          "title": {
+            "en": "Science · Grade 10 · Part I · Chapter 2",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 2"
+          },
+          "sourceFilename": "Chapter 02 Physics.pdf",
+          "sourceSha256": "4d2961544bd8c3e35f6d976a7f133e9a0c902b1b1aa177e31a24bd92c60a8841",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-c02-ta.pdf#page=15",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 2,
+          "title": {
+            "en": "Motion in a Straight Line",
+            "ta": "நேர்க்கோட்டு இயக்கம்"
+          },
+          "url": "/lessons/unit-02-motion-in-a-straight-line.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-18",
+      "number": 18,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Circuits"
+      ],
+      "lessons": [
+        "g10-chapter-19-current-electricity"
+      ],
+      "pages": [
+        2
+      ],
+      "prompt": {
+        "en": "An equal-length wire is used whole (1), cut in two parallel pieces (2), or three parallel pieces (3), all in series with a bulb and 6 V. When is the bulb brightest?",
+        "ta": "சமநீளக் கம்பி முழுதாக (1), இரண்டாக வெட்டி சமாந்தரம் (2), மூன்றாக வெட்டி சமாந்தரம் (3). 6 V குமிழ் எப்போது மிகப் பிரகாசம்?"
+      },
+      "options": [
+        {
+          "en": "1",
+          "ta": "1"
+        },
+        {
+          "en": "2",
+          "ta": "2"
+        },
+        {
+          "en": "3",
+          "ta": "3"
+        },
+        {
+          "en": "2 and 3 equally",
+          "ta": "2,3 சமம்"
+        }
+      ],
+      "correct": 2,
+      "explanation": {
+        "en": "If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+        "ta": "முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+      },
+      "steps": [
+        {
+          "en": "If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        }
+      ],
+      "hint": {
+        "en": "In series, current is shared; in parallel, voltage is shared.",
+        "ta": "தொடரில் மின்னோட்டம் ஒன்றே; சமாந்தரத்தில் வோல்ற்றளவு ஒன்றே."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        },
+        {
+          "en": "If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "In series, current is shared; in parallel, voltage is shared.",
+          "ta": "தொடரில் மின்னோட்டம் ஒன்றே; சமாந்தரத்தில் வோல்ற்றளவு ஒன்றே."
+        },
+        "reasoning": {
+          "en": "If the whole wire has R, two halves in parallel give R/4; three thirds give R/9. The smallest added resistance gives the largest bulb current.",
+          "ta": "முழுக் கம்பியின் தடை R எனில் இரு அரைப் பகுதிகள் சமாந்தரத்தில் R/4; மூன்று மூன்றிலொன்றுகள் R/9. குறைந்த மேலதிகத் தடை மிகப்பெரிய குமிழ் மின்னோட்டத்தைத் தரும்."
+        },
+        "commonMistake": {
+          "en": "Parallel resistances are not added directly. Each equal parallel branch carries half the total current.",
+          "ta": "சமாந்தரத் தடைகளை நேரடியாகக் கூட்ட வேண்டாம். சமமான இரு கிளைகளில் ஒவ்வொன்றும் மொத்த மின்னோட்டத்தின் பாதியைக் காவும்."
+        },
+        "practice": {
+          "question": {
+            "en": "Two 4 Ω resistors in parallel are in series with 2 Ω across 8 V. Find the series resistor voltage.",
+            "ta": "சமாந்தரமான இரு 4 Ω தடைகள் 2 Ω உடன் தொடரில் 8 V வழங்கலில் உள்ளன. 2 Ω இன் வோல்ற்றளவைக் காண்க."
+          },
+          "answer": {
+            "en": "Parallel = 2 Ω; total = 4 Ω; current = 2 A; voltage across 2 Ω = 4 V.",
+            "ta": "சமாந்தரம் = 2 Ω; மொத்தம் = 4 Ω; மின்னோட்டம் = 2 A; 2 Ω இன் வோல்ற்றளவு = 4 V."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-p2-en",
+          "chapter": 19,
+          "section": {
+            "en": "Series and parallel resistor combinations",
+            "ta": "தொடர், சமாந்தரத் தடைத் தொகுப்புகள்"
+          },
+          "printedPages": [
+            162,
+            164
+          ],
+          "pdfPages": [
+            172,
+            174
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "science G-10 P-II E (1).pdf",
+          "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-en.pdf#page=172",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g10-p2-ta",
+          "chapter": 19,
+          "section": {
+            "en": "Series and parallel resistor combinations",
+            "ta": "தொடர், சமாந்தரத் தடைத் தொகுப்புகள்"
+          },
+          "printedPages": [
+            188,
+            190
+          ],
+          "pdfPages": [
+            198,
+            200
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "Science part II G10 T.pdf",
+          "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-ta.pdf#page=198",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 19,
+          "title": {
+            "en": "Current Electricity",
+            "ta": "ஓட்ட மின்னியல்"
+          },
+          "url": "/lessons/g10-chapter-19-current-electricity.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-20",
+      "number": 20,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Electronics"
+      ],
+      "lessons": [
+        "g11-chapter-11-electronics"
+      ],
+      "pages": [
+        3
+      ],
+      "prompt": {
+        "en": "Which source diode arrangement protects a device against reversed supply polarity?",
+        "ta": "மாற்றிய மின் வழங்கல் முனைகளிலிருந்து சாதனத்தைப் பாதுகாக்கும் இருமுனைய இணைப்பு எது?"
+      },
+      "options": [
+        {
+          "en": "Diagram 1 / படம் 1",
+          "ta": "Diagram 1 / படம் 1"
+        },
+        {
+          "en": "Diagram 2 / படம் 2",
+          "ta": "Diagram 2 / படம் 2"
+        },
+        {
+          "en": "Diagram 3 / படம் 3",
+          "ta": "Diagram 3 / படம் 3"
+        },
+        {
+          "en": "Diagram 4 / படம் 4",
+          "ta": "Diagram 4 / படம் 4"
+        }
+      ],
+      "correct": 0,
+      "explanation": {
+        "en": "A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+        "ta": "நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+      },
+      "steps": [
+        {
+          "en": "A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        }
+      ],
+      "hint": {
+        "en": "A photodiode detects incident light; symbol arrows point inward.",
+        "ta": "ஒளியிருமுனையம் வரும் ஒளியை உணரும்; குறியீட்டு அம்புகள் உள்ளே காட்டும்."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "A photodiode detects incident light; symbol arrows point inward.",
+          "ta": "ஒளியிருமுனையம் வரும் ஒளியை உணரும்; குறியீட்டு அம்புகள் உள்ளே காட்டும்."
+        },
+        "reasoning": {
+          "en": "A series diode oriented to conduct from the positive terminal blocks current when the supply is reversed. Source diagram 1 has this orientation.",
+          "ta": "நேர்முனையிலிருந்து கடத்தும் திசையில் தொடராக இணைத்த இருமுனையம் முனைகள் மாற்றப்பட்டால் மின்னோட்டத்தைத் தடுக்கும். மூலப் படம் 1 இல் இவ்வமைப்பு உள்ளது."
+        },
+        "commonMistake": {
+          "en": "Outward arrows indicate light emission, as in an LED, not detection.",
+          "ta": "வெளிநோக்கிய அம்புகள் LED போல ஒளி வெளியீட்டைக் குறிக்கும்; உணர்தலை அல்ல."
+        },
+        "practice": {
+          "question": {
+            "en": "Which way do the light arrows point on a photodiode symbol?",
+            "ta": "ஒளியிருமுனையக் குறியில் ஒளி அம்புகள் எத்திசையில் காட்டும்?"
+          },
+          "answer": {
+            "en": "Towards the diode, representing incoming light.",
+            "ta": "வரும் ஒளியைக் குறிக்கும் வகையில் இருமுனையத்தை நோக்கி."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g11-p2-en",
+          "chapter": 11,
+          "section": {
+            "en": "11.3 p–n junction diode",
+            "ta": "11.3 p–n சந்தி இருமுனையம்"
+          },
+          "printedPages": [
+            57,
+            57
+          ],
+          "pdfPages": [
+            67,
+            67
+          ],
+          "support": "related",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          },
+          "kind": "textbook",
+          "language": "en",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+          },
+          "sourceFilename": "science G-11  P-II E.pdf",
+          "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-p2-en.pdf#page=67"
+        },
+        {
+          "kind": "lesson",
+          "grade": 11,
+          "chapter": 11,
+          "title": {
+            "en": "Electronics",
+            "ta": "மின்னணுவியல்"
+          },
+          "url": "/lessons/g11-chapter-11-electronics.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only",
+      "figure": "/lessons/past-papers/2019/mcq-20.jpg"
+    },
+    {
+      "id": "ol2019-i-23",
+      "number": 23,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Liquid pressure"
+      ],
+      "lessons": [
+        "g10-chapter-15-hydrostatic-pressure"
+      ],
+      "pages": [
+        3
+      ],
+      "prompt": {
+        "en": "Atmospheric pressure is 10⁵ Pa; eardrum area is 5×10⁻⁵ m². Find force on one side.",
+        "ta": "வளிமண்டல அமுக்கம் 10⁵ Pa; செவிப்பறை பரப்பு 5×10⁻⁵ m². ஒரு பக்க விசை என்ன?"
+      },
+      "options": [
+        {
+          "en": "5 N",
+          "ta": "5 N"
+        },
+        {
+          "en": "1/5 N",
+          "ta": "1/5 N"
+        },
+        {
+          "en": "(1/5)×10¹⁰ N",
+          "ta": "(1/5)×10¹⁰ N"
+        },
+        {
+          "en": "5×10⁻¹⁰ N",
+          "ta": "5×10⁻¹⁰ N"
+        }
+      ],
+      "correct": 0,
+      "explanation": {
+        "en": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+        "ta": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+      },
+      "steps": [
+        {
+          "en": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        }
+      ],
+      "hint": {
+        "en": "Liquid pressure at depth h is p = ρgh.",
+        "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "Liquid pressure at depth h is p = ρgh.",
+          "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+        },
+        "reasoning": {
+          "en": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. This is one-side force; balanced pressures on both sides reduce the net force.",
+          "ta": "F = pA = 10⁵ × 5×10⁻⁵ = 5 N. இது ஒரு பக்க விசை; இருபக்கச் சம அமுக்கம் நிகர விசையைக் குறைக்கும்."
+        },
+        "commonMistake": {
+          "en": "Pressure and total force are different: force also depends on area.",
+          "ta": "அமுக்கமும் மொத்த விசையும் வேறு: விசை பரப்பளவையும் சாரும்."
+        },
+        "practice": {
+          "question": {
+            "en": "Two points in the same still water are both 10 cm below its surface. Compare their pressure.",
+            "ta": "அசைவற்ற ஒரே நீரில் இரு புள்ளிகள் மேற்பரப்பிலிருந்து 10 cm ஆழத்தில் உள்ளன. அமுக்கங்களை ஒப்பிடுக."
+          },
+          "answer": {
+            "en": "Their liquid pressures are equal, regardless of container shape.",
+            "ta": "பாத்திர வடிவம் எதுவாயினும் அவற்றின் திரவ அமுக்கங்கள் சமம்."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-p2-en",
+          "chapter": 15,
+          "section": {
+            "en": "15.2 Liquid pressure: shape and depth",
+            "ta": "15.2 திரவ அமுக்கம்: வடிவமும் ஆழமும்"
+          },
+          "printedPages": [
+            66,
+            67
+          ],
+          "pdfPages": [
+            76,
+            77
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "science G-10 P-II E (1).pdf",
+          "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-en.pdf#page=76",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g10-p2-ta",
+          "chapter": 15,
+          "section": {
+            "en": "Liquid pressure: depth and p = ρgh",
+            "ta": "திரவ அமுக்கம்: ஆழமும் p = ρgh உம்"
+          },
+          "printedPages": [
+            84,
+            84
+          ],
+          "pdfPages": [
+            94,
+            94
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "Science part II G10 T.pdf",
+          "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-ta.pdf#page=94",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 15,
+          "title": {
+            "en": "Pressure of Liquids",
+            "ta": "திரவ அமுக்கம்"
+          },
+          "url": "/lessons/g10-chapter-15-hydrostatic-pressure.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-24",
+      "number": 24,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Transformers"
+      ],
+      "lessons": [
+        "g11-chapter-13-electromagnetism"
+      ],
+      "pages": [
+        3
+      ],
+      "prompt": {
+        "en": "An ideal transformer has primary power 200 W and secondary voltage 10 V. Find secondary current.",
+        "ta": "இலட்சிய நிலைமாற்றியின் முதன்மை வலு 200 W; துணை வோல்ற்றளவு 10 V. துணை மின்னோட்டம் என்ன?"
+      },
+      "options": [
+        {
+          "en": "10 A",
+          "ta": "10 A"
+        },
+        {
+          "en": "20 A",
+          "ta": "20 A"
+        },
+        {
+          "en": "40 A",
+          "ta": "40 A"
+        },
+        {
+          "en": "50 A",
+          "ta": "50 A"
+        }
+      ],
+      "correct": 1,
+      "explanation": {
+        "en": "100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+        "ta": "100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+      },
+      "steps": [
+        {
+          "en": "100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        }
+      ],
+      "hint": {
+        "en": "For an ideal transformer, Vp/Vs = Np/Ns and input power equals output power.",
+        "ta": "இலட்சிய நிலைமாற்றியில் Vp/Vs = Np/Ns; உள்ளீட்டு வலு வெளியீட்டு வலுவிற்குச் சமம்."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. 100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். 100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        },
+        {
+          "en": "100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. 100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். 100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. 100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். 100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "For an ideal transformer, Vp/Vs = Np/Ns and input power equals output power.",
+          "ta": "இலட்சிய நிலைமாற்றியில் Vp/Vs = Np/Ns; உள்ளீட்டு வலு வெளியீட்டு வலுவிற்குச் சமம்."
+        },
+        "reasoning": {
+          "en": "100% efficiency gives output power 200 W. Is = P/Vs = 200/10 = 20 A.",
+          "ta": "100% திறனில் வெளியீட்டு வலு 200 W. Is = P/Vs = 200/10 = 20 A."
+        },
+        "commonMistake": {
+          "en": "Use alternating current and keep primary and secondary ratios in the same order.",
+          "ta": "ஆடலோட்டத்தைப் பயன்படுத்தி முதன்மை, துணை விகிதங்களை ஒரே வரிசையில் எழுதவும்."
+        },
+        "practice": {
+          "question": {
+            "en": "A 240 V transformer supplies 12 V. Np = 1000. Find Ns.",
+            "ta": "240 V நிலைமாற்றி 12 V வழங்குகிறது. Np = 1000. Ns ஐக் காண்க."
+          },
+          "answer": {
+            "en": "Ns = 1000 × 12/240 = 50 turns.",
+            "ta": "Ns = 1000 × 12/240 = 50 முறுக்குகள்."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g11-p2-en",
+          "chapter": 13,
+          "section": {
+            "en": "13.2 Magnetic effect of a current: right-hand rule",
+            "ta": "13.2 மின்னோட்டத்தின் காந்த விளைவு: வலக்கை விதி"
+          },
+          "printedPages": [
+            120,
+            120
+          ],
+          "pdfPages": [
+            130,
+            130
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+          },
+          "sourceFilename": "science G-11  P-II E.pdf",
+          "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-p2-en.pdf#page=130",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g11-c13-ta",
+          "chapter": 13,
+          "section": {
+            "en": "13.2 Magnetic field around a conductor",
+            "ta": "13.2 கடத்தியைச் சுற்றிய காந்தப் புலம்"
+          },
+          "printedPages": [
+            133,
+            133
+          ],
+          "pdfPages": [
+            6,
+            6
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II · Chapter 13",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 13"
+          },
+          "sourceFilename": "13.pdf",
+          "sourceSha256": "bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-c13-ta.pdf#page=6",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 11,
+          "chapter": 13,
+          "title": {
+            "en": "Electromagnetism and Induction",
+            "ta": "மின்காந்தவியலும் தூண்டலும்"
+          },
+          "url": "/lessons/g11-chapter-13-electromagnetism.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-28",
+      "number": 28,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Electromagnetism"
+      ],
+      "lessons": [
+        "g11-chapter-13-electromagnetism"
+      ],
+      "pages": [
+        3
+      ],
+      "prompt": {
+        "en": "Which device uses the force on a current-carrying conductor in a magnetic field?",
+        "ta": "காந்தப் புலத்தில் மின்னோட்டமுள்ள கடத்தியில் தாக்கும் விசையைப் பயன்படுத்துவது எது?"
+      },
+      "options": [
+        {
+          "en": "Moving-coil microphone",
+          "ta": "அசையும் சுருள் நுணுக்குப்பன்னி"
+        },
+        {
+          "en": "Electric bell",
+          "ta": "மின் மணி"
+        },
+        {
+          "en": "Transformer",
+          "ta": "நிலைமாற்றி"
+        },
+        {
+          "en": "DC motor",
+          "ta": "நேரோட்ட மோட்டர்"
+        }
+      ],
+      "correct": 3,
+      "explanation": {
+        "en": "A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+        "ta": "நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+      },
+      "steps": [
+        {
+          "en": "A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        }
+      ],
+      "hint": {
+        "en": "An electric current produces a magnetic field around a conductor.",
+        "ta": "மின்னோட்டம் கடத்தியின் சுற்றில் காந்தப் புலத்தை உருவாக்குகிறது."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        },
+        {
+          "en": "A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "An electric current produces a magnetic field around a conductor.",
+          "ta": "மின்னோட்டம் கடத்தியின் சுற்றில் காந்தப் புலத்தை உருவாக்குகிறது."
+        },
+        "reasoning": {
+          "en": "A DC motor uses the motor effect to turn a coil. Microphones and transformers use induction; an electric bell uses an electromagnet’s attraction.",
+          "ta": "நேரோட்ட மோட்டர் விசை விளைவால் சுருளைச் சுழற்றும். நுணுக்குப்பன்னியும் நிலைமாற்றியும் தூண்டலைப் பயன்படுத்தும்; மின் மணி மின்காந்தக் கவர்ச்சியைப் பயன்படுத்தும்."
+        },
+        "commonMistake": {
+          "en": "The thumb shows conventional current, not electron-flow direction.",
+          "ta": "பெருவிரல் வழக்கமான மின்னோட்டத்தைக் காட்டும்; இலத்திரன் ஓட்டத் திசையை அல்ல."
+        },
+        "practice": {
+          "question": {
+            "en": "What happens to the field direction when current in a straight wire reverses?",
+            "ta": "நேரான கம்பியில் மின்னோட்டம் எதிர்த்திசையானால் புலத் திசை என்ன ஆகும்?"
+          },
+          "answer": {
+            "en": "The magnetic field circles in the opposite direction.",
+            "ta": "காந்தப் புலம் எதிர்த்திசையில் சுற்றும்."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g11-p2-en",
+          "chapter": 13,
+          "section": {
+            "en": "13.2 Magnetic effect of a current: right-hand rule",
+            "ta": "13.2 மின்னோட்டத்தின் காந்த விளைவு: வலக்கை விதி"
+          },
+          "printedPages": [
+            120,
+            120
+          ],
+          "pdfPages": [
+            130,
+            130
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+          },
+          "sourceFilename": "science G-11  P-II E.pdf",
+          "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-p2-en.pdf#page=130",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g11-c13-ta",
+          "chapter": 13,
+          "section": {
+            "en": "13.2 Magnetic field around a conductor",
+            "ta": "13.2 கடத்தியைச் சுற்றிய காந்தப் புலம்"
+          },
+          "printedPages": [
+            133,
+            133
+          ],
+          "pdfPages": [
+            6,
+            6
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II · Chapter 13",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 13"
+          },
+          "sourceFilename": "13.pdf",
+          "sourceSha256": "bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-c13-ta.pdf#page=6",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 11,
+          "chapter": 13,
+          "title": {
+            "en": "Electromagnetism and Induction",
+            "ta": "மின்காந்தவியலும் தூண்டலும்"
+          },
+          "url": "/lessons/g11-chapter-13-electromagnetism.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-32",
+      "number": 32,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Buoyancy"
+      ],
+      "lessons": [
+        "g10-chapter-15-hydrostatic-pressure"
+      ],
+      "pages": [
+        4
+      ],
+      "prompt": {
+        "en": "A swimmer wearing an air-filled ring is more buoyant as the ring inflates. Why?",
+        "ta": "வளி நிரம்பிய மிதவை வளையம் பெரிதாகும்போது நீந்துபவரின் மிதப்பு ஏன் அதிகரிக்கும்?"
+      },
+      "options": [
+        {
+          "en": "Upthrust increases",
+          "ta": "மேலுதைப்பு அதிகரிக்கும்"
+        },
+        {
+          "en": "Upthrust decreases",
+          "ta": "மேலுதைப்பு குறையும்"
+        },
+        {
+          "en": "More gas dissolves in water",
+          "ta": "அதிக வாயு நீரில் கரையும்"
+        },
+        {
+          "en": "Water cools",
+          "ta": "நீர் குளிரும்"
+        }
+      ],
+      "correct": 0,
+      "explanation": {
+        "en": "The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+        "ta": "விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+      },
+      "steps": [
+        {
+          "en": "The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        }
+      ],
+      "hint": {
+        "en": "Upthrust equals the weight of displaced liquid; floating equilibrium requires U = mg.",
+        "ta": "மேலுதைப்பு இடம்பெயர்ந்த திரவத்தின் நிறைக்குச் சமம்; மிதக்கும் சமநிலையில் U = mg."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "Upthrust equals the weight of displaced liquid; floating equilibrium requires U = mg.",
+          "ta": "மேலுதைப்பு இடம்பெயர்ந்த திரவத்தின் நிறைக்குச் சமம்; மிதக்கும் சமநிலையில் U = mg."
+        },
+        "reasoning": {
+          "en": "The inflated ring displaces more water, increasing buoyancy U = ρwater g Vdisplaced. Added air mass is small compared with the extra displaced water.",
+          "ta": "விரிந்த வளையம் அதிக நீரை இடம்பெயர்ப்பதால் U = ρநீர் g Vஇடப்பெயர்ச்சி அதிகரிக்கும். மேலதிக வளித் திணிவு இடம்பெயர்ந்த நீர்த் திணிவைவிடச் சிறியது."
+        },
+        "commonMistake": {
+          "en": "Upthrust is a force in newtons, not a mass in kilograms.",
+          "ta": "மேலுதைப்பு நியூற்றனில் உள்ள விசை; கிலோகிராமிலுள்ள திணிவு அல்ல."
+        },
+        "practice": {
+          "question": {
+            "en": "A 200 kg raft floats at rest. With g = 10 N kg⁻¹, find upthrust.",
+            "ta": "200 kg தெப்பம் ஓய்வில் மிதக்கிறது. g = 10 N kg⁻¹ எனில் மேலுதைப்பைக் காண்க."
+          },
+          "answer": {
+            "en": "U = mg = 200 × 10 = 2000 N upward.",
+            "ta": "U = mg = 200 × 10 = 2000 N மேல்நோக்கி."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-p2-en",
+          "chapter": 15,
+          "section": {
+            "en": "15.5 Floating and Archimedes’ principle",
+            "ta": "15.5 மிதப்பும் ஆக்கிமிடீஸ் தத்துவமும்"
+          },
+          "printedPages": [
+            79,
+            82
+          ],
+          "pdfPages": [
+            89,
+            92
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "science G-10 P-II E (1).pdf",
+          "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-en.pdf#page=89",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g10-p2-ta",
+          "chapter": 15,
+          "section": {
+            "en": "Archimedes’ principle and floating equilibrium",
+            "ta": "ஆக்கிமிடீஸ் தத்துவமும் மிதக்கும் சமநிலையும்"
+          },
+          "printedPages": [
+            97,
+            99
+          ],
+          "pdfPages": [
+            107,
+            109
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "Science part II G10 T.pdf",
+          "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-ta.pdf#page=107",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 15,
+          "title": {
+            "en": "Pressure of Liquids",
+            "ta": "திரவ அமுக்கம்"
+          },
+          "url": "/lessons/g10-chapter-15-hydrostatic-pressure.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-33",
+      "number": 33,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Sound"
+      ],
+      "lessons": [
+        "g11-chapter-04-waves"
+      ],
+      "pages": [
+        4
+      ],
+      "prompt": {
+        "en": "Which sound property decreases as a loudspeaker’s wave travels through air?",
+        "ta": "ஒலிபெருக்கியிலிருந்து வளியில் ஒலி பரவும்போது குறைவது எது?"
+      },
+      "options": [
+        {
+          "en": "Frequency",
+          "ta": "மீடிறன்"
+        },
+        {
+          "en": "Speed",
+          "ta": "கதி"
+        },
+        {
+          "en": "Wavelength",
+          "ta": "அலைநீளம்"
+        },
+        {
+          "en": "Amplitude",
+          "ta": "வீச்சு"
+        }
+      ],
+      "correct": 3,
+      "explanation": {
+        "en": "Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+        "ta": "பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+      },
+      "steps": [
+        {
+          "en": "Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        }
+      ],
+      "hint": {
+        "en": "Soft surfaces absorb some sound energy and reduce reflected sound.",
+        "ta": "மென்மையான மேற்பரப்புகள் ஒலிச் சக்தியின் ஒரு பகுதியை உறிஞ்சி தெறித்த ஒலியைக் குறைக்கின்றன."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        },
+        {
+          "en": "Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "Soft surfaces absorb some sound energy and reduce reflected sound.",
+          "ta": "மென்மையான மேற்பரப்புகள் ஒலிச் சக்தியின் ஒரு பகுதியை உறிஞ்சி தெறித்த ஒலியைக் குறைக்கின்றன."
+        },
+        "reasoning": {
+          "en": "Spreading and absorption reduce amplitude and intensity. Frequency remains set by the source; speed is set by the air conditions.",
+          "ta": "பரவலும் உறிஞ்சலும் வீச்சையும் செறிவையும் குறைக்கும். மீடிறன் மூலத்தாலும் கதி வளியின் நிலைகளாலும் நிர்ணயிக்கப்படும்."
+        },
+        "commonMistake": {
+          "en": "Reducing reverberation is not the same as lowering the original sound’s pitch.",
+          "ta": "மீளொலியைக் குறைப்பது மூல ஒலியின் சுருதியைக் குறைப்பதற்கு சமமல்ல."
+        },
+        "practice": {
+          "question": {
+            "en": "Why does an empty hall usually sound more echoing than a furnished hall?",
+            "ta": "ஏன் வெற்று மண்டபத்தில் பொருட்கள் உள்ள மண்டபத்தைவிட எதிரொலி அதிகம்?"
+          },
+          "answer": {
+            "en": "More exposed hard surfaces reflect sound; furnishings absorb some of that energy.",
+            "ta": "வெளிப்படும் கடினப் பரப்புகள் ஒலியைத் தெறிக்கும்; பொருட்கள் அதன் சக்தியின் ஒரு பகுதியை உறிஞ்சும்."
+          }
+        }
+      },
+      "references": [
+        {
+          "kind": "lesson",
+          "grade": 11,
+          "chapter": 4,
+          "title": {
+            "en": "Waves and their Applications",
+            "ta": "அலைகளும் அவற்றின் பயன்பாடுகளும்"
+          },
+          "url": "/lessons/g11-chapter-04-waves.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "not-matched"
+    },
+    {
+      "id": "ol2019-i-37",
+      "number": 37,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Liquid pressure"
+      ],
+      "lessons": [
+        "g10-chapter-15-hydrostatic-pressure"
+      ],
+      "pages": [
+        4
+      ],
+      "prompt": {
+        "en": "Which affects pressure at the bottom for water filled to a given height?",
+        "ta": "குறித்த உயரத்திற்கு நிரம்பிய நீரின் அடியமுக்கத்தை நிர்ணயிப்பது எது?"
+      },
+      "options": [
+        {
+          "en": "Volume",
+          "ta": "கனவளவு"
+        },
+        {
+          "en": "Vessel shape",
+          "ta": "பாத்திர வடிவம்"
+        },
+        {
+          "en": "Bottom area",
+          "ta": "அடிப்பரப்பு"
+        },
+        {
+          "en": "Water-column height",
+          "ta": "நீர்நிரல் உயரம்"
+        }
+      ],
+      "correct": 3,
+      "explanation": {
+        "en": "p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+        "ta": "p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+      },
+      "steps": [
+        {
+          "en": "p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        }
+      ],
+      "hint": {
+        "en": "Liquid pressure at depth h is p = ρgh.",
+        "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        },
+        {
+          "en": "p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "Liquid pressure at depth h is p = ρgh.",
+          "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+        },
+        "reasoning": {
+          "en": "p = ρgh. For the same liquid and g, pressure depends on the vertical water-column height.",
+          "ta": "p = ρgh. அதே திரவம், g இற்கு அமுக்கம் செங்குத்து நீர்நிரல் உயரத்தில் தங்கும்."
+        },
+        "commonMistake": {
+          "en": "Pressure and total force are different: force also depends on area.",
+          "ta": "அமுக்கமும் மொத்த விசையும் வேறு: விசை பரப்பளவையும் சாரும்."
+        },
+        "practice": {
+          "question": {
+            "en": "Two points in the same still water are both 10 cm below its surface. Compare their pressure.",
+            "ta": "அசைவற்ற ஒரே நீரில் இரு புள்ளிகள் மேற்பரப்பிலிருந்து 10 cm ஆழத்தில் உள்ளன. அமுக்கங்களை ஒப்பிடுக."
+          },
+          "answer": {
+            "en": "Their liquid pressures are equal, regardless of container shape.",
+            "ta": "பாத்திர வடிவம் எதுவாயினும் அவற்றின் திரவ அமுக்கங்கள் சமம்."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g10-p2-en",
+          "chapter": 15,
+          "section": {
+            "en": "15.2 Liquid pressure: shape and depth",
+            "ta": "15.2 திரவ அமுக்கம்: வடிவமும் ஆழமும்"
+          },
+          "printedPages": [
+            66,
+            67
+          ],
+          "pdfPages": [
+            76,
+            77
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "science G-10 P-II E (1).pdf",
+          "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-en.pdf#page=76",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "bookId": "g10-p2-ta",
+          "chapter": 15,
+          "section": {
+            "en": "Liquid pressure: depth and p = ρgh",
+            "ta": "திரவ அமுக்கம்: ஆழமும் p = ρgh உம்"
+          },
+          "printedPages": [
+            84,
+            84
+          ],
+          "pdfPages": [
+            94,
+            94
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "ta",
+          "grade": 10,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 10 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+          },
+          "sourceFilename": "Science part II G10 T.pdf",
+          "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g10-p2-ta.pdf#page=94",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 10,
+          "chapter": 15,
+          "title": {
+            "en": "Pressure of Liquids",
+            "ta": "திரவ அமுக்கம்"
+          },
+          "url": "/lessons/g10-chapter-15-hydrostatic-pressure.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-i-39",
+      "number": 39,
+      "paper": "I",
+      "section": "MCQ",
+      "type": "mcq",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Heat"
+      ],
+      "lessons": [
+        "g11-chapter-09-heat"
+      ],
+      "pages": [
+        4
+      ],
+      "prompt": {
+        "en": "Which comparison of boiling and evaporation is false?",
+        "ta": "கொதித்தல், ஆவியாதல் பற்றிய பொய்யான ஒப்பீடு எது?"
+      },
+      "options": [
+        {
+          "en": "Boiling temperature is constant",
+          "ta": "கொதிக்கும் வெப்பநிலை மாறாது"
+        },
+        {
+          "en": "Boiling is slow; evaporation is fast",
+          "ta": "கொதித்தல் மந்தம்; ஆவியாதல் துரிதம்"
+        },
+        {
+          "en": "Wind affects evaporation, not bulk boiling directly",
+          "ta": "காற்று ஆவியாதலைப் பாதிக்கும்"
+        },
+        {
+          "en": "Evaporation can cool remaining water",
+          "ta": "ஆவியாதல் நீரைக் குளிர்விக்கும்"
+        }
+      ],
+      "correct": 1,
+      "explanation": {
+        "en": "Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+        "ta": "கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+      },
+      "steps": [
+        {
+          "en": "Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        }
+      ],
+      "hint": {
+        "en": "Heating without a phase change uses Q = mcΔT.",
+        "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+      },
+      "answerVerification": "independently-worked-model",
+      "sourceChecked": true,
+      "optionExplanations": [
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        },
+        {
+          "en": "Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        },
+        {
+          "en": "Use the principle in the worked explanation to check this choice. Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        }
+      ],
+      "detailedExplanation": {
+        "concept": {
+          "en": "Heating without a phase change uses Q = mcΔT.",
+          "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+        },
+        "reasoning": {
+          "en": "Boiling is rapid vaporisation throughout liquid; evaporation occurs at the surface and is generally slower. At fixed pressure, boiling temperature stays constant while latent heat is supplied.",
+          "ta": "கொதித்தல் திரவம் முழுவதிலும் துரிதமாக நடக்கும்; ஆவியாதல் மேற்பரப்பில் பொதுவாக மெதுவாக நடக்கும். மாறா அமுக்கத்தில் மறை வெப்பம் வழங்கும்போது கொதிநிலை மாறாது."
+        },
+        "commonMistake": {
+          "en": "Do not add 273 to a temperature rise or confuse energy (J) with power (W).",
+          "ta": "வெப்பநிலை உயர்விற்கு 273 சேர்க்க வேண்டாம்; சக்தி (J), வலு (W) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+        },
+        "practice": {
+          "question": {
+            "en": "Heat 2 kg of material with c = 500 J kg⁻¹ K⁻¹ by 4°C. Find energy.",
+            "ta": "c = 500 J kg⁻¹ K⁻¹ உள்ள 2 kg பொருளை 4°C உயர்த்தும் சக்தியைக் காண்க."
+          },
+          "answer": {
+            "en": "Q = 2 × 500 × 4 = 4000 J.",
+            "ta": "Q = 2 × 500 × 4 = 4000 J."
+          }
+        }
+      },
+      "references": [
+        {
+          "bookId": "g11-p2-en",
+          "chapter": 9,
+          "section": {
+            "en": "9.2.2 Quantity of heat: Q = mcΔT",
+            "ta": "9.2.2 வெப்ப அளவு: Q = mcΔT"
+          },
+          "printedPages": [
+            10,
+            11
+          ],
+          "pdfPages": [
+            20,
+            21
+          ],
+          "support": "related",
+          "kind": "textbook",
+          "language": "en",
+          "grade": 11,
+          "part": "II",
+          "title": {
+            "en": "Science · Grade 11 · Part II",
+            "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+          },
+          "sourceFilename": "science G-11  P-II E.pdf",
+          "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+          "verifiedAgainst": "uploaded-textbook",
+          "url": "/lessons/textbooks/g11-p2-en.pdf#page=20",
+          "note": {
+            "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+            "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+          }
+        },
+        {
+          "kind": "lesson",
+          "grade": 11,
+          "chapter": 9,
+          "title": {
+            "en": "Heat",
+            "ta": "வெப்பம்"
+          },
+          "url": "/lessons/g11-chapter-09-heat.html",
+          "verifiedAgainst": "course-index"
+        }
+      ],
+      "textbookReferenceStatus": "related-only"
+    },
+    {
+      "id": "ol2019-ii-01",
+      "number": 1,
+      "paper": "II",
+      "section": "Written",
+      "type": "written",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Electrical energy",
+        "Energy"
+      ],
+      "lessons": [
+        "g10-chapter-18-work-energy-power",
+        "g11-chapter-10-electric-appliances"
+      ],
+      "pages": [
+        5,
+        6
+      ],
+      "physicsSubset": true,
+      "prompt": {
+        "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+      },
+      "parts": [
+        {
+          "label": "B(i)(a–b)",
+          "subject": "physics",
+          "lessons": [
+            "g10-chapter-18-work-energy-power",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "State two measures for comfortable laboratory lighting and two to reduce electricity consumption.",
+            "ta": "ஆய்வுகூடத்தில் பொருத்தமான ஒளிக்கான இரு முறைகளையும் மின் நுகர்வைக் குறைக்க இரு முறைகளையும் கூறுக."
+          },
+          "answer": {
+            "en": "Use well-distributed lamps and appropriate brightness to avoid glare/shadows. Reduce electricity use with efficient LEDs and switching off unnecessary lamps or using daylight.",
+            "ta": "கண்ணைக் கூசவைக்கும் ஒளி/நிழலைத் தவிர்க்கச் சீராகப் பரவிய பொருத்தமான விளக்குகளைப் பயன்படுத்துக. திறனுள்ள LED, தேவையற்ற விளக்குகளை அணைத்தல், பகல் ஒளி மூலம் மின் நுகர்வைக் குறைக்கவும்."
+          },
+          "steps": [
+            {
+              "en": "Use well-distributed lamps and appropriate brightness to avoid glare/shadows. Reduce electricity use with efficient LEDs and switching off unnecessary lamps or using daylight.",
+              "ta": "கண்ணைக் கூசவைக்கும் ஒளி/நிழலைத் தவிர்க்கச் சீராகப் பரவிய பொருத்தமான விளக்குகளைப் பயன்படுத்துக. திறனுள்ள LED, தேவையற்ற விளக்குகளை அணைத்தல், பகல் ஒளி மூலம் மின் நுகர்வைக் குறைக்கவும்."
+            }
+          ],
+          "hint": {
+            "en": "Power is energy per time, so E = Pt.",
+            "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Power is energy per time, so E = Pt.",
+              "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+            },
+            "reasoning": {
+              "en": "Use well-distributed lamps and appropriate brightness to avoid glare/shadows. Reduce electricity use with efficient LEDs and switching off unnecessary lamps or using daylight.",
+              "ta": "கண்ணைக் கூசவைக்கும் ஒளி/நிழலைத் தவிர்க்கச் சீராகப் பரவிய பொருத்தமான விளக்குகளைப் பயன்படுத்துக. திறனுள்ள LED, தேவையற்ற விளக்குகளை அணைத்தல், பகல் ஒளி மூலம் மின் நுகர்வைக் குறைக்கவும்."
+            },
+            "commonMistake": {
+              "en": "kW measures power; kWh measures energy. They are not interchangeable.",
+              "ta": "kW வலுவின் அலகு; kWh சக்தியின் அலகு. அவற்றை மாற்றிப் பயன்படுத்த வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A 200 W device runs for 2 h. Find energy in kWh.",
+                "ta": "200 W கருவி 2 h இயங்குகிறது. சக்தியை kWh இல் காண்க."
+              },
+              "answer": {
+                "en": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh.",
+                "ta": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.2 Energy consumed: E = Pt",
+                "ta": "10.2 பயன்படும் சக்தி: E = Pt"
+              },
+              "printedPages": [
+                34,
+                34
+              ],
+              "pdfPages": [
+                44,
+                44
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=44",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.5 Kilowatt hours and joules",
+                "ta": "10.5 கிலோவாட் மணியும் யூலும்"
+              },
+              "printedPages": [
+                46,
+                46
+              ],
+              "pdfPages": [
+                56,
+                56
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=56",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 18,
+              "title": {
+                "en": "Work, Energy and Power",
+                "ta": "வேலை, சக்தி, வலு"
+              },
+              "url": "/lessons/g10-chapter-18-work-energy-power.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(ii)(a–b)",
+          "subject": "physics",
+          "lessons": [
+            "g10-chapter-18-work-energy-power",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "Complete chemical energy → potential energy → a → b for steam turning a generator.",
+            "ta": "நீராவி பிறப்பாக்கியை இயக்கும்போது இரசாயனச் சக்தி → அழுத்தச் சக்தி → a → b பூர்த்திசெய்க."
+          },
+          "answer": {
+            "en": "a = kinetic/mechanical energy of the turbine; b = electrical energy of the generator. Steam expansion does work on turbine blades, and the generator converts rotation into electricity by induction.",
+            "ta": "a = சுழலியின் இயக்க/பொறிமுறைச் சக்தி; b = பிறப்பாக்கியின் மின் சக்தி. விரியும் நீராவி சுழலியை இயக்கும்; பிறப்பாக்கி தூண்டலால் சுழற்சியை மின்சாரமாக மாற்றும்."
+          },
+          "steps": [
+            {
+              "en": "a = kinetic/mechanical energy of the turbine; b = electrical energy of the generator. Steam expansion does work on turbine blades, and the generator converts rotation into electricity by induction.",
+              "ta": "a = சுழலியின் இயக்க/பொறிமுறைச் சக்தி; b = பிறப்பாக்கியின் மின் சக்தி. விரியும் நீராவி சுழலியை இயக்கும்; பிறப்பாக்கி தூண்டலால் சுழற்சியை மின்சாரமாக மாற்றும்."
+            }
+          ],
+          "hint": {
+            "en": "Energy is conserved while changing form; useful output can be less than input.",
+            "ta": "வடிவம் மாறினாலும் சக்தி காக்கப்படும்; பயனுள்ள வெளியீடு உள்ளீட்டைவிடக் குறையலாம்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Energy is conserved while changing form; useful output can be less than input.",
+              "ta": "வடிவம் மாறினாலும் சக்தி காக்கப்படும்; பயனுள்ள வெளியீடு உள்ளீட்டைவிடக் குறையலாம்."
+            },
+            "reasoning": {
+              "en": "a = kinetic/mechanical energy of the turbine; b = electrical energy of the generator. Steam expansion does work on turbine blades, and the generator converts rotation into electricity by induction.",
+              "ta": "a = சுழலியின் இயக்க/பொறிமுறைச் சக்தி; b = பிறப்பாக்கியின் மின் சக்தி. விரியும் நீராவி சுழலியை இயக்கும்; பிறப்பாக்கி தூண்டலால் சுழற்சியை மின்சாரமாக மாற்றும்."
+            },
+            "commonMistake": {
+              "en": "Distinguish energy in joules from power in watts.",
+              "ta": "யூலில் சக்தியையும் வாட்டில் வலுவையும் வேறுபடுத்தவும்."
+            },
+            "practice": {
+              "question": {
+                "en": "A 100 W device runs for 10 s. Find energy.",
+                "ta": "100 W சாதனம் 10 s இயங்குகிறது. சக்தியைக் காண்க."
+              },
+              "answer": {
+                "en": "E = Pt = 100 × 10 = 1000 J.",
+                "ta": "E = Pt = 100 × 10 = 1000 J."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.2 Energy consumed: E = Pt",
+                "ta": "10.2 பயன்படும் சக்தி: E = Pt"
+              },
+              "printedPages": [
+                34,
+                34
+              ],
+              "pdfPages": [
+                44,
+                44
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=44",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.5 Kilowatt hours and joules",
+                "ta": "10.5 கிலோவாட் மணியும் யூலும்"
+              },
+              "printedPages": [
+                46,
+                46
+              ],
+              "pdfPages": [
+                56,
+                56
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=56",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 18,
+              "title": {
+                "en": "Work, Energy and Power",
+                "ta": "வேலை, சக்தி, வலு"
+              },
+              "url": "/lessons/g10-chapter-18-work-energy-power.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        }
+      ]
+    },
+    {
+      "id": "ol2019-ii-04",
+      "number": 4,
+      "paper": "II",
+      "section": "Written",
+      "type": "written",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Circuits",
+        "Forces"
+      ],
+      "lessons": [
+        "chapter-09-resultant-force",
+        "chapter-11-turning-effect",
+        "chapter-12-equilibrium",
+        "g10-chapter-19-current-electricity"
+      ],
+      "pages": [
+        8
+      ],
+      "physicsSubset": true,
+      "prompt": {
+        "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+      },
+      "parts": [
+        {
+          "label": "A(i–iii)",
+          "subject": "physics",
+          "lessons": [
+            "chapter-09-resultant-force",
+            "chapter-11-turning-effect",
+            "chapter-12-equilibrium",
+            "g10-chapter-19-current-electricity"
+          ],
+          "prompt": {
+            "en": "Describe the Ohm-law circuit: cell arrangement, missing meter at XY and purpose of rheostat.",
+            "ta": "ஓம் விதிச் சுற்றின் கல இணைப்பு, XY இல் விடுபட்ட மீற்றர், மாறுதடையின் பயன்பாடு என்ன?"
+          },
+          "answer": {
+            "en": "Cells are in series. Insert an ammeter in series at XY; connect a voltmeter in parallel across the nichrome wire. Use the rheostat to vary current for several V–I readings.",
+            "ta": "கலங்கள் தொடரில். XY இல் அம்மீற்றரைத் தொடரிலும் நைக்குரோம் கம்பிக்குச் சமாந்தரமாக வோல்ற்மீற்றரையும் இணைக்கவும். மாறுதடை மூலம் மின்னோட்டத்தை மாற்றி பல V–I வாசிப்புகளைப் பெறலாம்."
+          },
+          "steps": [
+            {
+              "en": "Cells are in series. Insert an ammeter in series at XY; connect a voltmeter in parallel across the nichrome wire. Use the rheostat to vary current for several V–I readings.",
+              "ta": "கலங்கள் தொடரில். XY இல் அம்மீற்றரைத் தொடரிலும் நைக்குரோம் கம்பிக்குச் சமாந்தரமாக வோல்ற்மீற்றரையும் இணைக்கவும். மாறுதடை மூலம் மின்னோட்டத்தை மாற்றி பல V–I வாசிப்புகளைப் பெறலாம்."
+            }
+          ],
+          "hint": {
+            "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
+            "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
+              "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+            },
+            "reasoning": {
+              "en": "Cells are in series. Insert an ammeter in series at XY; connect a voltmeter in parallel across the nichrome wire. Use the rheostat to vary current for several V–I readings.",
+              "ta": "கலங்கள் தொடரில். XY இல் அம்மீற்றரைத் தொடரிலும் நைக்குரோம் கம்பிக்குச் சமாந்தரமாக வோல்ற்மீற்றரையும் இணைக்கவும். மாறுதடை மூலம் மின்னோட்டத்தை மாற்றி பல V–I வாசிப்புகளைப் பெறலாம்."
+            },
+            "commonMistake": {
+              "en": "Never show the ammeter in parallel across the supply in your circuit drawing.",
+              "ta": "மின்சுற்றுப் படத்தில் அம்மீற்றரை வழங்கலுக்குச் சமாந்தரமாகக் காட்ட வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A resistor has 6 V across it and carries 0.5 A. Find resistance.",
+                "ta": "ஒரு தடையின் வோல்ற்றளவு 6 V; மின்னோட்டம் 0.5 A. தடையைக் காண்க."
+              },
+              "answer": {
+                "en": "R = V/I = 6/0.5 = 12 Ω.",
+                "ta": "R = V/I = 6/0.5 = 12 Ω."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g10-p2-en",
+              "chapter": 19,
+              "section": {
+                "en": "Activity 19.3 and Ohm’s law",
+                "ta": "செயற்பாடு 19.3 உம் ஓம் விதியும்"
+              },
+              "printedPages": [
+                150,
+                151
+              ],
+              "pdfPages": [
+                160,
+                161
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 10,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 10 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+              },
+              "sourceFilename": "science G-10 P-II E (1).pdf",
+              "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-p2-en.pdf#page=160",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g10-p2-ta",
+              "chapter": 19,
+              "section": {
+                "en": "Activity 19.3 and Ohm’s law",
+                "ta": "செயற்பாடு 19.3 உம் ஓம் விதியும்"
+              },
+              "printedPages": [
+                176,
+                177
+              ],
+              "pdfPages": [
+                186,
+                187
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 10,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 10 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+              },
+              "sourceFilename": "Science part II G10 T.pdf",
+              "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-p2-ta.pdf#page=186",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 9,
+              "title": {
+                "en": "Resultant Force",
+                "ta": "விளையுள் விசை"
+              },
+              "url": "/lessons/chapter-09-resultant-force.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 11,
+              "title": {
+                "en": "Turning Effect of Forces",
+                "ta": "விசையின் திரும்பல் விளைவு"
+              },
+              "url": "/lessons/chapter-11-turning-effect.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 12,
+              "title": {
+                "en": "Equilibrium of Forces",
+                "ta": "விசைகளின் சமநிலை"
+              },
+              "url": "/lessons/chapter-12-equilibrium.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 19,
+              "title": {
+                "en": "Current Electricity",
+                "ta": "ஓட்ட மின்னியல்"
+              },
+              "url": "/lessons/g10-chapter-19-current-electricity.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "A(iv–v)",
+          "subject": "physics",
+          "lessons": [
+            "chapter-09-resultant-force",
+            "chapter-11-turning-effect",
+            "chapter-12-equilibrium",
+            "g10-chapter-19-current-electricity"
+          ],
+          "prompt": {
+            "en": "Why open the switch between readings? What quantity is the slope of a V-versus-I graph?",
+            "ta": "வாசிப்புகளுக்கிடையில் ஆளியை ஏன் திறக்க வேண்டும்? V–I சாய்வு குறிக்கும் கணியம் என்ன?"
+          },
+          "answer": {
+            "en": "Opening prevents heating, helping maintain constant temperature and resistance. For V on the vertical axis and I horizontally, slope ΔV/ΔI = R, measured in ohms.",
+            "ta": "சூடாவதைத் தவிர்த்து வெப்பநிலையையும் தடையையும் மாறாமல் பேண ஆளியைத் திறக்க வேண்டும். V செங்குத்து, I கிடை எனில் சாய்வு ΔV/ΔI = R; அலகு ஓம்."
+          },
+          "steps": [
+            {
+              "en": "Opening prevents heating, helping maintain constant temperature and resistance. For V on the vertical axis and I horizontally, slope ΔV/ΔI = R, measured in ohms.",
+              "ta": "சூடாவதைத் தவிர்த்து வெப்பநிலையையும் தடையையும் மாறாமல் பேண ஆளியைத் திறக்க வேண்டும். V செங்குத்து, I கிடை எனில் சாய்வு ΔV/ΔI = R; அலகு ஓம்."
+            }
+          ],
+          "hint": {
+            "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
+            "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
+              "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+            },
+            "reasoning": {
+              "en": "Opening prevents heating, helping maintain constant temperature and resistance. For V on the vertical axis and I horizontally, slope ΔV/ΔI = R, measured in ohms.",
+              "ta": "சூடாவதைத் தவிர்த்து வெப்பநிலையையும் தடையையும் மாறாமல் பேண ஆளியைத் திறக்க வேண்டும். V செங்குத்து, I கிடை எனில் சாய்வு ΔV/ΔI = R; அலகு ஓம்."
+            },
+            "commonMistake": {
+              "en": "Never show the ammeter in parallel across the supply in your circuit drawing.",
+              "ta": "மின்சுற்றுப் படத்தில் அம்மீற்றரை வழங்கலுக்குச் சமாந்தரமாகக் காட்ட வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A resistor has 6 V across it and carries 0.5 A. Find resistance.",
+                "ta": "ஒரு தடையின் வோல்ற்றளவு 6 V; மின்னோட்டம் 0.5 A. தடையைக் காண்க."
+              },
+              "answer": {
+                "en": "R = V/I = 6/0.5 = 12 Ω.",
+                "ta": "R = V/I = 6/0.5 = 12 Ω."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g10-p2-en",
+              "chapter": 19,
+              "section": {
+                "en": "Activity 19.3 and Ohm’s law",
+                "ta": "செயற்பாடு 19.3 உம் ஓம் விதியும்"
+              },
+              "printedPages": [
+                150,
+                151
+              ],
+              "pdfPages": [
+                160,
+                161
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 10,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 10 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+              },
+              "sourceFilename": "science G-10 P-II E (1).pdf",
+              "sourceSha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-p2-en.pdf#page=160",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g10-p2-ta",
+              "chapter": 19,
+              "section": {
+                "en": "Activity 19.3 and Ohm’s law",
+                "ta": "செயற்பாடு 19.3 உம் ஓம் விதியும்"
+              },
+              "printedPages": [
+                176,
+                177
+              ],
+              "pdfPages": [
+                186,
+                187
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 10,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 10 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி II"
+              },
+              "sourceFilename": "Science part II G10 T.pdf",
+              "sourceSha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-p2-ta.pdf#page=186",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 9,
+              "title": {
+                "en": "Resultant Force",
+                "ta": "விளையுள் விசை"
+              },
+              "url": "/lessons/chapter-09-resultant-force.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 11,
+              "title": {
+                "en": "Turning Effect of Forces",
+                "ta": "விசையின் திரும்பல் விளைவு"
+              },
+              "url": "/lessons/chapter-11-turning-effect.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 12,
+              "title": {
+                "en": "Equilibrium of Forces",
+                "ta": "விசைகளின் சமநிலை"
+              },
+              "url": "/lessons/chapter-12-equilibrium.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 19,
+              "title": {
+                "en": "Current Electricity",
+                "ta": "ஓட்ட மின்னியல்"
+              },
+              "url": "/lessons/g10-chapter-19-current-electricity.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(i–iii)",
+          "subject": "physics",
+          "lessons": [
+            "chapter-09-resultant-force",
+            "chapter-11-turning-effect",
+            "chapter-12-equilibrium",
+            "g10-chapter-19-current-electricity"
+          ],
+          "prompt": {
+            "en": "Two balances support a statue and read 250 N and 150 N. Name forces, classify them and find statue weight.",
+            "ta": "சிலையைத் தாங்கும் இரு தராசுகள் 250 N, 150 N காட்டுகின்றன. விசைகள், வகை, சிலையின் நிறை என்ன?"
+          },
+          "answer": {
+            "en": "Upward reactions R = 250 N and S = 150 N; downward gravity W. R and S are contact forces, W is non-contact. | W = R + S = 250 + 150 = 400 N.",
+            "ta": "மேல்நோக்கிய R = 250 N, S = 150 N; கீழ்நோக்கிய ஈர்ப்பு W. R, S தொடுகை விசைகள்; W தொடுகையற்றது. | W = R + S = 250 + 150 = 400 N."
+          },
+          "steps": [
+            {
+              "en": "Upward reactions R = 250 N and S = 150 N; downward gravity W. R and S are contact forces, W is non-contact.",
+              "ta": "மேல்நோக்கிய R = 250 N, S = 150 N; கீழ்நோக்கிய ஈர்ப்பு W. R, S தொடுகை விசைகள்; W தொடுகையற்றது."
+            },
+            {
+              "en": "W = R + S = 250 + 150 = 400 N.",
+              "ta": "W = R + S = 250 + 150 = 400 N."
+            }
+          ],
+          "hint": {
+            "en": "The resultant is the signed sum of forces in a chosen direction.",
+            "ta": "தேர்ந்த திசையிலுள்ள விசைகளின் குறியுடன் கூட்டுத்தொகை விளையுள் விசை."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "The resultant is the signed sum of forces in a chosen direction.",
+              "ta": "தேர்ந்த திசையிலுள்ள விசைகளின் குறியுடன் கூட்டுத்தொகை விளையுள் விசை."
+            },
+            "reasoning": {
+              "en": "Upward reactions R = 250 N and S = 150 N; downward gravity W. R and S are contact forces, W is non-contact. | W = R + S = 250 + 150 = 400 N.",
+              "ta": "மேல்நோக்கிய R = 250 N, S = 150 N; கீழ்நோக்கிய ஈர்ப்பு W. R, S தொடுகை விசைகள்; W தொடுகையற்றது. | W = R + S = 250 + 150 = 400 N."
+            },
+            "commonMistake": {
+              "en": "Opposite forces subtract; they are not added as if they acted together.",
+              "ta": "எதிர் விசைகள் கழிக்கப்படும்; ஒரே திசை விசைகள் போலக் கூட்ட வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A 50 N push acts against 30 N friction. Find the resultant.",
+                "ta": "50 N தள்ளுவிசைக்கு எதிராக 30 N உராய்வு உள்ளது. விளையுள் விசையைக் காண்க."
+              },
+              "answer": {
+                "en": "20 N in the direction of the push.",
+                "ta": "தள்ளும் திசையில் 20 N."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g10-c09-ta",
+              "chapter": 9,
+              "section": {
+                "en": "9.2 Resultant of forces in one line",
+                "ta": "9.2 ஒரே கோட்டிலுள்ள விசைகளின் விளையுள்"
+              },
+              "printedPages": [
+                165,
+                166
+              ],
+              "pdfPages": [
+                2,
+                3
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 10,
+              "part": "I",
+              "title": {
+                "en": "Science · Grade 10 · Part I · Chapter 9",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 9"
+              },
+              "sourceFilename": "Chapter 09 Physics.pdf",
+              "sourceSha256": "e852c5435f75d0d6f8934d621e2a7064113bfb2d45eda03e8f805ff4c4c24fb8",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-c09-ta.pdf#page=2",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g10-c05-ta",
+              "chapter": 5,
+              "section": {
+                "en": "5.1 Nature of friction",
+                "ta": "5.1 உராய்வின் இயல்பு"
+              },
+              "printedPages": [
+                104,
+                104
+              ],
+              "pdfPages": [
+                1,
+                1
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 10,
+              "part": "I",
+              "title": {
+                "en": "Science · Grade 10 · Part I · Chapter 5",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 5"
+              },
+              "sourceFilename": "Chapter 05 Physics.pdf",
+              "sourceSha256": "d5146af39ab608eee8377ae2638c3e6fbfe89363ee3b5a1f74fb5b0c1eac6769",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-c05-ta.pdf#page=1",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 9,
+              "title": {
+                "en": "Resultant Force",
+                "ta": "விளையுள் விசை"
+              },
+              "url": "/lessons/chapter-09-resultant-force.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 11,
+              "title": {
+                "en": "Turning Effect of Forces",
+                "ta": "விசையின் திரும்பல் விளைவு"
+              },
+              "url": "/lessons/chapter-11-turning-effect.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 12,
+              "title": {
+                "en": "Equilibrium of Forces",
+                "ta": "விசைகளின் சமநிலை"
+              },
+              "url": "/lessons/chapter-12-equilibrium.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 19,
+              "title": {
+                "en": "Current Electricity",
+                "ta": "ஓட்ட மின்னியல்"
+              },
+              "url": "/lessons/g10-chapter-19-current-electricity.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(iv–vi)",
+          "subject": "physics",
+          "lessons": [
+            "chapter-09-resultant-force",
+            "chapter-11-turning-effect",
+            "chapter-12-equilibrium",
+            "g10-chapter-19-current-electricity"
+          ],
+          "prompt": {
+            "en": "Supports are 2 m apart. Express moment of W about A using d, calculate S moment and find centre-of-gravity distance d.",
+            "ta": "ஆதாரங்கள் 2 m இடைவெளியில். A பற்றி W திறனை d கொண்டு எழுதி S திறனையும் ஈர்ப்பு மையத் தூரம் d ஐயும் காண்க."
+          },
+          "answer": {
+            "en": "W’s clockwise moment = 400d N m. | S’s anticlockwise moment = 150 × 2 = 300 N m. | Equilibrium: 400d = 300, so d = 0.75 m from A.",
+            "ta": "W இன் வலஞ்சுழித் திறன் = 400d N m. | S இன் இடஞ்சுழித் திறன் = 150 × 2 = 300 N m. | சமநிலை: 400d = 300; A இலிருந்து d = 0.75 m."
+          },
+          "steps": [
+            {
+              "en": "W’s clockwise moment = 400d N m.",
+              "ta": "W இன் வலஞ்சுழித் திறன் = 400d N m."
+            },
+            {
+              "en": "S’s anticlockwise moment = 150 × 2 = 300 N m.",
+              "ta": "S இன் இடஞ்சுழித் திறன் = 150 × 2 = 300 N m."
+            },
+            {
+              "en": "Equilibrium: 400d = 300, so d = 0.75 m from A.",
+              "ta": "சமநிலை: 400d = 300; A இலிருந்து d = 0.75 m."
+            }
+          ],
+          "hint": {
+            "en": "Turning moment = force × perpendicular distance from pivot.",
+            "ta": "திருப்புத் திறன் = விசை × ஆதாரத்திலிருந்து செங்குத்துத் தூரம்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Turning moment = force × perpendicular distance from pivot.",
+              "ta": "திருப்புத் திறன் = விசை × ஆதாரத்திலிருந்து செங்குத்துத் தூரம்."
+            },
+            "reasoning": {
+              "en": "W’s clockwise moment = 400d N m. | S’s anticlockwise moment = 150 × 2 = 300 N m. | Equilibrium: 400d = 300, so d = 0.75 m from A.",
+              "ta": "W இன் வலஞ்சுழித் திறன் = 400d N m. | S இன் இடஞ்சுழித் திறன் = 150 × 2 = 300 N m. | சமநிலை: 400d = 300; A இலிருந்து d = 0.75 m."
+            },
+            "commonMistake": {
+              "en": "Use the perpendicular distance to the force’s line of action, not any convenient length.",
+              "ta": "விசையின் செயற்கோட்டிற்கான செங்குத்துத் தூரத்தைப் பயன்படுத்தவும்; எந்த நீளத்தையும் அல்ல."
+            },
+            "practice": {
+              "question": {
+                "en": "A perpendicular force of 10 N acts 0.8 m from a hinge. Find its moment.",
+                "ta": "கீலிலிருந்து 0.8 m இல் 10 N செங்குத்து விசை தாக்குகிறது. திருப்புத் திறனைக் காண்க."
+              },
+              "answer": {
+                "en": "Moment = 10 × 0.8 = 8 N m.",
+                "ta": "திருப்புத் திறன் = 10 × 0.8 = 8 N m."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g10-c11-ta",
+              "chapter": 11,
+              "section": {
+                "en": "11.1 Door experiment and moment arm",
+                "ta": "11.1 கதவு சோதனையும் திருப்புத் திறனும்"
+              },
+              "printedPages": [
+                199,
+                200
+              ],
+              "pdfPages": [
+                1,
+                2
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 10,
+              "part": "I",
+              "title": {
+                "en": "Science · Grade 10 · Part I · Chapter 11",
+                "ta": "விஞ்ஞானம் · தரம் 10 · பகுதி I · அத்தியாயம் 11"
+              },
+              "sourceFilename": "Chapter 11 Physics.pdf",
+              "sourceSha256": "15f42c165fa46a74a2541ec5dc68218d2e863a1513a1e40b4f547ad87c93f81d",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g10-c11-ta.pdf#page=1",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 9,
+              "title": {
+                "en": "Resultant Force",
+                "ta": "விளையுள் விசை"
+              },
+              "url": "/lessons/chapter-09-resultant-force.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 11,
+              "title": {
+                "en": "Turning Effect of Forces",
+                "ta": "விசையின் திரும்பல் விளைவு"
+              },
+              "url": "/lessons/chapter-11-turning-effect.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 12,
+              "title": {
+                "en": "Equilibrium of Forces",
+                "ta": "விசைகளின் சமநிலை"
+              },
+              "url": "/lessons/chapter-12-equilibrium.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 10,
+              "chapter": 19,
+              "title": {
+                "en": "Current Electricity",
+                "ta": "ஓட்ட மின்னியல்"
+              },
+              "url": "/lessons/g10-chapter-19-current-electricity.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        }
+      ]
+    },
+    {
+      "id": "ol2019-ii-07",
+      "number": 7,
+      "paper": "II",
+      "section": "Written",
+      "type": "written",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Electrical energy",
+        "Optics"
+      ],
+      "lessons": [
+        "g11-chapter-05-geometrical-optics",
+        "g11-chapter-10-electric-appliances"
+      ],
+      "pages": [
+        10,
+        11
+      ],
+      "physicsSubset": true,
+      "prompt": {
+        "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+      },
+      "parts": [
+        {
+          "label": "A(i–ii)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-05-geometrical-optics",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "Name C and D in the convex-lens diagram and complete the two rays through C and B.",
+            "ta": "குவிவு வில்லைப் படத்தில் C, D ஐப் பெயரிட்டு C, B வழிக் கதிர்களைப் பூர்த்திசெய்க."
+          },
+          "answer": {
+            "en": "C is optical centre; D is principal focus on the far side. A ray through C is undeviated. A ray through near-side focus B emerges parallel to the principal axis.",
+            "ta": "C ஒளியியல் மையம்; D மறுபுற முதலான குவியம். C வழிக் கதிர் திசை மாறாது. அருகுபுற குவியம் B வழிக் கதிர் முதலான அச்சிற்குச் சமாந்தரமாக வெளிவரும்."
+          },
+          "steps": [
+            {
+              "en": "C is optical centre; D is principal focus on the far side. A ray through C is undeviated. A ray through near-side focus B emerges parallel to the principal axis.",
+              "ta": "C ஒளியியல் மையம்; D மறுபுற முதலான குவியம். C வழிக் கதிர் திசை மாறாது. அருகுபுற குவியம் B வழிக் கதிர் முதலான அச்சிற்குச் சமாந்தரமாக வெளிவரும்."
+            }
+          ],
+          "hint": {
+            "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
+            "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
+              "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+            },
+            "reasoning": {
+              "en": "C is optical centre; D is principal focus on the far side. A ray through C is undeviated. A ray through near-side focus B emerges parallel to the principal axis.",
+              "ta": "C ஒளியியல் மையம்; D மறுபுற முதலான குவியம். C வழிக் கதிர் திசை மாறாது. அருகுபுற குவியம் B வழிக் கதிர் முதலான அச்சிற்குச் சமாந்தரமாக வெளிவரும்."
+            },
+            "commonMistake": {
+              "en": "Objective and eyepiece names refer to their positions, not interchangeable parts.",
+              "ta": "பொருள்வில்லை, பார்வைவில்லை பெயர்கள் அவற்றின் இடங்களைக் குறிக்கும்; மாற்றிப் பயன்படுத்த வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "Which microscope lens is nearest the specimen?",
+                "ta": "நுணுக்குக்காட்டியில் மாதிரிக்கு மிக அருகிலுள்ள வில்லை எது?"
+              },
+              "answer": {
+                "en": "The objective lens.",
+                "ta": "பொருள்வில்லை."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p1-en",
+              "chapter": 5,
+              "section": {
+                "en": "5.4 Lenses and convex-lens focusing",
+                "ta": "5.4 வில்லைகளும் குவிவு வில்லையின் குவிப்பும்"
+              },
+              "printedPages": [
+                126,
+                128
+              ],
+              "pdfPages": [
+                136,
+                138
+              ],
+              "support": "related",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              },
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "I",
+              "title": {
+                "en": "Science · Grade 11 · Part I",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி I"
+              },
+              "sourceFilename": "science G-11 P-I E.pdf",
+              "sourceSha256": "5ae11e0b008e540a2fac43016ff3865303186b5ccc749cea488ca1f41a02ae29",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p1-en.pdf#page=136"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 5,
+              "title": {
+                "en": "Geometrical Optics",
+                "ta": "வடிவவியல் ஒளியியல்"
+              },
+              "url": "/lessons/g11-chapter-05-geometrical-optics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "A(iii–iv)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-05-geometrical-optics",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "For an object between F and 2F, give two image properties and describe finding focal length experimentally.",
+            "ta": "F, 2F இடையில் பொருள் எனில் விம்பத்தின் இரு இயல்புகள் என்ன? சோதனையில் குவியத் தூரம் பெறுவது எவ்வாறு?"
+          },
+          "answer": {
+            "en": "The image is real, inverted and enlarged beyond 2F. Focus a distant object sharply on a screen; the lens–screen distance approximates focal length because incident rays are nearly parallel.",
+            "ta": "விம்பம் 2F இற்கு அப்பால் மெய், தலைகீழ், பெரியது. தொலைப் பொருளின் தெளிவான விம்பத்தைத் திரையில் பெறுக; படுகதிர்கள் ஏறத்தாழ சமாந்தரமாதலால் வில்லை–திரைத் தூரம் குவியத் தூரத்திற்கு அண்மிக்கும்."
+          },
+          "steps": [
+            {
+              "en": "The image is real, inverted and enlarged beyond 2F. Focus a distant object sharply on a screen; the lens–screen distance approximates focal length because incident rays are nearly parallel.",
+              "ta": "விம்பம் 2F இற்கு அப்பால் மெய், தலைகீழ், பெரியது. தொலைப் பொருளின் தெளிவான விம்பத்தைத் திரையில் பெறுக; படுகதிர்கள் ஏறத்தாழ சமாந்தரமாதலால் வில்லை–திரைத் தூரம் குவியத் தூரத்திற்கு அண்மிக்கும்."
+            }
+          ],
+          "hint": {
+            "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
+            "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
+              "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+            },
+            "reasoning": {
+              "en": "The image is real, inverted and enlarged beyond 2F. Focus a distant object sharply on a screen; the lens–screen distance approximates focal length because incident rays are nearly parallel.",
+              "ta": "விம்பம் 2F இற்கு அப்பால் மெய், தலைகீழ், பெரியது. தொலைப் பொருளின் தெளிவான விம்பத்தைத் திரையில் பெறுக; படுகதிர்கள் ஏறத்தாழ சமாந்தரமாதலால் வில்லை–திரைத் தூரம் குவியத் தூரத்திற்கு அண்மிக்கும்."
+            },
+            "commonMistake": {
+              "en": "Objective and eyepiece names refer to their positions, not interchangeable parts.",
+              "ta": "பொருள்வில்லை, பார்வைவில்லை பெயர்கள் அவற்றின் இடங்களைக் குறிக்கும்; மாற்றிப் பயன்படுத்த வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "Which microscope lens is nearest the specimen?",
+                "ta": "நுணுக்குக்காட்டியில் மாதிரிக்கு மிக அருகிலுள்ள வில்லை எது?"
+              },
+              "answer": {
+                "en": "The objective lens.",
+                "ta": "பொருள்வில்லை."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p1-en",
+              "chapter": 5,
+              "section": {
+                "en": "5.4 Lenses and convex-lens focusing",
+                "ta": "5.4 வில்லைகளும் குவிவு வில்லையின் குவிப்பும்"
+              },
+              "printedPages": [
+                126,
+                128
+              ],
+              "pdfPages": [
+                136,
+                138
+              ],
+              "support": "related",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              },
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "I",
+              "title": {
+                "en": "Science · Grade 11 · Part I",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி I"
+              },
+              "sourceFilename": "science G-11 P-I E.pdf",
+              "sourceSha256": "5ae11e0b008e540a2fac43016ff3865303186b5ccc749cea488ca1f41a02ae29",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p1-en.pdf#page=136"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 5,
+              "title": {
+                "en": "Geometrical Optics",
+                "ta": "வடிவவியல் ஒளியியல்"
+              },
+              "url": "/lessons/g11-chapter-05-geometrical-optics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(i–iii)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-05-geometrical-optics",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "Compare a 60 W filament lamp with a 10 W LED over 10 hours. Find energies in joules and explain the advantage.",
+            "ta": "60 W இழை விளக்கும் 10 W LED உம் 10 மணி இயங்குகின்றன. சக்திகளை யூலில் கணித்து நன்மையை விளக்குக."
+          },
+          "answer": {
+            "en": "t = 10 × 3600 = 36000 s. | Filament E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J. | Same useful brightness with LED uses one-sixth the electricity: saving = 1800000 J, about 83.3%.",
+            "ta": "t = 10 × 3600 = 36000 s. | இழை E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J. | சம பயனுள்ள ஒளிக்கு LED ஆறிலொரு மின்சாரம் பயன்படுத்தும்; சேமிப்பு = 1800000 J, ஏறத்தாழ 83.3%."
+          },
+          "steps": [
+            {
+              "en": "t = 10 × 3600 = 36000 s.",
+              "ta": "t = 10 × 3600 = 36000 s."
+            },
+            {
+              "en": "Filament E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J.",
+              "ta": "இழை E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J."
+            },
+            {
+              "en": "Same useful brightness with LED uses one-sixth the electricity: saving = 1800000 J, about 83.3%.",
+              "ta": "சம பயனுள்ள ஒளிக்கு LED ஆறிலொரு மின்சாரம் பயன்படுத்தும்; சேமிப்பு = 1800000 J, ஏறத்தாழ 83.3%."
+            }
+          ],
+          "hint": {
+            "en": "Power is energy per time, so E = Pt.",
+            "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Power is energy per time, so E = Pt.",
+              "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+            },
+            "reasoning": {
+              "en": "t = 10 × 3600 = 36000 s. | Filament E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J. | Same useful brightness with LED uses one-sixth the electricity: saving = 1800000 J, about 83.3%.",
+              "ta": "t = 10 × 3600 = 36000 s. | இழை E = 60 × 36000 = 2160000 J; LED E = 10 × 36000 = 360000 J. | சம பயனுள்ள ஒளிக்கு LED ஆறிலொரு மின்சாரம் பயன்படுத்தும்; சேமிப்பு = 1800000 J, ஏறத்தாழ 83.3%."
+            },
+            "commonMistake": {
+              "en": "kW measures power; kWh measures energy. They are not interchangeable.",
+              "ta": "kW வலுவின் அலகு; kWh சக்தியின் அலகு. அவற்றை மாற்றிப் பயன்படுத்த வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A 200 W device runs for 2 h. Find energy in kWh.",
+                "ta": "200 W கருவி 2 h இயங்குகிறது. சக்தியை kWh இல் காண்க."
+              },
+              "answer": {
+                "en": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh.",
+                "ta": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.2 Energy consumed: E = Pt",
+                "ta": "10.2 பயன்படும் சக்தி: E = Pt"
+              },
+              "printedPages": [
+                34,
+                34
+              ],
+              "pdfPages": [
+                44,
+                44
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=44",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.5 Kilowatt hours and joules",
+                "ta": "10.5 கிலோவாட் மணியும் யூலும்"
+              },
+              "printedPages": [
+                46,
+                46
+              ],
+              "pdfPages": [
+                56,
+                56
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=56",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 5,
+              "title": {
+                "en": "Geometrical Optics",
+                "ta": "வடிவவியல் ஒளியியல்"
+              },
+              "url": "/lessons/g11-chapter-05-geometrical-optics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(iv–v)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-05-geometrical-optics",
+            "g11-chapter-10-electric-appliances"
+          ],
+          "prompt": {
+            "en": "Find LED energy for 10 h/day over 30 days, and filament efficiency if 40% is wasted as heat.",
+            "ta": "LED நாள் 10 மணி, 30 நாள் இயங்குவதற்கான சக்தியும் இழை விளக்கில் 40% வெப்பமாக விரயமானால் திறனும் காண்க."
+          },
+          "answer": {
+            "en": "LED energy = 0.010 kW × 10 h × 30 = 3 kWh. | Useful fraction = 100% − 40% = 60%; efficiency = 60%.",
+            "ta": "LED சக்தி = 0.010 kW × 10 h × 30 = 3 kWh. | பயனுள்ள பகுதி = 100% − 40% = 60%; திறன் = 60%."
+          },
+          "steps": [
+            {
+              "en": "LED energy = 0.010 kW × 10 h × 30 = 3 kWh.",
+              "ta": "LED சக்தி = 0.010 kW × 10 h × 30 = 3 kWh."
+            },
+            {
+              "en": "Useful fraction = 100% − 40% = 60%; efficiency = 60%.",
+              "ta": "பயனுள்ள பகுதி = 100% − 40% = 60%; திறன் = 60%."
+            }
+          ],
+          "hint": {
+            "en": "Power is energy per time, so E = Pt.",
+            "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Power is energy per time, so E = Pt.",
+              "ta": "வலு நேரத்திற்கான சக்தி; எனவே E = Pt."
+            },
+            "reasoning": {
+              "en": "LED energy = 0.010 kW × 10 h × 30 = 3 kWh. | Useful fraction = 100% − 40% = 60%; efficiency = 60%.",
+              "ta": "LED சக்தி = 0.010 kW × 10 h × 30 = 3 kWh. | பயனுள்ள பகுதி = 100% − 40% = 60%; திறன் = 60%."
+            },
+            "commonMistake": {
+              "en": "kW measures power; kWh measures energy. They are not interchangeable.",
+              "ta": "kW வலுவின் அலகு; kWh சக்தியின் அலகு. அவற்றை மாற்றிப் பயன்படுத்த வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "A 200 W device runs for 2 h. Find energy in kWh.",
+                "ta": "200 W கருவி 2 h இயங்குகிறது. சக்தியை kWh இல் காண்க."
+              },
+              "answer": {
+                "en": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh.",
+                "ta": "200 W = 0.2 kW; E = 0.2 × 2 = 0.4 kWh."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.2 Energy consumed: E = Pt",
+                "ta": "10.2 பயன்படும் சக்தி: E = Pt"
+              },
+              "printedPages": [
+                34,
+                34
+              ],
+              "pdfPages": [
+                44,
+                44
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=44",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 10,
+              "section": {
+                "en": "10.5 Kilowatt hours and joules",
+                "ta": "10.5 கிலோவாட் மணியும் யூலும்"
+              },
+              "printedPages": [
+                46,
+                46
+              ],
+              "pdfPages": [
+                56,
+                56
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=56",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 5,
+              "title": {
+                "en": "Geometrical Optics",
+                "ta": "வடிவவியல் ஒளியியல்"
+              },
+              "url": "/lessons/g11-chapter-05-geometrical-optics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 10,
+              "title": {
+                "en": "Power and Energy of Electric Appliances",
+                "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்"
+              },
+              "url": "/lessons/g11-chapter-10-electric-appliances.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        }
+      ]
+    },
+    {
+      "id": "ol2019-ii-08",
+      "number": 8,
+      "paper": "II",
+      "section": "Written",
+      "type": "written",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Heat"
+      ],
+      "lessons": [
+        "g11-chapter-09-heat"
+      ],
+      "pages": [
+        11,
+        12
+      ],
+      "physicsSubset": true,
+      "prompt": {
+        "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+      },
+      "parts": [
+        {
+          "label": "B(i–iii)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-09-heat"
+          ],
+          "prompt": {
+            "en": "2 kg water has c = 4200; 2 kg liquid X has c = 2100. Each receives 8400 J. Find temperature rises and the better coolant.",
+            "ta": "2 kg நீரின் c = 4200; 2 kg X திரவத்தின் c = 2100. ஒவ்வொன்றுக்கும் 8400 J. வெப்பநிலை உயர்வுகளும் சிறந்த குளிர்ச்சியாக்கியும் என்ன?"
+          },
+          "answer": {
+            "en": "ΔTwater = Q/(mc) = 8400/(2×4200) = 1 K. | ΔTX = 8400/(2×2100) = 2 K. | Water is better: higher specific heat absorbs more heat for a given temperature rise.",
+            "ta": "ΔTநீர் = Q/(mc) = 8400/(2×4200) = 1 K. | ΔTX = 8400/(2×2100) = 2 K. | நீர் சிறந்தது; உயர் தன்வெப்பக் கொள்ளளவு குறைந்த வெப்பநிலை உயர்விற்கு அதிக வெப்பத்தை ஏற்கும்."
+          },
+          "steps": [
+            {
+              "en": "ΔTwater = Q/(mc) = 8400/(2×4200) = 1 K.",
+              "ta": "ΔTநீர் = Q/(mc) = 8400/(2×4200) = 1 K."
+            },
+            {
+              "en": "ΔTX = 8400/(2×2100) = 2 K.",
+              "ta": "ΔTX = 8400/(2×2100) = 2 K."
+            },
+            {
+              "en": "Water is better: higher specific heat absorbs more heat for a given temperature rise.",
+              "ta": "நீர் சிறந்தது; உயர் தன்வெப்பக் கொள்ளளவு குறைந்த வெப்பநிலை உயர்விற்கு அதிக வெப்பத்தை ஏற்கும்."
+            }
+          ],
+          "hint": {
+            "en": "Heating without a phase change uses Q = mcΔT.",
+            "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Heating without a phase change uses Q = mcΔT.",
+              "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+            },
+            "reasoning": {
+              "en": "ΔTwater = Q/(mc) = 8400/(2×4200) = 1 K. | ΔTX = 8400/(2×2100) = 2 K. | Water is better: higher specific heat absorbs more heat for a given temperature rise.",
+              "ta": "ΔTநீர் = Q/(mc) = 8400/(2×4200) = 1 K. | ΔTX = 8400/(2×2100) = 2 K. | நீர் சிறந்தது; உயர் தன்வெப்பக் கொள்ளளவு குறைந்த வெப்பநிலை உயர்விற்கு அதிக வெப்பத்தை ஏற்கும்."
+            },
+            "commonMistake": {
+              "en": "Do not add 273 to a temperature rise or confuse energy (J) with power (W).",
+              "ta": "வெப்பநிலை உயர்விற்கு 273 சேர்க்க வேண்டாம்; சக்தி (J), வலு (W) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "Heat 2 kg of material with c = 500 J kg⁻¹ K⁻¹ by 4°C. Find energy.",
+                "ta": "c = 500 J kg⁻¹ K⁻¹ உள்ள 2 kg பொருளை 4°C உயர்த்தும் சக்தியைக் காண்க."
+              },
+              "answer": {
+                "en": "Q = 2 × 500 × 4 = 4000 J.",
+                "ta": "Q = 2 × 500 × 4 = 4000 J."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 9,
+              "section": {
+                "en": "9.2.2 Quantity of heat: Q = mcΔT",
+                "ta": "9.2.2 வெப்ப அளவு: Q = mcΔT"
+              },
+              "printedPages": [
+                10,
+                11
+              ],
+              "pdfPages": [
+                20,
+                21
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=20",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 9,
+              "title": {
+                "en": "Heat",
+                "ta": "வெப்பம்"
+              },
+              "url": "/lessons/g11-chapter-09-heat.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(iv)(a–e)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-09-heat"
+          ],
+          "prompt": {
+            "en": "Heating water reaches a constant thermometer reading. Name the temperature, observations, phase change, heat and reason for constant temperature.",
+            "ta": "தொடர்ந்து சூடாக்கும் நீரில் வாசிப்பு மாறாமல் உள்ளது. வெப்பநிலை, அவதானிப்பு, நிலை மாற்றம், வெப்பம், மாறாததற்கான காரணம் என்ன?"
+          },
+          "answer": {
+            "en": "At ordinary pressure it is the boiling point, approximately 100 °C. Bubbles and steam form as liquid becomes gas. Supplied latent heat of vaporisation overcomes intermolecular attraction rather than raising average kinetic energy, so temperature stays constant while boiling.",
+            "ta": "சாதாரண அமுக்கத்தில் இது கொதிநிலை; ஏறத்தாழ 100 °C. குமிழ்களும் நீராவியும் உருவாகி திரவம் வாயுவாகும். ஆவியாக்க மறை வெப்பம் மூலக்கூறிடைக் கவர்ச்சியை வெல்வதால் சராசரி இயக்கச் சக்தி/வெப்பநிலை உயராது."
+          },
+          "steps": [
+            {
+              "en": "At ordinary pressure it is the boiling point, approximately 100 °C. Bubbles and steam form as liquid becomes gas. Supplied latent heat of vaporisation overcomes intermolecular attraction rather than raising average kinetic energy, so temperature stays constant while boiling.",
+              "ta": "சாதாரண அமுக்கத்தில் இது கொதிநிலை; ஏறத்தாழ 100 °C. குமிழ்களும் நீராவியும் உருவாகி திரவம் வாயுவாகும். ஆவியாக்க மறை வெப்பம் மூலக்கூறிடைக் கவர்ச்சியை வெல்வதால் சராசரி இயக்கச் சக்தி/வெப்பநிலை உயராது."
+            }
+          ],
+          "hint": {
+            "en": "Heating without a phase change uses Q = mcΔT.",
+            "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "Heating without a phase change uses Q = mcΔT.",
+              "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+            },
+            "reasoning": {
+              "en": "At ordinary pressure it is the boiling point, approximately 100 °C. Bubbles and steam form as liquid becomes gas. Supplied latent heat of vaporisation overcomes intermolecular attraction rather than raising average kinetic energy, so temperature stays constant while boiling.",
+              "ta": "சாதாரண அமுக்கத்தில் இது கொதிநிலை; ஏறத்தாழ 100 °C. குமிழ்களும் நீராவியும் உருவாகி திரவம் வாயுவாகும். ஆவியாக்க மறை வெப்பம் மூலக்கூறிடைக் கவர்ச்சியை வெல்வதால் சராசரி இயக்கச் சக்தி/வெப்பநிலை உயராது."
+            },
+            "commonMistake": {
+              "en": "Do not add 273 to a temperature rise or confuse energy (J) with power (W).",
+              "ta": "வெப்பநிலை உயர்விற்கு 273 சேர்க்க வேண்டாம்; சக்தி (J), வலு (W) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+            },
+            "practice": {
+              "question": {
+                "en": "Heat 2 kg of material with c = 500 J kg⁻¹ K⁻¹ by 4°C. Find energy.",
+                "ta": "c = 500 J kg⁻¹ K⁻¹ உள்ள 2 kg பொருளை 4°C உயர்த்தும் சக்தியைக் காண்க."
+              },
+              "answer": {
+                "en": "Q = 2 × 500 × 4 = 4000 J.",
+                "ta": "Q = 2 × 500 × 4 = 4000 J."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 9,
+              "section": {
+                "en": "9.2.2 Quantity of heat: Q = mcΔT",
+                "ta": "9.2.2 வெப்ப அளவு: Q = mcΔT"
+              },
+              "printedPages": [
+                10,
+                11
+              ],
+              "pdfPages": [
+                20,
+                21
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=20",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 9,
+              "title": {
+                "en": "Heat",
+                "ta": "வெப்பம்"
+              },
+              "url": "/lessons/g11-chapter-09-heat.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        }
+      ]
+    },
+    {
+      "id": "ol2019-ii-09",
+      "number": 9,
+      "paper": "II",
+      "section": "Written",
+      "type": "written",
+      "subjects": [
+        "physics"
+      ],
+      "topics": [
+        "Electromagnetism",
+        "Electronics"
+      ],
+      "lessons": [
+        "g11-chapter-11-electronics",
+        "g11-chapter-13-electromagnetism"
+      ],
+      "pages": [
+        12
+      ],
+      "physicsSubset": true,
+      "prompt": {
+        "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+      },
+      "parts": [
+        {
+          "label": "B(i–iii)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-11-electronics",
+            "g11-chapter-13-electromagnetism"
+          ],
+          "prompt": {
+            "en": "Identify transistor amplifier terminals X,Y,Z and input connections for a moving-coil microphone.",
+            "ta": "திரான்சிஸ்ரர் விரிவாக்கியின் X,Y,Z முனைகளையும் நுணுக்குப்பன்னி உள்ளீட்டு இணைப்பையும் இனங்காண்க."
+          },
+          "answer": {
+            "en": "X = base, Y = collector, Z = emitter. Connect microphone across P and Q at the input coupling capacitor. The moving coil generates a changing electrical signal by electromagnetic induction.",
+            "ta": "X = அடி, Y = சேகரிப்பான், Z = காலி. உள்ளீட்டுக் கொள்ளளவியருகில் P,Q இற்கிடையில் நுணுக்குப்பன்னியை இணைக்கவும். அசையும் சுருள் மின்காந்தத் தூண்டலால் மாறும் மின் சைகையை உருவாக்கும்."
+          },
+          "steps": [
+            {
+              "en": "X = base, Y = collector, Z = emitter. Connect microphone across P and Q at the input coupling capacitor. The moving coil generates a changing electrical signal by electromagnetic induction.",
+              "ta": "X = அடி, Y = சேகரிப்பான், Z = காலி. உள்ளீட்டுக் கொள்ளளவியருகில் P,Q இற்கிடையில் நுணுக்குப்பன்னியை இணைக்கவும். அசையும் சுருள் மின்காந்தத் தூண்டலால் மாறும் மின் சைகையை உருவாக்கும்."
+            }
+          ],
+          "hint": {
+            "en": "A transistor can control a larger collector current with a small base current.",
+            "ta": "சிறிய அடி மின்னோட்டத்தால் பெரிய சேகரிப்பான் மின்னோட்டத்தைக் கட்டுப்படுத்தலாம்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "A transistor can control a larger collector current with a small base current.",
+              "ta": "சிறிய அடி மின்னோட்டத்தால் பெரிய சேகரிப்பான் மின்னோட்டத்தைக் கட்டுப்படுத்தலாம்."
+            },
+            "reasoning": {
+              "en": "X = base, Y = collector, Z = emitter. Connect microphone across P and Q at the input coupling capacitor. The moving coil generates a changing electrical signal by electromagnetic induction.",
+              "ta": "X = அடி, Y = சேகரிப்பான், Z = காலி. உள்ளீட்டுக் கொள்ளளவியருகில் P,Q இற்கிடையில் நுணுக்குப்பன்னியை இணைக்கவும். அசையும் சுருள் மின்காந்தத் தூண்டலால் மாறும் மின் சைகையை உருவாக்கும்."
+            },
+            "commonMistake": {
+              "en": "Keep base, collector and emitter distinct.",
+              "ta": "அடி, சேகரிப்பான், காலி ஆகிய முனைகளை வேறுபடுத்தவும்."
+            },
+            "practice": {
+              "question": {
+                "en": "What are the regions in an npn transistor?",
+                "ta": "npn திரான்சிஸ்ரரின் பகுதிகள் என்ன?"
+              },
+              "answer": {
+                "en": "n-type emitter, p-type base, n-type collector.",
+                "ta": "n-வகை காலி, p-வகை அடி, n-வகை சேகரிப்பான்."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 11,
+              "section": {
+                "en": "11.3 p–n junction diode",
+                "ta": "11.3 p–n சந்தி இருமுனையம்"
+              },
+              "printedPages": [
+                57,
+                57
+              ],
+              "pdfPages": [
+                67,
+                67
+              ],
+              "support": "related",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              },
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=67"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 11,
+              "title": {
+                "en": "Electronics",
+                "ta": "மின்னணுவியல்"
+              },
+              "url": "/lessons/g11-chapter-11-electronics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 13,
+              "title": {
+                "en": "Electromagnetism and Induction",
+                "ta": "மின்காந்தவியலும் தூண்டலும்"
+              },
+              "url": "/lessons/g11-chapter-13-electromagnetism.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(iv–v)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-11-electronics",
+            "g11-chapter-13-electromagnetism"
+          ],
+          "prompt": {
+            "en": "Where does the loudspeaker connect and what does the coupling capacitor change?",
+            "ta": "ஒலிபெருக்கி எங்கு இணைக்கப்படும்? இணைப்புக் கொள்ளளவி சைகையில் என்ன மாற்றம் செய்கிறது?"
+          },
+          "answer": {
+            "en": "Connect the speaker between R and S in the collector circuit. The input capacitor passes changing signal components while blocking steady DC, preserving the amplifier bias.",
+            "ta": "சேகரிப்பான் சுற்றில் R,S இடையில் ஒலிபெருக்கி இணைக்கப்படும். உள்ளீட்டுக் கொள்ளளவி மாறும் சைகையை அனுமதித்து நிலையான நேரோட்டத்தைத் தடுப்பதால் சாய்வூட்டல் பேணப்படும்."
+          },
+          "steps": [
+            {
+              "en": "Connect the speaker between R and S in the collector circuit. The input capacitor passes changing signal components while blocking steady DC, preserving the amplifier bias.",
+              "ta": "சேகரிப்பான் சுற்றில் R,S இடையில் ஒலிபெருக்கி இணைக்கப்படும். உள்ளீட்டுக் கொள்ளளவி மாறும் சைகையை அனுமதித்து நிலையான நேரோட்டத்தைத் தடுப்பதால் சாய்வூட்டல் பேணப்படும்."
+            }
+          ],
+          "hint": {
+            "en": "A transistor can control a larger collector current with a small base current.",
+            "ta": "சிறிய அடி மின்னோட்டத்தால் பெரிய சேகரிப்பான் மின்னோட்டத்தைக் கட்டுப்படுத்தலாம்."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "A transistor can control a larger collector current with a small base current.",
+              "ta": "சிறிய அடி மின்னோட்டத்தால் பெரிய சேகரிப்பான் மின்னோட்டத்தைக் கட்டுப்படுத்தலாம்."
+            },
+            "reasoning": {
+              "en": "Connect the speaker between R and S in the collector circuit. The input capacitor passes changing signal components while blocking steady DC, preserving the amplifier bias.",
+              "ta": "சேகரிப்பான் சுற்றில் R,S இடையில் ஒலிபெருக்கி இணைக்கப்படும். உள்ளீட்டுக் கொள்ளளவி மாறும் சைகையை அனுமதித்து நிலையான நேரோட்டத்தைத் தடுப்பதால் சாய்வூட்டல் பேணப்படும்."
+            },
+            "commonMistake": {
+              "en": "Keep base, collector and emitter distinct.",
+              "ta": "அடி, சேகரிப்பான், காலி ஆகிய முனைகளை வேறுபடுத்தவும்."
+            },
+            "practice": {
+              "question": {
+                "en": "What are the regions in an npn transistor?",
+                "ta": "npn திரான்சிஸ்ரரின் பகுதிகள் என்ன?"
+              },
+              "answer": {
+                "en": "n-type emitter, p-type base, n-type collector.",
+                "ta": "n-வகை காலி, p-வகை அடி, n-வகை சேகரிப்பான்."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 11,
+              "section": {
+                "en": "11.3 p–n junction diode",
+                "ta": "11.3 p–n சந்தி இருமுனையம்"
+              },
+              "printedPages": [
+                57,
+                57
+              ],
+              "pdfPages": [
+                67,
+                67
+              ],
+              "support": "related",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              },
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=67"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 11,
+              "title": {
+                "en": "Electronics",
+                "ta": "மின்னணுவியல்"
+              },
+              "url": "/lessons/g11-chapter-11-electronics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 13,
+              "title": {
+                "en": "Electromagnetism and Induction",
+                "ta": "மின்காந்தவியலும் தூண்டலும்"
+              },
+              "url": "/lessons/g11-chapter-13-electromagnetism.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        },
+        {
+          "label": "B(vi–vii)",
+          "subject": "physics",
+          "lessons": [
+            "g11-chapter-11-electronics",
+            "g11-chapter-13-electromagnetism"
+          ],
+          "prompt": {
+            "en": "What changes in the amplified signal, and how does the speaker produce sound?",
+            "ta": "விரிவாக்கப்பட்ட சைகையில் என்ன மாற்றம்? ஒலிபெருக்கி எவ்வாறு ஒலி உருவாக்கும்?"
+          },
+          "answer": {
+            "en": "Amplification increases signal amplitude while retaining frequency. Current in the speaker coil experiences magnetic force and moves the attached cone, causing air compressions/rarefactions that form sound.",
+            "ta": "விரிவாக்கம் மீடிறனைப் பேணியபடி வீச்சை உயர்த்தும். ஒலிபெருக்கிச் சுருள் மின்னோட்டம் காந்த விசையை அனுபவித்து கூம்பை அசைக்கும்; வளி நெருக்கங்கள்/ஐதாக்கங்கள் ஒலியை உருவாக்கும்."
+          },
+          "steps": [
+            {
+              "en": "Amplification increases signal amplitude while retaining frequency. Current in the speaker coil experiences magnetic force and moves the attached cone, causing air compressions/rarefactions that form sound.",
+              "ta": "விரிவாக்கம் மீடிறனைப் பேணியபடி வீச்சை உயர்த்தும். ஒலிபெருக்கிச் சுருள் மின்னோட்டம் காந்த விசையை அனுபவித்து கூம்பை அசைக்கும்; வளி நெருக்கங்கள்/ஐதாக்கங்கள் ஒலியை உருவாக்கும்."
+            }
+          ],
+          "hint": {
+            "en": "An electric current produces a magnetic field around a conductor.",
+            "ta": "மின்னோட்டம் கடத்தியின் சுற்றில் காந்தப் புலத்தை உருவாக்குகிறது."
+          },
+          "detailedExplanation": {
+            "concept": {
+              "en": "An electric current produces a magnetic field around a conductor.",
+              "ta": "மின்னோட்டம் கடத்தியின் சுற்றில் காந்தப் புலத்தை உருவாக்குகிறது."
+            },
+            "reasoning": {
+              "en": "Amplification increases signal amplitude while retaining frequency. Current in the speaker coil experiences magnetic force and moves the attached cone, causing air compressions/rarefactions that form sound.",
+              "ta": "விரிவாக்கம் மீடிறனைப் பேணியபடி வீச்சை உயர்த்தும். ஒலிபெருக்கிச் சுருள் மின்னோட்டம் காந்த விசையை அனுபவித்து கூம்பை அசைக்கும்; வளி நெருக்கங்கள்/ஐதாக்கங்கள் ஒலியை உருவாக்கும்."
+            },
+            "commonMistake": {
+              "en": "The thumb shows conventional current, not electron-flow direction.",
+              "ta": "பெருவிரல் வழக்கமான மின்னோட்டத்தைக் காட்டும்; இலத்திரன் ஓட்டத் திசையை அல்ல."
+            },
+            "practice": {
+              "question": {
+                "en": "What happens to the field direction when current in a straight wire reverses?",
+                "ta": "நேரான கம்பியில் மின்னோட்டம் எதிர்த்திசையானால் புலத் திசை என்ன ஆகும்?"
+              },
+              "answer": {
+                "en": "The magnetic field circles in the opposite direction.",
+                "ta": "காந்தப் புலம் எதிர்த்திசையில் சுற்றும்."
+              }
+            }
+          },
+          "references": [
+            {
+              "bookId": "g11-p2-en",
+              "chapter": 13,
+              "section": {
+                "en": "13.2 Magnetic effect of a current: right-hand rule",
+                "ta": "13.2 மின்னோட்டத்தின் காந்த விளைவு: வலக்கை விதி"
+              },
+              "printedPages": [
+                120,
+                120
+              ],
+              "pdfPages": [
+                130,
+                130
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "en",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II"
+              },
+              "sourceFilename": "science G-11  P-II E.pdf",
+              "sourceSha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-p2-en.pdf#page=130",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "bookId": "g11-c13-ta",
+              "chapter": 13,
+              "section": {
+                "en": "13.2 Magnetic field around a conductor",
+                "ta": "13.2 கடத்தியைச் சுற்றிய காந்தப் புலம்"
+              },
+              "printedPages": [
+                133,
+                133
+              ],
+              "pdfPages": [
+                6,
+                6
+              ],
+              "support": "related",
+              "kind": "textbook",
+              "language": "ta",
+              "grade": 11,
+              "part": "II",
+              "title": {
+                "en": "Science · Grade 11 · Part II · Chapter 13",
+                "ta": "விஞ்ஞானம் · தரம் 11 · பகுதி II · அத்தியாயம் 13"
+              },
+              "sourceFilename": "13.pdf",
+              "sourceSha256": "bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319",
+              "verifiedAgainst": "uploaded-textbook",
+              "url": "/lessons/textbooks/g11-c13-ta.pdf#page=6",
+              "note": {
+                "en": "Background principles only. This page does not verify this paper’s complete worked answer.",
+                "ta": "அடிப்படைத் தத்துவங்களுக்கான வாசிப்பு மட்டும். இப்பக்கத்தில் இவ்வினாத்தாளின் முழு விடை உறுதிப்படுத்தப்படவில்லை."
+              }
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 11,
+              "title": {
+                "en": "Electronics",
+                "ta": "மின்னணுவியல்"
+              },
+              "url": "/lessons/g11-chapter-11-electronics.html",
+              "verifiedAgainst": "course-index"
+            },
+            {
+              "kind": "lesson",
+              "grade": 11,
+              "chapter": 13,
+              "title": {
+                "en": "Electromagnetism and Induction",
+                "ta": "மின்காந்தவியலும் தூண்டலும்"
+              },
+              "url": "/lessons/g11-chapter-13-electromagnetism.html",
+              "verifiedAgainst": "course-index"
+            }
+          ],
+          "textbookReferenceStatus": "related-only"
+        }
+      ]
+    }
+  ]
+}

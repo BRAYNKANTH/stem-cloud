@@ -29,7 +29,7 @@ def notes(item, guide, reason):
     books={b['id']:b for b in json.loads((ROOT/'site/lessons/textbooks/catalog.json').read_text(encoding='utf-8'))['books']}
     # These page ranges were reviewed for the 2015 guide. For new questions they
     # are background reading, not a claim that the page verifies a new solution.
-    readings=deepcopy(READING.get(guide if guide in READING else {'transformer':'magnetic','induction':'magnetic','energy':'power','friction':'forces','units':'ohm','transistor':'photodiode','capacitor':'circuit'}.get(guide),[]))
+    readings=deepcopy(READING.get(guide if guide in READING else {'transformer':'magnetic','induction':'magnetic','energy':'power','friction':'forces','transistor':'photodiode','capacitor':'circuit'}.get(guide),[]))
     item['references']=[]
     for r in readings:
         b=books[r['bookId']]

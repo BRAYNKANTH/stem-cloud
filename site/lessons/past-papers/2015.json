@@ -18,20 +18,18 @@
   "papers": [
     {
       "id": "I",
-      "minutes": 30,
       "questionCount": 14,
       "instructions": {
-        "en": "Physics subset practice: answer all 14 MCQs in 30 minutes. This is not the complete Science paper.",
-        "ta": "பௌதிகவியல் பயிற்சி: 30 நிமிடங்களில் 14 தெரிவு வினாக்களுக்கும் விடையளிக்கவும். இது முழு விஞ்ஞான வினாத்தாள் அல்ல."
+        "en": "Physics subset practice: answer all 14 MCQs with no time limit. This is not the complete Science paper.",
+        "ta": "பௌதிகவியல் பயிற்சி: நேர வரம்பின்றி 14 தெரிவு வினாக்களுக்கும் விடையளிக்கவும். இது முழு விஞ்ஞான வினாத்தாள் அல்ல."
       }
     },
     {
       "id": "II",
-      "minutes": 90,
       "questionCount": 5,
       "instructions": {
-        "en": "Physics subset practice: attempt all five written questions in 90 minutes. Questions 1 and 3 contain only their physics subparts. Use model answers for self-checking; no automatic written marks.",
-        "ta": "பௌதிகவியல் பயிற்சி: 90 நிமிடங்களில் ஐந்து எழுத்து வினாக்களுக்கும் முயற்சிக்கவும். வினாக்கள் 1, 3 இல் பௌதிகவியல் பகுதிகள் மட்டும் உள்ளன. மாதிரி விடைகளுடன் தன்னிலை மதிப்பீடு செய்க; தானியங்கி புள்ளிகள் இல்லை."
+        "en": "Physics subset practice: attempt all five written questions with no time limit. Questions 1 and 3 contain only their physics subparts. Use model answers for self-checking; no automatic written marks.",
+        "ta": "பௌதிகவியல் பயிற்சி: நேர வரம்பின்றி ஐந்து எழுத்து வினாக்களுக்கும் முயற்சிக்கவும். வினாக்கள் 1, 3 இல் பௌதிகவியல் பகுதிகள் மட்டும் உள்ளன. மாதிரி விடைகளுடன் தன்னிலை மதிப்பீடு செய்க; தானியங்கி புள்ளிகள் இல்லை."
       }
     }
   ],

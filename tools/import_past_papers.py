@@ -1,7 +1,8 @@
 """Render the user-supplied scans without OCR claims. Requires PyMuPDF (build only).
 
 python tools/import_past_papers.py --source-dir "C:/.../tamil"
-Only the approved 2015 pilot is imported; the other eight years are catalogued pending.
+Renders the 2015 pilot. Existing reviewed banks for other years remain catalogued;
+run build_physics_years.py to build their banks and render their illustrations.
 """
 import argparse, hashlib, json, shutil
 from pathlib import Path
@@ -38,6 +39,12 @@ def main():
                 for number,(page,x0,y0,x1,y1) in panels.items():
                     doc[page-1].get_pixmap(matrix=fitz.Matrix(2,2),clip=fitz.Rect(x0/2,y0/2,x1/2,y1/2)).save(dest/f'mcq-{number:02}.jpg',jpg_quality=90)
                 entry.update(bank='/lessons/past-papers/2015.json',scope="physics",mcqCount=14,writtenCount=5)
+            bank_path=OUT/f'{year}.json'
+            if year!=2015 and bank_path.exists():
+                bank=json.loads(bank_path.read_text(encoding='utf-8'))
+                if bank.get('scope')=='physics':
+                    label={2017:'2017 · Old syllabus',2021:'2021 (2022)',2022:'2022 (2023)',2023:'2023 (2024)'}.get(year,str(year))
+                    entry.update(status=bank['status'],examLabel=label,bank=f'/lessons/past-papers/{year}.json',scope='physics',mcqCount=sum(q['type']=='mcq' for q in bank['questions']),writtenCount=sum(q['type']=='written' for q in bank['questions']),coverageNote=bank.get('coverageNote'))
             catalog.append(entry)
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/'catalog.json').write_text(json.dumps(dict(schemaVersion=1,papers=catalog),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

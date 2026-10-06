@@ -1,0 +1,2 @@
+# Preserve original textbook and past-paper PDFs byte for byte.
+*.pdf binary

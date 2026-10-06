@@ -442,8 +442,16 @@ def api_progress_get(req: Request):
 
 # ----------------------------------------------------------------------------- Past Papers: separate from lesson XP/progress
 def past_questions():
-    path = LESSONS / 'past-papers' / '2015.json'
-    return {q['id']: q for q in json.loads(path.read_text(encoding='utf-8'))['questions']}
+    questions = {}
+    for year in range(2015, 2024):
+        path = LESSONS / 'past-papers' / f'{year}.json'
+        if not path.exists():
+            continue
+        bank = json.loads(path.read_text(encoding='utf-8'))
+        if bank.get('scope') != 'physics':
+            continue
+        questions.update({q['id']: q for q in bank['questions'] if q['subjects'] == ['physics']})
+    return questions
 
 
 @app.get('/api/past-papers/state')

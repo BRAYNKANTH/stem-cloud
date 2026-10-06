@@ -15,67 +15,131 @@
     },
     {
       "year": 2016,
-      "status": "pending-extraction",
+      "status": "model-answers",
       "examLabel": "2016",
       "sourceFilename": "gce-ordinary-level-exam-2016-science-past-papers-61a754ef61aa5.pdf",
       "sourceSha256": "9c2e39fce9c540e8a1dc7ef5513af5debbcf51832b9126990b56fc13f0f974fe",
-      "pages": 12
+      "pages": 12,
+      "bank": "/lessons/past-papers/2016.json",
+      "scope": "physics",
+      "mcqCount": 12,
+      "writtenCount": 4,
+      "coverageNote": {
+        "en": "Q8 B(iii)(c) is awaiting review and excluded from practice.",
+        "ta": "வினா 8 B(iii)(c) மீளாய்வு நிலுவையில் உள்ளது; பயிற்சியில் சேர்க்கப்படவில்லை."
+      }
     },
     {
       "year": 2017,
-      "status": "pending-extraction",
-      "examLabel": "2017",
+      "status": "model-answers",
+      "examLabel": "2017 · Old syllabus",
       "sourceFilename": "gce-ordinary-level-exam-2017-science-past-papers-61a8a5772c60f.pdf",
       "sourceSha256": "e4eca2ffa710dc2d67d38c692accc636a8c34d5c843ae6bb573e869368448caf",
-      "pages": 12
+      "pages": 12,
+      "bank": "/lessons/past-papers/2017.json",
+      "scope": "physics",
+      "mcqCount": 15,
+      "writtenCount": 4,
+      "coverageNote": {
+        "en": "",
+        "ta": ""
+      }
     },
     {
       "year": 2018,
-      "status": "pending-extraction",
+      "status": "model-answers",
       "examLabel": "2018",
       "sourceFilename": "gce-ordinary-level-exam-2018-science-past-papers-61aef2cda5ba0.pdf",
       "sourceSha256": "b1cb593da4c2b8d979561552af913f026f55ea459cb6b29113caa0a19152a8b5",
-      "pages": 14
+      "pages": 14,
+      "bank": "/lessons/past-papers/2018.json",
+      "scope": "physics",
+      "mcqCount": 14,
+      "writtenCount": 4,
+      "coverageNote": {
+        "en": "",
+        "ta": ""
+      }
     },
     {
       "year": 2019,
-      "status": "pending-extraction",
+      "status": "model-answers",
       "examLabel": "2019",
       "sourceFilename": "gce-ordinary-level-exam-2019-science-past-papers-61aefeee7b177.pdf",
       "sourceSha256": "5941ba88a6192ab144c900a43b2da21dc91485d8df76f279b733cd09e8c0f7fc",
-      "pages": 12
+      "pages": 12,
+      "bank": "/lessons/past-papers/2019.json",
+      "scope": "physics",
+      "mcqCount": 12,
+      "writtenCount": 5,
+      "coverageNote": {
+        "en": "",
+        "ta": ""
+      }
     },
     {
       "year": 2020,
-      "status": "pending-extraction",
+      "status": "model-answers",
       "examLabel": "2020",
       "sourceFilename": "gce-ordinary-level-exam-2020-science-past-papers-61af108c3cf5f.pdf",
       "sourceSha256": "2e686d1c679b9c6120f8221b986cb74c47bc3063dfb655a62bb445ee2844c8d5",
-      "pages": 8
+      "pages": 8,
+      "bank": "/lessons/past-papers/2020.json",
+      "scope": "physics",
+      "mcqCount": 12,
+      "writtenCount": 3,
+      "coverageNote": {
+        "en": "Written Part II A pages are missing from the supplied PDF.",
+        "ta": "வழங்கிய PDF இல் எழுத்துத் தாளின் ஆரம்பப் பக்கங்கள் இல்லை; கிடைத்த பௌதிகவியல் பகுதிகள் மட்டும் சேர்க்கப்பட்டுள்ளன."
+      }
     },
     {
       "year": 2021,
-      "status": "pending-extraction",
-      "examLabel": "2021",
+      "status": "model-answers",
+      "examLabel": "2021 (2022)",
       "sourceFilename": "gce-ordinary-level-exam-2021-science-past-papers-62a99e721068a.pdf",
       "sourceSha256": "87bfb90b6e7d2445e540571279f98fa9ef74d1e2f5a79ddd176d50a6fd85a61d",
-      "pages": 9
+      "pages": 9,
+      "bank": "/lessons/past-papers/2021.json",
+      "scope": "physics",
+      "mcqCount": 15,
+      "writtenCount": 3,
+      "coverageNote": {
+        "en": "Written Part II A pages are missing from the supplied PDF.",
+        "ta": "வழங்கிய PDF இல் எழுத்துத் தாளின் ஆரம்பப் பக்கங்கள் இல்லை; கிடைத்த பௌதிகவியல் பகுதிகள் மட்டும் சேர்க்கப்பட்டுள்ளன."
+      }
     },
     {
       "year": 2022,
-      "status": "pending-extraction",
-      "examLabel": "2022",
+      "status": "model-answers",
+      "examLabel": "2022 (2023)",
       "sourceFilename": "gce-ordinary-level-exam-2022-science-past-papers-64ad0e3a3f090.pdf",
       "sourceSha256": "9538e64b3bdecd0532f8a5ac777308196d7826e240db04ec460813fbaafd914d",
-      "pages": 8
+      "pages": 8,
+      "bank": "/lessons/past-papers/2022.json",
+      "scope": "physics",
+      "mcqCount": 13,
+      "writtenCount": 3,
+      "coverageNote": {
+        "en": "Written Part II A and printed page 5 are missing from the supplied PDF.",
+        "ta": "வழங்கிய PDF இல் எழுத்துத் தாளின் ஆரம்பப் பக்கங்கள் இல்லை; கிடைத்த பௌதிகவியல் பகுதிகள் மட்டும் சேர்க்கப்பட்டுள்ளன."
+      }
     },
     {
       "year": 2023,
-      "status": "pending-extraction",
+      "status": "model-answers",
       "examLabel": "2023 (2024)",
       "sourceFilename": "gce-ordinary-level-exam-2023-science-past-papers-695790fec340f.pdf",
       "sourceSha256": "61ad8c8606556392f89f63cabab321bfdad95e5f90a3ff0039accdc0cd0b79a0",
-      "pages": 12
+      "pages": 12,
+      "bank": "/lessons/past-papers/2023.json",
+      "scope": "physics",
+      "mcqCount": 13,
+      "writtenCount": 4,
+      "coverageNote": {
+        "en": "",
+        "ta": ""
+      }
     }
   ]
 }

@@ -1,3 +1,7 @@
 tests/
 data/
 tools/
+scratch/
+tmp/
+.sf/
+*.md

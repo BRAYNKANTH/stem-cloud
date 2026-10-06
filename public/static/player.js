@@ -109,7 +109,8 @@
     var i = cur, nxt = i === LAST ? null : label(i + 1);
     eBack.hidden = i <= 0; eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Back', 'பின்னாடி') + '</span>';
     eBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி'));
-    eNext.innerHTML = '<span>' + (i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? stepWord(i + 1) : '')) + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
+    var nextText = i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? L('Next: ', 'அடுத்து: ') + stepWord(i + 1) : L('Next', 'அடுத்து'));
+    eNext.innerHTML = '<span>' + nextText + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
     eNext.setAttribute('aria-label', i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : L('Next: ', 'அடுத்து: ') + (nxt || ''));
     endNav.hidden = i === 0;
   }
@@ -125,7 +126,7 @@
     var nl = nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்');
     bNext.innerHTML = '<span aria-hidden="true">' + (i === 0 ? '▶' : (i === N ? '🏁' : (i === LAST ? '🏠' : '➜'))) + '</span>';
     bNext.setAttribute('aria-label', i === 0 ? L('Start the lesson', 'பாடத்த தொடங்கு') : nl); bNext.title = bNext.getAttribute('aria-label');
-    bNext.classList.toggle('sb-pulse', i <= 1 && taps() < 2);
+    bNext.classList.toggle('sb-pulse', i === 0 && taps() < 2);
     bMid.setAttribute('aria-label', (i >= 1 && i <= N ? L('Step ', 'படி ') + i + ' / ' + N + ': ' : '') + stepWord(i) + '. ' + L('Open lesson map', 'பாடத்தின் வரைபடம்'));
     /* header menu button and nav links show where you are */
     [].forEach.call(doc.querySelectorAll('.navlinks a'), function (a) { a.removeAttribute('aria-current'); });
@@ -159,7 +160,18 @@
   /* ------------------------------------------------------------------ what counts as "done": doing the step, not seeing it
      reading steps: pressing Next; story: the last line; watch: the end; lab: every mission; quiz: every question answered; games: a star / both sort rounds */
   var PASSIVE = ['basics', 'notes', 'activities', 'examples', 'practice', 'exercises', 'walkthroughs', 'recap', 'summary'];
-  function real(id) { if (ids.indexOf(id) >= 0 && window.__fwMarkReal) window.__fwMarkReal(id); }
+  function guideToEnd() {
+    if (endNav && !endNav.hidden && eNext) {
+      eNext.classList.add('sb-pulse');
+      setTimeout(function () { eNext.classList.remove('sb-pulse'); }, 3500);
+    }
+  }
+  function real(id) {
+    if (ids.indexOf(id) >= 0 && window.__fwMarkReal) {
+      window.__fwMarkReal(id);
+      guideToEnd();
+    }
+  }
   function markPassive(i) { var id = ids[i - 1]; if (PASSIVE.indexOf(id) >= 0) real(id); }
   window.addEventListener('stem-story-line', function (e) { var n = doc.querySelectorAll('.so-dots i').length; if (e.detail && n && e.detail.i === n - 1) real('story'); });
   setInterval(function () { var s = doc.getElementById('fw_scrub'); if (s && +s.value >= 995) real('watch'); }, 800);

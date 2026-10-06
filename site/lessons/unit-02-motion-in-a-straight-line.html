@@ -607,6 +607,17 @@ body.lang-ta .step-content .work{font-family:'Noto Sans Tamil','JetBrains Mono',
       <p data-ta="பகுதி 1-ல் இயக்கக் காட்சிகளை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ வரைவிலக்கணங்கள், சமன்பாடுகள், வரைபடக் கொள்கைகளை இங்கே கற்போம்!">In Sector 1, you saw the motion demonstration. Below are the core definitions, displacement-velocity equations, and motion graph rules!</p>
     </div>
 
+    <div class="subtopic-nav-strip">
+      <span class="sns-label" data-ta="பாடப் பிரிவுகள் (Roadmap)">Subtopic Roadmap:</span>
+      <div class="sns-pills">
+        <button type="button" class="sns-pill active" data-stone="0"><span class="sp-num">2.1</span> <span data-ta="தூரம் &amp; இடப்பெயர்ச்சி">Distance vs Displacement</span></button>
+        <button type="button" class="sns-pill" data-stone="1"><span class="sp-num">2.2–3</span> <span data-ta="கதி &amp; வேகம்">Speed &amp; Velocity</span></button>
+        <button type="button" class="sns-pill" data-stone="2"><span class="sp-num">2.4</span> <span data-ta="ஆர்முடுகல் &amp; அமர்முடுகல்">Acceleration</span></button>
+        <button type="button" class="sns-pill" data-stone="3"><span class="sp-num">2.5–6</span> <span data-ta="இயக்க வரைபடங்கள்">Motion Graphs</span></button>
+        <button type="button" class="sns-pill" data-stone="4"><span class="sp-num">2.7</span> <span data-ta="புவியீர்ப்பு &amp; தானாக வீழ்ச்சி">Gravity &amp; Free Fall</span></button>
+      </div>
+    </div>
+
     <div class="path-row" id="notesPath">
       <button class="path-stone c1" data-idx="0" aria-label="2.1">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18c4-10 8 4 16-12"/><circle cx="4" cy="18" r="1.6"/><circle cx="20" cy="6" r="1.6"/></svg>
@@ -1522,6 +1533,7 @@ function cssVar(name){
 (function(){
   const stones = Array.from(document.querySelectorAll('.path-stone'));
   const cards = Array.from(document.querySelectorAll('#notesStage > .card'));
+  const subPills = Array.from(document.querySelectorAll('.sns-pill'));
   const prevBtn = document.getElementById('notePrevBtn');
   const nextBtn = document.getElementById('noteNextBtn');
   const progressEl = document.getElementById('noteProgress');
@@ -1552,6 +1564,7 @@ function cssVar(name){
       if(i===idx){ c.classList.add('revealed'); }
     });
     stones.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    subPills.forEach((p,i)=> p.classList.toggle('active', i===idx));
     void cards[idx].offsetWidth;
     cards[idx].classList.add('dropping');
     if(!visited.has(idx)){
@@ -1569,6 +1582,7 @@ function cssVar(name){
   }
 
   stones.forEach((s,i)=> s.addEventListener('click', ()=> showIndex(i)));
+  subPills.forEach((p,i)=> p.addEventListener('click', ()=> showIndex(i)));
   prevBtn.addEventListener('click', ()=>{ if(current>0) showIndex(current-1); });
   nextBtn.addEventListener('click', ()=>{ if(current<cards.length-1) showIndex(current+1); });
 
@@ -2537,55 +2551,203 @@ drawAxisLineGraph('q4Svg', [
 
 (function(){
   const CFG = {
- dur: 21,
+ dur: 30,
  caps: [
-  {t:0, en:"Raja and Chittu race from home to school. Raja takes the long road, and Chittu flies straight!", ta:"ராஜாவும் சிட்டுவும் வீட்டுல இருந்து ஸ்கூலுக்கு ரேஸ். ராஜா நீளமான ரோட்டுல போறான், சிட்டு நேரா பறக்குறா!"},
-  {t:3, en:"Raja walks 100 m down the lane, 400 m along the main road, then 300 m to the gate. His counter shows the ground he covers: the DISTANCE.", ta:"ராஜா சந்துல 100 m, மெயின் ரோட்டுல 400 m, கேட் வரை 300 m நடக்கிறான். அவன் கடந்த தரையை கவுண்டர் காட்டுது: அதுதான் தூரம்."},
-  {t:10.5, en:"Both arrive. Draw a straight arrow from the start to the end: that is the DISPLACEMENT, 500 m in the direction home → school.", ta:"ரெண்டு பேரும் வந்தாச்சு. ஆரம்பத்துல இருந்து முடிவுக்கு நேரா ஒரு அம்பு வரை: அதுதான் இடப்பெயர்ச்சி, வீடு → ஸ்கூல் திசையில 500 m."},
-  {t:14, en:"Compare the bars: distance is 800 m for Raja and 500 m for Chittu, but both have the SAME displacement, 500 m.", ta:"பார்களை ஒப்பிடு: தூரம் ராஜாவுக்கு 800 m, சிட்டுவுக்கு 500 m, ஆனா இடப்பெயர்ச்சி ரெண்டு பேருக்கும் ஒண்ணுதான், 500 m."},
-  {t:18, en:"Distance depends on the path you take. Displacement depends only on where you start and finish. (Map not to scale.)", ta:"தூரம் நீ போற வழிய பொறுத்தது. இடப்பெயர்ச்சி ஆரம்பம், முடிவ மட்டும் பொறுத்தது. (மேப் அளவுக்கு வரையல.)"}
+  {t:0, en:"Scene 1: Distance vs Displacement. Raja and Chittu race to school. Raja walks the winding road, Chittu flies straight!", ta:"காட்சி 1: தூரம் vs இடப்பெயர்ச்சி. ராஜாவும் சிட்டுவும் பள்ளிக்கு போட்டி. ராஜா வளைந்த பாதையில் நடக்கிறான், சிட்டு நேராக பறக்கிறாள்!"},
+  {t:3, en:"Raja walks 800 m along the winding road (Distance). Chittu flies 500 m straight home → school: that straight arrow is Displacement!", ta:"ராஜா வளைந்த பாதையில் 800 m நடக்கிறான் (தூரம்). சிட்டு வீடு → பள்ளி நேராக 500 m பறக்கிறாள்: அந்த நேரடி அம்புதான் இடப்பெயர்ச்சி!"},
+  {t:8.5, en:"Distance depends on the path taken. Displacement depends only on initial and final positions (500 m direct).", ta:"தூரம் சென்ற பாதையின் நீளத்தைச் சார்ந்தது. இடப்பெயர்ச்சி ஆரம்பம் மற்றும் இறுதி நிலைகளை மட்டுமே சார்ந்தது (நேரடி 500 m)."},
+  {t:11, en:"Scene 2: Velocity & Acceleration. Raja rides on a straight road, speeding up from rest (u = 0) to 8 m/s in 4 seconds!", ta:"காட்சி 2: வேகம் & ஆர்முடுகல். ராஜா நேர்கோட்டு பாதையில் மிதிவண்டியை ஓட்டுகிறான்: 0 லிருந்து 8 m/s ஆக 4 வினாடிகளில் கூடுகிறது!"},
+  {t:15, en:"Acceleration is the rate of change of velocity: a = (v - u) / t = (8 - 0) / 4 = 2 m/s²! Steady speed follows (a = 0).", ta:"ஆர்முடுகல் என்பது வேகம் மாறும் வீதம்: a = (v - u) / t = (8 - 0) / 4 = 2 m/s²! பின் சீரான வேகத்தில் செல்கிறான் (a = 0)."},
+  {t:20, en:"Scene 3: Gravitational Free Fall. A coconut drops from rest (u = 0). Earth's gravity pulls it downwards!", ta:"காட்சி 3: புவியீர்ப்பு வீழ்ச்சி. ஓய்விலிருந்து (u = 0) தென்னைமரத்தில் இருந்து தேங்காய் விழுகிறது. பூமி அதை கீழே இழுக்கிறது!"},
+  {t:24, en:"Each second, gravity adds 10 m/s downward velocity: v = 0 → 10 → 20 m/s (g ≈ 10 m/s²). It accelerates uniformly until impact!", ta:"ஒவ்வொரு வினாடியும் புவியீர்ப்பு 10 m/s வேகத்தைக் கூட்டுகிறது: v = 0 → 10 → 20 m/s (g ≈ 10 m/s²). நிலத்தில் மோதும் வரை சீராக ஆர்முடுகும்!"},
+  {t:28, en:"Key takeaway: Straight-line motion links Displacement (s), Velocity (v), Acceleration (a), and Gravity (g)!", ta:"முக்கிய முடிவு: நேர்கோட்டு இயக்கம் இடப்பெயர்ச்சி (s), வேகம் (v), ஆர்முடுகல் (a), புவியீர்ப்பு (g) ஆகியவற்றை இணைக்கிறது!"}
  ],
- sfx: [{t:2.9,s:'whoosh'},{t:7.7,s:'ding'},{t:10.3,s:'tada'},{t:14.8,s:'pop'}],
+ sfx: [
+  {t:2.9, s:'whoosh'}, {t:7.5, s:'ding'},
+  {t:11.2, s:'whoosh'}, {t:15.2, s:'ding'},
+  {t:20.2, s:'whoosh'}, {t:23.5, s:'thud'}, {t:28.5, s:'tada'}
+ ],
  asks: [
-  {t:2.8, q:["Raja walks the long road and Chittu flies straight. Who will cover MORE distance?","ராஜா நீளமான ரோட்டுல நடக்கிறான், சிட்டு நேரா பறக்குறா. யாரு அதிக தூரம் போவா?"], o:[["Raja","ராஜா"],["Chittu","சிட்டு"],["The same","ரெண்டு பேரும் சமம்"]], c:0, why:["Raja's path is longer: 800 m against 500 m.","ராஜாவோட வழி நீளம்: 800 m, சிட்டுக்கு 500 m."]},
-  {t:14.2, q:["Do Raja and Chittu have the same DISPLACEMENT?","ராஜாவுக்கும் சிட்டுவுக்கும் இடப்பெயர்ச்சி சமமா?"], o:[["Yes, the same","ஆமா, சமம்"],["No, Raja's is bigger","இல்ல, ராஜாவோடது பெருசு"],["No, Chittu's is bigger","இல்ல, சிட்டுவோடது பெருசு"]], c:0, why:["Displacement only cares about the start and the end. Both start at home and end at school.","இடப்பெயர்ச்சி ஆரம்பம், முடிவ மட்டும் பாக்கும். ரெண்டு பேரும் வீட்டுல ஆரம்பிச்சு ஸ்கூல்ல முடிக்கறாங்க."]}
+  {t:2.8, q:["Raja walks the 800 m winding road while Chittu flies 500 m straight. Who covers MORE distance?","ராஜா 800 m வளைந்த பாதையில் நடக்கிறான், சிட்டு 500 m நேராக பறக்கிறாள். யார் அதிக தூரம் செல்வார்?"], o:[["Raja (800 m)","ராஜா (800 m)"],["Chittu (500 m)","சிட்டு (500 m)"],["Both the same","இருவரும் சமம்"]], c:0, why:["Distance is the actual length of the path taken: 800 m vs 500 m.","தூரம் என்பது சென்ற மொத்த பாதையின் நீளம்: 800 m > 500 m."]},
+  {t:14.5, q:["Raja accelerates from 0 to 8 m/s in 4 seconds. What is his acceleration?","ராஜாவின் வேகம் 4 வினாடிகளில் 0 முதல் 8 m/s ஆக மாறுகிறது. ஆர்முடுகல் என்ன?"], o:[["2 m/s²","2 m/s²"],["8 m/s²","8 m/s²"],["32 m/s²","32 m/s²"]], c:0, why:["Acceleration a = (v - u) / t = (8 - 0) / 4 = 2 m/s².","ஆர்முடுகல் a = (v - u) / t = (8 - 0) / 4 = 2 m/s²."]},
+  {t:23.5, q:["Under Earth's gravity (free fall), how much does downward velocity increase each second?","பூமியின் புவியீர்ப்பில் தானாக விழும்போது, ஒவ்வொரு வினாடியும் கீழ்நோக்கிய வேகம் எவ்வளவு கூடும்?"], o:[["~10 m/s each second","ஒவ்வொரு வினாடியும் ~10 m/s"],["Remains at 0 m/s","0 m/s ஆகவே இருக்கும்"],["Decreases by 5 m/s","5 m/s குறையும்"]], c:0, why:["Gravitational acceleration g ≈ 9.8 to 10 m/s² adds ~10 m/s downward speed every second.","புவியீர்ப்பு ஆர்முடுகல் g ≈ 10 m/s² ஒவ்வொரு வினாடியும் வேகத்தை 10 m/s கூட்டும்."]}
  ],
  draw: function(t, H){
-  var A = [110,78], B = [110,160], Cc = [470,160], D = [470,296];
-  H.rect(0,0,640,360,'#b9e38b');
-  [[40,60],[520,90],[250,60],[340,70],[220,250],[320,300],[580,230]].forEach(function(p){ H.tree(p[0],p[1],0.8); });
-  H.line(A[0],A[1],B[0],B[1],'#ece6d6',30); H.line(B[0],B[1],Cc[0],Cc[1],'#ece6d6',30); H.line(Cc[0],Cc[1],D[0],D[1],'#ece6d6',30);
-  H.line(A[0],A[1],B[0],B[1],'#fff',2,'8 8'); H.line(B[0],B[1],Cc[0],Cc[1],'#fff',2,'8 8'); H.line(Cc[0],Cc[1],D[0],D[1],'#fff',2,'8 8');
-  H.house(A[0]-6,A[1]-18,1.1); H.school(D[0]+34,D[1]+12,1.0);
-  var m = 800 * H.seg(t,3,10);
-  function pos(mm){ if(mm<=100) return [A[0],A[1]+(B[1]-A[1])*mm/100]; if(mm<=500) return [B[0]+(Cc[0]-B[0])*(mm-100)/400,B[1]]; return [Cc[0],Cc[1]+(D[1]-Cc[1])*(mm-500)/300]; }
-  var p = pos(m), pts = [A]; if(m>100) pts.push(B); if(m>500) pts.push(Cc); pts.push(p);
-  H.E('polyline',{points:pts.map(function(q){return q[0]+','+q[1];}).join(' '),fill:'none',stroke:'#ff8a3d','stroke-width':6,'stroke-linecap':'round','stroke-linejoin':'round'});
-  var f = H.ease(H.seg(t,3.4,7.7)), cx = A[0]+(D[0]-A[0])*f, cy = A[1]+(D[1]-A[1])*f;
-  if(f>0) H.line(A[0],A[1],cx,cy,'#2b8fd0',4,'10 8');
-  var walking = t>3 && t<10;
-  H.raja(p[0],p[1]+22,0.36,{fd:walking?Math.sin(t*10)*7:0, fl:walking?Math.sin(t*10)*6:0, aL:walking?Math.sin(t*10)*25:0, aR:walking?-Math.sin(t*10)*25:0, eyes:(t>10&&t<12.5)?'c':'n', m:(t<2.7)?0.4:0, brow:'n'});
-  if(t>=10) H.sweat(p[0],p[1]-26,t);
-  var flying = t>3.3 && t<7.7;
-  if(f<1){ H.circle(cx,cy+26,10,'#000',0.15); }
-  H.chittu(cx,cy+(f<1?12:22),0.34,{fly:f<1&&f>0, wL:flying?Math.sin(t*20)*40:0, wR:flying?Math.sin(t*20)*40:0, m:t<2.7?0.3:0});
-  if(t<2.8){ H.say(A[0]+60,A[1]-50,["Race you to school!","ஸ்கூலுக்கு ரேஸ் போலாமா!"],{col:'#fff1e0'}); }
-  if(t>1.2&&t<2.8){ H.say(A[0]+190,A[1]-8,["I will fly straight!","நான் நேரா பறப்பேன்!"],{col:'#e6f6ff'}); }
-  if(t>=10&&t<14){ H.say(p[0]-70,p[1]-64,["Phew! So far!","ஹப்பா! எவ்வளவு தூரம்!"],{col:'#fff1e0'}); }
-  H.rect(10,296,214,58,'#ffffff',12,'#1b2236',0.92);
-  H.text(20,318,T('Raja walked: ','ராஜா நடந்தது: ')+Math.round(m)+' m','#c0561a',15,'start');
-  H.text(20,342,T('Chittu flew: ','சிட்டு பறந்தது: ')+Math.round(500*f)+' m','#1c6fa8',15,'start');
-  var d = H.ease(H.seg(t,10.5,12));
-  if(d>0){ H.arrow(A[0]+28,A[1]+26,A[0]+28+(D[0]-A[0]-60)*d,A[1]+26+(D[1]-A[1]-52)*d,'#7b2ff7',7); if(d>=1){ H.rect(244,194,150,30,'#7b2ff7',10); H.text(319,215,T('displacement 500 m','இடப்பெயர்ச்சி 500 m'),'#fff',14); } }
-  var b = H.ease(H.seg(t,14,16.5));
-  if(b>0){
-    H.rect(330,10,300,142,'#ffffff',14,'#1b2236',0.94);
-    H.text(480,30,T('DISTANCE','தூரம்'),'#1b2236',13);
-    H.rect(346,38,240*b,18,'#ff8a3d',5); H.text(352,52,'Raja 800 m','#fff',12,'start');
-    H.rect(346,60,150*b,18,'#2b8fd0',5); H.text(352,74,'Chittu 500 m','#fff',12,'start');
-    H.text(480,98,T('DISPLACEMENT','இடப்பெயர்ச்சி'),'#1b2236',13);
-    H.rect(346,106,150*b,16,'#7b2ff7',5); H.text(352,119,'Raja 500 m','#fff',12,'start');
-    H.rect(346,126,150*b,16,'#7b2ff7',5); H.text(352,139,'Chittu 500 m','#fff',12,'start');
+  if(t < 11){
+    var A = [110,78], B = [110,160], Cc = [470,160], D = [470,296];
+    H.rect(0,0,640,360,'#b9e38b');
+    [[40,60],[520,90],[250,60],[340,70],[220,250],[320,300],[580,230]].forEach(function(p){ H.tree(p[0],p[1],0.8); });
+    H.line(A[0],A[1],B[0],B[1],'#ece6d6',30); H.line(B[0],B[1],Cc[0],Cc[1],'#ece6d6',30); H.line(Cc[0],Cc[1],D[0],D[1],'#ece6d6',30);
+    H.line(A[0],A[1],B[0],B[1],'#fff',2,'8 8'); H.line(B[0],B[1],Cc[0],Cc[1],'#fff',2,'8 8'); H.line(Cc[0],Cc[1],D[0],D[1],'#fff',2,'8 8');
+    H.house(A[0]-6,A[1]-18,1.1); H.school(D[0]+34,D[1]+12,1.0);
+    var m = 800 * H.seg(t,3,10);
+    function pos(mm){ if(mm<=100) return [A[0],A[1]+(B[1]-A[1])*mm/100]; if(mm<=500) return [B[0]+(Cc[0]-B[0])*(mm-100)/400,B[1]]; return [Cc[0],Cc[1]+(D[1]-Cc[1])*(mm-500)/300]; }
+    var p = pos(m), pts = [A]; if(m>100) pts.push(B); if(m>500) pts.push(Cc); pts.push(p);
+    H.E('polyline',{points:pts.map(function(q){return q[0]+','+q[1];}).join(' '),fill:'none',stroke:'#ff8a3d','stroke-width':6,'stroke-linecap':'round','stroke-linejoin':'round'});
+    var f = H.ease(H.seg(t,3.4,7.7)), cx = A[0]+(D[0]-A[0])*f, cy = A[1]+(D[1]-A[1])*f;
+    if(f>0) H.line(A[0],A[1],cx,cy,'#2b8fd0',4,'10 8');
+    var walking = t>3 && t<10;
+    H.raja(p[0],p[1]+22,0.36,{fd:walking?Math.sin(t*10)*7:0, fl:walking?Math.sin(t*10)*6:0, aL:walking?Math.sin(t*10)*25:0, aR:walking?-Math.sin(t*10)*25:0, eyes:(t>10&&t<12.5)?'c':'n', m:(t<2.7)?0.4:0, brow:'n'});
+    if(t>=10) H.sweat(p[0],p[1]-26,t);
+    var flying = t>3.3 && t<7.7;
+    if(f<1){ H.circle(cx,cy+26,10,'#000',0.15); }
+    H.chittu(cx,cy+(f<1?12:22),0.34,{fly:f<1&&f>0, wL:flying?Math.sin(t*20)*40:0, wR:flying?Math.sin(t*20)*40:0, m:t<2.7?0.3:0});
+    if(t<2.8){ H.say(A[0]+60,A[1]-50,["Race you to school!","ஸ்கூலுக்கு ரேஸ் போலாமா!"],{col:'#fff1e0'}); }
+    if(t>1.2&&t<2.8){ H.say(A[0]+190,A[1]-8,["I will fly straight!","நான் நேரா பறப்பேன்!"],{col:'#e6f6ff'}); }
+    if(t>=10&&t<11){ H.say(p[0]-70,p[1]-64,["Phew! 800 m done!","ஹப்பா! 800 m முடிஞ்சது!"],{col:'#fff1e0'}); }
+    H.rect(10,296,214,58,'#ffffff',12,'#1b2236',0.92);
+    H.text(20,318,T('Raja walked: ','ராஜா நடந்தது: ')+Math.round(m)+' m','#c0561a',15,'start');
+    H.text(20,342,T('Chittu flew: ','சிட்டு பறந்தது: ')+Math.round(500*f)+' m','#1c6fa8',15,'start');
+    var d = H.ease(H.seg(t,7.5,9.5));
+    if(d>0){
+      H.arrow(A[0]+28,A[1]+26,A[0]+28+(D[0]-A[0]-60)*d,A[1]+26+(D[1]-A[1]-52)*d,'#7b2ff7',7);
+      if(d>=1){ H.rect(244,194,150,30,'#7b2ff7',10); H.text(319,215,T('displacement 500 m','இடப்பெயர்ச்சி 500 m'),'#fff',14); }
+    }
+    if(t >= 8.5 && t < 11){
+      H.rect(340,10,290,90,'#ffffff',12,'#1b2236',0.94);
+      H.text(485,32,T('1.1 DISTANCE vs DISPLACEMENT','1.1 தூரம் vs இடப்பெயர்ச்சி'),'#1b2236',13);
+      H.rect(355,42,260,18,'#ff8a3d',4); H.text(360,55,'Distance (Path) = 800 m','#fff',12,'start');
+      H.rect(355,66,162,18,'#7b2ff7',4); H.text(360,80,'Displacement (Vector) = 500 m','#fff',12,'start');
+    }
+  } else if(t < 20){
+    H.rect(0,0,640,360,'#e0f2fe');
+    H.rect(0,210,640,150,'#475569');
+    H.rect(0,206,640,6,'#16a34a');
+    H.line(0,285,640,285,'#facc15',4,'32 20');
+    [60, 200, 360, 520].forEach(function(x, idx){
+      H.rect(x-2,210,4,14,'#ffffff');
+      H.text(x, 236, (idx * 10) + ' m', '#cbd5e1', 11);
+    });
+    H.cloud(90, 50, 0.9); H.cloud(380, 45, 0.8);
+    H.tree(570, 210, 0.9); H.tree(30, 210, 0.85);
+
+    var dt = t - 11;
+    var currentV = 0, currentA = 0, rx = 60;
+    if(dt <= 4){
+      currentA = 2;
+      currentV = 2 * dt;
+      rx = 60 + (dt / 4) * (dt / 4) * 220;
+    } else {
+      currentA = 0;
+      currentV = 8;
+      rx = 280 + ((dt - 4) / 5) * 260;
+    }
+
+    var pedalAngle = (dt * 12) % (2 * Math.PI);
+    var w1x = rx - 26, w2x = rx + 26, wy = 278;
+    H.circle(w1x, wy, 16, '#0f172a'); H.circle(w1x, wy, 12, '#94a3b8'); H.circle(w1x, wy, 3, '#0f172a');
+    H.circle(w2x, wy, 16, '#0f172a'); H.circle(w2x, wy, 12, '#94a3b8'); H.circle(w2x, wy, 3, '#0f172a');
+    H.line(w1x, wy, rx, wy - 18, '#0284c7', 3);
+    H.line(rx, wy - 18, w2x, wy, '#0284c7', 3);
+    H.line(rx, wy - 18, rx - 10, wy - 30, '#0284c7', 3);
+    H.line(w2x, wy, rx + 14, wy - 34, '#0284c7', 3);
+    H.line(rx + 10, wy - 34, rx + 18, wy - 34, '#334155', 4);
+    H.line(rx - 16, wy - 30, rx - 4, wy - 30, '#0f172a', 4);
+    H.raja(rx - 4, wy - 10, 0.32, {
+      fd: Math.sin(pedalAngle) * 5,
+      fl: -Math.sin(pedalAngle) * 5,
+      aL: 15, aR: -15,
+      eyes: 'n', brow: 'n'
+    });
+
+    if(currentV > 0.5){
+      H.arrow(rx + 36, wy - 14, rx + 36 + currentV * 6, wy - 14, '#2563eb', 4);
+      H.text(rx + 42 + currentV * 3, wy - 22, currentV.toFixed(1) + ' m/s', '#1d4ed8', 12, 'middle');
+    }
+
+    H.chittu(rx - 40, wy - 90, 0.28, {
+      fly: true,
+      wL: Math.sin(t * 18) * 35,
+      wR: Math.sin(t * 18) * 35
+    });
+
+    H.rect(340, 12, 290, 160, '#ffffff', 14, '#0f172a', 0.95);
+    H.text(485, 34, T('1.2 VELOCITY & ACCELERATION','1.2 வேகம் & ஆர்முடுகல்'), '#0f172a', 13);
+    H.rect(355, 46, 125, 46, '#eff6ff', 8, '#93c5fd');
+    H.text(417, 62, T('Velocity (v)','திசைவேகம் (v)'), '#1e40af', 11);
+    H.text(417, 84, currentV.toFixed(1) + ' m/s', '#1d4ed8', 16);
+
+    H.rect(490, 46, 125, 46, currentA > 0 ? '#fef2f2' : '#f0fdf4', 8, currentA > 0 ? '#fca5a5' : '#86efac');
+    H.text(552, 62, T('Acceleration (a)','ஆர்முடுகல் (a)'), currentA > 0 ? '#991b1b' : '#166534', 11);
+    H.text(552, 84, currentA.toFixed(1) + ' m/s²', currentA > 0 ? '#dc2626' : '#16a34a', 16);
+
+    H.rect(355, 100, 260, 32, '#f8fafc', 6, '#cbd5e1');
+    H.text(485, 120, 'a = (v - u) / t = (8 - 0) / 4 = 2 m/s²', '#334155', 12);
+    H.text(485, 154, dt < 4 ? T('Status: Uniform Accelerating 🚴💨','நிலை: சீரான ஆர்முடுகல் 🚴💨') : T('Status: Constant Velocity (a = 0)','நிலை: சீரான வேகம் (a = 0)'), '#0f172a', 11);
+
+  } else {
+    H.rect(0,0,640,360,'#fefce8');
+    H.rect(0,300,640,60,'#78350f');
+    H.rect(0,296,640,6,'#65a30d');
+    H.cloud(140, 45, 0.85); H.cloud(480, 40, 0.75);
+
+    H.line(75, 70, 75, 300, '#854d0e', 18);
+    for(var ty = 100; ty < 290; ty += 25){
+      H.line(66, ty, 84, ty - 4, '#713f12', 3);
+    }
+    H.line(75, 70, 25, 35, '#15803d', 5);
+    H.line(75, 70, 125, 40, '#16a34a', 5);
+    H.line(75, 70, 15, 80, '#15803d', 5);
+    H.line(75, 70, 130, 90, '#16a34a', 5);
+    H.circle(75, 68, 12, '#14532d');
+
+    H.chittu(110, 60, 0.28, {brow: 'n', eyes: 'n'});
+
+    var gt = t - 21;
+    var cy = 80, cv = 0, dropped = false;
+    if(gt > 0){
+      if(gt <= 2.2){
+        cv = 10 * gt;
+        cy = 80 + 0.5 * 90 * gt * gt;
+      } else {
+        cv = 22;
+        cy = 295;
+        dropped = true;
+      }
+    }
+
+    H.circle(75, cy, 10, '#5b3a1a');
+    H.circle(73, cy - 3, 8, '#78350f');
+
+    if(gt > 0.1 && !dropped){
+      H.arrow(75, cy + 12, 75, cy + 12 + Math.min(36, cv * 1.5), '#dc2626', 4);
+      H.text(105, cy + 20, cv.toFixed(1) + ' m/s', '#b91c1c', 11, 'start');
+    }
+
+    if(dropped && gt >= 2.2 && gt < 3.2){
+      H.puff(75, 298, gt - 2.2, '#ca8a04');
+    }
+
+    H.raja(200, 296, 0.35, {eyes: gt > 2.2 ? 'c' : 'n', brow: 'up'});
+    if(gt < 2.2 && gt > 0.3){
+      H.say(200, 210, ["Look, it speeds up every second!","பாரு, ஒவ்வொரு விநாடியும் வேகம் கூடுது!"], {col: '#fff'});
+    } else if(gt >= 2.2 && t < 26){
+      H.say(200, 210, ["Thud! v = gt reached max speed!","தொப்! v = gt வேகத்தில் விழுந்தது!"], {col: '#fff'});
+    }
+
+    H.rect(280, 14, 350, 260, '#ffffff', 14, '#0f172a', 0.95);
+    H.text(455, 36, T('1.3 GRAVITATIONAL FREE FALL (g)','1.3 புவியீர்ப்பு கீழ் வீழ்ச்சி (g)'), '#0f172a', 13);
+
+    H.rect(295, 50, 320, 38, gt >= 0 ? '#f0fdf4' : '#f8fafc', 6, '#86efac');
+    H.text(305, 74, 't = 0 s: v = 0 m/s', '#166534', 12, 'start');
+    H.text(595, 74, T('Release from rest','ஓய்விலிருந்து விடுபடுதல்'), '#15803d', 11, 'end');
+
+    H.rect(295, 94, 320, 38, gt >= 1.0 ? '#eff6ff' : '#f8fafc', 6, '#93c5fd');
+    H.text(305, 118, 't = 1 s: v = 10 m/s  (s = 5 m)', '#1e40af', 12, 'start');
+    H.text(595, 118, '+10 m/s added', '#2563eb', 11, 'end');
+
+    H.rect(295, 138, 320, 38, gt >= 2.0 ? '#fef2f2' : '#f8fafc', 6, '#fca5a5');
+    H.text(305, 162, 't = 2 s: v = 20 m/s  (s = 20 m)', '#991b1b', 12, 'start');
+    H.text(595, 162, '+10 m/s added', '#dc2626', 11, 'end');
+
+    H.rect(295, 186, 320, 44, '#f5f3ff', 8, '#c4b5fd');
+    H.text(455, 204, 'Earth gravity: g ≈ 9.8 ≈ 10 m/s² (downward)', '#5b21b6', 12);
+    H.text(455, 222, T('Speed changes by 10 m/s every 1 second!','ஒவ்வொரு 1 விநாடியும் 10 m/s வேகம் மாறும்!'), '#6d28d9', 11);
+
+    if(t >= 27){
+      H.rect(295, 236, 320, 30, '#1e293b', 6);
+      H.text(455, 256, T('✓ Distance · Displacement · Velocity · Accel · Gravity','✓ தூரம் · இடப்பெயர்ச்சி · வேகம் · ஆர்முடுகல் · ஈர்ப்பு'), '#38bdf8', 11);
+    }
   }
  }
 };

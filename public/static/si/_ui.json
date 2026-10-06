@@ -197,5 +197,12 @@
 "📖 Key terms (Tamil – English)": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)",
 "About {0} minutes in all. You can stop any time; your steps are remembered.": "මුළු කාලය මිනිත්තු {0} ක් පමණ. ඕනෑම වෙලාවක නතර කළ හැක; ඔබ අවසන් කළ පියවර මතකයේ තබාගනී.",
 "👆 Press a \"Try\" button, and I will set the lab for you. Or move the sliders yourself.": "👆 \"උත්සාහ\" බොත්තමක් ඔබන්න, මම විද්‍යාගාරය සකසන්නම්. නැතිනම් ස්ලයිඩර් ඔබම චලනය කරන්න.",
-"Play": "ධාවනය"
+"Play": "ධාවනය",
+"🐢 Slow: on": "🐢 සෙමින්: සක්‍රිය",
+"🐢 Slow: off": "🐢 සෙමින්: අක්‍රිය",
+"🔊 Sound: on": "🔊 ශබ්දය: සක්‍රිය",
+"🔇 Sound: off": "🔇 ශබ්දය: අක්‍රිය",
+"⟲ Replay": "⟲ නැවත ධාවනය",
+"▶ Play again": "▶ නැවත ධාවනය",
+"✅ Activities finished: <b>{0} / {1}</b>": "✅ අවසන් කළ ක්‍රියාකාරකම්: <b>{0} / {1}</b>"
 }

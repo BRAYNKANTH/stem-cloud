@@ -493,6 +493,10 @@
 
   <section class="block so-wrap" id="story">
     <div class="so-head"><span class="so-chip" data-ta="🎬 கதை நேரம்">🎬 Story time</span><span class="so-title" id="so_title"></span></div>
+        <div class="so-quest">
+      <div class="so-quest-head">🎯 <span data-ta="பாடக் கற்றல் நோக்கம்">Module Learning Quest</span></div>
+      <p data-ta="இந்த பாடத்தில்: வெப்பநிலை அளவீடுகள், வெப்பப் பெயர்ச்சி முறைகள் (கடத்தல், மேற்காவுகை, கதிர்வீச்சு), மற்றும் Q = mcΔθ சூத்திரத்தை கற்போம்.">In this module: understand temperature scales, mechanisms of heat transfer (conduction, convection, radiation), and calculate heat capacity using Q = mcΔθ.</p>
+    </div>
     <div class="so-stage">
       <div class="so-chars">
         <div class="so-char r" id="so_cr"><div id="so_sr"></div><div class="so-nm" id="so_nr"></div></div>
@@ -535,6 +539,14 @@
         <button class="btn" id="fw_snd"></button>
         <input type="range" id="fw_scrub" min="0" max="1000" value="0" aria-label="time">
       </div>
+          <div class="watch-takeaways">
+        <div class="wt-head">💡 <span data-ta="முக்கிய விளக்கங்கள்">Key Demonstration Takeaways</span></div>
+        <ul>
+          <li data-ta="<b>வெப்பமும் வெப்பநிலையும்:</b> வெப்பநிலை என்பது சூட்டின் அளவு; வெப்பம் என்பது பரிமாறப்படும் வெப்ப ஆற்றல்."><b>Heat vs Temperature:</b> Temperature is degree of hotness; heat is thermal energy transferred between bodies.</li>
+          <li data-ta="<b>வெப்பப் பெயர்ச்சி:</b> கடத்தல் திண்மங்களில் துகள் நகர்வின்றி நடக்கும்; மேற்காவுகை பாயிகளில் நடக்கும்; கதிர்வீச்சு வெற்றிடத்தினூடாகவும் செல்லும்."><b>Heat Transfer:</b> Conduction occurs in solids without bulk motion; Convection occurs in fluids via density currents; Radiation travels via EM waves through vacuum.</li>
+          <li data-ta="<b>தன்வெப்பக் கொள்ளளவு:</b> 1 kg பொருளின் வெப்பநிலையை 1 °C-ஆல் உயர்த்த தேவையான வெப்பம்: Q = m × c × Δθ."><b>Specific Heat Capacity:</b> Heat energy required to raise 1 kg of a substance by 1 °C: Q = m × c × Δθ.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -543,6 +555,11 @@
       <div class="num">2</div>
       <div><h2 data-ta="குறிப்புகள்">Notes</h2><div class="sub" data-ta="ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ">Tap a stepping stone to explore each topic</div></div>
     </div>
+        <div class="notes-anchor">
+      <span class="na-badge">💡</span>
+      <p data-ta="பகுதி 1-ல் வெப்பப் பரிமாற்றத்தை பார்த்தோம். அதற்கான வெப்பச் சமன்பாடுகள் (Q = mcΔθ), அலகுகள், கணித்தல்களை இங்கே கற்போம்!">In Sector 1, you saw heat expanding and transferring. Below are the thermal formulas (Q = mcΔθ), Joules per kilogram units, and calorimetry calculations!</p>
+    </div>
+
     <div class="path-row" id="notesPath">
 <button class="path-stone c1" data-idx="0" aria-label="9.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4a2 2 0 0 1 4 0v9a4 4 0 1 1-4 0z"/><path d="M12 8v7"/></svg><span class="ps-num">9.1</span><span class="ps-check">✓</span></button>
 <button class="path-stone c2" data-idx="1" aria-label="9.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 .3 1.4 1 2 2 2-.5-3 0-6 1-8z"/></svg><span class="ps-num">9.2</span><span class="ps-check">✓</span></button>
@@ -1732,19 +1749,28 @@ function makeDraw(svg){
   const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
-    {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
-    {k:'learn', en:'Learn',   ta:'கத்துக்க',   emoji:'📖'},
-    {k:'play',  en:'Play',    ta:'விளையாடு',   emoji:'🎮'},
-    {k:'check', en:'Check',   ta:'சோதிச்சுக்க', emoji:'✅'},
-    {k:'wrap',  en:'Wrap-up', ta:'முடிவு',      emoji:'🏁'}
+    {k:'p1', en:'Sector 1: Foundations',            ta:'பகுதி 1: அடிப்படை அறிமுகம்', emoji:'📌'},
+    {k:'p2', en:'Sector 2: Theory & Principles',    ta:'பகுதி 2: விதிகள் & குறிப்புகள்', emoji:'📖'},
+    {k:'p3', en:'Sector 3: Interactive Simulation', ta:'பகுதி 3: செய்முறை & லேப்', emoji:'🔬'},
+    {k:'p4', en:'Sector 4: Assessment & Mastery',   ta:'பகுதி 4: பயிற்சி & மதிப்பீடு', emoji:'📝'}
   ];
   const KINDS = {
-    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'},
-    basics:{en:'Basics', ta:'அடிப்படை', e:'🧒', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
-    notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'learn'}, activities:{en:'Try it', ta:'செஞ்சு பாரு', e:'🧪', p:'learn'},
-    lab:{en:'Lab', ta:'லேப்', e:'🔬', p:'play'}, game:{en:'Game', ta:'விளையாட்டு', e:'🎮', p:'play'}, sortgame:{en:'Sort game', ta:'வரிசைப்படுத்து', e:'🧩', p:'play'},
-    quiz:{en:'Quiz', ta:'குயிஸ்', e:'📝', p:'check'}, examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'check'}, practice:{en:'Practice', ta:'பயிற்சி', e:'💪', p:'check'},
-    recap:{en:'Fun recap', ta:'ஜாலி ரிகேப்', e:'😄', p:'wrap'}, summary:{en:'Summary', ta:'சுருக்கம்', e:'📌', p:'wrap'}
+    story:{en:'1.1 Overview', ta:'1.1 அறிமுகம்', e:'🎬', p:'p1'},
+    basics:{en:'1.2 Fundamentals', ta:'1.2 அடிப்படைக் கருத்துக்கள்', e:'💡', p:'p1'},
+    watch:{en:'1.3 Demonstration', ta:'1.3 காட்சி விளக்கம்', e:'👀', p:'p1'},
+
+    notes:{en:'2.1 Theory & Formulas', ta:'2.1 சூத்திரங்களும் விதிகளும்', e:'📖', p:'p2'},
+    activities:{en:'2.2 Practical Activity', ta:'2.2 செய்முறை பரிசோதனை', e:'🧪', p:'p2'},
+
+    lab:{en:'3.1 Physics Lab', ta:'3.1 இயற்பியல் லேப்', e:'🔬', p:'p3'},
+    game:{en:'3.2 Concept Challenge', ta:'3.2 சவால் பயிற்சி', e:'🎯', p:'p3'},
+    sortgame:{en:'3.3 Classification', ta:'3.3 வகைப்படுத்துதல்', e:'🧩', p:'p3'},
+
+    quiz:{en:'4.1 Knowledge Check', ta:'4.1 சுயபரிசோதனை', e:'📝', p:'p4'},
+    examples:{en:'4.2 Worked Problems', ta:'4.2 மாதிரி வினா-விடை', e:'✏️', p:'p4'},
+    practice:{en:'4.3 Exam Practice', ta:'4.3 பரீட்சைப் பயிற்சி', e:'💪', p:'p4'},
+    recap:{en:'4.4 Key Review', ta:'4.4 பாட மீளாய்வு', e:'🔄', p:'p4'},
+    summary:{en:'4.5 Summary & Checklist', ta:'4.5 பாடச் சுருக்கம்', e:'📌', p:'p4'}
   };
   const hasExercises = !!$('exercises');
   function kindOf(id){

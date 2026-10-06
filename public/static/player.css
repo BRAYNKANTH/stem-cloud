@@ -364,3 +364,18 @@ html.stem-player .hero{padding-bottom:6px}
 .ov-ic{font-size:1.25rem;line-height:1}
 .ov-w{flex:1;min-width:0}
 html.stem-player #fw_fin a[href="#fw_path"]{display:none}
+
+/* Coursera / LinkedIn course style pedagogical bridges */
+.so-quest{margin:8px 0 16px;padding:14px 18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 12%,var(--panel));border:1.5px solid color-mix(in srgb,var(--accent) 38%,var(--border));display:flex;flex-direction:column;gap:6px}
+.so-quest-head{display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:800;color:var(--accent);letter-spacing:.02em}
+.so-quest p{margin:0;font-size:.92rem;line-height:1.5;color:var(--text)}
+
+.watch-takeaways{margin:14px 0 6px;padding:14px 18px;border-radius:16px;background:var(--panel-2,var(--panel));border:1px solid var(--border);box-shadow:var(--shadow,0 4px 12px -6px rgba(0,0,0,.2))}
+.wt-head{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:800;color:var(--accent);margin-bottom:8px}
+.watch-takeaways ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.watch-takeaways li{font-size:.9rem;line-height:1.45;color:var(--text)}
+
+.notes-anchor{display:flex;align-items:flex-start;gap:12px;margin:8px 0 18px;padding:12px 18px;border-radius:16px;background:color-mix(in srgb,var(--good,#2eb67d) 12%,var(--panel));border:1.5px solid color-mix(in srgb,var(--good,#2eb67d) 38%,var(--border))}
+.na-badge{flex:0 0 auto;font-size:1.3rem;line-height:1;margin-top:2px}
+.notes-anchor p{margin:0;font-size:.92rem;line-height:1.5;color:var(--text)}
+.notes-anchor b{color:var(--good,#2eb67d)}

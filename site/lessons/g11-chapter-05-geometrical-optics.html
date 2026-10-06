@@ -493,6 +493,10 @@
 
   <section class="block so-wrap" id="story">
     <div class="so-head"><span class="so-chip" data-ta="🎬 கதை நேரம்">🎬 Story time</span><span class="so-title" id="so_title"></span></div>
+        <div class="so-quest">
+      <div class="so-quest-head">🎯 <span data-ta="பாடக் கற்றல் நோக்கம்">Module Learning Quest</span></div>
+      <p data-ta="இந்த பாடத்தில்: சமதள மற்றும் வளைந்த ஆடிகளில் ஒளித்தெறிப்பு, ஒளிமுறிவு, சினெல்லின் விதி, அவதி கோணம் மற்றும் வில்லைகளினூடான கதிர் வரைபடங்களை கற்போம்.">In this module: master reflection at plane and curved mirrors, refraction at glass boundaries, Snell's Law, critical angle, and ray tracing through lenses.</p>
+    </div>
     <div class="so-stage">
       <div class="so-chars">
         <div class="so-char r" id="so_cr"><div id="so_sr"></div><div class="so-nm" id="so_nr"></div></div>
@@ -535,6 +539,14 @@
         <button class="btn" id="fw_snd"></button>
         <input type="range" id="fw_scrub" min="0" max="1000" value="0" aria-label="time">
       </div>
+          <div class="watch-takeaways">
+        <div class="wt-head">💡 <span data-ta="முக்கிய விளக்கங்கள்">Key Demonstration Takeaways</span></div>
+        <ul>
+          <li data-ta="<b>தெறிப்பு விதிகள்:</b> படுகோணம் = தெறிப்புக் கோணம் (i = r), படுகதிர், செங்குத்து, தெறிப்புகதிர் ஒரே தளத்தில் அமையும்."><b>Laws of Reflection:</b> Angle of incidence = Angle of reflection (i = r) on the same plane.</li>
+          <li data-ta="<b>ஒளிமுறிவு & சினெல்லின் விதி:</b> ஒளி அடர்ந்த ஊடகத்திற்குள் செல்லும்போது செங்குத்தை நோக்கி வளையும்: n = sin(i) / sin(r)."><b>Refraction & Snell's Law:</b> Light bends towards the normal when entering a denser medium: n = sin(i) / sin(r).</li>
+          <li data-ta="<b>வில்லைகள் & விம்பங்கள்:</b> குவிவில்லை ஒளியை குவித்து மெய்/மாய விம்பங்களை உருவாக்கும்; குழிவில்லை எப்போதும் மாய விம்பங்களை உருவாக்கும்."><b>Lenses & Image Formation:</b> Convex lenses converge light to form real or virtual images; concave lenses always diverge to form virtual images.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -543,6 +555,11 @@
       <div class="num">2</div>
       <div><h2 data-ta="குறிப்புகள்">Notes</h2><div class="sub" data-ta="ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ">Tap a stepping stone to explore each topic</div></div>
     </div>
+        <div class="notes-anchor">
+      <span class="na-badge">💡</span>
+      <p data-ta="பகுதி 1-ல் ஒளிக்கதிர்கள் வளைவதை பார்த்தோம். அதற்கான கதிர் வரைபடங்கள், குவியத்தூர விதிகள், முறிவுச்சுட்டி கணித்தல்களை இங்கே கற்போம்!">In Sector 1, you observed light rays bending and reflecting. Below are the ray diagrams, focal length rules, and refractive index calculations!</p>
+    </div>
+
     <div class="path-row" id="notesPath">
 <button class="path-stone c1" data-idx="0" aria-label="5.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><span class="ps-num">5.1</span><span class="ps-check">✓</span></button>
 <button class="path-stone c2" data-idx="1" aria-label="5.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20L19 4"/><path d="M3 8h7M3 8l2-2M3 8l2 2" stroke-opacity=".7"/><path d="M21 14h-7" stroke-opacity=".7"/></svg><span class="ps-num">5.2</span><span class="ps-check">✓</span></button>
@@ -1772,19 +1789,28 @@ function makeDraw(svg){
   const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
-    {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
-    {k:'learn', en:'Learn',   ta:'கத்துக்க',   emoji:'📖'},
-    {k:'play',  en:'Play',    ta:'விளையாடு',   emoji:'🎮'},
-    {k:'check', en:'Check',   ta:'சோதிச்சுக்க', emoji:'✅'},
-    {k:'wrap',  en:'Wrap-up', ta:'முடிவு',      emoji:'🏁'}
+    {k:'p1', en:'Sector 1: Foundations',            ta:'பகுதி 1: அடிப்படை அறிமுகம்', emoji:'📌'},
+    {k:'p2', en:'Sector 2: Theory & Principles',    ta:'பகுதி 2: விதிகள் & குறிப்புகள்', emoji:'📖'},
+    {k:'p3', en:'Sector 3: Interactive Simulation', ta:'பகுதி 3: செய்முறை & லேப்', emoji:'🔬'},
+    {k:'p4', en:'Sector 4: Assessment & Mastery',   ta:'பகுதி 4: பயிற்சி & மதிப்பீடு', emoji:'📝'}
   ];
   const KINDS = {
-    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'},
-    basics:{en:'Basics', ta:'அடிப்படை', e:'🧒', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
-    notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'learn'}, activities:{en:'Try it', ta:'செஞ்சு பாரு', e:'🧪', p:'learn'},
-    lab:{en:'Lab', ta:'லேப்', e:'🔬', p:'play'}, game:{en:'Game', ta:'விளையாட்டு', e:'🎮', p:'play'}, sortgame:{en:'Sort game', ta:'வரிசைப்படுத்து', e:'🧩', p:'play'},
-    quiz:{en:'Quiz', ta:'குயிஸ்', e:'📝', p:'check'}, examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'check'}, practice:{en:'Practice', ta:'பயிற்சி', e:'💪', p:'check'},
-    recap:{en:'Fun recap', ta:'ஜாலி ரிகேப்', e:'😄', p:'wrap'}, summary:{en:'Summary', ta:'சுருக்கம்', e:'📌', p:'wrap'}
+    story:{en:'1.1 Overview', ta:'1.1 அறிமுகம்', e:'🎬', p:'p1'},
+    basics:{en:'1.2 Fundamentals', ta:'1.2 அடிப்படைக் கருத்துக்கள்', e:'💡', p:'p1'},
+    watch:{en:'1.3 Demonstration', ta:'1.3 காட்சி விளக்கம்', e:'👀', p:'p1'},
+
+    notes:{en:'2.1 Theory & Formulas', ta:'2.1 சூத்திரங்களும் விதிகளும்', e:'📖', p:'p2'},
+    activities:{en:'2.2 Practical Activity', ta:'2.2 செய்முறை பரிசோதனை', e:'🧪', p:'p2'},
+
+    lab:{en:'3.1 Physics Lab', ta:'3.1 இயற்பியல் லேப்', e:'🔬', p:'p3'},
+    game:{en:'3.2 Concept Challenge', ta:'3.2 சவால் பயிற்சி', e:'🎯', p:'p3'},
+    sortgame:{en:'3.3 Classification', ta:'3.3 வகைப்படுத்துதல்', e:'🧩', p:'p3'},
+
+    quiz:{en:'4.1 Knowledge Check', ta:'4.1 சுயபரிசோதனை', e:'📝', p:'p4'},
+    examples:{en:'4.2 Worked Problems', ta:'4.2 மாதிரி வினா-விடை', e:'✏️', p:'p4'},
+    practice:{en:'4.3 Exam Practice', ta:'4.3 பரீட்சைப் பயிற்சி', e:'💪', p:'p4'},
+    recap:{en:'4.4 Key Review', ta:'4.4 பாட மீளாய்வு', e:'🔄', p:'p4'},
+    summary:{en:'4.5 Summary & Checklist', ta:'4.5 பாடச் சுருக்கம்', e:'📌', p:'p4'}
   };
   const hasExercises = !!$('exercises');
   function kindOf(id){

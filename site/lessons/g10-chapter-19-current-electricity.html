@@ -493,6 +493,10 @@
 
   <section class="block so-wrap" id="story">
     <div class="so-head"><span class="so-chip" data-ta="🎬 கதை நேரம்">🎬 Story time</span><span class="so-title" id="so_title"></span></div>
+        <div class="so-quest">
+      <div class="so-quest-head">🎯 <span data-ta="பாடக் கற்றல் நோக்கம்">Module Learning Quest</span></div>
+      <p data-ta="இந்த பாடத்தில்: மின்னேற்றம், மின்னோட்டம் (I = Q/t), அழுத்த வேறுபாடு (V), தடை (R) மற்றும் ஓமின் விதியை (V = IR) கற்போம்.">In this module: explore electric charge, electric current (I = Q/t), potential difference (V), resistance (R), and Ohm's Law (V = IR).</p>
+    </div>
     <div class="so-stage">
       <div class="so-chars">
         <div class="so-char r" id="so_cr"><div id="so_sr"></div><div class="so-nm" id="so_nr"></div></div>
@@ -535,6 +539,14 @@
         <button class="btn" id="fw_snd"></button>
         <input type="range" id="fw_scrub" min="0" max="1000" value="0" aria-label="time">
       </div>
+          <div class="watch-takeaways">
+        <div class="wt-head">💡 <span data-ta="முக்கிய விளக்கங்கள்">Key Demonstration Takeaways</span></div>
+        <ul>
+          <li data-ta="<b>மின்னோட்டம்:</b> மின்னேற்றம் பாயும் வீதம்: I = Q / t (அம்பியர்)."><b>Electric Current:</b> Rate of flow of charge: I = Q / t (Amperes).</li>
+          <li data-ta="<b>அழுத்த வேறுபாடு:</b> ஓரலகு மின்னேற்றத்தை நகர்த்த செய்யப்படும் வேலை: V = W / Q (வோல்ட்)."><b>Potential Difference:</b> Work done per unit charge moving between two points: V = W / Q (Volts).</li>
+          <li data-ta="<b>ஓமின் விதி:</b> மாறா வெப்பநிலையில், கடத்தியினூடான மின்னோட்டம் அழுத்த வேறுபாட்டிற்கு நேர்விகிதமானது: V = I × R."><b>Ohm's Law:</b> At constant temperature, current through a conductor is proportional to potential difference: V = I × R.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -543,6 +555,11 @@
       <div class="num">2</div>
       <div><h2 data-ta="குறிப்புகள்">Notes</h2><div class="sub" data-ta="ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ">Tap a stepping stone to explore each topic</div></div>
     </div>
+        <div class="notes-anchor">
+      <span class="na-badge">💡</span>
+      <p data-ta="பகுதி 1-ல் மின்சுற்று பாய்வை பார்த்தோம். அதற்கான ஓமின் விதி, மின்சுற்று வரைபடங்கள், தடை கணித்தல்களை இங்கே கற்போம்!">In Sector 1, you observed electrons flowing in circuits. Below are Ohm's Law, circuit diagrams, and resistance calculations!</p>
+    </div>
+
     <div class="path-row" id="notesPath">
 <button class="path-stone c1" data-idx="0" aria-label="19.1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13h6l-1 8 8-10h-6z"/></svg><span class="ps-num">19.1</span><span class="ps-check">✓</span></button>
 <button class="path-stone c2" data-idx="1" aria-label="19.2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 12h3l1.5-3 2 6L15 12h2"/></svg><span class="ps-num">19.2</span><span class="ps-check">✓</span></button>
@@ -1683,19 +1700,28 @@ function makeDraw(svg){
   const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
-    {k:'warm',  en:'Warm-up', ta:'வார்ம்-அப்', emoji:'🎬'},
-    {k:'learn', en:'Learn',   ta:'கத்துக்க',   emoji:'📖'},
-    {k:'play',  en:'Play',    ta:'விளையாடு',   emoji:'🎮'},
-    {k:'check', en:'Check',   ta:'சோதிச்சுக்க', emoji:'✅'},
-    {k:'wrap',  en:'Wrap-up', ta:'முடிவு',      emoji:'🏁'}
+    {k:'p1', en:'Sector 1: Foundations',            ta:'பகுதி 1: அடிப்படை அறிமுகம்', emoji:'📌'},
+    {k:'p2', en:'Sector 2: Theory & Principles',    ta:'பகுதி 2: விதிகள் & குறிப்புகள்', emoji:'📖'},
+    {k:'p3', en:'Sector 3: Interactive Simulation', ta:'பகுதி 3: செய்முறை & லேப்', emoji:'🔬'},
+    {k:'p4', en:'Sector 4: Assessment & Mastery',   ta:'பகுதி 4: பயிற்சி & மதிப்பீடு', emoji:'📝'}
   ];
   const KINDS = {
-    story:{en:'Story', ta:'கதை', e:'🎬', p:'warm'},
-    basics:{en:'Basics', ta:'அடிப்படை', e:'🧒', p:'warm'}, watch:{en:'Watch it', ta:'பாரு', e:'👀', p:'warm'},
-    notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'learn'}, activities:{en:'Try it', ta:'செஞ்சு பாரு', e:'🧪', p:'learn'},
-    lab:{en:'Lab', ta:'லேப்', e:'🔬', p:'play'}, game:{en:'Game', ta:'விளையாட்டு', e:'🎮', p:'play'}, sortgame:{en:'Sort game', ta:'வரிசைப்படுத்து', e:'🧩', p:'play'},
-    quiz:{en:'Quiz', ta:'குயிஸ்', e:'📝', p:'check'}, examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'check'}, practice:{en:'Practice', ta:'பயிற்சி', e:'💪', p:'check'},
-    recap:{en:'Fun recap', ta:'ஜாலி ரிகேப்', e:'😄', p:'wrap'}, summary:{en:'Summary', ta:'சுருக்கம்', e:'📌', p:'wrap'}
+    story:{en:'1.1 Overview', ta:'1.1 அறிமுகம்', e:'🎬', p:'p1'},
+    basics:{en:'1.2 Fundamentals', ta:'1.2 அடிப்படைக் கருத்துக்கள்', e:'💡', p:'p1'},
+    watch:{en:'1.3 Demonstration', ta:'1.3 காட்சி விளக்கம்', e:'👀', p:'p1'},
+
+    notes:{en:'2.1 Theory & Formulas', ta:'2.1 சூத்திரங்களும் விதிகளும்', e:'📖', p:'p2'},
+    activities:{en:'2.2 Practical Activity', ta:'2.2 செய்முறை பரிசோதனை', e:'🧪', p:'p2'},
+
+    lab:{en:'3.1 Physics Lab', ta:'3.1 இயற்பியல் லேப்', e:'🔬', p:'p3'},
+    game:{en:'3.2 Concept Challenge', ta:'3.2 சவால் பயிற்சி', e:'🎯', p:'p3'},
+    sortgame:{en:'3.3 Classification', ta:'3.3 வகைப்படுத்துதல்', e:'🧩', p:'p3'},
+
+    quiz:{en:'4.1 Knowledge Check', ta:'4.1 சுயபரிசோதனை', e:'📝', p:'p4'},
+    examples:{en:'4.2 Worked Problems', ta:'4.2 மாதிரி வினா-விடை', e:'✏️', p:'p4'},
+    practice:{en:'4.3 Exam Practice', ta:'4.3 பரீட்சைப் பயிற்சி', e:'💪', p:'p4'},
+    recap:{en:'4.4 Key Review', ta:'4.4 பாட மீளாய்வு', e:'🔄', p:'p4'},
+    summary:{en:'4.5 Summary & Checklist', ta:'4.5 பாடச் சுருக்கம்', e:'📌', p:'p4'}
   };
   const hasExercises = !!$('exercises');
   function kindOf(id){

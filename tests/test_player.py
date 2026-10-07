@@ -491,7 +491,13 @@ def run():
             pg.goto(BASE + '/lessons/g11-chapter-04-waves.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
             check('Sinhala: the waves chapter is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'තරංග' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
             pg.goto(BASE + '/lessons/g11-chapter-05-geometrical-optics.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
-            check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
+            check('Sinhala: the optics chapter is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'ප්‍රකාශ' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            unfinished = []
+            for lid in LESSONS:                                     # every chapter is translated: none shows the "not finished" note, and each title is Sinhala
+                pg.goto(BASE + '/lessons/' + lid + '.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1800)
+                if pg.locator('.stem-si-note').count() or not re.search('[඀-෿]', pg.inner_text('.hero h1')):
+                    unfinished.append(lid)
+            check('Sinhala: all %d chapters are finished (no unfinished-translation note, Sinhala titles)' % len(LESSONS), not unfinished, unfinished)
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)
             pg.goto(BASE + '/lessons/g10-chapter-18-work-energy-power.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)
             pg.evaluate("applyLang('ta')"); pg.wait_for_timeout(1200)

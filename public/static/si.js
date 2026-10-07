@@ -156,7 +156,12 @@
         busy = true; try { set.forEach(function (n) { if (doc.contains(n)) walk(n); }); } finally { busy = false; }
       }
       /* a drawing that a lab redraws every frame must be translated before the next paint, or its labels flash in English */
-      if (pending.length && pending.every(function (n) { return n.closest && n.closest('svg'); })) { if (timer) { clearTimeout(timer); } flush(); return; }
+      var drawn = pending.filter(function (n) { return n.closest && n.closest('svg'); });
+      if (drawn.length) {
+        pending = pending.filter(function (n) { return drawn.indexOf(n) < 0; });
+        busy = true; try { drawn.forEach(function (n) { if (doc.contains(n)) walk(n); }); } finally { busy = false; }
+        if (!pending.length) return;
+      }
       if (timer) return;                                    /* one flush for everything that changed in the last moment (never drop earlier targets) */
       timer = setTimeout(flush, 40);
     });

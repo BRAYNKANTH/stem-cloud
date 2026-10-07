@@ -487,6 +487,8 @@ def run():
             seen = [pg.evaluate("[...document.querySelectorAll('#lab svg text')].some(t => /bulb (ON|OFF)/.test(t.textContent))") for _ in range(8) if not pg.wait_for_timeout(60)]
             check('Sinhala: a lab drawing that is redrawn all the time never flashes English labels', not any(seen), seen)
             pg.goto(BASE + '/lessons/g11-chapter-13-electromagnetism.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)     # the chosen language (Sinhala) is remembered
+            check('Sinhala: the electromagnetism chapter is finished (no note, title from the textbook)', pg.locator('.stem-si-note').count() == 0 and 'විද්‍යුත් චුම්බක' in pg.inner_text('.hero h1'), pg.inner_text('.hero h1'))
+            pg.goto(BASE + '/lessons/g11-chapter-04-waves.html', wait_until='domcontentloaded'); pg.wait_for_timeout(2500)
             check('Sinhala: an unfinished chapter says so on the first screen', pg.locator('.stem-si-note').count() == 1 and 'සම්පූර්ණ නැත' in pg.inner_text('.stem-si-note'))
             pg.evaluate("applyLang('en')"); pg.wait_for_timeout(300)
             pg.goto(BASE + '/lessons/g10-chapter-18-work-energy-power.html', wait_until='domcontentloaded'); pg.wait_for_timeout(1500)

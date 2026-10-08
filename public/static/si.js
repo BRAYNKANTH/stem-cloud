@@ -13,7 +13,7 @@
   function nameOf(code) { for (var i = 0; i < LANGS.length; i++) if (LANGS[i][0] === code) return LANGS[i][1]; return 'English'; }
 
   var dict = {}, loaded = false, touched = [], busy = false, obs = null, timer = null, pending = [], coverage = null;
-  var page = location.pathname.split('/').pop().replace(/\.html$/, '') || 'index';
+  var page = doc.documentElement.getAttribute('data-si-page') || location.pathname.split('/').pop().replace(/\.html$/, '') || 'index';   /* pages that show a lesson's text (topic pages) name the lesson dictionary to use */
   function norm(s) { return String(s == null ? '' : s).replace(/\s+/g, ' ').trim(); }
   var phrases = [], prefixes = [], cache = {};
   /* replace a phrase only where it stands alone (not inside a longer English word) */

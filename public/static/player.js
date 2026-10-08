@@ -374,7 +374,7 @@
 
   /* ------------------------------------------------------------------ first-visit coach: how the app works, shown with moving pictures */
   var coachEl = null, coachModal = null;
-  function coachSeen() { try { return !!(localStorage.getItem('stem_coach_done') || localStorage.getItem('stem_hide_onboarding')); } catch (e) { return true; } }
+  function coachSeen() { try { if (root.classList.contains('stem-embed')) return true; return !!(localStorage.getItem('stem_coach_done') || localStorage.getItem('stem_hide_onboarding')); } catch (e) { return true; } }
   function closeCoach() { if (coachEl) { coachEl.remove(); coachEl = null; doc.removeEventListener('keydown', coachKey); var m = coachModal; coachModal = null; closeModal(m); } try { localStorage.setItem('stem_coach_done', '1'); } catch (e) {} }
   function coachKey(e) { if (e.key === 'Escape') closeCoach(); }
   function openCoach() {

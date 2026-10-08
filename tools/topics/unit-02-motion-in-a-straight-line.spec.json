@@ -1,0 +1,125 @@
+{
+  "_about": "Topic map for the Motion chapter. tools/build_topics.py reads this plus the lesson HTML and writes site/lessons/topics/<slug>.json. Everything under 'lesson' points at content that already exists in the lesson page; anything under 'authored' is new text written for this pilot and should be reviewed by a teacher.",
+  "chapter": {
+    "id": "u2",
+    "slug": "unit-02-motion-in-a-straight-line",
+    "lessonFile": "unit-02-motion-in-a-straight-line.html",
+    "subject": {"en": "Physics", "ta": "பிசிக்ஸ்"},
+    "grade": 10,
+    "desc": {"en": "How things move along a straight line: how far and how fast, how speed changes, how to read motion graphs, and what happens when an object falls."}
+  },
+  "animationSeconds": 30,
+  "watchSegments": {
+    "scene1": {"from": 0, "to": 11, "title": "Distance vs displacement: Raja and Chittu race to school"},
+    "scene2": {"from": 11, "to": 20, "title": "Velocity and acceleration: Raja speeds up on a straight road"},
+    "scene3": {"from": 20, "to": 30, "title": "Gravitational free fall: a coconut drops"}
+  },
+  "topics": [
+    {
+      "id": "distance-displacement",
+      "title": {"en": "Distance and displacement"},
+      "taFromPill": 0,
+      "blurb": "How far you travelled versus how far you ended up from where you started.",
+      "learn": "Tell distance and displacement apart, and say which one is a scalar and which is a vector.",
+      "card": 0,
+      "authored": {
+        "glance": {
+          "definitions": [
+            ["Distance", "The total length of the path travelled. It has size only, so it is a scalar."],
+            ["Displacement", "The straight-line distance from the start to the finish, in a stated direction. It has size and direction, so it is a vector."]
+          ],
+          "unit": "Both are measured in metres (m) in the SI system.",
+          "table": {
+            "head": ["", "Distance", "Displacement"],
+            "rows": [
+              ["What it measures", "Length of the whole path", "Straight-line change in position, start to finish"],
+              ["Scalar or vector", "Scalar (size only)", "Vector (size and direction)"],
+              ["Depends on the path taken?", "Yes", "No, only on the start and the finish"],
+              ["Can it be zero after moving?", "No", "Yes, if you end where you started"]
+            ]
+          },
+          "misconception": "Displacement is not just another word for distance. A trip that ends where it began has a distance greater than zero but a displacement of zero."
+        }
+      },
+      "watch": "scene1",
+      "explore": {
+        "story": {
+          "title": "A walk to the shop",
+          "scenario": "A student walks 300 m in a straight line from home to the shop, buys a notebook, and walks the same 300 m straight back home.",
+          "steps": [
+            {
+              "ask": "How far did the student travel in total?",
+              "options": ["300 m", "600 m", "0 m"],
+              "correct": 1,
+              "why": "Distance adds up every metre of the path: 300 m to the shop plus 300 m back is 600 m."
+            },
+            {
+              "ask": "Compare the finish with the start. What is the student's displacement?",
+              "options": ["300 m towards the shop", "600 m", "0 m"],
+              "correct": 2,
+              "why": "The student finished at home, exactly where the walk began. The change in position is zero, so the displacement is 0 m."
+            }
+          ],
+          "wrap": "The student moved the whole time, yet the displacement is zero. Distance counts the path and always grows as you move; displacement only compares where you end with where you began. That is why distance is a scalar and displacement is a vector."
+        }
+      },
+      "practice": {"mcq": [0], "ex": ["xc_1i", "xc_2i", "xc_2ii", "x21_1"], "order": ["xc_1i", "m1", "xc_2i", "xc_2ii", "x21_1"]}
+    },
+    {
+      "id": "speed-velocity",
+      "title": {"en": "Speed and velocity"},
+      "taFromPill": 1,
+      "blurb": "How quickly something covers distance, and how velocity adds direction.",
+      "learn": "Calculate speed and velocity, and explain why speed is a scalar while velocity is a vector.",
+      "card": 1,
+      "watch": null,
+      "explore": null,
+      "practice": {"mcq": [1, 2], "ex": [], "order": ["m2", "m3"]}
+    },
+    {
+      "id": "acceleration",
+      "title": {"en": "Acceleration"},
+      "taFromPill": 2,
+      "blurb": "How quickly velocity changes, including slowing down.",
+      "learn": "Calculate acceleration from a change in velocity, and recognise deceleration.",
+      "card": 2,
+      "watch": "scene2",
+      "explore": {"lab": {"title": "Motion lab: change the starting speed and the acceleration", "hash": "lab"}},
+      "practice": {"mcq": [3], "ex": ["x22_1", "x22_2", "x22_3", "x22_4", "xc_3i"], "order": ["m4", "x22_1", "x22_2", "x22_3", "x22_4", "xc_3i"]}
+    },
+    {
+      "id": "motion-graphs",
+      "title": {"en": "Motion graphs"},
+      "taFromPill": 3,
+      "blurb": "Reading position-time and velocity-time graphs: gradient and area.",
+      "learn": "Use the gradient and the area of motion graphs to find velocity, acceleration and displacement.",
+      "card": 3,
+      "watch": null,
+      "explore": {"lab": {"title": "Motion lab: watch the car and both graphs change together", "hash": "lab"}},
+      "practice": {"mcq": [4], "ex": ["xc_2iii", "xc_3ii", "xc_3iii"], "order": ["m5", "xc_2iii", "xc_3iii", "xc_3ii"]}
+    },
+    {
+      "id": "free-fall",
+      "title": {"en": "Gravitational acceleration and free fall"},
+      "taFromPill": 4,
+      "blurb": "Why falling objects speed up, and by how much.",
+      "learn": "Use g to describe how the velocity of a falling or thrown object changes.",
+      "card": 4,
+      "watch": "scene3",
+      "explore": null,
+      "practice": {"mcq": [], "ex": ["xc_6i", "xc_6ii"], "order": ["xc_6i", "xc_6ii"]}
+    }
+  ],
+  "revision": {
+    "mixedEx": ["xc_1ii", "xc_4", "xc_5"],
+    "quizMcq": [0, 1, 2, 3, 4]
+  },
+  "extras": [
+    {"hash": "story", "title": "Raja and Chittu's story"},
+    {"hash": "lab", "title": "Interactive motion lab"},
+    {"hash": "holdgame", "title": "Motion maths challenge (game)"},
+    {"hash": "sortgame", "title": "Scalar or vector? (game)"},
+    {"hash": "practice", "title": "Worked textbook example"},
+    {"hash": "recap", "title": "Fun recap"}
+  ]
+}

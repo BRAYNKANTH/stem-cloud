@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "chapters": [
+  {
+   "slug": "unit-02-motion-in-a-straight-line",
+   "id": "u2",
+   "lessonFile": "unit-02-motion-in-a-straight-line.html",
+   "topics": [
+    {
+     "id": "distance-displacement",
+     "steps": [
+      "understand",
+      "watch",
+      "explore",
+      "practice"
+     ]
+    },
+    {
+     "id": "speed-velocity",
+     "steps": [
+      "understand",
+      "practice"
+     ]
+    },
+    {
+     "id": "acceleration",
+     "steps": [
+      "understand",
+      "watch",
+      "explore",
+      "practice"
+     ]
+    },
+    {
+     "id": "motion-graphs",
+     "steps": [
+      "understand",
+      "explore",
+      "practice"
+     ]
+    },
+    {
+     "id": "free-fall",
+     "steps": [
+      "understand",
+      "watch",
+      "practice"
+     ]
+    }
+   ]
+  }
+ ]
+}

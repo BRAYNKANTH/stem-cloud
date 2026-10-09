@@ -16,7 +16,8 @@
      (The lesson text itself, notes, questions and answers, still follows the language button.) */
   var NAME = { understand: 'Understand', watch: 'Watch', explore: 'Explore', practice: 'Practice' };
   var WHAT = { understand: 'Introductory notes', watch: 'Topic video', explore: 'Story or real-life application', practice: 'Topic exercises' };
-  var ICON = { understand: '📖', watch: '🎬', explore: '🧭', practice: '✏️' };
+  var ICON = { understand: 'book', watch: 'watch', explore: 'explore', practice: 'practice' };          // drawn icons (ui-icons.js)
+  function ic(n) { return window.StemIcon ? window.StemIcon(n) : ''; }
   var RPARTS = ['summary', 'mixed', 'quiz'];
   var RNAME = { summary: 'Summary', mixed: 'Mixed practice', quiz: 'Chapter quiz' };
   var RWHAT = { summary: 'Key points, definitions and formulas', mixed: 'Questions that join several topics', quiz: 'Check the whole chapter' };
@@ -219,7 +220,7 @@
     var w = t.watch, done = stepState(t, 'watch') === 'done';
     return '<div class="tp-vhead"><h3 class="tp-h3">' + esc(w.title) + '</h3><span class="tp-dur" aria-label="Length ' + w.seconds + ' seconds">⏱ ' + fmtSec(w.seconds) + '</span></div>' +
       '<p class="tp-muted">Press play. The video stops at questions: answer them to carry on. Keep the notes open below to look things up.</p>' +
-      '<div class="tp-frame"><iframe id="tp-iframe" title="' + esc(w.title) + '" src="' + esc(w.src) + '" loading="eager" allow="autoplay"></iframe></div>' +
+      '<div class="tp-frame loading"><span class="skel frame" aria-hidden="true"></span><iframe id="tp-iframe" title="' + esc(w.title) + '" src="' + esc(w.src) + '" loading="eager" allow="autoplay"></iframe></div>' +
       '<p class="tp-muted tp-alt">Video not showing? <a href="' + esc(w.src.replace('embed=1&', '').replace(/&seg=[^#]*/, '')) + '">Open it in the full lesson</a>.</p>' +
       '<details class="tp-details tp-ref"><summary>Topic notes</summary><div class="tp-ref-body"><div class="tp-learn"><b>You will learn:</b> ' + esc(t.learn) + '</div>' +
       (t.understand.glance ? '<section class="tp-glance">' + glanceHtml(t.understand.glance) + '</section>' : '') + formulasBlock(t) + notesBlock(t, false) + '</div></details>' +
@@ -231,7 +232,7 @@
     var e = t.explore, done = stepState(t, 'explore') === 'done';
     if (e.type === 'lab') {
       return '<h3 class="tp-h3">' + esc(e.title) + '</h3><p class="tp-muted">Try the lab, then come back and mark it done.</p>' +
-        '<div class="tp-frame tp-lab"><iframe id="tp-iframe" title="' + esc(e.title) + '" src="' + esc(e.src) + '"></iframe></div>' +
+        '<div class="tp-frame tp-lab loading"><span class="skel frame" aria-hidden="true"></span><iframe id="tp-iframe" title="' + esc(e.title) + '" src="' + esc(e.src) + '"></iframe></div>' +
         '<p class="tp-muted tp-alt">Lab not showing? <a href="' + lessonUrl('lab') + '">Open it in the full lesson</a>.</p>' +
         '<div class="tp-donebar">' + (done ? '<span class="tp-check">✓ You tried this</span>' : '<button type="button" class="tp-btn" data-act="done" data-step="explore">I have tried this</button>') + '</div>';
     }
@@ -313,7 +314,7 @@
 
   /* ---------------------------------------------------------------- coming soon */
   function soonPanel(t, step) {
-    return '<div class="tp-soon"><p class="tp-soon-t">' + ICON[step] + ' ' + NAME[step] + ' for this topic is coming soon.</p>' +
+    return '<div class="tp-soon"><p class="tp-soon-t">' + ic(ICON[step]) + ' ' + NAME[step] + ' for this topic is coming soon.</p>' +
       '<p class="tp-muted">There is no ' + (step === 'watch' ? 'video' : step === 'explore' ? 'story or example' : step === 'practice' ? 'exercise' : 'note') + ' for “' + esc(t.title.en) + '” yet. This step does not count towards the topic being complete. ' +
       'You can carry on with the steps that are ready.</p></div>';
   }
@@ -330,7 +331,7 @@
         '<span class="tp-sn" aria-hidden="true">' + (st === 'done' ? '✓' : (i + 1)) + '</span><span class="tp-sl"><b>' + NAME[s] + '</b><small>' + (st === 'soon' ? 'Coming soon' : WHAT[s]) + '</small></span>' +
         '<span class="sr-only">' + STATE_TXT[st] + (cur ? ', current step' : '') + '</span></a></li>';
     }).join('') + '</ol></nav>';
-    h += '<section class="tp-body" aria-labelledby="tp-sh"><h2 id="tp-sh" class="tp-h2"><span aria-hidden="true">' + ICON[step] + '</span> ' + NAME[step] + ' <small>' + WHAT[step] + '</small></h2>';
+    h += '<section class="tp-body" aria-labelledby="tp-sh"><h2 id="tp-sh" class="tp-h2">' + ic(ICON[step]) + ' ' + NAME[step] + ' <small>' + WHAT[step] + '</small></h2>';
     if (!has(t, step)) h += soonPanel(t, step);
     else h += step === 'understand' ? stepUnderstand(t) : step === 'watch' ? stepWatch(t) : step === 'explore' ? stepExplore(t) : stepPractice(t);
     h += '</section>';
@@ -404,7 +405,10 @@
 
   /* ---------------------------------------------------------------- events */
   var frame = null;
-  function wireFrame() { frame = doc.getElementById('tp-iframe'); }
+  function wireFrame() {
+    frame = doc.getElementById('tp-iframe');
+    if (frame) frame.addEventListener('load', function () { frame.parentNode.classList.remove('loading'); });
+  }
   window.addEventListener('message', function (e) {
     if (e.origin !== location.origin || !frame || e.source !== frame.contentWindow || !e.data || e.data.type !== 'stem-embed') return;
     if (e.data.event === 'height' && e.data.h) frame.parentNode.style.setProperty('--tp-h', Math.max(320, Math.min(2200, e.data.h + 4)) + 'px');

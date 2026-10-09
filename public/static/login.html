@@ -6,13 +6,16 @@
 <title>STEM Cloud · Log in</title>
 <meta name="theme-color" content="#f1f6fc"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png"><link rel="icon" type="image/png" href="/static/brand/logo-mark.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css">
 <style>
-a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+a[href="/privacy"],a[href="/terms"]{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
 .notice-box{background:var(--field);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:16px;font-size:.88rem;color:var(--dim);display:flex;align-items:center;gap:10px}
 .notice-box svg{flex:0 0 auto;width:20px;height:20px;fill:var(--acc)}
 .preview-prompt{margin:14px 0 6px;text-align:center}
 </style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/static/ui-generated.css"><link rel="stylesheet" href="/static/ui.css">
+<script src="/static/ui-icons.js" defer></script>
 </head>
-<body>
+<body data-ui-skin-all>
 <div class="wrap">
   <header class="lhero">
     <img class="lmark" src="/static/brand/logo-mark.png" alt="STEM Cloud logo" width="168" height="109">
@@ -57,7 +60,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
     Your XP, badges and stars are saved to your account.<br>
     Need an account? <a href="https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud%20Physics.%20My%20name%20is:%20" target="_blank" rel="noopener noreferrer">Chat on WhatsApp (070 775 2433)</a><br>
     Forgot your password? Ask your teacher or site admin to reset it.<br>
-    <a href="/privacy">Privacy</a>
+    <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>
   </div>
 </div>
 
@@ -119,7 +122,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
             <svg width="280" height="120" viewBox="0 0 280 120">
               <!-- Quiz Card Mockup -->
               <rect x="20" y="10" width="240" height="100" rx="12" fill="#141d2c" stroke="#25324a" />
-              <text x="32" y="28" font-size="10" font-weight="bold" fill="#4cc3f0">❓ Question 1 of 5 · Principle of Moments</text>
+              <text x="32" y="28" font-size="10" font-weight="bold" fill="#4cc3f0">Question 1 of 5 · Principle of Moments</text>
               <text x="32" y="44" font-size="9" fill="#e7edf7">What is the SI unit of Moment of a Force?</text>
               
               <!-- Option A: Unselected -->
@@ -132,7 +135,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
 
               <!-- Feedback Banner -->
               <rect x="32" y="80" width="216" height="20" rx="6" fill="#182338" />
-              <text x="40" y="94" font-size="8" fill="#5ee0c2">💡 Correct! Moment = Force (N) × Distance (m)</text>
+              <text x="40" y="94" font-size="8" fill="#5ee0c2">Correct! Moment = Force (N) × Distance (m)</text>
             </svg>
           </div>
           <h4>Exam-Style Quizzes &amp; Step-by-Step Solutions</h4>
@@ -159,7 +162,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
                   <stop offset="100%" stop-color="#8aa8ff"/>
                 </linearGradient>
               </defs>
-              <text x="140" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">⭐ 450 / 600 XP (Level 4)</text>
+              <text x="140" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">450 / 600 XP (Level 4)</text>
 
               <g transform="translate(45, 65)">
                 <circle cx="20" cy="20" r="18" fill="#182338" stroke="#ffd166" stroke-width="2"/>
@@ -167,11 +170,11 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
               </g>
               <g transform="translate(105, 65)">
                 <circle cx="20" cy="20" r="18" fill="#182338" stroke="#5ee0c2" stroke-width="2"/>
-                <text x="20" y="25" text-anchor="middle" font-size="14">🎯</text>
+                <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold">PP</text>
               </g>
               <g transform="translate(165, 65)">
                 <circle cx="20" cy="20" r="18" fill="#182338" stroke="#ff9f6b" stroke-width="2"/>
-                <text x="20" y="25" text-anchor="middle" font-size="14">⚡</text>
+                <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold">W</text>
               </g>
             </svg>
           </div>
@@ -200,7 +203,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
               <!-- Lesson item 1: Active -->
               <rect x="26" y="40" width="228" height="20" rx="6" fill="#1f2d47" stroke="#4cc3f0" />
               <text x="36" y="54" font-size="9" font-weight="bold" fill="#ffffff">▶ Ch 12: Principle of Equilibrium</text>
-              <text x="210" y="54" font-size="9" fill="#ffd166">★★★</text>
+              <text x="210" y="54" font-size="9" fill="#ffd166">3 of 3 stars</text>
 
               <!-- Lesson item 2 -->
               <rect x="26" y="64" width="228" height="18" rx="6" fill="#162032" />
@@ -214,7 +217,7 @@ a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;paddin
             </svg>
           </div>
           <h4>Structured 15-Chapter Course Menu</h4>
-          <p>Guided step-by-step roadmap covering Grade 10 &amp; 11 Physics. From Mechanics and Equilibrium to Optics and Electromagnetism — each chapter includes story intros, clear theory notes, virtual labs, and exam drills.</p>
+          <p>Guided step-by-step roadmap covering Grade 10 &amp; 11 Physics. From Mechanics and Equilibrium to Optics and Electromagnetism: each chapter includes story intros, clear theory notes, virtual labs, and exam drills.</p>
           <div class="tour-feature-tags">
             <span>🗺️ Guided Learning Path</span>
             <span>📚 Complete O/L Syllabus</span>

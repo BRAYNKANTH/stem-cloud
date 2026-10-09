@@ -701,6 +701,7 @@ APP_HEAD = (
     '<meta name="apple-mobile-web-app-title" content="STEM Cloud">'
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" media="print" onload="this.media=&quot;all&quot;">'
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@600;700&display=swap" media="print" onload="this.media=&quot;all&quot;">'
     '<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">'
     '<link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">'
     '<link rel="icon" type="image/png" href="/static/brand/logo-mark.png">'
@@ -714,9 +715,10 @@ APP_HEAD = (
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
 )
-APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
+APP_TAIL_CSS = ('<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
+                '<link rel="stylesheet" href="/static/ui-generated.css"><link rel="stylesheet" href="/static/ui.css">')   # the interface layer comes last
 # order matters: player.js builds the lesson bar that voice.js adds its button to
-APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/embed.js"></script><script src="/static/app-layer.js"></script>'
+APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/ui-icons.js"></script><script src="/static/embed.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>'
@@ -803,6 +805,10 @@ def login_page(req: Request):
 @app.get('/privacy')
 def privacy_page():
     return FileResponse(STATIC / 'privacy.html')
+
+@app.get('/terms')
+def terms_page():
+    return FileResponse(STATIC / 'terms.html')
 
 @app.get('/account')
 def account_page(req: Request):

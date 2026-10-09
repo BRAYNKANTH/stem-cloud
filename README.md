@@ -13,6 +13,7 @@ vercel.json         routes everything to the function and bundles site/
 tests/test_flow.py  39 account/API checks (SQLite and real Postgres)
 tests/test_pwa.py   real-browser checks: installability, offline, cache privacy, phone layout, animations (Edge/Chrome)
 tests/test_player.py  real-browser checks: lesson player, story swipe, read-aloud, textbook questions, lab
+tests/test_ui.py      the interface rules, checked on rendered pages (desktop, phone, dark, light)
 tests/test_topics.py  topic pages: server rules, content integrity, progress merge, real-browser flow on desktop and phone
 tests/test_voice_lab.py  voice tools: recorder page, import, re-render
 tools/sync_lessons.py   copies updated lessons from the course workspace into site/lessons
@@ -38,6 +39,19 @@ tools/voice_lab.py      audition Tamil voices, re-record the stories, import rea
 - **Textbook questions:** multi-part questions such as "(i) ... (ii) ... (iii) ..." are laid out as aligned rows, question numbers no longer shift the text, and tapping a diagram opens it full screen at a readable size.
 - **Shared devices:** the offline copies of lesson pages hold one student's progress, so they are wiped on logout and whenever the login page opens.
 - **Releasing changes to the app files:** the service worker serves `public/static/*` instantly from cache and refreshes it in the background (new files show on the second visit). To force an immediate refresh for everyone after a release, bump `VERSION` at the top of `public/static/sw.js` (story audio is never cached by the worker, so recordings can be replaced freely).
+
+## Interface rules
+
+One look across the app, set in `public/static/ui.css` (loaded last on every page; the server adds it to the lessons, contents and topic pages, the static pages link it):
+
+- **Colour:** the logo's navy and sky blue, one solid accent, a warm off-white (light) or deep navy (dark) ground. No gradients, glow, glass or blur, no purple, rainbow or neon, no pure white page or card. Green and red appear only for right and wrong.
+- **Shape:** hairline borders instead of drop shadows, no coloured left stripes, small corners (4 / 6 / 8px; circles stay round), no pills. No glowing orbs, dot grids or other backdrop art.
+- **Type:** Source Sans 3 for text, Source Serif 4 for headings (Tamil and Sinhala fall back to Noto per glyph). Not Inter, Geist or Space Grotesk.
+- **Icons:** drawn in `public/static/ui-icons.js` (`StemIcon('book')`), not emoji. `StemIcons.skin()` swaps emoji in the app's own screens and lesson headings; the text a lesson teaches with (stories, questions, answers) is left alone.
+- **Motion:** a hover changes colour or border only, nothing moves or fades. Loading shows placeholders in the shape of the page (`.skel`), never a bare "Loading".
+- **Copy:** no em dashes, no "it's not X, it's Y" lines, no checkmark bullets (a tick is only used to show something is done). Pages: `/privacy` and `/terms`.
+- **Lesson pages are generated elsewhere,** so their own styles are corrected from outside: `python tools/build_ui_overrides.py` reads every stylesheet the app serves and writes `public/static/ui-generated.css` (flat fills, small radii, no stripes). Re-run it after `tools/sync_lessons.py`. Emoji that are part of a lesson's own teaching text can only be changed in the generator.
+- `python tests/test_ui.py` scans the rendered pages for every rule above, so they stay true.
 
 ## Learning by topic (Subject → Chapter → Topic → learning steps)
 

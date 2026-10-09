@@ -3,14 +3,14 @@
  * - lesson pages: network first (always fresh progress), last visited copy when offline
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v20';
+var VERSION = 'v21';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
 var PRECACHE = [
   '/static/offline.html', '/static/app.css', '/static/app-layer.css', '/static/player.css', '/static/app-layer.js', '/static/pwa.js', '/static/account.js',
   '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js', '/static/icons.js', '/static/si.js',
-  '/static/past-papers.js', '/static/past-papers.css', '/static/past-paper-links.js', '/static/topics.js', '/static/topics.css', '/static/embed.js', '/static/hub-topics.js',
+  '/static/past-papers.js', '/static/past-papers.css', '/static/past-paper-links.js', '/static/topics.js', '/static/topics.css', '/static/ui.css', '/static/ui-generated.css', '/static/ui-icons.js', '/static/embed.js', '/static/hub-topics.js',
   '/static/icons/icon-192.png', '/static/icons/icon-512.png', '/static/icons/icon-maskable-512.png', '/static/icons/favicon-32.png', '/static/icons/favicon.ico', '/static/brand/logo-mark.png', '/manifest.webmanifest'
 ];
 

@@ -34,9 +34,9 @@
 
   var st = document.createElement('style');
   st.textContent =
-    '.tp-hub-link{display:flex;align-items:center;gap:10px;margin:0 16px 12px 66px;padding:8px 12px;border-radius:12px;text-decoration:none;font-size:.88rem;' +
-    'color:var(--accent-text,#4cc3f0);border:1px dashed color-mix(in srgb,var(--accent,#4cc3f0) 50%,var(--border,#25324a));min-height:44px}' +
-    '.tp-hub-link:hover{background:color-mix(in srgb,var(--accent,#4cc3f0) 10%,transparent)}' +
+    '.tp-hub-link{display:flex;align-items:center;gap:10px;margin:0 16px 12px 66px;padding:8px 12px;border-radius:var(--r,6px);text-decoration:none;font-size:.88rem;' +
+    'color:var(--accent-text,#4cc3f0);border:1px solid var(--border,#2b3d55);min-height:44px}' +
+    '.tp-hub-link:hover{border-color:var(--accent,#6ab4de)}' +
     '.tp-hub-link>span:nth-child(2){flex:1;min-width:0}.tp-hub-link small{font-weight:700;color:var(--text-dim,#a7b3c8);font-variant-numeric:tabular-nums}' +
     '@media (max-width:420px){.tp-hub-link{margin-left:16px}}';
   document.head.appendChild(st);

@@ -1,0 +1,80 @@
+/* STEM Cloud interface layer. Loaded last on every page (the server adds it to the lessons, the contents page and the topic pages; the static pages link it).
+ * It sets the one palette, type and shape rules for the whole app and overrides the older per-page styles where they disagree.
+ * Rules it follows:
+ *   - one solid accent on a flat ground: no gradients, glows, glass or blur, no purple, rainbow or neon, no pure white page or card
+ *   - hairline borders instead of drop shadows; no coloured left stripes
+ *   - small, square-ish corners (4 / 6 / 8px), no pills
+ *   - type: Source Sans 3 for text, Source Serif 4 for headings (Tamil and Sinhala fall back to Noto per glyph)
+ *   - no hover animation: a hover changes colour or border, nothing moves or fades
+ *   - icons are drawn (ui-icons.js), not emoji
+ * ui-generated.css (tools/build_ui_overrides.py) carries the same rules for the lesson pages' own styles. */
+
+/* ------------------------------------------------------------- palette (dark by default; follows the device; the account menu can force either) */
+:root{
+  --ui-font:'Source Sans 3','Noto Sans Tamil','Noto Sans Sinhala',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ui-head:'Source Serif 4','Noto Sans Tamil','Noto Sans Sinhala',Georgia,'Times New Roman',serif;
+  --r-sm:4px; --r:6px; --r-lg:8px;
+  /* lesson / contents / topic names */
+  --bg:#0d1520; --bg-alt:#101a27; --panel:#132033; --panel-2:#192a40; --border:#2b3d55;
+  --text:#e8edf3; --text-dim:#b4c0cf; --text-faint:#8fa0b4;
+  --accent:#6ab4de; --accent-2:#6ab4de; --accent-3:#6ab4de; --accent-text:#86c6ec; --on-accent:#08131f;
+  --good:#5cc29d; --bad:#ec7b8c; --warn-bg:#2b2616; --warn-border:#7a6530; --shadow:none;
+  /* login / account / admin names */
+  --card:#132033; --dim:#b4c0cf; --line:#2b3d55; --acc:#6ab4de; --acc2:#6ab4de; --on-acc:#08131f; --ok:#5cc29d; --field:#0f1a29; --glow:transparent;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f1efe9; --bg-alt:#e9e6de; --panel:#faf8f3; --panel-2:#ece9e1; --border:#d3cfc4;
+    --text:#16202d; --text-dim:#364356; --text-faint:#566377;
+    --accent:#0b5f94; --accent-2:#0b5f94; --accent-3:#0b5f94; --accent-text:#0b5f94; --on-accent:#ffffff;
+    --good:#0a6b53; --bad:#a3283d; --warn-bg:#f4ead0; --warn-border:#d7bf7c;
+    --card:#faf8f3; --dim:#364356; --line:#d3cfc4; --acc:#0b5f94; --acc2:#0b5f94; --on-acc:#ffffff; --ok:#0a6b53; --field:#f6f4ee;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#f1efe9; --bg-alt:#e9e6de; --panel:#faf8f3; --panel-2:#ece9e1; --border:#d3cfc4;
+  --text:#16202d; --text-dim:#364356; --text-faint:#566377;
+  --accent:#0b5f94; --accent-2:#0b5f94; --accent-3:#0b5f94; --accent-text:#0b5f94; --on-accent:#ffffff;
+  --good:#0a6b53; --bad:#a3283d; --warn-bg:#f4ead0; --warn-border:#d7bf7c;
+  --card:#faf8f3; --dim:#364356; --line:#d3cfc4; --acc:#0b5f94; --acc2:#0b5f94; --on-acc:#ffffff; --ok:#0a6b53; --field:#f6f4ee;
+}
+
+/* ------------------------------------------------------------- type */
+html body,html button,html input,html select,html textarea{font-family:var(--ui-font)!important}
+html h1,html h2,html h3,html h4,html .brand,html .fw-h,html .tp-tt{font-family:var(--ui-head)!important;font-weight:700;letter-spacing:0}
+html body.lang-ta *,html body.lang-si *{letter-spacing:normal!important}
+
+/* ------------------------------------------------------------- flat: no shadows, glow, glass, background art, hover animation */
+*,*::before,*::after{box-shadow:none!important;text-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;transition:none!important}
+html body{background:var(--bg)!important;background-image:none!important}
+/* the lesson pages paint glowing orbs (body::before) and a dot grid (body::after) behind everything */
+html body::before,html body::after{content:none!important;display:none!important;background:none!important}
+.topbar,#stem-bar,.sb-strip,.tp-steps,.stem-ov,.stem-end{background:var(--bg)!important}
+.lab-card #ls_svg{border-bottom:1px solid var(--border)}
+.wa-float:hover,.tour-trigger-btn:hover,.stem-end .se-next:hover,.btn:hover,.tp-btn:hover{transform:none!important}
+.stem-reading{outline:2px solid var(--accent);outline-offset:1px}      /* the read-aloud highlight used a glow ring */
+
+/* solid fills where the old styles used a gradient or a white card */
+.formula-box,.tp-learn,.tp-upnext,.tp-callout.good{background:var(--panel-2)!important}
+.formula-box{border:1px solid var(--border)!important}
+.tour-trigger-btn{background:var(--accent)!important;color:var(--on-accent)!important}
+.stem-av{background:var(--accent)!important;color:var(--on-accent)!important}
+
+/* never three feature cards across: formula boxes and similar grids stop at two columns */
+.formula-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important}
+
+/* ------------------------------------------------------------- drawn icons (see ui-icons.js) */
+.ic{display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;vertical-align:-.2em;flex:0 0 auto}
+.ic svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter}
+.ic svg .f{fill:currentColor;stroke:none}
+
+/* ------------------------------------------------------------- loading: placeholders in the shape of the content, not a spinner or the word "Loading" */
+.skel{display:block;background:var(--panel-2);border:1px solid var(--border);border-radius:var(--r);min-height:14px}
+.skel.line{height:14px;border:0;margin:8px 0}
+.skel.w60{width:60%}.skel.w80{width:80%}.skel.w40{width:40%}
+.skel.block{height:84px;margin:10px 0}
+.skel.frame{height:320px;margin:0;border:0;border-radius:0}
+@media (prefers-reduced-motion:no-preference){
+  .skel{animation:skel-pulse 1.4s steps(2,end) infinite!important}
+  @keyframes skel-pulse{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
+}

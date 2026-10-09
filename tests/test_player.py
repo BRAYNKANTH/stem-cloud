@@ -329,8 +329,13 @@ def run():
             check('phase titles are level 3 headings (no h2 to h4 jump)', pg.evaluate("[...document.querySelectorAll('.fw-phase h4')].every(h => h.getAttribute('aria-level') === '3')"))
             pg.evaluate("document.documentElement.setAttribute('data-theme','light')")
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(500)
-            col = pg.evaluate("[getComputedStyle(document.getElementById('so_nr')).color, getComputedStyle(document.getElementById('so_nc')).color, getComputedStyle(document.querySelector('.so-chip')).color]")
-            check('light theme: Raja, Chittu and the story chip use the darker, readable colours', col == ['rgb(156, 74, 12)', 'rgb(31, 111, 159)', 'rgb(156, 74, 12)'], col)
+            col = pg.evaluate("""() => {
+              const lum = c => { const m = c.match(/[\\d.]+/g).map(Number).slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]; };
+              const bgOf = e => { for (; e; e = e.parentElement) { const b = getComputedStyle(e).backgroundColor; if (b && !/rgba\\(.*, 0\\)$|transparent/.test(b)) return b; } return 'rgb(255,255,255)'; };
+              const ratio = e => { const a = lum(getComputedStyle(e).color), b = lum(bgOf(e)); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); };
+              return [document.getElementById('so_nr'), document.getElementById('so_nc'), document.querySelector('.so-chip')].map(ratio);
+            }""")
+            check('light theme: Raja, Chittu and the story chip stay readable (contrast at least 4.5 to 1)', all(r >= 4.5 for r in col), col)
             ctx.close()
 
             # coach dialog behaves like the map

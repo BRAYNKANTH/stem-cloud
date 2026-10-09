@@ -24,6 +24,9 @@
     hint.classList.toggle('quiet', swipes >= 3);
   }
   hintText();
+  var lineLabel=doc.createElement('p');lineLabel.className='so-line-label';lineLabel.setAttribute('data-no-si','');stage.appendChild(lineLabel);
+  function labels(){ var l=window.stemLang?window.stemLang():lang(), n=doc.querySelectorAll('.so-dots i').length, i=Math.max(0,lineNo())+1;prev.textContent=l==='ta'?'முந்தைய வரி':l==='si'?'පෙර පේළිය':'Previous line';next.textContent=l==='ta'?'அடுத்த வரி':l==='si'?'ඊළඟ පේළිය':'Next line';lineLabel.textContent=(l==='ta'?'கதை வரி ':l==='si'?'කතා පේළිය ':'Story line ')+i+' / '+n; }
+  window.addEventListener('stem-story-line',labels);window.addEventListener('stem-lang',function(){setTimeout(labels,100);});labels();
   doc.addEventListener('stem-step', hintText);
   var lt = doc.getElementById('langToggle'); if (lt) lt.addEventListener('click', function () { setTimeout(hintText, 60); });
 

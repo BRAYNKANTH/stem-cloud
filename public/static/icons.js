@@ -20,18 +20,16 @@
 
   function skin(b, fn) {
     if (busy) return;
-    var t = (b.dataset.words && b.textContent === b.dataset.icon) ? b.dataset.words : b.textContent.trim();
+    var t = b.textContent.trim();
     if (!t) return;
     var r = fn(t);
-    if (b.textContent === r.icon && b.dataset.words) return;       /* already an icon */
     busy = true;
-    b.dataset.words = t; b.dataset.icon = r.icon;
-    b.textContent = r.icon;
+    b.dataset.words = t;
     var w = words(t) || t;
     if (r.pressed !== undefined) w = w.replace(/\s*:\s*(on|off|ஆன்|ஆஃப்)\s*$/i, '');         /* aria-pressed already says on / off */
     b.setAttribute('aria-label', w); b.title = w;
     if (r.pressed !== undefined) b.setAttribute('aria-pressed', String(!!r.pressed));
-    b.classList.add('icon-btn');
+    b.classList.remove('icon-btn'); b.classList.add('labelled-control');
     busy = false;
   }
 

@@ -1,0 +1,1419 @@
+{
+  "schemaVersion": 1,
+  "assets": {
+    "lessons/past-papers/2015/mcq-02.jpg": {
+      "key": "media/a9677b3d8ef97918c4bc4a6c65dd59ddcca42c5e0f514201607b7a302af70fb2/lessons/past-papers/2015/mcq-02.jpg",
+      "visibility": "private",
+      "sha256": "a9677b3d8ef97918c4bc4a6c65dd59ddcca42c5e0f514201607b7a302af70fb2",
+      "size": 23660,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-08.jpg": {
+      "key": "media/a07e180d302a592bb76f694de8ec626bc7b35db43dc56d6f9efe403a0a11c537/lessons/past-papers/2015/mcq-08.jpg",
+      "visibility": "private",
+      "sha256": "a07e180d302a592bb76f694de8ec626bc7b35db43dc56d6f9efe403a0a11c537",
+      "size": 31840,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-17.jpg": {
+      "key": "media/e4e2bec103753db410c72ab0c9440fb87548569eedf7b8b7175a8509d15fc258/lessons/past-papers/2015/mcq-17.jpg",
+      "visibility": "private",
+      "sha256": "e4e2bec103753db410c72ab0c9440fb87548569eedf7b8b7175a8509d15fc258",
+      "size": 74838,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-18.jpg": {
+      "key": "media/e4e2bec103753db410c72ab0c9440fb87548569eedf7b8b7175a8509d15fc258/lessons/past-papers/2015/mcq-18.jpg",
+      "visibility": "private",
+      "sha256": "e4e2bec103753db410c72ab0c9440fb87548569eedf7b8b7175a8509d15fc258",
+      "size": 74838,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-22.jpg": {
+      "key": "media/70aa91af71759f61eafaf12612ef6c391d9d17c0040f7b90dcef59232b522339/lessons/past-papers/2015/mcq-22.jpg",
+      "visibility": "private",
+      "sha256": "70aa91af71759f61eafaf12612ef6c391d9d17c0040f7b90dcef59232b522339",
+      "size": 31517,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-27.jpg": {
+      "key": "media/a09dad2f3750a65d99a99ff40eb621940ec45f1520395c5f57143725b41a771f/lessons/past-papers/2015/mcq-27.jpg",
+      "visibility": "private",
+      "sha256": "a09dad2f3750a65d99a99ff40eb621940ec45f1520395c5f57143725b41a771f",
+      "size": 43707,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-28.jpg": {
+      "key": "media/883f3c42804da6ebca50b71df2868563d6a739521ee1711a6a6105811c36335d/lessons/past-papers/2015/mcq-28.jpg",
+      "visibility": "private",
+      "sha256": "883f3c42804da6ebca50b71df2868563d6a739521ee1711a6a6105811c36335d",
+      "size": 37421,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-30.jpg": {
+      "key": "media/55184b2afbff8d456f55061ac9a296d69855caaf6af4bcad26eeea295e7af60f/lessons/past-papers/2015/mcq-30.jpg",
+      "visibility": "private",
+      "sha256": "55184b2afbff8d456f55061ac9a296d69855caaf6af4bcad26eeea295e7af60f",
+      "size": 60379,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-31.jpg": {
+      "key": "media/ef78a767166192e43a02f44fd42be3ab9ed66416a97b05e145fa8ae7cd05a07f/lessons/past-papers/2015/mcq-31.jpg",
+      "visibility": "private",
+      "sha256": "ef78a767166192e43a02f44fd42be3ab9ed66416a97b05e145fa8ae7cd05a07f",
+      "size": 61300,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-32.jpg": {
+      "key": "media/9cd94dc4c37d89f57c306e1b140b2042b4f2bcf4ede61efad43e1c8892fd835f/lessons/past-papers/2015/mcq-32.jpg",
+      "visibility": "private",
+      "sha256": "9cd94dc4c37d89f57c306e1b140b2042b4f2bcf4ede61efad43e1c8892fd835f",
+      "size": 42747,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-34.jpg": {
+      "key": "media/afd015785953a161be44c9f31f0b2040a88c4058f290e5d954bb1d08b25abe2c/lessons/past-papers/2015/mcq-34.jpg",
+      "visibility": "private",
+      "sha256": "afd015785953a161be44c9f31f0b2040a88c4058f290e5d954bb1d08b25abe2c",
+      "size": 24514,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/mcq-36.jpg": {
+      "key": "media/9b553e150582488bb1cfd97c29c0c773360c8942150c35baab49b7a797b9a805/lessons/past-papers/2015/mcq-36.jpg",
+      "visibility": "private",
+      "sha256": "9b553e150582488bb1cfd97c29c0c773360c8942150c35baab49b7a797b9a805",
+      "size": 85207,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-01.jpg": {
+      "key": "media/7bd690e591770d0d1c82403ed6467650d6c4b192e27a639503b92984814107ba/lessons/past-papers/2015/page-01.jpg",
+      "visibility": "private",
+      "sha256": "7bd690e591770d0d1c82403ed6467650d6c4b192e27a639503b92984814107ba",
+      "size": 427757,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-02.jpg": {
+      "key": "media/2d4b35fd92776b348e800bb5b67152a5063bdc3a51870c875bd62ec5aacd5578/lessons/past-papers/2015/page-02.jpg",
+      "visibility": "private",
+      "sha256": "2d4b35fd92776b348e800bb5b67152a5063bdc3a51870c875bd62ec5aacd5578",
+      "size": 350893,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-03.jpg": {
+      "key": "media/b9527b389c3fc3167f2acb29d99c8e299e0bdf49b9e3701d1b0003f6f9d2654a/lessons/past-papers/2015/page-03.jpg",
+      "visibility": "private",
+      "sha256": "b9527b389c3fc3167f2acb29d99c8e299e0bdf49b9e3701d1b0003f6f9d2654a",
+      "size": 347621,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-04.jpg": {
+      "key": "media/91ca3fb518e06ec1e6b8d55501370897f02bdb157b79b52dc09a140dbb0c2828/lessons/past-papers/2015/page-04.jpg",
+      "visibility": "private",
+      "sha256": "91ca3fb518e06ec1e6b8d55501370897f02bdb157b79b52dc09a140dbb0c2828",
+      "size": 403529,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-05.jpg": {
+      "key": "media/cae15f0b33138412f6d80fb417a2332c1aa8f82b68cce4fa7d0f19e8c6815672/lessons/past-papers/2015/page-05.jpg",
+      "visibility": "private",
+      "sha256": "cae15f0b33138412f6d80fb417a2332c1aa8f82b68cce4fa7d0f19e8c6815672",
+      "size": 398085,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-06.jpg": {
+      "key": "media/98ed51f069a5f04b05de012d1a2df1b45e4fd5d8157788f504e5a84230e788e4/lessons/past-papers/2015/page-06.jpg",
+      "visibility": "private",
+      "sha256": "98ed51f069a5f04b05de012d1a2df1b45e4fd5d8157788f504e5a84230e788e4",
+      "size": 414207,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-07.jpg": {
+      "key": "media/3dff19d5725239065478d958adc2bbf7e3f3d05d5eb107ed4bdcfc0ffe71ce30/lessons/past-papers/2015/page-07.jpg",
+      "visibility": "private",
+      "sha256": "3dff19d5725239065478d958adc2bbf7e3f3d05d5eb107ed4bdcfc0ffe71ce30",
+      "size": 326707,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-08.jpg": {
+      "key": "media/5c8751ac2d6d667f0dc7d0f76e2bd4fbb09108856214e1b79bc8cfcbc26c3dab/lessons/past-papers/2015/page-08.jpg",
+      "visibility": "private",
+      "sha256": "5c8751ac2d6d667f0dc7d0f76e2bd4fbb09108856214e1b79bc8cfcbc26c3dab",
+      "size": 358560,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-09.jpg": {
+      "key": "media/9b8238997e40968f4f2953a6bd099bf29e153afb6d0206b0637ba5bfd2ef37da/lessons/past-papers/2015/page-09.jpg",
+      "visibility": "private",
+      "sha256": "9b8238997e40968f4f2953a6bd099bf29e153afb6d0206b0637ba5bfd2ef37da",
+      "size": 415975,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-10.jpg": {
+      "key": "media/042994a2498a95c50f5e45f06e688692c0c9f36bc69cf21616a71d1be9787976/lessons/past-papers/2015/page-10.jpg",
+      "visibility": "private",
+      "sha256": "042994a2498a95c50f5e45f06e688692c0c9f36bc69cf21616a71d1be9787976",
+      "size": 367375,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-11.jpg": {
+      "key": "media/ee51b80ea2c79a59338aa4b88713d25df4455d3ce4362c5dc71fed429f658500/lessons/past-papers/2015/page-11.jpg",
+      "visibility": "private",
+      "sha256": "ee51b80ea2c79a59338aa4b88713d25df4455d3ce4362c5dc71fed429f658500",
+      "size": 408899,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/page-12.jpg": {
+      "key": "media/7fef15081870489789f95fa2917d2b2ccf4aa98fa8b3025780692fbc6fce2338/lessons/past-papers/2015/page-12.jpg",
+      "visibility": "private",
+      "sha256": "7fef15081870489789f95fa2917d2b2ccf4aa98fa8b3025780692fbc6fce2338",
+      "size": 332919,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2015/source.pdf": {
+      "key": "media/32c42a5829d7a5e38bc1c9030833ff3159af881e4a4243cc77aba5316864da1a/lessons/past-papers/2015/source.pdf",
+      "visibility": "private",
+      "sha256": "32c42a5829d7a5e38bc1c9030833ff3159af881e4a4243cc77aba5316864da1a",
+      "size": 670681,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2016/mcq-25.jpg": {
+      "key": "media/1d5b2d97639d28fa252c65b7f3c80f2d470c82296ecb4e8ec088832232313917/lessons/past-papers/2016/mcq-25.jpg",
+      "visibility": "private",
+      "sha256": "1d5b2d97639d28fa252c65b7f3c80f2d470c82296ecb4e8ec088832232313917",
+      "size": 58706,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/mcq-35.jpg": {
+      "key": "media/1e0745d2dcfbb77eac349a44cb04b38aba3075fa3d1dcecd4b170bdc817f13a1/lessons/past-papers/2016/mcq-35.jpg",
+      "visibility": "private",
+      "sha256": "1e0745d2dcfbb77eac349a44cb04b38aba3075fa3d1dcecd4b170bdc817f13a1",
+      "size": 8512,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/mcq-36.jpg": {
+      "key": "media/7cee65290d06ef5e47a05644692cac7897ce03a50ea2ca5195517e150209b515/lessons/past-papers/2016/mcq-36.jpg",
+      "visibility": "private",
+      "sha256": "7cee65290d06ef5e47a05644692cac7897ce03a50ea2ca5195517e150209b515",
+      "size": 41425,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-01.jpg": {
+      "key": "media/ce5c7d0dd679968aeb0ab578dd312b5c60f7c62324e014795ffb24174e85d281/lessons/past-papers/2016/page-01.jpg",
+      "visibility": "private",
+      "sha256": "ce5c7d0dd679968aeb0ab578dd312b5c60f7c62324e014795ffb24174e85d281",
+      "size": 241160,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-02.jpg": {
+      "key": "media/13791c6372e67cd6eab61a44122662c77b464660635207c795c8ea249e27a510/lessons/past-papers/2016/page-02.jpg",
+      "visibility": "private",
+      "sha256": "13791c6372e67cd6eab61a44122662c77b464660635207c795c8ea249e27a510",
+      "size": 250789,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-03.jpg": {
+      "key": "media/869e232c79b776d11349a0a18bfc07d2fbbdef5b2fde60b39d702d304f14d3ca/lessons/past-papers/2016/page-03.jpg",
+      "visibility": "private",
+      "sha256": "869e232c79b776d11349a0a18bfc07d2fbbdef5b2fde60b39d702d304f14d3ca",
+      "size": 227661,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-04.jpg": {
+      "key": "media/6e620902dae3ccf06416c911f714ea72374b8b244b1cdb7f2bd53d9302ebe1fd/lessons/past-papers/2016/page-04.jpg",
+      "visibility": "private",
+      "sha256": "6e620902dae3ccf06416c911f714ea72374b8b244b1cdb7f2bd53d9302ebe1fd",
+      "size": 221355,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-05.jpg": {
+      "key": "media/b179691b2ef14a4802abacbd9b15078acde87823ccb5257d5a5610f3512ae68d/lessons/past-papers/2016/page-05.jpg",
+      "visibility": "private",
+      "sha256": "b179691b2ef14a4802abacbd9b15078acde87823ccb5257d5a5610f3512ae68d",
+      "size": 248859,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-06.jpg": {
+      "key": "media/1865ccec6148e7dfd4ee1d2437b8aa363aedb162f21e28347a784785941406d6/lessons/past-papers/2016/page-06.jpg",
+      "visibility": "private",
+      "sha256": "1865ccec6148e7dfd4ee1d2437b8aa363aedb162f21e28347a784785941406d6",
+      "size": 227874,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-07.jpg": {
+      "key": "media/d75539e1f394fd6d89eb15d9ddacf38a01bf4fc82441ba974fd01e10c507fc36/lessons/past-papers/2016/page-07.jpg",
+      "visibility": "private",
+      "sha256": "d75539e1f394fd6d89eb15d9ddacf38a01bf4fc82441ba974fd01e10c507fc36",
+      "size": 212655,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-08.jpg": {
+      "key": "media/e45d7434cb7242b3703ff2f69a8ccfb4be27eda6d1c453d91e5e598b2e9a17af/lessons/past-papers/2016/page-08.jpg",
+      "visibility": "private",
+      "sha256": "e45d7434cb7242b3703ff2f69a8ccfb4be27eda6d1c453d91e5e598b2e9a17af",
+      "size": 202841,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-09.jpg": {
+      "key": "media/62491e4493425d8b8a9dcc6bd019282ad7045e3089858881067c5889980902a4/lessons/past-papers/2016/page-09.jpg",
+      "visibility": "private",
+      "sha256": "62491e4493425d8b8a9dcc6bd019282ad7045e3089858881067c5889980902a4",
+      "size": 244968,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-10.jpg": {
+      "key": "media/2d9b57882dd944f0944d348b7e373bbc8706a53e1e2fb9441a0d40d251474e5c/lessons/past-papers/2016/page-10.jpg",
+      "visibility": "private",
+      "sha256": "2d9b57882dd944f0944d348b7e373bbc8706a53e1e2fb9441a0d40d251474e5c",
+      "size": 253901,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-11.jpg": {
+      "key": "media/51b1450bd302af38ee41e027b4c18f1c6b465d1ed5138bc264c5591c12d070e7/lessons/past-papers/2016/page-11.jpg",
+      "visibility": "private",
+      "sha256": "51b1450bd302af38ee41e027b4c18f1c6b465d1ed5138bc264c5591c12d070e7",
+      "size": 202695,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/page-12.jpg": {
+      "key": "media/c4e374c0941bbcb02925e63b811dcf6f95b9dce05095c7e850f92feddd3ba236/lessons/past-papers/2016/page-12.jpg",
+      "visibility": "private",
+      "sha256": "c4e374c0941bbcb02925e63b811dcf6f95b9dce05095c7e850f92feddd3ba236",
+      "size": 180171,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2016/source.pdf": {
+      "key": "media/9c2e39fce9c540e8a1dc7ef5513af5debbcf51832b9126990b56fc13f0f974fe/lessons/past-papers/2016/source.pdf",
+      "visibility": "private",
+      "sha256": "9c2e39fce9c540e8a1dc7ef5513af5debbcf51832b9126990b56fc13f0f974fe",
+      "size": 803853,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2017/mcq-27.jpg": {
+      "key": "media/108b6b6667625a78128b063a7e3e149e9cb5fd30212facc8d4876c9dc0324f13/lessons/past-papers/2017/mcq-27.jpg",
+      "visibility": "private",
+      "sha256": "108b6b6667625a78128b063a7e3e149e9cb5fd30212facc8d4876c9dc0324f13",
+      "size": 19069,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/mcq-29.jpg": {
+      "key": "media/3b908f92094e5bf62ab54a1caa1c0ad9cb5fba9e857ef1277fb098b14ed945f5/lessons/past-papers/2017/mcq-29.jpg",
+      "visibility": "private",
+      "sha256": "3b908f92094e5bf62ab54a1caa1c0ad9cb5fba9e857ef1277fb098b14ed945f5",
+      "size": 28868,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-01.jpg": {
+      "key": "media/0c2db0a454994c33761e4192f79b7694a10d90ba8ecc6ec0e38a5b3d8be24338/lessons/past-papers/2017/page-01.jpg",
+      "visibility": "private",
+      "sha256": "0c2db0a454994c33761e4192f79b7694a10d90ba8ecc6ec0e38a5b3d8be24338",
+      "size": 228948,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-02.jpg": {
+      "key": "media/c75160daecc0dde14ed03f72d774f91e99af5cfdd48c90e031b408e9edc4ac55/lessons/past-papers/2017/page-02.jpg",
+      "visibility": "private",
+      "sha256": "c75160daecc0dde14ed03f72d774f91e99af5cfdd48c90e031b408e9edc4ac55",
+      "size": 206193,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-03.jpg": {
+      "key": "media/2b20fc6ba6f7720e54f607397a6da6f19e09a24b578337bcdecd15e5f33f1e85/lessons/past-papers/2017/page-03.jpg",
+      "visibility": "private",
+      "sha256": "2b20fc6ba6f7720e54f607397a6da6f19e09a24b578337bcdecd15e5f33f1e85",
+      "size": 219963,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-04.jpg": {
+      "key": "media/74e27cdad52fb72c3f495480ab65fefa42d1ce8ca518c0da42136ff9e9151c45/lessons/past-papers/2017/page-04.jpg",
+      "visibility": "private",
+      "sha256": "74e27cdad52fb72c3f495480ab65fefa42d1ce8ca518c0da42136ff9e9151c45",
+      "size": 212570,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-05.jpg": {
+      "key": "media/327f88b16036d2d1c444f15eb24abca2fdc716473b52f9e607c49ebdeffa90c0/lessons/past-papers/2017/page-05.jpg",
+      "visibility": "private",
+      "sha256": "327f88b16036d2d1c444f15eb24abca2fdc716473b52f9e607c49ebdeffa90c0",
+      "size": 271765,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-06.jpg": {
+      "key": "media/d7426a9dfeef008121408d296c76639f59682ce3d3bb7dcb9fe92ae29e783149/lessons/past-papers/2017/page-06.jpg",
+      "visibility": "private",
+      "sha256": "d7426a9dfeef008121408d296c76639f59682ce3d3bb7dcb9fe92ae29e783149",
+      "size": 187930,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-07.jpg": {
+      "key": "media/7b68cc916d35a49146dbb97c87167abd973de3134321077ed12447220b043aa2/lessons/past-papers/2017/page-07.jpg",
+      "visibility": "private",
+      "sha256": "7b68cc916d35a49146dbb97c87167abd973de3134321077ed12447220b043aa2",
+      "size": 180394,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-08.jpg": {
+      "key": "media/32dfe38afce0086c1efc53ce10e61ac9983ec7be9aa34cba74746cb0b3e30498/lessons/past-papers/2017/page-08.jpg",
+      "visibility": "private",
+      "sha256": "32dfe38afce0086c1efc53ce10e61ac9983ec7be9aa34cba74746cb0b3e30498",
+      "size": 119540,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-09.jpg": {
+      "key": "media/77dd68865dc4413e3105b0dfe06479885149bd3366f9f3661b24618310d9497b/lessons/past-papers/2017/page-09.jpg",
+      "visibility": "private",
+      "sha256": "77dd68865dc4413e3105b0dfe06479885149bd3366f9f3661b24618310d9497b",
+      "size": 222684,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-10.jpg": {
+      "key": "media/ce109ac64f39bb44a5042b599d8935abae82b0bd30518b8872f2f8176b25e099/lessons/past-papers/2017/page-10.jpg",
+      "visibility": "private",
+      "sha256": "ce109ac64f39bb44a5042b599d8935abae82b0bd30518b8872f2f8176b25e099",
+      "size": 165835,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-11.jpg": {
+      "key": "media/882f086f8852d33ac77888f35ad1b9ded5ed89ffa3c20be0c1c9d52ce337beb5/lessons/past-papers/2017/page-11.jpg",
+      "visibility": "private",
+      "sha256": "882f086f8852d33ac77888f35ad1b9ded5ed89ffa3c20be0c1c9d52ce337beb5",
+      "size": 209473,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/page-12.jpg": {
+      "key": "media/61c3d455af3707c34f0b410f9b09d3530702d79f2b772d288121ab9f647d64fb/lessons/past-papers/2017/page-12.jpg",
+      "visibility": "private",
+      "sha256": "61c3d455af3707c34f0b410f9b09d3530702d79f2b772d288121ab9f647d64fb",
+      "size": 211003,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2017/source.pdf": {
+      "key": "media/e4eca2ffa710dc2d67d38c692accc636a8c34d5c843ae6bb573e869368448caf/lessons/past-papers/2017/source.pdf",
+      "visibility": "private",
+      "sha256": "e4eca2ffa710dc2d67d38c692accc636a8c34d5c843ae6bb573e869368448caf",
+      "size": 538529,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2018/mcq-15.jpg": {
+      "key": "media/a67c2854cb392e2f7e49dc3e8d9d11bdf44a4d1680c99a93be2b2fe6a1f312e8/lessons/past-papers/2018/mcq-15.jpg",
+      "visibility": "private",
+      "sha256": "a67c2854cb392e2f7e49dc3e8d9d11bdf44a4d1680c99a93be2b2fe6a1f312e8",
+      "size": 41509,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/mcq-25.jpg": {
+      "key": "media/375bb1f596767264b25aa9425112beea63ec156baf4989f499c1ff764faa0772/lessons/past-papers/2018/mcq-25.jpg",
+      "visibility": "private",
+      "sha256": "375bb1f596767264b25aa9425112beea63ec156baf4989f499c1ff764faa0772",
+      "size": 89417,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/mcq-36.jpg": {
+      "key": "media/01e5a06abaf18a61deb9f2796e46d3ac99452404372ab9b35beb68d44e1ab6a1/lessons/past-papers/2018/mcq-36.jpg",
+      "visibility": "private",
+      "sha256": "01e5a06abaf18a61deb9f2796e46d3ac99452404372ab9b35beb68d44e1ab6a1",
+      "size": 43987,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/mcq-37.jpg": {
+      "key": "media/886235ac4ef4ab633a205863628d2a55624067f5f3f56dac903dcf7f19535703/lessons/past-papers/2018/mcq-37.jpg",
+      "visibility": "private",
+      "sha256": "886235ac4ef4ab633a205863628d2a55624067f5f3f56dac903dcf7f19535703",
+      "size": 60697,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-01.jpg": {
+      "key": "media/9c41917aeca2856081a59b46957a93c6c0ea87551576543219f386ce5559b178/lessons/past-papers/2018/page-01.jpg",
+      "visibility": "private",
+      "sha256": "9c41917aeca2856081a59b46957a93c6c0ea87551576543219f386ce5559b178",
+      "size": 262181,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-02.jpg": {
+      "key": "media/33f8b456fb606b78172f8dd407fb8bcead10eb206dd4a95062459417a65e3054/lessons/past-papers/2018/page-02.jpg",
+      "visibility": "private",
+      "sha256": "33f8b456fb606b78172f8dd407fb8bcead10eb206dd4a95062459417a65e3054",
+      "size": 219536,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-03.jpg": {
+      "key": "media/ef637b0d7978c2e598d9c0bc68d258afe444a3ba82cb95902d13e32c80c53264/lessons/past-papers/2018/page-03.jpg",
+      "visibility": "private",
+      "sha256": "ef637b0d7978c2e598d9c0bc68d258afe444a3ba82cb95902d13e32c80c53264",
+      "size": 229727,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-04.jpg": {
+      "key": "media/4e01f29951c29283f2d342b451b249485f99d8ff989270ed1ff3a900431654fe/lessons/past-papers/2018/page-04.jpg",
+      "visibility": "private",
+      "sha256": "4e01f29951c29283f2d342b451b249485f99d8ff989270ed1ff3a900431654fe",
+      "size": 240095,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-05.jpg": {
+      "key": "media/9e87aea5a71d99f3591840390231a391b0380bf8f1950804d66bc0aaf0467e1f/lessons/past-papers/2018/page-05.jpg",
+      "visibility": "private",
+      "sha256": "9e87aea5a71d99f3591840390231a391b0380bf8f1950804d66bc0aaf0467e1f",
+      "size": 223556,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-06.jpg": {
+      "key": "media/e0a6b52b7449b95399fc7edfbb40111e4f0beed98fd5e34d63173c2b5b6dad21/lessons/past-papers/2018/page-06.jpg",
+      "visibility": "private",
+      "sha256": "e0a6b52b7449b95399fc7edfbb40111e4f0beed98fd5e34d63173c2b5b6dad21",
+      "size": 310865,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-07.jpg": {
+      "key": "media/7d30ce66dcfed5470ab34d43aa379eae6fad6c32bbb06384908c6ba03bfe5496/lessons/past-papers/2018/page-07.jpg",
+      "visibility": "private",
+      "sha256": "7d30ce66dcfed5470ab34d43aa379eae6fad6c32bbb06384908c6ba03bfe5496",
+      "size": 261742,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-08.jpg": {
+      "key": "media/3b3285525fda0dc0019c9a5d501ec360d723d3cd7662ccab24e065d123ed0032/lessons/past-papers/2018/page-08.jpg",
+      "visibility": "private",
+      "sha256": "3b3285525fda0dc0019c9a5d501ec360d723d3cd7662ccab24e065d123ed0032",
+      "size": 255848,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-09.jpg": {
+      "key": "media/517613cf11ef250753b0cbb76e6b52dd67a6f421cf4bc3462fcc9d677cfa8da3/lessons/past-papers/2018/page-09.jpg",
+      "visibility": "private",
+      "sha256": "517613cf11ef250753b0cbb76e6b52dd67a6f421cf4bc3462fcc9d677cfa8da3",
+      "size": 247473,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-10.jpg": {
+      "key": "media/fdfdc74ed638ab9994c510593a568d98df837008e58fac819535d489154f39b6/lessons/past-papers/2018/page-10.jpg",
+      "visibility": "private",
+      "sha256": "fdfdc74ed638ab9994c510593a568d98df837008e58fac819535d489154f39b6",
+      "size": 255783,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-11.jpg": {
+      "key": "media/db757459b7b0187390dee22f834bf4ad650a7d3c056808c22bd0864855c0c43e/lessons/past-papers/2018/page-11.jpg",
+      "visibility": "private",
+      "sha256": "db757459b7b0187390dee22f834bf4ad650a7d3c056808c22bd0864855c0c43e",
+      "size": 269555,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-12.jpg": {
+      "key": "media/56f4f21f7afd9c3a70cc7a74ffa7b931cc7affbc680eada9e8ef0fd91c08ece8/lessons/past-papers/2018/page-12.jpg",
+      "visibility": "private",
+      "sha256": "56f4f21f7afd9c3a70cc7a74ffa7b931cc7affbc680eada9e8ef0fd91c08ece8",
+      "size": 213607,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-13.jpg": {
+      "key": "media/26e0c9e3c4887b297fe47904f5eb4b8cbfd6874da93c411af5bd2064a800f8af/lessons/past-papers/2018/page-13.jpg",
+      "visibility": "private",
+      "sha256": "26e0c9e3c4887b297fe47904f5eb4b8cbfd6874da93c411af5bd2064a800f8af",
+      "size": 226302,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/page-14.jpg": {
+      "key": "media/1aa5082f24dcccc9a60c9b75273f198da0bf88ba569081d9a98bab1d7c21297d/lessons/past-papers/2018/page-14.jpg",
+      "visibility": "private",
+      "sha256": "1aa5082f24dcccc9a60c9b75273f198da0bf88ba569081d9a98bab1d7c21297d",
+      "size": 226768,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2018/source.pdf": {
+      "key": "media/b1cb593da4c2b8d979561552af913f026f55ea459cb6b29113caa0a19152a8b5/lessons/past-papers/2018/source.pdf",
+      "visibility": "private",
+      "sha256": "b1cb593da4c2b8d979561552af913f026f55ea459cb6b29113caa0a19152a8b5",
+      "size": 747261,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2019/mcq-20.jpg": {
+      "key": "media/3eb75bbd03d063a927621e94c2e025dbc471bba74f83d1e0c5830cdafb05276d/lessons/past-papers/2019/mcq-20.jpg",
+      "visibility": "private",
+      "sha256": "3eb75bbd03d063a927621e94c2e025dbc471bba74f83d1e0c5830cdafb05276d",
+      "size": 65556,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-01.jpg": {
+      "key": "media/95d30d9cc09f12ce64bb313d8f398b9d8ea386a57deedc5132ab0813355f7ed6/lessons/past-papers/2019/page-01.jpg",
+      "visibility": "private",
+      "sha256": "95d30d9cc09f12ce64bb313d8f398b9d8ea386a57deedc5132ab0813355f7ed6",
+      "size": 255243,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-02.jpg": {
+      "key": "media/77bec3980cc10739b0bf6427a47bebb15b33406ef5e4ecf137524028125164b4/lessons/past-papers/2019/page-02.jpg",
+      "visibility": "private",
+      "sha256": "77bec3980cc10739b0bf6427a47bebb15b33406ef5e4ecf137524028125164b4",
+      "size": 254295,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-03.jpg": {
+      "key": "media/c041fd7f1686ceaff62e299f66dc139e2e7f515ade914d2dd132830e83bafe56/lessons/past-papers/2019/page-03.jpg",
+      "visibility": "private",
+      "sha256": "c041fd7f1686ceaff62e299f66dc139e2e7f515ade914d2dd132830e83bafe56",
+      "size": 260172,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-04.jpg": {
+      "key": "media/c83fa2e46c0ca10bebe49b1a31c2dd7fd31985e8b8fa76069a7d2f53df0e732c/lessons/past-papers/2019/page-04.jpg",
+      "visibility": "private",
+      "sha256": "c83fa2e46c0ca10bebe49b1a31c2dd7fd31985e8b8fa76069a7d2f53df0e732c",
+      "size": 262365,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-05.jpg": {
+      "key": "media/7db3d3cf5829fc04380769e841c8111a04163da5672a405688752deb00eb7778/lessons/past-papers/2019/page-05.jpg",
+      "visibility": "private",
+      "sha256": "7db3d3cf5829fc04380769e841c8111a04163da5672a405688752deb00eb7778",
+      "size": 281167,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-06.jpg": {
+      "key": "media/a04a887d226ebc726690ed42461a025ae3ea56978df49f1a7662a090945096c0/lessons/past-papers/2019/page-06.jpg",
+      "visibility": "private",
+      "sha256": "a04a887d226ebc726690ed42461a025ae3ea56978df49f1a7662a090945096c0",
+      "size": 232710,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-07.jpg": {
+      "key": "media/a2460b4f30617d687d98982ca5b2818b501a69db9bc115c0a6831a77014030ec/lessons/past-papers/2019/page-07.jpg",
+      "visibility": "private",
+      "sha256": "a2460b4f30617d687d98982ca5b2818b501a69db9bc115c0a6831a77014030ec",
+      "size": 245563,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-08.jpg": {
+      "key": "media/dab6de176eb0aad66380cbffa1eca2d685f790ad87f449f2f535eacbeaa9d947/lessons/past-papers/2019/page-08.jpg",
+      "visibility": "private",
+      "sha256": "dab6de176eb0aad66380cbffa1eca2d685f790ad87f449f2f535eacbeaa9d947",
+      "size": 254719,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-09.jpg": {
+      "key": "media/2c3dc1c6599d3f22891e23f5360eaac24655a6c156067298dacd93405b44e1b0/lessons/past-papers/2019/page-09.jpg",
+      "visibility": "private",
+      "sha256": "2c3dc1c6599d3f22891e23f5360eaac24655a6c156067298dacd93405b44e1b0",
+      "size": 267453,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-10.jpg": {
+      "key": "media/839da1aec5a81b7cf9843c037c0c8232645ee9506483ad313192e505dc35db38/lessons/past-papers/2019/page-10.jpg",
+      "visibility": "private",
+      "sha256": "839da1aec5a81b7cf9843c037c0c8232645ee9506483ad313192e505dc35db38",
+      "size": 239641,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-11.jpg": {
+      "key": "media/1b80d1df9572c5603e5227b1c7778c0a4f392e528ece5a1c559c5e811642ad01/lessons/past-papers/2019/page-11.jpg",
+      "visibility": "private",
+      "sha256": "1b80d1df9572c5603e5227b1c7778c0a4f392e528ece5a1c559c5e811642ad01",
+      "size": 271589,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/page-12.jpg": {
+      "key": "media/2d88082a453aca0397caa5fda17206d24a1a1071897ae7c2e9d74bfbecdeb76e/lessons/past-papers/2019/page-12.jpg",
+      "visibility": "private",
+      "sha256": "2d88082a453aca0397caa5fda17206d24a1a1071897ae7c2e9d74bfbecdeb76e",
+      "size": 239603,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2019/source.pdf": {
+      "key": "media/5941ba88a6192ab144c900a43b2da21dc91485d8df76f279b733cd09e8c0f7fc/lessons/past-papers/2019/source.pdf",
+      "visibility": "private",
+      "sha256": "5941ba88a6192ab144c900a43b2da21dc91485d8df76f279b733cd09e8c0f7fc",
+      "size": 642881,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2020/mcq-20.jpg": {
+      "key": "media/43af1d613b39de6938b8bde50df3c310445b8de365e891fbe8a638167f108c7b/lessons/past-papers/2020/mcq-20.jpg",
+      "visibility": "private",
+      "sha256": "43af1d613b39de6938b8bde50df3c310445b8de365e891fbe8a638167f108c7b",
+      "size": 34194,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/mcq-23.jpg": {
+      "key": "media/557ac04eb28591c7171fd36110b3203a14ca87a82ebce9f1d7df79dace8335a9/lessons/past-papers/2020/mcq-23.jpg",
+      "visibility": "private",
+      "sha256": "557ac04eb28591c7171fd36110b3203a14ca87a82ebce9f1d7df79dace8335a9",
+      "size": 26018,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/mcq-34.jpg": {
+      "key": "media/2c8d3d42cf4c8a0f530dc9b53185371f8135897f28c438d292cfa216b4024086/lessons/past-papers/2020/mcq-34.jpg",
+      "visibility": "private",
+      "sha256": "2c8d3d42cf4c8a0f530dc9b53185371f8135897f28c438d292cfa216b4024086",
+      "size": 63391,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-01.jpg": {
+      "key": "media/4111c8f157c6bdd9255d5adcdf3b777e533d20adaae4773371c87c5b8a813751/lessons/past-papers/2020/page-01.jpg",
+      "visibility": "private",
+      "sha256": "4111c8f157c6bdd9255d5adcdf3b777e533d20adaae4773371c87c5b8a813751",
+      "size": 248876,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-02.jpg": {
+      "key": "media/6dfbab3e4469bc7d66743462d96e65a17418105cab461bc54391e97e1de84741/lessons/past-papers/2020/page-02.jpg",
+      "visibility": "private",
+      "sha256": "6dfbab3e4469bc7d66743462d96e65a17418105cab461bc54391e97e1de84741",
+      "size": 253087,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-03.jpg": {
+      "key": "media/3828c4b7c8b18bab8b68820302cc376437ac0765268d392c4642063c6f37a58a/lessons/past-papers/2020/page-03.jpg",
+      "visibility": "private",
+      "sha256": "3828c4b7c8b18bab8b68820302cc376437ac0765268d392c4642063c6f37a58a",
+      "size": 239345,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-04.jpg": {
+      "key": "media/48644161e0035560db25b9da1a01a5c9a17aa1c11461e16bd59821c6556c728f/lessons/past-papers/2020/page-04.jpg",
+      "visibility": "private",
+      "sha256": "48644161e0035560db25b9da1a01a5c9a17aa1c11461e16bd59821c6556c728f",
+      "size": 237483,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-05.jpg": {
+      "key": "media/2d49134b91072509d24d4eb2322d04f1675cb9e607968396d79aee292bdc2fce/lessons/past-papers/2020/page-05.jpg",
+      "visibility": "private",
+      "sha256": "2d49134b91072509d24d4eb2322d04f1675cb9e607968396d79aee292bdc2fce",
+      "size": 234159,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-06.jpg": {
+      "key": "media/644a1bb86b5d0e2a51dcbd7eeff8588e4a49f8a6a726f178da6bd29908527195/lessons/past-papers/2020/page-06.jpg",
+      "visibility": "private",
+      "sha256": "644a1bb86b5d0e2a51dcbd7eeff8588e4a49f8a6a726f178da6bd29908527195",
+      "size": 267132,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-07.jpg": {
+      "key": "media/64f4404b64f0cbc4e6348ea1de1e4f73722fd36ee97f630b3f0a72196b0d3a26/lessons/past-papers/2020/page-07.jpg",
+      "visibility": "private",
+      "sha256": "64f4404b64f0cbc4e6348ea1de1e4f73722fd36ee97f630b3f0a72196b0d3a26",
+      "size": 209795,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/page-08.jpg": {
+      "key": "media/2fc604c5a9ba89b30b2265c4915d11f9138a0237c95dfb14b049a29f48dc7a9d/lessons/past-papers/2020/page-08.jpg",
+      "visibility": "private",
+      "sha256": "2fc604c5a9ba89b30b2265c4915d11f9138a0237c95dfb14b049a29f48dc7a9d",
+      "size": 168973,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2020/source.pdf": {
+      "key": "media/2e686d1c679b9c6120f8221b986cb74c47bc3063dfb655a62bb445ee2844c8d5/lessons/past-papers/2020/source.pdf",
+      "visibility": "private",
+      "sha256": "2e686d1c679b9c6120f8221b986cb74c47bc3063dfb655a62bb445ee2844c8d5",
+      "size": 5200949,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2021/page-01.jpg": {
+      "key": "media/c2da7759adf46dde3afd65e87182ae55a67b2acd89d5a0cd006d08e08888240d/lessons/past-papers/2021/page-01.jpg",
+      "visibility": "private",
+      "sha256": "c2da7759adf46dde3afd65e87182ae55a67b2acd89d5a0cd006d08e08888240d",
+      "size": 212707,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-02.jpg": {
+      "key": "media/f8994fa25644670a55bbc1bf52e3a9f656a86f947b03d10442ff5a2b40ba4812/lessons/past-papers/2021/page-02.jpg",
+      "visibility": "private",
+      "sha256": "f8994fa25644670a55bbc1bf52e3a9f656a86f947b03d10442ff5a2b40ba4812",
+      "size": 195944,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-03.jpg": {
+      "key": "media/ec92f8cde853d78121bc19076d097c22b1cc10ad98979b65699e8954fe4b7706/lessons/past-papers/2021/page-03.jpg",
+      "visibility": "private",
+      "sha256": "ec92f8cde853d78121bc19076d097c22b1cc10ad98979b65699e8954fe4b7706",
+      "size": 188235,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-04.jpg": {
+      "key": "media/1f3d24b5618659d6e6b698024e756886a0f8c4fa2f0ea0dfc93d5c10d66503e8/lessons/past-papers/2021/page-04.jpg",
+      "visibility": "private",
+      "sha256": "1f3d24b5618659d6e6b698024e756886a0f8c4fa2f0ea0dfc93d5c10d66503e8",
+      "size": 221493,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-05.jpg": {
+      "key": "media/b0cbb54de249d41cc9d2236a7a8a9559b2c8d007ca5e6fb3195f401dbda45a04/lessons/past-papers/2021/page-05.jpg",
+      "visibility": "private",
+      "sha256": "b0cbb54de249d41cc9d2236a7a8a9559b2c8d007ca5e6fb3195f401dbda45a04",
+      "size": 185733,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-06.jpg": {
+      "key": "media/86f986ccc208a5a4e0a8d6698da60e2d6e8e7668f15164927b5cdb10b0342e5c/lessons/past-papers/2021/page-06.jpg",
+      "visibility": "private",
+      "sha256": "86f986ccc208a5a4e0a8d6698da60e2d6e8e7668f15164927b5cdb10b0342e5c",
+      "size": 228430,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-07.jpg": {
+      "key": "media/0decb3c568952d1584a0d503e6f03e18a46dae48f1e412fcb1140e3d7eaed0b0/lessons/past-papers/2021/page-07.jpg",
+      "visibility": "private",
+      "sha256": "0decb3c568952d1584a0d503e6f03e18a46dae48f1e412fcb1140e3d7eaed0b0",
+      "size": 224372,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-08.jpg": {
+      "key": "media/0ad56287f8feaec074ec96b05cc06a5312022beaed44f8d5d6ea8ece86a52cf8/lessons/past-papers/2021/page-08.jpg",
+      "visibility": "private",
+      "sha256": "0ad56287f8feaec074ec96b05cc06a5312022beaed44f8d5d6ea8ece86a52cf8",
+      "size": 271506,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/page-09.jpg": {
+      "key": "media/6730696dcc1854c27894ffc6dd5d97b114a8dc10818b26a1e3836a0b4fb52d7a/lessons/past-papers/2021/page-09.jpg",
+      "visibility": "private",
+      "sha256": "6730696dcc1854c27894ffc6dd5d97b114a8dc10818b26a1e3836a0b4fb52d7a",
+      "size": 235325,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2021/source.pdf": {
+      "key": "media/87bfb90b6e7d2445e540571279f98fa9ef74d1e2f5a79ddd176d50a6fd85a61d/lessons/past-papers/2021/source.pdf",
+      "visibility": "private",
+      "sha256": "87bfb90b6e7d2445e540571279f98fa9ef74d1e2f5a79ddd176d50a6fd85a61d",
+      "size": 1653299,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2022/page-01.jpg": {
+      "key": "media/76b764f1f13271126b29dcf83de30c67b947c04d3a5e1393c97e37662825a6c1/lessons/past-papers/2022/page-01.jpg",
+      "visibility": "private",
+      "sha256": "76b764f1f13271126b29dcf83de30c67b947c04d3a5e1393c97e37662825a6c1",
+      "size": 224035,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-02.jpg": {
+      "key": "media/2d69af0ee50e5525baf194f0988f1a72f269911610aa97759af23a1bf717526e/lessons/past-papers/2022/page-02.jpg",
+      "visibility": "private",
+      "sha256": "2d69af0ee50e5525baf194f0988f1a72f269911610aa97759af23a1bf717526e",
+      "size": 247123,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-03.jpg": {
+      "key": "media/f197667becc51d3b1a6d5b5c715e99341217cd38859089e4eb3907eb08ebabf6/lessons/past-papers/2022/page-03.jpg",
+      "visibility": "private",
+      "sha256": "f197667becc51d3b1a6d5b5c715e99341217cd38859089e4eb3907eb08ebabf6",
+      "size": 269274,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-04.jpg": {
+      "key": "media/e083b9cfaafec463f73c0b10444a94323430729780bea76cfe749a7d263e4682/lessons/past-papers/2022/page-04.jpg",
+      "visibility": "private",
+      "sha256": "e083b9cfaafec463f73c0b10444a94323430729780bea76cfe749a7d263e4682",
+      "size": 225991,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-05.jpg": {
+      "key": "media/fc8e743454a707130221f17f37d0d4861dd84e6889bc8ddee9ab9e5c8ad5417c/lessons/past-papers/2022/page-05.jpg",
+      "visibility": "private",
+      "sha256": "fc8e743454a707130221f17f37d0d4861dd84e6889bc8ddee9ab9e5c8ad5417c",
+      "size": 227779,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-06.jpg": {
+      "key": "media/d60bf63e5ab3b5a3d9ddc97c22cf954c1e0c0c42959a0349726b5d533d012377/lessons/past-papers/2022/page-06.jpg",
+      "visibility": "private",
+      "sha256": "d60bf63e5ab3b5a3d9ddc97c22cf954c1e0c0c42959a0349726b5d533d012377",
+      "size": 194737,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-07.jpg": {
+      "key": "media/e97c6a9bffb47332c81449392e830e58a4b5d8c4e52038d915f38048af0f5fab/lessons/past-papers/2022/page-07.jpg",
+      "visibility": "private",
+      "sha256": "e97c6a9bffb47332c81449392e830e58a4b5d8c4e52038d915f38048af0f5fab",
+      "size": 243051,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/page-08.jpg": {
+      "key": "media/febe422cfc99181a6d166e835ac32d67c4c939b721bf8fd308bf1b17ba0f23d4/lessons/past-papers/2022/page-08.jpg",
+      "visibility": "private",
+      "sha256": "febe422cfc99181a6d166e835ac32d67c4c939b721bf8fd308bf1b17ba0f23d4",
+      "size": 279254,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2022/source.pdf": {
+      "key": "media/9538e64b3bdecd0532f8a5ac777308196d7826e240db04ec460813fbaafd914d/lessons/past-papers/2022/source.pdf",
+      "visibility": "private",
+      "sha256": "9538e64b3bdecd0532f8a5ac777308196d7826e240db04ec460813fbaafd914d",
+      "size": 2038132,
+      "contentType": "application/pdf"
+    },
+    "lessons/past-papers/2023/mcq-25.jpg": {
+      "key": "media/2e0f2f2c6bf41360f5bc9ce79272d22bda2969e7b1188abb9a2323327b826afc/lessons/past-papers/2023/mcq-25.jpg",
+      "visibility": "private",
+      "sha256": "2e0f2f2c6bf41360f5bc9ce79272d22bda2969e7b1188abb9a2323327b826afc",
+      "size": 63390,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-01.jpg": {
+      "key": "media/b034b30f2106f24f15b7d0dfe5f5d0e73e05db0de16de82a2da57e16a6fe6511/lessons/past-papers/2023/page-01.jpg",
+      "visibility": "private",
+      "sha256": "b034b30f2106f24f15b7d0dfe5f5d0e73e05db0de16de82a2da57e16a6fe6511",
+      "size": 219380,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-02.jpg": {
+      "key": "media/38eeee2bae6dcfe0931d2955ca3fdae958a378ea145db62b407240b86390c821/lessons/past-papers/2023/page-02.jpg",
+      "visibility": "private",
+      "sha256": "38eeee2bae6dcfe0931d2955ca3fdae958a378ea145db62b407240b86390c821",
+      "size": 203199,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-03.jpg": {
+      "key": "media/cb6a54daf026f33bb3c02b657961bc579a7ee5f8a8bb09c821ac4e826833e02a/lessons/past-papers/2023/page-03.jpg",
+      "visibility": "private",
+      "sha256": "cb6a54daf026f33bb3c02b657961bc579a7ee5f8a8bb09c821ac4e826833e02a",
+      "size": 221374,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-04.jpg": {
+      "key": "media/c156505f6cf68ad47299426916cd5a47223e39a5b131c8b5a6d0a427604bc5b6/lessons/past-papers/2023/page-04.jpg",
+      "visibility": "private",
+      "sha256": "c156505f6cf68ad47299426916cd5a47223e39a5b131c8b5a6d0a427604bc5b6",
+      "size": 223048,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-05.jpg": {
+      "key": "media/b583561930aa3fd3d486a64fe32e052f2634b0b362aebd46c1e2eafba7f902c6/lessons/past-papers/2023/page-05.jpg",
+      "visibility": "private",
+      "sha256": "b583561930aa3fd3d486a64fe32e052f2634b0b362aebd46c1e2eafba7f902c6",
+      "size": 232237,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-06.jpg": {
+      "key": "media/927e67e3a820f7ab02c3cd4ce4feb071a251ed1e10bb2283c8101987a62856ca/lessons/past-papers/2023/page-06.jpg",
+      "visibility": "private",
+      "sha256": "927e67e3a820f7ab02c3cd4ce4feb071a251ed1e10bb2283c8101987a62856ca",
+      "size": 217338,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-07.jpg": {
+      "key": "media/6df69cd67e6271f5588108b58d88592bc4d8c7eae0bf3e426af78b73de7462d1/lessons/past-papers/2023/page-07.jpg",
+      "visibility": "private",
+      "sha256": "6df69cd67e6271f5588108b58d88592bc4d8c7eae0bf3e426af78b73de7462d1",
+      "size": 192407,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-08.jpg": {
+      "key": "media/0651c3fd48180f78d7ea5c8a24071811e284c97a07dc2893ee7ff27aaa5a1bf7/lessons/past-papers/2023/page-08.jpg",
+      "visibility": "private",
+      "sha256": "0651c3fd48180f78d7ea5c8a24071811e284c97a07dc2893ee7ff27aaa5a1bf7",
+      "size": 201648,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-09.jpg": {
+      "key": "media/290ca4ab5b575415be0e5ac6325d8595ae0ffb5e3e252e62c27054deb7d6bc93/lessons/past-papers/2023/page-09.jpg",
+      "visibility": "private",
+      "sha256": "290ca4ab5b575415be0e5ac6325d8595ae0ffb5e3e252e62c27054deb7d6bc93",
+      "size": 210446,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-10.jpg": {
+      "key": "media/ec95e8172006b7da9b2da32e7a0e9a73a9f92e19034ad777140d5ac4c7f5d39e/lessons/past-papers/2023/page-10.jpg",
+      "visibility": "private",
+      "sha256": "ec95e8172006b7da9b2da32e7a0e9a73a9f92e19034ad777140d5ac4c7f5d39e",
+      "size": 199173,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-11.jpg": {
+      "key": "media/055ad66036d803c42604b2dbb1a9e3a8b89870890ab9b353e4c534a282deec4f/lessons/past-papers/2023/page-11.jpg",
+      "visibility": "private",
+      "sha256": "055ad66036d803c42604b2dbb1a9e3a8b89870890ab9b353e4c534a282deec4f",
+      "size": 224765,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/page-12.jpg": {
+      "key": "media/c1467105b8f8d4d3f89d1d3b3c1563f1af34ff5d25a627b415b78f7f33805e8b/lessons/past-papers/2023/page-12.jpg",
+      "visibility": "private",
+      "sha256": "c1467105b8f8d4d3f89d1d3b3c1563f1af34ff5d25a627b415b78f7f33805e8b",
+      "size": 232289,
+      "contentType": "image/jpeg"
+    },
+    "lessons/past-papers/2023/source.pdf": {
+      "key": "media/61ad8c8606556392f89f63cabab321bfdad95e5f90a3ff0039accdc0cd0b79a0/lessons/past-papers/2023/source.pdf",
+      "visibility": "private",
+      "sha256": "61ad8c8606556392f89f63cabab321bfdad95e5f90a3ff0039accdc0cd0b79a0",
+      "size": 16692179,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c02-ta.pdf": {
+      "key": "media/4d2961544bd8c3e35f6d976a7f133e9a0c902b1b1aa177e31a24bd92c60a8841/lessons/textbooks/g10-c02-ta.pdf",
+      "visibility": "private",
+      "sha256": "4d2961544bd8c3e35f6d976a7f133e9a0c902b1b1aa177e31a24bd92c60a8841",
+      "size": 725573,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c04-ta.pdf": {
+      "key": "media/3d8e81611d676c46cdccbd4598b1cb1deb06a424f78db58dae2f03455a3f5724/lessons/textbooks/g10-c04-ta.pdf",
+      "visibility": "private",
+      "sha256": "3d8e81611d676c46cdccbd4598b1cb1deb06a424f78db58dae2f03455a3f5724",
+      "size": 1537504,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c05-ta.pdf": {
+      "key": "media/d5146af39ab608eee8377ae2638c3e6fbfe89363ee3b5a1f74fb5b0c1eac6769/lessons/textbooks/g10-c05-ta.pdf",
+      "visibility": "private",
+      "sha256": "d5146af39ab608eee8377ae2638c3e6fbfe89363ee3b5a1f74fb5b0c1eac6769",
+      "size": 2274196,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c09-ta.pdf": {
+      "key": "media/e852c5435f75d0d6f8934d621e2a7064113bfb2d45eda03e8f805ff4c4c24fb8/lessons/textbooks/g10-c09-ta.pdf",
+      "visibility": "private",
+      "sha256": "e852c5435f75d0d6f8934d621e2a7064113bfb2d45eda03e8f805ff4c4c24fb8",
+      "size": 1141275,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c11-ta.pdf": {
+      "key": "media/15f42c165fa46a74a2541ec5dc68218d2e863a1513a1e40b4f547ad87c93f81d/lessons/textbooks/g10-c11-ta.pdf",
+      "visibility": "private",
+      "sha256": "15f42c165fa46a74a2541ec5dc68218d2e863a1513a1e40b4f547ad87c93f81d",
+      "size": 885701,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-c12-ta.pdf": {
+      "key": "media/d4bfbcf1f79fd187917a4e4101161149f012d3737dd23bcffd6cd219cea93d52/lessons/textbooks/g10-c12-ta.pdf",
+      "visibility": "private",
+      "sha256": "d4bfbcf1f79fd187917a4e4101161149f012d3737dd23bcffd6cd219cea93d52",
+      "size": 1027324,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-p2-en.pdf": {
+      "key": "media/78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4/lessons/textbooks/g10-p2-en.pdf",
+      "visibility": "private",
+      "sha256": "78387f6a7523ea287fb45a7ec8bbbf72b2f5026da1ee414bac9881ed23994db4",
+      "size": 12056022,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g10-p2-ta.pdf": {
+      "key": "media/b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e/lessons/textbooks/g10-p2-ta.pdf",
+      "visibility": "private",
+      "sha256": "b8b16292b2e67a02e3bce253eed38a8fab66e0f8a22eb2e827ca71c84859d59e",
+      "size": 35668432,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g11-c10-ta.pdf": {
+      "key": "media/bc3e4717f1c3f1888245fd770899b6f0487928c0224bb91e7f908cadba13227c/lessons/textbooks/g11-c10-ta.pdf",
+      "visibility": "private",
+      "sha256": "bc3e4717f1c3f1888245fd770899b6f0487928c0224bb91e7f908cadba13227c",
+      "size": 1828168,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g11-c11-ta.pdf": {
+      "key": "media/da2facda888116d239732235b8c31460f73a9f19d39b2cbdf2a8a97ec7d2a9cf/lessons/textbooks/g11-c11-ta.pdf",
+      "visibility": "private",
+      "sha256": "da2facda888116d239732235b8c31460f73a9f19d39b2cbdf2a8a97ec7d2a9cf",
+      "size": 874295,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g11-c13-ta.pdf": {
+      "key": "media/bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319/lessons/textbooks/g11-c13-ta.pdf",
+      "visibility": "private",
+      "sha256": "bb3203b23f729fa9fd7ee44cea6fab73686703bc2f99ffee4581f87b207b9319",
+      "size": 962334,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g11-p1-en.pdf": {
+      "key": "media/5ae11e0b008e540a2fac43016ff3865303186b5ccc749cea488ca1f41a02ae29/lessons/textbooks/g11-p1-en.pdf",
+      "visibility": "private",
+      "sha256": "5ae11e0b008e540a2fac43016ff3865303186b5ccc749cea488ca1f41a02ae29",
+      "size": 9025380,
+      "contentType": "application/pdf"
+    },
+    "lessons/textbooks/g11-p2-en.pdf": {
+      "key": "media/fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30/lessons/textbooks/g11-p2-en.pdf",
+      "visibility": "private",
+      "sha256": "fc1d8429d29b5acb97c954237b87057c86bfe8c17098b64b6d56f526602c9e30",
+      "size": 4861497,
+      "contentType": "application/pdf"
+    },
+    "static/audio/story/c11/line00.mp3": {
+      "key": "media/21905315a5baa43642da4f75924d1f97e34870c40f211f7c34fe668355758d81/static/audio/story/c11/line00.mp3",
+      "visibility": "public",
+      "sha256": "21905315a5baa43642da4f75924d1f97e34870c40f211f7c34fe668355758d81",
+      "size": 54000,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line01.mp3": {
+      "key": "media/b5d856711424895dcc449cf4751ca5dd47c1703db8c1b52cf31e1841ce19f652/static/audio/story/c11/line01.mp3",
+      "visibility": "public",
+      "sha256": "b5d856711424895dcc449cf4751ca5dd47c1703db8c1b52cf31e1841ce19f652",
+      "size": 65376,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line02.mp3": {
+      "key": "media/9d9e0e56e980a71a8fc2e0f8ec09024514f1c24b3f5ac6a9948dc3667107751b/static/audio/story/c11/line02.mp3",
+      "visibility": "public",
+      "sha256": "9d9e0e56e980a71a8fc2e0f8ec09024514f1c24b3f5ac6a9948dc3667107751b",
+      "size": 13824,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line03.mp3": {
+      "key": "media/c08380feadd1c92505eb0b7328f99eb07461964603df223e8c184fef353b319b/static/audio/story/c11/line03.mp3",
+      "visibility": "public",
+      "sha256": "c08380feadd1c92505eb0b7328f99eb07461964603df223e8c184fef353b319b",
+      "size": 102672,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line04.mp3": {
+      "key": "media/b8edaabe1c9cdae109618694531de59c62673b5306c0dc6ed560bce584258493/static/audio/story/c11/line04.mp3",
+      "visibility": "public",
+      "sha256": "b8edaabe1c9cdae109618694531de59c62673b5306c0dc6ed560bce584258493",
+      "size": 24192,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line05.mp3": {
+      "key": "media/f4848e8fe62a638504bd2df0d32dcf8b212b7e4526b438292501ab7841dd4da0/static/audio/story/c11/line05.mp3",
+      "visibility": "public",
+      "sha256": "f4848e8fe62a638504bd2df0d32dcf8b212b7e4526b438292501ab7841dd4da0",
+      "size": 42912,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line06.mp3": {
+      "key": "media/63e47ed9b125818116b13bd5af53ebce8341b42104f28aa2ed88119d291295e4/static/audio/story/c11/line06.mp3",
+      "visibility": "public",
+      "sha256": "63e47ed9b125818116b13bd5af53ebce8341b42104f28aa2ed88119d291295e4",
+      "size": 14256,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line07.mp3": {
+      "key": "media/c7bfd81ea0278e9bcea699f603331522e7d39e77cc58207079010a5181ae5dd8/static/audio/story/c11/line07.mp3",
+      "visibility": "public",
+      "sha256": "c7bfd81ea0278e9bcea699f603331522e7d39e77cc58207079010a5181ae5dd8",
+      "size": 44784,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c11/line08.mp3": {
+      "key": "media/90685f7e7ddc2106adf49012d03c5da0b21b9466670a149b1d71cbc38bd1aa78/static/audio/story/c11/line08.mp3",
+      "visibility": "public",
+      "sha256": "90685f7e7ddc2106adf49012d03c5da0b21b9466670a149b1d71cbc38bd1aa78",
+      "size": 25920,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line00.mp3": {
+      "key": "media/a13082c4cf80f3db11bd2d5765e2add3a9c4073079407fcadf02c5a49a95c62a/static/audio/story/c12/line00.mp3",
+      "visibility": "public",
+      "sha256": "a13082c4cf80f3db11bd2d5765e2add3a9c4073079407fcadf02c5a49a95c62a",
+      "size": 44352,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line01.mp3": {
+      "key": "media/b4366ce693620162b7b3a5d53f911760b143272668c118e6f79ffe42028d68ca/static/audio/story/c12/line01.mp3",
+      "visibility": "public",
+      "sha256": "b4366ce693620162b7b3a5d53f911760b143272668c118e6f79ffe42028d68ca",
+      "size": 87408,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line02.mp3": {
+      "key": "media/50ae2cc401833d7281a24644a371d78deb64874654847373997cd71272d85971/static/audio/story/c12/line02.mp3",
+      "visibility": "public",
+      "sha256": "50ae2cc401833d7281a24644a371d78deb64874654847373997cd71272d85971",
+      "size": 53136,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line03.mp3": {
+      "key": "media/0ecfc9c82d1eba0e8ca62d4b35e0766a71a9494124af0f7a940e6efb5798007e/static/audio/story/c12/line03.mp3",
+      "visibility": "public",
+      "sha256": "0ecfc9c82d1eba0e8ca62d4b35e0766a71a9494124af0f7a940e6efb5798007e",
+      "size": 64080,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line04.mp3": {
+      "key": "media/2de6d555f3966eb461a75ea95c6275f04817f51848a38902e0ca45aa283764e3/static/audio/story/c12/line04.mp3",
+      "visibility": "public",
+      "sha256": "2de6d555f3966eb461a75ea95c6275f04817f51848a38902e0ca45aa283764e3",
+      "size": 21456,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line05.mp3": {
+      "key": "media/2518cf9c3ed30ef0d2c448c634c2ffd9ce4900afb462bfe54de2994d29e62ba7/static/audio/story/c12/line05.mp3",
+      "visibility": "public",
+      "sha256": "2518cf9c3ed30ef0d2c448c634c2ffd9ce4900afb462bfe54de2994d29e62ba7",
+      "size": 70704,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line06.mp3": {
+      "key": "media/e260c3e50f6c18f00858e27de94b6069475a83a19cce5571f92e3ba7a7c2db85/static/audio/story/c12/line06.mp3",
+      "visibility": "public",
+      "sha256": "e260c3e50f6c18f00858e27de94b6069475a83a19cce5571f92e3ba7a7c2db85",
+      "size": 19872,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line07.mp3": {
+      "key": "media/ff2282a0ed14dca37fc86ff8e6a2d0397ef6fc180f0bee89ac7bf1450aa43525/static/audio/story/c12/line07.mp3",
+      "visibility": "public",
+      "sha256": "ff2282a0ed14dca37fc86ff8e6a2d0397ef6fc180f0bee89ac7bf1450aa43525",
+      "size": 47952,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c12/line08.mp3": {
+      "key": "media/60975432d683798496bff8d9a4ac1e891edb96dec990c7f2079ef6de6653b645/static/audio/story/c12/line08.mp3",
+      "visibility": "public",
+      "sha256": "60975432d683798496bff8d9a4ac1e891edb96dec990c7f2079ef6de6653b645",
+      "size": 34128,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line00.mp3": {
+      "key": "media/106fdcb76d8a50c1fa7b69b27ab960a9849a99a955950e94c83d7d976ce39349/static/audio/story/c4/line00.mp3",
+      "visibility": "public",
+      "sha256": "106fdcb76d8a50c1fa7b69b27ab960a9849a99a955950e94c83d7d976ce39349",
+      "size": 34848,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line01.mp3": {
+      "key": "media/b14b0f955888552c3a6dd299d44e1865bb9b8c5dc92573a2f6da674a2d7f476e/static/audio/story/c4/line01.mp3",
+      "visibility": "public",
+      "sha256": "b14b0f955888552c3a6dd299d44e1865bb9b8c5dc92573a2f6da674a2d7f476e",
+      "size": 56016,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line02.mp3": {
+      "key": "media/3a3997ebcf9f4490758d4af3426cba408e0f724afce354c388ae4c2d6615d909/static/audio/story/c4/line02.mp3",
+      "visibility": "public",
+      "sha256": "3a3997ebcf9f4490758d4af3426cba408e0f724afce354c388ae4c2d6615d909",
+      "size": 26784,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line03.mp3": {
+      "key": "media/75499e6494fb56e0b225684fc9405c4f7a894bfb13e329c873221a6dcd22a633/static/audio/story/c4/line03.mp3",
+      "visibility": "public",
+      "sha256": "75499e6494fb56e0b225684fc9405c4f7a894bfb13e329c873221a6dcd22a633",
+      "size": 118944,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line04.mp3": {
+      "key": "media/7036d8dbb50db52f4677a41d5578b37d0b1e9fb8c786a641f272c0a281609bef/static/audio/story/c4/line04.mp3",
+      "visibility": "public",
+      "sha256": "7036d8dbb50db52f4677a41d5578b37d0b1e9fb8c786a641f272c0a281609bef",
+      "size": 17280,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line05.mp3": {
+      "key": "media/e8e55df446feae1beee506f9574af9e74a1f18eb265503d3d597920f75a2bbc2/static/audio/story/c4/line05.mp3",
+      "visibility": "public",
+      "sha256": "e8e55df446feae1beee506f9574af9e74a1f18eb265503d3d597920f75a2bbc2",
+      "size": 50832,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line06.mp3": {
+      "key": "media/5586452b4de114980011474b47409eb5a4c0ce53ce9c3f825fb23503248d29a1/static/audio/story/c4/line06.mp3",
+      "visibility": "public",
+      "sha256": "5586452b4de114980011474b47409eb5a4c0ce53ce9c3f825fb23503248d29a1",
+      "size": 28944,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line07.mp3": {
+      "key": "media/87c4fc48a8edd02095493c38e12653ec32f00f729e635fa0f7551af14f663e55/static/audio/story/c4/line07.mp3",
+      "visibility": "public",
+      "sha256": "87c4fc48a8edd02095493c38e12653ec32f00f729e635fa0f7551af14f663e55",
+      "size": 70704,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c4/line08.mp3": {
+      "key": "media/d87256b581789cbda3239e63931b959bfbb874549f5b075386ff614b0654dc2d/static/audio/story/c4/line08.mp3",
+      "visibility": "public",
+      "sha256": "d87256b581789cbda3239e63931b959bfbb874549f5b075386ff614b0654dc2d",
+      "size": 36576,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line00.mp3": {
+      "key": "media/d5352c67ba9ab99a2891f294a1d6ee17dd6d5116e8be82b407ec656e6abb303c/static/audio/story/c5/line00.mp3",
+      "visibility": "public",
+      "sha256": "d5352c67ba9ab99a2891f294a1d6ee17dd6d5116e8be82b407ec656e6abb303c",
+      "size": 45072,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line01.mp3": {
+      "key": "media/20600d33a8e6dcb1b19a97446534384985457e42f8c8de479dc02f85c1c9767e/static/audio/story/c5/line01.mp3",
+      "visibility": "public",
+      "sha256": "20600d33a8e6dcb1b19a97446534384985457e42f8c8de479dc02f85c1c9767e",
+      "size": 63216,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line02.mp3": {
+      "key": "media/ef2536a5dc0ff02ccf5cfd32fb06052afe849fc88891345c771cea41a3f968f3/static/audio/story/c5/line02.mp3",
+      "visibility": "public",
+      "sha256": "ef2536a5dc0ff02ccf5cfd32fb06052afe849fc88891345c771cea41a3f968f3",
+      "size": 15696,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line03.mp3": {
+      "key": "media/024b6c6767847ae885ad424613ac4943ef96bf83fcec877d5a9924168ca8bc8a/static/audio/story/c5/line03.mp3",
+      "visibility": "public",
+      "sha256": "024b6c6767847ae885ad424613ac4943ef96bf83fcec877d5a9924168ca8bc8a",
+      "size": 58032,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line04.mp3": {
+      "key": "media/2080db57c1931b2d2b3e87c7bb5fd3678ed7f17329650ddcdfa6151cdeba41ce/static/audio/story/c5/line04.mp3",
+      "visibility": "public",
+      "sha256": "2080db57c1931b2d2b3e87c7bb5fd3678ed7f17329650ddcdfa6151cdeba41ce",
+      "size": 41040,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line05.mp3": {
+      "key": "media/a5d9fe96e744dcbfe7e0f0c4acd509ea373d1ca9045b9dcba1f4c466a3be7049/static/audio/story/c5/line05.mp3",
+      "visibility": "public",
+      "sha256": "a5d9fe96e744dcbfe7e0f0c4acd509ea373d1ca9045b9dcba1f4c466a3be7049",
+      "size": 58896,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line06.mp3": {
+      "key": "media/699c6d3e6c4a3099d01109aa23710c379d4e892466cebd687281642ee82a8f16/static/audio/story/c5/line06.mp3",
+      "visibility": "public",
+      "sha256": "699c6d3e6c4a3099d01109aa23710c379d4e892466cebd687281642ee82a8f16",
+      "size": 16560,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line07.mp3": {
+      "key": "media/11038ce35ebbadfed75f0bd8ad3008338bceb5d464b7559f3cf924503835aa2b/static/audio/story/c5/line07.mp3",
+      "visibility": "public",
+      "sha256": "11038ce35ebbadfed75f0bd8ad3008338bceb5d464b7559f3cf924503835aa2b",
+      "size": 56448,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c5/line08.mp3": {
+      "key": "media/e7f04a34aeda2aa163a4bed30fc5dc0962d4aa87190484c1a63ea937b4bf4564/static/audio/story/c5/line08.mp3",
+      "visibility": "public",
+      "sha256": "e7f04a34aeda2aa163a4bed30fc5dc0962d4aa87190484c1a63ea937b4bf4564",
+      "size": 31104,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line00.mp3": {
+      "key": "media/618005a04a5c8e57472ebb3acdd9efeabfc17be61a7be4ecfa9bd492cb0b9671/static/audio/story/c9/line00.mp3",
+      "visibility": "public",
+      "sha256": "618005a04a5c8e57472ebb3acdd9efeabfc17be61a7be4ecfa9bd492cb0b9671",
+      "size": 49392,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line01.mp3": {
+      "key": "media/a21b40708766dbca235405826b7359bd37bb77a322879f6cb2ab370fef53bf34/static/audio/story/c9/line01.mp3",
+      "visibility": "public",
+      "sha256": "a21b40708766dbca235405826b7359bd37bb77a322879f6cb2ab370fef53bf34",
+      "size": 20592,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line02.mp3": {
+      "key": "media/e649d98d4673433db57c2c8f2bd76303117fbe8ccc7772ca6841e9ccdd85ece8/static/audio/story/c9/line02.mp3",
+      "visibility": "public",
+      "sha256": "e649d98d4673433db57c2c8f2bd76303117fbe8ccc7772ca6841e9ccdd85ece8",
+      "size": 24192,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line03.mp3": {
+      "key": "media/5e5f08bfd96591811685dc4c5641ba785f30a2259ff2fe57e6752e0d03cb6e70/static/audio/story/c9/line03.mp3",
+      "visibility": "public",
+      "sha256": "5e5f08bfd96591811685dc4c5641ba785f30a2259ff2fe57e6752e0d03cb6e70",
+      "size": 76896,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line04.mp3": {
+      "key": "media/8ce9f2501148a083694a39f4a3936c91d64e0b289eaee62593607a39ad2c4bfb/static/audio/story/c9/line04.mp3",
+      "visibility": "public",
+      "sha256": "8ce9f2501148a083694a39f4a3936c91d64e0b289eaee62593607a39ad2c4bfb",
+      "size": 32544,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line05.mp3": {
+      "key": "media/726788049d7e3c9b4b07b8038ae2eb390e59ed6cf34d401dbece007186b8e05c/static/audio/story/c9/line05.mp3",
+      "visibility": "public",
+      "sha256": "726788049d7e3c9b4b07b8038ae2eb390e59ed6cf34d401dbece007186b8e05c",
+      "size": 37584,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line06.mp3": {
+      "key": "media/3b944cec649ed2395292873a761f9b5933132fd65cc92ff781a53ffdd3155df8/static/audio/story/c9/line06.mp3",
+      "visibility": "public",
+      "sha256": "3b944cec649ed2395292873a761f9b5933132fd65cc92ff781a53ffdd3155df8",
+      "size": 33264,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line07.mp3": {
+      "key": "media/35019e506511a01fc5f3f4a2a4695b409ba94a48155e9a55bf0a428b1f7ce3c2/static/audio/story/c9/line07.mp3",
+      "visibility": "public",
+      "sha256": "35019e506511a01fc5f3f4a2a4695b409ba94a48155e9a55bf0a428b1f7ce3c2",
+      "size": 31104,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/c9/line08.mp3": {
+      "key": "media/ed0ef8208d39f4f24949828972f56e333a6d4078d641aca9749badd80e90e4f7/static/audio/story/c9/line08.mp3",
+      "visibility": "public",
+      "sha256": "ed0ef8208d39f4f24949828972f56e333a6d4078d641aca9749badd80e90e4f7",
+      "size": 30816,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line00.mp3": {
+      "key": "media/c4a82580535130ed80bfa2b3d5af848d93df06083bbf99d5e92be1c456cac830/static/audio/story/u2/line00.mp3",
+      "visibility": "public",
+      "sha256": "c4a82580535130ed80bfa2b3d5af848d93df06083bbf99d5e92be1c456cac830",
+      "size": 73008,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line01.mp3": {
+      "key": "media/59b4dbb47e5b3e5c15ff2ffe93b92c43a1d93c65aecbf6e419e82fa14fc8ad42/static/audio/story/u2/line01.mp3",
+      "visibility": "public",
+      "sha256": "59b4dbb47e5b3e5c15ff2ffe93b92c43a1d93c65aecbf6e419e82fa14fc8ad42",
+      "size": 34848,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line02.mp3": {
+      "key": "media/464b80aff133b09934d1fdf46299b55318b780a102ac3010dff59eb5c0d80556/static/audio/story/u2/line02.mp3",
+      "visibility": "public",
+      "sha256": "464b80aff133b09934d1fdf46299b55318b780a102ac3010dff59eb5c0d80556",
+      "size": 45504,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line03.mp3": {
+      "key": "media/dce9967528815968b6d22230c91e55558e2ea8e7b33898d380e6e32bac72876b/static/audio/story/u2/line03.mp3",
+      "visibility": "public",
+      "sha256": "dce9967528815968b6d22230c91e55558e2ea8e7b33898d380e6e32bac72876b",
+      "size": 92304,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line04.mp3": {
+      "key": "media/e07019f4ec988c655c1c771fccc7ec97afa8990ffa345a27ed9580d3bfcc4f38/static/audio/story/u2/line04.mp3",
+      "visibility": "public",
+      "sha256": "e07019f4ec988c655c1c771fccc7ec97afa8990ffa345a27ed9580d3bfcc4f38",
+      "size": 24912,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line05.mp3": {
+      "key": "media/cb2b032688e5c1d75f8917ccbd037bf4677e3b0e9156c822570f66f219ae595f/static/audio/story/u2/line05.mp3",
+      "visibility": "public",
+      "sha256": "cb2b032688e5c1d75f8917ccbd037bf4677e3b0e9156c822570f66f219ae595f",
+      "size": 95040,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line06.mp3": {
+      "key": "media/77dbd459ff70a64def8ebd9f8acdfda2b89c20f641e51c7a0917875b293e6f2b/static/audio/story/u2/line06.mp3",
+      "visibility": "public",
+      "sha256": "77dbd459ff70a64def8ebd9f8acdfda2b89c20f641e51c7a0917875b293e6f2b",
+      "size": 43920,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line07.mp3": {
+      "key": "media/03b6fcdea389b2b5473f05123dd8faf551a2d09b4caa53707ac6329b867725f4/static/audio/story/u2/line07.mp3",
+      "visibility": "public",
+      "sha256": "03b6fcdea389b2b5473f05123dd8faf551a2d09b4caa53707ac6329b867725f4",
+      "size": 27504,
+      "contentType": "audio/mpeg"
+    },
+    "static/audio/story/u2/line08.mp3": {
+      "key": "media/22e83435de874f8f9c436b8c8f03034d22d7c6e4eded48ba79dd24f5b7567ab8/static/audio/story/u2/line08.mp3",
+      "visibility": "public",
+      "sha256": "22e83435de874f8f9c436b8c8f03034d22d7c6e4eded48ba79dd24f5b7567ab8",
+      "size": 25488,
+      "contentType": "audio/mpeg"
+    },
+    "static/stem_cloud_ad_poster.jpg": {
+      "key": "media/065d6f71225daf80eb6c2d47f742bc0b92307836c627a87d7fbf018bef2315c3/static/stem_cloud_ad_poster.jpg",
+      "visibility": "public",
+      "sha256": "065d6f71225daf80eb6c2d47f742bc0b92307836c627a87d7fbf018bef2315c3",
+      "size": 670661,
+      "contentType": "image/jpeg"
+    }
+  }
+}

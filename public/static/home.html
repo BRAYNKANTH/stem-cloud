@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STEM Cloud · Digitalized Learning Platform for G.C.E. O/L</title>
+<meta name="description" content="STEM Cloud is Sri Lanka's digitalized learning platform for G.C.E. Ordinary Level lessons. Interactive virtual labs, guided syllabus lessons, neural bilingual voice, and gamified progress.">
+<meta name="theme-color" content="#f1f6fc">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">
+<link rel="icon" type="image/png" href="/static/brand/logo-mark.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="STEM Cloud">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap">
+
+<style>
+  :root {
+    --bg: #090e17;
+    --card: #111a2a;
+    --card-hover: #162238;
+    --card-surface: #141f33;
+    --text: #e9effb;
+    --dim: #9ab0d3;
+    --faint: #637799;
+    --line: #22324e;
+    --line-glow: rgba(76, 195, 240, 0.28);
+    --acc: #4cc3f0;
+    --acc2: #8aa8ff;
+    --acc-gradient: linear-gradient(135deg, #4cc3f0, #8aa8ff);
+    --accent-glow: rgba(76, 195, 240, 0.18);
+    --on-acc: #06182b;
+    --good: #5ee0c2;
+    --good-dim: rgba(94, 224, 194, 0.15);
+    --amber: #ffb86c;
+    --raja: #f6ad55;
+    --chittu: #63b3ed;
+    --badge-bg: #19263e;
+    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.25);
+    --shadow-card: 0 16px 40px -10px rgba(0, 0, 0, 0.5);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --wrap-w: 1160px;
+  }
+
+  :root[data-theme="light"], @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f3f6fb;
+      --card: #ffffff;
+      --card-hover: #f9fbff;
+      --card-surface: #eef3fa;
+      --text: #0e1e38;
+      --dim: #475b7c;
+      --faint: #798ea8;
+      --line: #d2deef;
+      --line-glow: rgba(11, 114, 189, 0.2);
+      --acc: #0b72bd;
+      --acc2: #2c4fbf;
+      --acc-gradient: linear-gradient(135deg, #0b72bd, #2c4fbf);
+      --accent-glow: rgba(11, 114, 189, 0.12);
+      --on-acc: #ffffff;
+      --good: #08705d;
+      --good-dim: rgba(8, 112, 93, 0.12);
+      --amber: #b75e14;
+      --raja: #c05621;
+      --chittu: #2b6cb0;
+      --badge-bg: #e5edf8;
+      --shadow-subtle: 0 4px 20px rgba(14, 30, 56, 0.06);
+      --shadow-card: 0 16px 36px -12px rgba(14, 30, 56, 0.12);
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%), var(--bg);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 { font-family: 'Sora', sans-serif; font-weight: 700; line-height: 1.25; color: var(--text); }
+  a { color: var(--acc); text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* Accessibility skip link */
+  .skip-link {
+    position: fixed; top: -60px; left: 16px; z-index: 1000;
+    background: var(--card); color: var(--acc); padding: 12px 20px;
+    border-radius: var(--radius-sm); border: 2px solid var(--acc);
+    font-weight: 700; transition: top 0.2s;
+  }
+  .skip-link:focus { top: 16px; }
+
+  /* Layout container */
+  .container {
+    max-width: var(--wrap-w);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------------- Navbar ---------------- */
+  .nav {
+    position: sticky; top: 0; z-index: 200;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    padding-top: env(safe-area-inset-top);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; gap: 20px;
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.35rem;
+    color: var(--text);
+  }
+  .nav-brand img { width: 44px; height: 29px; object-fit: contain; }
+  .nav-brand span {
+    background: var(--acc-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--dim); font-weight: 600; font-size: 0.95rem;
+    transition: color 0.2s ease;
+    display: inline-flex; align-items: center; gap: 6px;
+    min-height: 44px;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+  .nav-actions {
+    display: flex; align-items: center; gap: 12px;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-weight: 700; font-size: 0.95rem;
+    padding: 10px 20px; min-height: 44px; border-radius: 12px;
+    border: 1.5px solid var(--line); background: var(--card); color: var(--text);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    text-decoration: none;
+  }
+  .btn:hover {
+    transform: translateY(-1.5px);
+    border-color: var(--acc);
+    box-shadow: 0 6px 16px var(--accent-glow);
+  }
+  .btn:active { transform: translateY(0); }
+  .btn-primary {
+    background: var(--acc-gradient);
+    border: none;
+    color: var(--on-acc);
+    box-shadow: 0 8px 22px -6px rgba(76, 195, 240, 0.45);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 12px 28px -4px rgba(76, 195, 240, 0.6);
+    color: var(--on-acc);
+  }
+  .btn-whatsapp {
+    background: #25d366;
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 8px 22px -6px rgba(37, 211, 102, 0.45);
+  }
+  .btn-whatsapp:hover {
+    box-shadow: 0 12px 28px -4px rgba(37, 211, 102, 0.6);
+    color: #ffffff;
+  }
+  .btn-whatsapp svg { width: 19px; height: 19px; fill: currentColor; }
+  .btn-sm { padding: 8px 14px; font-size: 0.88rem; min-height: 38px; border-radius: 10px; }
+
+  .theme-toggle-btn {
+    width: 42px; height: 42px; border-radius: 12px;
+    border: 1.5px solid var(--line); background: var(--card);
+    color: var(--dim); display: flex; align-items: center; justify-content: center;
+    font-size: 1.15rem; transition: all 0.2s;
+  }
+  .theme-toggle-btn:hover { border-color: var(--acc); color: var(--text); }
+
+  /* Mobile menu button */
+  .mobile-toggle {
+    display: none; width: 44px; height: 44px; border-radius: 12px;
+    background: var(--card); border: 1.5px solid var(--line);
+    color: var(--text); font-size: 1.3rem; align-items: center; justify-content: center;
+  }
+
+  /* ---------------- Hero Section ---------------- */
+  .hero {
+    padding: 72px 0 60px;
+    position: relative;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 99px;
+    background: var(--badge-bg); border: 1px solid var(--line-glow);
+    font-size: 0.84rem; font-weight: 700; color: var(--acc);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: clamp(2.3rem, 4.5vw, 3.4rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .hero-title .gradient-text {
+    background: var(--acc-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-lead {
+    font-size: 1.15rem; color: var(--dim); line-height: 1.65;
+    margin-bottom: 32px; max-width: 580px;
+  }
+  .hero-btns {
+    display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .hero-stat b {
+    display: block; font-size: 1.65rem; font-family: 'Sora', sans-serif;
+    color: var(--text); font-weight: 800;
+  }
+  .hero-stat span {
+    font-size: 0.85rem; color: var(--dim); font-weight: 500;
+  }
+
+  /* Logged-in Welcome Banner */
+  .user-badge-banner {
+    display: none;
+    align-items: center; justify-content: space-between; gap: 14px;
+    background: color-mix(in srgb, var(--good) 12%, var(--card));
+    border: 1.5px solid var(--good);
+    padding: 12px 18px; border-radius: var(--radius-md);
+    margin-bottom: 24px; font-size: 0.95rem;
+  }
+  .user-badge-banner.show { display: flex; }
+
+  /* Hero Live Interactive Card */
+  .hero-interactive {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-interactive::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--acc-gradient);
+  }
+  .hi-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .hi-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; font-weight: 700; color: var(--good);
+    background: var(--good-dim); padding: 4px 10px; border-radius: 99px;
+  }
+  .hi-title { font-size: 1.05rem; font-weight: 700; }
+  .hi-desc { font-size: 0.88rem; color: var(--dim); margin-bottom: 16px; }
+
+  /* Interactive Lever Simulation */
+  .sim-box {
+    background: var(--card-surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .sim-stage {
+    height: 120px; position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .sim-lever {
+    width: 240px; height: 10px; background: var(--acc2);
+    border-radius: 5px; position: relative;
+    transform-origin: 50% 50%;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .sim-pivot {
+    width: 0; height: 0;
+    border-left: 14px solid transparent; border-right: 14px solid transparent;
+    border-bottom: 24px solid var(--acc);
+    position: absolute; top: 52px; left: calc(50% - 14px);
+  }
+  .sim-mass-left, .sim-mass-right {
+    position: absolute; bottom: 10px;
+    background: var(--raja); color: #fff;
+    border-radius: 6px; font-size: 0.75rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .sim-mass-left { left: 16px; width: 38px; height: 38px; }
+  .sim-mass-right { right: 16px; width: 34px; height: 34px; background: var(--good); color: #06182b; }
+
+  .sim-controls {
+    display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem;
+  }
+  .sim-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .sim-slider {
+    flex: 1; accent-color: var(--acc); height: 6px; cursor: pointer;
+  }
+  .sim-status {
+    padding: 8px 12px; border-radius: var(--radius-sm);
+    font-size: 0.85rem; font-weight: 600; text-align: center;
+    background: var(--card); border: 1px solid var(--line);
+    color: var(--good);
+  }
+
+  /* ---------------- Section Standard ---------------- */
+  section { padding: 68px 0; position: relative; }
+  .section-header { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+  .section-kicker {
+    display: inline-block; font-size: 0.82rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--acc); margin-bottom: 10px;
+  }
+  .section-title { font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin-bottom: 14px; }
+  .section-desc { font-size: 1.05rem; color: var(--dim); line-height: 1.6; }
+
+  /* ---------------- What is STEM Cloud (Core Mission) ---------------- */
+  .about-preview {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    box-shadow: var(--shadow-subtle);
+  }
+  .about-preview-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+  }
+  .about-p-content h3 { font-size: 1.7rem; margin-bottom: 16px; }
+  .about-p-content p { color: var(--dim); margin-bottom: 16px; font-size: 1.02rem; line-height: 1.7; }
+  .about-points { list-style: none; margin: 20px 0; display: flex; flex-direction: column; gap: 12px; }
+  .about-points li {
+    display: flex; align-items: flex-start; gap: 12px; font-weight: 600; font-size: 0.95rem;
+  }
+  .about-points li span.icon {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--good-dim); color: var(--good);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; flex-shrink: 0; margin-top: 1px;
+  }
+
+  .about-preview-visual {
+    background: var(--card-surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+  .about-v-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 18px; margin-bottom: 14px;
+    display: flex; gap: 14px; align-items: center;
+  }
+  .about-v-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: color-mix(in srgb, var(--acc) 14%, transparent);
+    color: var(--acc); display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; flex-shrink: 0;
+  }
+  .about-v-info b { display: block; font-size: 1rem; margin-bottom: 3px; }
+  .about-v-info small { color: var(--dim); font-size: 0.85rem; line-height: 1.35; display: block; }
+
+  /* ---------------- Features Grid ---------------- */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .feat-card {
+    background: var(--card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    display: flex; flex-direction: column;
+  }
+  .feat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--acc);
+    box-shadow: var(--shadow-card);
+  }
+  .feat-icon-wrap {
+    width: 54px; height: 54px; border-radius: 16px;
+    background: var(--card-surface); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .feat-card h4 { font-size: 1.25rem; margin-bottom: 10px; }
+  .feat-card p { color: var(--dim); font-size: 0.95rem; line-height: 1.6; margin-bottom: 16px; flex: 1; }
+  .feat-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .feat-tags span {
+    font-size: 0.78rem; font-weight: 700; padding: 4px 10px; border-radius: 99px;
+    background: var(--card-surface); color: var(--dim); border: 1px solid var(--line);
+  }
+
+  /* ---------------- Live Concept Quiz Demo ---------------- */
+  .interactive-demo-section {
+    background: color-mix(in srgb, var(--card) 60%, var(--bg));
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .demo-split {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center;
+  }
+  .quiz-demo-box {
+    background: var(--card); border: 1.5px solid var(--line);
+    border-radius: var(--radius-lg); padding: 28px;
+    box-shadow: var(--shadow-card);
+  }
+  .q-badge {
+    font-size: 0.8rem; font-weight: 800; color: var(--acc);
+    text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; display: block;
+  }
+  .q-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 18px; }
+  .q-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+  .q-opt {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; border-radius: var(--radius-sm);
+    border: 1.5px solid var(--line); background: var(--card-surface);
+    color: var(--text); font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s; text-align: left;
+  }
+  .q-opt:hover { border-color: var(--acc); background: var(--card); }
+  .q-opt.correct {
+    border-color: var(--good); background: var(--good-dim); color: var(--text);
+  }
+  .q-opt.wrong {
+    border-color: #ff7a8f; background: rgba(255, 122, 143, 0.12);
+  }
+  .q-feedback {
+    display: none; padding: 12px 14px; border-radius: var(--radius-sm);
+    font-size: 0.9rem; line-height: 1.5;
+  }
+  .q-feedback.show { display: block; }
+  .q-feedback.success { background: var(--good-dim); border: 1px solid var(--good); color: var(--text); }
+  .q-feedback.fail { background: rgba(255, 122, 143, 0.15); border: 1px solid #ff7a8f; color: var(--text); }
+
+  /* ---------------- Curriculum Roadmap ---------------- */
+  .syllabus-section { }
+  .syllabus-nav {
+    display: flex; justify-content: center; gap: 8px; margin-bottom: 32px;
+  }
+  .s-tab-btn {
+    padding: 10px 22px; border-radius: 99px;
+    border: 1.5px solid var(--line); background: var(--card); color: var(--dim);
+    font-weight: 700; font-size: 0.92rem; transition: all 0.2s;
+  }
+  .s-tab-btn.active {
+    background: var(--acc); border-color: var(--acc); color: var(--on-acc);
+  }
+  .s-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px;
+  }
+  .s-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: var(--radius-md); padding: 18px;
+    display: flex; flex-direction: column; gap: 6px;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .s-card:hover { transform: translateY(-3px); border-color: var(--acc); }
+  .s-meta { display: flex; align-items: center; justify-content: space-between; font-size: 0.78rem; font-weight: 800; color: var(--acc); }
+  .s-card h5 { font-size: 1rem; color: var(--text); margin: 2px 0; }
+  .s-card p { font-size: 0.84rem; color: var(--dim); line-height: 1.4; }
+
+  /* ---------------- WhatsApp CTA Box ---------------- */
+  .enroll-banner {
+    background: linear-gradient(135deg, color-mix(in srgb, #25d366 18%, var(--card)), var(--card));
+    border: 1.5px solid rgba(37, 211, 102, 0.4);
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    text-align: center;
+    position: relative; overflow: hidden;
+    margin: 30px 0 60px;
+  }
+  .enroll-banner h3 { font-size: 2rem; margin-bottom: 14px; }
+  .enroll-banner p { max-width: 620px; margin: 0 auto 28px; color: var(--dim); font-size: 1.05rem; }
+  .enroll-btn-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+  /* ---------------- FAQ Section ---------------- */
+  .faq-wrap { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .faq-item {
+    background: var(--card); border: 1.5px solid var(--line);
+    border-radius: var(--radius-md); overflow: hidden;
+  }
+  .faq-question {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 22px; cursor: pointer; list-style: none;
+    font-weight: 700; font-size: 1.05rem; color: var(--text);
+  }
+  .faq-question::-webkit-details-marker { display: none; }
+  .faq-question::after {
+    content: '+'; font-size: 1.4rem; color: var(--acc); transition: transform 0.2s;
+  }
+  .faq-item[open] .faq-question::after { content: '−'; }
+  .faq-answer {
+    padding: 0 22px 20px; color: var(--dim); font-size: 0.95rem; line-height: 1.65;
+  }
+
+  /* ---------------- Footer ---------------- */
+  footer {
+    border-top: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 95%, black);
+    padding: 60px 0 36px;
+    font-size: 0.92rem; color: var(--dim);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 40px;
+  }
+  .f-brand h4 { font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+  .f-brand p { font-size: 0.9rem; line-height: 1.6; max-width: 320px; }
+  .f-col h5 { font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text); margin-bottom: 16px; font-weight: 800; }
+  .f-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .f-col a { color: var(--dim); transition: color 0.2s; font-size: 0.9rem; }
+  .f-col a:hover { color: var(--acc); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; border-top: 1px solid var(--line); font-size: 0.85rem;
+  }
+
+  /* ---------------- Floating WhatsApp Button ---------------- */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 500;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: #25d366; color: #ffffff; padding: 14px 20px;
+    border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover {
+    transform: translateY(-2px); box-shadow: 0 14px 34px rgba(37, 211, 102, 0.6);
+    color: #ffffff;
+  }
+  .wa-float svg { width: 22px; height: 22px; fill: currentColor; }
+
+  /* Responsive queries */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-preview-grid { grid-template-columns: 1fr; }
+    .demo-split { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 680px) {
+    .nav-links { display: none; }
+    .nav-links.mobile-open {
+      display: flex; flex-direction: column; align-items: flex-start;
+      position: absolute; top: 72px; left: 0; right: 0;
+      background: var(--card); border-bottom: 1px solid var(--line);
+      padding: 18px 24px; gap: 14px; box-shadow: var(--shadow-card);
+    }
+    .mobile-toggle { display: inline-flex; }
+    .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    .enroll-btn-row { flex-direction: column; }
+    .wa-float { bottom: 16px; right: 16px; padding: 12px 16px; font-size: 0.88rem; }
+    .wa-float span.num { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- Navigation -->
+<nav class="nav" aria-label="Main Navigation">
+  <div class="container nav-inner">
+    <a href="/" class="nav-brand" id="navBrandLink">
+      <img src="/static/brand/logo-mark.png" alt="STEM Cloud Logo" width="44" height="29">
+      STEM <span>Cloud</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#what-is-stem-cloud" id="linkWhatIs">What is STEM Cloud?</a></li>
+      <li><a href="#features" id="linkFeatures">Features &amp; Labs</a></li>
+      <li><a href="#curriculum" id="linkCurriculum">G.C.E. O/L Lessons</a></li>
+      <li><a href="/about" id="linkAbout">About Platform</a></li>
+      <li><a href="#faq" id="linkFaq">FAQ</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Toggle dark and light theme">🌙</button>
+      
+      <!-- Dynamic auth button: changes to 'My Lessons' if logged in -->
+      <a href="/login" class="btn btn-sm" id="authNavBtn">Log in</a>
+      
+      <a href="https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud.%20My%20name%20is:%20" 
+         target="_blank" rel="noopener noreferrer" 
+         class="btn btn-sm btn-whatsapp" id="navEnrollBtn">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.19 8.19 0 0 1-5.82 2.42c-1.45 0-2.87-.38-4.12-1.12l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.41c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.97.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/></svg>
+        <span>Enroll</span>
+      </a>
+
+      <button class="mobile-toggle" id="mobileMenuBtn" type="button" aria-label="Toggle navigation menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- ================= Hero Section ================= -->
+  <section class="hero" id="hero">
+    <div class="container">
+      
+      <!-- Welcome back message for logged-in students -->
+      <div class="user-badge-banner" id="userBanner">
+        <div>
+          <strong>👋 Welcome back, <span id="bannerUserName">Student</span>!</strong> You are currently logged in.
+        </div>
+        <a href="/lessons/index.html" class="btn btn-sm btn-primary" id="bannerResumeBtn">Continue My Lessons →</a>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div class="hero-tag">
+            <span>✨</span> Digitalized Learning Platform · Sri Lanka G.C.E. O/L
+          </div>
+          <h1 class="hero-title">
+            Master <span class="gradient-text">G.C.E. O/L Lessons</span> with Interactive Digital Learning
+          </h1>
+          <p class="hero-lead">
+            STEM Cloud transforms the Sri Lankan Ordinary Level curriculum into an engaging digital adventure. Experience interactive virtual experiments, guided step-by-step lessons, neural bilingual voice narration, and gamified mastery on any phone or laptop.
+          </p>
+
+          <div class="hero-btns">
+            <a href="/lessons/index.html" class="btn btn-primary" id="heroStartBtn">
+              <span>🚀</span> Start Learning
+            </a>
+            <a href="/about" class="btn" id="heroAboutBtn">
+              <span>📖</span> About STEM Cloud
+            </a>
+            <a href="/login" class="btn" id="heroLoginBtn">
+              <span>🔑</span> Student Log in
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <b>15+</b>
+              <span>Deep O/L Modules</span>
+            </div>
+            <div class="hero-stat">
+              <b>100%</b>
+              <span>National Syllabus Aligned</span>
+            </div>
+            <div class="hero-stat">
+              <b>Offline</b>
+              <span>PWA Phone Ready</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Live Simulation Preview Card -->
+        <div class="hero-interactive">
+          <div class="hi-header">
+            <span class="hi-badge">● Live Simulation Preview</span>
+            <span style="font-size:0.82rem;font-weight:700;color:var(--dim)">Grade 10 · Moments Lab</span>
+          </div>
+          <div class="hi-title">Interactive Lever &amp; Equilibrium Experiment</div>
+          <p class="hi-desc">
+            Drag the weight slider to observe the principle of moments in real-time. Students test equilibrium visually instead of memorizing abstract equations!
+          </p>
+
+          <div class="sim-box">
+            <div class="sim-stage">
+              <div class="sim-lever" id="demoLever">
+                <div class="sim-mass-left" id="massLeft">20 N</div>
+                <div class="sim-mass-right" id="massRight">10 N</div>
+              </div>
+              <div class="sim-pivot"></div>
+            </div>
+
+            <div class="sim-controls">
+              <div class="sim-row">
+                <span>Left Distance: <strong><span id="distVal">2</span> m</strong></span>
+                <span>Right Mass: <strong><span id="massVal">10</span> N</strong></span>
+              </div>
+              <input type="range" class="sim-slider" id="momentSlider" min="5" max="40" value="10" step="5" aria-label="Adjust Right Mass">
+              <div class="sim-status" id="balanceStatus">
+                ⚖️ Unbalanced: Anticlockwise moment is greater (40 N·m vs 20 N·m)
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.85rem">
+            <span style="color:var(--dim)">Try sliding to <strong>20 N</strong> for equilibrium!</span>
+            <a href="/login" style="font-weight:700">Open full lab →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= What is STEM Cloud Section ================= -->
+  <section id="what-is-stem-cloud">
+    <div class="container">
+      <div class="about-preview">
+        <div class="about-preview-grid">
+          <div class="about-p-content">
+            <span class="section-kicker">Digital Education Reimagined</span>
+            <h3>What is STEM Cloud?</h3>
+            <p>
+              <strong>STEM Cloud</strong> is a modern, next-generation <strong>digitalized learning platform</strong> built specifically for Sri Lankan students preparing for their <strong>G.C.E. Ordinary Level (O/L) examinations</strong>.
+            </p>
+            <p>
+              It is <strong>not just a physics app</strong> — STEM Cloud is an all-in-one educational platform engineered to make complex O/L subjects clear, intuitive, and enjoyable. By merging rigorous national curriculum standards with interactive virtual laboratories, character-led story walkthroughs, and smart revision tools, STEM Cloud empowers every learner to succeed.
+            </p>
+            
+            <ul class="about-points">
+              <li>
+                <span class="icon">✓</span>
+                <div>
+                  <strong>Complete G.C.E. O/L Level Lessons:</strong>
+                  Curated chapters with notes, textbook exercises, worked examples, and glossary.
+                </div>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <div>
+                  <strong>Hands-on Digitalized Simulations:</strong>
+                  Run science and physics experiments right on your smartphone screen.
+                </div>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <div>
+                  <strong>Bilingual &amp; Neural Voice Assistance:</strong>
+                  Tamil and English read-aloud support designed for local curricula.
+                </div>
+              </li>
+              <li>
+                <span class="icon">✓</span>
+                <div>
+                  <strong>Equitable &amp; Offline Accessible:</strong>
+                  Installable PWA that works offline on low-end phones and weak data connections.
+                </div>
+              </li>
+            </ul>
+
+            <div style="margin-top:24px">
+              <a href="/about" class="btn btn-primary" id="btnLearnMoreAbout">
+                Read Full Story &amp; Educational Mission →
+              </a>
+            </div>
+          </div>
+
+          <div class="about-preview-visual">
+            <div class="about-v-card">
+              <div class="about-v-icon">🧪</div>
+              <div class="about-v-info">
+                <b>Interactive Virtual Laboratories</b>
+                <small>Experiment with mechanics, optics, wave propagation, and circuits without costly school equipment.</small>
+              </div>
+            </div>
+
+            <div class="about-v-card">
+              <div class="about-v-icon">🗣️</div>
+              <div class="about-v-info">
+                <b>Neural Spoken Explanations</b>
+                <small>Listen to bilingual sentence-highlighted read-alouds with correct scientific pronunciations.</small>
+              </div>
+            </div>
+
+            <div class="about-v-card">
+              <div class="about-v-icon">🎮</div>
+              <div class="about-v-info">
+                <b>Gamified Mastery &amp; Progress</b>
+                <small>Earn XP, unlock topic badges, collect stars, and watch your exam confidence grow day by day.</small>
+              </div>
+            </div>
+
+            <div class="about-v-card">
+              <div class="about-v-icon">📑</div>
+              <div class="about-v-info">
+                <b>G.C.E. O/L Past Paper Vault</b>
+                <small>Solve past exam questions with instant checks, model answers, and structured hints.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= What STEM Cloud Does (Features) ================= -->
+  <section id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Core Capabilities</span>
+        <h2 class="section-title">What Does STEM Cloud Do?</h2>
+        <p class="section-desc">
+          Everything an Ordinary Level student needs to master concepts, overcome exam fear, and achieve top grades in their G.C.E. O/L journey.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">📚</div>
+          <h4>Guided Step-by-Step Lessons</h4>
+          <p>
+            No more endless, intimidating 30-page PDF scrolls. Every lesson is divided into a structured path: Story intro, cartoon animation, key theory notes, interactive lab, and exercises.
+          </p>
+          <div class="feat-tags">
+            <span>Bite-sized</span>
+            <span>Step-by-step</span>
+            <span>Focus Mode</span>
+          </div>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">🔬</div>
+          <h4>Hands-on Virtual Science Labs</h4>
+          <p>
+            Interact with physics phenomena directly: drag pulleys, incline planes, balance seesaws, adjust optical lenses, and calculate electrical resistance with immediate visual feedback.
+          </p>
+          <div class="feat-tags">
+            <span>Principle of Moments</span>
+            <span>Optics Rays</span>
+            <span>Current &amp; Circuits</span>
+          </div>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">🎭</div>
+          <h4>Story Introductions with Raja &amp; Chittu</h4>
+          <p>
+            Every topic begins with an engaging, everyday story featuring Raja and Chittu. Concepts are grounded in relatable Sri Lankan life—flying kites, cycling on hills, and domestic water pumps.
+          </p>
+          <div class="feat-tags">
+            <span>Intuitive Learning</span>
+            <span>Zero Jargon</span>
+            <span>Relatable</span>
+          </div>
+        </article>
+
+        <!-- Feature 4 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">🎙️</div>
+          <h4>Neural Bilingual Voice Guidance</h4>
+          <p>
+            Integrated neural Tamil and English audio reads each lesson line by line with active sentence highlighting. Students can adjust speeds, repeat difficult sections, and pronounce scientific terms accurately.
+          </p>
+          <div class="feat-tags">
+            <span>Tamil &amp; English</span>
+            <span>Synchronized Highlighting</span>
+            <span>Paced Audio</span>
+          </div>
+        </article>
+
+        <!-- Feature 5 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">📝</div>
+          <h4>Complete Textbook Solutions</h4>
+          <p>
+            Every single activity, question, and worked example from the official Ministry of Education textbook has a detailed, verified step-by-step answer and explanation.
+          </p>
+          <div class="feat-tags">
+            <span>Official Textbook</span>
+            <span>Worked Answers</span>
+            <span>Diagram Previews</span>
+          </div>
+        </article>
+
+        <!-- Feature 6 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">🏆</div>
+          <h4>Gamified XP, Badges &amp; Stars</h4>
+          <p>
+            Studying feels as rewarding as a game. Collect XP points as you read, earn stars for quiz accuracy, and unlock syllabus achievement badges as you master new chapters.
+          </p>
+          <div class="feat-tags">
+            <span>Level Progress</span>
+            <span>Topic Badges</span>
+            <span>Cloud Sync</span>
+          </div>
+        </article>
+
+        <!-- Feature 7 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">📑</div>
+          <h4>G.C.E. O/L Past Paper Drills</h4>
+          <p>
+            Targeted exam preparation with official past papers. Test yourself against past question patterns, understand marking rubrics, and bookmark challenging problems for revision.
+          </p>
+          <div class="feat-tags">
+            <span>Exam Techniques</span>
+            <span>Instant Checking</span>
+            <span>Paper Archive</span>
+          </div>
+        </article>
+
+        <!-- Feature 8 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">📲</div>
+          <h4>Installable PWA &amp; 100% Offline Ready</h4>
+          <p>
+            Install STEM Cloud directly onto your phone without requiring app stores. Once loaded, lessons work seamlessly without internet, saving valuable mobile data.
+          </p>
+          <div class="feat-tags">
+            <span>Android / iOS / PC</span>
+            <span>Zero Data Offline</span>
+            <span>Lightweight</span>
+          </div>
+        </article>
+
+        <!-- Feature 9 -->
+        <article class="feat-card">
+          <div class="feat-icon-wrap">👨‍🏫</div>
+          <h4>Teacher &amp; Admin Monitoring</h4>
+          <p>
+            Educators and administrators have clear oversight over student participation, progress completion, XP leaderboards, and safe device session management.
+          </p>
+          <div class="feat-tags">
+            <span>Class Tracking</span>
+            <span>Secure Logins</span>
+            <span>Activity Insights</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Interactive Quiz Demo ================= -->
+  <section class="interactive-demo-section" id="quiz-demo">
+    <div class="container">
+      <div class="demo-split">
+        <div>
+          <span class="section-kicker">Interactive Proof</span>
+          <h2 class="section-title">See How STEM Cloud Tests Understanding</h2>
+          <p class="section-desc">
+            In STEM Cloud, quizzes aren't just dry multiple-choice tests. They provide instant visual explanations that reinforce core scientific principles immediately.
+          </p>
+          <div style="margin-top:20px">
+            <p style="color:var(--dim);margin-bottom:14px">
+              Try answering the sample G.C.E. O/L question on the right to see instant diagnostic feedback in action.
+            </p>
+            <a href="/login" class="btn btn-primary" id="btnTryMoreQuiz">Log In for Full Quizzes →</a>
+          </div>
+        </div>
+
+        <div class="quiz-demo-box">
+          <span class="q-badge">Sample Question · G.C.E. O/L Physics</span>
+          <div class="q-title" id="demoQuestionText">
+            Which of the following is the correct SI unit of Moment of a Force?
+          </div>
+          <div class="q-options" id="quizOptions">
+            <button class="q-opt" data-correct="false" type="button">
+              <span>A)</span> Newton (N)
+            </button>
+            <button class="q-opt" data-correct="true" type="button">
+              <span>B)</span> Newton meter (N m)
+            </button>
+            <button class="q-opt" data-correct="false" type="button">
+              <span>C)</span> Joule (J)
+            </button>
+            <button class="q-opt" data-correct="false" type="button">
+              <span>D)</span> Pascal (Pa)
+            </button>
+          </div>
+          <div class="q-feedback" id="quizFeedback"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= G.C.E. O/L Curriculum Overview ================= -->
+  <section class="syllabus-section" id="curriculum">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Curriculum Blueprint</span>
+        <h2 class="section-title">G.C.E. Ordinary Level Course Map</h2>
+        <p class="section-desc">
+          Structured alignment with the Sri Lanka National Institute of Education (NIE) syllabus. Master fundamental and advanced modules with guided clarity.
+        </p>
+      </div>
+
+      <div class="syllabus-nav">
+        <button class="s-tab-btn active" data-grade="all" id="tabAll" type="button">All Modules</button>
+        <button class="s-tab-btn" data-grade="10" id="tabG10" type="button">Grade 10</button>
+        <button class="s-tab-btn" data-grade="11" id="tabG11" type="button">Grade 11</button>
+        <button class="s-tab-btn" data-grade="exam" id="tabExam" type="button">Past Papers</button>
+      </div>
+
+      <div class="s-grid" id="curriculumGrid">
+        <!-- Grade 10 Lessons -->
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 01</span></div>
+          <h5>Physics is Easy &amp; Fun</h5>
+          <p>Introduction to scientific intuition, measurement fundamentals, and overcoming physics hesitation.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 02</span></div>
+          <h5>Motion in a Straight Line</h5>
+          <p>Displacement, velocity, acceleration, ticker tape timers, and velocity-time graphs.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 04</span></div>
+          <h5>Newton's Laws of Motion</h5>
+          <p>Inertia, F = ma, action and reaction, and practical applications in transport and sports.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 05</span></div>
+          <h5>Friction &amp; Surface Interaction</h5>
+          <p>Static vs limiting vs dynamic friction, coefficients of friction, and lubrication.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 09</span></div>
+          <h5>Resultant Force &amp; Vectors</h5>
+          <p>Parallel forces, vector addition, resolution, and equilibrium of coplanar forces.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 11</span></div>
+          <h5>Turning Effect of Forces</h5>
+          <p>Torque, principle of moments, clockwise vs anticlockwise moments, and levers.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 12</span></div>
+          <h5>Equilibrium &amp; Stability</h5>
+          <p>Stable, unstable, and neutral equilibrium, center of gravity, and base area.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 15</span></div>
+          <h5>Hydrostatic Pressure</h5>
+          <p>Pressure in fluids, liquid column formula P = hρg, transmission, and U-tube manometers.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 18</span></div>
+          <h5>Work, Energy &amp; Power</h5>
+          <p>Kinetic &amp; potential energy, conservation of energy, work done calculations, and power ratings.</p>
+        </div>
+        <div class="s-card" data-grade="10">
+          <div class="s-meta"><span>GRADE 10</span> <span>UNIT 19</span></div>
+          <h5>Current Electricity</h5>
+          <p>Electric potential, Ohm's law (V = IR), series and parallel circuits, and resistor combinations.</p>
+        </div>
+
+        <!-- Grade 11 Lessons -->
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 04</span></div>
+          <h5>Waves &amp; Sound</h5>
+          <p>Transverse and longitudinal waves, wave equation v = fλ, frequency, reflection, and resonance.</p>
+        </div>
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 05</span></div>
+          <h5>Geometrical Optics</h5>
+          <p>Refraction, Snell's law, convex and concave lenses, ray diagrams, and optical instruments.</p>
+        </div>
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 09</span></div>
+          <h5>Heat &amp; Thermal Physics</h5>
+          <p>Specific heat capacity Q = mcΔθ, heat transfer, latent heat, evaporation, and thermal expansion.</p>
+        </div>
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 10</span></div>
+          <h5>Domestic Electric Appliances</h5>
+          <p>Household wiring, earthing, fuses, circuit breakers, power consumption, and safety.</p>
+        </div>
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 11</span></div>
+          <h5>Electronics &amp; Semiconductors</h5>
+          <p>Diodes, rectification, transistors as switches and amplifiers, and logic gate basics.</p>
+        </div>
+        <div class="s-card" data-grade="11">
+          <div class="s-meta"><span>GRADE 11</span> <span>UNIT 13</span></div>
+          <h5>Electromagnetism</h5>
+          <p>Magnetic field lines, Fleming's left-hand rule, electric motors, induction, and transformers.</p>
+        </div>
+
+        <!-- Past Papers -->
+        <div class="s-card" data-grade="exam">
+          <div class="s-meta"><span>EXAM DRILL</span> <span>ARCHIVE</span></div>
+          <h5>G.C.E. O/L Past Papers</h5>
+          <p>Official Sri Lankan Ordinary Level past exam papers with structured breakdown and worked solutions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WhatsApp Enrollment Banner ================= -->
+  <div class="container">
+    <div class="enroll-banner">
+      <h3>Ready to Join STEM Cloud?</h3>
+      <p>
+        Accounts are provisioned directly by the platform administration for registered students and partner schools. Message our administrator on WhatsApp to get your login credentials today!
+      </p>
+      <div class="enroll-btn-row">
+        <a href="https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud.%20Please%20guide%20me.%20My%20name%20is:%20" 
+           target="_blank" rel="noopener noreferrer" 
+           class="btn btn-whatsapp" id="btnEnrollBanner">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.19 8.19 0 0 1-5.82 2.42c-1.45 0-2.87-.38-4.12-1.12l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.41c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.97.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/></svg>
+          Chat with Admin on WhatsApp (070 775 2433)
+        </a>
+        <a href="/login" class="btn" id="btnExistingLogin">
+          Already have credentials? Log In
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= Frequently Asked Questions ================= -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">
+          Everything you need to know about STEM Cloud, accounts, curriculum, and devices.
+        </p>
+      </div>
+
+      <div class="faq-wrap">
+        <details class="faq-item" open>
+          <summary class="faq-question">Is STEM Cloud only for G.C.E. O/L Physics?</summary>
+          <div class="faq-answer">
+            No! STEM Cloud is built as an extensible digitalized learning platform for G.C.E. Ordinary Level education. While our physics curriculum features our flagship animated cartoon walkthroughs, interactive virtual laboratories, and worked textbook solutions, the platform is designed for broader STEM subjects, structured lesson delivery, and past paper practice across the curriculum.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How does STEM Cloud work offline?</summary>
+          <div class="faq-answer">
+            STEM Cloud is a Progressive Web App (PWA). When you open chapters on your smartphone or computer, the core educational materials are securely cached on your device. You can review notes, reread stories, and study offline without consuming additional mobile data. Your earned XP and stars sync automatically the next time you reconnect!
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How do students receive their account credentials?</summary>
+          <div class="faq-answer">
+            To ensure personalized progress tracking and prevent account abuse, student accounts are created by our platform administrators or partnered school teachers. You can contact our administrator directly on WhatsApp at <strong>070 775 2433</strong> to enroll and receive your login details.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What languages are supported?</summary>
+          <div class="faq-answer">
+            STEM Cloud features full bilingual support for Tamil and English, with high-quality neural voice read-aloud recordings and synchronized text highlighting. Sinhala language localized navigation and curriculum modules are actively in development.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can I use STEM Cloud on multiple devices?</summary>
+          <div class="faq-answer">
+            Yes! You can log in from your smartphone, tablet, or home PC. The platform maintains a secure two-active-device session system to protect your account, and your XP, badges, and completed lessons seamlessly follow you anywhere.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= Footer ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <h4>
+          <img src="/static/brand/logo-mark.png" alt="Logo" width="34" height="22">
+          STEM Cloud
+        </h4>
+        <p>
+          Sri Lanka's digitalized learning platform for G.C.E. Ordinary Level lessons. Transforming science and STEM education through interactive virtual labs, relatable stories, and neural voice guidance.
+        </p>
+      </div>
+
+      <div class="f-col">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="#what-is-stem-cloud">What is STEM Cloud?</a></li>
+          <li><a href="#features">Features &amp; Virtual Labs</a></li>
+          <li><a href="#curriculum">G.C.E. O/L Syllabus</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/login">Student Login</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h5>Syllabus</h5>
+        <ul>
+          <li><a href="#curriculum">Grade 10 Physics &amp; Science</a></li>
+          <li><a href="#curriculum">Grade 11 Physics &amp; Science</a></li>
+          <li><a href="#curriculum">O/L Past Paper Vault</a></li>
+          <li><a href="#quiz-demo">Interactive Practice Quizzes</a></li>
+        </ul>
+      </div>
+
+      <div class="f-col">
+        <h5>Contact &amp; Admin</h5>
+        <ul>
+          <li><strong>WhatsApp:</strong> 070 775 2433</li>
+          <li><strong>Phone:</strong> +94 70 775 2433</li>
+          <li><a href="https://wa.me/94707752433" target="_blank" rel="noopener noreferrer">Direct WhatsApp Chat</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 STEM Cloud. All rights reserved. Designed for G.C.E. O/L Students in Sri Lanka.</div>
+      <div>
+        <a href="/about" style="margin-right:16px">About</a>
+        <a href="/privacy" style="margin-right:16px">Privacy</a>
+        <a href="/login">Log in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Action -->
+<a href="https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud.%20My%20name%20is:%20" 
+   target="_blank" rel="noopener noreferrer" 
+   class="wa-float" 
+   id="floatingWhatsAppBtn" 
+   aria-label="Chat with Admin on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.19 8.19 0 0 1-5.82 2.42c-1.45 0-2.87-.38-4.12-1.12l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.41c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.97.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/></svg>
+  <span>Enroll on WhatsApp</span>
+  <span class="num">(070 775 2433)</span>
+</a>
+
+<script>
+(function () {
+  // Theme Toggle logic
+  var themeBtn = document.getElementById('themeToggleBtn');
+  var curTheme = localStorage.getItem('stem_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', curTheme);
+  themeBtn.textContent = curTheme === 'dark' ? '☀️' : '🌙';
+
+  themeBtn.addEventListener('click', function () {
+    curTheme = curTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', curTheme);
+    localStorage.setItem('stem_theme', curTheme);
+    themeBtn.textContent = curTheme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // Mobile menu toggle
+  var mobBtn = document.getElementById('mobileMenuBtn');
+  var navLinks = document.getElementById('navLinks');
+  mobBtn.addEventListener('click', function () {
+    navLinks.classList.toggle('mobile-open');
+  });
+
+  // Check user session dynamically
+  fetch('/api/me', { credentials: 'same-origin' })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (data) {
+      if (data && data.user) {
+        var user = data.user;
+        var name = user.display_name || user.username || 'Student';
+        var authBtn = document.getElementById('authNavBtn');
+        authBtn.textContent = 'My Lessons →';
+        authBtn.href = '/lessons/index.html';
+        authBtn.classList.add('btn-primary');
+
+        var banner = document.getElementById('userBanner');
+        var bannerName = document.getElementById('bannerUserName');
+        bannerName.textContent = name;
+        banner.classList.add('show');
+
+        var heroLoginBtn = document.getElementById('heroLoginBtn');
+        if (heroLoginBtn) {
+          heroLoginBtn.textContent = 'Open Dashboard';
+          heroLoginBtn.href = '/lessons/index.html';
+        }
+      }
+    })
+    .catch(function () {});
+
+  // Live simulation: Moments of force calculation
+  var slider = document.getElementById('momentSlider');
+  var lever = document.getElementById('demoLever');
+  var massRight = document.getElementById('massRight');
+  var massVal = document.getElementById('massVal');
+  var statusBox = document.getElementById('balanceStatus');
+
+  function updateSimulation() {
+    var rightForce = parseInt(slider.value, 10);
+    massVal.textContent = rightForce;
+    massRight.textContent = rightForce + ' N';
+
+    // Left moment: 20 N * 2m = 40 N*m (anticlockwise)
+    // Right moment: rightForce * 2m (clockwise)
+    var leftTorque = 40;
+    var rightTorque = rightForce * 2;
+    var net = rightTorque - leftTorque;
+
+    var angle = Math.max(-12, Math.min(12, net * 0.45));
+    lever.style.transform = 'rotate(' + angle + 'deg)';
+
+    if (Math.abs(net) < 1) {
+      statusBox.textContent = '⚖️ Perfect Equilibrium! Clockwise (40 N·m) = Anticlockwise (40 N·m)';
+      statusBox.style.color = 'var(--good)';
+      statusBox.style.borderColor = 'var(--good)';
+      statusBox.style.background = 'var(--good-dim)';
+    } else if (net > 0) {
+      statusBox.textContent = '⚠️ Unbalanced: Clockwise moment is greater (' + rightTorque + ' N·m vs 40 N·m)';
+      statusBox.style.color = 'var(--amber)';
+      statusBox.style.borderColor = 'var(--amber)';
+      statusBox.style.background = 'transparent';
+    } else {
+      statusBox.textContent = '⚠️ Unbalanced: Anticlockwise moment is greater (40 N·m vs ' + rightTorque + ' N·m)';
+      statusBox.style.color = 'var(--amber)';
+      statusBox.style.borderColor = 'var(--amber)';
+      statusBox.style.background = 'transparent';
+    }
+  }
+
+  slider.addEventListener('input', updateSimulation);
+  updateSimulation();
+
+  // Interactive Quiz Demo
+  var quizOpts = document.querySelectorAll('#quizOptions .q-opt');
+  var quizFeedback = document.getElementById('quizFeedback');
+
+  quizOpts.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var isCorrect = btn.getAttribute('data-correct') === 'true';
+      quizOpts.forEach(function (b) {
+        b.classList.remove('correct', 'wrong');
+        b.disabled = true;
+      });
+
+      if (isCorrect) {
+        btn.classList.add('correct');
+        quizFeedback.className = 'q-feedback show success';
+        quizFeedback.innerHTML = '<strong>🎉 Correct!</strong> The moment of a force is defined as <em>Force (N) &times; Perpendicular Distance (m)</em>, giving the SI unit <strong>Newton meter (N m)</strong>. In STEM Cloud, every exercise offers detailed diagnostic explanations!';
+      } else {
+        btn.classList.add('wrong');
+        quizOpts.forEach(function (b) {
+          if (b.getAttribute('data-correct') === 'true') b.classList.add('correct');
+        });
+        quizFeedback.className = 'q-feedback show fail';
+        quizFeedback.innerHTML = '<strong>❌ Not quite.</strong> Moment = Force &times; Perpendicular distance. Since force is measured in Newtons (N) and distance in meters (m), the correct SI unit is <strong>N m</strong>. Notice how Joules (J) is for energy/work!';
+      }
+    });
+  });
+
+  // Curriculum Filter Tabs
+  var tabBtns = document.querySelectorAll('.s-tab-btn');
+  var sCards = document.querySelectorAll('#curriculumGrid .s-card');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      tabBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var grade = btn.getAttribute('data-grade');
+      sCards.forEach(function (card) {
+        if (grade === 'all' || card.getAttribute('data-grade') === grade) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>

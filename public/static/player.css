@@ -398,4 +398,51 @@ html.stem-player .stage-nav .btn:hover{border-color:var(--accent);background:col
 html.stem-player .stage-nav #noteNextBtn.primary{background:color-mix(in srgb,var(--accent) 14%,var(--panel));color:var(--accent);border:1.5px solid color-mix(in srgb,var(--accent) 35%,transparent);box-shadow:none}
 html.stem-player .stage-nav #noteNextBtn.primary:hover{background:color-mix(in srgb,var(--accent) 22%,var(--panel))}
 
+/* Clear labels and reflow: controls wrap inside their container, diagrams scroll locally. */
+.wrap,.card,.lab-card,.fw-anim,.qz-card,.game-scene,.topbar-inner{min-width:0;max-width:100%;box-sizing:border-box}
+.wrap p,.wrap li,.wrap h2,.wrap h3,.wrap h4,.wrap button{overflow-wrap:anywhere}
+.fw-ctl{flex-wrap:wrap}
+.fw-ctl .labelled-control{min-height:48px;padding:8px 12px;flex:1 1 110px;width:auto;min-width:0;border-radius:12px;font-size:.95rem;line-height:1.4}
+.fw-ctl input[type=range]{flex:1 1 100%;width:100%;min-width:0}
+.ex-toggle.labelled-control{width:auto;min-width:0;padding:10px 14px}
+.sb-row{flex-wrap:wrap;gap:6px}
+.sb-btn{gap:5px;min-width:0;padding:6px 10px;flex-direction:column;height:auto;min-height:48px}
+.sb-action{font-size:.8rem;line-height:1.2}
+.sb-mid{flex:1 1 100px;min-width:0}
+.sb-title{white-space:normal;flex-wrap:wrap;gap:4px}
+.sb-w{display:block;flex:1 1 100%;font-size:.8rem;line-height:1.3}
+.sb-listen{width:auto;min-width:48px}
+.sb-listen .listen-label{font-size:.8rem}
+.stem-end{box-sizing:border-box;width:100%;flex-wrap:wrap}
+.stem-end button{min-width:0;max-width:100%;height:auto;padding:12px;white-space:normal}
+.stem-end .se-next span:first-child{white-space:normal;overflow-wrap:anywhere}
+.so-hint-t{position:static;width:auto;height:auto;clip:auto;overflow:visible;font-size:.9rem}
+.so-ctrls{flex-wrap:wrap}
+.so-ctrls .so-dots{flex:1 1 100%;order:3}
+.so-ctrls button{width:auto;min-width:76px;height:auto;min-height:48px;padding:8px 12px;font-size:.9rem}
+#so_prev::before,#so_next::before{content:none}
+.so-voice{width:auto;max-width:100%;height:auto;min-height:48px;padding:8px;gap:6px;flex-wrap:wrap;border-radius:12px;font-size:.8rem}
+.so-head{flex-wrap:wrap;gap:8px}
+.so-head .so-title{min-width:0}
+.learning-chooser,.learning-checks,.learning-prereq{margin:16px 0;padding:16px;border:1px solid var(--border);background:var(--panel);border-radius:16px}
+.learning-chooser h2,.learning-checks h3{font-size:1.15rem}
+.learning-chooser button,.learning-prereq a{margin:6px 6px 0 0}
+.learning-route[aria-pressed=true],.learning-option[aria-pressed=true],.learning-compare button[aria-pressed=true]{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 16%,var(--panel));font-weight:800}
+.learning-question,.learning-compare{margin:14px 0;padding:14px;background:var(--panel-2);border:1px solid var(--border);border-radius:14px}
+.learning-question button,.learning-compare button{display:block;width:100%;margin:8px 0;text-align:left;min-height:48px;white-space:normal}
+.learning-feedback:empty,.learning-observation:empty{display:none}
+.learning-feedback,.learning-observation,.learning-status{padding:12px;border-left:4px solid var(--accent);background:var(--panel-2);line-height:1.7}
+.learning-break{border-top:1px solid var(--border);padding-top:14px;font-size:.95rem;color:var(--text-dim)}
+.learning-read-complete{margin-top:16px;min-height:48px;white-space:normal}
+html.stem-player .learning-read-complete{display:none}
+html.stem-explore .watch-takeaways{display:none}
+.learning-model-description{line-height:1.7}
+.stage-nav,.sns-pills,.path-row{min-width:0;max-width:100%;box-sizing:border-box}
+.path-row{overflow-x:auto;overflow-y:hidden;padding:12px 10px}
+.stage-nav{flex-wrap:wrap;gap:8px}
+.stem-player .stage-nav .np-progress{min-width:0;padding:4px 6px;white-space:normal}
+.game-controls,.lab-controls{flex-wrap:wrap;min-width:0}
+@media(max-width:480px){.topbar .topbar-inner{padding:6px 8px;gap:5px}.stem-ct b{font-size:.85rem}.stem-ct small{font-size:.75rem}.stem-av{width:36px;height:36px}.lang-toggle{max-width:105px;white-space:normal}.stem-end .se-back{flex:1 1 100px}.stem-end .se-next{flex:2 1 140px}.fw-ctl .labelled-control{flex-basis:42%}.lb-bar{flex-wrap:wrap}.lb-bar span{min-width:0;overflow-wrap:anywhere}.bs-card{padding:12px;gap:8px}.bs-body{min-width:0}.bs-pic{white-space:normal}}
+@media(prefers-reduced-motion:reduce){html:not([data-stem-motion="on"]) .co-finger,html:not([data-stem-motion="on"]) .co-wave,html:not([data-stem-motion="on"]) .so-finger{animation:none}}
+
 

@@ -331,7 +331,8 @@ def run():
             pg.evaluate("StemPlayer.go(StemPlayer.stepIds.indexOf('story') + 1)"); pg.wait_for_timeout(500)
             col = pg.evaluate("""() => {
               const lum = c => { const m = c.match(/[\\d.]+/g).map(Number).slice(0, 3).map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * m[0] + 0.7152 * m[1] + 0.0722 * m[2]; };
-              const bgOf = e => { for (; e; e = e.parentElement) { const b = getComputedStyle(e).backgroundColor; if (b && !/rgba\\(.*, 0\\)$|transparent/.test(b)) return b; } return 'rgb(255,255,255)'; };
+              const opaque = b => { if (!b || /transparent/.test(b)) return false; const a = b.match(/\\/\\s*([\\d.]+)\\)$/) || b.match(/^rgba\\(.*,\\s*([\\d.]+)\\)$/); return !a || parseFloat(a[1]) >= 0.99; };   // a translucent tint is not the surface the text sits on
+              const bgOf = e => { for (; e; e = e.parentElement) { const b = getComputedStyle(e).backgroundColor; if (opaque(b)) return b; } return 'rgb(255,255,255)'; };
               const ratio = e => { const a = lum(getComputedStyle(e).color), b = lum(bgOf(e)); return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); };
               return [document.getElementById('so_nr'), document.getElementById('so_nc'), document.querySelector('.so-chip')].map(ratio);
             }""")

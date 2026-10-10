@@ -18,7 +18,7 @@ The target stack:
 | Shared client state | **nanostores** (+ `@nanostores/react`) | XP, progress and the user are shared across islands without a global React tree. |
 | Content | **Typed JSON in the repo** | Validated in CI. Translations live inside the content (`{en, ta, si}`). |
 | API | **FastAPI** (kept, split into modules) | Proven auth, CSRF, rate limits and progress rules, plus the existing Python tooling. |
-| Data | **Neon Postgres** (pooled), SQLite locally | As today. Migrations move to Alembic. |
+| Data | **Neon Postgres** (pooled), SQLite locally | As today. Schema changes become versioned migrations (`stemcloud/migrations.py`). |
 | Media | **Cloudflare R2** | The integration is already written (`api/r2_storage.py`). Media leaves git. |
 | Hosting | **Vercel**: static Astro build + Python function for `/api/*` | One project, one deploy. |
 | Install | PWA (`@vite-pwa/astro`), then Play Store (TWA via PWABuilder), then iOS (Capacitor) | |
@@ -148,10 +148,10 @@ stemcloud/
   routers/admin.py
   routers/media.py           # R2 signed redirects (from r2_storage.py)
   routers/legacy.py          # serves old /lessons/*.html during the transition (render_lesson + BOOT)
-migrations/                  # Alembic: baseline = today's SCHEMA, then the v2 tables
+stemcloud/migrations.py      # versioned migrations: 1 = baseline (today's schema), then the v2 tables
 ```
 
-The schema check that runs on every request (`_ensure_schema`) is replaced by Alembic. `alembic upgrade head` runs in the Vercel build. The pooled Neon URL is used at runtime and the direct URL for migrations. A daily job (Vercel Cron) cleans old `ratelimit` and expired `sessions` rows.
+**Decided in Phase 1:** a small versioned migration runner instead of Alembic. Alembic would add SQLAlchemy to the serverless bundle, and Vercel's Python functions have no easy step to run it at deploy time. The runner applies missing migrations on the first connection of each instance, under the Postgres advisory lock the old code already used, and records them in `schema_migrations`. Migrations are written to be safe on a database that already has the tables. (The old schema check ran once per instance, not per request.) A daily job (Vercel Cron) cleans old `ratelimit` and expired `sessions` rows.
 
 ### 3.7 Frontend layout (Astro)
 ```
@@ -203,7 +203,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 
 ### Phase 1: Split the backend (≈1–2 weeks)
 - Move `api/index.py` into the `stemcloud/` package (§3.6) **with no behaviour change**. `tests/test_flow.py` must pass unchanged on SQLite and Postgres.
-- Alembic baseline from the current `SCHEMA`, and remove `_ensure_schema` from the request path.
+- Versioned migrations (`stemcloud/migrations.py`) with migration 1 = the current schema, safe on the existing production database.
 - Add the `scx_gate` cookie (set on signup and login, refreshed on `/api/me`, cleared on logout) plus tests.
 - Turn on R2 media (`R2_MEDIA_ENABLED=1`) following `cloudflare-r2.md`, then remove the past-paper images and audio from git. Rewriting git history to shrink the repo is optional and needs team agreement.
 - **Done when**: production runs on the split backend, all API tests pass, and the Python bundle is under 20 MB.
@@ -250,7 +250,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - **Done when**: the browser tests (§5) pass for every chapter on desktop and at 375 px.
 
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
-- Alembic migration for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.
+- Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.
 - The v1 endpoints also write v2 rows. Run `tools/migrate_progress_v2.py` on a **Neon branch copy** of production first and check that every student's XP, badges, stars and finished flags match. Then run it on production.
 - New lesson pages use only v2. The old pages keep v1, which also writes v2, until cutover.
 - **Done when**: the migration check shows zero differences and the API tests cover replay, out-of-order delivery and merging from two devices.

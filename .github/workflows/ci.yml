@@ -23,8 +23,10 @@ jobs:
           cache-dependency-path: requirements*.txt
       - run: pip install -r requirements-dev.txt
       - name: Byte-compile backend and tools
-        run: python -m compileall -q api tools tests
+        run: python -m compileall -q api stemcloud tools tests
       - name: Account and API flow
         run: python tests/test_flow.py
+      - name: Migrations and lesson gate cookie
+        run: python tests/test_backend.py
       - name: R2 media routing
         run: python tests/test_r2_storage.py

@@ -8,7 +8,9 @@ It stays disabled until uploads are verified and the deployment is configured.
 GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, three Grade 10 Part II and six Grade 11 physics chapters), each with a story, a watch-it cartoon, notes, textbook activities, an interactive lab, a challenge game, a quiz, a sort game, worked examples, every textbook exercise with an answer, a recap and a Tamil-English glossary, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
 
 ```
-api/index.py        the whole backend (FastAPI): accounts, progress sync, admin, serves the lessons
+api/index.py        Vercel entry point; it loads the backend from stemcloud/
+stemcloud/          the backend (FastAPI): config, db, migrations (versioned schema), security (sessions, CSRF, rate limits, lesson gate cookie),
+                    progress (merge rules), legacy (lesson page injection), media (R2), routers/ (auth, account, progress, past_papers, admin, pages, lessons)
 site/lessons/       the lesson pages (served only to logged-in students)
 public/static/       login/account/admin/privacy pages, account.js (sync + account menu),
                     pwa.js + sw.js + manifest (installable app), app-layer.css/js (phone layout),
@@ -16,6 +18,7 @@ public/static/       login/account/admin/privacy pages, account.js (sync + accou
                     audio/story/ (neural Tamil story voices), brand/, icons/
 vercel.json         routes everything to the function and bundles site/
 tests/test_flow.py  39 account/API checks (SQLite and real Postgres)
+tests/test_backend.py  schema migrations (fresh and upgraded-in-place databases) and the lesson gate cookie
 tests/test_pwa.py   real-browser checks: installability, offline, cache privacy, phone layout, animations (Edge/Chrome)
 tests/test_player.py  real-browser checks: lesson player, story swipe, read-aloud, textbook questions, lab
 tests/test_topics.py  topic pages: server rules, content integrity, progress merge, real-browser flow on desktop and phone

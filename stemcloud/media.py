@@ -1,0 +1,24 @@
+"""R2 media redirects (disabled unless R2_MEDIA_ENABLED=1) and the /static mount that uses them."""
+from fastapi import HTTPException
+from fastapi.responses import RedirectResponse
+from fastapi.staticfiles import StaticFiles
+
+from api import r2_storage
+
+
+def media_response(path):
+    try:
+        target = r2_storage.asset_target(path)
+    except (ValueError, ImportError):
+        raise HTTPException(503, 'Media storage is not configured. Please contact the administrator.')
+    if target is None:
+        return None
+    url, visibility = target
+    cache = 'public, max-age=3600' if visibility == 'public' else 'private, no-store'
+    return RedirectResponse(url, status_code=307, headers={'Cache-Control': cache, 'Referrer-Policy': 'no-referrer'})
+
+
+class MediaStaticFiles(StaticFiles):
+    async def get_response(self, path, scope):
+        remote = media_response('static/' + path.replace('\\', '/'))
+        return remote if remote is not None else await super().get_response(path, scope)

@@ -132,6 +132,8 @@
       function act(t, fn) { var b = mk('button', '', t); b.type = 'button'; b.onclick = fn; menu.appendChild(b); return b; }
       link('🏠 ' + L('Course contents', 'பாட உள்ளடக்கம்'), '/lessons/index.html');
       link('👤 ' + L('My account', 'என் கணக்கு'), '/account');
+      link('ℹ️ ' + L('About STEM Cloud', 'STEM Cloud பற்றி'), '/about');
+      link('🌐 ' + L('Platform Homepage', 'முகப்புப் பக்கம்'), '/home');
 
       var tt = document.getElementById('themeToggle');
       if (tt && getComputedStyle(tt).display === 'none') {
@@ -141,6 +143,7 @@
       var mb = act('🎞 ' + L('Animations', 'அனிமேஷன்'), function () {
         var off = !document.documentElement.classList.contains('stem-calm');
         document.documentElement.classList.toggle('stem-calm', off);
+        document.documentElement.setAttribute('data-stem-motion', off ? 'off' : 'on');
         try { localStorage.setItem('stem_motion', off ? 'off' : 'on'); } catch (e) {}
         try { window.dispatchEvent(new Event('stem-calm-change')); } catch (e) {}
         fill();

@@ -5,6 +5,7 @@
 #stem-vp [data-a="rate"]{border-radius:var(--r-sm)!important}
 #stem-vp{border-radius:var(--r-sm)!important}
 .a-readout{border-radius:var(--r)!important}
+.about-v-icon{border-radius:var(--r)!important}
 .act-box{border-radius:var(--r)!important}
 .badge-pill{border-radius:var(--r-lg)!important}
 .badges-btn{border-radius:var(--r-lg)!important}
@@ -13,6 +14,7 @@
 .bs-home,.bs-bridge{border-radius:var(--r-lg)!important}
 .bs-hook{border-radius:var(--r-lg)!important}
 .bs-pic{border-radius:var(--r)!important}
+.btn-sm{border-radius:var(--r)!important}
 .btn.primary{background:var(--accent)!important}
 .btn.pri{background:var(--accent)!important}
 .btn{border-radius:var(--r)!important}
@@ -20,6 +22,7 @@
 .bubble{border-radius:var(--r-lg)!important}
 .c-bar i{background:var(--accent)!important}
 .c-cta{background:var(--accent)!important;border-radius:var(--r-lg)!important}
+.callout{border-left:1px solid var(--border)!important}
 .callout{border-radius:var(--r)!important}
 .card .icon-badge{border-radius:var(--r)!important}
 .card figure img{border-radius:var(--r)!important}
@@ -38,9 +41,13 @@
 .device-modal{border-radius:var(--r-lg)!important}
 .device-row{border-radius:var(--r)!important}
 .dream .tag{border-radius:var(--r)!important}
+.enroll-banner{background:var(--panel-2)!important}
+.enroll-box{background:var(--panel-2)!important}
 .ex-answer{border-radius:0 var(--r) var(--r) 0!important;border-left:1px solid var(--border)!important}
 .ex-toggle{border-radius:var(--r)!important}
 .face .chip{border-radius:var(--r)!important}
+.feat-icon-wrap{border-radius:var(--r-lg)!important}
+.feat-tags span{border-radius:var(--r-sm)!important}
 .fig{border-radius:var(--r)!important}
 .final-answer{background:var(--panel-2)!important;border-radius:var(--r)!important}
 .formula-box{background:var(--panel-2)!important;border-radius:var(--r)!important}
@@ -52,17 +59,23 @@
 .fw-cap{border-radius:var(--r)!important}
 .fw-card{border-radius:var(--r-lg)!important}
 .fw-chip{border-radius:var(--r-lg)!important}
+.fw-ctl .labelled-control{border-radius:var(--r)!important}
 .fw-phase{border-radius:var(--r)!important}
 .fw-pill{border-radius:var(--r-lg)!important}
 .fw-step{border-radius:var(--r)!important}
 .game-scene{border-radius:var(--r)!important}
 .graph-box{border-radius:var(--r)!important}
 .hero h1 em{background:var(--accent)!important}
+.hero-tag{border-radius:var(--r-sm)!important}
+.hi-badge{border-radius:var(--r-sm)!important}
 .intro{border-radius:var(--r-lg)!important}
 .kicker{border-radius:var(--r-lg)!important}
 .lang-toggle{border-radius:var(--r-lg)!important}
 .lawbox{background:var(--panel-2)!important;border-radius:var(--r)!important}
 .lb-body{border-radius:var(--r)!important}
+.learning-chooser,.learning-checks,.learning-prereq{border-radius:var(--r-lg)!important}
+.learning-feedback,.learning-observation,.learning-status{border-left:1px solid var(--border)!important}
+.learning-question,.learning-compare{border-radius:var(--r)!important}
 .level-btn{border-radius:var(--r)!important}
 .lg-see,.lg-live{border-radius:var(--r)!important}
 .lg-try{border-radius:var(--r)!important}
@@ -71,6 +84,7 @@
 .ls svg{border-radius:var(--r)!important}
 .ls-m{border-radius:var(--r)!important}
 .match-tile{border-radius:var(--r)!important}
+.mobile-toggle{border-radius:var(--r)!important}
 .mod{border-radius:var(--r-lg)!important}
 .navlinks a{border-radius:var(--r-lg)!important}
 .navlinks.stem-open a{border-radius:var(--r)!important}
@@ -100,6 +114,7 @@
 .qz-opt{border-radius:var(--r)!important}
 .readout{border-radius:var(--r)!important}
 .road::before{background:var(--panel-2)!important}
+.s-tab-btn{border-radius:var(--r-sm)!important}
 .sb-btn{border-radius:var(--r)!important}
 .sb-chip{border-radius:var(--r)!important}
 .sb-mid{border-radius:var(--r)!important}
@@ -113,6 +128,7 @@
 .so-chip{border-radius:var(--r-lg)!important}
 .so-quest{border-radius:var(--r-lg)!important}
 .so-stage{border-radius:var(--r-lg)!important}
+.so-voice{border-radius:var(--r)!important}
 .so-voice{border-radius:var(--r-sm)!important}
 .sort-bin .schip{border-radius:var(--r-lg)!important}
 .sort-bin{border-radius:var(--r)!important}
@@ -141,6 +157,7 @@
 .tabs{border-radius:var(--r)!important}
 .tbtn{border-radius:var(--r-lg)!important}
 .theme-toggle,.lang-toggle{border-radius:var(--r-lg)!important}
+.theme-toggle-btn{border-radius:var(--r)!important}
 .tip{border-radius:var(--r)!important}
 .toast{border-radius:var(--r)!important}
 .toggle-btn{border-radius:var(--r)!important}

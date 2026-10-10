@@ -2,6 +2,16 @@
 (function () {
   'use strict';
   var doc = document, root = doc.documentElement;
+  // Available in both the guided and entire-page views.
+  window.StemModal = {
+    open: function(el,first){
+      var m={el:el,opener:doc.activeElement,inert:[]};
+      [].forEach.call(doc.body.children,function(c){if(c===el||/^(SCRIPT|STYLE)$/.test(c.tagName)||c.id==='stem-live'||c.hasAttribute('inert'))return;c.setAttribute('inert','');m.inert.push(c);});
+      m.key=function(e){if(e.key!=='Tab')return;var f=[].filter.call(el.querySelectorAll('button:not([disabled]),a[href],input,select,textarea,[tabindex]:not([tabindex="-1"])'),function(n){return n.getClientRects().length;});if(!f.length)return;var i=f.indexOf(doc.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus();}else if(!e.shiftKey&&(i<0||i===f.length-1)){e.preventDefault();f[0].focus();}};
+      doc.addEventListener('keydown',m.key,true);(first||el).focus({preventScroll:true});return m;
+    },
+    close:function(m){doc.removeEventListener('keydown',m.key,true);m.inert.forEach(function(c){c.removeAttribute('inert');});if(m.opener&&doc.contains(m.opener))m.opener.focus({preventScroll:true});}
+  };
   var tb = doc.querySelector('.topbar'), xp = doc.querySelector('.xpbar');
 
   function measure() {

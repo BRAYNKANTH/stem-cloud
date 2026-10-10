@@ -4,6 +4,7 @@ data/
 .vercel/
 .env
 .env.local
+.env*.local
 scratch/
 tmp/
 .sf/

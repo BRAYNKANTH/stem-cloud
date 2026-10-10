@@ -12,13 +12,15 @@
   var finishEl = doc.getElementById('fw_finish');
 
   function lang() { try { return (typeof APP_LANG !== 'undefined' ? APP_LANG : localStorage.getItem('lessonLang')) === 'ta' ? 'ta' : 'en'; } catch (e) { return 'en'; } }
-  function L(en, ta) { return lang() === 'ta' ? ta : en; }
+  function L(en, ta) { return lang() === 'ta' ? ta : (window.stemLang && window.stemLang() === 'si' && window.StemSI ? window.StemSI.t(en) : en); }
   function mk(tag, cls, html) { var e = doc.createElement(tag); if (cls) e.className = cls; if (html !== undefined) e.innerHTML = html; return e; }
   function buzz(ms) { try { if (navigator.vibrate) navigator.vibrate(ms || 8); } catch (e) {} }
 
   /* ------------------------------------------------------------------ steps */
   function pathLinks() { return [].slice.call(doc.querySelectorAll('#fw_phases a.fw-step')); }
-  var ids = pathLinks().map(function (a) { return (a.getAttribute('href') || '').slice(1); }).filter(function (id) { return doc.getElementById(id); });
+  var allIds = pathLinks().map(function (a) { return (a.getAttribute('href') || '').slice(1); }).filter(function (id) { return doc.getElementById(id); });
+  var route = window.StemLearning ? window.StemLearning.route() : 'study';
+  var ids = route === 'explore' ? allIds.filter(function (id) { return id === 'story' || id === 'basics'; }) : allIds.slice();
   if (!ids.length) return;
   var N = ids.length, LAST = N + 1;                               /* 0 = start, 1..N = lesson steps, N+1 = finish */
 
@@ -46,10 +48,10 @@
   function label(i) {
     if (i === 0) return L('Start', 'தொடக்கம்');
     if (i === LAST) return L('Finish', 'முடிவு');
-    var a = pathLinks()[i - 1];
+    var a = pathLinks().filter(function (a) { return a.getAttribute('href') === '#' + ids[i - 1]; })[0];
     return a ? cleanLabel(a) : String(i);
   }
-  function isDone(i) { var a = pathLinks()[i - 1]; return !!(a && a.classList.contains('done')); }
+  function isDone(i) { if (ids[i - 1] === 'basics' && window.StemLearning) return window.StemLearning.complete(); var a = pathLinks().filter(function (a) { return a.getAttribute('href') === '#' + ids[i - 1]; })[0]; return !!(a && a.classList.contains('done')); }
 
   /* ------------------------------------------------------------------ bar */
   var bar = mk('nav', '', '');
@@ -97,7 +99,7 @@
   function renderStrip() {
     var h = '';
     for (var k = 0; k <= LAST; k++) {
-      var done = k >= 1 && k <= N && (visited[k] || isDone(k)) && k !== cur;
+      var done = k >= 1 && k <= N && isDone(k);
       h += '<button type="button" class="sb-chip' + (k === cur ? ' cur' : '') + (done ? ' done' : '') + '" data-i="' + k + '" aria-label="' + (k >= 1 && k <= N ? L('Step ', 'படி ') + k + ': ' : '') + stepWord(k).replace(/"/g, '') + '"' + (k === cur ? ' aria-current="step"' : '') + '>' +
         '<span class="sc-ic" aria-hidden="true">' + stepIcon(k) + '</span>' + (k >= 1 && k <= N ? '<span class="sc-n" aria-hidden="true">' + k + '</span>' : '') + (done ? '<i class="sc-ok" aria-hidden="true">✓</i>' : '') + '</button>';
     }
@@ -168,7 +170,8 @@
     bBack.title = bBack.getAttribute('aria-label');
     var nxt = i === LAST ? null : label(i + 1);
     var nl = (sub && sub.hasMore) ? (L('Next subtopic (', 'அடுத்த தலைப்பு (') + (sub.cardIdx + 2) + '/' + sub.total + ')') : (nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்'));
-    bNext.innerHTML = '<span aria-hidden="true">' + (i === 0 ? '▶' : (i === N ? '🏁' : (i === LAST ? '🏠' : '➜'))) + '</span>';
+    bNext.innerHTML = '<span aria-hidden="true">' + (i === 0 ? '▶' : (i === N ? '🏁' : (i === LAST ? '🏠' : '➜'))) + '</span><span class="sb-action">' + (i === 0 ? L('Start','தொடங்கு') : (i === LAST ? L('Lessons','பாடங்கள்') : L('Next','அடுத்து'))) + '</span>';
+    bBack.innerHTML = '<span aria-hidden="true">‹</span><span class="sb-action">' + L('Back','பின்னாடி') + '</span>';
     bNext.setAttribute('aria-label', i === 0 ? L('Start the lesson', 'பாடத்த தொடங்கு') : nl); bNext.title = bNext.getAttribute('aria-label');
     bNext.classList.toggle('sb-pulse', i === 0 && taps() < 2);
     bMid.setAttribute('aria-label', (i >= 1 && i <= N ? L('Step ', 'படி ') + i + ' / ' + N + ': ' : '') + stepWord(i) + subSuffix + '. ' + L('Open lesson map', 'பாடத்தின் வரைபடம்'));
@@ -182,17 +185,19 @@
   var ov = mk('div', 'stem-ov', ''); pathBox.appendChild(ov);
   function nextUndone() { for (var k = 1; k <= N; k++) if (!isDone(k) && !visited[k]) return k; for (k = 1; k <= N; k++) if (!isDone(k)) return k; return N; }
   function renderOverview() {
-    var links = pathLinks(), doneN = 0, h = '', first = nextUndone();
+    var links = pathLinks().filter(function(a){return ids.indexOf(a.getAttribute('href').slice(1))>=0;}), doneN = 0, h = '', first = nextUndone();
     for (var k = 1; k <= N; k++) if (isDone(k)) doneN++;
     var started = doneN > 0 || Object.keys(visited).length > 1;
-    h += '<div class="ov-meta"><span>📚 <b>' + N + '</b></span><span>⏱ <b>~' + Math.max(10, N * 3) + '</b> ' + L('min', 'நிமி') + '</span><span>✅ <b>' + doneN + ' / ' + N + '</b></span></div>';
+    var words = (wrap.textContent || '').split(/\s+/).length, minutes = Math.max(20, Math.ceil(words / 100) + 15);
+    h += '<div class="ov-meta"><span>📚 <b>' + N + '</b> ' + L('steps','படிகள்') + '</span><span>⏱ ' + L('Estimated time','நேர மதிப்பீடு') + ': <b>' + (route === 'explore' ? '5–10' : minutes + '–' + (minutes + 25)) + '</b> ' + L('min', 'நிமி') + '</span><span>✅ ' + L('Activities finished','முடித்த செயல்கள்') + ': <b>' + doneN + ' / ' + N + '</b></span></div>';
     h += '<button type="button" class="ov-cta" data-go="' + (doneN >= N ? 0 : first) + '"><span class="ov-pl" aria-hidden="true">' + (doneN >= N ? '↻' : '▶') + '</span><span class="ov-tx"><b>' + (doneN >= N ? L('Review', 'திருப்பி பாரு') : (started ? L('Continue', 'தொடர்') : L('Start', 'தொடங்கு'))) + '</b><small>' + (doneN >= N ? '' : stepWord(first)) + '</small></span></button>';
     var groups = [].slice.call(doc.querySelectorAll('#fw_phases .fw-phase'));
     h += '<div class="ov-toc">';
     groups.forEach(function (g) {
+      var active = [].filter.call(g.querySelectorAll('a.fw-step'), function(a){ return ids.indexOf(a.getAttribute('href').slice(1)) >= 0; }); if (!active.length) return;
       var t = g.querySelector('h4'); h += '<div class="ov-ph">' + (t ? t.textContent : '') + '</div><ol>';
       [].forEach.call(g.querySelectorAll('a.fw-step'), function (a) {
-        var i = links.indexOf(a) + 1, done = isDone(i), lab = label(i), m = lab.match(/^(\S+)\s+(.*)$/);
+        var i = links.indexOf(a) + 1; if (i <= 0) return; var done = isDone(i), lab = label(i), m = lab.match(/^(\S+)\s+(.*)$/);
         h += '<li><button type="button" class="ov-it' + (done ? ' done' : '') + (i === first && doneN < N ? ' now' : '') + '" data-go="' + i + '"><span class="ov-n" aria-hidden="true">' + (done ? '✓' : i) + '</span><span class="ov-ic" aria-hidden="true">' + (m ? m[1] : '') + '</span><span class="ov-w">' + (m ? m[2] : lab) + '</span><span class="sr-only">' + (done ? L('done', 'முடிஞ்சது') : '') + '</span></button></li>';
       });
       h += '</ol>';
@@ -216,7 +221,8 @@
       guideToEnd();
     }
   }
-  function markPassive(i) { var id = ids[i - 1]; if (PASSIVE.indexOf(id) >= 0) real(id); }
+  function markPassive(i) { var id = ids[i - 1]; if (id === 'basics' && window.StemLearning && !window.StemLearning.complete()) return; if (PASSIVE.indexOf(id) >= 0) real(id); }
+  doc.addEventListener('stem-understanding', function(e){ if(e.detail.complete) real('basics'); renderBar(); });
   window.addEventListener('stem-story-line', function (e) { var n = doc.querySelectorAll('.so-dots i').length; if (e.detail && n && e.detail.i === n - 1) real('story'); });
   setInterval(function () { var s = doc.getElementById('fw_scrub'); if (s && +s.value >= 995) real('watch'); }, 800);
   doc.addEventListener('click', function (e) {
@@ -288,6 +294,8 @@
     var kids = [].slice.call(wrap.children); if (footer) kids.push(footer);
     kids.forEach(function (el) {
       var on = stepOf(el) === cur;
+      if (route === 'explore' && (el === finishEl || (el.tagName === 'SECTION' && allIds.indexOf(el.id) >= 0 && ids.indexOf(el.id) < 0))) on = false;
+      if (el.id === 'stem-explore-finish') on = route === 'explore' && cur === LAST;
       el.classList.toggle('stem-hide', !on);
       if (on && animate) { el.classList.remove('stem-enter'); void el.offsetWidth; el.classList.add('stem-enter'); }
     });
@@ -528,7 +536,7 @@
   doc.addEventListener('stem-step', function (e) {
     var id = e.detail.id;
     if (id === 'watch') setTimeout(poster, 60);
-    if (id === 'story' && !storyShown) { storyShown = true; if (window.__soShow) setTimeout(function () { window.__soShow(0); }, 120); }
+    if (id === 'story' && !storyShown) { storyShown = true; if (window.__soShow) setTimeout(function () { window.__soShow(window.StemLearning && window.StemLearning.resuming ? window.StemLearning.savedStory : 0); }, 120); }
     if (id === 'fw_finish') {
       var fin = doc.getElementById('fw_finish');
       if (fin && !fin.querySelector('.stem-past-bridge')) {
@@ -548,8 +556,13 @@
 
   /* ------------------------------------------------------------------ start */
   root.classList.add('stem-player');
+  root.classList.toggle('stem-explore', route === 'explore');
+  var exploreEnd = mk('section', 'block', ''); exploreEnd.id = 'stem-explore-finish'; wrap.appendChild(exploreEnd);
+  function paintExploreEnd(){ exploreEnd.innerHTML = '<h2>' + L('Your exploration','உன் ஆராய்ச்சி') + '</h2><p>' + (window.StemLearning && window.StemLearning.complete() ? L('You checked two ideas. Explain them in your own words, then try the formulas when you are ready.','இரு கருத்துகளைச் சரிபார்த்தாய். உன் சொந்த வார்த்தைகளில் விளக்கு. தயாரானதும் சூத்திரங்களை முயற்சி செய்.') : L('You explored the lesson. Return to Basics to try the two understanding questions.','பாடத்தை ஆராய்ந்தாய். இரு புரிதல் கேள்விகளை முயற்சிக்க அடிப்படைக்குத் திரும்பு.')) + '</p><button type="button" class="btn" data-check>' + L('Check the idea','கருத்தைச் சரிபார்') + '</button> <button type="button" class="btn primary" data-study>' + L('Study for O/L','சா/த கற்க') + '</button>'; }
+  exploreEnd.addEventListener('click', function(e){ if(e.target.closest('[data-study]')) { var b=doc.querySelector('.learning-route[data-route="study"]');if(b)b.click(); } else if(e.target.closest('[data-check]'))go(ids.indexOf('basics')+1); });
+  doc.addEventListener('stem-step', paintExploreEnd);
   window.StemModal = { open: openModal, close: closeModal };
-  window.StemPlayer = { active: true, openCoach: openCoach, focusStep: focusStep, go: go, openMap: openMap, count: N, current: function () { return cur; }, stepIds: ids, stepOf: stepOf, label: label };
+  window.StemPlayer = { active: true, openCoach: openCoach, focusStep: focusStep, go: go, openMap: openMap, count: N, current: function () { return cur; }, stepIds: ids, stepOf: stepOf, label: label, setRoute: function(mode){ route=mode; ids=mode==='explore'?allIds.filter(function(id){return id==='story'||id==='basics';}):allIds.slice(); N=ids.length;LAST=N+1;tops=ids.map(function(id){return topOf(doc.getElementById(id));});root.classList.toggle('stem-explore',mode==='explore');window.StemPlayer.count=N;window.StemPlayer.stepIds=ids;cur=-1;go(0,{silent:true}); } };
   var h0 = location.hash.slice(1), t0 = h0 ? doc.getElementById(h0) : null;
   var inner = t0 && t0 !== topOf(t0) ? t0 : null;                 /* a link to something inside a step: scroll to it */
   var resume = /[?&]resume=1\b/.test(location.search), savedStep = 0;

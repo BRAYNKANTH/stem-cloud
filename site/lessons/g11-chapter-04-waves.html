@@ -1710,27 +1710,27 @@ function makeDraw(svg){
   const T = (en, ta) => (APP_LANG === 'ta' ? ta : ((window.STEM_LANG === 'si' && window.StemSI) ? window.StemSI.t(en) : en));
   const $ = id => document.getElementById(id);
   const PHASES = [
-    {k:'p1', en:'Sector 1: Foundations',            ta:'பகுதி 1: அடிப்படை அறிமுகம்', emoji:'📌'},
-    {k:'p2', en:'Sector 2: Theory & Principles',    ta:'பகுதி 2: விதிகள் & குறிப்புகள்', emoji:'📖'},
-    {k:'p3', en:'Sector 3: Interactive Simulation', ta:'பகுதி 3: செய்முறை & லேப்', emoji:'🔬'},
-    {k:'p4', en:'Sector 4: Assessment & Mastery',   ta:'பகுதி 4: பயிற்சி & மதிப்பீடு', emoji:'📝'}
+    {k:'p1', en:'Meet the idea', ta:'கருத்தை அறி', emoji:'📌'},
+    {k:'p2', en:'Learn step by step', ta:'படிப்படியாகக் கற்க', emoji:'📖'},
+    {k:'p3', en:'Try and explore', ta:'முயற்சி செய்து ஆராய்', emoji:'🔬'},
+    {k:'p4', en:'Check and practise', ta:'சரிபார்த்துப் பயிற்சி செய்', emoji:'📝'}
   ];
   const KINDS = {
-    story:{en:'1.1 Overview', ta:'1.1 அறிமுகம்', e:'🎬', p:'p1'},
-    basics:{en:'1.2 Fundamentals', ta:'1.2 அடிப்படைக் கருத்துக்கள்', e:'💡', p:'p1'},
-    watch:{en:'1.3 Demonstration', ta:'1.3 காட்சி விளக்கம்', e:'👀', p:'p1'},
+    story:{en:'Story', ta:'கதை', e:'🎬', p:'p1'},
+    basics:{en:'Basics', ta:'அடிப்படை', e:'💡', p:'p1'},
+    watch:{en:'Watch it', ta:'பார்த்தறி', e:'👀', p:'p1'},
 
-    notes:{en:'2.1 Theory & Formulas', ta:'2.1 சூத்திரங்களும் விதிகளும்', e:'📖', p:'p2'},
-    activities:{en:'2.2 Practical Activity', ta:'2.2 செய்முறை பரிசோதனை', e:'🧪', p:'p2'},
+    notes:{en:'Notes', ta:'குறிப்புகள்', e:'📖', p:'p2'},
+    activities:{en:'Try it', ta:'செய்து பாரு', e:'🧪', p:'p2'},
 
-    lab:{en:'3.1 Physics Lab', ta:'3.1 இயற்பியல் லேப்', e:'🔬', p:'p3'},
-    game:{en:'3.2 Concept Challenge', ta:'3.2 சவால் பயிற்சி', e:'🎯', p:'p3'},
-    sortgame:{en:'3.3 Classification', ta:'3.3 வகைப்படுத்துதல்', e:'🧩', p:'p3'},
+    lab:{en:'Lab', ta:'ஆய்வகம்', e:'🔬', p:'p3'},
+    game:{en:'Challenge', ta:'சவால்', e:'🎯', p:'p3'},
+    sortgame:{en:'Sort game', ta:'வகைப்படுத்தும் விளையாட்டு', e:'🧩', p:'p3'},
 
-    quiz:{en:'4.1 Knowledge Check', ta:'4.1 சுயபரிசோதனை', e:'📝', p:'p4'},
-    examples:{en:'4.2 Worked Problems', ta:'4.2 மாதிரி வினா-விடை', e:'✏️', p:'p4'},
-    practice:{en:'4.3 Exam Practice', ta:'4.3 பரீட்சைப் பயிற்சி', e:'💪', p:'p4'},
-    recap:{en:'4.4 Key Review', ta:'4.4 பாட மீளாய்வு', e:'🔄', p:'p4'},
+    quiz:{en:'Quiz', ta:'வினாடி வினா', e:'📝', p:'p4'},
+    examples:{en:'Examples', ta:'உதாரணங்கள்', e:'✏️', p:'p4'},
+    practice:{en:'Exam practice', ta:'பரீட்சைப் பயிற்சி', e:'💪', p:'p4'},
+    recap:{en:'Recap', ta:'மீள்பார்வை', e:'🔄', p:'p4'},
     summary:{en:'4.5 Summary & Checklist', ta:'4.5 பாடச் சுருக்கம்', e:'📌', p:'p4'}
   };
   const hasExercises = !!$('exercises');
@@ -1825,7 +1825,7 @@ function makeDraw(svg){
       es.forEach(e => {
         const h = e.intersectionRect ? e.intersectionRect.height : 0;
         vis[e.target.id] = h;
-        if(e.isIntersecting && h >= Math.min(e.boundingClientRect.height * 0.3, window.innerHeight * 0.3) && !document.documentElement.classList.contains('stem-player')){ mark(e.target.id); }
+        /* Viewing a section is recorded separately; only deliberate actions complete it. */
       });
       let best = null, bv = 0; steps.forEach(s => { if((vis[s.id] || 0) > bv){ bv = vis[s.id]; best = s.id; } });
       if(best && best !== cur){ cur = best; renderPill(); renderPath(); }
@@ -1837,7 +1837,7 @@ function makeDraw(svg){
   openerLangHook = hook;
   refresh();
   window.addEventListener('scroll', function(){ const p = $('fw_pill'); if(p) p.style.display = (window.scrollY > 520) ? 'flex' : 'none'; }, {passive:true});
-  window.__fwMarkReal = mark; window.__fwMark = function(id){ if(document.documentElement.classList.contains('stem-player')) return; mark(id); };   /* the lesson player marks real completion */
+  window.__fwMarkReal = mark; window.__fwMark = function(id){ if(!window.StemPlayer || !window.StemPlayer.active) mark(id); };   /* the lesson player marks real completion */
 })();
 
 
@@ -2208,8 +2208,9 @@ function makeDraw(svg){
   H.raja(70, 270, 0.5, {aL: 90 + Math.sin(t * sp) * 20, eyes: 'n', m: 0.4, brow: S.f >= 8 ? 'down' : 'n'});
   H.rect(380, 14, 240, 62, '#fff', 12, '#1b2236', 0.95);
   H.text(500, 38, 'v = f λ = ' + S.f + ' × ' + S.L, '#1b2236', 15); H.text(500, 64, '= ' + S.v + ' m s⁻¹', S.v === 4 ? '#0c6e5a' : '#1b2236', 20);
+  H.text(320, 284, APP_LANG === 'ta' ? 'காட்சி: உண்மை நேரத்தின் 1/8 வேகம்' : ((window.STEM_LANG === 'si') ? 'දර්ශනය: සැබෑ වේගයෙන් 1/8' : 'Display: one-eighth of real speed'), '#1b2236', 12);
   H.chittu(580, 292, 0.45, {wL: S.f >= 8 ? 50 : 0, m: S.f >= 8 ? 0.9 : 0.2, eyes: 'w'});
-  var msg = S.f >= 8 ? ["Shrill, high pitch!","கீச்சு, உயர் சுருதி!"] : (S.A >= 4.5 ? ["A big wave carries more energy.","பெரிய அலை அதிக சக்திய கொண்டு போகும்."] : ["Change f, λ or A.","f, λ, A-ஐ மாத்து."]);
+  var msg = S.f >= 8 ? ["More vibrations each second!","ஒவ்வொரு வினாடியும் அதிக அதிர்வுகள்!"] : (S.A >= 4.5 ? ["A big wave carries more energy.","பெரிய அலை அதிக சக்திய கொண்டு போகும்."] : ["Change f, λ or A.","f, λ, A-ஐ மாத்து."]);
   H.say(580, 292 - 100, msg, {col: '#e6f6ff', n: 20});
  }
 };

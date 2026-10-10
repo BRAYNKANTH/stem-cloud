@@ -16,6 +16,11 @@ from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
+try:
+    from . import r2_storage
+except ImportError:
+    import r2_storage
+
 ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 LESSONS = (SITE / 'lessons').resolve()
@@ -677,7 +682,7 @@ BOOT = '''<script>(function(){try{
 var U=%s,S=%s;
 var T=function(k){return /^(scx_|lessonLang$|lessonTheme$)/.test(k)};
 var owner=localStorage.getItem('acct_owner');
-if(owner&&owner!==String(U.id)){Object.keys(localStorage).filter(T).forEach(function(k){localStorage.removeItem(k)})}
+if(owner&&owner!==String(U.id)){Object.keys(localStorage).filter(function(k){return T(k)||/^stem_(step_|last_lesson|swipes|next_taps|coach_done)/.test(k)}).forEach(function(k){localStorage.removeItem(k)})}
 localStorage.setItem('acct_owner',String(U.id));
 function J(v,d){try{return JSON.parse(v)}catch(e){return d}}
 function M(k,o,n){if(o===null||o===undefined)return n;try{
@@ -713,12 +718,13 @@ APP_HEAD = (
     'document.addEventListener("stem-step",function(){if(!w)setTimeout(go,250)},{once:true});window.addEventListener("stem-si-coverage",function(){setTimeout(go,250)},{once:true});'
     'document.addEventListener("DOMContentLoaded",function(){setTimeout(go,document.getElementById("fw_path")?1800:40)});setTimeout(go,4000)})()}catch(e){}</script>'
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
-    '<script>try{if(localStorage.getItem("stem_motion")==="off")document.documentElement.classList.add("stem-calm")}catch(e){}</script>'
+    '<script>try{var m=localStorage.getItem("stem_motion"),q=matchMedia("(prefers-reduced-motion: reduce)");function motion(){document.documentElement.classList.toggle("stem-calm",m==="off"||(m!=="on"&&q.matches));window.dispatchEvent(new Event("stem-calm-change"))}motion();q.addEventListener("change",function(){m=localStorage.getItem("stem_motion");motion()})}catch(e){}</script>'
 )
 APP_TAIL_CSS = ('<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
                 '<link rel="stylesheet" href="/static/ui-generated.css"><link rel="stylesheet" href="/static/ui.css">')   # the interface layer comes last
 # order matters: player.js builds the lesson bar that voice.js adds its button to
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/ui-icons.js"></script><script src="/static/embed.js"></script><script src="/static/app-layer.js"></script>'
+               '<script src="/static/learning-content.js"></script><script src="/static/learning.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>'
@@ -748,7 +754,17 @@ def render_lesson(path: Path, user: dict, progress: dict) -> HTMLResponse:
 
 @app.get('/')
 def home(req: Request):
-    return RedirectResponse('/lessons/index.html' if current_user(req) else '/login', status_code=302)
+    if current_user(req) and not req.query_params.get('home') and not req.query_params.get('preview'):
+        return RedirectResponse('/lessons/index.html', status_code=302)
+    return FileResponse(STATIC / 'home.html')
+
+@app.get('/home')
+def home_alias(req: Request):
+    return FileResponse(STATIC / 'home.html')
+
+@app.get('/about')
+def about_page(req: Request):
+    return FileResponse(STATIC / 'about.html')
 
 @app.get('/healthz')
 def healthz():
@@ -790,7 +806,12 @@ def lessons(rel: str, req: Request):
             if rel.endswith('.html'):
                 return RedirectResponse('/login?next=' + '/lessons/' + rel, status_code=302)
             raise HTTPException(401, 'Please log in.')
-        if LESSONS not in p.parents or not p.is_file():
+        if LESSONS not in p.parents:
+            raise HTTPException(404, 'Not found.')
+        remote = media_response('lessons/' + p.relative_to(LESSONS).as_posix())
+        if remote is not None:
+            return remote
+        if not p.is_file():
             raise HTTPException(404, 'Not found.')
         if p.suffix == '.html':
             return render_lesson(p, u, load_progress(u['id'], con))
@@ -846,4 +867,22 @@ def favicon():
         return FileResponse(ico, media_type='image/x-icon', headers={'Cache-Control': 'public, max-age=86400'})
     return FileResponse(STATIC / 'icons' / 'favicon-32.png', media_type='image/png', headers={'Cache-Control': 'public, max-age=86400'})
 
-app.mount('/static', StaticFiles(directory=str(STATIC)), name='static')
+def media_response(path):
+    try:
+        target = r2_storage.asset_target(path)
+    except (ValueError, ImportError):
+        raise HTTPException(503, 'Media storage is not configured. Please contact the administrator.')
+    if target is None:
+        return None
+    url, visibility = target
+    cache = 'public, max-age=3600' if visibility == 'public' else 'private, no-store'
+    return RedirectResponse(url, status_code=307, headers={'Cache-Control': cache, 'Referrer-Policy': 'no-referrer'})
+
+
+class MediaStaticFiles(StaticFiles):
+    async def get_response(self, path, scope):
+        remote = media_response('static/' + path.replace('\\', '/'))
+        return remote if remote is not None else await super().get_response(path, scope)
+
+
+app.mount('/static', MediaStaticFiles(directory=str(STATIC)), name='static')

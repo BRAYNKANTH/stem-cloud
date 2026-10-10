@@ -1,5 +1,8 @@
 # STEM Cloud
 
+Cloudflare R2 media integration and activation instructions: [cloudflare-r2.md](cloudflare-r2.md).
+It stays disabled until uploads are verified and the deployment is configured.
+
 GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, three Grade 10 Part II and six Grade 11 physics chapters), each with a story, a watch-it cartoon, notes, textbook activities, an interactive lab, a challenge game, a quiz, a sort game, worked examples, every textbook exercise with an answer, a recap and a Tamil-English glossary, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
 
 ```

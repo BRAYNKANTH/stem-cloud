@@ -155,10 +155,13 @@ def activate(data):
     # Exact paths exclude only verified objects, never a new file that wasn't uploaded.
     paths=[('site/' if k.startswith('lessons/') else 'public/')+k for k in data['assets']]
     # .vercelignore keeps the files out of the upload, so the function can never bundle them. vercel.json's
-    # excludeFiles is not used: Vercel rejects values longer than 256 characters, and exact paths soon exceed that.
+    # excludeFiles is not used for media: Vercel rejects values longer than 256 characters, and exact paths soon
+    # exceed that. Only an over-long list written by an older version of this tool is removed; other exclusions stay.
     config_path=ROOT/'vercel.json'
     config=json.loads(config_path.read_text(encoding='utf-8'))
-    if config['functions']['api/index.py'].pop('excludeFiles',None) is not None:
+    fn=config['functions']['api/index.py']
+    if len(fn.get('excludeFiles',''))>256:
+        del fn['excludeFiles']
         config_path.write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
     ignore_path=ROOT/'.vercelignore'
     start='# BEGIN VERIFIED R2 MEDIA';end='# END VERIFIED R2 MEDIA'

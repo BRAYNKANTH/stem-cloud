@@ -34,7 +34,9 @@ function withImports(file, seen) {
 const HTML_REF = /(?:src|href|component-url|renderer-url|before-hydration-url)="([^"]+\.js)"/g;
 let failed = false;
 const rows = [];
-for (const page of walk(dist).filter((f) => f.endsWith('.html'))) {
+// public/static/* is the current app, copied into the build unchanged; it is measured by tools/perf_baseline.py instead.
+const legacy = join(dist, 'static');
+for (const page of walk(dist).filter((f) => f.endsWith('.html') && !f.startsWith(legacy))) {
   const html = readFileSync(page, 'utf8');
   const files = new Set();
   for (const m of html.matchAll(HTML_REF)) withImports(toFile(m[1], page), files);

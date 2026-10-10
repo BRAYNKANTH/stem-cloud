@@ -8,8 +8,9 @@ tmp/
 docs/
 .venv/
 .github/
-# the Astro app is not deployed yet (milestone 2.2)
-web/
+web/node_modules/
+web/dist/
+web/.astro/
 # BEGIN VERIFIED R2 MEDIA
 site/lessons/past-papers/2015/mcq-02.jpg
 site/lessons/past-papers/2015/mcq-08.jpg

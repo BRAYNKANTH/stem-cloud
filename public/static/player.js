@@ -58,7 +58,7 @@
   bar.id = 'stem-bar'; bar.setAttribute('aria-label', 'Lesson steps');
   bar.innerHTML =
     '<div class="sb-row">' +
-    '<button type="button" class="sb-btn sb-back" aria-label="Previous step"><span aria-hidden="true">‹</span></button>' +
+    '<button type="button" class="sb-btn sb-back" aria-label="Previous step"></button>' +
     '<span class="sb-slot" id="sb-slot"></span>' +
     '<button type="button" class="sb-mid" aria-haspopup="dialog"><span class="sb-title"></span></button>' +
     '<button type="button" class="sb-btn sb-next primary"></button>' +
@@ -80,7 +80,7 @@
   var inner = doc.querySelector('.topbar-inner');
   var ct = null;
   if (inner) {
-    var back = mk('a', 'stem-back', '<span aria-hidden="true">←</span>');
+    var back = mk('a', 'stem-back', '<span aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></span>');
     back.href = '/lessons/index.html'; back.setAttribute('aria-label', L('Course contents', 'பாட உள்ளடக்கம்')); back.title = back.getAttribute('aria-label');
     ct = mk('div', 'stem-ct', '<b></b><small></small>');
     inner.insertBefore(ct, inner.firstChild); inner.insertBefore(back, inner.firstChild);
@@ -92,8 +92,44 @@
   var cur = -1, visited = {};
 
   /* the bar speaks in icons: step icon + "5 / 12" + progress dots, and one big round button (the words stay as tooltips / screen-reader labels) */
-  function stepIcon(i) { if (i === 0) return '🏠'; if (i === LAST) return '🏁'; var m = label(i).match(/^(\S+)\s/); return m ? m[1] : '•'; }
-  function stepWord(i) { var l = label(i); return i >= 1 && i <= N ? l.replace(/^\S+\s+/, '') : l; }
+  /* every step gets a drawn icon chosen from what the step IS (its section id), never from the emoji in its label */
+  var SVG = {
+    home: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',
+    flag: 'M5 21V4M5 4h11l-2 4 2 4H5',
+    story: 'M4 5h16v11H9l-5 4z',
+    basics: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.5h6c0-1.1.4-1.9 1-2.5A6 6 0 0 0 12 3z',
+    watch: 'M3 5h18v14H3zM10 9l5 3-5 3z',
+    notes: 'M6 3h9l4 4v14H6zM9 12h7M9 16h5',
+    activities: 'M14 4l6 6M4 20l9-9M11 7l6 6-4 4-6-6z',
+    lab: 'M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3M7 15h10',
+    game: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 11.5v1',
+    sortgame: 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z',
+    quiz: 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01',
+    examples: 'M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4',
+    practice: 'M8 4h8v3H8zM6 5H5v16h14V5h-1M9 12h6M9 16h4',
+    recap: 'M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4',
+    summary: 'M9 6h11M9 12h11M9 18h11M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2',
+    next: 'M5 12h14M13 6l6 6-6 6',
+    back: 'M15 6l-6 6 6 6',
+    play: 'M8 5v14l11-7z'
+  };
+  function svg(name, cls) {
+    var d = SVG[name] || SVG.notes, fill = name === 'play';
+    return '<svg class="' + (cls || 'st-svg') + '" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"' +
+      (fill ? ' fill="currentColor" stroke="none"' : ' fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"') + '><path d="' + d + '"/></svg>';
+  }
+  window.StemSvg = svg;
+  var HAS_EX = !!doc.getElementById('exercises');
+  function kindOf(id) {
+    if (['holdgame', 'pushit', 'tugofwar', 'balancegame', 'game'].indexOf(id) >= 0) return 'game';
+    if (id === 'walkthroughs') return 'examples';
+    if (id === 'exercises') return 'practice';
+    if (id === 'practice') return HAS_EX ? 'examples' : 'practice';
+    return SVG[id] ? id : 'notes';
+  }
+  function stepIcon(i) { if (i === 0) return svg('home'); if (i === LAST) return svg('flag'); return svg(kindOf(ids[i - 1])); }
+  /* the label without its emoji and without a textbook number such as "4.5" in front */
+  function stepWord(i) { var l = label(i); if (!(i >= 1 && i <= N)) return l; return l.replace(/^[^\p{L}\p{N}]+/u, '').replace(/^\d+(\.\d+)*\s+/, '').trim() || l; }
   function taps() { try { return parseInt(localStorage.getItem('stem_next_taps') || '0', 10) || 0; } catch (e) { return 0; } }
   /* one chip per step (icon + number); the one you are on is highlighted and kept in view, done ones carry a tick */
   function renderStrip() {
@@ -101,7 +137,7 @@
     for (var k = 0; k <= LAST; k++) {
       var done = k >= 1 && k <= N && isDone(k);
       h += '<button type="button" class="sb-chip' + (k === cur ? ' cur' : '') + (done ? ' done' : '') + '" data-i="' + k + '" aria-label="' + (k >= 1 && k <= N ? L('Step ', 'படி ') + k + ': ' : '') + stepWord(k).replace(/"/g, '') + '"' + (k === cur ? ' aria-current="step"' : '') + '>' +
-        '<span class="sc-ic" aria-hidden="true">' + stepIcon(k) + '</span>' + (k >= 1 && k <= N ? '<span class="sc-n" aria-hidden="true">' + k + '</span>' : '') + (done ? '<i class="sc-ok" aria-hidden="true">✓</i>' : '') + '</button>';
+        '<span class="sc-ic" aria-hidden="true">' + stepIcon(k) + '</span><span class="sc-w" aria-hidden="true">' + (k === 0 ? L('Start', 'தொடக்கம்') : (k === LAST ? L('Finish', 'முடிவு') : stepWord(k))) + '</span>' + (k >= 1 && k <= N ? '<span class="sc-n" aria-hidden="true">' + k + '</span>' : '') + (done ? '<i class="sc-ok" aria-hidden="true"><svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></i>' : '') + '</button>';
     }
     bStrip.innerHTML = h;
     var c = bStrip.querySelector('.sb-chip.cur');
@@ -138,21 +174,21 @@
     var sub = getActiveSubstep();
     eBack.hidden = i <= 0;
     if (sub && sub.cardIdx > 0) {
-      eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Previous subtopic', 'முந்தைய தலைப்பு') + '</span>';
+      eBack.innerHTML = '<span aria-hidden="true">' + svg('back') + '</span><span>' + L('Previous subtopic', 'முந்தைய தலைப்பு') + '</span>';
       eBack.setAttribute('aria-label', L('Previous subtopic', 'முந்தைய தலைப்பு'));
     } else {
-      eBack.innerHTML = '<span aria-hidden="true">‹</span><span>' + L('Back', 'பின்னாடி') + '</span>';
+      eBack.innerHTML = '<span aria-hidden="true">' + svg('back') + '</span><span>' + L('Back', 'பின்னாடி') + '</span>';
       eBack.setAttribute('aria-label', L('Previous step', 'முந்தைய படி'));
     }
 
     if (sub && sub.hasMore) {
       var nextNum = sub.cardIdx + 2;
       var subText = L('Next subtopic (', 'அடுத்த தலைப்பு (') + nextNum + '/' + sub.total + ')';
-      eNext.innerHTML = '<span>' + subText + '</span><span aria-hidden="true">➜</span>';
+      eNext.innerHTML = '<span>' + subText + '</span><span aria-hidden="true">' + svg('next') + '</span>';
       eNext.setAttribute('aria-label', subText);
     } else {
       var nextText = i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt ? (sub ? L('Complete & Continue: ', 'முடித்து தொடர்: ') : L('Next: ', 'அடுத்து: ')) + stepWord(i + 1) : L('Next', 'அடுத்து'));
-      eNext.innerHTML = '<span>' + nextText + '</span><span aria-hidden="true">' + (i === N ? '🏁' : (i === LAST ? '🏠' : '➜')) + '</span>';
+      eNext.innerHTML = '<span>' + nextText + '</span><span aria-hidden="true">' + svg(i === N ? 'flag' : (i === LAST ? 'home' : 'next')) + '</span>';
       eNext.setAttribute('aria-label', i === LAST ? L('All lessons', 'எல்லா பாடங்கள்') : (nxt || ''));
     }
     endNav.hidden = i === 0;
@@ -170,8 +206,8 @@
     bBack.title = bBack.getAttribute('aria-label');
     var nxt = i === LAST ? null : label(i + 1);
     var nl = (sub && sub.hasMore) ? (L('Next subtopic (', 'அடுத்த தலைப்பு (') + (sub.cardIdx + 2) + '/' + sub.total + ')') : (nxt ? L('Next: ', 'அடுத்து: ') + nxt : L('All lessons', 'எல்லா பாடங்கள்'));
-    bNext.innerHTML = '<span aria-hidden="true">' + (i === 0 ? '▶' : (i === N ? '🏁' : (i === LAST ? '🏠' : '➜'))) + '</span><span class="sb-action">' + (i === 0 ? L('Start','தொடங்கு') : (i === LAST ? L('Lessons','பாடங்கள்') : L('Next','அடுத்து'))) + '</span>';
-    bBack.innerHTML = '<span aria-hidden="true">‹</span><span class="sb-action">' + L('Back','பின்னாடி') + '</span>';
+    bNext.innerHTML = '<span aria-hidden="true">' + svg(i === 0 ? 'play' : (i === N ? 'flag' : (i === LAST ? 'home' : 'next'))) + '</span><span class="sb-action">' + (i === 0 ? L('Start','தொடங்கு') : (i === LAST ? L('Lessons','பாடங்கள்') : L('Next','அடுத்து'))) + '</span>';
+    bBack.innerHTML = '<span aria-hidden="true">' + svg('back') + '</span><span class="sb-action">' + L('Back','பின்னாடி') + '</span>';
     bNext.setAttribute('aria-label', i === 0 ? L('Start the lesson', 'பாடத்த தொடங்கு') : nl); bNext.title = bNext.getAttribute('aria-label');
     bNext.classList.toggle('sb-pulse', i === 0 && taps() < 2);
     bMid.setAttribute('aria-label', (i >= 1 && i <= N ? L('Step ', 'படி ') + i + ' / ' + N + ': ' : '') + stepWord(i) + subSuffix + '. ' + L('Open lesson map', 'பாடத்தின் வரைபடம்'));
@@ -181,28 +217,38 @@
     if (id) { var na = doc.querySelector('.navlinks a[href="#' + id + '"]'); if (na) na.setAttribute('aria-current', 'step'); }
   }
 
-  /* ------------------------------------------------------------------ chapter overview (first step): length, one big Start / Continue, the steps in order */
+  /* ------------------------------------------------------------------ chapter path (first step): the lesson title in a blue banner with its length,
+     the steps as tiles in their groups (done = green, up next = mango), and one Continue button that stays at the bottom of the screen */
   var ov = mk('div', 'stem-ov', ''); pathBox.appendChild(ov);
+  var heroEl = doc.querySelector('.hero'), heroPills = mk('div', 'ov-pills', '');
+  if (heroEl) heroEl.insertBefore(heroPills, heroEl.firstChild);
+  var CLOCK = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
   function nextUndone() { for (var k = 1; k <= N; k++) if (!isDone(k) && !visited[k]) return k; for (k = 1; k <= N; k++) if (!isDone(k)) return k; return N; }
   function renderOverview() {
     var links = pathLinks().filter(function(a){return ids.indexOf(a.getAttribute('href').slice(1))>=0;}), doneN = 0, h = '', first = nextUndone();
     for (var k = 1; k <= N; k++) if (isDone(k)) doneN++;
-    var started = doneN > 0 || Object.keys(visited).length > 1;
+    var started = doneN > 0 || Object.keys(visited).length > 1, all = doneN >= N;
     var words = (wrap.textContent || '').split(/\s+/).length, minutes = Math.max(20, Math.ceil(words / 100) + 15);
-    h += '<div class="ov-meta"><span>📚 <b>' + N + '</b> ' + L('steps','படிகள்') + '</span><span>⏱ ' + L('Estimated time','நேர மதிப்பீடு') + ': <b>' + (route === 'explore' ? '5–10' : minutes + '–' + (minutes + 25)) + '</b> ' + L('min', 'நிமி') + '</span><span>✅ ' + L('Activities finished','முடித்த செயல்கள்') + ': <b>' + doneN + ' / ' + N + '</b></span></div>';
-    h += '<button type="button" class="ov-cta" data-go="' + (doneN >= N ? 0 : first) + '"><span class="ov-pl" aria-hidden="true">' + (doneN >= N ? '↻' : '▶') + '</span><span class="ov-tx"><b>' + (doneN >= N ? L('Review', 'திருப்பி பாரு') : (started ? L('Continue', 'தொடர்') : L('Start', 'தொடங்கு'))) + '</b><small>' + (doneN >= N ? '' : stepWord(first)) + '</small></span></button>';
+    heroPills.innerHTML = '<span class="ov-pill">' + CLOCK + (route === 'explore' ? '5–10' : minutes + '–' + (minutes + 25)) + ' ' + L('min', 'நிமி') + '</span>' +
+      '<span class="ov-pill">' + doneN + ' / ' + N + ' ' + L('done', 'முடிஞ்சது') + '</span>';
     var groups = [].slice.call(doc.querySelectorAll('#fw_phases .fw-phase'));
     h += '<div class="ov-toc">';
     groups.forEach(function (g) {
       var active = [].filter.call(g.querySelectorAll('a.fw-step'), function(a){ return ids.indexOf(a.getAttribute('href').slice(1)) >= 0; }); if (!active.length) return;
-      var t = g.querySelector('h4'); h += '<div class="ov-ph">' + (t ? t.textContent : '') + '</div><ol>';
+      var t = g.querySelector('h4'), name = t ? t.textContent.replace(/^[^\p{L}\p{N}]+/u, '').trim() : '';
+      h += '<div class="ov-ph">' + name + '</div><ol class="ov-grid">';
       [].forEach.call(g.querySelectorAll('a.fw-step'), function (a) {
-        var i = links.indexOf(a) + 1; if (i <= 0) return; var done = isDone(i), lab = label(i), m = lab.match(/^(\S+)\s+(.*)$/);
-        h += '<li><button type="button" class="ov-it' + (done ? ' done' : '') + (i === first && doneN < N ? ' now' : '') + '" data-go="' + i + '"><span class="ov-n" aria-hidden="true">' + (done ? '✓' : i) + '</span><span class="ov-ic" aria-hidden="true">' + (m ? m[1] : '') + '</span><span class="ov-w">' + (m ? m[2] : lab) + '</span><span class="sr-only">' + (done ? L('done', 'முடிஞ்சது') : '') + '</span></button></li>';
+        var i = links.indexOf(a) + 1; if (i <= 0) return; var done = isDone(i), now = i === first && !all;
+        h += '<li><button type="button" class="ov-it' + (done ? ' done' : '') + (now ? ' now' : '') + '" data-go="' + i + '"' + (now ? ' aria-current="step"' : '') + '><span class="ov-ic" aria-hidden="true">' + stepIcon(i) + '</span><span class="ov-w">' + stepWord(i) + '</span>' +
+          '<span class="sr-only">' + L('Step ', 'படி ') + i + (done ? ', ' + L('done', 'முடிஞ்சது') : (now ? ', ' + L('up next', 'அடுத்தது') : '')) + '</span></button></li>';
       });
       h += '</ol>';
     });
-    ov.innerHTML = h + '</div>';
+    h += '</div>';
+    h += '<div class="ov-go"><button type="button" class="ov-cta" data-go="' + (all ? 1 : first) + '"><span class="ov-tx"><small>' + (all ? doneN + ' / ' + N + ' ' + L('done', 'முடிஞ்சது') : L('Step ', 'படி ') + first + L(' of ', ' / ') + N) + '</small>' +
+      '<span class="ov-big"><b>' + (all ? L('Review', 'திருப்பி பாரு') : (started ? L('Continue', 'தொடர்') : L('Start', 'தொடங்கு'))) + '</b>' + (all ? '' : ': ' + stepWord(first)) + '</span></span>' +
+      '<span class="ov-pl" aria-hidden="true">' + svg(all ? 'recap' : 'play') + '</span></button></div>';
+    ov.innerHTML = h;
   }
   ov.addEventListener('click', function (e) { var b = e.target.closest('[data-go]'); if (b) go(parseInt(b.getAttribute('data-go'), 10)); });
 
@@ -363,10 +409,10 @@
     var done = 0; for (var k = 1; k <= N; k++) if (isDone(k)) done++;
     mapEl = mk('div', 'stem-map', '');
     var h = '<div class="sm-back"></div><div class="sm-sheet" role="dialog" aria-modal="true" aria-label="' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '">' +
-      '<div class="sm-grip"></div><div class="sm-head"><b aria-hidden="true">🗺️</b><span class="sm-count">✅ ' + done + ' / ' + N + '</span><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div><div class="sm-list">';
+      '<div class="sm-grip"></div><div class="sm-head"><b>' + L('Lesson map', 'பாடத்தின் வரைபடம்') + '</b><span class="sm-count">' + done + ' / ' + N + '</span><button type="button" class="sm-close" aria-label="' + L('Close', 'மூடு') + '">✕</button></div><div class="sm-list">';
     for (var i = 0; i <= LAST; i++) {
-      var mark = i === 0 ? '🏠' : (i === LAST ? '🏁' : (isDone(i) ? '✓' : i));
-      h += '<button type="button" class="sm-item' + (i === cur ? ' cur' : '') + (i >= 1 && i <= N && isDone(i) ? ' done' : '') + '" data-i="' + i + '"><span class="sm-n">' + mark + '</span><span class="sm-l">' + label(i) + '</span></button>';
+      var mark = i === 0 ? svg('home') : (i === LAST ? svg('flag') : (isDone(i) ? '✓' : i));
+      h += '<button type="button" class="sm-item' + (i === cur ? ' cur' : '') + (i >= 1 && i <= N && isDone(i) ? ' done' : '') + '" data-i="' + i + '"><span class="sm-n">' + mark + '</span><span class="sm-ic" aria-hidden="true">' + (i >= 1 && i <= N ? stepIcon(i) : '') + '</span><span class="sm-l">' + (i >= 1 && i <= N ? stepWord(i) : label(i)) + '</span></button>';
     }
     h += '</div></div>';
     mapEl.innerHTML = h;
@@ -388,17 +434,17 @@
   function openCoach() {
     if (coachEl) return;
     var tiles = [
-      ['co-next', '<span class="co-mock">➜</span><span class="co-finger">👆</span>', L('Next', 'அடுத்து')],
+      ['co-next', '<span class="co-mock">' + svg('next') + '</span><span class="co-finger">👆</span>', L('Next', 'அடுத்து')],
       ['co-swipe', '<span class="co-arr">‹</span><span class="co-finger">👆</span><span class="co-arr">›</span>', L('Swipe', 'ஸ்வைப்')],
-      ['co-play', '<span class="co-mock round">▶</span><span class="co-finger">👆</span>', L('Play', 'ஓடு')],
-      ['co-listen', '<span class="co-spk">🔊</span><i class="co-wave"></i><i class="co-wave w2"></i>', L('Listen', 'கேள்')],
+      ['co-play', '<span class="co-mock round">' + svg('play') + '</span><span class="co-finger">👆</span>', L('Play', 'ஓடு')],
+      ['co-listen', '<span class="co-spk"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/></svg></span><i class="co-wave"></i><i class="co-wave w2"></i>', L('Listen', 'கேள்')],
       ['co-map', '<span class="co-mock sq">5/13</span><span class="co-map-list"><i></i><i></i><i></i></span>', L('Contents', 'பட்டியல்')],
-      ['co-lang', '<span class="co-mock pill">🌐 தமிழ்</span><span class="co-finger">👆</span>', L('Language', 'மொழி')]
+      ['co-lang', '<span class="co-mock pill">EN · தமிழ்</span><span class="co-finger">👆</span>', L('Language', 'மொழி')]
     ];
     coachEl = mk('div', 'stem-coach', '<div class="co-card" role="dialog" aria-modal="true" aria-label="' + L('How it works', 'எப்படி வேலை செய்யுது') + '">' +
-      '<div class="co-hero" aria-hidden="true">🐒 🐦</div><div class="co-grid">' +
+      '<div class="co-hero">' + L('How it works', 'எப்படி வேலை செய்யுது') + '</div><div class="co-grid">' +
       tiles.map(function (t) { return '<div class="co-tile"><div class="co-demo ' + t[0] + '" aria-hidden="true">' + t[1] + '</div><b>' + t[2] + '</b></div>'; }).join('') +
-      '</div><button type="button" class="co-ok" aria-label="' + L('Got it, start learning', 'புரிஞ்சுது, படிக்கலாம்') + '">✔</button></div>');
+      '</div><button type="button" class="co-ok" aria-label="' + L('Got it, start learning', 'புரிஞ்சுது, படிக்கலாம்') + '">' + L('Got it', 'புரிஞ்சுது') + '</button></div>');
     doc.body.appendChild(coachEl);
     coachEl.querySelector('.co-ok').addEventListener('click', closeCoach);
     coachModal = openModal(coachEl, coachEl.querySelector('.co-ok'));

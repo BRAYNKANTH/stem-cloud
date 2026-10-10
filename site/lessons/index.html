@@ -123,14 +123,22 @@
 <div class="wrap" id="main" role="main" tabindex="-1">
 
   <section class="course" aria-labelledby="cTitle">
-    <h1 id="cTitle" class="sr-only" data-ta="பிசிக்ஸ்: படிப்படியா" data-si="භෞතික විද්‍යාව: පියවරෙන් පියවර">Physics, step by step</h1>
+    <div class="c-hello">
+      <h1 id="cTitle" data-ta="பிசிக்ஸ்: படிப்படியா" data-si="භෞතික විද්‍යාව: පියවරෙන් පියවර">Physics, step by step</h1>
+      <p class="c-hi" id="cHi"></p>
+    </div>
     <div class="c-stats" id="cStats"></div>
-    <div class="c-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="cBarBox"><i id="cBar"></i></div>
-    <a class="c-cta" id="cCta" href="#"><span class="pl" aria-hidden="true">▶</span><span class="tx"><b id="cCtaW"></b><span id="cCtaT"></span></span></a>
+    <div class="c-card">
+      <span class="c-kick" id="cKick"></span>
+      <span class="c-title" id="cCtaT"></span>
+      <div class="c-seg" id="cSeg" role="img"></div>
+      <div class="c-go"><span class="c-left" id="cLeft"></span><a class="c-cta" id="cCta" href="#"><b id="cCtaW"></b><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div>
+    </div>
   </section>
 
   <section class="toc" aria-labelledby="tocT">
-    <h2 id="tocT" data-ta="பாட உள்ளடக்கம்" data-si="පාඨමාලා පටුන">Contents</h2>
+    <h2 id="tocT" class="sr-only" data-ta="பாட உள்ளடக்கம்" data-si="පාඨමාලා පටුන">Contents</h2>
+    <div class="c-tabs" id="cTabs"></div>
     <div id="toc"></div>
   </section>
 
@@ -219,22 +227,30 @@ function progressOf(l){
   return { seen: seen, done: done, pct: done ? 100 : Math.round(seen / l.steps * 100) };
 }
 
-const OPEN = {};      /* modules the student opened or closed by hand */
+let SEL = null;       /* the grade tab the student picked (default: the one holding the lesson to continue) */
+const ICON = {
+  chap:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#1F8A4C" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>',
+  star:'<svg viewBox="0 0 24 24" width="16" height="16" fill="#FFB21E" aria-hidden="true"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z"/></svg>',
+  fire:'<svg viewBox="0 0 24 24" width="16" height="16" fill="#FF7A1A" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 2-5 3-6 0 2 1 3 2 3 0-3-1-6 1-9z"/></svg>',
+  medal:'<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3443D9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="15" r="6"/><path d="M8.5 10L6 3h4l2 5M15.5 10L18 3h-4l-2 5"/></svg>',
+  chev:'<svg class="rc" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>'
+};
 function render(){
   const xp = parseInt(safeGet('scx_xp_total') || '0', 10) || 0;
   const badges = readJSON('scx_badges', []).length;
   const prog = LESSONS.map(progressOf);
   const doneN = prog.filter(p => p.done).length;
 
+  /* hello + four stat tiles */
+  const U = window.SCX_USER || {};
+  const name = String(U.display_name || U.username || '').trim().split(/\s+/)[0];
+  document.getElementById('cHi').textContent = name ? t('Hi, ', 'வணக்கம், ', 'ආයුබෝවන්, ') + name : t('Hi!', 'வணக்கம்!', 'ආයුබෝවන්!');
+  const tile = (icon, num, label) => '<div class="c-tile"><b>' + icon + num + '</b><span>' + label + '</span></div>';
   document.getElementById('cStats').innerHTML =
-    '<span title="' + t('Chapters finished', 'முடிச்ச பாடங்கள்', 'අවසන් කළ පරිච්ඡේද') + '">✅ <b>' + doneN + '</b> / ' + LESSONS.length + '</span>' +
-    '<span title="XP">⭐ <b>' + xp + '</b></span>' +
-    '<span title="' + t('Day streak', 'தினசரி ஸ்ட்ரீக்', 'දිනපතා අඛණ්ඩතාව') + '">🔥 <b>' + streakDays() + '</b></span>' +
-    '<span title="' + t('Badges', 'பேட்ஜ்', 'පදක්කම්') + '">🏅 <b>' + badges + '</b></span>';
-  const pct = Math.round(prog.reduce((a, p) => a + p.pct, 0) / LESSONS.length);
-  document.getElementById('cBar').style.width = pct + '%';
-  document.getElementById('cBarBox').setAttribute('aria-valuenow', pct);
-  document.getElementById('cBarBox').setAttribute('aria-label', t('Course progress', 'பாட முன்னேற்றம்', 'පාඨමාලා ප්‍රගතිය'));
+    tile('', doneN + '/' + LESSONS.length, t('chapters', 'பாடங்கள்', 'පරිච්ඡේද')) +
+    tile(ICON.star, xp, 'XP') +
+    tile(ICON.fire, streakDays(), t('day streak', 'நாள் தொடர்', 'දින අඛණ්ඩව')) +
+    tile(ICON.medal, badges, t('badges', 'பேட்ஜ்', 'පදක්කම්'));
 
   /* where to go next: the lesson you were in, else the first one not finished (the welcome first for a new student) */
   const lastFile = safeGet('stem_last_lesson');
@@ -242,44 +258,57 @@ function render(){
   if(idx >= 0 && prog[idx].done) idx = -1;
   if(idx < 0) idx = prog.findIndex(p => !p.done);
   const cta = document.getElementById('cCta');
-  let target, word;
+  let target, word, seen;
   if(idx < 0 && doneN === 0){ idx = 0; }
   if(idx < 0){
-    target = LESSONS[LESSONS.length - 1]; word = t('Review', 'திருப்பி பாரு', 'නැවත බලන්න');
-    cta.href = target.file; document.getElementById('cCtaT').textContent = t(target.en, target.ta, target.si);
+    target = LESSONS[LESSONS.length - 1]; word = t('Review', 'திருப்பி பாரு', 'නැවත බලන්න'); seen = target.steps;
+    cta.href = target.file;
   } else {
-    target = LESSONS[idx]; const p = prog[idx];
-    word = p.seen > 0 ? t('Continue', 'தொடர்', 'ඉදිරියට') : t('Start', 'தொடங்கு', 'ආරම්භ කරන්න');
-    cta.href = target.file + (p.seen > 0 ? '?resume=1' : '');
-    document.getElementById('cCtaT').textContent = t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + target.n + ' · ' + t(target.en, target.ta, target.si) + (p.seen > 0 ? ' · ' + p.seen + '/' + target.steps : '');
+    target = LESSONS[idx]; seen = prog[idx].seen;
+    word = seen > 0 ? t('Continue', 'தொடர்', 'ඉදිරියට') : t('Start', 'தொடங்கு', 'ආරම්භ කරන්න');
+    cta.href = target.file + (seen > 0 ? '?resume=1' : '');
   }
+  const mod = MODULES.find(m => m.id === target.m);
+  document.getElementById('cKick').textContent = word + ' · ' + t(mod.en, mod.ta, mod.si) + ' · ' + t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + target.n;
+  document.getElementById('cCtaT').textContent = t(target.en, target.ta, target.si);
   document.getElementById('cCtaW').textContent = word;
+  let seg = '';
+  for(let k = 0; k < target.steps; k++) seg += '<i class="' + (k < seen ? 'd' : (k === seen ? 'n' : '')) + '"></i>';
+  const segBox = document.getElementById('cSeg');
+  segBox.innerHTML = seg;
+  segBox.setAttribute('aria-label', seen + ' / ' + target.steps + ' ' + t('steps done', 'படிகள் முடிஞ்சது', 'පියවර අවසන්'));
+  document.getElementById('cLeft').textContent = seen + ' / ' + target.steps + ' ' + t('steps done', 'படிகள் முடிஞ்சது', 'පියවර අවසන්');
   const nowFile = target.file;
 
-  /* contents */
+  /* grade tabs (and past papers), then the chapters of the chosen grade as cards */
+  const sel = SEL || target.m;
+  document.getElementById('cTabs').innerHTML = MODULES.map(m =>
+    '<button type="button" data-m="' + m.id + '" aria-pressed="' + (m.id === sel) + '">' + t(m.en, m.ta, m.si) + '</button>').join('') +
+    '<a href="past-papers.html">' + t('Past papers', 'கடந்த வினாத்தாள்', 'පසුගිය ප්‍රශ්න පත්‍ර') + '</a>';
   let h = '';
   MODULES.forEach(function(m){
     const items = LESSONS.map((l, i) => [l, prog[i]]).filter(x => x[0].m === m.id);
     const mDone = items.filter(x => x[1].done).length;
-    const holdsNow = items.some(x => x[0].file === nowFile);
-    const open = (m.id in OPEN) ? OPEN[m.id] : holdsNow;
-    h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : '') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta, m.si) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
+    const open = m.id === sel;
+    h += '<details class="mod" data-m="' + m.id + '"' + (open ? ' open' : ' hidden') + '><summary><span class="mi" aria-hidden="true">' + m.icon + '</span><span class="mt">' + t(m.en, m.ta, m.si) + '</span><span class="mc">' + mDone + ' / ' + items.length + '</span></summary><ol>';
     items.forEach(function(x){
       const l = x[0], p = x[1];
       const state = p.done ? t('completed', 'முடிஞ்சது', 'අවසන්') : (p.seen ? t('in progress', 'நடந்துட்டிருக்கு', 'සිදුවෙමින් පවතී') : t('not started', 'ஆரம்பிக்கல', 'ආරම්භ කර නැත'));
-      h += '<li><a class="row' + (l.file === nowFile ? ' now' : '') + '" href="' + l.file + '">' +
+      h += '<li><a class="row' + (l.file === nowFile ? ' now' : '') + (p.done ? ' fin' : '') + '" href="' + l.file + '">' +
         '<span class="st' + (p.done ? ' done' : '') + '" style="--p:' + p.pct + '" aria-hidden="true"><span>' + (p.done ? '✓' : l.n) + '</span></span>' +
-        '<span class="rt"><b>' + t(l.en, l.ta, l.si) + '</b></span>' +
-        '<span class="rm" aria-hidden="true">' + (p.seen && !p.done ? p.seen + ' / ' + l.steps : l.steps + ' ' + t('steps', 'படிகள்', 'පියවර')) + '</span>' +
+        '<span class="rt"><b>' + t(l.en, l.ta, l.si) + '</b><small aria-hidden="true">' + state + '</small></span>' +
+        '<span class="rm" aria-hidden="true">' + (p.seen && !p.done ? p.seen + ' / ' + l.steps : l.steps + ' ' + t('steps', 'படிகள்', 'පියවර')) + '</span>' + ICON.chev +
         '<span class="sr-only">' + t('Chapter ', 'அத். ', 'පරිච්ඡේදය ') + l.n + ', ' + state + (p.seen && !p.done ? ', ' + p.seen + ' / ' + l.steps : '') + '</span></a></li>';
     });
     h += '</ol></details>';
   });
-  const tocEl = document.getElementById('toc');
-  tocEl.innerHTML = h;
-  tocEl.querySelectorAll('details.mod').forEach(function(d){ d.addEventListener('toggle', function(){ OPEN[d.dataset.m] = d.open; }); });
+  document.getElementById('toc').innerHTML = h;
 }
-
+document.getElementById('cTabs').addEventListener('click', function(e){
+  const b = e.target.closest('button[data-m]'); if(!b) return;
+  SEL = b.dataset.m; render();
+  const nb = document.querySelector('#cTabs button[data-m="' + SEL + '"]'); if(nb) nb.focus();
+});
 hubRenderHook = render;
 applyLang(safeGet('lessonLang') || 'en');
 window.addEventListener('pageshow', function(){ render(); });

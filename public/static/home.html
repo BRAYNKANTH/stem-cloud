@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>STEM Cloud · Digitalized Learning Platform for G.C.E. O/L</title>
 <meta name="description" content="STEM Cloud is Sri Lanka's digitalized learning platform for G.C.E. Ordinary Level lessons. Interactive virtual labs, guided syllabus lessons, neural bilingual voice, and gamified progress.">
-<meta name="theme-color" content="#f1f6fc">
+<meta name="theme-color" content="#F3F5FF">
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">
@@ -584,7 +584,7 @@
     .wa-float span.num { display: none; }
   }
 </style>
-</head>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="/static/theme-bright.css"><script>try{if(!localStorage.getItem("stem_bright_v1")){localStorage.setItem("lessonTheme","light");localStorage.setItem("stem_theme","light");localStorage.setItem("stem_bright_v1","1")}var _t=localStorage.getItem("stem_theme")||localStorage.getItem("lessonTheme")||"light";document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script></head>
 <body>
 
 <a class="skip-link" href="#main-content">Skip to content</a>
@@ -1251,7 +1251,7 @@
 (function () {
   // Theme Toggle logic
   var themeBtn = document.getElementById('themeToggleBtn');
-  var curTheme = localStorage.getItem('stem_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  var curTheme = localStorage.getItem('stem_theme') || 'light';
   document.documentElement.setAttribute('data-theme', curTheme);
   themeBtn.textContent = curTheme === 'dark' ? '☀️' : '🌙';
 

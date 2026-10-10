@@ -686,7 +686,7 @@ window.SCX_USER=U;window.__acctBoot=true;
 
 APP_HEAD = (
     '<link rel="manifest" href="/manifest.webmanifest">'
-    '<meta name="theme-color" content="#0b0f17">'
+    '<meta name="theme-color" content="#F3F5FF">'
     '<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">'
     '<meta name="apple-mobile-web-app-title" content="STEM Cloud">'
     '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
@@ -694,6 +694,9 @@ APP_HEAD = (
     '<link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png">'
     '<link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png">'
     '<link rel="icon" type="image/png" href="/static/brand/logo-mark.png">'
+    # bright theme: rounded display + text fonts, and bright is the default look (dark is still in the account menu)
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media=\'all\'">'
+    '<script>try{if(!localStorage.getItem("stem_bright_v1")){localStorage.setItem("lessonTheme","light");localStorage.setItem("stem_theme","light");localStorage.setItem("stem_bright_v1","1")}document.documentElement.setAttribute("data-theme",localStorage.getItem("lessonTheme")||"light")}catch(e){}</script>'
     # the chosen language is set before first paint and the page stays hidden until it has been applied (lessons: when the player has started, and for Sinhala when its words are in),
     # so a page never shows English for a moment and then flips; a failsafe shows it after 4 seconds whatever happens
     '<style>html.stem-boot body{visibility:hidden}</style>'
@@ -704,13 +707,14 @@ APP_HEAD = (
     # animations are ON unless the student switched them off in the account menu (applied before first paint)
     '<script>try{var m=localStorage.getItem("stem_motion"),q=matchMedia("(prefers-reduced-motion: reduce)");function motion(){document.documentElement.classList.toggle("stem-calm",m==="off"||(m!=="on"&&q.matches));window.dispatchEvent(new Event("stem-calm-change"))}motion();q.addEventListener("change",function(){m=localStorage.getItem("stem_motion");motion()})}catch(e){}</script>'
 )
-APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css">'
+APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css"><link rel="stylesheet" href="/static/theme-bright.css">'
 # order matters: player.js builds the lesson bar that voice.js adds its button to
 APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/learning-content.js"></script><script src="/static/learning.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
-               '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>')
+               '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>'
+               '<script src="/static/quiz-sheet.js"></script><script src="/static/nav.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 
 _MARK = '<!--STEM-BOOT-->'

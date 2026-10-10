@@ -1,0 +1,362 @@
+/* STEM Cloud bright theme.
+   Loaded LAST on every page (lessons, contents, login/account pages, home, about), so it wins over the older navy look.
+   Bright is the default for everyone; dark stays available from the account menu (data-theme="dark").
+   Palette: ground #F3F5FF, ink #16183D, brand blue #3443D9, mango #FFB21E, leaf green #1F8A4C.
+   Type: Baloo Thambi 2 for headings (Latin + Tamil), Nunito for text, Noto Sans Tamil / Sinhala for long Tamil / Sinhala text. */
+
+/* ------------------------------------------------------------------ tokens: bright (default) */
+:root:not([data-theme="dark"]){
+  color-scheme:light;
+  --sc-ground:#F3F5FF; --sc-ink:#16183D; --sc-ink-2:#4A4E72; --sc-line:#DDE1F5;
+  --sc-blue:#3443D9; --sc-blue-dk:#1F2BA0; --sc-blue-lt:#E3E6FF;
+  --sc-mango:#FFB21E; --sc-mango-dk:#D98E00; --sc-mango-lt:#FFF1D2;
+  --sc-leaf:#1F8A4C; --sc-leaf-lt:#E3F6EA; --sc-clay:#C2410C; --sc-clay-lt:#FFE9DC;
+  --sc-cta:#16183D; --sc-cta-shadow:#3443D9;
+
+  /* lesson pages */
+  --bg:#F3F5FF; --bg-alt:#E9ECFB; --panel:#FFFFFF; --panel-2:#EEF0FB; --border:#DDE1F5;
+  --text:#16183D; --text-dim:#4A4E72; --text-faint:#5D6185;
+  --accent:#3443D9; --accent-2:#3443D9; --accent-3:#9C4A0C; --on-accent:#FFFFFF; --accent-text:#3443D9;
+  --good:#1F8A4C; --good-bg:#E3F6EA; --danger:#C2410C; --danger-bg:#FFE9DC;
+  --warn-bg:#FFF1D2; --warn-border:#FFB21E;
+  --raja:#9C4A0C; --chittu:#1F6F9F;
+  --shadow:0 3px 0 #DDE1F5; --radius:20px;
+
+  /* login / account / admin / privacy / offline (app.css names) */
+  --card:#FFFFFF; --dim:#4A4E72; --line:#DDE1F5; --acc:#3443D9; --acc2:#3443D9; --on-acc:#FFFFFF;
+  --bad:#C2410C; --ok:#1F8A4C; --field:#F7F8FF; --glow:transparent;
+
+  /* home and about pages */
+  --card-hover:#F7F8FF; --card-surface:#EEF0FB; --faint:#5D6185; --line-glow:rgba(52,67,217,.18);
+  --acc-gradient:linear-gradient(#3443D9,#3443D9); --accent-glow:transparent; --good-dim:#E3F6EA; --amber:#B85A00; --badge-bg:#E3E6FF;
+  --shadow-subtle:0 3px 0 #DDE1F5; --shadow-card:0 4px 0 #DDE1F5;
+}
+
+/* ------------------------------------------------------------------ tokens: dark (only when chosen) */
+:root[data-theme="dark"]{
+  --sc-ground:#0F1230; --sc-ink:#EEF0FF; --sc-ink-2:#B9BDE0; --sc-line:#2B3066;
+  --sc-blue:#8C97FF; --sc-blue-dk:#4B56D6; --sc-blue-lt:#22286A;
+  --sc-mango:#FFB21E; --sc-mango-dk:#B87800; --sc-mango-lt:#3A2E12;
+  --sc-leaf:#5BD28E; --sc-leaf-lt:#123A26; --sc-clay:#FF9466; --sc-clay-lt:#3A1C10;
+  --sc-cta:#FFB21E; --sc-cta-shadow:#B87800;
+  --bg:#0F1230; --bg-alt:#141846; --panel:#181C4A; --panel-2:#1F2457; --border:#2B3066;
+  --text:#EEF0FF; --text-dim:#B9BDE0; --text-faint:#9EA3CF;
+  --accent:#8C97FF; --accent-2:#8C97FF; --accent-3:#FFB21E; --on-accent:#0F1230; --accent-text:#AEB6FF;
+  --good:#5BD28E; --good-bg:#123A26; --danger:#FF9466; --danger-bg:#3A1C10;
+  --shadow:0 3px 0 #0A0C24;
+  --card:#181C4A; --dim:#B9BDE0; --line:#2B3066; --acc:#8C97FF; --acc2:#8C97FF; --on-acc:#0F1230; --field:#141846; --glow:transparent;
+  --card-hover:#1F2457; --card-surface:#1F2457; --faint:#9EA3CF; --acc-gradient:linear-gradient(#8C97FF,#8C97FF); --accent-glow:transparent; --badge-bg:#22286A;
+}
+
+/* ------------------------------------------------------------------ type */
+html body{font-family:'Nunito','Noto Sans Tamil','Noto Sans Sinhala',system-ui,sans-serif;background:var(--bg);color:var(--text)}
+html body.lang-ta{font-family:'Nunito','Noto Sans Tamil',system-ui,sans-serif}
+html body.lang-si{font-family:'Nunito','Noto Sans Sinhala',system-ui,sans-serif}
+html:root :is(h1,h2,h3,h4,.so-title,.fw-h,.so-nm,.ctitle,.lname,.brand,.mt,.course h1,.section-label h2){font-family:'Baloo Thambi 2','Noto Sans Sinhala',system-ui,sans-serif;letter-spacing:0;font-weight:800}
+html:root :is(h1,h2,h3){line-height:1.15}
+html:root .btn,html:root button,html:root input,html:root select{font-family:inherit}
+/* the old soft colour washes behind the page are gone */
+html body::before{display:none!important}
+body{background-image:none!important}
+::selection{background:var(--sc-mango);color:#16183D}
+:focus-visible{outline:3px solid var(--sc-mango)!important;outline-offset:2px}
+
+/* ------------------------------------------------------------------ shared pieces */
+.btn,.lang-toggle,.theme-toggle{border-radius:14px;border:2px solid var(--border);background:var(--panel);color:var(--text);font-weight:800;box-shadow:0 3px 0 var(--border);min-height:44px}
+.btn:hover,.lang-toggle:hover{filter:none;border-color:var(--accent)}
+.btn:active,.lang-toggle:active{transform:translateY(2px);box-shadow:0 1px 0 var(--border)}
+.btn.primary,.btn.pri{background:var(--sc-cta)!important;color:#FFFFFF!important;border:0!important;box-shadow:0 4px 0 var(--sc-cta-shadow)!important}
+:root[data-theme="dark"] .btn.primary,:root[data-theme="dark"] .btn.pri{color:#16183D!important}
+.btn.primary:active,.btn.pri:active{box-shadow:0 1px 0 var(--sc-cta-shadow)!important}
+.lang-toggle{color:var(--accent-text);border-color:var(--border)}
+
+.card,.fw-card,.so-stage,.mod,.intro,.callout{border-radius:22px}
+.card{border:0;box-shadow:0 3px 0 var(--border)}
+.card:hover{transform:none;box-shadow:0 3px 0 var(--border)}
+:root[data-theme="light"] .card:hover,:root:not([data-theme="dark"]) .card:hover{box-shadow:0 3px 0 var(--border)}
+.fw-card,.so-stage{border:0;border-top:0;box-shadow:0 3px 0 var(--border)}
+.callout{border-width:2px}
+.section-label .num,.slabel .num{background:var(--sc-mango)!important;color:#16183D!important;border-radius:12px}
+.kicker,.c-kicker{color:var(--accent-text);letter-spacing:.06em}
+
+/* progress bars: one flat colour, no gradient */
+.xp-bar-fill,.fw-bar i,.c-bar i,.fw-pill .mini i{background:var(--sc-mango)!important}
+.xp-bar-track,.fw-bar,.c-bar{border:0;background:var(--sc-line)}
+.xp-chip b{color:var(--text)}
+
+/* story: Raja (mango) and Chittu (blue) */
+.so-char.r .so-nm{color:var(--raja)}.so-char.c .so-nm{color:var(--chittu)}
+.so-bubble{border-width:0!important;box-shadow:0 3px 0 var(--border);font-weight:700;border-radius:20px}
+.so-bubble.r{background:var(--sc-mango-lt)}
+.so-bubble.c{background:var(--sc-blue-lt)}
+.so-bubble::before{border:0!important}
+.so-chip{color:var(--accent-3)}
+.so-dots i.done{background:var(--good)}.so-dots i.now{background:var(--sc-mango)}
+
+/* ------------------------------------------------------------------ header */
+.topbar{background:var(--panel)!important;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid var(--border)}
+.xpbar{background:var(--bg)!important;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:0}
+.topbar .brand{font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1.1rem}
+.stem-back{border-radius:14px!important;background:var(--panel-2)!important;border:0!important;color:var(--text)!important}
+.stem-ct b{font-family:'Baloo Thambi 2',sans-serif;font-weight:800}
+.stem-ct small{color:var(--text-dim)!important;font-weight:700}
+.stem-av{background:var(--sc-mango)!important;color:#16183D!important;border:0!important;box-shadow:0 3px 0 var(--sc-mango-dk)!important;font-family:'Baloo Thambi 2',sans-serif!important}
+.stem-menu{border:0;box-shadow:0 18px 40px -12px rgba(22,24,61,.35);border-radius:18px}
+.stem-menu .sw{background:var(--sc-blue-lt);color:var(--accent-text)}
+
+/* ------------------------------------------------------------------ lesson player: top bar */
+#stem-bar{background:var(--panel)!important;-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid var(--border)}
+.sb-btn,.sb-next{border-radius:14px;border:2px solid var(--border)!important;background:var(--panel)!important;color:var(--text)!important;box-shadow:0 3px 0 var(--border)!important}
+.sb-btn svg,.se-back svg,.se-next svg,.stem-back svg{display:block}
+.sb-listen.on{background:var(--accent)!important;border-color:var(--accent)!important;color:#fff!important;box-shadow:0 3px 0 var(--sc-blue-dk)!important}
+html.stem-player[data-stem-step="start"] .sb-next{background:var(--sc-cta)!important;color:#fff!important;border:0!important;box-shadow:0 4px 0 var(--sc-cta-shadow)!important}
+:root[data-theme="dark"].stem-player[data-stem-step="start"] .sb-next{color:#16183D!important}
+html.stem-player[data-stem-step="mid"] .sb-next{color:var(--text)!important}
+.sb-mid{border-radius:14px}
+.sb-mid:hover{background:var(--panel-2)}
+.sb-title{font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1rem}
+.sb-ic svg{width:20px;height:20px;color:var(--accent)}
+.sb-caret{color:var(--text-faint)}
+
+/* step chips: an icon AND a short name, done = green, current = mango */
+.sb-strip{gap:8px;padding:12px 16px 6px}
+.sb-chip{min-width:72px;height:auto;min-height:62px;padding:8px 8px 6px;border-radius:16px;border:0!important;background:var(--panel)!important;box-shadow:0 3px 0 var(--border)!important;gap:4px;color:var(--text)}
+.sb-chip .sc-ic{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:10px;background:var(--sc-blue-lt);color:var(--accent)}
+.sb-chip .sc-ic svg{width:18px;height:18px}
+.sb-chip .sc-w{font-size:.72rem;font-weight:800;line-height:1.1;max-width:78px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-chip .sc-n{display:none}
+.sb-chip.done{background:var(--sc-leaf-lt)!important;box-shadow:0 3px 0 color-mix(in srgb,var(--sc-leaf) 30%,transparent)!important}
+.sb-chip.done .sc-ic{background:var(--sc-leaf);color:#fff}
+.sb-chip.cur{background:var(--sc-mango-lt)!important;box-shadow:inset 0 0 0 2.5px var(--sc-mango),0 3px 0 var(--sc-mango)!important}
+.sb-chip.cur .sc-ic{background:var(--sc-mango);color:#16183D}
+.sb-chip .sc-ok{background:var(--sc-leaf);top:-4px;right:-4px;width:18px;height:18px;border:2px solid var(--panel)}
+
+/* lesson player: the bar under each step stays at the bottom of the screen, like an app */
+.stem-end{position:sticky;bottom:0;z-index:44;max-width:none;padding:12px 16px calc(14px + env(safe-area-inset-bottom));background:var(--panel);border-top:1px solid var(--border);margin-top:18px}
+.stem-end>*{max-width:none}
+.stem-end button{border-radius:18px;border:2px solid var(--border);background:var(--panel);box-shadow:none;font-weight:800;min-height:54px}
+.stem-end .se-next{background:var(--sc-cta)!important;color:#fff!important;border:0!important;box-shadow:0 4px 0 var(--sc-cta-shadow)!important;max-width:520px}
+:root[data-theme="dark"] .stem-end .se-next{color:#16183D!important}
+.stem-end .se-next:hover{transform:none}
+.stem-end .se-next:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sc-cta-shadow)!important}
+@media (min-width:761px){.stem-end{display:flex;justify-content:center;gap:12px}.stem-end .se-next{flex:0 1 420px;margin-left:0}}
+
+/* lesson map sheet */
+.sm-sheet{border:0;border-radius:28px 28px 0 0}
+.sm-head b{font-family:'Baloo Thambi 2',sans-serif;font-size:1.2rem}
+.sm-item{border-radius:16px}
+.sm-item.cur{background:var(--sc-mango-lt)!important;box-shadow:inset 0 0 0 2px var(--sc-mango)}
+.sm-item.done .sm-n{background:var(--sc-leaf)!important;color:#fff!important}
+.sm-ic{display:inline-flex;width:28px;height:28px;align-items:center;justify-content:center;border-radius:9px;background:var(--sc-blue-lt);color:var(--accent);flex:0 0 auto}
+.sm-ic:empty{display:none}
+.sm-ic svg{width:16px;height:16px}
+.sm-n svg{width:16px;height:16px}
+
+/* first-visit "how it works" card */
+.co-card{border:0;border-radius:28px}
+.co-hero{font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1.5rem;color:var(--text)}
+.co-demo{border:0;background:var(--sc-ground);border-radius:18px}
+.co-mock{background:var(--sc-blue)!important;color:#fff!important;box-shadow:0 3px 0 var(--sc-blue-dk)}
+.co-mock svg{width:22px;height:22px}
+.co-mock.sq{background:var(--panel)!important;color:var(--text)!important;border:2px solid var(--border)}
+.co-mock.pill{background:var(--panel)!important;color:var(--text)!important;border:2px solid var(--accent);font-size:.85rem;font-weight:800}
+.co-spk{color:var(--accent);display:flex}
+.co-ok{width:auto;height:54px;padding:0 32px;border-radius:18px;font-size:1.05rem;font-family:inherit;background:var(--sc-cta)!important;color:#fff!important;box-shadow:0 4px 0 var(--sc-cta-shadow)!important}
+:root[data-theme="dark"] .co-ok{color:#16183D!important}
+
+/* ------------------------------------------------------------------ course home (lessons/index.html): hello, four stat tiles, the blue Continue card,
+   grade tabs and the chapters as cards (number badge: mango = the one to continue, green = finished, a mango ring = how far you got) */
+.course{padding:18px 0 4px}
+.c-hello h1{margin:0;font-family:'Nunito','Noto Sans Tamil','Noto Sans Sinhala',sans-serif!important;font-size:.9rem!important;font-weight:600!important;color:var(--text-dim);line-height:1.3}
+.c-hi{margin:0;font-family:'Baloo Thambi 2','Noto Sans Sinhala',sans-serif;font-weight:800;font-size:1.65rem;line-height:1.1;color:var(--text)}
+.c-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
+.c-tile{display:flex;flex-direction:column;gap:2px;min-width:0;padding:10px;border-radius:16px;background:var(--panel);box-shadow:0 2px 0 var(--border)}
+.c-tile b{display:flex;align-items:center;gap:3px;font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1.2rem;line-height:1;color:var(--text)}
+.c-tile span{font-size:.7rem;font-weight:700;line-height:1.2;color:var(--text-dim);overflow-wrap:anywhere}
+.c-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:26px;background:var(--sc-blue);color:#fff}
+.c-card::before{content:'';position:absolute;right:-36px;top:-36px;width:130px;height:130px;border-radius:50%;background:#4B5AE8}
+.c-card>*{position:relative}
+:root[data-theme="dark"] .c-card{background:#22286A}
+:root[data-theme="dark"] .c-card::before{background:#2B3280}
+.c-kick{font-size:.75rem;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#DDE1FF}
+.c-title{font-family:'Baloo Thambi 2','Noto Sans Sinhala',sans-serif;font-weight:800;font-size:1.5rem;line-height:1.1}
+.c-seg{display:flex;gap:4px}
+.c-seg i{flex:1;height:8px;border-radius:4px;background:#5A68EC}
+.c-seg i.d{background:var(--sc-mango)}
+.c-seg i.n{background:#fff}
+.c-go{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.c-left{font-size:.85rem;font-weight:700;color:#E8EAFF}
+.c-card .c-cta{display:inline-flex;align-items:center;gap:6px;height:44px;margin:0;padding:0 18px;border-radius:14px;background:#fff!important;color:#16183D!important;text-decoration:none;font-weight:800;font-size:.95rem;box-shadow:0 3px 0 var(--sc-blue-dk)!important;flex:0 0 auto}
+.c-card .c-cta:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sc-blue-dk)!important}
+.toc{margin-top:18px}
+.c-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;margin-bottom:12px;border-radius:14px;background:var(--sc-line)}
+.c-tabs>*{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 6px;border:0;border-radius:10px;background:transparent;color:var(--text-dim);font-family:inherit;font-weight:800;font-size:.82rem;text-align:center;text-decoration:none;cursor:pointer;line-height:1.1}
+.c-tabs [aria-pressed="true"]{background:var(--panel);color:var(--text);box-shadow:0 2px 0 var(--border)}
+.c-tabs a:hover,.c-tabs button:hover{color:var(--text)}
+html body .mod{background:none;border:0;box-shadow:none;border-radius:0;margin:0;overflow:visible}
+.mod>summary{display:none}
+.mod ol{display:flex;flex-direction:column;gap:8px;border-top:0}
+.mod .row{gap:12px;min-height:64px;padding:10px 12px;border:0;border-radius:16px;background:var(--panel);box-shadow:0 2px 0 var(--border)}
+.mod li:last-child .row{border-bottom:0}
+.mod .row:hover{background:var(--panel);box-shadow:0 2px 0 var(--accent)}
+.mod .row.now{background:var(--panel)}
+.rt b{font-weight:800;font-size:.98rem}
+.rt small{font-size:.78rem;font-weight:600;color:var(--text-dim)}
+.rt small::first-letter{text-transform:uppercase}
+.row.fin .rt small{color:var(--good)}
+.rm{font-size:.78rem;color:var(--text-faint)}
+.rc{flex:0 0 auto;color:var(--text-faint)}
+.row .st{width:40px;height:40px;border-radius:12px;background:conic-gradient(var(--sc-mango) calc(var(--p,0) * 1%), var(--sc-blue-lt) 0);color:var(--accent);font-family:'Baloo Thambi 2',sans-serif;font-size:1rem}
+.row .st::before{inset:3px;border-radius:10px;background:var(--sc-blue-lt)}
+.row .st.done{background:var(--sc-leaf);color:#fff}
+.row.now .st{background:var(--sc-mango);color:#16183D}
+.row.now .st::before{display:none}
+@media (max-width:420px){.rm{display:none}.c-tile{padding:9px 8px}}
+
+/* ------------------------------------------------------------------ login, account, admin, privacy, offline (app.css pages) */
+.wrap .card{border:0;box-shadow:0 3px 0 var(--line);border-radius:24px}
+.lname span,.brand span{color:var(--acc)}
+.chips li{border:0;box-shadow:0 2px 0 var(--line);background:var(--card);color:var(--dim);font-weight:700}
+input[type=text],input[type=password]{border:2px solid var(--line);border-radius:14px;background:var(--field)}
+input:focus{outline:3px solid color-mix(in srgb,var(--acc) 30%,transparent);border-color:var(--acc)}
+.btn.full{min-height:54px;border-radius:18px;font-size:1.05rem}
+.tabs{border:0;background:var(--sc-line);border-radius:16px}
+.tabs button.on{box-shadow:0 2px 0 var(--line)}
+.foot a,a.lnk{color:var(--acc);font-weight:700}
+
+/* ------------------------------------------------------------------ home and about pages */
+.btn.btn-primary{background:var(--sc-cta)!important;color:#fff!important;border:0!important;box-shadow:0 4px 0 var(--sc-cta-shadow)!important}
+:root[data-theme="dark"] .btn.btn-primary{color:#16183D!important}
+.btn.btn-whatsapp{background:#1F8A4C!important;color:#fff!important;border:0!important;box-shadow:0 4px 0 #145C33!important}
+.nav-actions .btn,.nav-actions a{white-space:nowrap}
+.tour-trigger-btn{background:var(--sc-mango-lt)!important;color:#16183D!important;border:0!important;box-shadow:0 3px 0 var(--sc-mango)!important;border-radius:999px}
+
+/* ------------------------------------------------------------------ lesson clean-ups */
+/* the step bar already says "Step 5 of 12", so the old section numbers (which did not match it) are hidden */
+html.stem-player .section-label .num,html.stem-player .slabel .num{display:none}
+/* an empty "before this lesson" box is not shown */
+.learning-prereq:empty{display:none}
+.learning-chooser,.learning-checks,.learning-prereq{border:0;border-radius:22px;box-shadow:0 3px 0 var(--border)}
+
+/* lab controls: one slider per row on a phone, in a white card, like the design's lab screen */
+@media (max-width:700px){
+  .lab-controls{grid-template-columns:1fr!important;gap:12px;background:var(--panel);border-radius:18px;padding:12px 14px;box-shadow:0 2px 0 var(--border)}
+  .lab-controls .control label{display:block;font-weight:700;color:var(--text-dim)}
+  .lab-controls .control label b{color:var(--text)}
+  .lab-controls input[type=range]{width:100%}
+  .lab-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+}
+input[type=range]{accent-color:var(--accent)}
+
+/* ------------------------------------------------------------------ past papers (lessons/past-papers.html had its own navy colours) */
+html body.pp-page{--pp-bg:var(--bg);--pp-card:var(--panel);--pp-text:var(--text);--pp-muted:var(--text-dim);--pp-line:var(--border);--pp-accent:var(--accent);background:var(--bg);color:var(--text);font-family:'Nunito','Noto Sans Tamil',system-ui,sans-serif}
+.pp-header{background:var(--panel);border-bottom:1px solid var(--border)}
+.pp-header>a{font-family:'Baloo Thambi 2',sans-serif;font-weight:800;text-decoration:none;color:var(--text)}
+.pp-page button,.pp-page select,.pp-page input,.pp-page textarea{border:2px solid var(--border);border-radius:14px;background:var(--panel)}
+.pp-page button{font-weight:800;box-shadow:0 3px 0 var(--border)}
+.pp-page button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--border)}
+.pp-page button[aria-pressed=true],.pp-page button[aria-current=true]{background:var(--sc-mango-lt);border-color:var(--sc-mango);box-shadow:0 3px 0 var(--sc-mango)}
+.pp-page select option{background:var(--panel)}
+.pp-page :focus-visible{outline-color:var(--sc-mango)}
+#pp-exam-i,#pp-exam-ii,#pp-submit{background:var(--sc-cta);color:#fff;border:0;box-shadow:0 4px 0 var(--sc-cta-shadow)}
+:root[data-theme="dark"] :is(#pp-exam-i,#pp-exam-ii,#pp-submit){color:#16183D}
+.pp-notice,.pp-mistake{border:0;border-radius:18px;background:var(--sc-mango-lt);color:var(--text)}
+.pp-mistake{border-left:4px solid var(--sc-mango)}
+#pp-question{border:0;border-radius:22px;box-shadow:0 3px 0 var(--border)}
+.pp-options label{border:2px solid var(--border);border-radius:18px;background:var(--panel);font-weight:700;box-shadow:0 3px 0 var(--border)}
+.pp-options label:has(input:checked){background:var(--sc-blue-lt);border-color:var(--accent);box-shadow:0 3px 0 var(--accent)}
+.pp-feedback{border-left:4px solid var(--accent);border-radius:14px;background:var(--sc-blue-lt)}
+#pp-exam-bar{background:var(--sc-blue-lt);border:0;border-radius:20px}
+#pp-result{border:0;border-radius:18px;background:var(--sc-blue-lt)}
+.pp-similar{border:2px solid var(--border);border-radius:16px}
+.pp-page dialog{border:0;border-radius:24px;box-shadow:0 18px 40px -12px rgba(22,24,61,.35)}
+.pp-page dialog::backdrop{background:rgba(22,24,61,.5)}
+
+/* ------------------------------------------------------------------ record.html (voice recording page) */
+.line{border:0;border-radius:20px;box-shadow:0 3px 0 var(--line)}
+.line.done{box-shadow:inset 0 0 0 2px var(--ok),0 3px 0 var(--ok)}
+.who.R{background:var(--sc-mango-lt);color:#8A4A00}.who.C{background:var(--sc-blue-lt);color:var(--accent-text)}
+.tip{border:0;border-radius:18px;background:var(--sc-blue-lt)}
+.pick select{border:2px solid var(--line);border-radius:14px}
+.wrap.rec .brand{font-size:1.15rem;flex-wrap:wrap;row-gap:0}
+
+/* ------------------------------------------------------------------ chapter path (the lesson's first screen, built by player.js renderOverview) */
+html.stem-player .hero{position:relative;overflow:hidden;margin-top:14px;padding:18px 20px 20px;border-radius:28px;background:var(--sc-blue);color:#fff}
+html.stem-player .hero::after{content:'';position:absolute;right:-40px;top:-40px;width:140px;height:140px;border-radius:50%;background:#4B5AE8;pointer-events:none}
+html.stem-player .hero>*{position:relative;z-index:1}
+html.stem-player .hero .kicker{background:none;border:0;padding:0;color:#DDE1FF;font-weight:800;letter-spacing:.06em}
+html.stem-player .hero h1{color:#fff;font-size:1.85rem;line-height:1.08;margin:6px 0 8px;max-width:none}
+html.stem-player .hero p.lead{color:#E8EAFF;font-size:.95rem;margin:0}
+:root[data-theme="dark"].stem-player .hero{background:#22286A}
+.ov-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ov-pill{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-weight:800;font-size:.8rem}
+html:not(.stem-player) .ov-pills{display:none}
+
+.stem-ov{margin-top:4px}
+.ov-toc{margin-top:4px}
+.ov-ph{margin:16px 2px 8px;font-size:.75rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim)}
+.ov-toc ol.ov-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;list-style:none;margin:0;padding:0;background:none;border:0;border-radius:0;overflow:visible}
+@media (min-width:640px){.ov-toc ol.ov-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ov-toc li+li .ov-it{border-top:0}
+.ov-toc .ov-it{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:6px;width:100%;height:100%;min-height:78px;padding:10px;border:0;border-radius:16px;background:var(--panel);box-shadow:0 2px 0 var(--border);color:var(--text);font-family:inherit;font-weight:800;font-size:.85rem;line-height:1.15;text-align:left;cursor:pointer}
+.ov-toc .ov-it:hover{background:var(--panel);box-shadow:0 2px 0 var(--accent)}
+.ov-toc .ov-it:active{transform:translateY(2px);box-shadow:none}
+.ov-toc .ov-ic{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--sc-blue-lt);color:var(--accent);font-size:1rem}
+.ov-toc .ov-ic svg{width:20px;height:20px}
+.ov-toc .ov-w{flex:0 1 auto;overflow-wrap:anywhere}
+.ov-toc .ov-it.done{background:var(--sc-leaf-lt);box-shadow:0 2px 0 color-mix(in srgb,var(--sc-leaf) 30%,transparent)}
+.ov-toc .ov-it.done .ov-ic{background:var(--sc-leaf);color:#fff}
+.ov-toc .ov-it.now{background:var(--sc-mango-lt);box-shadow:inset 0 0 0 2.5px var(--sc-mango),0 3px 0 var(--sc-mango)}
+.ov-toc .ov-it.now .ov-ic{background:var(--sc-mango);color:#16183D}
+
+.ov-go{position:sticky;bottom:0;z-index:40;margin:18px -4px 0;padding:12px 4px calc(14px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 22%)}
+.stem-ov .ov-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:60px;padding:8px 20px;border:0;border-radius:18px;background:var(--sc-cta)!important;color:#fff;box-shadow:0 4px 0 var(--sc-cta-shadow);text-align:left;font-family:inherit;cursor:pointer}
+.stem-ov .ov-cta:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sc-cta-shadow)}
+.stem-ov .ov-tx{display:flex;flex-direction:column;min-width:0}
+.stem-ov .ov-tx small{font-size:.75rem;font-weight:700;color:#C9CDF0;opacity:1}
+.stem-ov .ov-big{font-weight:800;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stem-ov .ov-big b{font-size:inherit}
+.stem-ov .ov-pl{flex:0 0 auto;width:auto;height:auto;padding:0;background:none;color:var(--sc-mango)}
+.stem-ov .ov-pl svg{width:24px;height:24px}
+:root[data-theme="dark"] .stem-ov .ov-cta{color:#16183D}
+:root[data-theme="dark"] .stem-ov .ov-tx small{color:#5A4300}
+:root[data-theme="dark"] .stem-ov .ov-pl{color:#16183D}
+html.stem-player[data-stem-step="start"] .wrap{max-width:760px;margin-left:auto;margin-right:auto}
+
+/* ------------------------------------------------------------------ bottom navigation (nav.js): course home, past papers, account; phone widths only */
+#stem-bnav{display:none}
+@media (max-width:760px){
+  #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
+  #stem-bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:44px;text-decoration:none;color:var(--text-dim);font-weight:700;font-size:.75rem}
+  #stem-bnav a[aria-current="page"]{color:var(--accent);font-weight:800}
+  #stem-bnav a:active svg{transform:translateY(1px)}
+  body.has-bnav{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  body.has-bnav .wrap{padding-bottom:24px}
+}
+
+/* ------------------------------------------------------------------ quiz answer sheet (quiz-sheet.js) */
+#stem-qsheet{position:fixed;left:0;right:0;bottom:0;z-index:120;max-width:760px;max-height:72vh;overflow-y:auto;margin:0 auto;display:flex;flex-direction:column;gap:10px;padding:18px 20px calc(20px + env(safe-area-inset-bottom));border-radius:28px 28px 0 0;box-shadow:0 -10px 30px -12px rgba(22,24,61,.35);animation:qs-up .22s ease-out}
+#stem-qsheet[hidden]{display:none}
+#stem-qsheet.ok{background:var(--sc-leaf-lt);color:#0E3D22}
+#stem-qsheet.no{background:var(--sc-clay-lt);color:#4A1C04}
+#stem-qsheet .qs-head{display:flex;align-items:center;gap:10px}
+#stem-qsheet .qs-ic{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:#fff;flex:0 0 auto}
+#stem-qsheet.ok .qs-ic{background:var(--sc-leaf)}
+#stem-qsheet.no .qs-ic{background:var(--sc-clay)}
+#stem-qsheet .qs-head b{font-family:'Baloo Thambi 2','Noto Sans Tamil','Noto Sans Sinhala',sans-serif;font-weight:800;font-size:1.3rem}
+#stem-qsheet.ok .qs-head b{color:#145C33}
+#stem-qsheet.no .qs-head b{color:#8A2E05}
+#stem-qsheet .qs-ans{margin:0;padding:10px 12px;border-radius:14px;background:var(--panel);color:var(--text);font-weight:700;line-height:1.5}
+#stem-qsheet .qs-why{font-size:.95rem;line-height:1.55}
+#stem-qsheet .qs-go{min-height:54px;border:0;border-radius:18px;color:#fff;font-family:inherit;font-weight:800;font-size:1rem;cursor:pointer}
+#stem-qsheet.ok .qs-go{background:var(--sc-leaf);box-shadow:0 4px 0 #145C33}
+#stem-qsheet.no .qs-go{background:var(--sc-clay);box-shadow:0 4px 0 #8A2E05}
+#stem-qsheet .qs-go:active{transform:translateY(2px);box-shadow:none}
+:root[data-theme="dark"] #stem-qsheet.ok{color:#D8F5E3}
+:root[data-theme="dark"] #stem-qsheet.no{color:#FFE2D3}
+:root[data-theme="dark"] #stem-qsheet.ok .qs-head b{color:#5BD28E}
+:root[data-theme="dark"] #stem-qsheet.no .qs-head b{color:#FF9466}
+:root[data-theme="dark"] #stem-qsheet .qs-go{color:#16183D}
+.qz-in-sheet .qz-explain{display:none!important}
+@keyframes qs-up{from{transform:translateY(30px);opacity:0}}
+html.stem-calm #stem-qsheet{animation:none}

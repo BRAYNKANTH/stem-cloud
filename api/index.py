@@ -10,7 +10,7 @@ Environment:  DATABASE_URL (Postgres)   ADMIN_USERS (comma separated usernames) 
 import base64, hashlib, hmac, json, os, re, secrets, sqlite3, time
 from contextlib import contextmanager
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 
 from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse
@@ -261,10 +261,23 @@ def _json(v, default):
     except Exception:
         return default
 
+def _deep_max(a, b):
+    """Topic progress only moves forward: counters keep the higher value, flags stay set, nested objects merge key by key."""
+    if isinstance(a, dict) and isinstance(b, dict):
+        out = dict(a)
+        for k, v in b.items():
+            out[k] = _deep_max(a[k], v) if k in a else v
+        return out
+    if isinstance(a, (int, float)) and isinstance(b, (int, float)) and not isinstance(a, bool) and not isinstance(b, bool):
+        return max(a, b)
+    return b
+
 def merge(key: str, old, new: str) -> str:
     if old is None:
         return new
     try:
+        if key.startswith('scx_topics_'):
+            return json.dumps(_deep_max(_json(old, {}), _json(new, {})), ensure_ascii=False, separators=(',', ':'))
         if key == 'scx_xp_total':
             return str(max(int(old), int(new)))
         if key == 'scx_badges' or key.endswith('_activities'):
@@ -310,9 +323,10 @@ def save_progress(uid: int, items: dict) -> dict:
 async def headers(request: Request, call_next):
     resp = await call_next(request)
     resp.headers['X-Content-Type-Options'] = 'nosniff'
-    resp.headers['X-Frame-Options'] = 'DENY'
+    # lesson pages may be framed by our own topic pages (they show one lesson step inside a topic); nothing else may be framed, and never by another site
+    resp.headers['X-Frame-Options'] = 'SAMEORIGIN' if request.url.path.startswith('/lessons/') and request.url.path.endswith('.html') else 'DENY'
     resp.headers['Referrer-Policy'] = 'same-origin'
-    if request.url.path.startswith(('/api', '/lessons', '/account', '/admin')):
+    if request.url.path.startswith(('/api', '/lessons', '/topics', '/account', '/admin')):
         resp.headers['Cache-Control'] = 'no-store'
     return resp
 
@@ -673,6 +687,7 @@ localStorage.setItem('acct_owner',String(U.id));
 function J(v,d){try{return JSON.parse(v)}catch(e){return d}}
 function M(k,o,n){if(o===null||o===undefined)return n;try{
 if(k==='lessonLang'||k==='lessonTheme')return o;
+if(k.indexOf('scx_topics_')===0){var dm=function(a,b){if(a&&b&&typeof a==='object'&&typeof b==='object'){var r={},x;for(x in a)r[x]=a[x];for(x in b)r[x]=(x in a)?dm(a[x],b[x]):b[x];return r}if(typeof a==='number'&&typeof b==='number')return Math.max(a,b);return b};return JSON.stringify(dm(J(o,{}),J(n,{})))}
 if(k==='scx_xp_total')return String(Math.max(parseInt(o,10)||0,parseInt(n,10)||0));
 if(k==='scx_badges'||/_activities$/.test(k)){var s={};J(o,[]).concat(J(n,[])).forEach(function(x){s[x]=1});return JSON.stringify(Object.keys(s).sort())}
 if(k==='scx_visit_dates'){var s2={};J(o,[]).concat(J(n,[])).forEach(function(x){s2[x]=1});return JSON.stringify(Object.keys(s2).sort().slice(-400))}
@@ -709,12 +724,12 @@ APP_HEAD = (
 )
 APP_TAIL_CSS = '<link rel="stylesheet" href="/static/app-layer.css"><link rel="stylesheet" href="/static/player.css"><link rel="stylesheet" href="/static/theme-bright.css">'
 # order matters: player.js builds the lesson bar that voice.js adds its button to
-APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/app-layer.js"></script>'
+APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js"></script><script src="/static/ui-icons.js"></script><script src="/static/embed.js"></script><script src="/static/app-layer.js"></script>'
                '<script src="/static/learning-content.js"></script><script src="/static/learning.js"></script>'
                '<script src="/static/player.js"></script><script src="/static/story.js"></script>'
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>'
-               '<script src="/static/quiz-sheet.js"></script><script src="/static/nav.js"></script>')
+               '<script src="/static/hub-topics.js"></script><script src="/static/quiz-sheet.js"></script><script src="/static/nav.js"></script>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 
 _MARK = '<!--STEM-BOOT-->'
@@ -763,6 +778,21 @@ def healthz():
         return JSONResponse({'ok': False, 'error': 'Cannot reach the database. Check DATABASE_URL.'}, status_code=503)
     return {'ok': True, 'db': 'postgres' if PG else 'sqlite'}
 
+# ----------------------------------------------------------------------------- topic-by-topic view of a chapter
+SLUG_RE = re.compile(r'^[a-z0-9][a-z0-9-]{0,80}$')
+
+@app.get('/topics/{slug}')
+def topics_page(slug: str, req: Request):
+    """Subject > chapter > topic > learning steps. The page is one shell; the chapter's content is site/lessons/topics/<slug>.json (served to logged-in students only)."""
+    if not SLUG_RE.match(slug) or not (LESSONS / 'topics' / (slug + '.json')).is_file():
+        raise HTTPException(404, 'Not found.')
+    with db() as con:
+        u = current_user(req, con)
+        if not u:
+            nxt = req.url.path + ('?' + req.url.query if req.url.query else '')
+            return RedirectResponse('/login?next=' + quote(nxt, safe='/'), status_code=302)
+        return render_lesson(LESSONS / 'topics.html', u, load_progress(u['id'], con))
+
 @app.get('/lessons')
 @app.get('/lessons/')
 def lessons_root():
@@ -797,6 +827,10 @@ def login_page(req: Request):
 @app.get('/privacy')
 def privacy_page():
     return FileResponse(STATIC / 'privacy.html')
+
+@app.get('/terms')
+def terms_page():
+    return FileResponse(STATIC / 'terms.html')
 
 @app.get('/account')
 def account_page(req: Request):

@@ -3,7 +3,7 @@
  * - lesson pages: network first (always fresh progress), last visited copy when offline
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v23';
+var VERSION = 'v24';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -12,6 +12,7 @@ var PRECACHE = [
   '/static/player.js', '/static/story.js', '/static/voice.js', '/static/questions.js', '/static/icons.js', '/static/si.js',
   '/static/learning-content.js', '/static/learning.js', '/static/quiz-sheet.js', '/static/nav.js',
   '/static/past-papers.js', '/static/past-papers.css', '/static/past-paper-links.js',
+  '/static/topics.js', '/static/topics.css', '/static/ui-icons.js', '/static/embed.js', '/static/hub-topics.js',
   '/static/icons/icon-192.png', '/static/icons/icon-512.png', '/static/icons/icon-maskable-512.png', '/static/icons/favicon-32.png', '/static/icons/favicon.ico', '/static/brand/logo-mark.png', '/manifest.webmanifest'
 ];
 
@@ -61,7 +62,7 @@ self.addEventListener('fetch', function (e) {
 
   /* Authenticated question-bank data/images use the private page cache; wiped on logout.
    * PDFs stay on the network because viewers may request byte ranges. */
-  if (url.pathname.indexOf('/lessons/past-papers/') === 0 && /\.(json|jpg)$/.test(url.pathname)) {
+  if ((url.pathname.indexOf('/lessons/past-papers/') === 0 && /\.(json|jpg)$/.test(url.pathname)) || (url.pathname.indexOf('/lessons/topics/') === 0 && /\.json$/.test(url.pathname))) {
     e.respondWith(fetch(req, {mode:'cors',credentials:'same-origin'}).then(function(res) {
       var remoteMedia = res.redirected && /^https:\/\/[a-f0-9]{32}\.r2\.cloudflarestorage\.com\//i.test(res.url) && /\.jpg$/.test(url.pathname);
       if(res.ok && (!res.redirected || remoteMedia)) {var copy=res.clone();caches.open(PAGES).then(function(c){c.put(req,copy);});}
@@ -72,7 +73,7 @@ self.addEventListener('fetch', function (e) {
 
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).then(function (res) {
-      if (res.ok && !res.redirected && url.pathname.indexOf('/lessons/') === 0) {
+      if (res.ok && !res.redirected && (url.pathname.indexOf('/lessons/') === 0 || url.pathname.indexOf('/topics/') === 0)) {
         var copy = res.clone();
         caches.open(PAGES).then(function (c) { c.put(req, copy); });
       }

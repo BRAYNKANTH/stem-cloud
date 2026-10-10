@@ -4,6 +4,9 @@
    Palette: ground #F3F5FF, ink #16183D, brand blue #3443D9, mango #FFB21E, leaf green #1F8A4C.
    Type: Baloo Thambi 2 for headings (Latin + Tamil), Nunito for text, Noto Sans Tamil / Sinhala for long Tamil / Sinhala text. */
 
+/* corner sizes (the topic pages use these names), the same in light and dark */
+:root{--r-sm:8px; --r:14px; --r-lg:20px}
+
 /* ------------------------------------------------------------------ tokens: bright (default) */
 :root:not([data-theme="dark"]){
   color-scheme:light;
@@ -360,3 +363,31 @@ html.stem-player[data-stem-step="start"] .wrap{max-width:760px;margin-left:auto;
 .qz-in-sheet .qz-explain{display:none!important}
 @keyframes qs-up{from{transform:translateY(30px);opacity:0}}
 html.stem-calm #stem-qsheet{animation:none}
+
+/* ------------------------------------------------------------------ drawn icons (ui-icons.js puts them where emoji were) and loading placeholders (topic pages) */
+.ic{display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;vertical-align:-.2em;flex:0 0 auto}
+.ic svg{width:100%;height:100%;display:block;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.ic svg .f{fill:currentColor;stroke:none}
+.skel{display:block;background:var(--panel-2);border-radius:var(--r);min-height:14px}
+.skel.line{height:14px;margin:8px 0}
+.skel.w60{width:60%}.skel.w80{width:80%}.skel.w40{width:40%}
+.skel.block{height:84px;margin:10px 0}
+.skel.frame{height:320px;margin:0;border-radius:0}
+@media (prefers-reduced-motion:no-preference){.skel{animation:skel-pulse 1.4s ease-in-out infinite}@keyframes skel-pulse{50%{opacity:.55}}}
+
+/* ------------------------------------------------------------------ phones: the public Home and About headers fit the screen */
+@media (max-width:720px){
+  .nav-inner{height:auto!important;min-height:60px;flex-wrap:wrap;gap:6px 12px!important;padding-top:8px;padding-bottom:8px}
+  .nav-actions{gap:8px!important;margin-left:auto}
+  .nav-actions .btn-whatsapp,.nav-actions #navEnrollBtn{display:none!important}       /* the floating WhatsApp button is always on screen */
+  .nav-actions .btn,.nav-actions .theme-toggle-btn{white-space:nowrap;min-height:44px}
+  body .nav-inner>.nav-links:not(.mobile-open){display:flex;order:5;width:100%;flex-wrap:wrap;gap:0 16px!important}   /* About: the links wrap under the logo */
+  body .nav-inner>.nav-links:not(.mobile-open) a{min-height:40px}
+}
+@media (max-width:680px){
+  #navLinks:not(.mobile-open){display:none!important}                                  /* Home: its own hamburger menu opens them */
+}
+@media (max-width:480px){
+  .syllabus-nav{flex-wrap:wrap}
+  .s-tab-btn{flex:1 1 40%}
+}

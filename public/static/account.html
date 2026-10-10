@@ -7,8 +7,9 @@
 <meta name="theme-color" content="#F3F5FF"><link rel="manifest" href="/manifest.webmanifest"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png"><link rel="icon" type="image/png" href="/static/brand/logo-mark.png"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="STEM Cloud"><link rel="stylesheet" href="/static/app.css"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="/static/theme-bright.css"><script>try{if(!localStorage.getItem("stem_bright_v1")){localStorage.setItem("lessonTheme","light");localStorage.setItem("stem_theme","light");localStorage.setItem("stem_bright_v1","1")}var _t=localStorage.getItem("stem_theme")||localStorage.getItem("lessonTheme")||"light";document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
 <style>html[lang=si] body{font-family:"Noto Sans Sinhala",system-ui,sans-serif}.langrow{display:flex;gap:8px;flex-wrap:wrap}.langrow button{min-height:44px;flex:1 1 90px}.langrow button[aria-pressed="true"]{outline:2px solid var(--acc,#0a6bb8)}a[href="/privacy"]{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
-</style></head>
-<body>
+</style><script src="/static/ui-icons.js" defer></script>
+</head>
+<body data-ui-skin-all>
 <div class="wrap">
   <div class="brand">STEM <span>Cloud</span> <span data-t="· My account">· My account</span></div>
   <p class="tag"><a class="lnk" href="/lessons/index.html" data-t="← Back to lessons">← Back to lessons</a></p>
@@ -54,7 +55,7 @@
   </div>
 
   <div class="row"><button class="btn" id="out" type="button" data-t="Log out">Log out</button><a class="btn" id="adm" href="/admin" hidden>Admin</a></div>
-  <div class="foot"><a href="/privacy" data-t="Privacy">Privacy</a></div>
+  <div class="foot"><a href="/privacy" data-t="Privacy">Privacy</a> · <a href="/terms">Terms</a></div>
 </div>
 <script>
 (function () {

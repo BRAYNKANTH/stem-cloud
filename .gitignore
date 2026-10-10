@@ -14,3 +14,6 @@ dist/
 .astro/
 .lighthouseci/
 docs/perf/raw/
+
+# web app (Astro)
+web/.astro/

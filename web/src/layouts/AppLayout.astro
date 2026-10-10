@@ -1,0 +1,55 @@
+---
+// The shell of every page: head, fonts, theme and language applied before first paint, a header slot and the page.
+import '@fontsource/nunito/latin-400.css';
+import '@fontsource/nunito/latin-600.css';
+import '@fontsource/nunito/latin-700.css';
+import '@fontsource/nunito/latin-800.css';
+import '@fontsource/baloo-thambi-2/latin-700.css';
+import '@fontsource/baloo-thambi-2/latin-800.css';
+import '@fontsource/baloo-thambi-2/tamil-700.css';
+import '@fontsource/baloo-thambi-2/tamil-800.css';
+import '@fontsource/noto-sans-tamil/tamil-400.css';
+import '@fontsource/noto-sans-tamil/tamil-700.css';
+import '@fontsource/noto-sans-sinhala/sinhala-400.css';
+import '@fontsource/noto-sans-sinhala/sinhala-700.css';
+import '../styles/base.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Pages that are not ready for students yet stay out of search engines. */
+  noindex?: boolean;
+}
+const { title, description = 'GCE O/L Physics with Raja and Chittu, in English, Tamil and Sinhala.', noindex = false } = Astro.props;
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#F3F5FF" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    {/* Same keys and rules as the current app: bright unless the student chose dark, language from lessonLang,
+        animations on unless switched off (stem_motion) or the device asks for reduced motion. Runs before first paint. */}
+    <script is:inline>
+      try {
+        var d = document.documentElement, s = localStorage;
+        d.setAttribute('data-theme', s.getItem('lessonTheme') === 'dark' ? 'dark' : 'light');
+        var l = s.getItem('lessonLang'); d.lang = l === 'ta' || l === 'si' ? l : 'en';
+        var m = s.getItem('stem_motion');
+        if (m === 'off' || (m !== 'on' && matchMedia('(prefers-reduced-motion: reduce)').matches)) d.classList.add('stem-calm');
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <slot name="header" />
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

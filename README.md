@@ -3,6 +3,8 @@
 Cloudflare R2 media integration and activation instructions: [cloudflare-r2.md](cloudflare-r2.md).
 It stays disabled until uploads are verified and the deployment is configured.
 
+**Migration in progress:** the app is moving to Astro + React islands + FastAPI, one phase at a time, while this version stays live. See [docs/migration-plan-astro.md](docs/migration-plan-astro.md). Earlier audits and review reports are in [docs/notes/](docs/notes/).
+
 GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, three Grade 10 Part II and six Grade 11 physics chapters), each with a story, a watch-it cartoon, notes, textbook activities, an interactive lab, a challenge game, a quiz, a sort game, worked examples, every textbook exercise with an answer, a recap and a Tamil-English glossary, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
 
 ```
@@ -94,7 +96,11 @@ Regenerate the lessons in the course workspace, run `python tools/sync_lessons.p
 
 ## Run it on your computer
 
+Use Python 3.12 (the version Vercel runs; the embedded Postgres used by the tests has no build for newer versions yet):
+
 ```bash
+py -3.12 -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements-dev.txt
 cd api
 python -m uvicorn index:app --port 8000

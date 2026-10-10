@@ -5,3 +5,6 @@ scratch/
 tmp/
 .sf/
 *.md
+docs/
+.venv/
+.github/

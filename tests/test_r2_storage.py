@@ -87,6 +87,11 @@ class StorageTests(unittest.TestCase):
             self.assertIn('tests/',ignore)
             self.assertIn('\nsite/lessons/a.pdf\n',ignore)
             self.assertNotIn('*.pdf',ignore)
+            # a short exclusion that is not about media (the web app) is kept
+            (root/'vercel.json').write_text(json.dumps({'functions':{'api/index.py':{'includeFiles':'{site,public}/**','excludeFiles':'web/**'}}}))
+            with patch.object(r2_media,'ROOT',root):
+                r2_media.activate(data)
+            self.assertEqual(json.loads((root/'vercel.json').read_text())['functions']['api/index.py']['excludeFiles'],'web/**')
 
     def test_api_login_then_redirect_and_local_fallback(self):
         with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,{'DB_PATH':str(Path(temp)/'test.db'),'DATABASE_URL':'','POSTGRES_URL':'','VERCEL':''}):

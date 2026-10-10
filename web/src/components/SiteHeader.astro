@@ -1,0 +1,31 @@
+---
+// Brand line (logo mark + "STEM Cloud" + page name) and a few plain links, as on the current small pages.
+interface Props {
+  page?: string;
+  /** Same width as a reading page (.wrap.narrow). */
+  narrow?: boolean;
+  links?: { href: string; label: string }[];
+}
+const { page, links = [], narrow = false } = Astro.props;
+---
+<header class:list={["site-header wrap", { narrow }]}>
+  <a class="brand" href="/" aria-label="STEM Cloud home">
+    <img src="/static/brand/logo-mark.png" alt="" width="48" height="31" />
+    <span>STEM <b>Cloud</b>{page && <span class="page"> · {page}</span>}</span>
+  </a>
+  {links.length > 0 && (
+    <nav aria-label="Pages">
+      {links.map((l, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={l.href}>{l.label}</a></>))}
+    </nav>
+  )}
+</header>
+
+<style>
+  .site-header { padding-top: max(20px, env(safe-area-inset-top)); }
+  .brand { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); text-decoration: none; color: var(--sc-ink);
+           font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
+  .brand b { color: var(--sc-blue); font-weight: 800; }
+  .brand .page { color: var(--sc-ink); }
+  nav { color: var(--sc-ink-2); margin: 2px 0 18px; }
+  nav a { display: inline-block; padding: 10px 0; }
+</style>

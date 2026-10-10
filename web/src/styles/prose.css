@@ -1,0 +1,4 @@
+/* Plain text pages (privacy, terms): one readable column in a card (.wrap.narrow). */
+.prose h2 { font-size: 1.15rem; margin: 1.2em 0 .4em; }
+.prose h2:first-child { margin-top: 0; }
+.prose .hint { color: var(--sc-ink-2); font-size: .85rem; }

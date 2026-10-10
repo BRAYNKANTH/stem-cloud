@@ -1,0 +1,33 @@
+---
+// Text from public/static/terms.html, unchanged. Plain-language terms written from how the app works today;
+// the site owner should read and adjust them before relying on them.
+import AppLayout from '../layouts/AppLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/prose.css';
+---
+<AppLayout title="STEM Cloud · Terms" description="The short terms for using STEM Cloud.">
+  <SiteHeader slot="header" narrow page="Terms" links={[{ href: '/login', label: '← Back' }]} />
+  <div class="wrap narrow">
+    <article class="card prose">
+      <h2>Using STEM Cloud</h2>
+      <p>STEM Cloud is a study site for G.C.E. O/L Physics. By logging in you agree to these terms. They are short on purpose.</p>
+      <h2>Your account</h2>
+      <p>Accounts are created by your teacher or the site admin. Keep your password to yourself. Do not share your account: it can be used on two devices at a time, and a third login signs out the oldest one. You are responsible for what happens under your account.</p>
+      <h2>What you can do</h2>
+      <p>Use the lessons, quizzes, games and past papers to learn. Do not copy, resell or republish the lessons, questions, answers, textbook pages or recordings. Do not try to break the site, get into other people's accounts, or overload it.</p>
+      <h2>Content</h2>
+      <p>The lessons explain the Sri Lankan syllabus. Textbook pages and past papers belong to their publishers and are included for study only. We work to keep answers correct, but check anything important with your teacher and your textbook.</p>
+      <h2>Your progress</h2>
+      <p>Your XP, badges, stars and finished lessons are saved to your account. The admin can reset a password or remove an account, for example if the rules here are broken or the account is no longer needed. You can delete your own account from <b>My account</b> at any time.</p>
+      <h2>The service</h2>
+      <p>We try to keep the site running, but it is provided as it is, without a promise that it will always be available or free of mistakes. Features can change or be removed. Free sites need care, so please report problems to the admin.</p>
+      <h2>Privacy</h2>
+      <p>What we keep and what we do not is explained on the <a href="/privacy">privacy page</a>.</p>
+      <h2>Questions</h2>
+      <p>Ask your teacher or the site admin. The way to reach them is on the login page.</p>
+      <p class="hint">Last updated: October 2026.</p>
+    </article>
+  </div>
+  <SiteFooter slot="footer" narrow />
+</AppLayout>

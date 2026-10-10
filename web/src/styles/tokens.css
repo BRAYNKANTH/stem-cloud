@@ -1,0 +1,36 @@
+/* STEM Cloud design tokens, from public/static/theme-bright.css (the current app's bright theme).
+   Bright is the default for everyone; dark only when the student chooses it (data-theme="dark"), never from the system setting.
+   Palette: ground #F3F5FF, ink #16183D, brand blue #3443D9, mango #FFB21E (up next, progress), leaf #1F8A4C (done, right), clay #C2410C (wrong). */
+
+:root {
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --tap: 44px;              /* smallest touch target */
+  --gutter: 16px;           /* side gutter on phones */
+  --font-text: 'Nunito', 'Noto Sans Tamil', 'Noto Sans Sinhala', system-ui, sans-serif;
+  --font-head: 'Baloo Thambi 2', 'Noto Sans Sinhala', system-ui, sans-serif;
+}
+
+:root:not([data-theme="dark"]) {
+  color-scheme: light;
+  --sc-ground: #F3F5FF; --sc-ink: #16183D; --sc-ink-2: #4A4E72; --sc-faint: #5D6185; --sc-line: #DDE1F5;
+  --sc-panel: #FFFFFF; --sc-panel-2: #EEF0FB; --sc-field: #F7F8FF;
+  --sc-blue: #3443D9; --sc-blue-dk: #1F2BA0; --sc-blue-lt: #E3E6FF;
+  --sc-mango: #FFB21E; --sc-mango-dk: #D98E00; --sc-mango-lt: #FFF1D2;
+  --sc-leaf: #1F8A4C; --sc-leaf-lt: #E3F6EA; --sc-clay: #C2410C; --sc-clay-lt: #FFE9DC;
+  --sc-cta: #16183D; --sc-cta-ink: #FFFFFF; --sc-cta-shadow: #3443D9;
+  --sc-raja: #9C4A0C; --sc-chittu: #1F6F9F;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --sc-ground: #0F1230; --sc-ink: #EEF0FF; --sc-ink-2: #B9BDE0; --sc-faint: #9EA3CF; --sc-line: #2B3066;
+  --sc-panel: #181C4A; --sc-panel-2: #1F2457; --sc-field: #141846;
+  --sc-blue: #8C97FF; --sc-blue-dk: #4B56D6; --sc-blue-lt: #22286A;
+  --sc-mango: #FFB21E; --sc-mango-dk: #B87800; --sc-mango-lt: #3A2E12;
+  --sc-leaf: #5BD28E; --sc-leaf-lt: #123A26; --sc-clay: #FF9466; --sc-clay-lt: #3A1C10;
+  --sc-cta: #FFB21E; --sc-cta-ink: #16183D; --sc-cta-shadow: #B87800;
+  --sc-raja: #E8A050; --sc-chittu: #4AA8DC;   /* public/static/app-layer.css */
+}

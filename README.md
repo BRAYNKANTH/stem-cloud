@@ -111,6 +111,21 @@ python -m uvicorn index:app --port 8000
 
 Open http://localhost:8000. Without `DATABASE_URL` it uses a local SQLite file (`data/stemcloud.db`). To try against Postgres locally, set `DATABASE_URL` first.
 
+## The new web app (`web/`, in progress)
+
+The migration's Astro app: static pages with Preact islands, sharing the design tokens of `public/static/theme-bright.css`. It is not deployed yet.
+
+```bash
+cd web
+npm install
+npm run dev        # http://localhost:4321/next/  (start the API on port 8000 first: /api, /lessons, ... are passed through to it)
+npm run check      # type check
+npm run build      # static site in web/dist
+npm run budget     # fails if a page loads more than 60 KB of JavaScript (gzipped) before any interaction
+```
+
+Node 22.12 or newer. Set `ASTRO_TELEMETRY_DISABLED=1` to keep Astro from sending anonymous usage data (CI does).
+
 ## Tests
 
 ```bash

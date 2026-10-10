@@ -1,0 +1,51 @@
+/* Base look shared by every page: the interface rules from the README (rounded tiles with a short solid shadow,
+   44px touch targets, Baloo Thambi 2 headings, Nunito text, Noto Sans Tamil / Sinhala for long Tamil / Sinhala text). */
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--sc-ground);
+  color: var(--sc-ink);
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="ta"] body { font-family: 'Nunito', 'Noto Sans Tamil', system-ui, sans-serif; }
+html[lang="si"] body { font-family: 'Nunito', 'Noto Sans Sinhala', system-ui, sans-serif; }
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1.15; letter-spacing: 0; margin: 0 0 .5em; }
+p { margin: 0 0 1em; }
+a { color: var(--sc-blue); }
+img, svg { max-width: 100%; height: auto; }
+::selection { background: var(--sc-mango); color: #16183D; }
+:focus-visible { outline: 3px solid var(--sc-mango); outline-offset: 2px; }
+
+.wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 var(--gutter); }
+
+.card {
+  background: var(--sc-panel);
+  border-radius: 22px;
+  box-shadow: 0 3px 0 var(--sc-line);
+  padding: 20px;
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: var(--tap); padding: 0 18px;
+  border-radius: var(--r); border: 2px solid var(--sc-line);
+  background: var(--sc-panel); color: var(--sc-ink);
+  font: inherit; font-weight: 800; text-decoration: none; cursor: pointer;
+  box-shadow: 0 3px 0 var(--sc-line);
+}
+.btn:hover { border-color: var(--sc-blue); }
+.btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--sc-line); }
+.btn[aria-pressed="true"] { border-color: var(--sc-blue); background: var(--sc-blue-lt); }
+.btn.primary { background: var(--sc-cta); color: var(--sc-cta-ink); border: 0; box-shadow: 0 4px 0 var(--sc-cta-shadow); }
+.btn.primary:active { box-shadow: 0 1px 0 var(--sc-cta-shadow); }
+
+/* Animations play unless the student switched them off in the account menu (stem_motion=off), as on the current app. */
+html.stem-calm *, html.stem-calm *::before, html.stem-calm *::after { animation: none !important; transition: none !important; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

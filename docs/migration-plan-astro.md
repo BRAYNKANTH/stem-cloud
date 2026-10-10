@@ -1,4 +1,4 @@
-# STEM Cloud: migration plan to Astro + React islands + FastAPI
+# STEM Cloud: migration plan to Astro + Preact islands + FastAPI
 
 Status: proposal · Written 2026-10-10
 
@@ -14,8 +14,8 @@ The target stack:
 | Layer | Choice | Why |
 |---|---|---|
 | Pages | **Astro** (static output) | Lessons are mostly reading content. They are built to plain HTML ahead of time, so text shows instantly and needs no JS. |
-| Interactivity | **React islands** (`client:visible` / `client:idle`) | Only the player, story, quiz, games, labs and voice load JavaScript, one piece at a time. |
-| Shared client state | **nanostores** (+ `@nanostores/react`) | XP, progress and the user are shared across islands without a global React tree. |
+| Interactivity | **Preact islands** (`client:visible` / `client:idle`) | Only the player, story, quiz, games, labs and voice load JavaScript, one piece at a time. Components are written like React (JSX, hooks). **Decided in milestone 2.1:** React's runtime alone is 64 KB gzipped on any page with an island, so a page with one small island loaded 70.7 KB; with Preact the same page loads 10.4 KB. `preact/compat` can be switched on if a React-only library is ever needed. |
+| Shared client state | **nanostores** (+ `@nanostores/preact`) | XP, progress and the user are shared across islands without a global component tree. |
 | Content | **Typed JSON in the repo** | Validated in CI. Translations live inside the content (`{en, ta, si}`). |
 | API | **FastAPI** (kept, split into modules) | Proven auth, CSRF, rate limits and progress rules, plus the existing Python tooling. |
 | Data | **Neon Postgres** (pooled), SQLite locally | As today. Schema changes become versioned migrations (`stemcloud/migrations.py`). |
@@ -65,7 +65,7 @@ Today lessons and media are login-only, and `cloudflare-r2.md` treats them as pr
 - Old URLs (`/lessons/chapter-05-friction.html#quiz`) get permanent (301) redirects to the new ones (see Phase 9).
 
 ### 3.3 Content format (lesson schema v2)
-The single source of truth is **Pydantic models** in `content_schema/`. They export a JSON Schema, and TypeScript types are generated from it (`json-schema-to-typescript`), so Python tools, the API and React all agree.
+The single source of truth is **Pydantic models** in `content_schema/`. They export a JSON Schema, and TypeScript types are generated from it (`json-schema-to-typescript`), so Python tools, the API and the islands all agree.
 
 ```jsonc
 // content/physics/g10/friction/lesson.json
@@ -104,12 +104,12 @@ The single source of truth is **Pydantic models** in `content_schema/`. They exp
 - `content/catalog.json` is generated from the lesson files. It lists subjects, grades and chapters in order and drives the course home. Nothing about the course list is hard-coded.
 
 ### 3.4 Labs and animations
-- `labs/` is a registry from id to a React component loaded on demand:
+- `labs/` is a registry from id to a Preact component loaded on demand:
   - `{ "physics/friction-slider": () => import('./physics/FrictionSlider') }`.
   - Each lab is its own bundle.
   - Each lab receives `{ lang, onProgress, reducedMotion }`.
 - Until a lab is ported, the registry falls back to **`LegacyLab`**. It is an `<iframe>` of the old lesson page in embed mode (`?embed=1#lab`), which `public/static/embed.js` already supports, so all 15 chapters work on day one.
-- Animations (`watch`) work the same way: `LegacyAnimation` uses an iframe with `seg`/`dur`, as the topic view does today. They are ported to React later.
+- Animations (`watch`) work the same way: `LegacyAnimation` uses an iframe with `seg`/`dur`, as the topic view does today. They are ported to Preact components later.
 
 ### 3.5 Progress v2 (event-based, works offline)
 Replace the key-value bag with typed tables plus an **idempotent event API**. That suits offline phones and keeps one set of merge rules on the server.
@@ -169,7 +169,7 @@ web/
       learn/[subject]/[grade]/[chapter]/topics/[topic].astro # topic view
       past-papers/index.astro
     components/static/       # Astro, zero JS: NotesCard, Recap, Glossary, WorkedExample, Figure, Formula
-    islands/                 # React: LessonPlayer, StoryPlayer, Quiz, QuizSheet, SortGame, Exercises,
+    islands/                 # Preact: LessonPlayer, StoryPlayer, Quiz, QuizSheet, SortGame, Exercises,
                              #        VoiceReader, XpBar, Badges, LangSwitch, BottomNav, PastPapers, LegacyLab
     stores/                  # nanostores: user, lang, progress (+ outbox), prefs
     lib/api.ts               # fetch wrapper: X-Requested-With header, credentials, retry
@@ -180,7 +180,7 @@ labs/                        # lab registry + ported labs (imported by web/)
 
 - **Design system**: carry over the interface rules in the README (bright palette, Baloo Thambi 2 / Nunito / Noto Sans Tamil and Sinhala, rounded tiles with solid shadows, drawn icons). Fonts are **self-hosted** (`@fontsource`) instead of loaded from Google Fonts, which is faster and works offline.
 - **Performance budget**, checked in CI with Lighthouse CI on a simulated slow-4G mid-range Android:
-  - Lesson page JS before any interaction ≤ 60 KB gzipped (React plus the player shell).
+  - Lesson page JS before any interaction ≤ 60 KB gzipped (Preact plus the player shell); checked by `npm run budget` in CI.
   - Each lab ≤ 50 KB.
   - LCP ≤ 2.5 s.
   - CLS ≤ 0.05.
@@ -209,7 +209,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - **Done when**: production runs on the split backend, all API tests pass, and the Python bundle is under 20 MB.
 
 ### Phase 2: Astro foundation (≈1–2 weeks)
-- Set up `web/` (Astro static, React integration, TypeScript strict, nanostores, `@vite-pwa/astro`).
+- Set up `web/` (Astro static, Preact integration, TypeScript strict, nanostores, `@vite-pwa/astro`).
 - `vercel.json`: Astro build output plus the Python function. Rewrites: `/api/*` goes to the function, and `/lessons/*` and `/topics/*` go to the function's legacy router during the transition.
 - Design tokens, `AppLayout`, self-hosted fonts and drawn icons (port `ui-icons.js` to an `<Icon>` component).
 - Port the public pages: home, about, privacy, terms, offline.
@@ -220,7 +220,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - `AuthForm` (signup and login, same rules: nickname only, rate-limit messages), `AccountPanel`, `AdminApp`, `BottomNav`, `LangSwitch`, and the theme and motion prefs.
 - Course home `/learn/`: greeting, stat tiles, Continue card and grade tabs, built from `catalog.json` (built by hand from the 15 chapters until Phase 4 generates it). Chapter cards link to the **old** lesson URLs for now.
 - Port the shared-device rule: when `acct_owner` changes, clear the old student's local data.
-- **Done when**: login, home, account and admin are React islands in production, and the old `login.html`, `account.html`, `admin.html` and `index.html` are retired.
+- **Done when**: login, home, account and admin are Preact islands in production, and the old `login.html`, `account.html`, `admin.html` and `index.html` are retired.
 
 ### Phase 4: Content schema and extractor (≈2–3 weeks)
 - `content_schema/` Pydantic models (§3.3), JSON Schema export and TS type generation (`npm run gen:types`).
@@ -262,7 +262,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 
 ### Phase 8: Port the labs (ongoing, ≈2–4 days per lab)
 - Order: the pilot chapter first, then the most-used chapters (taken from `step_progress` data).
-- Each port: React component, registry entry, Playwright test, then remove that iframe.
+- Each port: Preact component, registry entry, Playwright test, then remove that iframe.
 - Animations last. They can stay as iframes for a long time without hurting students.
 
 ### Phase 9: Cutover and cleanup (≈1 week)

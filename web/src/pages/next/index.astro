@@ -1,0 +1,65 @@
+---
+// Foundation check page (milestone 2.1): tokens, type in all three scripts, shared pieces and one Preact island.
+// Hidden from search engines; removed once the real pages exist.
+import AppLayout from '../../layouts/AppLayout.astro';
+import LangSwitch from '../../islands/LangSwitch';
+
+const swatches = [
+  ['--sc-ground', 'Ground'], ['--sc-ink', 'Ink'], ['--sc-blue', 'Brand blue'], ['--sc-mango', 'Mango: up next'],
+  ['--sc-leaf', 'Leaf: done, right'], ['--sc-clay', 'Clay: wrong'], ['--sc-raja', 'Raja'], ['--sc-chittu', 'Chittu'],
+];
+// Real lesson text (site/lessons/topics/unit-02-…json, public/static/si/unit-02-…json), not placeholder copy.
+const title = { en: 'Motion in a Straight Line', ta: 'நேர்க்கோட்டு இயக்கம்!', si: 'සරල රේඛීය චලිතය' };
+---
+<AppLayout title="STEM Cloud: new app foundation" noindex>
+  <div class="wrap stack">
+    <header class="intro">
+      <p class="eyebrow">Milestone 2.1</p>
+      <h1>New app foundation</h1>
+      <p>Astro pages with Preact islands. This page only checks the shared look and that islands work; it is not linked from the app.</p>
+    </header>
+
+    <section class="card" aria-labelledby="type-h">
+      <h2 id="type-h">Type in three scripts</h2>
+      <p class="sample" lang="en"><span class="head">{title.en}</span> Nunito for text, Baloo Thambi 2 for headings.</p>
+      <p class="sample" lang="ta"><span class="head">{title.ta}</span></p>
+      <p class="sample" lang="si"><span class="head">{title.si}</span></p>
+    </section>
+
+    <section class="card" aria-labelledby="col-h">
+      <h2 id="col-h">Colours</h2>
+      <ul class="swatches">
+        {swatches.map(([v, name]) => (
+          <li><span class="chip" style={`background:var(${v})`}></span>{name}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="card" aria-labelledby="btn-h">
+      <h2 id="btn-h">Buttons</h2>
+      <div class="row">
+        <a class="btn primary" href="#">Continue</a>
+        <button class="btn" type="button">Back</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="island-h">
+      <h2 id="island-h">Interactive island</h2>
+      <p>The language buttons are a Preact island sharing a nanostore. The choice is saved as <code>lessonLang</code>, the same setting the current lessons use.</p>
+      <LangSwitch client:load />
+    </section>
+  </div>
+</AppLayout>
+
+<style>
+  .stack { display: grid; gap: 20px; padding-block: 24px 48px; }
+  .eyebrow { color: var(--sc-blue); font-weight: 800; margin: 0; }
+  .sample .head { font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; display: block; }
+  .sample[lang="ta"] { font-family: 'Noto Sans Tamil', var(--font-text); }
+  .sample[lang="ta"] .head { font-family: 'Baloo Thambi 2', var(--font-head); }
+  .sample[lang="si"], .sample[lang="si"] .head { font-family: 'Noto Sans Sinhala', var(--font-text); }
+  .swatches { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .swatches li { display: flex; align-items: center; gap: 10px; }
+  .chip { width: 32px; height: 32px; border-radius: var(--r-sm); box-shadow: inset 0 0 0 1px var(--sc-line); flex: none; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; }
+</style>

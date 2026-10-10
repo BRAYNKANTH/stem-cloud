@@ -22,7 +22,7 @@ def check(name, cond, extra=''):
 
 
 SCAN = r'''() => {
-  const out = {gradient: [], shadow: [], blur: [], radius: [], stripe: [], font: [], white: [], purple: [], pseudo: []};
+  const out = {gradient: [], shadow: [], blur: [], radius: [], stripe: [], font: [], white: [], purple: [], pseudo: [], cards: []};
   const EMO = /[\u{1F300}-\u{1FAFF}☀-➿⭐✅]/u;
   const label = e => (e.tagName.toLowerCase() + (e.id ? '#' + e.id : '') + (typeof e.className === 'string' && e.className ? '.' + e.className.trim().split(/\s+/).slice(0, 2).join('.') : ''));
   const vis = e => { const r = e.getBoundingClientRect(), cs = getComputedStyle(e); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
@@ -50,6 +50,16 @@ SCAN = r'''() => {
     if (m) { const R = +m[1], G = +m[2], B = +m[3]; if (R > 90 && B > 150 && G < R - 20 && B > R + 20 && R > G + 20) out.purple.push(label(e) + ':' + cs.backgroundColor); }
   }
   for (const sel of ['::before', '::after']) { const cs = getComputedStyle(document.body, sel); if (cs.content !== 'none' && cs.content !== 'normal' && cs.display !== 'none') out.pseudo.push('body' + sel); }
+  out.cards = [];
+  for (const g of document.querySelectorAll('body *')) {
+    const cs = getComputedStyle(g);
+    if (cs.display !== 'grid' || !vis(g)) continue;
+    const cols = cs.gridTemplateColumns.split(' ').filter(x => x && x !== 'none').length;
+    if (cols < 3) continue;
+    const kids = [...g.children].filter(vis);
+    const boxed = kids.filter(k => { const c = getComputedStyle(k); return parseFloat(c.borderTopWidth) > 0 || (c.backgroundColor !== 'rgba(0, 0, 0, 0)'); });
+    if (boxed.length >= 3 && !g.closest('footer, .footer-grid') && !/footer/.test(g.className)) out.cards.push(label(g) + ':' + cols + ' columns');
+  }
   out.emoji = [];
   const roots = document.querySelectorAll('.topbar, #stem-bar, .stem-ov, #toc, .course, #app, main, .wrap > header, body[data-ui-skin-all]');
   for (const root of roots) {
@@ -67,10 +77,10 @@ SCAN = r'''() => {
 
 def scan(page, name, allow=()):
     r = page.evaluate(SCAN)
-    for k in ('gradient', 'shadow', 'blur', 'radius', 'stripe', 'font', 'white', 'purple', 'pseudo', 'emoji'):
+    for k in ('gradient', 'shadow', 'blur', 'radius', 'stripe', 'font', 'white', 'purple', 'pseudo', 'emoji', 'cards'):
         bad = [x for x in r[k] if not any(a in x for a in allow)]
         check('%s: no %s' % (name, {'gradient': 'gradients', 'shadow': 'drop shadows or glows', 'blur': 'glass blur', 'radius': 'soft corners', 'stripe': 'coloured left stripes',
-                                    'font': 'Inter/Geist/Space Grotesk', 'white': 'pure white panels', 'purple': 'purple fills', 'pseudo': 'orb or dot-grid backdrop', 'emoji': 'emoji in the screens'}[k]), not bad, sorted(set(bad))[:8])
+                                    'font': 'Inter/Geist/Space Grotesk', 'white': 'pure white panels', 'purple': 'purple fills', 'pseudo': 'orb or dot-grid backdrop', 'emoji': 'emoji in the screens', 'cards': 'three or more cards across'}[k]), not bad, sorted(set(bad))[:8])
 
 
 def run():
@@ -104,6 +114,11 @@ def run():
                 page = ctx.new_page()
                 page.goto(T.BASE + '/login'); page.wait_for_timeout(1200)
                 scan(page, label + ' login')
+                for nm, path in (('home', '/'), ('about', '/about')):
+                    page.goto(T.BASE + path); page.wait_for_timeout(1500)
+                    scan(page, '%s %s' % (label, nm), allow=('stem-coach',))
+                    over = page.evaluate('() => document.documentElement.scrollWidth - innerWidth')
+                    check('%s %s fits the screen width' % (label, nm), over <= 1, over)
                 for path in ('/terms', '/privacy'):
                     page.goto(T.BASE + path); page.wait_for_timeout(500)
                     check('%s %s page opens' % (label, path), 'Terms' in page.content() or 'What we keep' in page.content())

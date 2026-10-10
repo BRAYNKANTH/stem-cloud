@@ -53,6 +53,7 @@ One look across the app, set in `public/static/ui.css` (loaded last on every pag
 - **Icons:** drawn in `public/static/ui-icons.js` (`StemIcon('book')`), not emoji. `StemIcons.skin()` swaps emoji in the app's own screens and lesson headings; the text a lesson teaches with (stories, questions, answers) is left alone.
 - **Motion:** a hover changes colour or border only, nothing moves or fades. Loading shows placeholders in the shape of the page (`.skel`), never a bare "Loading".
 - **Copy:** no em dashes, no "it's not X, it's Y" lines, no checkmark bullets (a tick is only used to show something is done). Pages: `/privacy` and `/terms`.
+- **Every page follows them,** including the public Home (`/`) and About (`/about`) pages and the login, account and policy pages. Those pages keep their own CSS variable names; `ui.css` overrides them (`--acc-gradient`, `--radius-*`, shadows) so a new page that links `ui.css` is flat by default. Card grids stop at two columns across.
 - **Lesson pages are generated elsewhere,** so their own styles are corrected from outside: `python tools/build_ui_overrides.py` reads every stylesheet the app serves and writes `public/static/ui-generated.css` (flat fills, small radii, no stripes). Re-run it after `tools/sync_lessons.py`. Emoji that are part of a lesson's own teaching text can only be changed in the generator.
 - `python tests/test_ui.py` scans the rendered pages for every rule above, so they stay true.
 

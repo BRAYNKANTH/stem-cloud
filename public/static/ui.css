@@ -39,6 +39,14 @@
   --card:#faf8f3; --dim:#364356; --line:#d3cfc4; --acc:#0b5f94; --acc2:#0b5f94; --on-acc:#ffffff; --ok:#0a6b53; --field:#f6f4ee;
 }
 
+/* ------------------------------------------------------------- the home and About pages keep their own variable names: flatten those too */
+:root{
+  --acc-gradient:var(--accent); --accent-glow:transparent; --line-glow:transparent; --shadow-subtle:none; --shadow-card:none;
+  --card-hover:var(--panel-2); --card-surface:var(--panel-2); --badge-bg:var(--panel-2);
+  --radius-lg:8px; --radius-md:6px; --radius-sm:4px;
+}
+.gradient-text,[class*="gradient-text"]{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:currentColor!important;color:var(--accent-text)!important}
+
 /* ------------------------------------------------------------- type */
 html body,html button,html input,html select,html textarea{font-family:var(--ui-font)!important}
 html h1,html h2,html h3,html h4,html .brand,html .fw-h,html .tp-tt{font-family:var(--ui-head)!important;font-weight:700;letter-spacing:0}
@@ -60,8 +68,9 @@ html body::before,html body::after{content:none!important;display:none!important
 .tour-trigger-btn{background:var(--accent)!important;color:var(--on-accent)!important}
 .stem-av{background:var(--accent)!important;color:var(--on-accent)!important}
 
-/* never three feature cards across: formula boxes and similar grids stop at two columns */
+/* never three feature cards across: card grids stop at two columns (formula boxes, the home page features and course map, the About capabilities) */
 .formula-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important}
+.features-grid,.cap-grid,.s-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr))!important}
 
 /* ------------------------------------------------------------- drawn icons (see ui-icons.js) */
 .ic{display:inline-flex;align-items:center;justify-content:center;width:1.15em;height:1.15em;vertical-align:-.2em;flex:0 0 auto}
@@ -77,4 +86,21 @@ html body::before,html body::after{content:none!important;display:none!important
 @media (prefers-reduced-motion:no-preference){
   .skel{animation:skel-pulse 1.4s steps(2,end) infinite!important}
   @keyframes skel-pulse{0%{opacity:1}50%{opacity:.55}100%{opacity:1}}
+}
+
+/* ------------------------------------------------------------- phones: the home and About headers must fit the screen */
+@media (max-width:720px){
+  .nav-inner{height:auto!important;min-height:60px;flex-wrap:wrap;gap:6px 12px!important;padding-top:8px;padding-bottom:8px}
+  .nav-actions{gap:8px!important;margin-left:auto}
+  .nav-actions .btn-whatsapp,.nav-actions #navEnrollBtn{display:none!important}       /* the floating WhatsApp button is always on screen */
+  .nav-actions .btn,.nav-actions .theme-toggle-btn{white-space:nowrap;min-height:44px}
+  body .nav-inner>.nav-links:not(.mobile-open){display:flex;order:5;width:100%;flex-wrap:wrap;gap:0 16px!important}   /* About: the links wrap under the logo */
+  body .nav-inner>.nav-links:not(.mobile-open) a{min-height:40px}
+}
+@media (max-width:680px){
+  #navLinks:not(.mobile-open){display:none!important}                                  /* Home: its own hamburger menu opens them */
+}
+@media (max-width:480px){
+  .syllabus-nav{flex-wrap:wrap}
+  .s-tab-btn{flex:1 1 40%}
 }

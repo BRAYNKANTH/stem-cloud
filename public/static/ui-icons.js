@@ -36,7 +36,19 @@
     close: 'M5 5l14 14 M19 5L5 19',
     lock: 'M5 11h14v10H5z M8 11V7a4 4 0 018 0v4',
     user: 'M12 4a4 4 0 100 8 4 4 0 000-8z M4 21c0-4 3.5-6 8-6s8 2 8 6',
-    scale: 'M12 4v16 M5 20h14 M4 8h16 M4 8l-2 6h6z M20 8l-2 6h6z'
+    scale: 'M12 4v16 M5 20h14 M4 8h16 M4 8l-2 6h6z M20 8l-2 6h6z',
+    flask: 'M9 3h6 M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3 M7.5 14h9',
+    mic: 'M12 3a3 3 0 00-3 3v5a3 3 0 006 0V6a3 3 0 00-3-3z M6 11a6 6 0 0012 0 M12 17v4 M9 21h6',
+    trophy: 'M7 4h10v6a5 5 0 01-10 0z M7 6H4v2a3 3 0 003 3 M17 6h3v2a3 3 0 01-3 3 M12 15v4 M8 21h8',
+    gamepad: 'M3 8h18v9a2 2 0 01-2 2H5a2 2 0 01-2-2z M7 11v4 M5 13h4 M15 12h1 M18 14h1',
+    chat: 'M4 4h16v12H9l-5 4z',
+    school: 'M3 21V9l9-5 9 5v12 M9 21v-6h6v6 M3 21h18',
+    key: 'M8 14a4 4 0 110-8 4 4 0 010 8z M11 11h10 M17 11v4 M20 11v3',
+    doc: 'M6 3h9l4 4v14H6z M14 3v5h5 M9 13h7 M9 17h5',
+    phone: 'M8 3h8v18H8z M11 18h2',
+    sun: 'M12 8a4 4 0 100 8 4 4 0 000-8z M12 2v3 M12 19v3 M2 12h3 M19 12h3 M5 5l2 2 M17 17l2 2 M19 5l-2 2 M7 17l-2 2',
+    menu: 'M4 6h16 M4 12h16 M4 18h16',
+    warn: 'M12 3l10 18H2z M12 10v5 M12 18v1'
   };
   var F = {   /* filled shapes */
     play: 'M7 4l13 8-13 8z',
@@ -56,7 +68,7 @@
   var MAP = {
     '📖': 'book', '📚': 'book', '🎬': 'watch', '🧭': 'explore', '✏': 'practice', '📝': 'note', '✓': 'check', '✔': 'check', '✅': 'check', '✗': 'cross', '✘': 'cross', '❌': 'cross', '✕': 'close',
     '🏠': 'home', '🏁': 'flag', '🌐': 'globe', '🌙': 'moon', '🎓': 'cap', '🎯': 'target', '🗺': 'map', '➜': 'next', '➡': 'next', '←': 'back', '📲': 'download', '👁': 'eye', '🙈': 'eyeoff',
-    '💡': 'bulb', '⚡': 'bolt', '🔍': 'search', '❓': 'help', '⏱': 'clock', '⚖': 'scale', '★': 'star', '⭐': 'star', '🔥': 'flame', '🏅': 'medal', '🏆': 'medal',
+    '💡': 'bulb', '⚡': 'bolt', '🧪': 'flask', '🔬': 'flask', '🎙': 'mic', '🗣': 'mic', '🎤': 'mic', '🏆': 'trophy', '🎮': 'gamepad', '🎭': 'chat', '💬': 'chat', '🏫': 'school', '🔑': 'key', '📑': 'doc', '📄': 'doc', '📱': 'phone', '☀': 'sun', '☰': 'menu', '⚠': 'warn', '👨': 'user', '👦': 'user', '🧑': 'user', '🤝': 'user', '🧠': 'bulb', '👋': '', '🦜': '', '🔍': 'search', '❓': 'help', '⏱': 'clock', '⚖': 'scale', '★': 'star', '⭐': 'star', '🔥': 'flame', '🏅': 'medal', '🏆': 'medal',
     '▶': 'play', '✨': '', '🚀': '', '🎉': '', '🔟': '', '👆': '', '👉': ''
   };
   var RE = /[\u{1F300}-\u{1FAFF}☀-➿⭐✅⬆⬇←-⇿⏱▶]️?/gu;

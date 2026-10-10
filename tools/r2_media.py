@@ -154,10 +154,12 @@ def activate(data):
             else:os.environ['R2_MEDIA_ENABLED']=previous
     # Exact paths exclude only verified objects, never a new file that wasn't uploaded.
     paths=[('site/' if k.startswith('lessons/') else 'public/')+k for k in data['assets']]
+    # .vercelignore keeps the files out of the upload, so the function can never bundle them. vercel.json's
+    # excludeFiles is not used: Vercel rejects values longer than 256 characters, and exact paths soon exceed that.
     config_path=ROOT/'vercel.json'
     config=json.loads(config_path.read_text(encoding='utf-8'))
-    config['functions']['api/index.py']['excludeFiles']='{'+','.join(paths)+'}'
-    config_path.write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
+    if config['functions']['api/index.py'].pop('excludeFiles',None) is not None:
+        config_path.write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
     ignore_path=ROOT/'.vercelignore'
     start='# BEGIN VERIFIED R2 MEDIA';end='# END VERIFIED R2 MEDIA'
     text=ignore_path.read_text(encoding='utf-8')

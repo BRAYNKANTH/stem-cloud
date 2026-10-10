@@ -63,8 +63,9 @@ URL, or local testing (for example `http://localhost:8000`). Origins have no tra
 slash. Configuring CORS replaces the bucket's rules, so supply all desired origins.
 
 `--activate` downloads and checks every object against its local SHA-256, then adds
-only those exact verified paths to `vercel.json` and `.vercelignore`. Files are not
-deleted from your computer or Git. Do not exclude files manually before uploading.
+only those exact verified paths to `.vercelignore`, which keeps them out of the upload (and so out of
+the function bundle). It does not use `excludeFiles` in `vercel.json`: Vercel rejects values longer than
+256 characters. Files are not deleted from your computer or Git. Do not exclude files manually before uploading.
 Set `R2_MEDIA_ENABLED=1` in Vercel, then commit and deploy the generated manifest,
 exclusions and app integration together. Check login, scan images, PDF page links
 and story audio on the deployed site before considering the migration complete.
@@ -76,7 +77,7 @@ retained; the tool never automatically deletes cloud data.
 
 ## Rollback and offline behavior
 
-To return to local media, restore the previous `vercel.json` and `.vercelignore`,
+To return to local media, restore the previous `.vercelignore`,
 set `R2_MEDIA_ENABLED=0`, and redeploy with original files included. Turning off the
 flag alone does not restore files that were excluded from a deployment.
 

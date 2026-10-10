@@ -5,6 +5,7 @@ from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from ..config import STATIC
 from ..db import PG, db
 from ..legacy import safe_next
+from ..media import media_problems, media_status
 from ..security import current_user
 
 router = APIRouter()
@@ -29,10 +30,13 @@ def healthz():
         with db() as con:
             con.execute('SELECT 1').fetchone()
     except HTTPException as e:
-        return JSONResponse({'ok': False, 'error': e.detail}, status_code=503)
+        return JSONResponse({'ok': False, 'error': e.detail, 'media': media_status()}, status_code=503)
     except Exception:
-        return JSONResponse({'ok': False, 'error': 'Cannot reach the database. Check DATABASE_URL.'}, status_code=503)
-    return {'ok': True, 'db': 'postgres' if PG else 'sqlite'}
+        return JSONResponse({'ok': False, 'error': 'Cannot reach the database. Check DATABASE_URL.', 'media': media_status()}, status_code=503)
+    out = {'ok': True, 'db': 'postgres' if PG else 'sqlite', 'media': media_status()}
+    if out['media'] == 'r2-incomplete':
+        out['media_problems'] = media_problems()
+    return out
 
 @router.get('/login')
 def login_page(req: Request):

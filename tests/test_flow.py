@@ -49,7 +49,7 @@ def check(name, cond, extra=''):
 
 
 def scenario(mode):
-    check('healthz reports the right database', Client().call('GET', '/healthz')[1] == {'ok': True, 'db': mode}, Client().call('GET', '/healthz')[1])
+    check('healthz reports the right database and local media', Client().call('GET', '/healthz')[1] == {'ok': True, 'db': mode, 'media': 'local'}, Client().call('GET', '/healthz')[1])
     a, b, anon = Client(), Client(), Client()
 
     s, j, _, _ = a.call('POST', '/api/signup', {'username': 'Ann_1', 'password': 'secret123', 'display_name': 'Ann'})

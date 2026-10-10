@@ -9,6 +9,7 @@ import json
 import mimetypes
 import os
 import sys
+import urllib.request
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -82,9 +83,26 @@ def configure_cors(s3, data, origins):
         s3.put_bucket_cors(Bucket=bucket,CORSConfiguration=cors)
 
 
-def verify_cors(s3, data):
+def verify_cors(s3, data, origins=()):
+    """Browsers must be allowed to read the files. Read the bucket's CORS rules when the token may; an object-only
+    token (the least-privilege upload token) may not, so then ask R2 for a file the way a browser does, per --origin."""
+    from botocore.exceptions import ClientError
     for bucket in {bucket_for(a) for a in data['assets'].values()}:
-        rules=s3.get_bucket_cors(Bucket=bucket).get('CORSRules',[])
+        try:
+            rules=s3.get_bucket_cors(Bucket=bucket).get('CORSRules',[])
+        except ClientError as e:
+            if e.response['Error']['Code']!='AccessDenied':
+                raise
+            if not origins:
+                raise ValueError('This token cannot read the bucket CORS rules; add --origin https://your-app-domain to check them with a real request')
+            key=next(a['key'] for a in data['assets'].values() if bucket_for(a)==bucket)
+            url=s3.generate_presigned_url('get_object',Params={'Bucket':bucket,'Key':key},ExpiresIn=300)
+            for origin in origins:
+                with urllib.request.urlopen(urllib.request.Request(url,headers={'Origin':origin,'Range':'bytes=0-0'}),timeout=30) as res:
+                    allowed=res.headers.get('Access-Control-Allow-Origin')
+                if allowed not in (origin,'*'):
+                    raise ValueError('The bucket CORS policy does not allow '+origin+'; add it in the Cloudflare dashboard')
+            continue
         if not any(r.get('AllowedOrigins') and {'GET','HEAD'}.issubset(set(r.get('AllowedMethods',[]))) for r in rules):
             raise ValueError('Configure GET/HEAD CORS for the app origin before activation')
 
@@ -105,8 +123,12 @@ def upload_manifest(s3, data):
             'ContentType':asset['contentType'],'CacheControl':cache,'Metadata':{'sha256':asset['sha256']}})
 
 
-def save_manifest(data):
+def save_manifest(data, keep_public=False):
     target = ROOT/'site/media-manifest.json'
+    if keep_public and target.is_file():
+        # A private-only run keeps the planned public entries; they stay inert until R2_PUBLIC_BASE_URL is set.
+        old = json.loads(target.read_text(encoding='utf-8')).get('assets', {})
+        data = dict(data, assets={**data['assets'], **{k: a for k, a in old.items() if a['visibility'] == 'public'}})
     temp = target.with_suffix('.json.tmp')
     temp.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     temp.replace(target)
@@ -132,10 +154,12 @@ def activate(data):
             else:os.environ['R2_MEDIA_ENABLED']=previous
     # Exact paths exclude only verified objects, never a new file that wasn't uploaded.
     paths=[('site/' if k.startswith('lessons/') else 'public/')+k for k in data['assets']]
+    # .vercelignore keeps the files out of the upload, so the function can never bundle them. vercel.json's
+    # excludeFiles is not used: Vercel rejects values longer than 256 characters, and exact paths soon exceed that.
     config_path=ROOT/'vercel.json'
     config=json.loads(config_path.read_text(encoding='utf-8'))
-    config['functions']['api/index.py']['excludeFiles']='{'+','.join(paths)+'}'
-    config_path.write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
+    if config['functions']['api/index.py'].pop('excludeFiles',None) is not None:
+        config_path.write_text(json.dumps(config,indent=2)+'\n',encoding='utf-8')
     ignore_path=ROOT/'.vercelignore'
     start='# BEGIN VERIFIED R2 MEDIA';end='# END VERIFIED R2 MEDIA'
     text=ignore_path.read_text(encoding='utf-8')
@@ -165,14 +189,14 @@ def main():
         if args.upload:upload_manifest(s3,data)
         if args.configure_cors:configure_cors(s3,data,args.origin)
         verify_manifest(s3,data,deep=args.activate)
-        if args.activate:verify_cors(s3,data)
+        if args.activate:verify_cors(s3,data,args.origin)
         print('Every remote object has the expected size and SHA-256 metadata.')
-        save_manifest(data)
+        save_manifest(data,keep_public=not args.include_public)
         if args.activate:
             activate(data)
             print('Deployment exclusions prepared. Set R2_MEDIA_ENABLED=1 in Vercel before deploying.')
     elif args.write_manifest:
-        save_manifest(data)
+        save_manifest(data,keep_public=not args.include_public)
         print('Local manifest written. Existing file delivery remains active until R2_MEDIA_ENABLED=1.')
     else:
         print('Read-only plan. Nothing uploaded, activated or deleted.')

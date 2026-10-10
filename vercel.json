@@ -1,10 +1,26 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
-    { "source": "/static/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, s-maxage=31536000, stale-while-revalidate=86400" }] }
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=31536000, stale-while-revalidate=86400"
+        }
+      ]
+    }
   ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/api/index" }],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ],
   "functions": {
-    "api/index.py": { "includeFiles": "{site,public,stemcloud}/**", "maxDuration": 30 }
+    "api/index.py": {
+      "includeFiles": "{site,public,stemcloud}/**",
+      "maxDuration": 30
+    }
   }
 }

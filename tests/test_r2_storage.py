@@ -71,16 +71,22 @@ class StorageTests(unittest.TestCase):
     def test_activation_excludes_verified_media_only(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp)
-            (root/'vercel.json').write_text(json.dumps({'functions':{'api/index.py':{'includeFiles':'{site,public}/**','maxDuration':30}}}))
+            # an excludeFiles list from an older activation is removed: Vercel rejects values over 256 characters
+            (root/'vercel.json').write_text(json.dumps({'functions':{'api/index.py':{'includeFiles':'{site,public}/**','maxDuration':30,'excludeFiles':'{'+','.join(['site/lessons/x%03d.pdf'%i for i in range(30)])+'}'}}}))
             (root/'.vercelignore').write_text('tests/\n')
             data={'assets':{'lessons/a.pdf':{'visibility':'private','key':'a'}}}
             with patch.object(r2_media,'ROOT',root):
                 r2_media.activate(data)
             config=json.loads((root/'vercel.json').read_text())
-            self.assertEqual(config['functions']['api/index.py']['excludeFiles'],'{site/lessons/a.pdf}')
-            self.assertEqual(config['functions']['api/index.py']['maxDuration'],30)
-            self.assertIn('tests/',(root/'.vercelignore').read_text())
-            self.assertNotIn('*.pdf',(root/'.vercelignore').read_text())
+            fn=config['functions']['api/index.py']
+            self.assertNotIn('excludeFiles',fn)
+            self.assertEqual(fn['includeFiles'],'{site,public}/**')
+            self.assertEqual(fn['maxDuration'],30)
+            self.assertTrue(all(len(v)<=256 for v in fn.values() if isinstance(v,str)))
+            ignore=(root/'.vercelignore').read_text()
+            self.assertIn('tests/',ignore)
+            self.assertIn('\nsite/lessons/a.pdf\n',ignore)
+            self.assertNotIn('*.pdf',ignore)
 
     def test_api_login_then_redirect_and_local_fallback(self):
         with tempfile.TemporaryDirectory() as temp,patch.dict(os.environ,{'DB_PATH':str(Path(temp)/'test.db'),'DATABASE_URL':'','POSTGRES_URL':'','VERCEL':''}):

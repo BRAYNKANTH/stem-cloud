@@ -136,5 +136,30 @@ class GateCookie(unittest.TestCase):
             self.assertIsNone(security.check_gate(security.gate_value(self.uid)))
 
 
+class HealthMedia(unittest.TestCase):
+    """/healthz says how media is served, so a deployment can be checked without logging in."""
+    R2 = {'R2_MEDIA_ENABLED': '1', 'R2_ACCOUNT_ID': 'a' * 32, 'R2_ACCESS_KEY_ID': 'key-id-value',
+          'R2_SECRET_ACCESS_KEY': 'secret-value', 'R2_BUCKET_PRIVATE': 'bucket-name'}
+
+    def health(self, env):
+        with patch.dict(os.environ, env):
+            r = TestClient(app).get('/healthz')
+        self.assertEqual(r.status_code, 200, r.text)
+        for value in self.R2.values():
+            if value != '1':
+                self.assertNotIn(value, r.text)        # never echoes a setting
+        return r.json()['media']
+
+    def test_local_when_switched_off(self):
+        self.assertEqual(self.health({'R2_MEDIA_ENABLED': '0'}), 'local')
+
+    def test_r2_when_switched_on_and_complete(self):
+        self.assertEqual(self.health(self.R2), 'r2')
+
+    def test_incomplete_when_a_key_is_missing(self):
+        self.assertEqual(self.health(dict(self.R2, R2_SECRET_ACCESS_KEY='')), 'r2-incomplete')
+        self.assertEqual(self.health(dict(self.R2, R2_ACCOUNT_ID='not-an-account-id')), 'r2-incomplete')
+
+
 if __name__ == '__main__':
     unittest.main()

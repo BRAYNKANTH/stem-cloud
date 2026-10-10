@@ -6,6 +6,18 @@ from fastapi.staticfiles import StaticFiles
 from api import r2_storage
 
 
+def media_status():
+    """How this deployment serves media, for /healthz: 'local', 'r2', or 'r2-incomplete' (switched on but a key or the
+    bucket name is missing or invalid). Never includes any setting's value."""
+    if not r2_storage.enabled():
+        return 'local'
+    try:
+        r2_storage.settings()
+    except ValueError:
+        return 'r2-incomplete'
+    return 'r2'
+
+
 def media_response(path):
     try:
         target = r2_storage.asset_target(path)

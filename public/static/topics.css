@@ -1,12 +1,12 @@
-/* STEM Cloud topic pages. Same palette and header as the course contents page; mobile first (16px side gutters, 44px touch targets). */
+/* STEM Cloud topic pages. Bright design fonts (Baloo Thambi 2 headings, Nunito text). Same palette and header as the course contents page; mobile first (16px side gutters, 44px touch targets). */
 :root{--tp-gut:16px}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
-body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-body.lang-ta{font-family:'Noto Sans Tamil','Inter',system-ui,sans-serif}
-body.lang-si{font-family:'Inter','Noto Sans Sinhala',system-ui,sans-serif}
-h1,h2,h3{font-family:'Sora',system-ui,sans-serif;color:var(--text);margin:0}
-body.lang-ta h1,body.lang-ta h2,body.lang-ta h3{font-family:'Noto Sans Tamil','Sora',sans-serif}
+body{background:var(--bg);color:var(--text);font-family:'Nunito','Noto Sans Tamil','Noto Sans Sinhala',system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+body.lang-ta{font-family:'Nunito','Noto Sans Tamil',system-ui,sans-serif}
+body.lang-si{font-family:'Nunito','Noto Sans Sinhala',system-ui,sans-serif}
+h1,h2,h3{font-family:'Baloo Thambi 2','Noto Sans Sinhala',system-ui,sans-serif;font-weight:800;color:var(--text);margin:0}
+body.lang-ta h1,body.lang-ta h2,body.lang-ta h3{font-family:'Baloo Thambi 2','Noto Sans Tamil',sans-serif}
 a{color:var(--accent-text)}
 body.lang-si *,body.lang-ta *{letter-spacing:normal!important}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
@@ -18,7 +18,7 @@ body.lang-si *,body.lang-ta *{letter-spacing:normal!important}
 /* header: logo, language, account */
 .topbar{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top)}
 .topbar-inner{max-width:760px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:10px}
-.topbar .brand{font-family:'Sora';font-weight:800;font-size:1rem;color:var(--text);white-space:nowrap;display:flex;align-items:center;gap:8px}
+.topbar .brand{font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1rem;color:var(--text);white-space:nowrap;display:flex;align-items:center;gap:8px}
 .topbar .brand::before{content:'';display:inline-block;width:34px;height:22px;background:url(/static/brand/logo-mark.png) center/contain no-repeat}
 .toggles{margin-left:auto;display:flex;gap:8px;align-items:center}
 .lang-toggle{border:1px solid color-mix(in srgb,var(--accent-2) 40%,var(--border));background:var(--panel);color:var(--accent-text);border-radius:var(--r-lg);padding:6px 14px;min-height:40px;cursor:pointer;font:inherit;font-size:.85rem;font-weight:600}
@@ -60,7 +60,7 @@ body.lang-si *,body.lang-ta *{letter-spacing:normal!important}
 .tp-topic.progress .tp-num{border-color:var(--accent);color:var(--accent-text)}
 .tp-topic.complete .tp-num{background:var(--good);border-color:var(--good);color:#fff}
 .tp-tbody{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.tp-tt{font-family:'Sora',system-ui,sans-serif;font-size:1rem;line-height:1.3}
+.tp-tt{font-family:'Baloo Thambi 2','Noto Sans Tamil','Noto Sans Sinhala',system-ui,sans-serif;font-weight:800;font-size:1rem;line-height:1.3}
 .tp-tb{font-size:.88rem;color:var(--text-dim)}
 .tp-tmeta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;margin-top:4px}
 .tp-tdet{font-size:.8rem;color:var(--text-faint)}
@@ -193,7 +193,7 @@ html .tp-frame iframe{position:relative;display:block;width:100%!important;heigh
 .tp-soon-t{font-weight:700;margin:0 0 6px}
 .tp-upnext{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin:22px 0 0;padding:16px;border-radius:var(--r-lg);background:color-mix(in srgb,var(--accent) 10%,var(--panel));border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border))}
 .tp-upnext span{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-text);font-weight:800}
-.tp-upnext b{font-family:'Sora',sans-serif;font-size:1.1rem}
+.tp-upnext b{font-family:'Baloo Thambi 2','Noto Sans Tamil','Noto Sans Sinhala',sans-serif;font-size:1.1rem}
 
 /* previous / next */
 .tp-foot{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 0}

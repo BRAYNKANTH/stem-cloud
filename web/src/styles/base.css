@@ -23,6 +23,7 @@ img, svg { max-width: 100%; height: auto; }
 :focus-visible { outline: 3px solid var(--sc-mango); outline-offset: 2px; }
 
 .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 var(--gutter); }
+.wrap.narrow { max-width: 672px; }   /* 640px of text plus the gutters: reading pages */
 
 .card {
   background: var(--sc-panel);

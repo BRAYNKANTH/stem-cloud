@@ -212,7 +212,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - Set up `web/` (Astro static, Preact integration, TypeScript strict, nanostores, `@vite-pwa/astro`).
 - `vercel.json`: Astro build output plus the Python function. Rewrites: `/api/*` goes to the function, and `/lessons/*` and `/topics/*` go to the function's legacy router during the transition.
 - Design tokens, `AppLayout`, self-hosted fonts and drawn icons (port `ui-icons.js` to an `<Icon>` component).
-- Port the public pages: home, about, privacy, terms, offline.
+- Port the public pages: home, about, privacy, terms. Built at the same paths, they replace the Python-served pages on deploy (Vercel serves static output before the catch-all rewrite). The offline page stays at `/static/offline.html` until the service worker moves to Astro (Phase 9), because the current worker uses it as its offline fallback.
 - `middleware.ts` gate for `/learn/*` (§3.1).
 - **Done when**: public pages are served by Astro in production, Lighthouse meets the budget, and the old lessons still work.
 

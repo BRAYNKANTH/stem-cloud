@@ -160,6 +160,15 @@ class HealthMedia(unittest.TestCase):
         self.assertEqual(self.health(dict(self.R2, R2_SECRET_ACCESS_KEY='')), 'r2-incomplete')
         self.assertEqual(self.health(dict(self.R2, R2_ACCOUNT_ID='not-an-account-id')), 'r2-incomplete')
 
+    def test_incomplete_names_the_settings_to_fix(self):
+        with patch.dict(os.environ, dict(self.R2, R2_SECRET_ACCESS_KEY='', R2_ACCOUNT_ID='not-an-account-id')):
+            body = TestClient(app).get('/healthz').json()
+        self.assertEqual(body['media_problems'], ['R2_SECRET_ACCESS_KEY is missing',
+                                                  'R2_ACCOUNT_ID is not a 32-character account ID (17 characters)'])
+        self.assertNotIn('not-an-account-id', str(body))
+        with patch.dict(os.environ, self.R2):
+            self.assertNotIn('media_problems', TestClient(app).get('/healthz').json())
+
 
 if __name__ == '__main__':
     unittest.main()

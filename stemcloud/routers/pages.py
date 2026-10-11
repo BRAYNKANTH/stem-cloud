@@ -1,8 +1,10 @@
 """Public and account pages, health check, and the app files that must live at the site root."""
+from pathlib import Path
+
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 
-from ..config import STATIC, WEB_HOME
+from ..config import STATIC, WEB_HOME, WEB_SHELL
 from ..db import PG, db
 from ..legacy import safe_next
 from ..media import media_problems, media_status
@@ -10,15 +12,20 @@ from ..security import current_user
 
 router = APIRouter()
 
+
+def page(built: Path, original: str):
+    """The Astro build of a page when it is bundled (on Vercel), the original page otherwise (local runs without a web
+    build). The route has already decided based on the visitor, so browsers must ask again instead of reusing a copy."""
+    return FileResponse(built if built.is_file() else STATIC / original, media_type='text/html', headers={'Cache-Control': 'no-cache'})
+
+
 @router.get('/')
 def home(req: Request):
     """Signed-in students go straight to their lessons (the installed app opens /); everyone else gets the Home page:
     the Astro build when it is bundled (on Vercel), the original page otherwise (local runs without a web build)."""
     if current_user(req) and not req.query_params.get('home') and not req.query_params.get('preview'):
         return RedirectResponse('/lessons/index.html', status_code=302)
-    page = WEB_HOME if WEB_HOME.is_file() else STATIC / 'home.html'
-    # the answer depends on the visitor, so browsers must ask again instead of reusing an old copy
-    return FileResponse(page, media_type='text/html', headers={'Cache-Control': 'no-cache'})
+    return page(WEB_HOME, 'home.html')
 
 @router.get('/home')
 def home_alias(req: Request):
@@ -46,7 +53,7 @@ def healthz():
 def login_page(req: Request):
     if current_user(req):
         return RedirectResponse(safe_next(req.query_params.get('next', '')), status_code=302)
-    return FileResponse(STATIC / 'login.html')
+    return page(WEB_SHELL / 'login' / 'index.html', 'login.html')
 
 @router.get('/privacy')
 def privacy_page():

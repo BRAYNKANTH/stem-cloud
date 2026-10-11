@@ -1,0 +1,161 @@
+---
+// The login page's App Tour slides, copied from public/static/login.html by script (drawings unchanged; emoji in the
+// feature tags become the drawn icons, as public/static/ui-icons.js does there). Shown in a <dialog> by login.astro.
+import Icon from './Icon.astro';
+---
+<!-- Slide 1: Interactive Physics Labs -->
+      <div class="tour-slide" data-step="1">
+        <div class="tour-preview-card">
+          <div class="tour-graphic">
+            <svg width="280" height="120" viewBox="0 0 280 120">
+              <!-- Pivot & Lever beam -->
+              <polygon points="140,85 125,115 155,115" fill="#4cc3f0" />
+              <rect x="25" y="78" width="230" height="10" rx="5" fill="#8aa8ff" />
+              <!-- Weight Left -->
+              <rect x="45" y="42" width="36" height="36" rx="6" fill="#ff9f6b" />
+              <text x="63" y="65" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">20 N</text>
+              <line x1="63" y1="78" x2="63" y2="88" stroke="#ff9f6b" stroke-width="2" stroke-dasharray="2 2" />
+              <!-- Weight Right -->
+              <rect x="195" y="52" width="32" height="26" rx="6" fill="#5ee0c2" />
+              <text x="211" y="69" text-anchor="middle" font-size="11" font-weight="bold" fill="#06182b">10 N</text>
+              <!-- Balance indicator -->
+              <circle cx="140" cy="83" r="4" fill="#fff" />
+              <text x="140" y="24" text-anchor="middle" font-size="12" font-weight="600" fill="#a7b3c8">Equilibrium &amp; Moments Lab</text>
+            </svg>
+          </div>
+          <h4>Hands-on Interactive Physics Labs</h4>
+          <p>Drag weights, tilt beams, adjust lenses, and test equilibrium in real-time. Experience physics laws through visual, interactive simulations rather than just memorizing formulas.</p>
+          <div class="tour-feature-tags">
+            <span><Icon name="scale" /> Principle of Moments</span>
+            <span><Icon name="bolt" /> Work &amp; Energy</span>
+            <span><Icon name="search" /> Light &amp; Optics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Exam-Style Quizzes & Textbook Solutions -->
+      <div class="tour-slide" data-step="2">
+        <div class="tour-preview-card">
+          <div class="tour-graphic">
+            <svg width="280" height="120" viewBox="0 0 280 120">
+              <!-- Quiz Card Mockup -->
+              <rect x="20" y="10" width="240" height="100" rx="12" fill="#141d2c" stroke="#25324a" />
+              <text x="32" y="28" font-size="10" font-weight="bold" fill="#4cc3f0">Question 1 of 5 · Principle of Moments</text>
+              <text x="32" y="44" font-size="9" fill="#e7edf7">What is the SI unit of Moment of a Force?</text>
+              
+              <!-- Option A: Unselected -->
+              <rect x="32" y="54" width="102" height="20" rx="6" fill="#182338" stroke="#25324a" />
+              <text x="40" y="68" font-size="9" fill="#a7b3c8">A) Newton (N)</text>
+              
+              <!-- Option B: Correct Selected -->
+              <rect x="144" y="54" width="104" height="20" rx="6" fill="#08705d" stroke="#5ee0c2" />
+              <text x="152" y="68" font-size="9" font-weight="bold" fill="#ffffff">✓ B) N m (Correct!)</text>
+
+              <!-- Feedback Banner -->
+              <rect x="32" y="80" width="216" height="20" rx="6" fill="#182338" />
+              <text x="40" y="94" font-size="8" fill="#5ee0c2">Correct! Moment = Force (N) × Distance (m)</text>
+            </svg>
+          </div>
+          <h4>Exam-Style Quizzes &amp; Step-by-Step Solutions</h4>
+          <p>Master G.C.E. O/L past paper concepts with instant-feedback quizzes. Test understanding after every section, receive instant explanations, and build exam confidence.</p>
+          <div class="tour-feature-tags">
+            <span><Icon name="note" /> Instant Feedback</span>
+            <span><Icon name="target" /> Past Paper Drills</span>
+            <span><Icon name="bulb" /> Worked Solutions</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Gamified XP, Stars & Badges -->
+      <div class="tour-slide" data-step="3">
+        <div class="tour-preview-card">
+          <div class="tour-graphic">
+            <svg width="280" height="120" viewBox="0 0 280 120">
+              <!-- Gamified elements -->
+              <rect x="25" y="25" width="230" height="24" rx="12" fill="#141d2c" stroke="#25324a" />
+              <rect x="27" y="27" width="160" height="20" rx="10" fill="url(#xpGrad)" />
+              <defs>
+                <linearGradient id="xpGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#4cc3f0"/>
+                  <stop offset="100%" stop-color="#8aa8ff"/>
+                </linearGradient>
+              </defs>
+              <text x="140" y="42" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">450 / 600 XP (Level 4)</text>
+
+              <g transform="translate(45, 65)">
+                <circle cx="20" cy="20" r="18" fill="#182338" stroke="#ffd166" stroke-width="2"/>
+                <text x="20" y="25" text-anchor="middle" font-size="14">🥇</text>
+              </g>
+              <g transform="translate(105, 65)">
+                <circle cx="20" cy="20" r="18" fill="#182338" stroke="#5ee0c2" stroke-width="2"/>
+                <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold">PP</text>
+              </g>
+              <g transform="translate(165, 65)">
+                <circle cx="20" cy="20" r="18" fill="#182338" stroke="#ff9f6b" stroke-width="2"/>
+                <text x="20" y="25" text-anchor="middle" font-size="12" font-weight="bold">W</text>
+              </g>
+            </svg>
+          </div>
+          <h4>Gamified Quizzes, XP &amp; Badges</h4>
+          <p>Learning physics feels like playing a game! Complete lesson challenges, earn stars, unlock achievement badges, and track personal progress toward G.C.E. O/L exam mastery.</p>
+          <div class="tour-feature-tags">
+            <span><Icon name="star" /> Star Progress</span>
+            <span><Icon name="medal" /> Syllabus Badges</span>
+            <span><Icon name="note" /> Past Paper Checks</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Course Menu & Roadmap -->
+      <div class="tour-slide" data-step="4">
+        <div class="tour-preview-card">
+          <div class="tour-graphic">
+            <svg width="280" height="120" viewBox="0 0 280 120">
+              <!-- Menu UI Card Mockup -->
+              <rect x="18" y="10" width="244" height="100" rx="10" fill="#141d2c" stroke="#25324a" />
+              <!-- Menu Header -->
+              <rect x="18" y="10" width="244" height="24" rx="10" fill="#182338" />
+              <text x="32" y="26" font-size="10" font-weight="bold" fill="#4cc3f0">📋 G.C.E. O/L Physics Syllabus Map</text>
+              <circle cx="246" cy="22" r="4" fill="#5ee0c2" />
+
+              <!-- Lesson item 1: Active -->
+              <rect x="26" y="40" width="228" height="20" rx="6" fill="#1f2d47" stroke="#4cc3f0" />
+              <text x="36" y="54" font-size="9" font-weight="bold" fill="#ffffff">▶ Ch 12: Principle of Equilibrium</text>
+              <text x="210" y="54" font-size="9" fill="#ffd166">3 of 3 stars</text>
+
+              <!-- Lesson item 2 -->
+              <rect x="26" y="64" width="228" height="18" rx="6" fill="#162032" />
+              <text x="36" y="77" font-size="9" fill="#a7b3c8">✓ Ch 11: Turning Effect of Forces</text>
+              <text x="224" y="77" font-size="8" fill="#5ee0c2">100%</text>
+
+              <!-- Lesson item 3 -->
+              <rect x="26" y="86" width="228" height="18" rx="6" fill="#162032" />
+              <text x="36" y="99" font-size="9" fill="#6d7c96">🔒 Ch 18: Work, Energy &amp; Power</text>
+              <text x="218" y="99" font-size="8" fill="#6d7c96">Next</text>
+            </svg>
+          </div>
+          <h4>Structured 15-Chapter Course Menu</h4>
+          <p>Guided step-by-step roadmap covering Grade 10 &amp; 11 Physics. From Mechanics and Equilibrium to Optics and Electromagnetism: each chapter includes story intros, clear theory notes, virtual labs, and exam drills.</p>
+          <div class="tour-feature-tags">
+            <span><Icon name="map" /> Guided Learning Path</span>
+            <span><Icon name="book" /> Complete O/L Syllabus</span>
+            <span><Icon name="note" /> Worked Past Papers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Ready to get your account -->
+      <div class="tour-slide" data-step="5">
+        <div class="tour-preview-card">
+          <div class="tour-graphic" style="background:color-mix(in srgb, #25D366 12%, var(--card))">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="#25D366">
+              <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m.01 1.67c4.54 0 8.24 3.7 8.24 8.24 0 2.2-.86 4.27-2.42 5.82a8.19 8.19 0 0 1-5.82 2.42c-1.45 0-2.87-.38-4.12-1.12l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.41c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8 2.52 1.09 2.52.73 2.97.69.46-.04 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.12-.22-.19-.47-.32z"/>
+            </svg>
+          </div>
+          <h4>Ready to Start Your Physics Journey?</h4>
+          <p>Accounts are provisioned by our administrator for registered students. Contact the admin right now on WhatsApp (070 775 2433) to enroll and receive your login credentials!</p>
+          <div style="margin-top:16px">
+            <a href="https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud%20Physics.%20Please%20share%20the%20details.%20My%20name%20is:%20" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp full"><Icon name="chat" /> Message Admin on WhatsApp (070 775 2433)</a>
+          </div>
+        </div>
+      </div>

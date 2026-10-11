@@ -179,6 +179,39 @@ class HomeRoute(unittest.TestCase):
             self.assertIn('Astro home', r.text)
 
 
+class LoginRoute(unittest.TestCase):
+    """/login: a signed-in visitor goes on to a safe ?next=; everyone else gets the login page (Astro build when bundled)."""
+
+    def setUp(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'login.db')
+        migrations._ready = False
+        self.shell = Path(TMP) / 'shell'
+        (self.shell / 'login').mkdir(parents=True, exist_ok=True)
+        (self.shell / 'login' / 'index.html').write_text('<!doctype html><title>Astro login</title>', encoding='utf-8')
+
+    def test_visitor_gets_the_astro_login_when_built_and_the_original_otherwise(self):
+        with patch.object(pages, 'WEB_SHELL', self.shell):
+            r = TestClient(app).get('/login?next=/account', follow_redirects=False)
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('Astro login', r.text)
+        self.assertEqual(r.headers['cache-control'], 'no-cache')
+        with patch.object(pages, 'WEB_SHELL', Path(TMP) / 'no-shell'):
+            r = TestClient(app).get('/login', follow_redirects=False)
+        self.assertEqual(r.status_code, 200)
+        self.assertNotIn('Astro login', r.text)
+
+    def test_signed_in_visitor_goes_to_a_safe_next_only(self):
+        client = TestClient(app)
+        r = client.post('/api/signup', headers=H, json={'username': 'login_admin', 'password': 'login-password-1'})
+        if r.status_code != 200:
+            r = client.post('/api/login', headers=H, json={'username': 'login_admin', 'password': 'login-password-1', 'kick_device': 'all'})
+        self.assertEqual(r.status_code, 200, r.text)
+        with patch.object(pages, 'WEB_SHELL', self.shell):
+            for nxt, where in (('/account', '/account'), ('//evil.example', '/lessons/index.html'), ('https://evil.example', '/lessons/index.html')):
+                r = client.get('/login', params={'next': nxt}, follow_redirects=False)
+                self.assertEqual((r.status_code, r.headers['location']), (302, where), nxt)
+
+
 class HealthMedia(unittest.TestCase):
     """/healthz says how media is served, so a deployment can be checked without logging in."""
     R2 = {'R2_MEDIA_ENABLED': '1', 'R2_ACCOUNT_ID': 'a' * 32, 'R2_ACCESS_KEY_ID': 'key-id-value',

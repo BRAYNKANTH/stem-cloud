@@ -1,0 +1,24 @@
+---
+// Text from public/static/privacy.html, unchanged.
+import AppLayout from '../layouts/AppLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/prose.css';
+---
+<AppLayout title="STEM Cloud · Privacy" description="What STEM Cloud keeps about students, and what it does not.">
+  <SiteHeader slot="header" narrow page="Privacy" links={[{ href: '/', label: '← Home' }, { href: '/about', label: 'About' }, { href: '/login', label: 'Log in' }]} />
+  <div class="wrap narrow">
+    <article class="card prose">
+      <h2>What we keep</h2>
+      <p>Only what the lessons need: your username, the nickname you chose, a scrambled (hashed) version of your password, and your learning progress (XP, badges, stars, which lessons you finished, language and theme).</p>
+      <h2>What we don't keep</h2>
+      <p>No email address, phone number, real name, location, or tracking. No adverts. Nothing is shared with other companies.</p>
+      <h2>Who can see it</h2>
+      <p>You, and the site admin (who can see your nickname, username, XP and badge count, and can reset your password or remove your account).</p>
+      <h2>Your choices</h2>
+      <p>You can change your name or password, or delete your account and all saved progress at any time from <b>My account</b>.</p>
+      <p class="hint">Students: please use a nickname and a password you don't use anywhere else.</p>
+    </article>
+  </div>
+  <SiteFooter slot="footer" narrow />
+</AppLayout>

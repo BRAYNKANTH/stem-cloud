@@ -31,15 +31,22 @@ const { title, description = 'GCE O/L Physics with Raja and Chittu, in English, 
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#F3F5FF" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/png" sizes="32x32" href="/static/icons/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/icons/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    {/* Same keys and rules as the current app: bright unless the student chose dark, language from lessonLang,
-        animations on unless switched off (stem_motion) or the device asks for reduced motion. Runs before first paint. */}
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="STEM Cloud" />
+    {/* Same keys and rules as the current app's pages: everyone was switched to bright once (stem_bright_v1), then
+        stem_theme / lessonTheme decide; language from lessonLang; animations on unless switched off (stem_motion)
+        or the device asks for reduced motion. Runs before first paint. */}
     <script is:inline>
       try {
         var d = document.documentElement, s = localStorage;
-        d.setAttribute('data-theme', s.getItem('lessonTheme') === 'dark' ? 'dark' : 'light');
+        if (!s.getItem('stem_bright_v1')) { s.setItem('lessonTheme', 'light'); s.setItem('stem_theme', 'light'); s.setItem('stem_bright_v1', '1'); }
+        d.setAttribute('data-theme', (s.getItem('stem_theme') || s.getItem('lessonTheme')) === 'dark' ? 'dark' : 'light');
         var l = s.getItem('lessonLang'); d.lang = l === 'ta' || l === 'si' ? l : 'en';
         var m = s.getItem('stem_motion');
         if (m === 'off' || (m !== 'on' && matchMedia('(prefers-reduced-motion: reduce)').matches)) d.classList.add('stem-calm');
@@ -51,5 +58,9 @@ const { title, description = 'GCE O/L Physics with Raja and Chittu, in English, 
     <main id="main">
       <slot />
     </main>
+    <slot name="footer" />
+    {/* The current app's shell script: registers the service worker (offline lessons), the "Install app" prompt
+        and the browser bar colour. Served from the CDN like on every current page. */}
+    <script is:inline src="/static/pwa.js" defer></script>
   </body>
 </html>

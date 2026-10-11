@@ -1,0 +1,21 @@
+---
+// Footer links shared by the public pages.
+interface Props {
+  narrow?: boolean;
+}
+const { narrow = false } = Astro.props;
+---
+<footer class:list={["site-footer wrap", { narrow }]}>
+  <nav aria-label="About STEM Cloud">
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <a href="/login">Log in</a>
+  </nav>
+</footer>
+
+<style>
+  .site-footer { padding-block: 8px max(28px, env(safe-area-inset-bottom)); }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; font-size: .9rem; }
+  nav a { color: var(--sc-ink-2); display: inline-flex; align-items: center; min-height: var(--tap); }
+</style>

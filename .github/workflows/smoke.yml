@@ -1,0 +1,27 @@
+name: Production smoke check
+
+# Checks the live site's public pages and API after every successful production deploy (Vercel reports deploys to
+# GitHub), and on demand. Public URLs only: no login, no secrets.
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      astro:
+        description: 'Comma-separated paths that must be served by the Astro build (e.g. /privacy,/terms)'
+        required: false
+        default: ''
+
+jobs:
+  smoke:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Smoke check https://www.stemcloud.site
+        env:
+          ASTRO_PATHS: ${{ github.event.inputs.astro }}
+        run: python tools/smoke_check.py --astro "$ASTRO_PATHS"

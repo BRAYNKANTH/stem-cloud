@@ -233,6 +233,32 @@ class AccountRoute(unittest.TestCase):
             self.assertEqual(r.headers['cache-control'], 'no-store')     # the security middleware: personal pages are never stored
 
 
+class AdminRoute(unittest.TestCase):
+    """/admin: visitor -> login page; student -> 403; admin -> the admin page."""
+
+    def test_only_admins_get_the_page(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'admin.db')
+        migrations._ready = False
+        shell = Path(TMP) / 'shell-admin'
+        (shell / 'admin').mkdir(parents=True, exist_ok=True)
+        (shell / 'admin' / 'index.html').write_text('<!doctype html><title>Astro admin</title>', encoding='utf-8')
+        admin, student = TestClient(app), TestClient(app)
+        with patch.object(pages, 'WEB_SHELL', shell):
+            r = admin.get('/admin', follow_redirects=False)
+            self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=/admin'))
+            self.assertEqual(admin.post('/api/signup', headers=H, json={'username': 'adm_one', 'password': 'admin-password-1'}).status_code, 200)
+            r = admin.post('/api/admin/create-user', headers=H, json={'username': 'stu_one', 'password': 'student-password-1', 'role': 'student'})
+            self.assertEqual(r.status_code, 200, r.text)
+            self.assertEqual(student.post('/api/login', headers=H, json={'username': 'stu_one', 'password': 'student-password-1'}).status_code, 200)
+            r = student.get('/admin', follow_redirects=False)
+            self.assertEqual(r.status_code, 403)
+            self.assertNotIn('Astro admin', r.text)
+            r = admin.get('/admin', follow_redirects=False)
+            self.assertEqual(r.status_code, 200)
+            self.assertIn('Astro admin', r.text)
+            self.assertEqual(r.headers['cache-control'], 'no-store')
+
+
 class HealthMedia(unittest.TestCase):
     """/healthz says how media is served, so a deployment can be checked without logging in."""
     R2 = {'R2_MEDIA_ENABLED': '1', 'R2_ACCOUNT_ID': 'a' * 32, 'R2_ACCESS_KEY_ID': 'key-id-value',

@@ -1,0 +1,63 @@
+---
+// Admin panel. Built under /shell/ because the Python route /admin decides first (not signed in -> login page,
+// not an admin -> 403), then serves this page (stemcloud/routers/pages.py). Every action is checked again by the
+// /api/admin/* endpoints. Text from public/static/admin.html, unchanged.
+import AppLayout from '../../layouts/AppLayout.astro';
+import AdminPanel from '../../islands/AdminPanel';
+---
+<AppLayout title="STEM Cloud · Admin" description="STEM Cloud administration." noindex>
+  <div class="wrap admin">
+    <header>
+      <p class="brand"><img src="/static/brand/logo-mark.png" alt="" width="48" height="31" />STEM <b>Cloud</b> · Admin</p>
+      <p class="back"><a href="/account">My account</a></p>
+    </header>
+    <AdminPanel client:load />
+  </div>
+</AppLayout>
+
+<style>
+  .admin { padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: 40px; display: grid; gap: 16px; }
+  /* grid items may shrink below their content, so the wide user table scrolls inside its card instead of widening the page */
+  .admin > *, .admin :global(.card) { min-width: 0; }
+  .brand { display: flex; align-items: center; gap: 10px; margin: 0; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
+  .brand b { color: var(--sc-blue); }
+  .back { margin: 2px 0 0; }
+  .back a { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
+
+  .admin :global(h2) { font-size: 1.15rem; margin: 0 0 6px; }
+  .admin :global(.sub) { margin: 0 0 14px; color: var(--sc-ink-2); font-size: .9rem; }
+  .admin :global(.stats) { display: flex; gap: 12px; flex-wrap: wrap; }
+  .admin :global(.stat) { flex: 1; min-width: 140px; background: var(--sc-panel-2); border-radius: 14px; padding: 10px 12px; }
+  .admin :global(.stat span) { color: var(--sc-ink-2); font-size: .85rem; font-weight: 700; }
+  .admin :global(.stat b) { display: block; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+
+  .admin :global(.create-grid) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr)); gap: 12px 16px; }
+  .admin :global(.full-w) { grid-column: 1 / -1; }
+  .admin :global(label) { display: block; font-weight: 700; font-size: .9rem; margin: 0 0 5px; }
+  .admin :global(input), .admin :global(select) { width: 100%; font: inherit; font-size: 1rem; color: var(--sc-ink); background: var(--sc-field);
+      border: 2px solid var(--sc-line); border-radius: 12px; padding: 10px 12px; min-height: var(--tap); }
+  .admin :global(input:focus-visible), .admin :global(select:focus-visible) { border-color: var(--sc-blue); }
+  .admin :global(.pw-gen) { display: flex; gap: 8px; }
+  .admin :global(.pw-gen input) { flex: 1; min-width: 0; }
+  .admin :global(.hint) { color: var(--sc-ink-2); font-size: .82rem; margin: 4px 0 0; }
+
+  .admin :global(.cred-card) { margin-top: 16px; padding: 14px 16px; border-radius: 16px; background: var(--sc-leaf-lt); border: 2px solid var(--sc-leaf); }
+  .admin :global(.cred-card p) { margin: 6px 0; font-size: .9rem; }
+  .admin :global(.cred-row) { font-family: ui-monospace, monospace; font-size: .92rem; background: var(--sc-panel); border-radius: 10px; padding: 8px 10px; overflow-wrap: anywhere; }
+  .admin :global(.cred-actions) { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .admin :global(.btn-whatsapp) { background: #1F8A4C; color: #fff; border: 0; box-shadow: 0 4px 0 #145C33; }
+
+  .admin :global(.msg) { margin: 0 0 10px; font-size: .92rem; min-height: 1.2em; overflow-wrap: anywhere; }
+  .admin :global(.msg.err) { color: var(--sc-clay); font-weight: 700; }
+  .admin :global(.msg.ok) { color: var(--sc-leaf); font-weight: 700; }
+  .admin :global(.tw) { overflow-x: auto; }
+  .admin :global(table) { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  .admin :global(th), .admin :global(td) { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--sc-line); vertical-align: middle; }
+  .admin :global(th) { color: var(--sc-ink-2); font-weight: 700; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; }
+  .admin :global(.actions) { white-space: nowrap; }
+  .admin :global(.actions .btn) { margin: 2px 4px 2px 0; }
+  .admin :global(.btn.bad) { border-color: var(--sc-clay); color: var(--sc-clay); }
+  .admin :global(.btn:disabled) { opacity: .6; cursor: wait; }
+  .admin :global(.pill) { display: inline-block; border-radius: 99px; padding: 1px 9px; font-size: .75rem; font-weight: 800; background: var(--sc-panel-2); }
+  .admin :global(.pill.admin) { color: var(--sc-blue); box-shadow: inset 0 0 0 1.5px var(--sc-blue); }
+</style>

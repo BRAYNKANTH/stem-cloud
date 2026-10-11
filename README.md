@@ -3,7 +3,7 @@
 Cloudflare R2 media integration and activation instructions: [cloudflare-r2.md](cloudflare-r2.md).
 It stays disabled until uploads are verified and the deployment is configured.
 
-**Migration in progress:** the app is moving to Astro + React islands + FastAPI, one phase at a time, while this version stays live. See [docs/migration-plan-astro.md](docs/migration-plan-astro.md). Earlier audits and review reports are in [docs/notes/](docs/notes/). Steps only the site owner can do (Vercel, Neon, Cloudflare, GitHub settings) are listed in [docs/owner-tasks.md](docs/owner-tasks.md).
+**Migration in progress:** the app is moving to Astro + React islands + FastAPI, one phase at a time, while this version stays live. See [docs/migration-plan-astro.md](docs/migration-plan-astro.md). Earlier audits and review reports are in [docs/notes/](docs/notes/). Steps only the site owner can do (Vercel, Neon, Cloudflare, GitHub settings) are listed in [docs/owner-tasks.md](docs/owner-tasks.md). What has been done so far, the blockers and the decisions are in [docs/migration-log.md](docs/migration-log.md).
 
 GCE O/L Physics with Raja and Chittu: fifteen lessons (six earlier chapters, three Grade 10 Part II and six Grade 11 physics chapters), each with a story, a watch-it cartoon, notes, textbook activities, an interactive lab, a challenge game, a quiz, a sort game, worked examples, every textbook exercise with an answer, a recap and a Tamil-English glossary, with student accounts and saved progress (XP, badges, stars, finished lessons) that follow the student to any device.
 

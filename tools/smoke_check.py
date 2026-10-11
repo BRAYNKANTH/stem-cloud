@@ -52,6 +52,8 @@ CHECKS = [
     ('/terms', 200, 'Using STEM Cloud', None),
     ('/login', 200, None, None),
     ('/lessons/index.html', 302, None, ('location', '/login')),       # lessons stay behind login
+    ('/account', 302, None, ('location', '/login?next=/account')),    # personal pages stay behind login
+    ('/admin', 302, None, ('location', '/login?next=/admin')),
     ('/api/me', 401, None, None),
     ('/static/theme-bright.css', 200, '--sc-ink', ('cache-control', 's-maxage')),   # current app files stay on the CDN
     ('/sw.js', 200, 'VERSION', None),

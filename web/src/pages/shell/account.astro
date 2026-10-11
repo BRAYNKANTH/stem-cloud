@@ -1,0 +1,52 @@
+---
+// "My account". Built under /shell/ because the Python route /account decides first (not signed in -> login page),
+// then serves this page (stemcloud/routers/pages.py). Labels and their Tamil / Sinhala wording from
+// public/static/account.html, unchanged.
+import AppLayout from '../../layouts/AppLayout.astro';
+import AccountPanel from '../../islands/AccountPanel';
+import BottomNav from '../../islands/BottomNav';
+---
+<AppLayout title="STEM Cloud · My account" description="Your STEM Cloud account: name, password, language and progress." noindex>
+  <div class="wrap narrow account">
+    <AccountPanel client:load />
+  </div>
+  <BottomNav slot="footer" here="me" client:idle />
+</AppLayout>
+
+<style>
+  .account { padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: 32px; display: grid; gap: 16px; }
+  .account :global(.acct-head .brand) { display: flex; align-items: center; gap: 10px; margin: 0; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
+  .account :global(.acct-head .brand b) { color: var(--sc-blue); }
+  .account :global(.acct-head .back) { margin: 2px 0 0; }
+  .account :global(.acct-head .back a) { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
+  .account :global(.card h1), .account :global(.card h2) { font-size: 1.15rem; margin: 0 0 10px; }
+  .account :global(.stats) { display: flex; gap: 12px; flex-wrap: wrap; }
+  .account :global(.stat) { flex: 1; min-width: 110px; background: var(--sc-panel-2); border-radius: 14px; padding: 10px 12px; }
+  .account :global(.stat span) { color: var(--sc-ink-2); font-size: .85rem; font-weight: 700; }
+  .account :global(.stat b) { display: block; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .account :global(.langrow) { display: flex; gap: 8px; flex-wrap: wrap; }
+  .account :global(label) { display: block; font-weight: 700; font-size: .9rem; margin: 12px 0 5px; }
+  .account :global(input[type=text]), .account :global(input[type=password]) { width: 100%; font: inherit; font-size: 1rem; color: var(--sc-ink); background: var(--sc-field);
+      border: 2px solid var(--sc-line); border-radius: 12px; padding: 12px 14px; min-height: 48px; }
+  .account :global(input:focus-visible) { border-color: var(--sc-blue); }
+  .account :global(.hint) { color: var(--sc-ink-2); font-size: .85rem; margin: 6px 0 0; }
+  .account :global(.btn.full) { width: 100%; margin-top: 14px; min-height: 48px; }
+  .account :global(.btn.bad) { border-color: var(--sc-clay); color: var(--sc-clay); }
+  .account :global(.msg) { margin-top: 10px; font-size: .92rem; min-height: 1.2em; }
+  .account :global(.msg.err) { color: var(--sc-clay); font-weight: 700; }
+  .account :global(.msg.ok) { color: var(--sc-leaf); font-weight: 700; }
+  .account :global(.row) { display: flex; gap: 10px; flex-wrap: wrap; }
+  .account :global(.foot) { text-align: center; color: var(--sc-ink-2); font-size: .85rem; margin: 0; }
+  .account :global(.foot a) { display: inline-flex; align-items: center; min-height: var(--tap); }
+
+  /* phone bottom bar (island), as on the current pages: phones only */
+  :global(.bnav) { display: none; }
+  @media (max-width: 760px) {
+    :global(.bnav) { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+                     height: calc(68px + env(safe-area-inset-bottom)); padding: 0 8px env(safe-area-inset-bottom); background: var(--sc-panel); border-top: 1px solid var(--sc-line); }
+    :global(.bnav a) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: var(--tap); text-decoration: none;
+                       color: var(--sc-ink-2); font-weight: 700; font-size: .75rem; }
+    :global(.bnav a[aria-current="page"]) { color: var(--sc-blue); font-weight: 800; }
+    .account { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  }
+</style>

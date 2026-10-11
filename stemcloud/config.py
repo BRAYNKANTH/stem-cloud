@@ -6,6 +6,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / 'site'
 LESSONS = (SITE / 'lessons').resolve()
 STATIC = ROOT / 'public' / 'static'      # Vercel serves public/ straight from its CDN; the app mounts the same folder for local use and the HTML pages
+# The Astro build of the public Home page (web/dist), bundled with the function so / can serve it (see routers/pages.py).
+WEB_HOME = ROOT / 'web' / 'dist' / 'home' / 'index.html'
 ON_VERCEL = bool(os.environ.get('VERCEL'))
 ADMIN_USERS = {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}      # no built-in admin names: admins are made with tools/manage_admin.py or by an admin
 TRUST_PROXY = ON_VERCEL or os.environ.get('TRUST_PROXY') == '1'

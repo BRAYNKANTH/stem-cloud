@@ -1,0 +1,67 @@
+---
+// The Home page's large footer (text from public/static/home.html, unchanged; Terms link added).
+---
+<footer class="home-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="f-brand">
+        <p class="f-title"><img src="/static/brand/logo-mark.png" alt="" width="34" height="22" /> STEM Cloud</p>
+        <p>Sri Lanka's digitalized learning platform for G.C.E. Ordinary Level lessons. Transforming science and STEM education through interactive virtual labs, relatable stories, and neural voice guidance.</p>
+      </div>
+      <nav class="f-col" aria-labelledby="f-platform">
+        <h2 id="f-platform">Platform</h2>
+        <ul>
+          <li><a href="#what-is-stem-cloud">What is STEM Cloud?</a></li>
+          <li><a href="#features">Features &amp; Virtual Labs</a></li>
+          <li><a href="#curriculum">G.C.E. O/L Syllabus</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/login">Student Login</a></li>
+        </ul>
+      </nav>
+      <nav class="f-col" aria-labelledby="f-syllabus">
+        <h2 id="f-syllabus">Syllabus</h2>
+        <ul>
+          <li><a href="#curriculum">Grade 10 Physics &amp; Science</a></li>
+          <li><a href="#curriculum">Grade 11 Physics &amp; Science</a></li>
+          <li><a href="#curriculum">O/L Past Paper Vault</a></li>
+          <li><a href="#quiz-demo">Interactive Practice Quizzes</a></li>
+        </ul>
+      </nav>
+      <div class="f-col">
+        <h2>Contact &amp; Admin</h2>
+        <ul>
+          <li><strong>WhatsApp:</strong> 070 775 2433</li>
+          <li><strong>Phone:</strong> +94 70 775 2433</li>
+          <li><a href="https://wa.me/94707752433" target="_blank" rel="noopener noreferrer">Direct WhatsApp Chat</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 STEM Cloud. All rights reserved. Designed for G.C.E. O/L Students in Sri Lanka.</div>
+      <div class="fb-links"><a href="/about">About</a><a href="/privacy">Privacy</a><a href="/login">Log in</a></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .home-footer { border-top: 1px solid var(--sc-line); background: var(--sc-panel-2); padding: 56px 0 max(96px, env(safe-area-inset-bottom)); font-size: .92rem; color: var(--sc-ink-2); }
+  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 32px; }
+  .f-title { font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; color: var(--sc-ink); display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .f-brand p:not(.f-title) { font-size: .9rem; line-height: 1.6; max-width: 320px; }
+  .f-col h2 { font-size: .92rem; text-transform: uppercase; letter-spacing: .06em; color: var(--sc-ink); margin-bottom: 10px; font-family: var(--font-text); }
+  .f-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+  .f-col li { min-height: var(--tap); display: flex; align-items: center; }
+  .f-col a, .fb-links a { color: var(--sc-ink-2); }
+  .f-col a { min-height: var(--tap); display: inline-flex; align-items: center; }
+  .f-col a:hover, .fb-links a:hover { color: var(--sc-blue); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding-top: 20px; border-top: 1px solid var(--sc-line); font-size: .85rem; }
+  .fb-links { display: flex; gap: 16px; }
+  .fb-links a { min-height: var(--tap); display: inline-flex; align-items: center; }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 680px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+  }
+</style>

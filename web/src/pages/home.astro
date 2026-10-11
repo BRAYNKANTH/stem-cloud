@@ -1,0 +1,350 @@
+---
+// Public Home page. Text from public/static/home.html, unchanged; emoji become the drawn icons ui-icons.js shows today.
+// Served at /home by the CDN, and at / by the Python function to visitors who are not signed in
+// (signed-in students opening / still go straight to their lessons).
+import AppLayout from '../layouts/AppLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import HomeFooter from '../components/HomeFooter.astro';
+import Icon from '../components/Icon.astro';
+import WhatsAppIcon from '../components/WhatsAppIcon.astro';
+import WelcomeBanner from '../islands/WelcomeBanner';
+import HeroLoginButton from '../islands/HeroLoginButton';
+import MomentsDemo from '../islands/MomentsDemo';
+import QuizDemo from '../islands/QuizDemo';
+import CourseMap from '../islands/CourseMap';
+
+const links = [
+  { href: '#what-is-stem-cloud', label: 'What is STEM Cloud?' },
+  { href: '#features', label: 'Features & Labs' },
+  { href: '#curriculum', label: 'G.C.E. O/L Lessons' },
+  { href: '/about', label: 'About Platform' },
+  { href: '#faq', label: 'FAQ' },
+];
+const WA = 'https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud.%20My%20name%20is:%20';
+const WA_GUIDE = 'https://wa.me/94707752433?text=Hello%20Admin,%20I%20would%20like%20to%20enroll%20in%20STEM%20Cloud.%20Please%20guide%20me.%20My%20name%20is:%20';
+
+const points = [
+  ['Complete G.C.E. O/L Level Lessons:', 'Curated chapters with notes, textbook exercises, worked examples, and glossary.'],
+  ['Hands-on Digitalized Simulations:', 'Run science and physics experiments right on your smartphone screen.'],
+  ['Bilingual & Neural Voice Assistance:', 'Tamil and English read-aloud support designed for local curricula.'],
+  ['Equitable & Offline Accessible:', 'Installable PWA that works offline on low-end phones and weak data connections.'],
+];
+const highlights = [
+  { icon: 'flask', title: 'Interactive Virtual Laboratories', text: 'Experiment with mechanics, optics, wave propagation, and circuits without costly school equipment.' },
+  { icon: 'mic', title: 'Neural Spoken Explanations', text: 'Listen to bilingual sentence-highlighted read-alouds with correct scientific pronunciations.' },
+  { icon: 'gamepad', title: 'Gamified Mastery & Progress', text: 'Earn XP, unlock topic badges, collect stars, and watch your exam confidence grow day by day.' },
+  { icon: 'doc', title: 'G.C.E. O/L Past Paper Vault', text: 'Solve past exam questions with instant checks, model answers, and structured hints.' },
+] as const;
+const features = [
+  { icon: 'book', title: 'Guided Step-by-Step Lessons', text: 'No more endless, intimidating 30-page PDF scrolls. Every lesson is divided into a structured path: Story intro, cartoon animation, key theory notes, interactive lab, and exercises.', tags: ['Bite-sized', 'Step-by-step', 'Focus Mode'] },
+  { icon: 'flask', title: 'Hands-on Virtual Science Labs', text: 'Interact with physics phenomena directly: drag pulleys, incline planes, balance seesaws, adjust optical lenses, and calculate electrical resistance with immediate visual feedback.', tags: ['Principle of Moments', 'Optics Rays', 'Current & Circuits'] },
+  { icon: 'chat', title: 'Story Introductions with Raja & Chittu', text: 'Every topic begins with an engaging, everyday story featuring Raja and Chittu. Concepts are grounded in relatable Sri Lankan life—flying kites, cycling on hills, and domestic water pumps.', tags: ['Intuitive Learning', 'Zero Jargon', 'Relatable'] },
+  { icon: 'mic', title: 'Neural Bilingual Voice Guidance', text: 'Integrated neural Tamil and English audio reads each lesson line by line with active sentence highlighting. Students can adjust speeds, repeat difficult sections, and pronounce scientific terms accurately.', tags: ['Tamil & English', 'Synchronized Highlighting', 'Paced Audio'] },
+  { icon: 'note', title: 'Complete Textbook Solutions', text: 'Every single activity, question, and worked example from the official Ministry of Education textbook has a detailed, verified step-by-step answer and explanation.', tags: ['Official Textbook', 'Worked Answers', 'Diagram Previews'] },
+  { icon: 'medal', title: 'Gamified XP, Badges & Stars', text: 'Studying feels as rewarding as a game. Collect XP points as you read, earn stars for quiz accuracy, and unlock syllabus achievement badges as you master new chapters.', tags: ['Level Progress', 'Topic Badges', 'Cloud Sync'] },
+  { icon: 'doc', title: 'G.C.E. O/L Past Paper Drills', text: 'Targeted exam preparation with official past papers. Test yourself against past question patterns, understand marking rubrics, and bookmark challenging problems for revision.', tags: ['Exam Techniques', 'Instant Checking', 'Paper Archive'] },
+  { icon: 'download', title: 'Installable PWA & 100% Offline Ready', text: 'Install STEM Cloud directly onto your phone without requiring app stores. Once loaded, lessons work seamlessly without internet, saving valuable mobile data.', tags: ['Android / iOS / PC', 'Zero Data Offline', 'Lightweight'] },
+  { icon: 'school', title: 'Teacher & Admin Monitoring', text: 'Educators and administrators have clear oversight over student participation, progress completion, XP leaderboards, and safe device session management.', tags: ['Class Tracking', 'Secure Logins', 'Activity Insights'] },
+] as const;
+const faqs = [
+  { q: 'Is STEM Cloud only for G.C.E. O/L Physics?', a: 'No! STEM Cloud is built as an extensible digitalized learning platform for G.C.E. Ordinary Level education. While our physics curriculum features our flagship animated cartoon walkthroughs, interactive virtual laboratories, and worked textbook solutions, the platform is designed for broader STEM subjects, structured lesson delivery, and past paper practice across the curriculum.', open: true },
+  { q: 'How does STEM Cloud work offline?', a: 'STEM Cloud is a Progressive Web App (PWA). When you open chapters on your smartphone or computer, the core educational materials are securely cached on your device. You can review notes, reread stories, and study offline without consuming additional mobile data. Your earned XP and stars sync automatically the next time you reconnect!' },
+  { q: 'How do students receive their account credentials?', a: 'To ensure personalized progress tracking and prevent account abuse, student accounts are created by our platform administrators or partnered school teachers. You can contact our administrator directly on WhatsApp at <strong>070 775 2433</strong> to enroll and receive your login details.' },
+  { q: 'What languages are supported?', a: 'STEM Cloud features full bilingual support for Tamil and English, with high-quality neural voice read-aloud recordings and synchronized text highlighting. Sinhala language localized navigation and curriculum modules are actively in development.' },
+  { q: 'Can I use STEM Cloud on multiple devices?', a: 'Yes! You can log in from your smartphone, tablet, or home PC. The platform maintains a secure two-active-device session system to protect your account, and your XP, badges, and completed lessons seamlessly follow you anywhere.' },
+];
+---
+<AppLayout
+  title="STEM Cloud · Digitalized Learning Platform for G.C.E. O/L"
+  description="STEM Cloud: Sri Lanka's digitalized learning platform for G.C.E. Ordinary Level lessons, with interactive virtual labs, Raja and Chittu stories, bilingual voice narration and past papers.">
+  <a class="skip-link" href="#hero" slot="header">Skip to content</a>
+  <SiteNav slot="header" links={links}>
+    <a slot="actions" href={WA} target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-whatsapp wide-only"><WhatsAppIcon /><span>Enroll</span></a>
+  </SiteNav>
+
+  <section class="hero" id="hero">
+    <div class="wrap">
+      <WelcomeBanner client:idle />
+      <div class="hero-grid">
+        <div class="hero-text">
+          <p class="hero-tag">Digitalized Learning Platform · Sri Lanka G.C.E. O/L</p>
+          <h1 class="hero-title">Master <span class="accent">G.C.E. O/L Lessons</span> with Interactive Digital Learning</h1>
+          <p class="hero-lead">STEM Cloud transforms the Sri Lankan Ordinary Level curriculum into an engaging digital adventure. Experience interactive virtual experiments, guided step-by-step lessons, neural bilingual voice narration, and gamified mastery on any phone or laptop.</p>
+          <div class="hero-btns">
+            <a href="/lessons/index.html" class="btn primary">Start Learning</a>
+            <a href="/about" class="btn"><Icon name="book" /> About STEM Cloud</a>
+            <HeroLoginButton client:idle />
+          </div>
+          <div class="hero-stats">
+            <div class="hero-stat"><b>15+</b><span>Deep O/L Modules</span></div>
+            <div class="hero-stat"><b>100%</b><span>National Syllabus Aligned</span></div>
+            <div class="hero-stat"><b>Offline</b><span>PWA Phone Ready</span></div>
+          </div>
+        </div>
+        <div class="hero-interactive">
+          <div class="hi-header">
+            <span class="hi-badge">● Live Simulation Preview</span>
+            <span class="hi-where">Grade 10 · Moments Lab</span>
+          </div>
+          <h2 class="hi-title">Interactive Lever &amp; Equilibrium Experiment</h2>
+          <p class="hi-desc">Drag the weight slider to observe the principle of moments in real-time. Students test equilibrium visually instead of memorizing abstract equations!</p>
+          <MomentsDemo client:idle />
+          <div class="hi-foot">
+            <span>Try sliding to <strong>20 N</strong> for equilibrium!</span>
+            <a href="/login">Open full lab →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-is-stem-cloud">
+    <div class="wrap">
+      <div class="about-preview">
+        <div class="about-preview-grid">
+          <div class="about-p-content">
+            <span class="section-kicker">Digital Education Reimagined</span>
+            <h2>What is STEM Cloud?</h2>
+            <p><strong>STEM Cloud</strong> is a modern, next-generation <strong>digitalized learning platform</strong> built specifically for Sri Lankan students preparing for their <strong>G.C.E. Ordinary Level (O/L) examinations</strong>.</p>
+            <p>It is <strong>not just a physics app</strong> — STEM Cloud is an all-in-one educational platform engineered to make complex O/L subjects clear, intuitive, and enjoyable. By merging rigorous national curriculum standards with interactive virtual laboratories, character-led story walkthroughs, and smart revision tools, STEM Cloud empowers every learner to succeed.</p>
+            <ul class="about-points">
+              {points.map(([b, t]) => <li><span class="tick"><Icon name="check" /></span><div><strong>{b}</strong> {t}</div></li>)}
+            </ul>
+            <a href="/about" class="btn primary">Read Full Story &amp; Educational Mission →</a>
+          </div>
+          <div class="about-preview-visual">
+            {highlights.map((h) => (
+              <div class="about-v-card">
+                <div class="about-v-icon"><Icon name={h.icon} /></div>
+                <div class="about-v-info"><b>{h.title}</b><small>{h.text}</small></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-kicker">Core Capabilities</span>
+        <h2 class="section-title">What Does STEM Cloud Do?</h2>
+        <p class="section-desc">Everything an Ordinary Level student needs to master concepts, overcome exam fear, and achieve top grades in their G.C.E. O/L journey.</p>
+      </div>
+      <div class="features-grid">
+        {features.map((f) => (
+          <article class="feat-card">
+            <div class="feat-icon"><Icon name={f.icon} /></div>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+            <div class="feat-tags">{f.tags.map((t) => <span>{t}</span>)}</div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section" id="quiz-demo">
+    <div class="wrap demo-split">
+      <div>
+        <span class="section-kicker">Interactive Proof</span>
+        <h2 class="section-title">See How STEM Cloud Tests Understanding</h2>
+        <p class="section-desc">In STEM Cloud, quizzes aren't just dry multiple-choice tests. They provide instant visual explanations that reinforce core scientific principles immediately.</p>
+        <p class="demo-hint">Try answering the sample G.C.E. O/L question on the right to see instant diagnostic feedback in action.</p>
+        <a href="/login" class="btn primary">Log In for Full Quizzes →</a>
+      </div>
+      <QuizDemo client:visible />
+    </div>
+  </section>
+
+  <section id="curriculum">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-kicker">Curriculum Blueprint</span>
+        <h2 class="section-title">G.C.E. Ordinary Level Course Map</h2>
+        <p class="section-desc">Structured alignment with the Sri Lanka National Institute of Education (NIE) syllabus. Master fundamental and advanced modules with guided clarity.</p>
+      </div>
+      <CourseMap client:visible />
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="enroll-banner" aria-labelledby="enroll-h">
+      <h2 id="enroll-h">Ready to Join STEM Cloud?</h2>
+      <p>Accounts are provisioned directly by the platform administration for registered students and partner schools. Message our administrator on WhatsApp to get your login credentials today!</p>
+      <div class="enroll-btn-row">
+        <a href={WA_GUIDE} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp"><WhatsAppIcon /> Chat with Admin on WhatsApp (070 775 2433)</a>
+        <a href="/login" class="btn">Already have credentials? Log In</a>
+      </div>
+    </section>
+  </div>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-header">
+        <span class="section-kicker">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Everything you need to know about STEM Cloud, accounts, curriculum, and devices.</p>
+      </div>
+      <div class="faq-wrap">
+        {faqs.map((f) => (
+          <details class="faq-item" open={f.open}>
+            <summary>{f.q}</summary>
+            <div class="faq-answer" set:html={f.a} />
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <a href={WA} target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="Chat with Admin on WhatsApp">
+    <WhatsAppIcon /><span>Enroll on WhatsApp</span><span class="num">(070 775 2433)</span>
+  </a>
+  <HomeFooter slot="footer" />
+</AppLayout>
+
+<style>
+  .skip-link { position: absolute; left: 12px; top: -60px; z-index: 300; padding: 10px 14px; border-radius: var(--r); background: var(--sc-cta); color: var(--sc-cta-ink); }
+  .skip-link:focus { top: 12px; }
+
+  .btn-whatsapp { background: #1F8A4C; color: #fff; border: 0; box-shadow: 0 4px 0 #145C33; }
+  .btn-whatsapp:active { box-shadow: 0 1px 0 #145C33; }
+
+  section { padding: 64px 0; }
+  .section-header { text-align: center; max-width: 680px; margin: 0 auto 44px; }
+  .section-kicker { display: inline-block; font-size: .82rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--sc-blue); margin-bottom: 10px; }
+  .section-title { font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin-bottom: 14px; }
+  .section-desc { font-size: 1.05rem; color: var(--sc-ink-2); line-height: 1.6; margin: 0; }
+
+  /* hero */
+  .hero { padding: 48px 0 48px; }
+  .hero :global(.welcome-banner) { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: var(--sc-leaf-lt);
+                                   border: 2px solid var(--sc-leaf); border-radius: 18px; padding: 12px 18px; margin-bottom: 24px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; }
+  .hero-tag { display: inline-block; padding: 6px 14px; border-radius: 99px; background: var(--sc-blue-lt); font-size: .84rem; font-weight: 800; color: var(--sc-blue); margin-bottom: 20px; }
+  .hero-title { font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-bottom: 20px; }
+  .hero-title .accent { color: var(--sc-blue); }
+  .hero-lead { font-size: 1.12rem; color: var(--sc-ink-2); margin-bottom: 28px; max-width: 580px; }
+  .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--sc-line); }
+  .hero-stat b { display: block; font-family: var(--font-head); font-size: 1.65rem; font-weight: 800; }
+  .hero-stat span { font-size: .85rem; color: var(--sc-ink-2); }
+
+  .hero-interactive { background: var(--sc-panel); border-radius: 22px; box-shadow: 0 4px 0 var(--sc-line); padding: 24px; border-top: 6px solid var(--sc-blue); }
+  .hi-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--sc-line); }
+  .hi-badge { font-size: .8rem; font-weight: 800; color: var(--sc-leaf); background: var(--sc-leaf-lt); padding: 4px 10px; border-radius: 99px; }
+  .hi-where { font-size: .82rem; font-weight: 700; color: var(--sc-ink-2); }
+  .hi-title { font-size: 1.1rem; margin-bottom: 6px; }
+  .hi-desc { font-size: .9rem; color: var(--sc-ink-2); margin-bottom: 16px; }
+  .hi-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .88rem; }
+  .hi-foot span { color: var(--sc-ink-2); }
+  .hi-foot a { font-weight: 800; min-height: var(--tap); display: inline-flex; align-items: center; }
+
+  /* moments demo (island markup) */
+  .hero-interactive :global(.sim-box) { background: var(--sc-panel-2); border-radius: 16px; padding: 18px; margin-bottom: 14px; }
+  .hero-interactive :global(.sim-stage) { height: 120px; position: relative; display: flex; align-items: center; justify-content: center; }
+  .hero-interactive :global(.sim-lever) { width: min(240px, 100%); height: 10px; background: var(--sc-blue); border-radius: 5px; position: relative; transform-origin: 50% 50%;
+                                          transition: transform .25s cubic-bezier(.34, 1.56, .64, 1); }
+  .hero-interactive :global(.sim-pivot) { width: 0; height: 0; border-left: 14px solid transparent; border-right: 14px solid transparent; border-bottom: 24px solid var(--sc-ink);
+                                          position: absolute; top: 65px; left: calc(50% - 14px); }
+  .hero-interactive :global(.sim-mass-left), .hero-interactive :global(.sim-mass-right) { position: absolute; bottom: 10px; border-radius: 6px; font-size: .75rem; font-weight: 800;
+                                          display: flex; align-items: center; justify-content: center; }
+  .hero-interactive :global(.sim-mass-left) { left: 12px; width: 40px; height: 38px; background: var(--sc-raja); color: #fff; }
+  .hero-interactive :global(.sim-mass-right) { right: 12px; width: 40px; height: 34px; background: var(--sc-leaf); color: #fff; }
+  .hero-interactive :global(.sim-controls) { display: flex; flex-direction: column; gap: 10px; font-size: .88rem; }
+  .hero-interactive :global(.sim-row) { display: flex; justify-content: space-between; gap: 10px; }
+  .hero-interactive :global(.sim-slider) { width: 100%; min-height: var(--tap); accent-color: var(--sc-blue); cursor: pointer; }
+  .hero-interactive :global(.sim-status) { padding: 8px 12px; border-radius: 12px; font-size: .85rem; font-weight: 700; text-align: center; border: 2px solid; }
+  .hero-interactive :global(.sim-status.eq) { color: var(--sc-leaf); border-color: var(--sc-leaf); background: var(--sc-leaf-lt); }
+  .hero-interactive :global(.sim-status.cw), .hero-interactive :global(.sim-status.acw) { color: var(--sc-clay); border-color: var(--sc-mango); background: var(--sc-mango-lt); }
+  :global(html.stem-calm) .hero-interactive :global(.sim-lever) { transition: none; }
+
+  /* what is */
+  .about-preview { background: var(--sc-panel); border-radius: 22px; box-shadow: 0 3px 0 var(--sc-line); padding: 40px; }
+  .about-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .about-p-content h2 { font-size: 1.7rem; margin-bottom: 16px; }
+  .about-p-content p { color: var(--sc-ink-2); font-size: 1.02rem; line-height: 1.7; }
+  .about-p-content strong { color: var(--sc-ink); }
+  .about-points { list-style: none; margin: 20px 0 24px; padding: 0; display: grid; gap: 12px; font-weight: 600; font-size: .95rem; }
+  .about-points li { display: flex; align-items: flex-start; gap: 12px; }
+  .tick { width: 26px; height: 26px; border-radius: 50%; background: var(--sc-leaf-lt); color: var(--sc-leaf); display: inline-flex; align-items: center; justify-content: center; flex: none; font-size: .85rem; }
+  .about-preview-visual { background: var(--sc-panel-2); border-radius: 18px; padding: 20px; display: grid; gap: 12px; }
+  .about-v-card { background: var(--sc-panel); border-radius: 14px; padding: 16px; display: flex; gap: 14px; align-items: center; }
+  .about-v-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--sc-blue-lt); color: var(--sc-blue); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex: none; }
+  .about-v-info b { display: block; margin-bottom: 2px; }
+  .about-v-info small { color: var(--sc-ink-2); font-size: .85rem; line-height: 1.35; display: block; }
+
+  /* features */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px; }
+  .feat-card { background: var(--sc-panel); border-radius: 22px; box-shadow: 0 3px 0 var(--sc-line); padding: 26px; display: flex; flex-direction: column; }
+  .feat-icon { width: 54px; height: 54px; border-radius: 16px; background: var(--sc-blue-lt); color: var(--sc-blue); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 18px; }
+  .feat-card h3 { font-size: 1.22rem; margin-bottom: 10px; }
+  .feat-card p { color: var(--sc-ink-2); font-size: .95rem; line-height: 1.6; flex: 1; }
+  .feat-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .feat-tags span { font-size: .78rem; font-weight: 700; padding: 4px 10px; border-radius: 99px; background: var(--sc-panel-2); color: var(--sc-ink-2); }
+
+  /* quiz demo */
+  .demo-section { background: var(--sc-panel-2); }
+  .demo-split { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; }
+  .demo-hint { color: var(--sc-ink-2); margin: 20px 0 14px; }
+  .demo-section :global(.quiz-demo-box) { background: var(--sc-panel); border-radius: 22px; box-shadow: 0 4px 0 var(--sc-line); padding: 26px; }
+  .demo-section :global(.q-badge) { display: block; font-size: .8rem; font-weight: 800; color: var(--sc-blue); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
+  .demo-section :global(.q-title) { font-size: 1.15rem; font-weight: 800; margin-bottom: 18px; }
+  .demo-section :global(.q-options) { display: grid; gap: 10px; margin-bottom: 16px; }
+  .demo-section :global(.q-opt) { display: flex; align-items: center; gap: 12px; min-height: var(--tap); padding: 10px 16px; border-radius: 14px; border: 2px solid var(--sc-line);
+                                  background: var(--sc-panel-2); color: var(--sc-ink); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+  .demo-section :global(.q-opt:not(:disabled):hover) { border-color: var(--sc-blue); }
+  .demo-section :global(.q-opt:disabled) { cursor: default; }
+  .demo-section :global(.q-opt.correct) { border-color: var(--sc-leaf); background: var(--sc-leaf-lt); }
+  .demo-section :global(.q-opt.wrong) { border-color: var(--sc-clay); background: var(--sc-clay-lt); }
+  .demo-section :global(.q-feedback) { display: none; padding: 12px 14px; border-radius: 14px; font-size: .92rem; line-height: 1.5; }
+  .demo-section :global(.q-feedback.show) { display: block; }
+  .demo-section :global(.q-feedback.success) { background: var(--sc-leaf-lt); border: 2px solid var(--sc-leaf); }
+  .demo-section :global(.q-feedback.fail) { background: var(--sc-clay-lt); border: 2px solid var(--sc-clay); }
+
+  /* course map */
+  #curriculum :global(.syllabus-nav) { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+  #curriculum :global(.s-tab-btn) { min-height: var(--tap); padding: 0 20px; border-radius: 99px; border: 2px solid var(--sc-line); background: var(--sc-panel);
+                                   color: var(--sc-ink-2); font: inherit; font-weight: 800; cursor: pointer; }
+  #curriculum :global(.s-tab-btn[aria-pressed="true"]) { background: var(--sc-blue); border-color: var(--sc-blue); color: #fff; }
+  :global(:root[data-theme="dark"]) #curriculum :global(.s-tab-btn[aria-pressed="true"]) { color: #16183D; }
+  #curriculum :global(.s-grid) { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 16px; }
+  #curriculum :global(.s-card) { background: var(--sc-panel); border-radius: 18px; box-shadow: 0 3px 0 var(--sc-line); padding: 18px; display: flex; flex-direction: column; gap: 6px; }
+  #curriculum :global(.s-meta) { display: flex; justify-content: space-between; font-size: .78rem; font-weight: 800; color: var(--sc-blue); }
+  #curriculum :global(.s-card h3) { font-size: 1.02rem; margin: 2px 0; }
+  #curriculum :global(.s-card p) { font-size: .86rem; color: var(--sc-ink-2); line-height: 1.4; margin: 0; }
+
+  /* enroll + faq */
+  .enroll-banner { background: var(--sc-leaf-lt); border: 2px solid var(--sc-leaf); border-radius: 22px; padding: 40px; text-align: center; margin: 24px 0 8px; }
+  .enroll-banner h2 { font-size: 2rem; margin-bottom: 14px; }
+  .enroll-banner p { max-width: 620px; margin: 0 auto 26px; color: var(--sc-ink-2); font-size: 1.05rem; }
+  .enroll-btn-row { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+  .enroll-btn-row .btn { white-space: normal; text-align: center; }
+  .faq-wrap { max-width: 820px; margin: 0 auto; display: grid; gap: 14px; }
+  .faq-item { background: var(--sc-panel); border-radius: 18px; box-shadow: 0 3px 0 var(--sc-line); }
+  .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: var(--tap); padding: 16px 22px; cursor: pointer; list-style: none;
+                      font-weight: 800; font-size: 1.05rem; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 1.4rem; color: var(--sc-blue); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-answer { padding: 0 22px 20px; color: var(--sc-ink-2); font-size: .95rem; line-height: 1.65; }
+
+  /* floating WhatsApp */
+  .wa-float { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); right: 20px; z-index: 500; display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap);
+              background: #1F8A4C; color: #fff; padding: 12px 20px; border-radius: 999px; font-weight: 800; text-decoration: none; box-shadow: 0 4px 0 #145C33; }
+  .wa-float :global(.wa-ic) { width: 22px; height: 22px; }
+
+  @media (max-width: 900px) {
+    .hero-grid, .about-preview-grid, .demo-split { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 680px) {
+    section { padding: 44px 0; }
+    .hero { padding-top: 28px; }
+    .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    .about-preview, .enroll-banner { padding: 22px; }
+    .enroll-btn-row { flex-direction: column; }
+    .wa-float { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); padding: 12px 16px; }
+    .wa-float .num { display: none; }
+  }
+</style>

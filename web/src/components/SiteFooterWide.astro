@@ -1,0 +1,22 @@
+---
+// Footer of the public Home and About pages.
+---
+<footer class="site-footer-wide">
+  <div class="wrap footer-row">
+    <div><strong>STEM Cloud</strong> · Digitalized Learning Platform for G.C.E. Ordinary Level Lessons.</div>
+    <nav aria-label="Footer">
+      <a href="/">Home</a>
+      <a href="/login">Log in</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .site-footer-wide { border-top: 1px solid var(--sc-line); background: var(--sc-panel-2); color: var(--sc-ink-2); font-size: .9rem;
+                      padding: 28px 0 max(28px, env(safe-area-inset-bottom)); }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
+  nav { display: flex; flex-wrap: wrap; gap: 0 16px; }
+  nav a { color: var(--sc-ink-2); min-height: var(--tap); display: inline-flex; align-items: center; }
+</style>

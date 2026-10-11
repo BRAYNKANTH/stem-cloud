@@ -67,7 +67,10 @@ def main():
     ap.add_argument('--media', default='r2', help='expected "media" value in /healthz (empty to skip)')
     args = ap.parse_args()
     base = args.base.rstrip('/')
-    must_astro = {p for p in args.astro.split(',') if p}
+    must_astro = {p.strip() for p in args.astro.split(',') if p.strip()}
+    bad = [p for p in must_astro if not p.startswith('/') or any(c.isspace() for c in p)]
+    if bad:          # e.g. Git Bash on Windows turns /privacy into C:/Program Files/Git/privacy
+        sys.exit('--astro takes site paths such as /privacy; got %r' % bad)
     fails = []
     print('Smoke check of %s\n' % base)
     for path, status, text, header in CHECKS:
@@ -96,7 +99,10 @@ def main():
         print('%s %-28s %3s  %-6s %s' % ('FAIL' if problems else 'ok  ', path, code, who, '; '.join(problems)))
     unknown = must_astro - {c[0] for c in CHECKS}
     for path in sorted(unknown):
-        code, headers, body = get(base, path)
+        try:
+            code, headers, body = get(base, path)
+        except Exception as e:
+            fails.append(path); print('FAIL %-28s %s' % (path, type(e).__name__)); continue
         who = served_by(headers, body)
         ok = code == 200 and who == 'astro'
         if not ok:

@@ -22,7 +22,7 @@
   ],
   "functions": {
     "api/index.py": {
-      "includeFiles": "{site,public,stemcloud,web/dist/home}/**",
+      "includeFiles": "{site,public,stemcloud,web/dist/home,web/dist/shell}/**",
       "maxDuration": 30,
       "excludeFiles": "web/{node_modules,src,scripts,.astro,dist/_astro,dist/static}/**"
     }

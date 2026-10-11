@@ -20,14 +20,16 @@
    "id": "story",
    "title": {
     "en": "Why does the bag not fall?",
-    "ta": "பை ஏன் கீழ விழல?"
+    "ta": "பை ஏன் கீழ விழல?",
+    "si": "බෑගය නොවැටෙන්නේ ඇයි?"
    },
    "lines": [
     {
      "speaker": "raja",
      "text": {
       "en": "Chittu, my bag (60 N) hangs from a rope and does not fall. Is it magic?",
-      "ta": "சிட்டு, என் பை (60 N) கயிறுல தொங்குது, கீழ விழல. இது மந்திரமா?"
+      "ta": "சிட்டு, என் பை (60 N) கயிறுல தொங்குது, கீழ விழல. இது மந்திரமா?",
+      "si": "චිට්ටු, මගේ බෑගය (60 N) කඹයකින් එල්ලෙනවා, වැටෙන්නේ නෑ. මේක මායාවක්ද?"
      },
      "scene": "🎒🪢",
      "audio": {
@@ -38,7 +40,8 @@
      "speaker": "chittu",
      "text": {
       "en": "No magic! Weight pulls down 60 N and the rope pulls up 60 N. Equal, opposite, same line. The resultant is zero. That is equilibrium.",
-      "ta": "மந்திரம் இல்ல! நிறை கீழ 60 N, கயிறு மேல 60 N. சமம், எதிர், ஒரே கோடு. விளையுள் பூச்சியம். அதுதான் சமநிலை."
+      "ta": "மந்திரம் இல்ல! நிறை கீழ 60 N, கயிறு மேல 60 N. சமம், எதிர், ஒரே கோடு. விளையுள் பூச்சியம். அதுதான் சமநிலை.",
+      "si": "මායාවක් නෑ! බර පහළට 60 N අදියි, කඹය ඉහළට 60 N අදියි. සමාන, ප්‍රතිවිරුද්ධ, එකම රේඛාව. සම්ප්‍රයුක්තය ශුන්‍යයි. ඒක තමයි සමතුලිතතාව."
      },
      "scene": "⚖️",
      "audio": {
@@ -49,7 +52,8 @@
      "speaker": "raja",
      "text": {
       "en": "And a swing with two ropes? Rope 1 pulls 120 N and rope 2 pulls 180 N.",
-      "ta": "ரெண்டு கயிறு உள்ள ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N இழுக்குது."
+      "ta": "ரெண்டு கயிறு உள்ள ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N இழுக்குது.",
+      "si": "ඒ වගේම කඹ දෙකක් සහිත ඔංචිල්ලාවක්? කඹ 1 අදින්නේ 120 N කින්, කඹ 2 අදින්නේ 180 N කින්."
      },
      "scene": "🎢",
      "audio": {
@@ -60,7 +64,8 @@
      "speaker": "chittu",
      "text": {
       "en": "F₁ + F₂ = W. So Raja's weight is 120 + 180 = 300 N.",
-      "ta": "F₁ + F₂ = W. அதனால ராஜாவோட நிறை 120 + 180 = 300 N."
+      "ta": "F₁ + F₂ = W. அதனால ராஜாவோட நிறை 120 + 180 = 300 N.",
+      "si": "F₁ + F₂ = W. එබැවින් රාජාගේ බර 120 + 180 = 300 N."
      },
      "scene": "➕",
      "audio": {
@@ -71,7 +76,8 @@
      "speaker": "raja",
      "text": {
       "en": "And the picture on our wall hangs by two slanting cords!",
-      "ta": "நம்ம சுவர்ல படம் ரெண்டு சாய்வான கயிறுல தொங்குது!"
+      "ta": "நம்ம சுவர்ல படம் ரெண்டு சாய்வான கயிறுல தொங்குது!",
+      "si": "ඒ වගේම අපේ බිත්තියේ පින්තූරය එල්ලෙන්නේ ආනත කඹ දෙකකින්!"
      },
      "scene": "🖼️",
      "audio": {
@@ -82,7 +88,8 @@
      "speaker": "chittu",
      "text": {
       "en": "Three forces, and their lines of action meet at one point. The resultant of two equals the third, opposite. That is equilibrium too.",
-      "ta": "மூணு விசைகள், அவற்றோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும். ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர். அதுவும் சமநிலைதான்."
+      "ta": "மூணு விசைகள், அவற்றோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும். ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர். அதுவும் சமநிலைதான்.",
+      "si": "බල තුනක්, සහ ඒවායේ ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමුවේ. දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට ප්‍රතිවිරුද්ධයි. ඒකත් සමතුලිතතාවයි."
      },
      "scene": "📍",
      "audio": {
@@ -93,7 +100,8 @@
      "speaker": "raja",
      "text": {
       "en": "So any three forces will balance?",
-      "ta": "அப்போ எந்த மூணு விசையும் சமநிலையாகிடுமா?"
+      "ta": "அப்போ எந்த மூணு விசையும் சமநிலையாகிடுமா?",
+      "si": "එසේනම් ඕනෑම බල තුනක් සමතුලිත වේද?"
      },
      "scene": "🙈",
      "audio": {
@@ -104,7 +112,8 @@
      "speaker": "chittu",
      "text": {
       "en": "No, Raja! They must be in one plane, meet at a point, and add up to zero.",
-      "ta": "இல்ல ராஜா! ஒரே தளத்துல இருக்கணும், ஒரு புள்ளில சந்திக்கணும், கூட்டுத்தொகை பூச்சியமா இருக்கணும்."
+      "ta": "இல்ல ராஜா! ஒரே தளத்துல இருக்கணும், ஒரு புள்ளில சந்திக்கணும், கூட்டுத்தொகை பூச்சியமா இருக்கணும்.",
+      "si": "නෑ රාජා! ඒවා එක තලයක තිබිය යුතුයි, එක ලක්ෂ්‍යයකදී හමු විය යුතුයි, සහ එකතුව ශුන්‍ය විය යුතුයි."
      },
      "scene": "🚫",
      "audio": {
@@ -115,7 +124,8 @@
      "speaker": "raja",
      "text": {
       "en": "Two forces, three forces, parallel or not. Let's go!",
-      "ta": "ரெண்டு விசை, மூணு விசை, சமாந்தரம், சமாந்தரமில்ல. வாங்க போகலாம்!"
+      "ta": "ரெண்டு விசை, மூணு விசை, சமாந்தரம், சமாந்தரமில்ல. வாங்க போகலாம்!",
+      "si": "බල දෙකක්, බල තුනක්, සමාන්තරද නැද්ද. අපි යමු!"
      },
      "scene": "🚀",
      "audio": {
@@ -125,11 +135,13 @@
    ],
    "cta": {
     "en": "Start the lesson: equilibrium of forces →",
-    "ta": "பாடத்த ஆரம்பிக்கலாம்: விசைகளின் சமநிலை →"
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: விசைகளின் சமநிலை →",
+    "si": "පාඩම අරඹන්න: බල සමතුලිතතාව →"
    },
    "quest": {
     "en": "In this module: master the conditions for complete equilibrium of rigid bodies under two forces, parallel forces, and three non-parallel forces.",
-    "ta": "இந்த பாடத்தில்: இரு விசைகள், இணை விசைகள் மற்றும் மூன்று விசைகளின் கீழ் பொருட்கள் சமநிலையில் இருப்பதற்கான நிபந்தனைகளை கற்போம்."
+    "ta": "இந்த பாடத்தில்: இரு விசைகள், இணை விசைகள் மற்றும் மூன்று விசைகளின் கீழ் பொருட்கள் சமநிலையில் இருப்பதற்கான நிபந்தனைகளை கற்போம்.",
+    "si": "මෙම මොඩියුලයේ: බල දෙකක්, සමාන්තර බල, සහ සමාන්තර නොවන බල තුනක් යටතේ දෘඪ වස්තුවල සම්පූර්ණ සමතුලිතතාවයේ කොන්දේසි ප්‍රගුණ කරන්න."
    }
   },
   {
@@ -138,71 +150,84 @@
    "heading": {
     "title": {
      "en": "Start from zero: when things stay balanced",
-     "ta": "முதல்ல இருந்து: சமநிலைல இருக்கறது"
+     "ta": "முதல்ல இருந்து: சமநிலைல இருக்கறது",
+     "si": "මුල සිට: දේවල් සමතුලිතව පවතින්නේ කවදාද"
     },
     "sub": {
      "en": "No big words yet. Let us start easy.",
-     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்.",
+     "si": "තවම අමාරු වචන නැහැ. පහසුවෙන් පටන් ගමු."
     }
    },
    "cards": [
     {
      "title": {
       "en": "Balanced means steady",
-      "ta": "சமநிலை என்றால் நிலையா இருக்கறது"
+      "ta": "சமநிலை என்றால் நிலையா இருக்கறது",
+      "si": "සමතුලිත යනු ස්ථිරව සිටීමයි"
      },
      "body": {
       "en": "<p>Something at rest, not moving and not turning, is in balance.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍 ⚖️</div>",
-      "ta": "<p>அசையாம, சுத்தாம இருக்கறது சமநிலைல இருக்கு.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍 ⚖️</div>"
+      "ta": "<p>அசையாம, சுத்தாம இருக்கறது சமநிலைல இருக்கு.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍 ⚖️</div>",
+      "si": "<p>චලනය නොවී, භ්‍රමණය නොවී සිටින දෙයක් සමතුලිතයි.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍 ⚖️</div>"
      },
      "icon": "🧍"
     },
     {
      "title": {
       "en": "Two things must balance",
-      "ta": "ரெண்டு விஷயம் சமமாகணும்"
+      "ta": "ரெண்டு விஷயம் சமமாகணும்",
+      "si": "දේවල් දෙකක් සමාන විය යුතුයි"
      },
      "body": {
       "en": "<p>The pushes must cancel out, and the turning effects must cancel out too.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬆️ = ⬇️    ↻ = ↺</div>",
-      "ta": "<p>விசைகள் ஒண்ணை ஒண்ணு ரத்து பண்ணணும், திருப்பங்களும் ரத்து ஆகணும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬆️ = ⬇️    ↻ = ↺</div>"
+      "ta": "<p>விசைகள் ஒண்ணை ஒண்ணு ரத்து பண்ணணும், திருப்பங்களும் ரத்து ஆகணும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬆️ = ⬇️    ↻ = ↺</div>",
+      "si": "<p>බල එකිනෙක අහෝසි විය යුතුයි, භ්‍රමණ බලපෑම් ද එකිනෙක අහෝසි විය යුතුයි.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬆️ = ⬇️    ↻ = ↺</div>"
      },
      "icon": "🧱"
     },
     {
      "title": {
       "en": "The balance point",
-      "ta": "சமநிலை புள்ளி"
+      "ta": "சமநிலை புள்ளி",
+      "si": "සමතුලිත ලක්ෂ්‍යය"
      },
      "body": {
       "en": "<p>Every object has a spot where all its weight seems to act. We call it the centre of gravity.</p><div aria-hidden=\"true\" class=\"bs-pic\">✏️ 👆 ●</div>",
-      "ta": "<p>எல்லா பொருளுக்கும் எடை முழுசும் செயல்படற மாதிரி ஒரு புள்ளி இருக்கு. அதுதான் புவியீர்ப்பு மையம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">✏️ 👆 ●</div>"
+      "ta": "<p>எல்லா பொருளுக்கும் எடை முழுசும் செயல்படற மாதிரி ஒரு புள்ளி இருக்கு. அதுதான் புவியீர்ப்பு மையம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">✏️ 👆 ●</div>",
+      "si": "<p>සෑම වස්තුවකටම එහි සම්පූර්ණ බර ක්‍රියා කරන බව පෙනෙන ලක්ෂ්‍යයක් තිබේ. එය ගුරුත්ව කේන්ද්‍රය ලෙස හැඳින්වේ.</p><div aria-hidden=\"true\" class=\"bs-pic\">✏️ 👆 ●</div>"
      },
      "icon": "✏️"
     },
     {
      "title": {
       "en": "Wide and low is steady",
-      "ta": "அகலமும் தாழ்வும் நிலையா வைக்கும்"
+      "ta": "அகலமும் தாழ்வும் நிலையா வைக்கும்",
+      "si": "පළල හා පහත් දේවල් ස්ථායියි"
      },
      "body": {
       "en": "<p>A wide base and a low balance point make things harder to tip over. This balance point is called the centre of gravity.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔺 steady   🔻 tippy</div>",
-      "ta": "<p>அகலமான அடியும் தாழ்ந்த சமநிலைப் புள்ளியும் பொருள் கவிழ்வதைத் தடுக்கும். இந்தப் புள்ளி புவியீர்ப்பு மையம் எனப்படும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔺 steady   🔻 tippy</div>"
+      "ta": "<p>அகலமான அடியும் தாழ்ந்த சமநிலைப் புள்ளியும் பொருள் கவிழ்வதைத் தடுக்கும். இந்தப் புள்ளி புவியீர்ப்பு மையம் எனப்படும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔺 steady   🔻 tippy</div>",
+      "si": "<p>පළල් පාදමක් සහ පහළ සමබර ලක්ෂ්‍යයක් ඇති දේ පෙරළීම අපහසුය. මේ ලක්ෂ්‍යය ගුරුත්ව කේන්ද්‍රය ලෙස හඳුන්වයි.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔺 ස්ථාවරයි 🔻 පෙරළෙන සුලුයි</div>"
      },
      "icon": "🏗️"
     }
    ],
    "hook": {
     "en": "A pencil balances on your finger at one special spot. Why only there?",
-    "ta": "பென்சில் விரல்ல ஒரு குறிப்பிட்ட இடத்துல மட்டும் நிக்குது. ஏன்?"
+    "ta": "பென்சில் விரல்ல ஒரு குறிப்பிட்ட இடத்துல மட்டும் நிக்குது. ஏன்?",
+    "si": "පැන්සලක් ඇඟිල්ලක් මත සමතුලිත වන්නේ එක් විශේෂ ස්ථානයකදී පමණයි. ඇයි?"
    },
    "extra": [
     {
      "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Balance a ruler on your finger. Find the middle spot, then add a coin on one side.</p></div>",
-     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>ஸ்கேல விரல்ல சமநிலைப்படுத்து. நடு புள்ளிய கண்டுபிடி, அப்புறம் ஒரு பக்கம் நாணயம் வை.</p></div>"
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>ஸ்கேல விரல்ல சமநிலைப்படுத்து. நடு புள்ளிய கண்டுபிடி, அப்புறம் ஒரு பக்கம் நாணயம் வை.</p></div>",
+     "si": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>ස්කෙල් එකක් ඇඟිල්ල මත සමතුලිත කරන්න. මැද ලක්ෂ්‍යය සොයා, ඉන්පසු එක් පැත්තක කාසියක් තබන්න.</p></div>"
     },
     {
      "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's use the two balance rules on real problems.</p></div>",
-     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப இந்த ரெண்டு சமநிலை விதிகள உண்மையான கணக்குகளுக்கு பயன்படுத்தலாம்.</p></div>"
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப இந்த ரெண்டு சமநிலை விதிகள உண்மையான கணக்குகளுக்கு பயன்படுத்தலாம்.</p></div>",
+     "si": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>දැන් මේ සමතුලිතතා නීති දෙක සැබෑ ගැටලු වලට භාවිතා කරමු.</p></div>"
     }
    ]
   },
@@ -212,11 +237,13 @@
    "heading": {
     "title": {
      "en": "Watch it happen: forces in balance",
-     "ta": "பாரு: சமநிலையில விசைகள்"
+     "ta": "பாரு: சமநிலையில விசைகள்",
+     "si": "සිදුවන දේ බලන්න: සමතුලිත බල"
     },
     "sub": {
      "en": "A hanging bag and a swing, both perfectly still",
-     "ta": "தொங்கும் பை, ஊஞ்சல்: ரெண்டும் அசையாம நிக்குது"
+     "ta": "தொங்கும் பை, ஊஞ்சல்: ரெண்டும் அசையாம நிக்குது",
+     "si": "එල්ලා ඇති බෑගයක් සහ ඔංචිල්ලාවක්, දෙකම සම්පූර්ණයෙන් නිශ්චලයි"
     }
    },
    "animation": {
@@ -230,67 +257,79 @@
    "heading": {
     "title": {
      "en": "Notes",
-     "ta": "குறிப்புகள்"
+     "ta": "குறிப்புகள்",
+     "si": "සටහන්"
     },
     "sub": {
      "en": "Tap a stepping stone to explore each topic",
-     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ",
+     "si": "එක් එක් මාතෘකාව ගවේෂණය කිරීමට පියවර ගලක් ස්පර්ශ කරන්න"
     }
    },
    "cards": [
     {
      "title": {
       "en": "12.1 What is Equilibrium? — Forces Everywhere, Yet Nothing Moves!",
-      "ta": "12.1 சமநிலை என்றால் என்ன? — விசைகள் இருந்தும் ஒண்ணுமே நடக்காம இருக்குறது!"
+      "ta": "12.1 சமநிலை என்றால் என்ன? — விசைகள் இருந்தும் ஒண்ணுமே நடக்காம இருக்குறது!",
+      "si": "12.1 සමතුලිතතාව යනු කුමක්ද? — සෑම තැනම බල, නමුත් කිසිවක් චලනය නොවේ!"
      },
      "body": {
       "en": "<p>You've watched a tug of war. Both teams pull the rope their own way. If one side pulls harder, the rope moves that way. But if both sides pull with equal force? The rope stays perfectly still! That's because the forces on both sides are <b>balanced</b> — in <b>equilibrium</b>. We say the rope is in equilibrium.</p>\n<p>Another example — hang a ball from a strong thread. The ball's weight pulls it down; the thread pulls it up at the same time. Since these two forces are equal, the ball just hangs there — it neither falls nor rises.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">What equilibrium means</div>\n<div class=\"ltext\">When the resultant of all the forces acting on an object is zero, the object is in equilibrium.</div>\n</div>\n<p>In real life an object is rarely acted on by just one force. Two, three or more forces may act — and if they balance, the object stays at rest (or keeps moving at a steady speed). In this chapter we'll look at two-force and three-force equilibrium separately. (Remember Newton's first law? With no unbalanced force, rest stays rest. This is exactly that!)</p>",
-      "ta": "<p>கயிறிழுத்தல் போட்டிய பாத்திருப்பீங்க. ரெண்டு அணியும் கயிற்றை தங்கள் பக்கம் இழுக்குது. ஒரு பக்கத்து விசை மத்த பக்கத்துக்கு விட அதிகமா இருந்தா, கயிறு அந்த பக்கம் நகரும். ஆனா ரெண்டு பக்கமும் சம விசையில இழுத்தா? கயிறு ஒரு பக்கமும் நகராம அசையாம நிக்கும்! அதுக்குக் காரணம், கயிற்றின் ரெண்டு பக்கமும் தாக்கும் விசைகள் <b>சமநிலையில்</b> (equilibrium / நாப்பம்) இருக்குறதுதான். அப்போ கயிறு <b>சமநிலையில்</b> இருக்குன்னு சொல்றோம்.</p>\n<p>இன்னொரு உதாரணம் — ஒரு பந்த வலுவான நூலுல தொங்கவிடு. பந்தோட நிறை அதை கீழ இழுக்குது. அதே நேரம் நூல் அதை மேல இழுக்குது. இந்த ரெண்டு விசையும் சமமா இருக்குறதால, பந்து தொங்கிட்டே இருக்கு — கீழ விழாது, மேல போகாது.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">சமநிலையின் பொருள்</div>\n<div class=\"ltext\">ஒரு பொருளின் மீது தாக்கும் எல்லா விசைகளின் விளையுள் பூச்சியமாக இருந்தால், அப்பொருள் சமநிலையில் உள்ளது.</div>\n</div>\n<p>நிஜ வாழ்க்கையில ஒரு பொருள் மேல எப்பவுமே ஒரே ஒரு விசை இருக்காது. ரெண்டு, மூணு, இல்ல அதுக்கு மேலயும் விசைகள் இருக்கலாம் — அவை சமநிலையில் இருந்தா, பொருள் ஓய்வுல இருக்கும் (அல்லது சீரான வேகத்துல இயங்கும்). இந்த அத்தியாயத்துல ரெண்டு விசை, மூணு விசை சமநிலைகளை தனித்தனியா பாக்கப்போறோம். (நியூற்றனின் முதலாவது விதி நினைவிருக்கா? சமநிலைப்படுத்தப்படாத விசை இல்லாத வரை ஓய்வு → ஓய்வு. இதுதான் அது!)</p>"
+      "ta": "<p>கயிறிழுத்தல் போட்டிய பாத்திருப்பீங்க. ரெண்டு அணியும் கயிற்றை தங்கள் பக்கம் இழுக்குது. ஒரு பக்கத்து விசை மத்த பக்கத்துக்கு விட அதிகமா இருந்தா, கயிறு அந்த பக்கம் நகரும். ஆனா ரெண்டு பக்கமும் சம விசையில இழுத்தா? கயிறு ஒரு பக்கமும் நகராம அசையாம நிக்கும்! அதுக்குக் காரணம், கயிற்றின் ரெண்டு பக்கமும் தாக்கும் விசைகள் <b>சமநிலையில்</b> (equilibrium / நாப்பம்) இருக்குறதுதான். அப்போ கயிறு <b>சமநிலையில்</b> இருக்குன்னு சொல்றோம்.</p>\n<p>இன்னொரு உதாரணம் — ஒரு பந்த வலுவான நூலுல தொங்கவிடு. பந்தோட நிறை அதை கீழ இழுக்குது. அதே நேரம் நூல் அதை மேல இழுக்குது. இந்த ரெண்டு விசையும் சமமா இருக்குறதால, பந்து தொங்கிட்டே இருக்கு — கீழ விழாது, மேல போகாது.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">சமநிலையின் பொருள்</div>\n<div class=\"ltext\">ஒரு பொருளின் மீது தாக்கும் எல்லா விசைகளின் விளையுள் பூச்சியமாக இருந்தால், அப்பொருள் சமநிலையில் உள்ளது.</div>\n</div>\n<p>நிஜ வாழ்க்கையில ஒரு பொருள் மேல எப்பவுமே ஒரே ஒரு விசை இருக்காது. ரெண்டு, மூணு, இல்ல அதுக்கு மேலயும் விசைகள் இருக்கலாம் — அவை சமநிலையில் இருந்தா, பொருள் ஓய்வுல இருக்கும் (அல்லது சீரான வேகத்துல இயங்கும்). இந்த அத்தியாயத்துல ரெண்டு விசை, மூணு விசை சமநிலைகளை தனித்தனியா பாக்கப்போறோம். (நியூற்றனின் முதலாவது விதி நினைவிருக்கா? சமநிலைப்படுத்தப்படாத விசை இல்லாத வரை ஓய்வு → ஓய்வு. இதுதான் அது!)</p>",
+      "si": "<p>ඔබ කඹ ඇදීමක් බලා ඇත. කණ්ඩායම් දෙකම කඹය තමන්ගේ පැත්තට අදියි. එක් පැත්තක් වැඩියෙන් අදින්නේ නම් කඹය ඒ අතට චලනය වේ. නමුත් දෙපැත්තම සමාන බලයෙන් අදින්නේ නම්? කඹය පරිපූර්ණව නිශ්චලව පවතී! ඒ මොකද දෙපැත්තේ බල <b>සමතුලිත</b> බැවිනි — <b>සමතුලිතතාවයේ</b>. අපි කියන්නේ කඹය සමතුලිතතාවයේ ඇති බවයි.</p>\n<p>තවත් නිදසුනක් — ශක්තිමත් නූලකින් බෝලයක් එල්ලන්න. බෝලයේ බර එය පහළට අදියි; නූල එකවර එය ඉහළට අදියි. මෙම බල දෙක සමාන බැවින් බෝලය එහි ම එල්ලී සිටී — එය වැටෙන්නේත් නැත, නැගෙන්නේත් නැත.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">සමතුලිතතාව යනු කුමක්ද</div>\n<div class=\"ltext\">වස්තුවක් මත ක්‍රියා කරන සියලු බලවල සම්ප්‍රයුක්තය ශුන්‍ය වන විට වස්තුව සමතුලිතතාවයේ පවතී.</div>\n</div>\n<p>සැබෑ ජීවිතයේ වස්තුවක් මත එක් බලයක් පමණක් ක්‍රියා කරන්නේ කලාතුරකිනි. බල දෙකක්, තුනක් හෝ ඊට වැඩියෙන් ක්‍රියා කළ හැක — ඒවා සමතුලිත වුවහොත් වස්තුව නිශ්චලව (හෝ ඒකාකාර වේගයකින් චලනය වෙමින්) පවතී. මෙම පරිච්ඡේදයේ අපි බල දෙකක සහ බල තුනක සමතුලිතතාව වෙන වෙනම බලමු. (නිව්ටන්ගේ පළමු නියමය මතකද? අසමතුලිත බලයක් නැතිනම් නිශ්චලතාව නිශ්චලව පවතී. මෙය හරියටම එයයි!)</p>"
      },
      "section": "12.1"
     },
     {
      "title": {
       "en": "12.2 Equilibrium Under Two Forces",
-      "ta": "12.2 இரு விசைகளின் கீழ் சமநிலை"
+      "ta": "12.2 இரு விசைகளின் கீழ் சமநிலை",
+      "si": "12.2 බල දෙකක සමතුලිතතාව"
      },
      "body": {
       "en": "<p>What do we need for an object under just two forces to be in equilibrium? Try this: hang a ring between two spring balances pulled in opposite directions. When the ring is at rest, both readings are <b>equal</b>. Now try keeping the ring still with the two balances NOT on the same straight line — you simply can't!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Three conditions for two-force equilibrium</div>\n<div class=\"ltext\">For two forces to be in equilibrium:</div>\n<ol>\n<li>The two forces must be equal in magnitude.</li>\n<li>They must act in opposite directions.</li>\n<li>They must act along the same straight line.</li>\n</ol>\n</div>\n<p>Imagine pulling a block of wood from both sides with spring balances. Equal pulls — the block stays still. Pull harder on one side, and the block moves toward the stronger pull — because the resultant is no longer zero.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🏠 Examples right at home</div>\n<ul>\n<li><b>A book on a table:</b> its weight (W) pulls down; the table pushes up with a normal reaction (R). W = R, opposite, same line — so the book doesn't fall.</li>\n<li><b>An object hanging from a rope:</b> weight W down; the rope's tension (T) up. T = W — so the object stays at rest.</li>\n</ul>\n</div>",
-      "ta": "<p>ரெண்டு விசைகள் மட்டும் ஒரு பொருள் மேல தாக்கும்போது, அந்த பொருள் சமநிலையில இருக்கணும்னா என்ன வேணும்? ஒரு சோதனை பாரு: ஒரு வளையத்த (ring) எடுத்து, அதோட ரெண்டு பக்கமும் ரெண்டு நியூற்றன் தராசு (spring balance) இணைச்சு எதிர் எதிர் திசையில இழு. வளையம் ஓய்வுல நிக்கும்போது ரெண்டு தராசு வாசிப்பும் <b>சமமா</b> இருக்கும். ரெண்டு தராசையும் ஒரே நேர்கோட்டில் இல்லாம வெச்சு, வளையத்த ஓய்வுல நிறுத்த முயற்சி பண்ணு — முடியவே முடியாது!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகள்</div>\n<div class=\"ltext\">இரு விசைகள் சமநிலையில் இருக்க:</div>\n<ol>\n<li>இரு விசைகளும் பருமனில் சமமாக இருத்தல் வேண்டும்.</li>\n<li>இரு விசைகளும் எதிர்த் திசைகளில் தாக்குதல் வேண்டும்.</li>\n<li>இரு விசைகளும் ஒரே நேர்கோட்டில் தாக்குதல் வேண்டும்.</li>\n</ol>\n</div>\n<p>இப்போ ஒரு மரக்குற்றிய ரெண்டு பக்கமும் நியூற்றன் தராசால இழுக்கறத நினைச்சுப்பாரு. ரெண்டு பக்கமும் சம விசைன்னா குற்றி அசையாம நிக்கும். ஒரு பக்கம் அதிகமா இழுத்தா, குற்றி அதிக விசை உள்ள பக்கம் நகரும் — ஏன்னா அப்போ விளையுள் பூச்சியம் இல்ல.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🏠 நம்ம வீட்டுலயே உதாரணங்கள்</div>\n<ul>\n<li><b>மேசை மேல புத்தகம்:</b> புத்தகத்தோட நிறை (W) கீழ இழுக்குது; மேசை செவ்வன் மறுதாக்கம் (R) மேல தள்ளுது. W = R, எதிர் திசை, ஒரே நேர்கோடு — அதனால புத்தகம் விழாது.</li>\n<li><b>கயிறுல தொங்கும் பொருள்:</b> நிறை W கீழ; கயிற்றோட இழுவை (T) மேல. T = W — அதனால பொருள் ஓய்வுல இருக்கு.</li>\n</ul>\n</div>"
+      "ta": "<p>ரெண்டு விசைகள் மட்டும் ஒரு பொருள் மேல தாக்கும்போது, அந்த பொருள் சமநிலையில இருக்கணும்னா என்ன வேணும்? ஒரு சோதனை பாரு: ஒரு வளையத்த (ring) எடுத்து, அதோட ரெண்டு பக்கமும் ரெண்டு நியூற்றன் தராசு (spring balance) இணைச்சு எதிர் எதிர் திசையில இழு. வளையம் ஓய்வுல நிக்கும்போது ரெண்டு தராசு வாசிப்பும் <b>சமமா</b> இருக்கும். ரெண்டு தராசையும் ஒரே நேர்கோட்டில் இல்லாம வெச்சு, வளையத்த ஓய்வுல நிறுத்த முயற்சி பண்ணு — முடியவே முடியாது!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகள்</div>\n<div class=\"ltext\">இரு விசைகள் சமநிலையில் இருக்க:</div>\n<ol>\n<li>இரு விசைகளும் பருமனில் சமமாக இருத்தல் வேண்டும்.</li>\n<li>இரு விசைகளும் எதிர்த் திசைகளில் தாக்குதல் வேண்டும்.</li>\n<li>இரு விசைகளும் ஒரே நேர்கோட்டில் தாக்குதல் வேண்டும்.</li>\n</ol>\n</div>\n<p>இப்போ ஒரு மரக்குற்றிய ரெண்டு பக்கமும் நியூற்றன் தராசால இழுக்கறத நினைச்சுப்பாரு. ரெண்டு பக்கமும் சம விசைன்னா குற்றி அசையாம நிக்கும். ஒரு பக்கம் அதிகமா இழுத்தா, குற்றி அதிக விசை உள்ள பக்கம் நகரும் — ஏன்னா அப்போ விளையுள் பூச்சியம் இல்ல.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🏠 நம்ம வீட்டுலயே உதாரணங்கள்</div>\n<ul>\n<li><b>மேசை மேல புத்தகம்:</b> புத்தகத்தோட நிறை (W) கீழ இழுக்குது; மேசை செவ்வன் மறுதாக்கம் (R) மேல தள்ளுது. W = R, எதிர் திசை, ஒரே நேர்கோடு — அதனால புத்தகம் விழாது.</li>\n<li><b>கயிறுல தொங்கும் பொருள்:</b> நிறை W கீழ; கயிற்றோட இழுவை (T) மேல. T = W — அதனால பொருள் ஓய்வுல இருக்கு.</li>\n</ul>\n</div>",
+      "si": "<p>බල දෙකක් පමණක් යටතේ ඇති වස්තුවක් සමතුලිතතාවයේ පැවතීමට අපට අවශ්‍ය කුමක්ද? මෙය උත්සාහ කරන්න: ප්‍රතිවිරුද්ධ දිශාවලට අදින දුනු තරාදි දෙකක් අතර මුද්දක් එල්ලන්න. මුද්ද නිශ්චලව ඇති විට, කියවීම් දෙක <b>සමානයි</b>. දැන් තරාදි දෙක එකම සරල රේඛාවක නොතබා මුද්ද නිශ්චලව තබා ගැනීමට උත්සාහ කරන්න — ඔබට නොහැකිය!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">බල දෙකක සමතුලිතතාවයේ කොන්දේසි තුන</div>\n<div class=\"ltext\">බල දෙකක් සමතුලිතතාවයේ පැවතීමට:</div>\n<ol>\n<li>බල දෙක විශාලත්වයෙන් සමාන විය යුතුය.</li>\n<li>ඒවා ප්‍රතිවිරුද්ධ දිශාවලට ක්‍රියා කළ යුතුය.</li>\n<li>ඒවා එකම සරල රේඛාව දිගේ ක්‍රියා කළ යුතුය.</li>\n</ol>\n</div>\n<p>දුනු තරාදිවලින් දෙපැත්තෙන්ම ලී කැබැල්ලක් අදින බව සිතන්න. සමාන අදීම් — බ්ලොක්කුව නිශ්චලව පවතී. එක් පැත්තක වැඩියෙන් අදින්න, එවිට බ්ලොක්කුව ශක්තිමත් අදීම දෙසට චලනය වේ — මොකද සම්ප්‍රයුක්තය තවදුරටත් ශුන්‍ය නොවේ.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🏠 ගෙදරම ඇති නිදසුන්</div>\n<ul>\n<li><b>මේසයක් මත පොතක්:</b> එහි බර (W) පහළට අදියි; මේසය අභිලම්බ ප්‍රතික්‍රියාවෙන් (R) ඉහළට තල්ලු කරයි. W = R, ප්‍රතිවිරුද්ධ, එකම රේඛාව — එබැවින් පොත වැටෙන්නේ නැත.</li>\n<li><b>කඹයකින් එල්ලා ඇති වස්තුවක්:</b> බර W පහළට; කඹයේ ආතතිය (T) ඉහළට. T = W — එබැවින් වස්තුව නිශ්චලව පවතී.</li>\n</ul>\n</div>"
      },
      "section": "12.2"
     },
     {
      "title": {
       "en": "12.3 Equilibrium of Three Parallel Forces in One Plane",
-      "ta": "12.3 ஒரு தளத்தில் உள்ள மூன்று சமாந்தர விசைகளின் சமநிலை"
+      "ta": "12.3 ஒரு தளத்தில் உள்ள மூன்று சமாந்தர விசைகளின் சமநிலை",
+      "si": "12.3 එක් තලයක සමාන්තර බල තුනක සමතුලිතතාව"
      },
      "body": {
       "en": "<p>A bunch of bananas hangs from a light rod by three cords. All three forces are parallel — two pull up, the bananas' weight pulls down. This is a classic example of three parallel forces in equilibrium.</p>\n<p>Another one — a child sitting on a swing. Two ropes pull up (F₁, F₂), and the child's weight (W) pulls down. These three forces balance, so the child stays at rest. Here, F₁ + F₂ = W.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Three parallel forces</div>\n<div class=\"fmath\">F₁ + F₂ = W  (total upward = total downward)</div>\n<div class=\"fnote\">The textbook's metre-rule experiment shows the same: the two spring balance readings add up to the rule's weight.</div>\n</div>\n<div class=\"lawbox\">\n<div class=\"llabel\">For three parallel forces to be in equilibrium</div>\n<ol>\n<li>All three forces must lie in one plane.</li>\n<li>One force must act opposite to the other two.</li>\n<li>The resultant of two of the forces must equal the third in magnitude and be opposite in direction.</li>\n</ol>\n</div>",
-      "ta": "<p>வாழைக்குலை ஒண்ணு ஒரு இலேசான கோலுல மூணு கயிறுகளால தொங்குது. மூணு கயிறுகளும் சமாந்தரமா (ஒரே திசையில்) இருக்கு — மேல ரெண்டு இழுக்குது, குலையோட நிறை கீழ இழுக்குது. இது மூணு சமாந்தர விசைகளோட சமநிலைக்கு ஒரு நல்ல உதாரணம்.</p>\n<p>இன்னொண்ணு — ஊஞ்சல்ல உக்காந்திருக்கும் பிள்ளை. ரெண்டு கயிறும் மேல இழுக்குது (F₁, F₂), பிள்ளையோட நிறை (W) கீழ இழுக்குது. இந்த மூணு விசையும் சமநிலையில இருக்குறதால பிள்ளை ஓய்வுல இருக்கு. இங்க F₁ + F₂ = W.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">மூன்று சமாந்தர விசைகள்</div>\n<div class=\"fmath\">F₁ + F₂ = W  (மேல்நோக்கிய மொத்தம் = கீழ்நோக்கிய மொத்தம்)</div>\n<div class=\"fnote\">ஒரு மீற்றர் கோல் ரெண்டு நியூற்றன் தராசுகளால தொங்கும் சோதனையிலயும் இதையே பாக்கலாம் — ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்.</div>\n</div>\n<div class=\"lawbox\">\n<div class=\"llabel\">மூன்று சமாந்தர விசைகளின் சமநிலைக்கு</div>\n<ol>\n<li>மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.</li>\n<li>ஒரு விசை மற்றைய இரு விசைகளுக்கும் எதிரான திசையில் தாக்க வேண்டும்.</li>\n<li>இரு விசைகளின் விளையுள் மூன்றாவது விசைக்குப் பருமனில் சமமாகவும் எதிர் திசையிலும் இருத்தல் வேண்டும்.</li>\n</ol>\n</div>"
+      "ta": "<p>வாழைக்குலை ஒண்ணு ஒரு இலேசான கோலுல மூணு கயிறுகளால தொங்குது. மூணு கயிறுகளும் சமாந்தரமா (ஒரே திசையில்) இருக்கு — மேல ரெண்டு இழுக்குது, குலையோட நிறை கீழ இழுக்குது. இது மூணு சமாந்தர விசைகளோட சமநிலைக்கு ஒரு நல்ல உதாரணம்.</p>\n<p>இன்னொண்ணு — ஊஞ்சல்ல உக்காந்திருக்கும் பிள்ளை. ரெண்டு கயிறும் மேல இழுக்குது (F₁, F₂), பிள்ளையோட நிறை (W) கீழ இழுக்குது. இந்த மூணு விசையும் சமநிலையில இருக்குறதால பிள்ளை ஓய்வுல இருக்கு. இங்க F₁ + F₂ = W.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">மூன்று சமாந்தர விசைகள்</div>\n<div class=\"fmath\">F₁ + F₂ = W  (மேல்நோக்கிய மொத்தம் = கீழ்நோக்கிய மொத்தம்)</div>\n<div class=\"fnote\">ஒரு மீற்றர் கோல் ரெண்டு நியூற்றன் தராசுகளால தொங்கும் சோதனையிலயும் இதையே பாக்கலாம் — ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்.</div>\n</div>\n<div class=\"lawbox\">\n<div class=\"llabel\">மூன்று சமாந்தர விசைகளின் சமநிலைக்கு</div>\n<ol>\n<li>மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.</li>\n<li>ஒரு விசை மற்றைய இரு விசைகளுக்கும் எதிரான திசையில் தாக்க வேண்டும்.</li>\n<li>இரு விசைகளின் விளையுள் மூன்றாவது விசைக்குப் பருமனில் சமமாகவும் எதிர் திசையிலும் இருத்தல் வேண்டும்.</li>\n</ol>\n</div>",
+      "si": "<p>කෙසෙල් කැන් ඉතා සැහැල්ලු දණ්ඩකින් නූල් තුනකින් එල්ලා ඇත. බල තුනම සමාන්තරයි — දෙකක් ඉහළට අදියි, කෙසෙල්වල බර පහළට අදියි. මෙය සමතුලිතතාවයේ ඇති සමාන්තර බල තුනක සම්භාව්‍ය නිදසුනකි.</p>\n<p>තවත් එකක් — ඔංචිල්ලාවක වාඩි වී සිටින දරුවෙක්. කඹ දෙකක් ඉහළට අදියි (F₁, F₂), සහ දරුවාගේ බර (W) පහළට අදියි. මෙම බල තුන සමතුලිත වන බැවින් දරුවා නිශ්චලව සිටී. මෙහිදී F₁ + F₂ = W.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">සමාන්තර බල තුනක්</div>\n<div class=\"fmath\">F₁ + F₂ = W (මුළු ඉහළට = මුළු පහළට)</div>\n<div class=\"fnote\">පෙළපොතේ මීටර රූල පරීක්ෂණයෙන් ද එයම පෙනේ: දුනු තරාදි කියවීම් දෙකේ එකතුව රූලේ බරට සමාන වේ.</div>\n</div>\n<div class=\"lawbox\">\n<div class=\"llabel\">සමාන්තර බල තුනක් සමතුලිතතාවයේ පැවතීමට</div>\n<ol>\n<li>බල තුනම එක තලයක පිහිටිය යුතුය.</li>\n<li>එක් බලයක් අනෙක් දෙකට ප්‍රතිවිරුද්ධව ක්‍රියා කළ යුතුය.</li>\n<li>බලවලින් දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට විශාලත්වයෙන් සමාන වන අතර දිශාවෙන් ප්‍රතිවිරුද්ධ විය යුතුය.</li>\n</ol>\n</div>"
      },
      "section": "12.3"
     },
     {
      "title": {
       "en": "12.4 Equilibrium of Three Non-Parallel Forces in One Plane",
-      "ta": "12.4 ஒரு தளத்தில் உள்ள சமாந்தரமற்ற மூன்று விசைகளின் சமநிலை"
+      "ta": "12.4 ஒரு தளத்தில் உள்ள சமாந்தரமற்ற மூன்று விசைகளின் சமநிலை",
+      "si": "12.4 එක් තලයක සමාන්තර නොවන බල තුනක සමතුලිතතාව"
      },
      "body": {
       "en": "<p>You've seen a picture hung on a wall with two slanting cords. The cord tensions F₁ and F₂ are slanted (not parallel), and the picture's weight W pulls down. These three forces balance, so the picture stays still.</p>\n<p>Hang a thin plate by a thread from three different points, and each time mark the vertical line of the thread on the plate. All three lines meet at one point — the plate's centre of gravity! This shows that for three slanting forces in equilibrium, their lines of action always meet at a single point.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">For three non-parallel forces to be in equilibrium</div>\n<ol>\n<li>All three forces must lie in one plane.</li>\n<li>Their lines of action must meet at a single point.</li>\n<li>The resultant of two must be equal to the third, in the opposite direction.</li>\n</ol>\n</div>\n<p>The same idea works for more than three forces — hang a board by four ropes at its corners and the four upward tensions together equal the board's weight, so it stays at rest.</p>",
-      "ta": "<p>சுவர்ல ஆணியில ரெண்டு கயிறு சாய்வா கட்டி ஒரு படத்த தொங்கவிட்டிருக்கீங்கல்ல? இங்க கயிறுகளோட இழுவை F₁, F₂ ஆகிய ரெண்டும் சாய்வா (சமாந்தரமில்லாம) இருக்கு, படத்தோட நிறை W கீழ இழுக்குது. இந்த மூணு விசைகளும் சமநிலையில இருக்குறதால, படம் ஓய்வுல நிக்குது.</p>\n<p>நூலுல ஒரு மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல தொங்கவிட்டு, ஒவ்வொரு தடவையும் நூலோட நேர் செங்குத்து கோட்ட தகட்டுல வரை. மூணு கோடும் ஒரே புள்ளில சந்திக்கும்! அதுதான் தகட்டோட புவியீர்ப்பு மையம். இதுல இருந்து தெரியுது — சமநிலையில இருக்கும் மூன்று சாய்ந்த விசைகளோட தாக்கும் கோடுகள் எப்பவும் ஒரே புள்ளில சந்திக்கும்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">மூன்று சமாந்தரமற்ற விசைகளின் சமநிலைக்கு</div>\n<ol>\n<li>மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.</li>\n<li>மூன்று விசைகளினதும் தாக்கக் கோடுகள் ஒரே புள்ளியில் சந்தித்தல் வேண்டும்.</li>\n<li>இரு விசைகளின் விளையுள் மூன்றாம் விசைக்குச் சமமாகவும் எதிர்த் திசையிலும் இருத்தல் வேண்டும்.</li>\n</ol>\n</div>\n<p>மூணுக்கு மேல விசைகள் இருந்தாலும் இதே ஐடியாதான் — ஒரு பலகையோட நாலு மூலையிலும் கயிறு கட்டி தொங்கவிட்டா, நாலு இழுவை விசைகளோட மொத்தம் பலகையோட நிறைக்கு சமம்; அதனால பலகை ஓய்வுல இருக்கு.</p>"
+      "ta": "<p>சுவர்ல ஆணியில ரெண்டு கயிறு சாய்வா கட்டி ஒரு படத்த தொங்கவிட்டிருக்கீங்கல்ல? இங்க கயிறுகளோட இழுவை F₁, F₂ ஆகிய ரெண்டும் சாய்வா (சமாந்தரமில்லாம) இருக்கு, படத்தோட நிறை W கீழ இழுக்குது. இந்த மூணு விசைகளும் சமநிலையில இருக்குறதால, படம் ஓய்வுல நிக்குது.</p>\n<p>நூலுல ஒரு மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல தொங்கவிட்டு, ஒவ்வொரு தடவையும் நூலோட நேர் செங்குத்து கோட்ட தகட்டுல வரை. மூணு கோடும் ஒரே புள்ளில சந்திக்கும்! அதுதான் தகட்டோட புவியீர்ப்பு மையம். இதுல இருந்து தெரியுது — சமநிலையில இருக்கும் மூன்று சாய்ந்த விசைகளோட தாக்கும் கோடுகள் எப்பவும் ஒரே புள்ளில சந்திக்கும்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">மூன்று சமாந்தரமற்ற விசைகளின் சமநிலைக்கு</div>\n<ol>\n<li>மூன்று விசைகளும் ஒரு தளமாக இருத்தல் வேண்டும்.</li>\n<li>மூன்று விசைகளினதும் தாக்கக் கோடுகள் ஒரே புள்ளியில் சந்தித்தல் வேண்டும்.</li>\n<li>இரு விசைகளின் விளையுள் மூன்றாம் விசைக்குச் சமமாகவும் எதிர்த் திசையிலும் இருத்தல் வேண்டும்.</li>\n</ol>\n</div>\n<p>மூணுக்கு மேல விசைகள் இருந்தாலும் இதே ஐடியாதான் — ஒரு பலகையோட நாலு மூலையிலும் கயிறு கட்டி தொங்கவிட்டா, நாலு இழுவை விசைகளோட மொத்தம் பலகையோட நிறைக்கு சமம்; அதனால பலகை ஓய்வுல இருக்கு.</p>",
+      "si": "<p>බිත්තියක ආනත කඹ දෙකකින් එල්ලා ඇති පින්තූරයක් ඔබ දැක ඇත. කඹ ආතති F₁ සහ F₂ ආනතයි (සමාන්තර නොවේ), සහ පින්තූරයේ බර W පහළට අදියි. මෙම බල තුන සමතුලිත වන බැවින් පින්තූරය නිශ්චලව පවතී.</p>\n<p>තුනී තහඩුවක් විවිධ ලක්ෂ්‍ය තුනකින් නූලකින් එල්ලා, සෑම වරක ම නූලේ සිරස් රේඛාව තහඩුව මත සලකුණු කරන්න. රේඛා තුනම එක ලක්ෂ්‍යයකදී හමුවේ — තහඩුවේ ගුරුත්ව කේන්ද්‍රය! මෙයින් පෙන්වන්නේ සමතුලිතතාවයේ ඇති ආනත බල තුනක් සඳහා ඒවායේ ක්‍රියා රේඛා සෑම විටම තනි ලක්ෂ්‍යයකදී හමුවන බවයි.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">සමාන්තර නොවන බල තුනක් සමතුලිතතාවයේ පැවතීමට</div>\n<ol>\n<li>බල තුනම එක තලයක පිහිටිය යුතුය.</li>\n<li>ඒවායේ ක්‍රියා රේඛා තනි ලක්ෂ්‍යයකදී හමු විය යුතුය.</li>\n<li>දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට, ප්‍රතිවිරුද්ධ දිශාවට සමාන විය යුතුය.</li>\n</ol>\n</div>\n<p>එම අදහසම බල තුනකට වැඩි ගණනකටත් ක්‍රියා කරයි — පුවරුවක් එහි කොන් හතරෙන් කඹ හතරකින් එල්ලන්න, එවිට ඉහළට ආතති හතරේ එකතුව පුවරුවේ බරට සමාන වන බැවින් එය නිශ්චලව පවතී.</p>"
      },
      "section": "12.4"
     }
    ],
    "intro": {
     "en": "In Sector 1, you explored balancing objects. Below are the rigorous physics principles of translational and rotational equilibrium!",
-    "ta": "பகுதி 1-ல் பொருட்கள் சமநிலை அடைவதை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ நேர்கோட்டு மற்றும் சுழற்சி சமநிலை விதிகளை இங்கே கற்போம்!"
+    "ta": "பகுதி 1-ல் பொருட்கள் சமநிலை அடைவதை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ நேர்கோட்டு மற்றும் சுழற்சி சமநிலை விதிகளை இங்கே கற்போம்!",
+    "si": "1 වන කොටසේදී ඔබ වස්තු සමතුලිත කිරීම ගවේෂණය කළා. පහත ඇත්තේ ස්ථානාන්තර සහ භ්‍රමණ සමතුලිතතාවයේ දැඩි භෞතික මූලධර්මයි!"
    },
    "extra": [
     {
      "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>You need all three conditions!</b> For two forces, equal size alone isn't enough — they must also be opposite and along the same line.</li>\n<li><b>Equilibrium doesn't only mean \"not moving\".</b> Zero resultant means the object is either at rest or moving at a steady speed.</li>\n<li><b>Unequal forces mean no equilibrium.</b> With 20 N and 25 N opposed, there's a 5 N net force — the object moves toward the bigger pull.</li>\n<li><b>For three slanting forces, the lines must meet at one point.</b> Even if they're in one plane, no common meeting point means no equilibrium.</li>\n</ul>\n</div>",
-     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>மூன்று நிபந்தனையும் வேணும்!</b> இரு விசை சமநிலைக்கு சம பருமன் மட்டும் போதாது — எதிர் திசையும், ஒரே நேர்கோடும் கூட வேணும்.</li>\n<li><b>சமநிலைன்னா அசையாதுன்னு மட்டும் நினைக்காதீங்க.</b> விளையுள் பூச்சியம்னா பொருள் ஓய்வுல இருக்கலாம் அல்லது சீரான வேகத்துல இயங்கலாம்.</li>\n<li><b>விசைகள் சமமில்லன்னா சமநிலை இல்ல.</b> 20 N, 25 N எதிரெதிரா இருந்தா 5 N நிகர விசை இருக்கு — பொருள் பெரிய விசையின் பக்கம் நகரும்.</li>\n<li><b>சாய்ந்த மூன்று விசைகளுக்கு, தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும்.</b> மூணும் ஒரு தளத்துல இருந்தாலும், கோடுகள் சந்திக்காட்டா சமநிலை இல்ல.</li>\n</ul>\n</div>"
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>மூன்று நிபந்தனையும் வேணும்!</b> இரு விசை சமநிலைக்கு சம பருமன் மட்டும் போதாது — எதிர் திசையும், ஒரே நேர்கோடும் கூட வேணும்.</li>\n<li><b>சமநிலைன்னா அசையாதுன்னு மட்டும் நினைக்காதீங்க.</b> விளையுள் பூச்சியம்னா பொருள் ஓய்வுல இருக்கலாம் அல்லது சீரான வேகத்துல இயங்கலாம்.</li>\n<li><b>விசைகள் சமமில்லன்னா சமநிலை இல்ல.</b> 20 N, 25 N எதிரெதிரா இருந்தா 5 N நிகர விசை இருக்கு — பொருள் பெரிய விசையின் பக்கம் நகரும்.</li>\n<li><b>சாய்ந்த மூன்று விசைகளுக்கு, தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும்.</b> மூணும் ஒரு தளத்துல இருந்தாலும், கோடுகள் சந்திக்காட்டா சமநிலை இல்ல.</li>\n</ul>\n</div>",
+     "si": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ පොදු වැරදි</div>\n<ul>\n<li><b>ඔබට කොන්දේසි තුනම අවශ්‍යයි!</b> බල දෙකක් සඳහා, සමාන විශාලත්වය පමණක් ප්‍රමාණවත් නැත — ඒවා ප්‍රතිවිරුද්ධ හා එකම රේඛාවේද විය යුතුය.</li>\n<li><b>සමතුලිතතාව යනු “චලනය නොවීම” පමණක් නොවේ.</b> ශුන්‍ය සම්ප්‍රයුක්තයෙන් අදහස් වන්නේ වස්තුව නිශ්චලව හෝ ඒකාකාර වේගයකින් චලනය වන බවයි.</li>\n<li><b>අසමාන බල යනු සමතුලිතතාවක් නැති බවයි.</b> 20 N සහ 25 N ප්‍රතිවිරුද්ධව ඇති විට 5 N ශුද්ධ බලයක් ඇත — වස්තුව විශාල අදීම දෙසට චලනය වේ.</li>\n<li><b>ආනත බල තුනක් සඳහා, රේඛා එක ලක්ෂ්‍යයකදී හමු විය යුතුය.</b> ඒවා එක් තලයක තිබුණත්, පොදු හමුවන ලක්ෂ්‍යයක් නැතිනම් සමතුලිතතාවක් නැත.</li>\n</ul>\n</div>"
     }
    ]
   },
@@ -300,16 +339,19 @@
    "heading": {
     "title": {
      "en": "Hands-on Activities",
-     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்",
+     "si": "ප්‍රායෝගික ක්‍රියාකාරකම්"
     },
     "sub": {
      "en": "The textbook's experiments — try them at home or in class",
-     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு",
+     "si": "පෙළපොතේ පරීක්ෂණ — ඒවා ගෙදරදී හෝ පන්තියේදී උත්සාහ කරන්න"
     }
    },
    "body": {
     "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>No worries — you can see the same ideas in the <a href=\"#lab\">Lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"12.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 1 — Two forces on a ring</h3>\n<span class=\"act-ref\">Textbook · p.213</span>\n<p>Find what is needed for two forces to keep a ring at rest.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A ring</li><li>Two newton balances (spring balances)</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Place the ring on a table and pull it with the two spring balances in opposite directions with different forces, trying to keep the ring at rest (Fig. 12.4).</li><li>Each time the ring is at rest, read both balances.</li><li>Now try to keep the ring at rest with the two balances NOT on one straight line. Can you?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">When the ring is at rest, the two readings are equal, the forces are opposite, and they act along one straight line. You cannot keep the ring at rest if the two forces are not on the same line.</div></details>\n<button class=\"btn act-done\" data-act=\"12.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"12.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 2 — Two forces on a block</h3>\n<span class=\"act-ref\">Textbook · p.213–214</span>\n<p>See what happens to a block when it is pulled from both sides.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A regular wooden block</li><li>Two newton balances</li><li>Two rings to attach the balances to the block</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fix a ring at the middle of each end of the block (Fig. 12.5).</li><li>Attach a spring balance to each ring and pull the block to both sides with different forces.</li><li>Watch the block, and read both balances each time.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">If the two forces are different, there is a resultant and the block moves in the direction of the larger force. When the resultant is zero, the two forces are equal and the block stays at rest.</div></details>\n<button class=\"btn act-done\" data-act=\"12.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"12.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 3 — Three parallel forces (metre rule)</h3>\n<span class=\"act-ref\">Textbook · p.216</span>\n<p>Find the relationship between the three parallel forces on a hanging metre rule.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A metre rule</li><li>Two newton balances</li><li>Rubber bands to hang the rule</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Find the weight W of the metre rule.</li><li>Hang the rule horizontally from the two spring balances using rubber bands, and read the two balances, F₁ and F₂ (Fig. 12.10).</li><li>Add F₁ + F₂ and compare it with W.</li><li>Try to keep the rule in equilibrium by also pushing one end at right angles to the rule, and by changing the plane of the forces. Notice when it works.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The sum of the two balance readings equals the weight of the rule: F₁ + F₂ = W. The rule stays in equilibrium only when the three forces lie in one plane, one force acts opposite to the other two, and the resultant of two equals the third.</div></details>\n<button class=\"btn act-done\" data-act=\"12.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"12.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 4 — Three non-parallel forces (thin plate)</h3>\n<span class=\"act-ref\">Textbook · p.218</span>\n<p>Show that the lines of action of three non-parallel forces in equilibrium meet at one point.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A thin plate (e.g. cardboard)</li><li>Strings</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Hang the thin plate from three different places in turn, using a string.</li><li>Each time, mark on the plate the line the string makes, continued across the plate.</li><li>Mark the point where the three lines meet and take it as the centre of gravity of the plate.</li><li>Hold the plate in equilibrium with two strings and mark the lines of the two strings and the vertical line through the centre of gravity.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">All three lines meet at one point. For three non-parallel forces in equilibrium, the forces must lie in one plane, their lines of action must meet at a point, and the resultant of any two must equal the third in the opposite direction.</div></details>\n<button class=\"btn act-done\" data-act=\"12.4\">✅ I tried it! (+10 XP)</button>\n</div>",
-    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"12.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 1 — வளையம் மேல இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.213</span>\n<p>இரு விசைகள் ஒரு வளையத்த ஓய்வுல வெக்க என்ன வேணும்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு வளையம்</li><li>இரு நியூற்றன் தராசுகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>வளையத்த மேசை மேல வெச்சு, ரெண்டு தராசாலயும் எதிர் எதிர் திசையில, வெவ்வேறு விசைகள்ல இழுத்து, ஓய்வுல வெக்க முயற்சி பண்ணு (உரு 12.4).</li><li>ஒவ்வொரு தடவையும் வளையம் ஓய்வுல இருக்கும்போது ரெண்டு தராசு வாசிப்புகளையும் பாரு.</li><li>இப்போ ரெண்டு தராசையும் ஒரே நேர்கோட்டுல வெக்காம, வளையத்த ஓய்வுல வெக்க முயற்சி பண்ணு. முடியுதா?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">வளையம் ஓய்வுல இருக்கும்போது ரெண்டு வாசிப்புகளும் சமம், விசைகள் எதிர்த் திசையில, ஒரே நேர்கோட்டுல. ரெண்டு விசையும் ஒரே கோட்டுல இல்லாட்டா வளையத்த ஓய்வுல வெக்கவே முடியாது.</div></details>\n<button class=\"btn act-done\" data-act=\"12.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"12.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 2 — மரக்குற்றி மேல இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.213–214</span>\n<p>ஒரு மரக்குற்றிய ரெண்டு பக்கமும் இழுத்தா என்ன நடக்குதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒழுங்கான வடிவ மரக்குற்றி</li><li>இரு நியூற்றன் தராசுகள்</li><li>தராசுகள குற்றியோட இணைக்க இரு வளையங்கள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குற்றியோட ரெண்டு முனையோட நடுப்புள்ளிலயும் ஒரு வளையத்த பொருத்து (உரு 12.5).</li><li>ஒவ்வொரு வளையத்துலயும் ஒரு தராச மாட்டி, வெவ்வேறு விசைகள்ல ரெண்டு பக்கமும் இழு.</li><li>குற்றிய கவனிச்சு, ஒவ்வொரு தடவையும் ரெண்டு தராசு வாசிப்புகளையும் பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரெண்டு விசையும் வேற வேறா இருந்தா விளையுள் இருக்கும்; குற்றி பெரிய விசை பக்கம் நகரும். விளையுள் பூச்சியமா இருந்தா, ரெண்டு விசையும் சமம், குற்றி ஓய்வுல நிக்கும்.</div></details>\n<button class=\"btn act-done\" data-act=\"12.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"12.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 3 — மூன்று சமாந்தர விசைகள் (மீற்றர்க் கோல்)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.216</span>\n<p>தொங்கும் மீற்றர்க் கோல் மேல இருக்கும் மூன்று சமாந்தர விசைகளோட தொடர்ப கண்டுபிடிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு மீற்றர்க் கோல்</li><li>இரு நியூற்றன் தராசுகள்</li><li>கோலை தொங்கவிட இறப்பர் பட்டிகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>மீற்றர்க் கோலோட நிறை W-ஐ கண்டுபிடி.</li><li>ரெண்டு தராசுகள்ல இறப்பர் பட்டிகளால கோலை கிடையா தொங்கவிட்டு, F₁, F₂ வாசிப்புகள பாரு (உரு 12.10).</li><li>F₁ + F₂ கூட்டி W-யோட ஒப்பிடு.</li><li>கோலோட ஒரு முனைய கோலுக்கு செங்குத்தா தள்ளியும், விசைகளோட தளத்த மாத்தியும் சமநிலையில வெக்க முயற்சி பண்ணி, எப்போ முடியுதுன்னு கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்: F₁ + F₂ = W. மூணு விசையும் ஒரே தளத்துல இருந்து, ஒரு விசை மத்த ரெண்டுக்கும் எதிரா இருந்து, ரெண்டோட விளையுள் மூணாவதுக்கு சமமா இருந்தா மட்டும்தான் சமநிலை.</div></details>\n<button class=\"btn act-done\" data-act=\"12.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"12.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 4 — மூன்று சமாந்தரமற்ற விசைகள் (மெல்லிய தகடு)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.218</span>\n<p>சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகளோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்குதுன்னு காட்டலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு மெல்லிய தகடு (அட்டை போல)</li><li>இழைகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல ஒவ்வொண்ணா இழையால தொங்கவிடு (உரு 12.13).</li><li>ஒவ்வொரு தடவையும், இழை செல்லும் நேர்கோட்ட தகட்டு மேல குறிச்சுக்கோ.</li><li>மூணு கோடுகளும் சந்திக்கும் புள்ளிய குறிச்சு, அத தகட்டோட புவியீர்ப்பு மையமா எடுத்துக்கோ.</li><li>ரெண்டு இழைகளால தகட்ட சமநிலையில வெச்சு, அந்த இழைகளோட கோடுகளையும், புவியீர்ப்பு மையம் வழியா செங்குத்து கோட்டையும் குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">மூணு கோடுகளும் ஒரே புள்ளில சந்திக்கும். சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகள் ஒரே தளத்துல இருக்கணும், தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும், எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு சமமாகவும் எதிராகவும் இருக்கணும்.</div></details>\n<button class=\"btn act-done\" data-act=\"12.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"12.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 1 — வளையம் மேல இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.213</span>\n<p>இரு விசைகள் ஒரு வளையத்த ஓய்வுல வெக்க என்ன வேணும்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு வளையம்</li><li>இரு நியூற்றன் தராசுகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>வளையத்த மேசை மேல வெச்சு, ரெண்டு தராசாலயும் எதிர் எதிர் திசையில, வெவ்வேறு விசைகள்ல இழுத்து, ஓய்வுல வெக்க முயற்சி பண்ணு (உரு 12.4).</li><li>ஒவ்வொரு தடவையும் வளையம் ஓய்வுல இருக்கும்போது ரெண்டு தராசு வாசிப்புகளையும் பாரு.</li><li>இப்போ ரெண்டு தராசையும் ஒரே நேர்கோட்டுல வெக்காம, வளையத்த ஓய்வுல வெக்க முயற்சி பண்ணு. முடியுதா?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">வளையம் ஓய்வுல இருக்கும்போது ரெண்டு வாசிப்புகளும் சமம், விசைகள் எதிர்த் திசையில, ஒரே நேர்கோட்டுல. ரெண்டு விசையும் ஒரே கோட்டுல இல்லாட்டா வளையத்த ஓய்வுல வெக்கவே முடியாது.</div></details>\n<button class=\"btn act-done\" data-act=\"12.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"12.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 2 — மரக்குற்றி மேல இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.213–214</span>\n<p>ஒரு மரக்குற்றிய ரெண்டு பக்கமும் இழுத்தா என்ன நடக்குதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒழுங்கான வடிவ மரக்குற்றி</li><li>இரு நியூற்றன் தராசுகள்</li><li>தராசுகள குற்றியோட இணைக்க இரு வளையங்கள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குற்றியோட ரெண்டு முனையோட நடுப்புள்ளிலயும் ஒரு வளையத்த பொருத்து (உரு 12.5).</li><li>ஒவ்வொரு வளையத்துலயும் ஒரு தராச மாட்டி, வெவ்வேறு விசைகள்ல ரெண்டு பக்கமும் இழு.</li><li>குற்றிய கவனிச்சு, ஒவ்வொரு தடவையும் ரெண்டு தராசு வாசிப்புகளையும் பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரெண்டு விசையும் வேற வேறா இருந்தா விளையுள் இருக்கும்; குற்றி பெரிய விசை பக்கம் நகரும். விளையுள் பூச்சியமா இருந்தா, ரெண்டு விசையும் சமம், குற்றி ஓய்வுல நிக்கும்.</div></details>\n<button class=\"btn act-done\" data-act=\"12.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"12.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 3 — மூன்று சமாந்தர விசைகள் (மீற்றர்க் கோல்)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.216</span>\n<p>தொங்கும் மீற்றர்க் கோல் மேல இருக்கும் மூன்று சமாந்தர விசைகளோட தொடர்ப கண்டுபிடிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு மீற்றர்க் கோல்</li><li>இரு நியூற்றன் தராசுகள்</li><li>கோலை தொங்கவிட இறப்பர் பட்டிகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>மீற்றர்க் கோலோட நிறை W-ஐ கண்டுபிடி.</li><li>ரெண்டு தராசுகள்ல இறப்பர் பட்டிகளால கோலை கிடையா தொங்கவிட்டு, F₁, F₂ வாசிப்புகள பாரு (உரு 12.10).</li><li>F₁ + F₂ கூட்டி W-யோட ஒப்பிடு.</li><li>கோலோட ஒரு முனைய கோலுக்கு செங்குத்தா தள்ளியும், விசைகளோட தளத்த மாத்தியும் சமநிலையில வெக்க முயற்சி பண்ணி, எப்போ முடியுதுன்னு கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரெண்டு தராசு வாசிப்புகளோட கூட்டுத்தொகை கோலோட நிறைக்கு சமம்: F₁ + F₂ = W. மூணு விசையும் ஒரே தளத்துல இருந்து, ஒரு விசை மத்த ரெண்டுக்கும் எதிரா இருந்து, ரெண்டோட விளையுள் மூணாவதுக்கு சமமா இருந்தா மட்டும்தான் சமநிலை.</div></details>\n<button class=\"btn act-done\" data-act=\"12.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"12.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 4 — மூன்று சமாந்தரமற்ற விசைகள் (மெல்லிய தகடு)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.218</span>\n<p>சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகளோட தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்குதுன்னு காட்டலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு மெல்லிய தகடு (அட்டை போல)</li><li>இழைகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>மெல்லிய தகட்ட மூணு வெவ்வேறு இடங்கள்ல ஒவ்வொண்ணா இழையால தொங்கவிடு (உரு 12.13).</li><li>ஒவ்வொரு தடவையும், இழை செல்லும் நேர்கோட்ட தகட்டு மேல குறிச்சுக்கோ.</li><li>மூணு கோடுகளும் சந்திக்கும் புள்ளிய குறிச்சு, அத தகட்டோட புவியீர்ப்பு மையமா எடுத்துக்கோ.</li><li>ரெண்டு இழைகளால தகட்ட சமநிலையில வெச்சு, அந்த இழைகளோட கோடுகளையும், புவியீர்ப்பு மையம் வழியா செங்குத்து கோட்டையும் குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">மூணு கோடுகளும் ஒரே புள்ளில சந்திக்கும். சமநிலையில இருக்கும் மூன்று சமாந்தரமற்ற விசைகள் ஒரே தளத்துல இருக்கணும், தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும், எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு சமமாகவும் எதிராகவும் இருக்கணும்.</div></details>\n<button class=\"btn act-done\" data-act=\"12.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>",
+    "si": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 උපකරණ නැද්ද?</div>\n<ul><li>බය වෙන්න එපා — පහත <a href=\"#lab\">විද්‍යාගාරයේ</a> ඔබට එම අදහස් ම දැකිය හැක. නමුත් සැබෑවට කළ විට එය තවත් හොඳින් මතකයේ රැඳේ!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"12.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 1 — මුද්දක් මත බල දෙකක්</h3>\n<span class=\"act-ref\">පෙළපොත · පි.213</span>\n<p>මුද්දක් නිශ්චලව තබා ගැනීමට බල දෙකකට අවශ්‍ය දේ සොයන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>මුද්දක්</li><li>නිව්ටන් තරාදි දෙකක් (දුනු තරාදි)</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>මුද්ද මේසයක් මත තබා, මුද්ද නිශ්චලව රඳවා ගැනීමට උත්සාහ කරමින් දුනු තරාදි දෙකකින් ප්‍රතිවිරුද්ධ දිශාවලට විවිධ බලවලින් අදින්න (12.4 රූපය).</li><li>මුද්ද නිශ්චලව ඇති සෑම වාරයකදීම, තරාදි දෙකම කියවන්න.</li><li>දැන් තරාදි දෙක එක සරල රේඛාවක නොතබා මුද්ද නිශ්චලව තබා ගැනීමට උත්සාහ කරන්න. ඔබට පුළුවන්ද?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">මුද්ද නිශ්චලව ඇති විට, කියවීම් දෙක සමානයි, බල ප්‍රතිවිරුද්ධයි, සහ ඒවා එක සරල රේඛාවක ක්‍රියා කරයි. බල දෙක එකම රේඛාවේ නොමැති නම් ඔබට මුද්ද නිශ්චලව තබා ගත නොහැක.</div></details>\n<button class=\"btn act-done\" data-act=\"12.1\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"12.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 2 — බ්ලොක්කුවක් මත බල දෙකක්</h3>\n<span class=\"act-ref\">පෙළපොත · පි.213–214</span>\n<p>බ්ලොක්කුවක් දෙපැත්තෙන් අදින විට සිදුවන්නේ කුමක්දැයි බලන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>සාමාන්‍ය ලී බ්ලොක්කුවක්</li><li>නිව්ටන් තරාදි දෙකක්</li><li>බ්ලොක්කුවට තරාදි සවි කිරීමට මුද්ද දෙකක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>බ්ලොක්කුවේ සෑම කෙළවරකම මැද මුද්දක් සවි කරන්න (12.5 රූපය).</li><li>සෑම මුද්දකටම දුනු තරාදියක් සවි කර බ්ලොක්කුව විවිධ බලවලින් දෙපැත්තටම අදින්න.</li><li>බ්ලොක්කුව බලන්න, සහ සෑම වරකම තරාදි දෙකම කියවන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">බල දෙක වෙනස් නම්, සම්ප්‍රයුක්තයක් ඇති අතර බ්ලොක්කුව විශාල බලයේ දිශාවට චලනය වේ. සම්ප්‍රයුක්තය ශුන්‍ය වන විට, බල දෙක සමාන වන අතර බ්ලොක්කුව නිශ්චලව පවතී.</div></details>\n<button class=\"btn act-done\" data-act=\"12.2\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"12.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 3 — සමාන්තර බල තුනක් (මීටර රූල)</h3>\n<span class=\"act-ref\">පෙළපොත · පි.216</span>\n<p>එල්ලා ඇති මීටර රූලක සමාන්තර බල තුන අතර සම්බන්ධය සොයන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>මීටර රූලක්</li><li>නිව්ටන් තරාදි දෙකක්</li><li>රූල එල්ලීමට රබර් පටි</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>මීටර රූලේ බර W සොයන්න.</li><li>රූල රබර් පටිවලින් දුනු තරාදි දෙකකින් තිරස්ව එල්ලා, තරාදි දෙක, F₁ සහ F₂ කියවන්න (12.10 රූපය).</li><li>F₁ + F₂ එකතු කර W සමඟ සසඳන්න.</li><li>රූලට සෘජු කෝණයෙන් එක් කෙළවරක් තල්ලු කරමින් සහ බලවල තලය වෙනස් කරමින් රූල සමතුලිතව තබා ගැනීමට උත්සාහ කරන්න. එය ක්‍රියා කරන්නේ කවදාදැයි බලන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">තරාදි කියවීම් දෙකේ එකතුව රූලේ බරට සමාන වේ: F₁ + F₂ = W. රූල සමතුලිතතාවයේ පවතින්නේ බල තුන එක තලයක තිබී, එක් බලයක් අනෙක් දෙකට ප්‍රතිවිරුද්ධව ක්‍රියා කර, දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට සමාන වන විට පමණි.</div></details>\n<button class=\"btn act-done\" data-act=\"12.3\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"12.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 4 — සමාන්තර නොවන බල තුනක් (තුනී තහඩුව)</h3>\n<span class=\"act-ref\">පෙළපොත · පි.218</span>\n<p>සමතුලිතතාවයේ ඇති සමාන්තර නොවන බල තුනක ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමුවන බව පෙන්වන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>තුනී තහඩුවක් (නිදසුන් ලෙස කාඩ්බෝඩ්)</li><li>නූල්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>තුනී තහඩුව නූලකින් විවිධ තැන් තුනකින් පිළිවෙළින් එල්ලන්න.</li><li>සෑම වාරයකදීම, නූල සෑදෙන රේඛාව තහඩුව හරහා දිගු කරමින් තහඩුව මත සලකුණු කරන්න.</li><li>රේඛා තුන හමුවන ලක්ෂ්‍යය සලකුණු කර එය තහඩුවේ ගුරුත්ව කේන්ද්‍රය ලෙස ගන්න.</li><li>තහඩුව නූල් දෙකකින් සමතුලිතව තබා ගෙන, නූල් දෙකේ රේඛා සහ ගුරුත්ව කේන්ද්‍රය හරහා සිරස් රේඛාව සලකුණු කරන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">රේඛා තුනම එක ලක්ෂ්‍යයකදී හමුවේ. සමතුලිතතාවයේ ඇති සමාන්තර නොවන බල තුනක් සඳහා, බල එක තලයක පිහිටිය යුතු අතර, ඒවායේ ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමු විය යුතු අතර, ඕනෑම දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට ප්‍රතිවිරුද්ධ දිශාවට සමාන විය යුතුය.</div></details>\n<button class=\"btn act-done\" data-act=\"12.4\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>"
    }
   },
   {
@@ -318,11 +360,13 @@
    "heading": {
     "title": {
      "en": "Interactive Equilibrium Lab",
-     "ta": "சமநிலை லேப்"
+     "ta": "சமநிலை லேப்",
+     "si": "අන්තර්ක්‍රියාකාරී සමතුලිතතා විද්‍යාගාරය"
     },
     "sub": {
      "en": "Change the upward forces and the weight — see exactly when the object stays still",
-     "ta": "மேல்நோக்கிய விசைகளையும் நிறையையும் மாத்தி பாரு — பொருள் எப்போ ஓய்வுல நிக்குதுன்னு பாத்துக்கோ!"
+     "ta": "மேல்நோக்கிய விசைகளையும் நிறையையும் மாத்தி பாரு — பொருள் எப்போ ஓய்வுல நிக்குதுன்னு பாத்துக்கோ!",
+     "si": "ඉහළට බල සහ බර වෙනස් කර වස්තුව නිශ්චලව පවතින්නේ කවදාදැයි හරියටම බලන්න"
     }
    },
    "legacy": {
@@ -337,11 +381,13 @@
    "heading": {
     "title": {
      "en": "🎮 Hold It Still! Challenge",
-     "ta": "🎮 அசையாம பிடி! சவால்"
+     "ta": "🎮 அசையாம பிடி! சவால்",
+     "si": "🎮 නිශ්චලව තබා ගැනීමේ අභියෝගය"
     },
     "sub": {
      "en": "Each level, guess the force that holds the object perfectly still!",
-     "ta": "ஒவ்வொரு லெவலிலும், பொருள் ஓய்வுல நிக்கத் தேவையான விசையை யூகி!"
+     "ta": "ஒவ்வொரு லெவலிலும், பொருள் ஓய்வுல நிக்கத் தேவையான விசையை யூகி!",
+     "si": "සෑම මට්ටමකදීම, වස්තුව පරිපූර්ණව නිශ්චලව රඳවන බලය අනුමාන කරන්න!"
     }
    },
    "legacy": {
@@ -355,11 +401,13 @@
    "heading": {
     "title": {
      "en": "Self-Check Quiz",
-     "ta": "சுயபரிசோதனை குயிஸ்"
+     "ta": "சுயபரிசோதனை குயிஸ்",
+     "si": "ස්වයං පරීක්ෂා ප්‍රශ්නාවලිය"
     },
     "sub": {
      "en": "Quick check before the walkthroughs",
-     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!",
+     "si": "සංකල්ප විස්තරවලට පෙර ඉක්මන් පරීක්ෂාවක්"
     }
    },
    "questions": [
@@ -372,25 +420,30 @@
      "options": [
       {
        "en": "Equal size, opposite direction, same straight line",
-       "ta": "சம பருமன், எதிர் திசை, ஒரே நேர்கோடு"
+       "ta": "சம பருமன், எதிர் திசை, ஒரே நேர்கோடு",
+       "si": "සමාන විශාලත්වය, ප්‍රතිවිරුද්ධ දිශාව, එකම සරල රේඛාව"
       },
       {
        "en": "Equal size, same direction",
-       "ta": "சம பருமன், ஒரே திசை"
+       "ta": "சம பருமன், ஒரே திசை",
+       "si": "සමාන විශාලත්වය, එකම දිශාව"
       },
       {
        "en": "Opposite direction only",
-       "ta": "எதிர் திசை மட்டும்"
+       "ta": "எதிர் திசை மட்டும்",
+       "si": "ප්‍රතිවිරුද්ධ දිශාව පමණි"
       },
       {
        "en": "Any two forces on the same object",
-       "ta": "ஒரே பொருள் மேல் தாக்கும் எந்த ரெண்டு விசைகளும்"
+       "ta": "ஒரே பொருள் மேல் தாக்கும் எந்த ரெண்டு விசைகளும்",
+       "si": "එකම වස්තුවක් මත ඕනෑම බල දෙකක්"
       }
      ],
      "answer": 0,
      "explain": {
       "en": "Two-force equilibrium needs all three: equal magnitude, opposite directions, and the same line of action.",
-      "ta": "இரு விசை சமநிலைக்கு மூணும் வேணும்: சம பருமன், எதிர் திசை, ஒரே தாக்கக் கோடு."
+      "ta": "இரு விசை சமநிலைக்கு மூணும் வேணும்: சம பருமன், எதிர் திசை, ஒரே தாக்கக் கோடு.",
+      "si": "බල දෙකක සමතුලිතතාවයට සියල්ලම අවශ්‍යයි: සමාන විශාලත්වය, ප්‍රතිවිරුද්ධ දිශා, සහ එකම ක්‍රියා රේඛාව."
      }
     },
     {
@@ -402,25 +455,30 @@
      "options": [
       {
        "en": "Weight and normal reaction",
-       "ta": "நிறையும் செவ்வன் மறுதாக்கமும்"
+       "ta": "நிறையும் செவ்வன் மறுதாக்கமும்",
+       "si": "බර සහ අභිලම්බ ප්‍රතික්‍රියාව"
       },
       {
        "en": "Weight and friction",
-       "ta": "நிறையும் உராய்வும்"
+       "ta": "நிறையும் உராய்வும்",
+       "si": "බර සහ ඝර්ෂණය"
       },
       {
        "en": "Normal reaction and friction",
-       "ta": "செவ்வன் மறுதாக்கமும் உராய்வும்"
+       "ta": "செவ்வன் மறுதாக்கமும் உராய்வும்",
+       "si": "අභිලම්බ ප්‍රතික්‍රියාව සහ ඝර්ෂණය"
       },
       {
        "en": "Weight and tension",
-       "ta": "நிறையும் இழுவையும்"
+       "ta": "நிறையும் இழுவையும்",
+       "si": "බර සහ ආතතිය"
       }
      ],
      "answer": 0,
      "explain": {
       "en": "The book's weight (down) is balanced by the table's normal reaction (up): equal, opposite, same line.",
-      "ta": "புத்தகத்தின் நிறை (கீழ்) மேசையின் செவ்வன் மறுதாக்கத்தால் (மேல்) சமநிலைப்படுத்தப்படுது: சமம், எதிர், ஒரே கோடு."
+      "ta": "புத்தகத்தின் நிறை (கீழ்) மேசையின் செவ்வன் மறுதாக்கத்தால் (மேல்) சமநிலைப்படுத்தப்படுது: சமம், எதிர், ஒரே கோடு.",
+      "si": "පොතේ බර (පහළට) මේසයේ අභිලම්බ ප්‍රතික්‍රියාවෙන් (ඉහළට) සමතුලිත වේ: සමාන, ප්‍රතිවිරුද්ධ, එකම රේඛාව."
      }
     },
     {
@@ -450,7 +508,8 @@
      "answer": 1,
      "explain": {
       "en": "For three parallel forces in equilibrium: F₁ + F₂ = W, so W = 120 + 180 = 300 N.",
-      "ta": "மூன்று சமாந்தர விசை சமநிலைக்கு: F₁ + F₂ = W, அதனால W = 120 + 180 = 300 N."
+      "ta": "மூன்று சமாந்தர விசை சமநிலைக்கு: F₁ + F₂ = W, அதனால W = 120 + 180 = 300 N.",
+      "si": "සමතුලිතතාවයේ ඇති සමාන්තර බල තුනක් සඳහා: F₁ + F₂ = W, එබැවින් W = 120 + 180 = 300 N."
      }
     },
     {
@@ -462,25 +521,30 @@
      "options": [
       {
        "en": "They meet at a single point",
-       "ta": "ஒரே புள்ளில சந்திக்கணும்"
+       "ta": "ஒரே புள்ளில சந்திக்கணும்",
+       "si": "ඒවා තනි ලක්ෂ්‍යයකදී හමුවේ"
       },
       {
        "en": "They are all parallel",
-       "ta": "எல்லாம் சமாந்தரமா இருக்கணும்"
+       "ta": "எல்லாம் சமாந்தரமா இருக்கணும்",
+       "si": "ඒවා සියල්ල සමාන්තරයි"
       },
       {
        "en": "They are all equal in length",
-       "ta": "எல்லாம் சம நீளம்"
+       "ta": "எல்லாம் சம நீளம்",
+       "si": "ඒවා සියල්ල දිගින් සමානයි"
       },
       {
        "en": "They never cross",
-       "ta": "எப்பவும் சந்திக்கக்கூடாது"
+       "ta": "எப்பவும் சந்திக்கக்கூடாது",
+       "si": "ඒවා කිසි විටෙක නොගැටේ"
       }
      ],
      "answer": 0,
      "explain": {
       "en": "Three non-parallel coplanar forces in equilibrium have lines of action meeting at one point, and the resultant of two equals the third, oppositely directed.",
-      "ta": "சமநிலையில் இருக்கும் ஒரு தள சமாந்தரமற்ற மூன்று விசைகளின் கோடுகள் ஒரே புள்ளில சந்திக்கும்; ரெண்டின் விளையுள் மூன்றாவதுக்கு சமம், எதிர் திசை."
+      "ta": "சமநிலையில் இருக்கும் ஒரு தள சமாந்தரமற்ற மூன்று விசைகளின் கோடுகள் ஒரே புள்ளில சந்திக்கும்; ரெண்டின் விளையுள் மூன்றாவதுக்கு சமம், எதிர் திசை.",
+      "si": "සමතුලිතතාවයේ ඇති සමාන්තර නොවන ඒකතල බල තුනක ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමු වන අතර, දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට ප්‍රතිවිරුද්ධ දිශාවට සමාන වේ."
      }
     },
     {
@@ -492,25 +556,30 @@
      "options": [
       {
        "en": "It stays at rest",
-       "ta": "ஓய்வுல நிக்கும்"
+       "ta": "ஓய்வுல நிக்கும்",
+       "si": "එය නිශ්චලව පවතී"
       },
       {
        "en": "It moves toward the 25 N side with a net force of 5 N",
-       "ta": "25 N பக்கம் 5 N நிகர விசையோட நகரும்"
+       "ta": "25 N பக்கம் 5 N நிகர விசையோட நகரும்",
+       "si": "එය 5 N ශුද්ධ බලයක් සමඟ 25 N පැත්ත දෙසට චලනය වේ"
       },
       {
        "en": "It moves toward the 20 N side",
-       "ta": "20 N பக்கம் நகரும்"
+       "ta": "20 N பக்கம் நகரும்",
+       "si": "එය 20 N පැත්ත දෙසට චලනය වේ"
       },
       {
        "en": "It moves with a net force of 45 N",
-       "ta": "45 N நிகர விசையோட நகரும்"
+       "ta": "45 N நிகர விசையோட நகரும்",
+       "si": "එය 45 N ශුද්ධ බලයක් සමඟ චලනය වේ"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "25 − 20 = 5 N net force in the direction of the larger pull, so the block moves that way — no equilibrium.",
-      "ta": "25 − 20 = 5 N நிகர விசை, பெரிய இழுவையின் திசையில் — அதனால் பெட்டி அத்திசையில நகரும்; சமநிலை இல்ல."
+      "ta": "25 − 20 = 5 N நிகர விசை, பெரிய இழுவையின் திசையில் — அதனால் பெட்டி அத்திசையில நகரும்; சமநிலை இல்ல.",
+      "si": "25 − 20 = 5 N ශුද්ධ බලය විශාල අදීමේ දිශාවට, එබැවින් බ්ලොක්කුව ඒ අතට චලනය වේ — සමතුලිතතාවක් නැත."
      }
     }
    ]
@@ -521,11 +590,13 @@
    "heading": {
     "title": {
      "en": "🧩 Equilibrium Sort",
-     "ta": "🧩 சமநிலை சார்ட்"
+     "ta": "🧩 சமநிலை சார்ட்",
+     "si": "🧩 සමතුලිතතා වර්ග කිරීම"
     },
     "sub": {
      "en": "Two quick rounds — match each rule, then sort situations by whether they're in equilibrium!",
-     "ta": "இரண்டு சின்ன சுற்றுகள் — விதியை இணை, அப்புறம் சூழ்நிலைகளை சமநிலையா இல்லையான்னு வரிசைப்படுத்து!"
+     "ta": "இரண்டு சின்ன சுற்றுகள் — விதியை இணை, அப்புறம் சூழ்நிலைகளை சமநிலையா இல்லையான்னு வரிசைப்படுத்து!",
+     "si": "ඉක්මන් වටයන් දෙකක් — එක් එක් නීතිය ගළපන්න, ඉන්පසු තත්ත්වයන් සමතුලිතතාවයේ ඇත්ද යන්න අනුව වර්ග කරන්න!"
     }
    },
    "legacy": {
@@ -539,11 +610,13 @@
    "heading": {
     "title": {
      "en": "Concept Walkthroughs",
-     "ta": "கருத்து விளக்கங்கள்"
+     "ta": "கருத்து விளக்கங்கள்",
+     "si": "සංකල්ප විස්තර"
     },
     "sub": {
      "en": "Step-by-step reasoning for real textbook questions",
-     "ta": "பாடப்புத்தக கேள்விகளுக்கு படிப்படியான பகுத்தறிவு"
+     "ta": "பாடப்புத்தக கேள்விகளுக்கு படிப்படியான பகுத்தறிவு",
+     "si": "සැබෑ පෙළපොත් ප්‍රශ්න සඳහා පියවරෙන් පියවර තර්ක"
     }
    },
    "examples": [
@@ -551,33 +624,39 @@
      "id": "w1",
      "body": {
       "en": "<div class=\"qtext\">A box rests on a table. What is the reason the box stays at rest?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>First, list the forces on the box: (1) its weight W — downward; (2) the table's normal reaction R — upward.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Now check all three conditions: W = R (equal) ✓, one up and one down (opposite) ✓, both along the same line ✓.</p>\n<div class=\"note\"><b>Key idea:</b> the resultant is zero, so the box stays at rest.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> The box's weight (down) equals the table's normal reaction (up), opposite and along the same line — so the resultant is zero and the box is in equilibrium at rest.\n      </div>",
-      "ta": "<div class=\"qtext\">ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முதல்ல பெட்டி மேல என்ன விசைகள் தாக்குதுன்னு பாரு: (1) பெட்டியோட நிறை W — கீழ்நோக்கி. (2) மேசையோட செவ்வன் மறுதாக்கம் R — மேல்நோக்கி.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இப்போ இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகளும் இருக்கான்னு சரிபார்: W = R (சம பருமன்) ✓, ஒண்ணு மேல் ஒண்ணு கீழ் (எதிர் திசை) ✓, ரெண்டும் ஒரே நேர்கோட்டில் ✓.</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> விளையுள் பூச்சியம் ஆனதால, பெட்டி ஓய்வுல இருக்கு.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> பெட்டியோட நிறை (கீழ்நோக்கி) மேசையோட செவ்வன் மறுதாக்கத்துக்கு (மேல்நோக்கி) சமம், எதிர் திசை, ஒரே நேர்கோடு — அதனால விளையுள் பூச்சியம், பெட்டி சமநிலையில் ஓய்வுல இருக்கு.</div>"
+      "ta": "<div class=\"qtext\">ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முதல்ல பெட்டி மேல என்ன விசைகள் தாக்குதுன்னு பாரு: (1) பெட்டியோட நிறை W — கீழ்நோக்கி. (2) மேசையோட செவ்வன் மறுதாக்கம் R — மேல்நோக்கி.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இப்போ இரு விசை சமநிலைக்கான மூன்று நிபந்தனைகளும் இருக்கான்னு சரிபார்: W = R (சம பருமன்) ✓, ஒண்ணு மேல் ஒண்ணு கீழ் (எதிர் திசை) ✓, ரெண்டும் ஒரே நேர்கோட்டில் ✓.</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> விளையுள் பூச்சியம் ஆனதால, பெட்டி ஓய்வுல இருக்கு.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> பெட்டியோட நிறை (கீழ்நோக்கி) மேசையோட செவ்வன் மறுதாக்கத்துக்கு (மேல்நோக்கி) சமம், எதிர் திசை, ஒரே நேர்கோடு — அதனால விளையுள் பூச்சியம், பெட்டி சமநிலையில் ஓய்வுல இருக்கு.</div>",
+      "si": "<div class=\"qtext\">පෙට්ටියක් මේසයක් මත ඇත. පෙට්ටිය නිශ්චලව පවතින්නේ ඇයි?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>මුලින්, පෙට්ටිය මත ඇති බල ලැයිස්තුගත කරන්න: (1) එහි බර W — පහළට; (2) මේසයේ අභිලම්බ ප්‍රතික්‍රියාව R — ඉහළට.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>දැන් කොන්දේසි තුනම පරීක්ෂා කරන්න: W = R (සමානයි) ✓, එකක් ඉහළට එකක් පහළට (ප්‍රතිවිරුද්ධ) ✓, දෙකම එකම රේඛාව දිගේ ✓.</p>\n<div class=\"note\"><b>ප්‍රධාන අදහස:</b> සම්ප්‍රයුක්තය ශුන්‍ය බැවින් පෙට්ටිය නිශ්චලව පවතී.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> පෙට්ටියේ බර (පහළට) මේසයේ අභිලම්බ ප්‍රතික්‍රියාවට (ඉහළට) සමාන, ප්‍රතිවිරුද්ධ, එකම රේඛාවේ — එබැවින් සම්ප්‍රයුක්තය ශුන්‍ය වන අතර පෙට්ටිය නිශ්චලව සමතුලිතතාවයේ පවතී.</div>"
      },
      "tag": {
       "en": "Textbook Question · Ch.12, p.221",
-      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 221"
+      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 221",
+      "si": "පෙළපොත් ප්‍රශ්නය · 12 පරි., පි.221"
      }
     },
     {
      "id": "w2",
      "body": {
       "en": "<div class=\"qtext\">An object on a horizontal surface is pulled with 20 N in one direction. (i) What force must be applied in the opposite direction to bring it to rest? (ii) What happens if 25 N is applied in the opposite direction instead?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) At rest = equilibrium = zero resultant. Two-force equilibrium needs equal size, opposite direction, same line. So apply 20 N in the opposite direction along the same line.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) Now 25 N opposes 20 N. Resultant = 25 − 20 = 5 N, in the direction of the 25 N force. It isn't zero — so no equilibrium.</p>\n<div class=\"note\"><b>Key idea:</b> with an unbalanced 5 N force, the object starts moving in the direction of the 25 N force.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (i) 20 N in the opposite direction. (ii) Net force 5 N toward the 25 N force — the object moves that way.\n      </div>",
-      "ta": "<div class=\"qtext\">ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. (i) அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்? (ii) எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால் என்ன நடைபெறும்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) ஓய்வுக்கு = சமநிலை = விளையுள் பூச்சியம். இரு விசை சமநிலைக்கு சம பருமன், எதிர் திசை, ஒரே நேர்கோடு வேணும். அதனால எதிர் திசையில, அதே நேர்கோட்டில் 20 N விசை பிரயோகிக்கணும்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) இப்போ எதிர் திசையில 25 N. விளையுள் = 25 − 20 = 5 N, 25 N விசையின் திசையில். விளையுள் பூச்சியம் இல்ல — சமநிலை இல்ல.</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> சமநிலைப்படுத்தப்படாத 5 N விசை இருக்குறதால, பொருள் 25 N விசையின் திசையில நகர ஆரம்பிக்கும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) எதிர் திசையில் 20 N. (ii) நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும்.</div>"
+      "ta": "<div class=\"qtext\">ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. (i) அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்? (ii) எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால் என்ன நடைபெறும்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) ஓய்வுக்கு = சமநிலை = விளையுள் பூச்சியம். இரு விசை சமநிலைக்கு சம பருமன், எதிர் திசை, ஒரே நேர்கோடு வேணும். அதனால எதிர் திசையில, அதே நேர்கோட்டில் 20 N விசை பிரயோகிக்கணும்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) இப்போ எதிர் திசையில 25 N. விளையுள் = 25 − 20 = 5 N, 25 N விசையின் திசையில். விளையுள் பூச்சியம் இல்ல — சமநிலை இல்ல.</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> சமநிலைப்படுத்தப்படாத 5 N விசை இருக்குறதால, பொருள் 25 N விசையின் திசையில நகர ஆரம்பிக்கும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) எதிர் திசையில் 20 N. (ii) நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும்.</div>",
+      "si": "<div class=\"qtext\">තිරස් පෘෂ්ඨයක් මත ඇති වස්තුවක් එක් දිශාවකට 20 N කින් අදිනු ලැබේ. (i) එය නිශ්චලතාවයට පත් කිරීමට ප්‍රතිවිරුද්ධ දිශාවට යෙදිය යුතු බලය කොපමණද? (ii) ඒ වෙනුවට ප්‍රතිවිරුද්ධ දිශාවට 25 N යෙදුවහොත් සිදුවන්නේ කුමක්ද?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>(i) නිශ්චලව = සමතුලිතතාව = ශුන්‍ය සම්ප්‍රයුක්තය. බල දෙකක සමතුලිතතාවට සමාන විශාලත්වය, ප්‍රතිවිරුද්ධ දිශාව, එකම රේඛාව අවශ්‍යයි. එබැවින් එම රේඛාවේ ම ප්‍රතිවිරුද්ධ දිශාවට 20 N යොදන්න.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) දැන් 25 N, 20 N ට විරුද්ධ වේ. සම්ප්‍රයුක්තය = 25 − 20 = 5 N, 25 N බලයේ දිශාවට. එය ශුන්‍ය නොවේ — එබැවින් සමතුලිතතාවක් නැත.</p>\n<div class=\"note\"><b>ප්‍රධාන අදහස:</b> අසමතුලිත 5 N බලයක් සමඟ, වස්තුව 25 N බලයේ දිශාවට චලනය වීමට පටන් ගනී.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> (i) ප්‍රතිවිරුද්ධ දිශාවට 20 N. (ii) 25 N බලය දෙසට ශුද්ධ බලය 5 N — වස්තුව ඒ අතට චලනය වේ.</div>"
      },
      "tag": {
       "en": "Textbook Question · Ch.12, p.220",
-      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220"
+      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220",
+      "si": "පෙළපොත් ප්‍රශ්නය · 12 පරි., පි.220"
      }
     },
     {
      "id": "w3",
      "body": {
       "en": "<div class=\"qtext\">Of three slanting forces acting on a ring, if the resultant of B and C is known, what must be done to hold the ring at rest?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Recall the rule for three slanting forces: the resultant of two must equal the third, in the opposite direction.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The resultant of B and C is known. So apply the third force A equal in size to that resultant, in the opposite direction, along a line through the same point.</p>\n<div class=\"note\"><b>Remember:</b> the three lines of action must meet at one point.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Apply a force (A) equal in size to the resultant of B and C, in the opposite direction, at the same point — the ring will be in equilibrium at rest.\n      </div>",
-      "ta": "<div class=\"qtext\">உருவில் காட்டப்பட்டுள்ள சாய்வாக தாக்கும் மூன்று விசைகளில் B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மூன்று சாய்ந்த விசைகளோட சமநிலைக்கான விதிய நினைவு படுத்து: இரு விசைகளின் விளையுள், மூன்றாம் விசைக்கு சமமா, எதிர் திசையில இருக்கணும்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>B, C யோட விளையுள் அறியப்பட்டிருக்கு. அதனால மூன்றாவது விசை A ஐ, அந்த விளையுளுக்கு பருமனில் சமமா, எதிர் திசையில, ஒரே புள்ளில சந்திக்கும் கோட்டில பிரயோகிக்கணும்.</p>\n<div class=\"note\"><b>ஞாபகம் வெச்சுக்கோ:</b> மூணு தாக்கக் கோடுகளும் ஒரே புள்ளில சந்திக்கணும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் ஒரு விசையை (A) அதே புள்ளியில் பிரயோகித்தால் வளையம் சமநிலையில் ஓய்வுல இருக்கும்.</div>"
+      "ta": "<div class=\"qtext\">உருவில் காட்டப்பட்டுள்ள சாய்வாக தாக்கும் மூன்று விசைகளில் B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மூன்று சாய்ந்த விசைகளோட சமநிலைக்கான விதிய நினைவு படுத்து: இரு விசைகளின் விளையுள், மூன்றாம் விசைக்கு சமமா, எதிர் திசையில இருக்கணும்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>B, C யோட விளையுள் அறியப்பட்டிருக்கு. அதனால மூன்றாவது விசை A ஐ, அந்த விளையுளுக்கு பருமனில் சமமா, எதிர் திசையில, ஒரே புள்ளில சந்திக்கும் கோட்டில பிரயோகிக்கணும்.</p>\n<div class=\"note\"><b>ஞாபகம் வெச்சுக்கோ:</b> மூணு தாக்கக் கோடுகளும் ஒரே புள்ளில சந்திக்கணும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் ஒரு விசையை (A) அதே புள்ளியில் பிரயோகித்தால் வளையம் சமநிலையில் ஓய்வுல இருக்கும்.</div>",
+      "si": "<div class=\"qtext\">මුද්දක් මත ක්‍රියා කරන ආනත බල තුනකින්, B සහ C හි සම්ප්‍රයුක්තය දන්නේ නම්, මුද්ද නිශ්චලව රඳවා ගැනීමට කළ යුත්තේ කුමක්ද?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>ආනත බල තුනක නීතිය මතක් කරන්න: දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට, ප්‍රතිවිරුද්ධ දිශාවට සමාන විය යුතුය.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>B සහ C හි සම්ප්‍රයුක්තය දන්නා දෙයකි. එබැවින් එම සම්ප්‍රයුක්තයට විශාලත්වයෙන් සමාන, ප්‍රතිවිරුද්ධ දිශාවට, එම ලක්ෂ්‍යය හරහා යන රේඛාවක තුන්වන බලය A යොදන්න.</p>\n<div class=\"note\"><b>මතක තබා ගන්න:</b> ක්‍රියා රේඛා තුන එක ලක්ෂ්‍යයකදී හමු විය යුතුය.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> B සහ C හි සම්ප්‍රයුක්තයට විශාලත්වයෙන් සමාන, ප්‍රතිවිරුද්ධ දිශාවට, එම ලක්ෂ්‍යයේම බලයක් (A) යොදන්න — මුද්ද නිශ්චලව සමතුලිතතාවයේ පවතී.</div>"
      },
      "tag": {
       "en": "Textbook Question · Ch.12, p.220",
-      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220"
+      "ta": "பாடப்புத்தக கேள்வி · பாடம் 12, ப. 220",
+      "si": "පෙළපොත් ප්‍රශ්නය · 12 පරි., පි.220"
      }
     }
    ]
@@ -588,18 +667,21 @@
    "heading": {
     "title": {
      "en": "Practice Exercises",
-     "ta": "பயிற்சி வினாக்கள்"
+     "ta": "பயிற்சி வினாக்கள்",
+     "si": "පුහුණු අභ්‍යාස"
     },
     "sub": {
      "en": "Every practice question from the textbook — each with a full worked solution",
-     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு"
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு",
+     "si": "පෙළපොතේ සෑම පුහුණු ප්‍රශ්නයක් ම — එක් එකකට සම්පූර්ණ විසඳුමක් සමඟ"
     }
    },
    "groups": [
     {
      "chip": {
       "en": "Chapter Exercise",
-      "ta": "அத்தியாய பயிற்சி"
+      "ta": "அத்தியாய பயிற்சி",
+      "si": "පරිච්ඡේද අභ්‍යාසය"
      },
      "items": [
       {
@@ -607,11 +689,13 @@
        "num": "1(i)",
        "prompt": {
         "en": "<div class=\"exq\"><span>An object on a horizontal surface is pulled with 20 N in one direction. What force must be applied in the opposite direction to bring it to rest?</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு கிடைத் தளத்தின் மீது உள்ள ஒரு பொருள் ஒரு திசையை நோக்கி 20 N விசையினால் இழுக்கப்படுகின்றது. அப்பொருளை ஓய்வுக்குக் கொண்டு வருவதற்கு எதிர் திசையில் எவ்விசையைப் பிரயோகித்தல் வேண்டும்?</span></div>",
+        "si": "<div class=\"exq\"><span>තිරස් පෘෂ්ඨයක් මත ඇති වස්තුවක් එක් දිශාවකට 20 N කින් අදිනු ලැබේ. එය නිශ්චලතාවයට පත් කිරීමට ප්‍රතිවිරුද්ධ දිශාවට යෙදිය යුතු බලය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "A force of <b>20 N</b> in the opposite direction, along the same line (equal size, opposite direction, same line).",
-        "ta": "எதிர் திசையில், அதே நேர்கோட்டில் <b>20 N</b> விசை (சம பருமன், எதிர் திசை, ஒரே நேர்கோடு)."
+        "ta": "எதிர் திசையில், அதே நேர்கோட்டில் <b>20 N</b> விசை (சம பருமன், எதிர் திசை, ஒரே நேர்கோடு).",
+        "si": "එකම රේඛාව දිගේ ප්‍රතිවිරුද්ධ දිශාවට <b>20 N</b> බලයක් (සමාන විශාලත්වය, ප්‍රතිවිරුද්ධ දිශාව, එකම රේඛාව)."
        }
       },
       {
@@ -619,11 +703,13 @@
        "num": "1(ii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>What happens if a 25 N force is applied in the opposite direction instead?</span></div>",
-        "ta": "<div class=\"exq\"><span>அப்பொருளுக்கு எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால், என்ன நடைபெறும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>அப்பொருளுக்கு எதிர் திசையில் 25 N விசையைப் பிரயோகித்தால், என்ன நடைபெறும்?</span></div>",
+        "si": "<div class=\"exq\"><span>ඒ වෙනුවට ප්‍රතිවිරුද්ධ දිශාවට 25 N බලයක් යෙදුවහොත් කුමක් සිදුවේද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">25 − 20 = <b>5 N</b></div>\n<div>Net force is 5 N toward the 25 N force — the object moves that way (no equilibrium).</div>",
-        "ta": "<div class=\"work\">25 − 20 = <b>5 N</b></div>\n<div>நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும் (சமநிலை இல்ல).</div>"
+        "ta": "<div class=\"work\">25 − 20 = <b>5 N</b></div>\n<div>நிகர விசை 5 N, 25 N விசையின் திசையில் — பொருள் அத்திசையில் நகரும் (சமநிலை இல்ல).</div>",
+        "si": "<div class=\"work\">25 − 20 = <b>5 N</b></div>\n<div>ශුද්ධ බලය 25 N බලය දෙසට 5 N කි — වස්තුව ඒ අතට චලනය වේ (සමතුලිතතාවක් නැත).</div>"
        }
       },
       {
@@ -631,11 +717,13 @@
        "num": "2",
        "prompt": {
         "en": "<div class=\"exq\"><span>A vehicle with its engine off is to be moved a short distance. How should forces be applied to it?</span></div>",
-        "ta": "<div class=\"exq\"><span>எஞ்சின் தொழிற்படாமல் இருக்கும் வாகனம் ஒன்று சிறிது தூரம் இயங்குவதற்கு அவ்வாகனத்தின் மீது எவ்விதமாக விசைகளைப் பிரயோகித்தல் வேண்டும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>எஞ்சின் தொழிற்படாமல் இருக்கும் வாகனம் ஒன்று சிறிது தூரம் இயங்குவதற்கு அவ்வாகனத்தின் மீது எவ்விதமாக விசைகளைப் பிரயோகித்தல் வேண்டும்?</span></div>",
+        "si": "<div class=\"exq\"><span>එන්ජිම නිවා දැමූ වාහනයක් කෙටි දුරක් චලනය කළ යුතුය. එයට බල යෙදිය යුත්තේ කෙසේද?</span></div>"
        },
        "answer": {
         "en": "To move it you need an unbalanced force (non-zero resultant): push or pull in the desired direction with a force larger than the resisting forces such as friction.",
-        "ta": "வாகனத்தை நகர்த்த, சமநிலை இல்லாத (விளையுள் பூச்சியமில்லாத) ஒரு விசை வேணும் — இயங்க வேண்டிய திசையில, உராய்வு போன்ற தடை விசைகளை விட அதிக விசையை (தள்ளுறது/இழுக்கிறது) பிரயோகிக்கணும்."
+        "ta": "வாகனத்தை நகர்த்த, சமநிலை இல்லாத (விளையுள் பூச்சியமில்லாத) ஒரு விசை வேணும் — இயங்க வேண்டிய திசையில, உராய்வு போன்ற தடை விசைகளை விட அதிக விசையை (தள்ளுறது/இழுக்கிறது) பிரயோகிக்கணும்.",
+        "si": "එය චලනය කිරීමට ඔබට අසමතුලිත බලයක් (ශුන්‍ය නොවන සම්ප්‍රයුක්තයක්) අවශ්‍යයි: ඝර්ෂණය වැනි ප්‍රතිරෝධී බලවලට වඩා විශාල බලයකින් අපේක්ෂිත දිශාවට තල්ලු කරන්න හෝ අදින්න."
        }
       },
       {
@@ -643,11 +731,13 @@
        "num": "3",
        "prompt": {
         "en": "<div class=\"exq\"><span>Three non-parallel forces act on a ring. If the resultant of B and C is known, what must be done to keep the ring at rest?</span></div>",
-        "ta": "<div class=\"exq\"><span>மூன்று சமாந்தரமற்ற விசைகள் ஒரு வளையத்தின் மீது தாக்குகின்றன. B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>மூன்று சமாந்தரமற்ற விசைகள் ஒரு வளையத்தின் மீது தாக்குகின்றன. B, C ஆகிய இரு விசைகளின் விளையுள் அறியப்பட்டிருப்பின், வளையத்தை ஓய்வில் வைத்திருப்பதற்கு என்ன செய்தல் வேண்டும்?</span></div>",
+        "si": "<div class=\"exq\"><span>සමාන්තර නොවන බල තුනක් මුද්දක් මත ක්‍රියා කරයි. B සහ C හි සම්ප්‍රයුක්තය දන්නේ නම්, මුද්ද නිශ්චලව තබා ගැනීමට කළ යුත්තේ කුමක්ද?</span></div>"
        },
        "answer": {
         "en": "Apply the third force A equal in size to the resultant of B and C and opposite in direction, so the three lines meet at one point (see Concept Walkthrough 3).",
-        "ta": "B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் மூன்றாவது விசை A ஐ, மூன்று கோடுகளும் ஒரே புள்ளில சந்திக்குமாறு பிரயோகிக்கணும் (விளக்கத்துக்கு Concept Walkthrough 3 பாரு)."
+        "ta": "B, C இன் விளையுளுக்குப் பருமனில் சமமான, எதிர்த் திசையில் தாக்கும் மூன்றாவது விசை A ஐ, மூன்று கோடுகளும் ஒரே புள்ளில சந்திக்குமாறு பிரயோகிக்கணும் (விளக்கத்துக்கு Concept Walkthrough 3 பாரு).",
+        "si": "B සහ C හි සම්ප්‍රයුක්තයට විශාලත්වයෙන් සමාන, ප්‍රතිවිරුද්ධ දිශාවට තුන්වන බලය A යොදන්න, එවිට රේඛා තුන එක ලක්ෂ්‍යයකදී හමුවේ (සංකල්ප විස්තරය 3 බලන්න)."
        }
       },
       {
@@ -655,11 +745,13 @@
        "num": "4",
        "prompt": {
         "en": "<div class=\"exq\"><span>A box is placed on a table. What is the reason it stays at rest?</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு மேசை மீது ஒரு பெட்டி வைக்கப்பட்டுள்ளது. இப்பெட்டி ஓய்வில் இருப்பதற்கான காரணம் யாது?</span></div>",
+        "si": "<div class=\"exq\"><span>මේසයක් මත පෙට්ටියක් තබා ඇත. එය නිශ්චලව පවතින්නේ ඇයි?</span></div>"
        },
        "answer": {
         "en": "The box's weight (W) acts downward; the table's normal reaction (R) acts upward. They are equal, opposite and along the same line — resultant zero, so the box stays at rest.",
-        "ta": "பெட்டியோட நிறை (W) கீழ்நோக்கி; மேசையோட செவ்வன் மறுதாக்கம் (R) மேல்நோக்கி. இவை சமம், எதிர் திசை, ஒரே நேர்கோடு — விளையுள் பூச்சியம், அதனால் பெட்டி ஓய்வுல இருக்கு."
+        "ta": "பெட்டியோட நிறை (W) கீழ்நோக்கி; மேசையோட செவ்வன் மறுதாக்கம் (R) மேல்நோக்கி. இவை சமம், எதிர் திசை, ஒரே நேர்கோடு — விளையுள் பூச்சியம், அதனால் பெட்டி ஓய்வுல இருக்கு.",
+        "si": "පෙට්ටියේ බර (W) පහළට ක්‍රියා කරයි; මේසයේ අභිලම්බ ප්‍රතික්‍රියාව (R) ඉහළට ක්‍රියා කරයි. ඒවා සමාන, ප්‍රතිවිරුද්ධ සහ එකම රේඛාව දිගේ — සම්ප්‍රයුක්තය ශුන්‍ය බැවින් පෙට්ටිය නිශ්චලව පවතී."
        }
       },
       {
@@ -667,11 +759,13 @@
        "num": "5",
        "prompt": {
         "en": "<div class=\"exq\"><span>An object on a horizontal table is pulled to both sides by two cords with two different forces. What can you say about the nature of its motion?</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு கிடை மேசை மீது உள்ள ஒரு பொருள் இரு கயிறுகளினால் இரு வேறுபட்ட விசைகளைப் பிரயோகித்து இரு பக்கங்களுக்கும் இழுக்கப்படுமெனின், அப்பொருளின் இயக்கத்தின் இயல்பு தொடர்பாக நீர் என்ன கூறுவீர்?</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு கிடை மேசை மீது உள்ள ஒரு பொருள் இரு கயிறுகளினால் இரு வேறுபட்ட விசைகளைப் பிரயோகித்து இரு பக்கங்களுக்கும் இழுக்கப்படுமெனின், அப்பொருளின் இயக்கத்தின் இயல்பு தொடர்பாக நீர் என்ன கூறுவீர்?</span></div>",
+        "si": "<div class=\"exq\"><span>තිරස් මේසයක් මත ඇති වස්තුවක් කඹ දෙකකින් විවිධ බල දෙකකින් දෙපැත්තටම අදිනු ලැබේ. එහි චලිතයේ ස්වභාවය ගැන ඔබට කුමක් කිව හැකිද?</span></div>"
        },
        "answer": {
         "en": "Because the forces differ, the resultant is not zero — it equals the difference, in the direction of the larger force. So the object is not in equilibrium; it moves (accelerates) toward the larger pull. Only if the forces were equal would it stay at rest.",
-        "ta": "விசைகள் வேறுபட்டவை என்பதால் விளையுள் பூச்சியமில்ல — அது இரு விசைகளின் வித்தியாசத்துக்கு சமம், பெரிய விசையின் திசையில். அதனால் பொருள் சமநிலையில் இல்ல; பெரிய விசையின் பக்கம் நகரும் (அல்லது முடுக்கம் அடையும்). விசைகள் சமமா இருந்தா மட்டும் ஓய்வுல இருக்கும்."
+        "ta": "விசைகள் வேறுபட்டவை என்பதால் விளையுள் பூச்சியமில்ல — அது இரு விசைகளின் வித்தியாசத்துக்கு சமம், பெரிய விசையின் திசையில். அதனால் பொருள் சமநிலையில் இல்ல; பெரிய விசையின் பக்கம் நகரும் (அல்லது முடுக்கம் அடையும்). விசைகள் சமமா இருந்தா மட்டும் ஓய்வுல இருக்கும்.",
+        "si": "බල වෙනස් බැවින් සම්ප්‍රයුක්තය ශුන්‍ය නොවේ — එය වෙනසට සමාන වන අතර විශාල බලයේ දිශාවට වේ. එබැවින් වස්තුව සමතුලිත නොවේ; එය විශාල අදීම දෙසට චලනය වේ (ත්වරණය වේ). බල සමාන නම් පමණක් එය නිශ්චලව පවතී."
        }
       }
      ],
@@ -688,29 +782,35 @@
    "heading": {
     "title": {
      "en": "Fun Recap",
-     "ta": "ஜாலி ரிகேப்"
+     "ta": "ஜாலி ரிகேப்",
+     "si": "විනෝද සාරාංශය"
     },
     "sub": {
      "en": "Raja and Chittu go over the whole lesson once more, the fun way",
-     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு",
+     "si": "රාජා සහ චිට්ටු මුළු පාඩමම නැවත වරක් විනෝදජනක ලෙස පෙරළා බලනවා"
     }
    },
    "cards": [
     {
      "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎒</div><div class=\"cm-b r\"><i>Raja:</i> <span>My bag hangs from a rope and does not fall. Is it magic?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>No! Weight down = rope tension up. Equal, opposite, same line: equilibrium.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎢</div><div class=\"cm-b r\"><i>Raja:</i> <span>And the swing? Rope 1 pulls 120 N and rope 2 pulls 180 N.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>Chittu:</i> <span>F₁ + F₂ = W, so the weight is 300 N. For three slanting forces the lines must meet at one point.</span></div></div>\n</div>",
-     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎒</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>என் பை கயிறுல தொங்குது, விழல. மந்திரமா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>இல்ல! நிறை கீழ = கயிறு இழுவை மேல. சமம், எதிர், ஒரே கோடு: சமநிலை.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎢</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>F₁ + F₂ = W, அதனால நிறை 300 N. சாய்வான மூணு விசைகளோட கோடுகள் ஒரு புள்ளில சந்திக்கணும்.</span></div></div>\n</div>"
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎒</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>என் பை கயிறுல தொங்குது, விழல. மந்திரமா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>இல்ல! நிறை கீழ = கயிறு இழுவை மேல. சமம், எதிர், ஒரே கோடு: சமநிலை.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎢</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>ஊஞ்சல்? கயிறு 1 மேல 120 N, கயிறு 2 மேல 180 N.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>F₁ + F₂ = W, அதனால நிறை 300 N. சாய்வான மூணு விசைகளோட கோடுகள் ஒரு புள்ளில சந்திக்கணும்.</span></div></div>\n</div>",
+     "si": "<h3>📖 රාජාගේ විකට කතාව</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎒</div><div class=\"cm-b r\"><i>රාජා:</i> <span>මගේ බෑගය කඹයකින් එල්ලෙනවා, වැටෙන්නේ නෑ. මේක මායාවක්ද?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>නෑ! බර පහළට = කඹයේ ආතතිය ඉහළට. සමාන, ප්‍රතිවිරුද්ධ, එකම රේඛාව: සමතුලිතතාව.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎢</div><div class=\"cm-b r\"><i>රාජා:</i> <span>ඒ වගේම ඔංචිල්ලාව? කඹ 1 අදින්නේ 120 N කින්, කඹ 2 අදින්නේ 180 N කින්.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>F₁ + F₂ = W, එබැවින් බර 300 N කි. ආනත බල තුනක් සඳහා රේඛා එක ලක්ෂ්‍යයකදී හමු විය යුතුය.</span></div></div>\n</div>"
     },
     {
      "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Two forces: equal, opposite, one line.<br/>Three parallel: two add up to the third.<br/>Three slanting: lines meet at a point,<br/>and two make the third, reversed!</div>",
-     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">ரெண்டு விசை: சமம், எதிர், ஒரே கோடு.<br/>மூணு சமாந்தரம்: ரெண்டு கூடி மூணாவது.<br/>சாய்வான மூணு: கோடுகள் ஒரு புள்ளில,<br/>ரெண்டோட விளையுள் மூணாவதுக்கு எதிர்!</div>"
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">ரெண்டு விசை: சமம், எதிர், ஒரே கோடு.<br/>மூணு சமாந்தரம்: ரெண்டு கூடி மூணாவது.<br/>சாய்வான மூணு: கோடுகள் ஒரு புள்ளில,<br/>ரெண்டோட விளையுள் மூணாவதுக்கு எதிர்!</div>",
+     "si": "<h3>🎵 මතක ගීතය</h3>\n<div class=\"cm-rhyme\">බල දෙකක්: සමාන, ප්‍රතිවිරුද්ධ, එක රේඛාව.<br/>සමාන්තර තුනක්: දෙකක් එකතු වී තුන්වැන්න.<br/>ආනත තුනක්: රේඛා එක ලක්ෂ්‍යයකදී හමුවේ,<br/>දෙකෙන් තුන්වැන්න ප්‍රතිවිරුද්ධව!</div>"
     },
     {
      "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Equal forces are always in equilibrium.</td><td class=\"ok\">Two forces also need to be opposite and on the same line.</td></tr><tr><td class=\"w\">Any three forces balance.</td><td class=\"ok\">They must be in one plane, their lines must meet at a point (if not parallel), and the resultant of two must equal the third, reversed.</td></tr><tr><td class=\"w\">Equilibrium means the object is not moving.</td><td class=\"ok\">It means the resultant is zero: at rest, or moving at a steady speed.</td></tr></table></div>",
-     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">சம விசைகள் எப்பவும் சமநிலையில இருக்கும்.</td><td class=\"ok\">ரெண்டு விசையும் எதிரா, ஒரே கோட்டுலயும் இருக்கணும்.</td></tr><tr><td class=\"w\">எந்த மூணு விசையும் சமநிலையாகிடும்.</td><td class=\"ok\">ஒரே தளத்துல இருக்கணும், சமாந்தரமில்லன்னா கோடுகள் ஒரு புள்ளில சந்திக்கணும், ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்.</td></tr><tr><td class=\"w\">சமநிலைன்னா பொருள் நகராது.</td><td class=\"ok\">விளையுள் பூச்சியம்னு அர்த்தம்: ஓய்வுல, இல்லன்னா சீரான வேகத்துல.</td></tr></table></div>"
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">சம விசைகள் எப்பவும் சமநிலையில இருக்கும்.</td><td class=\"ok\">ரெண்டு விசையும் எதிரா, ஒரே கோட்டுலயும் இருக்கணும்.</td></tr><tr><td class=\"w\">எந்த மூணு விசையும் சமநிலையாகிடும்.</td><td class=\"ok\">ஒரே தளத்துல இருக்கணும், சமாந்தரமில்லன்னா கோடுகள் ஒரு புள்ளில சந்திக்கணும், ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்.</td></tr><tr><td class=\"w\">சமநிலைன்னா பொருள் நகராது.</td><td class=\"ok\">விளையுள் பூச்சியம்னு அர்த்தம்: ஓய்வுல, இல்லன்னா சீரான வேகத்துல.</td></tr></table></div>",
+     "si": "<h3>🙈 රාජාගේ වැරදි ↔ 🐦 චිට්ටුගේ නිවැරදි කිරීම්</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 රාජා කියන්නේ (වැරදියි)</th><th>🐦 චිට්ටු කියන්නේ (හරි)</th></tr><tr><td class=\"w\">සමාන බල සෑම විටම සමතුලිතතාවයේ ය.</td><td class=\"ok\">බල දෙකක් ප්‍රතිවිරුද්ධ හා එකම රේඛාවේ ද විය යුතුය.</td></tr><tr><td class=\"w\">ඕනෑම බල තුනක් සමතුලිත වේ.</td><td class=\"ok\">ඒවා එක තලයක තිබිය යුතුය, ඒවායේ රේඛා එක ලක්ෂ්‍යයකදී හමු විය යුතුය (සමාන්තර නොවේ නම්), සහ දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට සමාන වී ප්‍රතිවිරුද්ධ විය යුතුය.</td></tr><tr><td class=\"w\">සමතුලිතතාව යනු වස්තුව චලනය නොවීමයි.</td><td class=\"ok\">එයින් අදහස් වන්නේ සම්ප්‍රයුක්තය ශුන්‍ය බවයි: නිශ්චලව, හෝ ඒකාකාර වේගයකින් චලනය වේ.</td></tr></table></div>"
     },
     {
      "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>equilibrium: the resultant of all the forces is zero</li><li>two forces: equal size, opposite direction, same line (R = W, T = W)</li><li>three parallel forces in one plane: F₁ + F₂ = W</li><li>three non-parallel forces: lines of action meet at one point; the resultant of two equals the third, opposite</li><li>the centre of gravity is where the plumb lines from different hanging points meet</li></ul>",
-     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>சமநிலை: எல்லா விசைகளோட விளையுள் பூச்சியம்</li><li>ரெண்டு விசை: சம பருமன், எதிர் திசை, ஒரே கோடு (R = W, T = W)</li><li>ஒரு தளத்துல மூணு சமாந்தர விசைகள்: F₁ + F₂ = W</li><li>மூணு சமாந்தரமற்ற விசைகள்: தாக்கக் கோடுகள் ஒரு புள்ளில சந்திக்கும்; ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்</li><li>வெவ்வேறு தொங்கு புள்ளிகளோட தூக்கு கோடுகள் சந்திக்கும் இடம்தான் புவியீர்ப்பு மையம்</li></ul>"
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>சமநிலை: எல்லா விசைகளோட விளையுள் பூச்சியம்</li><li>ரெண்டு விசை: சம பருமன், எதிர் திசை, ஒரே கோடு (R = W, T = W)</li><li>ஒரு தளத்துல மூணு சமாந்தர விசைகள்: F₁ + F₂ = W</li><li>மூணு சமாந்தரமற்ற விசைகள்: தாக்கக் கோடுகள் ஒரு புள்ளில சந்திக்கும்; ரெண்டோட விளையுள் மூணாவதுக்கு சமம், எதிர்</li><li>வெவ்வேறு தொங்கு புள்ளிகளோட தூக்கு கோடுகள் சந்திக்கும் இடம்தான் புவியீர்ப்பு மையம்</li></ul>",
+     "si": "<h3>⭐ අනිවාර්යයෙන් දැනගත යුතු කරුණු</h3>\n<ul class=\"cm-must\"><li>සමතුලිතතාව: සියලු බලවල සම්ප්‍රයුක්තය ශුන්‍යයි</li><li>බල දෙකක්: සමාන විශාලත්වය, ප්‍රතිවිරුද්ධ දිශාව, එකම රේඛාව (R = W, T = W)</li><li>එක් තලයක සමාන්තර බල තුනක්: F₁ + F₂ = W</li><li>සමාන්තර නොවන බල තුනක්: ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමුවේ; දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට ප්‍රතිවිරුද්ධව සමානයි</li><li>ගුරුත්ව කේන්ද්‍රය යනු විවිධ එල්ලන ලක්ෂ්‍යවලින් ඇති සිරස් රේඛා හමුවන තැනයි</li></ul>"
     }
    ]
   },
@@ -720,68 +820,83 @@
    "heading": {
     "title": {
      "en": "Chapter Summary & Key Terms",
-     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்",
+     "si": "පරිච්ඡේද සාරාංශය සහ ප්‍රධාන පද"
     },
     "sub": {
      "en": "One last read before the exam!",
-     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!",
+     "si": "විභාගයට පෙර අවසාන වරට කියවන්න!"
     }
    },
    "points": [
     {
      "en": "If two forces acting on an object in one plane are equal in magnitude and opposite in direction (along one line), they are in equilibrium and the object is at rest.",
-     "ta": "ஒரு தளத்துல ஒரு பொருள் மேல தாக்கும் இரு விசைகள் பருமன்ல சமமாகவும், எதிர்த் திசையிலும் (ஒரே கோட்டுல) இருந்தா, அவை சமநிலையில இருக்கும்; பொருள் ஓய்வுல இருக்கும்."
+     "ta": "ஒரு தளத்துல ஒரு பொருள் மேல தாக்கும் இரு விசைகள் பருமன்ல சமமாகவும், எதிர்த் திசையிலும் (ஒரே கோட்டுல) இருந்தா, அவை சமநிலையில இருக்கும்; பொருள் ஓய்வுல இருக்கும்.",
+     "si": "එක් තලයක වස්තුවක් මත ක්‍රියා කරන බල දෙකක් විශාලත්වයෙන් සමාන සහ දිශාවෙන් ප්‍රතිවිරුද්ධ (එක් රේඛාවක) නම්, ඒවා සමතුලිතතාවයේ ඇති අතර වස්තුව නිශ්චලව පවතී."
     },
     {
      "en": "For three parallel forces, if the resultant of two is equal to the third and acts in the opposite direction, the three forces are in equilibrium. Example: 20 N balanced by two 10 N forces on the other side.",
-     "ta": "மூன்று சமாந்தர விசைகள்ல, ரெண்டோட விளையுள் மூணாவதுக்கு சமமாகவும் எதிரா இருந்தா மூணும் சமநிலையில இருக்கும். உதாரணம்: ஒரு பக்கம் 20 N, மறுபக்கம் 10 N + 10 N."
+     "ta": "மூன்று சமாந்தர விசைகள்ல, ரெண்டோட விளையுள் மூணாவதுக்கு சமமாகவும் எதிரா இருந்தா மூணும் சமநிலையில இருக்கும். உதாரணம்: ஒரு பக்கம் 20 N, மறுபக்கம் 10 N + 10 N.",
+     "si": "සමාන්තර බල තුනක් සඳහා, දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට සමාන වී ප්‍රතිවිරුද්ධ දිශාවට ක්‍රියා කරන්නේ නම්, බල තුන සමතුලිතතාවයේ පවතී. නිදසුන: 20 N, අනෙක් පැත්තේ 10 N බල දෙකකින් සමතුලිත වේ."
     },
     {
      "en": "For three non-parallel forces in one plane, if the resultant of any two is opposite to the third, the three forces are in equilibrium, and their lines of action meet at a point.",
-     "ta": "ஒரு தளத்துல மூன்று சமாந்தரமற்ற விசைகள்ல, எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு எதிராக இருந்தா மூணும் சமநிலையில இருக்கும்; தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும்."
+     "ta": "ஒரு தளத்துல மூன்று சமாந்தரமற்ற விசைகள்ல, எந்த ரெண்டோட விளையுளும் மூணாவதுக்கு எதிராக இருந்தா மூணும் சமநிலையில இருக்கும்; தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கும்.",
+     "si": "එක් තලයක සමාන්තර නොවන බල තුනක් සඳහා, ඕනෑම දෙකක සම්ප්‍රයුක්තය තුන්වැන්නට ප්‍රතිවිරුද්ධ නම්, බල තුන සමතුලිතතාවයේ ඇති අතර ඒවායේ ක්‍රියා රේඛා එක ලක්ෂ්‍යයකදී හමුවේ."
     },
     {
      "en": "Applying a force C opposite to the resultant of A and B (of equal size) puts the three forces A, B and C in equilibrium.",
-     "ta": "A, B-யோட விளையுளுக்கு எதிரா, அதே அளவு விசை C-ய பிரயோகிச்சா, மூணு விசைகளும் (A, B, C) சமநிலையில இருக்கும்."
+     "ta": "A, B-யோட விளையுளுக்கு எதிரா, அதே அளவு விசை C-ய பிரயோகிச்சா, மூணு விசைகளும் (A, B, C) சமநிலையில இருக்கும்.",
+     "si": "A සහ B හි සම්ප්‍රයුක්තයට ප්‍රතිවිරුද්ධව (සමාන විශාලත්වයෙන්) C බලයක් යෙදීමෙන් A, B සහ C බල තුන සමතුලිතතාවයට පත් වේ."
     },
     {
      "en": "When more than three forces act, they can still be balanced by applying suitable forces.",
-     "ta": "மூணுக்கு மேல விசைகள் இருந்தாலும், தேவையான விசைகள பிரயோகிச்சு அவற்ற சமநிலைப்படுத்தலாம்."
+     "ta": "மூணுக்கு மேல விசைகள் இருந்தாலும், தேவையான விசைகள பிரயோகிச்சு அவற்ற சமநிலைப்படுத்தலாம்.",
+     "si": "බල තුනකට වඩා ක්‍රියා කරන විට, සුදුසු බල යෙදීමෙන් ඒවා තවමත් සමතුලිත කළ හැක."
     }
    ],
    "glossary": [
     {
      "en": "Force",
-     "ta": "விசை"
+     "ta": "விசை",
+     "si": "බලය"
     },
     {
      "en": "Equilibrium of forces",
-     "ta": "விசைகளின் சமநிலை"
+     "ta": "விசைகளின் சமநிலை",
+     "si": "බල සමතුලිතතාව"
     },
     {
      "en": "Equilibrium of co-planar forces",
-     "ta": "ஒரு தள விசைகளின் சமநிலை"
+     "ta": "ஒரு தள விசைகளின் சமநிலை",
+     "si": "ඒකතල බල සමතුලිතතාව"
     },
     {
      "en": "Equilibrium of two forces",
-     "ta": "இரு விசைகளின் சமநிலை"
+     "ta": "இரு விசைகளின் சமநிலை",
+     "si": "බල දෙකක සමතුලිතතාව"
     },
     {
      "en": "Equilibrium of three forces",
-     "ta": "மூன்று விசைகளின் சமநிலை"
+     "ta": "மூன்று விசைகளின் சமநிலை",
+     "si": "බල තුනක සමතුලිතතාව"
     },
     {
      "en": "Equilibrium of three parallel forces",
-     "ta": "மூன்று சமாந்தர விசைகளின் சமநிலை"
+     "ta": "மூன்று சமாந்தர விசைகளின் சமநிலை",
+     "si": "සමාන්තර බල තුනක සමතුලිතතාව"
     }
    ],
    "points_title": {
     "en": "📌 Summary — 5 key points",
-    "ta": "📌 பொழிப்பு — 5 முக்கிய புள்ளிகள்"
+    "ta": "📌 பொழிப்பு — 5 முக்கிய புள்ளிகள்",
+    "si": "📌 සාරාංශය — ප්‍රධාන කරුණු 5"
    },
    "glossary_title": {
     "en": "📖 Key terms (Tamil – English)",
-    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)",
+    "si": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)"
    }
   }
  ]

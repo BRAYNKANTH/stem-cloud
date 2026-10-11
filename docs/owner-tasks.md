@@ -44,6 +44,7 @@ Some school and office web filters block `stemcloud.site` as a **newly registere
 - [ ] **Fix 4 Tamil typos in Resultant Force** (`chapter-09-resultant-force`) in the course workspace. In four Tamil paragraphs a vowel sign was typed inside a closing tag (`</b்` instead of `்</b>`), which garbles the rest of the paragraph on the current page. The extractor repairs them in `content/` and lists them. They start with: "மீன்பிடி வலையை இழுக்கிற…", "ஆனா, கயிற்றிழுத்தல் போட்டியில…", "இது வரைக்கும் நாம பாத்த…", "ஒரு கோலை (rod)…".
 - [ ] **Review the extracted lessons** (`content/physics/**/lesson.json`) once Phase 5 shows them as pages; Claude will say when. A teacher should compare the Motion chapter with the current page first. An automatic check already confirms every English and Tamil text unit was carried over.
 - [ ] **Read the Terms page** (`/terms`). It was written from how the app works and says the owner should check it.
+- [ ] **Sinhala gaps in the lessons** (79–96% per chapter today). `python tools/validate_content.py` shows the coverage per chapter. The missing parts are text the Sinhala dictionaries in `public/static/si/` don't have yet; a translator adds entries there and the extractor picks them up. Students see the same gaps today (that text stays English).
 - [ ] **New interface labels** (Understand, Watch, Explore, Practice, buttons and messages in the topic view) need Tamil and Sinhala wording from a reviewer.
 
 ## Done

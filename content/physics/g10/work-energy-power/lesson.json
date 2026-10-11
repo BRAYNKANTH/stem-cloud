@@ -20,14 +20,16 @@
    "id": "story",
    "title": {
     "en": "Why does the bike roll up the hill by itself?",
-    "ta": "சைக்கிள் தானா மலை மேல ஏறுதே, எப்படி?"
+    "ta": "சைக்கிள் தானா மலை மேல ஏறுதே, எப்படி?",
+    "si": "බයිසිකලය කන්ද උඩට තනිවම පෙරළෙන්නේ ඇයි?"
    },
    "lines": [
     {
      "speaker": "raja",
      "text": {
       "en": "Chittu, I rode fast and then stopped pedalling, but my bike still climbed the hill a bit! How?",
-      "ta": "சிட்டு, நான் வேகமா ஓட்டிட்டு பெடல் அழுத்தறத நிறுத்தினேன், ஆனாலும் சைக்கிள் கொஞ்சம் மலை ஏறிச்சு! எப்படி?"
+      "ta": "சிட்டு, நான் வேகமா ஓட்டிட்டு பெடல் அழுத்தறத நிறுத்தினேன், ஆனாலும் சைக்கிள் கொஞ்சம் மலை ஏறிச்சு! எப்படி?",
+      "si": "චිට්ටු, මම වේගයෙන් පැදලා පැඩල් නවත්වුවත් මගේ බයිසිකලය තවමත් කන්ද ටිකක් නැග්ගා! කොහොමද?"
      },
      "scene": "🚲"
     },
@@ -35,7 +37,8 @@
      "speaker": "chittu",
      "text": {
       "en": "Your moving bike has kinetic energy, Raja: Ek = ½ m v². Going up, that energy changes into potential energy.",
-      "ta": "ஓடற உன் சைக்கிள்ல இயக்கச் சக்தி இருக்கு ராஜா: Ek = ½ m v². மேல ஏறும்போது அது அழுத்த சக்தியா மாறுது."
+      "ta": "ஓடற உன் சைக்கிள்ல இயக்கச் சக்தி இருக்கு ராஜா: Ek = ½ m v². மேல ஏறும்போது அது அழுத்த சக்தியா மாறுது.",
+      "si": "රාජා, ඔබේ චලනය වන බයිසිකලයට චාලක ශක්තියක් ඇත: Ek = ½ m v². ඉහළ යන විට ඒ ශක්තිය විභව ශක්තිය බවට පත්වේ."
      },
      "scene": "⚡"
     },
@@ -43,7 +46,8 @@
      "speaker": "raja",
      "text": {
       "en": "And when I lift this 5 kg bag up 3 metres, am I doing work?",
-      "ta": "இந்த 5 kg பையை 3 மீற்றர் தூக்கறேன், நான் வேலை செய்யறேனா?"
+      "ta": "இந்த 5 kg பையை 3 மீற்றர் தூக்கறேன், நான் வேலை செய்யறேனா?",
+      "si": "මම මේ කිලෝ 5ක බෑගය මීටර් 3ක් ඉහළට ඔසවන විට, මම කාර්යයක් කරනවාද?"
      },
      "scene": "🏋️"
     },
@@ -51,7 +55,8 @@
      "speaker": "chittu",
      "text": {
       "en": "Yes! Work = force × distance moved in the direction of the force. Weight is 50 N, so 50 × 3 = 150 J.",
-      "ta": "ஆமா! வேலை = விசை × விசையோட திசையில நகர்ந்த தூரம். நிறை 50 N, அதனால 50 × 3 = 150 J."
+      "ta": "ஆமா! வேலை = விசை × விசையோட திசையில நகர்ந்த தூரம். நிறை 50 N, அதனால 50 × 3 = 150 J.",
+      "si": "ඔව්! කාර්යය = බලය × බලයේ දිශාවට චලනය වූ දුර. බර 50 N, එනිසා 50 × 3 = 150 J."
      },
      "scene": "💪"
     },
@@ -59,7 +64,8 @@
      "speaker": "raja",
      "text": {
       "en": "So that 150 J goes somewhere?",
-      "ta": "அப்போ அந்த 150 J எங்கயாவது போகுதா?"
+      "ta": "அப்போ அந்த 150 J எங்கயாவது போகுதா?",
+      "si": "ඉතින් ඒ 150 J කොහේ හරි යනවාද?"
      },
      "scene": "⛰️"
     },
@@ -67,7 +73,8 @@
      "speaker": "chittu",
      "text": {
       "en": "It is stored in the bag as gravitational potential energy: Ep = m g h. Let it fall and it turns back into kinetic energy.",
-      "ta": "அது பையில புவியீர்ப்பு அழுத்த சக்தியா சேமிக்கப்படுது: Ep = m g h. விழ விட்டா திரும்ப இயக்கச் சக்தியா மாறும்."
+      "ta": "அது பையில புவியீர்ப்பு அழுத்த சக்தியா சேமிக்கப்படுது: Ep = m g h. விழ விட்டா திரும்ப இயக்கச் சக்தியா மாறும்.",
+      "si": "එය බෑගයේ ගුරුත්වාකර්ෂණ විභව ශක්තිය ලෙස ගබඩා වේ: Ep = m g h. එය වැටීමට හැරියොත් නැවත චාලක ශක්තිය බවට පත්වේ."
      },
      "scene": "📦"
     },
@@ -75,7 +82,8 @@
      "speaker": "raja",
      "text": {
       "en": "You lifted it slowly, I lift it fast. Is there any difference?",
-      "ta": "நீ மெதுவா தூக்கின, நான் வேகமா தூக்கறேன். ஏதாவது வித்தியாசம் இருக்கா?"
+      "ta": "நீ மெதுவா தூக்கின, நான் வேகமா தூக்கறேன். ஏதாவது வித்தியாசம் இருக்கா?",
+      "si": "ඔබ එය හෙමින් ඔසවනවා, මම එය වේගයෙන් ඔසවනවා. මොනවා හරි වෙනසක් තියෙනවද?"
      },
      "scene": "⏱️"
     },
@@ -83,7 +91,8 @@
      "speaker": "chittu",
      "text": {
       "en": "Same work, but you are more powerful! Power = work ÷ time, measured in watts.",
-      "ta": "வேலை அதேதான், ஆனா நீ அதிக வலு! வலு = வேலை ÷ நேரம், அலகு வாட்."
+      "ta": "வேலை அதேதான், ஆனா நீ அதிக வலு! வலு = வேலை ÷ நேரம், அலகு வாட்.",
+      "si": "එකම කාර්යය, නමුත් ඔබ වඩා ජවසම්පන්නයි! ජවය = කාර්යය ÷ කාලය, වොට් වලින් මනිනු ලැබේ."
      },
      "scene": "🚀"
     },
@@ -91,14 +100,16 @@
      "speaker": "raja",
      "text": {
       "en": "Work, energy and power! Let's go!",
-      "ta": "வேலை, சக்தி, வலு! வாங்க போகலாம்!"
+      "ta": "வேலை, சக்தி, வலு! வாங்க போகலாம்!",
+      "si": "කාර්යය, ශක්තිය සහ ජවය! යමු!"
      },
      "scene": "🎯"
     }
    ],
    "cta": {
     "en": "Start the lesson: work, energy and power →",
-    "ta": "பாடத்த ஆரம்பிக்கலாம்: வேலை, சக்தி, வலு →"
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: வேலை, சக்தி, வலு →",
+    "si": "පාඩම අරඹන්න: කාර්යය, ශක්තිය සහ ජවය →"
    },
    "quest": {
     "en": "In this module: learn the scientific definitions of Work (W = Fd), Kinetic Energy (½mv²), Gravitational Potential Energy (mgh), and Power (P = W/t).",
@@ -111,71 +122,84 @@
    "heading": {
     "title": {
      "en": "Start from zero: work, energy, power",
-     "ta": "முதல்ல இருந்து: வேலை, சக்தி, வலு"
+     "ta": "முதல்ல இருந்து: வேலை, சக்தி, வலு",
+     "si": "මුල සිට: කාර්යය, ශක්තිය, ජවය"
     },
     "sub": {
      "en": "No big words yet. Let us start easy.",
-     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்.",
+     "si": "තවම අමාරු වචන නැහැ. පහසුවෙන් පටන් ගමු."
     }
    },
    "cards": [
     {
      "title": {
       "en": "Work: a push that moves things",
-      "ta": "வேலை: பொருளை நகர்த்தற தள்ளல்"
+      "ta": "வேலை: பொருளை நகர்த்தற தள்ளல்",
+      "si": "කාර්යය: දේවල් චලනය කරන තල්ලුවක්"
      },
      "body": {
       "en": "<p>In physics, work happens when a force makes something move. No movement, no work.</p><div aria-hidden=\"true\" class=\"bs-pic\">💪 ➜ 📦 ➜ ➜</div>",
-      "ta": "<p>அறிவியல்ல விசை ஒரு பொருள நகர்த்தினாதான் வேலை. நகரலன்னா வேலை இல்ல.</p><div aria-hidden=\"true\" class=\"bs-pic\">💪 ➜ 📦 ➜ ➜</div>"
+      "ta": "<p>அறிவியல்ல விசை ஒரு பொருள நகர்த்தினாதான் வேலை. நகரலன்னா வேலை இல்ல.</p><div aria-hidden=\"true\" class=\"bs-pic\">💪 ➜ 📦 ➜ ➜</div>",
+      "si": "<p>භෞතික විද්‍යාවේදී බලයක් යමක් චලනය කළ විට කාර්යයක් සිදු වේ. චලනයක් නැත්නම් කාර්යයක් නැහැ.</p><div aria-hidden=\"true\" class=\"bs-pic\">💪 ➜ 📦 ➜ ➜</div>"
      },
      "icon": "📦"
     },
     {
      "title": {
       "en": "Energy helps things change",
-      "ta": "சக்தி மாற்றங்களுக்கு உதவும்"
+      "ta": "சக்தி மாற்றங்களுக்கு உதவும்",
+      "si": "ශක්තිය වෙනස්කම් කිරීමට උපකාරී වේ"
      },
      "body": {
       "en": "<p>Food and batteries store energy. Energy can move things or warm them up. When you do work, energy is transferred or changes form; it does not disappear.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍚 ➜ 💪   🔋 ➜ 📱</div>",
-      "ta": "<p>உணவும் மின்கலமும் சக்தியைச் சேமிக்கும். சக்தி பொருளை நகர்த்தவும் சூடாக்கவும் உதவும். வேலை செய்யும்போது சக்தி இடமாறும் அல்லது வடிவம் மாறும்; அது மறையாது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍚 ➜ 💪   🔋 ➜ 📱</div>"
+      "ta": "<p>உணவும் மின்கலமும் சக்தியைச் சேமிக்கும். சக்தி பொருளை நகர்த்தவும் சூடாக்கவும் உதவும். வேலை செய்யும்போது சக்தி இடமாறும் அல்லது வடிவம் மாறும்; அது மறையாது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍚 ➜ 💪   🔋 ➜ 📱</div>",
+      "si": "<p>ආහාර සහ බැටරි ශක්තිය ගබඩා කරයි. ශක්තියෙන් දේ චලනය කිරීමට හෝ රත් කිරීමට හැකිය. කාර්යය කරන විට ශක්තිය මාරු වේ හෝ ආකාරය වෙනස් වේ; එය නැති නොවේ.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍚 ➜ 💪   🔋 ➜ 📱</div>"
      },
      "icon": "🔋"
     },
     {
      "title": {
       "en": "Stored and moving energy",
-      "ta": "சேமிச்ச சக்தி, இயங்கற சக்தி"
+      "ta": "சேமிச்ச சக்தி, இயங்கற சக்தி",
+      "si": "ගබඩා කළ සහ චලනය වන ශක්තිය"
      },
      "body": {
       "en": "<p>A ball held high stores energy. When it falls, that turns into moving energy.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽⬆️ ➜ ⚽⬇️💨</div>",
-      "ta": "<p>உயரத்துல பிடிச்ச பந்துல சக்தி சேமிப்பு இருக்கு. விழும்போது அது இயங்கற சக்தியா மாறும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽⬆️ ➜ ⚽⬇️💨</div>"
+      "ta": "<p>உயரத்துல பிடிச்ச பந்துல சக்தி சேமிப்பு இருக்கு. விழும்போது அது இயங்கற சக்தியா மாறும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽⬆️ ➜ ⚽⬇️💨</div>",
+      "si": "<p>උසක තබා ගත් පන්දුවක ශක්තිය ගබඩා වී තිබේ. එය වැටෙන විට ඒ ශක්තිය චලනය වන ශක්තිය බවට පත්වේ.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽⬆️ ➜ ⚽⬇️💨</div>"
      },
      "icon": "🎢"
     },
     {
      "title": {
       "en": "Power: how fast you work",
-      "ta": "வலு: எவ்வளவு வேகமா வேலை"
+      "ta": "வலு: எவ்வளவு வேகமா வேலை",
+      "si": "ජවය: කාර්යය කරන වේගය"
      },
      "body": {
       "en": "<p>Carry ten bags in one minute or in five minutes. The same work, but the first one is more powerful.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏃💨 ⚡   🚶 🐢</div>",
-      "ta": "<p>பத்து பைய ஒரு நிமிஷத்துலயோ அஞ்சு நிமிஷத்துலயோ தூக்கலாம். வேலை ஒண்ணுதான், ஆனா முதல்ல வலு அதிகம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏃💨 ⚡   🚶 🐢</div>"
+      "ta": "<p>பத்து பைய ஒரு நிமிஷத்துலயோ அஞ்சு நிமிஷத்துலயோ தூக்கலாம். வேலை ஒண்ணுதான், ஆனா முதல்ல வலு அதிகம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏃💨 ⚡   🚶 🐢</div>",
+      "si": "<p>බෑග් දහයක් විනාඩියකින් හෝ විනාඩි පහකින් ඔසවන්න පුළුවන්. කාර්යය එකමයි, නමුත් පළමුවැන්නේ ජවය වැඩියි.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏃💨 ⚡   🚶 🐢</div>"
      },
      "icon": "⏱️"
     }
    ],
    "hook": {
     "en": "You push a wall all day and it never moves. Did you do work in physics?",
-    "ta": "நாள் முழுக்க சுவர தள்ளுறே, அது அசையல. அறிவியல்ல இது வேலையா?"
+    "ta": "நாள் முழுக்க சுவர தள்ளுறே, அது அசையல. அறிவியல்ல இது வேலையா?",
+    "si": "ඔබ දවස පුරා බිත්තියක් තල්ලු කළා, එය කිසිසේත් චලනය වුණේ නැහැ. භෞතික විද්‍යාවේදී ඔබ කාර්යයක් කළාද?"
    },
    "extra": [
     {
      "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Lift a school bag onto a table slowly, then quickly. Which felt more powerful?</p></div>",
-     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>ஸ்கூல் பைய மேசை மேல மெதுவா, அப்புறம் வேகமா தூக்கி வை. எது அதிக வலுன்னு தோணுது?</p></div>"
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>ஸ்கூல் பைய மேசை மேல மெதுவா, அப்புறம் வேகமா தூக்கி வை. எது அதிக வலுன்னு தோணுது?</p></div>",
+     "si": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>පාසල් බෑගයක් මේසයට සෙමින්, පසුව වේගයෙන් ඔසවා තබන්න. කුමක් වැඩි ජවයක් ලෙස දැනුණාද?</p></div>"
     },
     {
      "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's put numbers on work, energy and power.</p></div>",
-     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப வேலை, சக்தி, வலுவுக்கு எண்கள் போடலாம்.</p></div>"
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப வேலை, சக்தி, வலுவுக்கு எண்கள் போடலாம்.</p></div>",
+     "si": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>දැන් කාර්යය, ශක්තිය සහ ජවය සඳහා සංඛ්‍යා යොදමු.</p></div>"
     }
    ]
   },
@@ -185,11 +209,13 @@
    "heading": {
     "title": {
      "en": "Watch it happen: work, energy and power",
-     "ta": "பாரு: வேலை, சக்தி, வலு"
+     "ta": "பாரு: வேலை, சக்தி, வலு",
+     "si": "සිදුවෙන හැටි බලන්න: කාර්යය, ශක්තිය සහ ජවය"
     },
     "sub": {
      "en": "Raja pushes a box, rides up a hill, then races Chittu lifting a bag",
-     "ta": "ராஜா பெட்டிய தள்றான், மலை ஏறறான், அப்புறம் சிட்டுவோட பைய தூக்கி போட்டி போடறான்"
+     "ta": "ராஜா பெட்டிய தள்றான், மலை ஏறறான், அப்புறம் சிட்டுவோட பைய தூக்கி போட்டி போடறான்",
+     "si": "රාජා පෙට්ටියක් තල්ලු කරයි, කන්දක් නගී, ඉන්පසු බෑගයක් ඔසවමින් චිට්ටු සමඟ තරග කරයි"
     }
    },
    "animation": {
@@ -203,74 +229,88 @@
    "heading": {
     "title": {
      "en": "Notes",
-     "ta": "குறிப்புகள்"
+     "ta": "குறிப்புகள்",
+     "si": "සටහන්"
     },
     "sub": {
      "en": "Tap a stepping stone to explore each topic",
-     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ",
+     "si": "එක් එක් මාතෘකාව ගවේෂණය කිරීමට පියවර ගලක් ස්පර්ශ කරන්න"
     }
    },
    "cards": [
     {
      "title": {
       "en": "18.1 Work: force that moves something",
-      "ta": "18.1 வேலை: ஒரு பொருளை நகர்த்தும் விசை"
+      "ta": "18.1 வேலை: ஒரு பொருளை நகர்த்தும் விசை",
+      "si": "18.1 කාර්යය: යමක් චලනය කරන බලය"
      },
      "body": {
       "en": "<p>You already know a force can change the position or shape of an object. When a force makes an object move, we say the force does <b>work</b>. Push the object with a constant 1 N until it moves 1 m <i>along the direction of the force</i>: the work done is defined to be <b>one joule (1 J)</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A 3 newton force moves an object 1 metre: work 3 joules\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"140\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"110\" y=\"90\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"122\">object</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"95.0\" y1=\"115\" y2=\"115.0\"></line><polygon points=\"108,115 95.0,108.2 95.0,121.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">F = 3 N</text><rect height=\"0\" rx=\"0\" stroke-width=\"2\" style=\"fill:none;stroke:none\" width=\"0\" x=\"190\" y=\"96\"></rect><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"110\" x2=\"110\" y1=\"175\" y2=\"195\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"300\" x2=\"300\" y1=\"175\" y2=\"195\"></line><rect height=\"50\" opacity=\"0.8\" rx=\"6\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-dim)\" width=\"80\" x=\"210\" y=\"90\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"122\">later</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"300\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"110\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"183\" y2=\"193\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"205.0\" y=\"181\">distance moved = 1 m</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"225\">Work = F × d = 3 N × 1 m = 3 J</text></svg><div class=\"figcap\">A force of 3 N moves the object 1 m in its own direction: 3 J of work.</div></div>\n<p>With 2 N through 1 m the work is 2 J, with 3 N through 1 m it is 3 J. So the work depends on the force and on the distance moved.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Work done by a force</div><div class=\"fmath\">Work = <b>F</b> × <b>d</b></div><div class=\"fnote\">F = force (N), d = distance moved in the direction of the force (m), Work in joules (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">What is the work done if a force of 7.5 N moves an object 8 m in the direction of the force?</div><div class=\"work\">Work = 7.5 N × 8 m = <b>60 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">The weight of an object is 40 N. What is the work done in lifting it vertically through 2 m?</div><div class=\"work\">To lift it we need a force of 40 N upwards. Work = 40 N × 2 m = <b>80 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 3</div><div class=\"work\">The mass of an object is 5 kg. Find the work done in lifting it upwards by 3 m. (g = 10 m s<sup>-2</sup>)</div><div class=\"work\">Weight = mg = 5 × 10 = 50 N. Work = 50 N × 3 m = <b>150 J</b></div></div>",
-      "ta": "<p>ஒரு விசை பொருளோட நிலைய அல்லது வடிவத்த மாத்தும்னு உனக்கு தெரியும். விசை ஒரு பொருள நகர்த்தும்போது அந்த விசை <b>வேலை</b> செய்யுதுன்னு சொல்றோம். மாறாத 1 N விசையால பொருள <i>விசையோட திசைல</i> 1 m நகர்த்தினா, செய்த வேலை <b>ஒரு ஜூல் (1 J)</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A 3 newton force moves an object 1 metre: work 3 joules\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"140\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"110\" y=\"90\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"122\">object</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"95.0\" y1=\"115\" y2=\"115.0\"></line><polygon points=\"108,115 95.0,108.2 95.0,121.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">F = 3 N</text><rect height=\"0\" rx=\"0\" stroke-width=\"2\" style=\"fill:none;stroke:none\" width=\"0\" x=\"190\" y=\"96\"></rect><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"110\" x2=\"110\" y1=\"175\" y2=\"195\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"300\" x2=\"300\" y1=\"175\" y2=\"195\"></line><rect height=\"50\" opacity=\"0.8\" rx=\"6\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-dim)\" width=\"80\" x=\"210\" y=\"90\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"122\">later</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"300\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"110\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"183\" y2=\"193\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"205.0\" y=\"181\">distance moved = 1 m</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"225\">Work = F × d = 3 N × 1 m = 3 J</text></svg><div class=\"figcap\">3 N விசை பொருளை தன் திசைலயே 1 m நகர்த்துது: 3 J வேலை.</div></div>\n<p>2 N விசை 1 m நகர்த்தினா 2 J, 3 N விசை 1 m நகர்த்தினா 3 J. அதனால வேலை விசையையும் நகர்ந்த தூரத்தையும் பொறுத்தது.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ஒரு விசை செய்த வேலை</div><div class=\"fmath\">Work = <b>F</b> × <b>d</b></div><div class=\"fnote\">F = விசை (N), d = விசையோட திசைல நகர்ந்த தூரம் (m), வேலை ஜூல் (J)-ல</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">7.5 N விசை ஒரு பொருளை அதன் திசைல 8 m நகர்த்தினா செய்த வேலை என்ன?</div><div class=\"work\">Work = 7.5 N × 8 m = <b>60 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">ஒரு பொருளோட நிறை 40 N. அதை நிமிர்ந்து 2 m தூக்க செய்யும் வேலை என்ன?</div><div class=\"work\">To lift it we need a force of 40 N upwards. Work = 40 N × 2 m = <b>80 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 3</div><div class=\"work\">ஒரு பொருளோட திணிவு 5 kg. அதை 3 m மேல தூக்க செய்யும் வேலை? (g = 10 m s<sup>-2</sup>)</div><div class=\"work\">Weight = mg = 5 × 10 = 50 N. Work = 50 N × 3 m = <b>150 J</b></div></div>"
+      "ta": "<p>ஒரு விசை பொருளோட நிலைய அல்லது வடிவத்த மாத்தும்னு உனக்கு தெரியும். விசை ஒரு பொருள நகர்த்தும்போது அந்த விசை <b>வேலை</b> செய்யுதுன்னு சொல்றோம். மாறாத 1 N விசையால பொருள <i>விசையோட திசைல</i> 1 m நகர்த்தினா, செய்த வேலை <b>ஒரு ஜூல் (1 J)</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A 3 newton force moves an object 1 metre: work 3 joules\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"140\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"110\" y=\"90\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"122\">object</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"95.0\" y1=\"115\" y2=\"115.0\"></line><polygon points=\"108,115 95.0,108.2 95.0,121.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">F = 3 N</text><rect height=\"0\" rx=\"0\" stroke-width=\"2\" style=\"fill:none;stroke:none\" width=\"0\" x=\"190\" y=\"96\"></rect><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"110\" x2=\"110\" y1=\"175\" y2=\"195\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"300\" x2=\"300\" y1=\"175\" y2=\"195\"></line><rect height=\"50\" opacity=\"0.8\" rx=\"6\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-dim)\" width=\"80\" x=\"210\" y=\"90\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"122\">later</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"300\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"110\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"183\" y2=\"193\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"205.0\" y=\"181\">distance moved = 1 m</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"225\">Work = F × d = 3 N × 1 m = 3 J</text></svg><div class=\"figcap\">3 N விசை பொருளை தன் திசைலயே 1 m நகர்த்துது: 3 J வேலை.</div></div>\n<p>2 N விசை 1 m நகர்த்தினா 2 J, 3 N விசை 1 m நகர்த்தினா 3 J. அதனால வேலை விசையையும் நகர்ந்த தூரத்தையும் பொறுத்தது.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ஒரு விசை செய்த வேலை</div><div class=\"fmath\">Work = <b>F</b> × <b>d</b></div><div class=\"fnote\">F = விசை (N), d = விசையோட திசைல நகர்ந்த தூரம் (m), வேலை ஜூல் (J)-ல</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">7.5 N விசை ஒரு பொருளை அதன் திசைல 8 m நகர்த்தினா செய்த வேலை என்ன?</div><div class=\"work\">Work = 7.5 N × 8 m = <b>60 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">ஒரு பொருளோட நிறை 40 N. அதை நிமிர்ந்து 2 m தூக்க செய்யும் வேலை என்ன?</div><div class=\"work\">To lift it we need a force of 40 N upwards. Work = 40 N × 2 m = <b>80 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 3</div><div class=\"work\">ஒரு பொருளோட திணிவு 5 kg. அதை 3 m மேல தூக்க செய்யும் வேலை? (g = 10 m s<sup>-2</sup>)</div><div class=\"work\">Weight = mg = 5 × 10 = 50 N. Work = 50 N × 3 m = <b>150 J</b></div></div>",
+      "si": "<p>බලයකට වස්තුවක පිහිටීම හෝ හැඩය වෙනස් කළ හැකි බව ඔබ දැනටමත් දන්නවා. බලයක් වස්තුවක් චලනය කරවන විට, එම බලය <b>කාර්යයක්</b> කරනවා යැයි අපි කියමු. නියත 1 N බලයකින් වස්තුවක් <i>බලයේ දිශාවට</i> 1 m ක් චලනය වන තුරු තල්ලු කරන්න: කළ කාර්යය <b>ජූල් එකක් (1 J)</b> ලෙස අර්ථ දැක්වේ.</p>\n<div class=\"fig\"><svg aria-label=\"A 3 newton force moves an object 1 metre: work 3 joules\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"140\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"110\" y=\"90\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"122\">වස්තුව</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"95.0\" y1=\"115\" y2=\"115.0\"></line><polygon points=\"108,115 95.0,108.2 95.0,121.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">F = 3 N</text><rect height=\"0\" rx=\"0\" stroke-width=\"2\" style=\"fill:none;stroke:none\" width=\"0\" x=\"190\" y=\"96\"></rect><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"110\" x2=\"110\" y1=\"175\" y2=\"195\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"300\" x2=\"300\" y1=\"175\" y2=\"195\"></line><rect height=\"50\" opacity=\"0.8\" rx=\"6\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-dim)\" width=\"80\" x=\"210\" y=\"90\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"122\">later</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"300\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"110\" x2=\"110\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"183\" y2=\"193\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"205.0\" y=\"181\">චලනය වූ දුර = 1 m</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"225\">කාර්යය = F × d = 3 N × 1 m = 3 J</text></svg><div class=\"figcap\">3 N බලයක් වස්තුව එහි දිශාවට 1 m ක් චලනය කරයි: 3 J කාර්යයක්.</div></div>\n<p>2 N බලයක් 1 m දුරක් යන විට කාර්යය 2 J, 3 N බලයක් 1 m දුරක් යන විට එය 3 J. එනිසා කාර්යය රඳා පවතින්නේ බලය සහ චලනය වූ දුර මතයි.</p>\n<div class=\"formula-box\"><div class=\"flabel\">බලයකින් කෙරෙන කාර්යය</div><div class=\"fmath\">කාර්යය = <b>F</b> × <b>d</b></div><div class=\"fnote\">F = බලය (N), d = බලයේ දිශාවට චලනය වූ දුර (m), කාර්යය ජූල් (J) වලින්</div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 1</div><div class=\"work\">7.5 N බලයක් වස්තුවක් බලයේ දිශාවට 8 m ක් චලනය කරන්නේ නම් කෙරෙන කාර්යය කොපමණද?</div><div class=\"work\">කාර්යය = 7.5 N × 8 m = <b>60 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 2</div><div class=\"work\">වස්තුවක බර 40 N වේ. එය සිරස්ව 2 m ක් ඔසවන විට කෙරෙන කාර්යය කොපමණද?</div><div class=\"work\">එය ඔසවීමට අපට ඉහළට 40 N බලයක් අවශ්‍යයි. කාර්යය = 40 N × 2 m = <b>80 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 3</div><div class=\"work\">වස්තුවක ස්කන්ධය 5 kg වේ. එය 3 m ක් ඉහළට ඔසවන විට කෙරෙන කාර්යය සොයන්න. (g = 10 m s<sup>-2</sup>)</div><div class=\"work\">බර = mg = 5 × 10 = 50 N. කාර්යය = 50 N × 3 m = <b>150 J</b></div></div>"
      },
      "section": "18.1"
     },
     {
      "title": {
       "en": "18.2 Energy: the ability to do work",
-      "ta": "18.2 சக்தி: வேலை செய்யும் ஆற்றல்"
+      "ta": "18.2 சக்தி: வேலை செய்யும் ஆற்றல்",
+      "si": "18.2 ශක්තිය: කාර්යය කිරීමේ හැකියාව"
      },
      "body": {
       "en": "<p><b>Energy</b> is the ability to do work. It is measured in the same unit as work, the <b>joule (J)</b>. We need energy for every task, and it comes in many forms.</p>\n<ul><li><b>Heat energy</b></li><li><b>Electric energy</b></li><li><b>Magnetic energy</b></li><li><b>Light energy</b></li><li><b>Sound energy</b></li><li><b>Mechanical energy</b>: the kind we study here, in two forms, <b>potential energy</b> and <b>kinetic energy</b></li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">💡 Work and energy are partners</div><ul><li>If there is no energy loss, the work done equals the energy used up.</li><li>Both are measured in joules (J).</li></ul></div>",
-      "ta": "<p><b>சக்தி</b> என்பது வேலை செய்யும் ஆற்றல். வேலைய அளக்கற அதே அலகான <b>ஜூல் (J)</b>-ஆல இதையும் அளப்போம். எல்லா வேலைக்கும் சக்தி வேணும், அது பல வடிவங்கள்ல இருக்கு.</p>\n<ul><li><b>வெப்ப சக்தி</b></li><li><b>மின் சக்தி</b></li><li><b>காந்த சக்தி</b></li><li><b>ஒளி சக்தி</b></li><li><b>ஒலி சக்தி</b></li><li><b>பொறிமுறைச் சக்தி</b>: இங்க படிக்கப் போறது, ரெண்டு வடிவம்: <b>அழுத்த சக்தி</b>, <b>இயக்கச் சக்தி</b></li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">💡 வேலையும் சக்தியும் ஜோடி</div><ul><li>சக்தி இழப்பு இல்லன்னா செய்த வேலை செலவழிஞ்ச சக்திக்கு சமம்.</li><li>ரெண்டும் ஜூல்ல (J) அளக்கப்படுது.</li></ul></div>"
+      "ta": "<p><b>சக்தி</b> என்பது வேலை செய்யும் ஆற்றல். வேலைய அளக்கற அதே அலகான <b>ஜூல் (J)</b>-ஆல இதையும் அளப்போம். எல்லா வேலைக்கும் சக்தி வேணும், அது பல வடிவங்கள்ல இருக்கு.</p>\n<ul><li><b>வெப்ப சக்தி</b></li><li><b>மின் சக்தி</b></li><li><b>காந்த சக்தி</b></li><li><b>ஒளி சக்தி</b></li><li><b>ஒலி சக்தி</b></li><li><b>பொறிமுறைச் சக்தி</b>: இங்க படிக்கப் போறது, ரெண்டு வடிவம்: <b>அழுத்த சக்தி</b>, <b>இயக்கச் சக்தி</b></li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">💡 வேலையும் சக்தியும் ஜோடி</div><ul><li>சக்தி இழப்பு இல்லன்னா செய்த வேலை செலவழிஞ்ச சக்திக்கு சமம்.</li><li>ரெண்டும் ஜூல்ல (J) அளக்கப்படுது.</li></ul></div>",
+      "si": "<p><b>ශක්තිය</b> යනු කාර්යය කිරීමේ හැකියාවයි. එය මනින්නේ කාර්යය මනින ඒකකයෙන්ම, <b>ජූල් (J)</b> වලිනි. අපට සෑම කාර්යයකටම ශක්තිය අවශ්‍යයි, එය බොහෝ ආකාරවලින් පවතී.</p>\n<ul><li><b>තාප ශක්තිය</b></li><li><b>විදුලි ශක්තිය</b></li><li><b>චුම්බක ශක්තිය</b></li><li><b>ආලෝක ශක්තිය</b></li><li><b>ශබ්ද ශක්තිය</b></li><li><b>යාන්ත්‍රික ශක්තිය</b>: අප මෙහි අධ්‍යයනය කරන ශක්ති වර්ගය, ආකාර දෙකකින් — <b>විභව ශක්තිය</b> සහ <b>චාලක ශක්තිය</b></li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">💡 කාර්යය සහ ශක්තිය හවුල්කරුවන්</div><ul><li>ශක්ති හානියක් නැත්නම්, කළ කාර්යය වැය වූ ශක්තියට සමානයි.</li><li>දෙකම මනින්නේ ජූල් (J) වලිනි.</li></ul></div>"
      },
      "section": "18.2"
     },
     {
      "title": {
       "en": "18.2a Kinetic energy: energy of motion",
-      "ta": "18.2a இயக்கச் சக்தி: இயக்கத்தால வரும் சக்தி"
+      "ta": "18.2a இயக்கச் சக்தி: இயக்கத்தால வரும் சக்தி",
+      "si": "18.2a චාලක ශක්තිය: චලිතයේ ශක්තිය"
      },
      "body": {
       "en": "<p>The energy an object has because it is <b>moving</b> is its <b>kinetic energy</b>. Send object A along the floor to hit a light trolley B: the trolley moves some distance and stops. Send A faster: the trolley goes further. Send a heavier A at the same speed: again the trolley goes further. Part of A's kinetic energy is passed to the trolley.</p>\n<div class=\"fig\"><svg aria-label=\"Object A hits trolley B: more speed or more mass pushes B further\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"150\"></rect><circle cx=\"90\" cy=\"128\" r=\"20\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"134\">A</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"53.0\" y1=\"128\" y2=\"128.0\"></line><polygon points=\"66,128 53.0,121.5 53.0,134.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">velocity v</text><rect height=\"38\" opacity=\"0.6\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"56\" x=\"240\" y=\"112\"></rect><circle cx=\"252\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"284\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"268\" y=\"136\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"300\" x2=\"387.0\" y1=\"172\" y2=\"172.0\"></line><polygon points=\"400,172 387.0,165.6 387.0,178.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"350\" y=\"196\">B moves further when A is faster or heavier</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Ek = ½ m v²</text></svg><div class=\"figcap\">Figure 18.4: A hits the trolley B. More velocity or more mass makes B move further.</div></div>\n<p>So the kinetic energy depends on <b>two factors: velocity and mass</b>.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Kinetic energy</div><div class=\"fmath\">E<sub>k</sub> = <b>½ m v²</b></div><div class=\"fnote\">m = mass (kg), v = velocity (m s<sup>-1</sup>), E<sub>k</sub> in joules (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">The mass of an object is 6 kg. Calculate its kinetic energy when it moves at 4 m s<sup>-1</sup>.</div><div class=\"work\">E<sub>k</sub> = ½ m v² = ½ × 6 × 4² = ½ × 6 × 16 = <b>48 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">Calculate the kinetic energy of a 4 kg object at the instant it moves at 2 m s<sup>-1</sup>.</div><div class=\"work\">E<sub>k</sub> = ½ × 4 × 2² = <b>8 J</b></div></div>",
-      "ta": "<p>ஒரு பொருள் <b>இயங்கிட்டு இருக்கறதால</b> அதுக்கு இருக்கற சக்தி <b>இயக்கச் சக்தி</b>. பொருள் A-ய தரைல உருட்டி இலேசான வண்டி B-ய மோத விடு: வண்டி கொஞ்ச தூரம் போய் நிக்கும். A-ய இன்னும் வேகமா விடு: வண்டி இன்னும் தூரம் போகும். அதே வேகத்துல கனமான A-ய விடு: மறுபடியும் வண்டி அதிக தூரம் போகும். A-யோட இயக்கச் சக்தியில ஒரு பகுதி வண்டிக்கு கடத்தப்படுது.</p>\n<div class=\"fig\"><svg aria-label=\"Object A hits trolley B: more speed or more mass pushes B further\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"150\"></rect><circle cx=\"90\" cy=\"128\" r=\"20\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"134\">A</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"53.0\" y1=\"128\" y2=\"128.0\"></line><polygon points=\"66,128 53.0,121.5 53.0,134.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">velocity v</text><rect height=\"38\" opacity=\"0.6\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"56\" x=\"240\" y=\"112\"></rect><circle cx=\"252\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"284\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"268\" y=\"136\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"300\" x2=\"387.0\" y1=\"172\" y2=\"172.0\"></line><polygon points=\"400,172 387.0,165.6 387.0,178.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"350\" y=\"196\">B moves further when A is faster or heavier</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Ek = ½ m v²</text></svg><div class=\"figcap\">உரு 18.4: A வண்டி B-ய மோதுது. அதிக வேகம் அல்லது அதிக திணிவு B-ய அதிக தூரம் நகர்த்தும்.</div></div>\n<p>அதனால இயக்கச் சக்தி <b>ரெண்டு காரணிகள பொறுத்தது: வேகம், திணிவு</b>.</p>\n<div class=\"formula-box\"><div class=\"flabel\">இயக்கச் சக்தி</div><div class=\"fmath\">E<sub>k</sub> = <b>½ m v²</b></div><div class=\"fnote\">m = திணிவு (kg), v = வேகம் (m s<sup>-1</sup>), E<sub>k</sub> ஜூல்ல (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">ஒரு பொருளோட திணிவு 6 kg. அது 4 m s<sup>-1</sup>-ல ஓடும்போது இயக்கச் சக்தி?</div><div class=\"work\">E<sub>k</sub> = ½ m v² = ½ × 6 × 4² = ½ × 6 × 16 = <b>48 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">4 kg பொருள் 2 m s<sup>-1</sup>-ல ஓடும் கணத்துல இயக்கச் சக்தி?</div><div class=\"work\">E<sub>k</sub> = ½ × 4 × 2² = <b>8 J</b></div></div>"
+      "ta": "<p>ஒரு பொருள் <b>இயங்கிட்டு இருக்கறதால</b> அதுக்கு இருக்கற சக்தி <b>இயக்கச் சக்தி</b>. பொருள் A-ய தரைல உருட்டி இலேசான வண்டி B-ய மோத விடு: வண்டி கொஞ்ச தூரம் போய் நிக்கும். A-ய இன்னும் வேகமா விடு: வண்டி இன்னும் தூரம் போகும். அதே வேகத்துல கனமான A-ய விடு: மறுபடியும் வண்டி அதிக தூரம் போகும். A-யோட இயக்கச் சக்தியில ஒரு பகுதி வண்டிக்கு கடத்தப்படுது.</p>\n<div class=\"fig\"><svg aria-label=\"Object A hits trolley B: more speed or more mass pushes B further\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"150\"></rect><circle cx=\"90\" cy=\"128\" r=\"20\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"134\">A</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"53.0\" y1=\"128\" y2=\"128.0\"></line><polygon points=\"66,128 53.0,121.5 53.0,134.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">velocity v</text><rect height=\"38\" opacity=\"0.6\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"56\" x=\"240\" y=\"112\"></rect><circle cx=\"252\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"284\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"268\" y=\"136\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"300\" x2=\"387.0\" y1=\"172\" y2=\"172.0\"></line><polygon points=\"400,172 387.0,165.6 387.0,178.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"350\" y=\"196\">B moves further when A is faster or heavier</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Ek = ½ m v²</text></svg><div class=\"figcap\">உரு 18.4: A வண்டி B-ய மோதுது. அதிக வேகம் அல்லது அதிக திணிவு B-ய அதிக தூரம் நகர்த்தும்.</div></div>\n<p>அதனால இயக்கச் சக்தி <b>ரெண்டு காரணிகள பொறுத்தது: வேகம், திணிவு</b>.</p>\n<div class=\"formula-box\"><div class=\"flabel\">இயக்கச் சக்தி</div><div class=\"fmath\">E<sub>k</sub> = <b>½ m v²</b></div><div class=\"fnote\">m = திணிவு (kg), v = வேகம் (m s<sup>-1</sup>), E<sub>k</sub> ஜூல்ல (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">ஒரு பொருளோட திணிவு 6 kg. அது 4 m s<sup>-1</sup>-ல ஓடும்போது இயக்கச் சக்தி?</div><div class=\"work\">E<sub>k</sub> = ½ m v² = ½ × 6 × 4² = ½ × 6 × 16 = <b>48 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">4 kg பொருள் 2 m s<sup>-1</sup>-ல ஓடும் கணத்துல இயக்கச் சக்தி?</div><div class=\"work\">E<sub>k</sub> = ½ × 4 × 2² = <b>8 J</b></div></div>",
+      "si": "<p>වස්තුවක් <b>චලනය වන</b> නිසා එයට ඇති ශක්තිය එහි <b>චාලක ශක්තියයි</b>. A වස්තුව පොළොව දිගේ යවා සැහැල්ලු කරත්තයක් වන B ට වදින්න සලස්වන්න: කරත්තය යම් දුරක් චලනය වී නතර වේ. A වේගයෙන් යැවුවොත් කරත්තය වැඩි දුරක් යයි. එම වේගයෙන්ම බර A එකක් යැවුවොත් නැවතත් කරත්තය වැඩි දුරක් යයි. A හි චාලක ශක්තියෙන් කොටසක් කරත්තයට ලබා දෙයි.</p>\n<div class=\"fig\"><svg aria-label=\"Object A hits trolley B: more speed or more mass pushes B further\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"460\" x=\"30\" y=\"150\"></rect><circle cx=\"90\" cy=\"128\" r=\"20\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"134\">A</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"53.0\" y1=\"128\" y2=\"128.0\"></line><polygon points=\"66,128 53.0,121.5 53.0,134.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"100\">ප්‍රවේගය v</text><rect height=\"38\" opacity=\"0.6\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"56\" x=\"240\" y=\"112\"></rect><circle cx=\"252\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"284\" cy=\"154\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"268\" y=\"136\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"300\" x2=\"387.0\" y1=\"172\" y2=\"172.0\"></line><polygon points=\"400,172 387.0,165.6 387.0,178.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"350\" y=\"196\">A වේගවත් හෝ බර වන විට B වැඩි දුරක් ගමන් කරයි</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Ek = ½ m v²</text></svg><div class=\"figcap\">18.4 රූපය: A කරත්තය B ට වදී. වැඩි ප්‍රවේගයක් හෝ වැඩි ස්කන්ධයක් නිසා B වැඩි දුරක් චලනය වේ.</div></div>\n<p>ඒ නිසා චාලක ශක්තිය රඳා පවතින්නේ <b>සාධක දෙකක් මතයි: ප්‍රවේගය සහ ස්කන්ධය</b>.</p>\n<div class=\"formula-box\"><div class=\"flabel\">චාලක ශක්තිය</div><div class=\"fmath\">E<sub>k</sub> = <b>½ m v²</b></div><div class=\"fnote\">m = ස්කන්ධය (kg), v = ප්‍රවේගය (m s<sup>-1</sup>), E<sub>k</sub> ජූල් (J) වලින්</div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 1</div><div class=\"work\">වස්තුවක ස්කන්ධය 6 kg වේ. එය 4 m s<sup>-1</sup> ප්‍රවේගයෙන් චලනය වන විට එහි චාලක ශක්තිය ගණනය කරන්න.</div><div class=\"work\">E<sub>k</sub> = ½ m v² = ½ × 6 × 4² = ½ × 6 × 16 = <b>48 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 2</div><div class=\"work\">ස්කන්ධය 4 kg වන වස්තුවක් 2 m s<sup>-1</sup> ප්‍රවේගයෙන් චලනය වන මොහොතේ එහි චාලක ශක්තිය ගණනය කරන්න.</div><div class=\"work\">E<sub>k</sub> = ½ × 4 × 2² = <b>8 J</b></div></div>"
      }
     },
     {
      "title": {
       "en": "18.2b Potential energy: stored energy",
-      "ta": "18.2b அழுத்த சக்தி: சேமிக்கப்பட்ட சக்தி"
+      "ta": "18.2b அழுத்த சக்தி: சேமிக்கப்பட்ட சக்தி",
+      "si": "18.2b විභව ශක්තිය: ගබඩා වූ ශක්තිය"
      },
      "body": {
       "en": "<p>The energy stored in an object because of its <b>position</b> or because its <b>form has changed</b> is its <b>potential energy</b>. When you lift an object you do work on it; that energy is stored in the object as potential energy. Let us find the energy needed to lift 3 kg through 2 m.</p>\n<div class=\"fig\"><svg aria-label=\"Lifting 3 kg through 2 m: 60 joules of work stored as potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"20\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"28\" y2=\"60\"></line><rect height=\"50\" opacity=\"0.5\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"50\" x=\"240\" y=\"60\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"265\" y=\"91\">3 kg</text><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"240\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"265\" x2=\"265.0\" y1=\"232\" y2=\"127.0\"></line><polygon points=\"265,114 258.2,127.0 271.8,127.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"280\" y=\"160\">F = 30 N</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"205\" x2=\"205\" y1=\"62\" y2=\"240\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"62\" y2=\"62\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"240\" y2=\"240\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"197\" y=\"156.0\">h = 2 m</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"100\">W = 3 × 10 = 30 N</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"124\">Work = 30 × 2 = 60 J</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"148\">stored as</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"168\">Ep = m g h</text></svg><div class=\"figcap\">Figure 18.5: doing work against gravity. W = 3 kg × 10 = 30 N, work = 30 N × 2 m = 60 J.</div></div>\n<p>Work done = weight × height lifted = m g × h. The work is stored in the object, so at a height of 2 m its potential energy is 60 J. Because the work is done against gravity, it is called <b>gravitational potential energy</b>.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Gravitational potential energy</div><div class=\"fmath\">E<sub>p</sub> = <b>m g h</b></div><div class=\"fnote\">m = mass (kg), g = 10 m s<sup>-2</sup>, h = vertical height (m)</div></div>\n<p>The potential energy depends on three things: the <b>mass</b>, the <b>gravitational acceleration</b> and the <b>height</b>. Release the object and the stored energy turns back into kinetic energy.</p>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">Find the gravitational potential energy of a 7.5 kg object at a height of 4 m.</div><div class=\"work\">E<sub>p</sub> = m g h = 7.5 × 10 × 4 = <b>300 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">A fruit of mass 200 g hangs 4 m above the ground. Find its gravitational potential energy.</div><div class=\"work\">200 g = 0.2 kg. E<sub>p</sub> = 0.2 × 10 × 4 = <b>8 J</b></div></div>\n<div class=\"fig\"><svg aria-label=\"A stretched spring stores elastic potential energy\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"60\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"20\" x=\"30\" y=\"120\"></rect><path d=\"M50 150 l16 -22 l16 44 l16 -44 l16 44 l16 -44 l16 44 l16 -22\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"150\" y=\"128\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"205\">relaxed spring</text><path d=\"M50 150 l30 -26 l30 52 l30 -52 l30 52 l30 -52 l30 26\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"290\" y=\"128\"></rect><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"380\" x2=\"343.0\" y1=\"150\" y2=\"150.0\"></line><polygon points=\"330,150 343.0,156.4 343.0,143.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"300\" y=\"205\">stretched: elastic Ep stored</text></svg><div class=\"figcap\">Figure 18.7: stretching a spring or a rubber band stores elastic potential energy.</div></div>\n<p>When a rubber band or a spring is stretched by a force, its shape changes and the work done is stored in it. This is called <b>elastic potential energy</b>.</p>",
-      "ta": "<p>ஒரு பொருளோட <b>இடநிலை</b> அல்லது <b>வடிவ மாற்றத்தால</b> அதுல சேமிக்கப்படற சக்தி <b>அழுத்த சக்தி</b>. பொருளை தூக்கும்போது அது மேல வேலை செய்யறோம்; அந்த சக்தி பொருள்ல அழுத்த சக்தியா சேமிக்கப்படுது. 3 kg-ய 2 m தூக்க வேண்டிய சக்திய காணலாம்.</p>\n<div class=\"fig\"><svg aria-label=\"Lifting 3 kg through 2 m: 60 joules of work stored as potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"20\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"28\" y2=\"60\"></line><rect height=\"50\" opacity=\"0.5\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"50\" x=\"240\" y=\"60\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"265\" y=\"91\">3 kg</text><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"240\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"265\" x2=\"265.0\" y1=\"232\" y2=\"127.0\"></line><polygon points=\"265,114 258.2,127.0 271.8,127.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"280\" y=\"160\">F = 30 N</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"205\" x2=\"205\" y1=\"62\" y2=\"240\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"62\" y2=\"62\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"240\" y2=\"240\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"197\" y=\"156.0\">h = 2 m</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"100\">W = 3 × 10 = 30 N</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"124\">Work = 30 × 2 = 60 J</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"148\">stored as</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"168\">Ep = m g h</text></svg><div class=\"figcap\">உரு 18.5: ஈர்ப்புக்கு எதிரா வேலை. W = 3 kg × 10 = 30 N, வேலை = 30 N × 2 m = 60 J.</div></div>\n<p>செய்த வேலை = நிறை × தூக்கிய உயரம் = m g × h. வேலை பொருள்ல சேமிக்கப்படுது, அதனால 2 m உயரத்துல அதோட அழுத்த சக்தி 60 J. ஈர்ப்புக்கு எதிரா வேலை செய்யறதால இதுக்கு <b>ஈர்ப்பு அழுத்த சக்தி</b> னு பேரு.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ஈர்ப்பு அழுத்த சக்தி</div><div class=\"fmath\">E<sub>p</sub> = <b>m g h</b></div><div class=\"fnote\">m = திணிவு (kg), g = 10 m s<sup>-2</sup>, h = நிமிர்ந்த உயரம் (m)</div></div>\n<p>அழுத்த சக்தி மூணு விஷயங்கள பொறுத்தது: <b>திணிவு</b>, <b>ஈர்ப்பு ஆர்முடுகல்</b>, <b>உயரம்</b>. பொருளை விட்டா சேமிச்ச சக்தி திரும்ப இயக்கச் சக்தியா மாறும்.</p>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">7.5 kg பொருள் 4 m உயரத்துல இருக்கும்போது ஈர்ப்பு அழுத்த சக்தி?</div><div class=\"work\">E<sub>p</sub> = m g h = 7.5 × 10 × 4 = <b>300 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">200 g திணிவு உள்ள பழம் தரைல இருந்து 4 m உயரத்துல தொங்குது. அதோட ஈர்ப்பு அழுத்த சக்தி?</div><div class=\"work\">200 g = 0.2 kg. E<sub>p</sub> = 0.2 × 10 × 4 = <b>8 J</b></div></div>\n<div class=\"fig\"><svg aria-label=\"A stretched spring stores elastic potential energy\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"60\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"20\" x=\"30\" y=\"120\"></rect><path d=\"M50 150 l16 -22 l16 44 l16 -44 l16 44 l16 -44 l16 44 l16 -22\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"150\" y=\"128\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"205\">relaxed spring</text><path d=\"M50 150 l30 -26 l30 52 l30 -52 l30 52 l30 -52 l30 26\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"290\" y=\"128\"></rect><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"380\" x2=\"343.0\" y1=\"150\" y2=\"150.0\"></line><polygon points=\"330,150 343.0,156.4 343.0,143.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"300\" y=\"205\">stretched: elastic Ep stored</text></svg><div class=\"figcap\">உரு 18.7: ஸ்பிரிங் அல்லது ரப்பர் பேண்டை இழுத்தா மீள்தன்மை அழுத்த சக்தி சேமிக்கப்படும்.</div></div>\n<p>ரப்பர் பேண்ட் அல்லது ஸ்பிரிங் விசையால இழுக்கப்படும்போது அதோட வடிவம் மாறி செய்த வேலை அதுல சேமிக்கப்படுது. இதுக்கு <b>மீள்தன்மை அழுத்த சக்தி</b> னு பேரு.</p>"
+      "ta": "<p>ஒரு பொருளோட <b>இடநிலை</b> அல்லது <b>வடிவ மாற்றத்தால</b> அதுல சேமிக்கப்படற சக்தி <b>அழுத்த சக்தி</b>. பொருளை தூக்கும்போது அது மேல வேலை செய்யறோம்; அந்த சக்தி பொருள்ல அழுத்த சக்தியா சேமிக்கப்படுது. 3 kg-ய 2 m தூக்க வேண்டிய சக்திய காணலாம்.</p>\n<div class=\"fig\"><svg aria-label=\"Lifting 3 kg through 2 m: 60 joules of work stored as potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"20\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"28\" y2=\"60\"></line><rect height=\"50\" opacity=\"0.5\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"50\" x=\"240\" y=\"60\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"265\" y=\"91\">3 kg</text><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"240\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"265\" x2=\"265.0\" y1=\"232\" y2=\"127.0\"></line><polygon points=\"265,114 258.2,127.0 271.8,127.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"280\" y=\"160\">F = 30 N</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"205\" x2=\"205\" y1=\"62\" y2=\"240\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"62\" y2=\"62\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"240\" y2=\"240\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"197\" y=\"156.0\">h = 2 m</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"100\">W = 3 × 10 = 30 N</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"124\">Work = 30 × 2 = 60 J</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"148\">stored as</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"168\">Ep = m g h</text></svg><div class=\"figcap\">உரு 18.5: ஈர்ப்புக்கு எதிரா வேலை. W = 3 kg × 10 = 30 N, வேலை = 30 N × 2 m = 60 J.</div></div>\n<p>செய்த வேலை = நிறை × தூக்கிய உயரம் = m g × h. வேலை பொருள்ல சேமிக்கப்படுது, அதனால 2 m உயரத்துல அதோட அழுத்த சக்தி 60 J. ஈர்ப்புக்கு எதிரா வேலை செய்யறதால இதுக்கு <b>ஈர்ப்பு அழுத்த சக்தி</b> னு பேரு.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ஈர்ப்பு அழுத்த சக்தி</div><div class=\"fmath\">E<sub>p</sub> = <b>m g h</b></div><div class=\"fnote\">m = திணிவு (kg), g = 10 m s<sup>-2</sup>, h = நிமிர்ந்த உயரம் (m)</div></div>\n<p>அழுத்த சக்தி மூணு விஷயங்கள பொறுத்தது: <b>திணிவு</b>, <b>ஈர்ப்பு ஆர்முடுகல்</b>, <b>உயரம்</b>. பொருளை விட்டா சேமிச்ச சக்தி திரும்ப இயக்கச் சக்தியா மாறும்.</p>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">7.5 kg பொருள் 4 m உயரத்துல இருக்கும்போது ஈர்ப்பு அழுத்த சக்தி?</div><div class=\"work\">E<sub>p</sub> = m g h = 7.5 × 10 × 4 = <b>300 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">200 g திணிவு உள்ள பழம் தரைல இருந்து 4 m உயரத்துல தொங்குது. அதோட ஈர்ப்பு அழுத்த சக்தி?</div><div class=\"work\">200 g = 0.2 kg. E<sub>p</sub> = 0.2 × 10 × 4 = <b>8 J</b></div></div>\n<div class=\"fig\"><svg aria-label=\"A stretched spring stores elastic potential energy\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"60\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"20\" x=\"30\" y=\"120\"></rect><path d=\"M50 150 l16 -22 l16 44 l16 -44 l16 44 l16 -44 l16 44 l16 -22\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"150\" y=\"128\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"205\">relaxed spring</text><path d=\"M50 150 l30 -26 l30 52 l30 -52 l30 52 l30 -52 l30 26\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"290\" y=\"128\"></rect><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"380\" x2=\"343.0\" y1=\"150\" y2=\"150.0\"></line><polygon points=\"330,150 343.0,156.4 343.0,143.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"300\" y=\"205\">stretched: elastic Ep stored</text></svg><div class=\"figcap\">உரு 18.7: ஸ்பிரிங் அல்லது ரப்பர் பேண்டை இழுத்தா மீள்தன்மை அழுத்த சக்தி சேமிக்கப்படும்.</div></div>\n<p>ரப்பர் பேண்ட் அல்லது ஸ்பிரிங் விசையால இழுக்கப்படும்போது அதோட வடிவம் மாறி செய்த வேலை அதுல சேமிக்கப்படுது. இதுக்கு <b>மீள்தன்மை அழுத்த சக்தி</b> னு பேரு.</p>",
+      "si": "<p>වස්තුවක් එහි <b>පිහිටීම</b> නිසා හෝ එහි <b>ආකෘතිය වෙනස් වීම</b> නිසා ගබඩා වූ ශක්තිය එහි <b>විභව ශක්තියයි</b>. ඔබ වස්තුවක් ඔසවන විට එය මත කාර්යයක් කරයි; ඒ ශක්තිය වස්තුව තුළ විභව ශක්තිය ලෙස ගබඩා වේ. 3 kg ක් 2 m කින් ඔසවීමට අවශ්‍ය ශක්තිය සොයමු.</p>\n<div class=\"fig\"><svg aria-label=\"Lifting 3 kg through 2 m: 60 joules of work stored as potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"20\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"28\" y2=\"60\"></line><rect height=\"50\" opacity=\"0.5\" rx=\"5\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"50\" x=\"240\" y=\"60\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"265\" y=\"91\">3 kg</text><rect height=\"8\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"150\" x=\"190\" y=\"240\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"265\" x2=\"265.0\" y1=\"232\" y2=\"127.0\"></line><polygon points=\"265,114 258.2,127.0 271.8,127.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"280\" y=\"160\">F = 30 N</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"205\" x2=\"205\" y1=\"62\" y2=\"240\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"62\" y2=\"62\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"200\" x2=\"210\" y1=\"240\" y2=\"240\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"197\" y=\"156.0\">h = 2 m</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"100\">W = 3 × 10 = 30 N</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"124\">කාර්යය = 30 × 2 = 60 J</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"430\" y=\"148\">stored as</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"430\" y=\"168\">Ep = m g h</text></svg><div class=\"figcap\">18.5 රූපය: ගුරුත්වාකර්ෂණයට එරෙහිව කාර්යය කිරීම. W = 3 kg × 10 = 30 N, කාර්යය = 30 N × 2 m = 60 J.</div></div>\n<p>කළ කාර්යය = ඔසවන ලද බර × උස = m g × h. කාර්යය වස්තුව තුළ ගබඩා වේ, එනිසා 2 m උසකදී එහි විභව ශක්තිය 60 J වේ. කාර්යය කෙරෙන්නේ ගුරුත්වාකර්ෂණයට එරෙහිව නිසා එය <b>ගුරුත්වාකර්ෂණ විභව ශක්තිය</b> ලෙස හැඳින්වේ.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ගුරුත්වාකර්ෂණ විභව ශක්තිය</div><div class=\"fmath\">E<sub>p</sub> = <b>m g h</b></div><div class=\"fnote\">m = ස්කන්ධය (kg), g = 10 m s<sup>-2</sup>, h = සිරස් උස (m)</div></div>\n<p>විභව ශක්තිය රඳා පවතින්නේ කරුණු තුනක් මතයි: <b>ස්කන්ධය</b>, <b>ගුරුත්වජ ත්වරණය</b> සහ <b>උස</b>. වස්තුව මුදා හරින්න, ගබඩා වූ ශක්තිය නැවත චාලක ශක්තිය බවට පත්වේ.</p>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 1</div><div class=\"work\">4 m උසක ඇති 7.5 kg වස්තුවක ගුරුත්වාකර්ෂණ විභව ශක්තිය සොයන්න.</div><div class=\"work\">E<sub>p</sub> = m g h = 7.5 × 10 × 4 = <b>300 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 2</div><div class=\"work\">ස්කන්ධය 200 g වන පලතුරක් බිමෙන් 4 m උසක එල්ලී ඇත. එහි ගුරුත්වාකර්ෂණ විභව ශක්තිය සොයන්න.</div><div class=\"work\">200 g = 0.2 kg. E<sub>p</sub> = 0.2 × 10 × 4 = <b>8 J</b></div></div>\n<div class=\"fig\"><svg aria-label=\"A stretched spring stores elastic potential energy\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"60\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"20\" x=\"30\" y=\"120\"></rect><path d=\"M50 150 l16 -22 l16 44 l16 -44 l16 44 l16 -44 l16 44 l16 -22\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"150\" y=\"128\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"205\">ලිහිල් දුන්න</text><path d=\"M50 150 l30 -26 l30 52 l30 -52 l30 52 l30 -52 l30 26\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><rect height=\"44\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"290\" y=\"128\"></rect><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"380\" x2=\"343.0\" y1=\"150\" y2=\"150.0\"></line><polygon points=\"330,150 343.0,156.4 343.0,143.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"300\" y=\"205\">ඇදී ඇත: ප්‍රත්‍යස්ථ Ep ගබඩා වී ඇත</text></svg><div class=\"figcap\">18.7 රූපය: දුන්නක් හෝ රබර් පටියක් ඇදීමෙන් ප්‍රත්‍යාස්ථ විභව ශක්තිය ගබඩා වේ.</div></div>\n<p>රබර් පටියක් හෝ දුන්නක් බලයකින් ඇදෙන විට එහි හැඩය වෙනස් වන අතර කළ කාර්යය එහි ගබඩා වේ. මෙය <b>ප්‍රත්‍යාස්ථ විභව ශක්තිය</b> ලෙස හැඳින්වේ.</p>"
      }
     },
     {
      "title": {
       "en": "18.2c Energy changes form",
-      "ta": "18.2c சக்தி வடிவம் மாறுது"
+      "ta": "18.2c சக்தி வடிவம் மாறுது",
+      "si": "18.2c ශක්තිය ආකාරය වෙනස් කරයි"
      },
      "body": {
       "en": "<p>A cyclist rides fast along a flat road, then reaches a hill and stops pedalling. The bicycle still climbs, but slows down: its <b>kinetic energy decreases</b> while its <b>potential energy increases</b>. At the top the kinetic energy is smallest and the potential energy is greatest. Rolling down the other side, the potential energy falls and the kinetic energy grows again.</p>\n<div class=\"fig\"><svg aria-label=\"A bicycle climbs a hill: kinetic energy turns into potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><path d=\"M20 210 H150 Q220 210 280 120 Q320 60 380 60 Q430 60 500 210\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><circle cx=\"80\" cy=\"190\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"80\" y=\"150\">bottom: Ek big, Ep small</text><circle cx=\"380\" cy=\"40\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"380\" y=\"18\">top: Ek small, Ep big</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"160\" x2=\"257.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"270,232 257.0,225.9 257.0,238.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"215\" y=\"252\">Ek → Ep</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"470\" x2=\"413.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"400,232 413.0,238.1 413.0,225.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"435\" y=\"252\">Ep → Ek</text></svg><div class=\"figcap\">Figure 18.8: kinetic energy turns into potential energy going up, and back again going down.</div></div>\n<div class=\"fig\"><svg aria-label=\"A swing: potential energy at the top, kinetic energy at the bottom\" role=\"img\" viewbox=\"0 0 520 265\"><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"120\" x2=\"400\" y1=\"20\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"160\" x2=\"260\" y1=\"20\" y2=\"200\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"360\" x2=\"260\" y1=\"20\" y2=\"200\"></line><path d=\"M130 130 Q260 260 390 130\" stroke-dasharray=\"6 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><circle cx=\"260\" cy=\"205\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"245\">A (lowest)</text><circle cx=\"160\" cy=\"150\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"100\" y=\"150\">B (highest)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"395\" y=\"112\">at B: v = 0, all Ep</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"430\" y=\"205\">at A: v biggest, all Ek</text></svg><div class=\"figcap\">Figure 18.9: a swing. At A the speed is highest (all kinetic); at B it stops for a moment (all potential).</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔁 Swing from A to B and back</div><ul><li>A → B: speed falls, height rises: kinetic energy changes into potential energy.</li><li>At B the velocity is zero: all the kinetic energy has become potential energy.</li><li>B → A: the potential energy changes back into kinetic energy.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"A pile driver: potential energy becomes kinetic energy\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"215\"></rect><rect height=\"175\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"12\" x=\"110\" y=\"40\"></rect><rect height=\"10\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"90\" x=\"110\" y=\"28\"></rect><rect height=\"50\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"116\" y=\"98\">weight</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"116\" x2=\"116.0\" y1=\"124\" y2=\"177.0\"></line><polygon points=\"116,190 122.1,177.0 109.9,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"25\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"250\" y=\"80\">lifted high: Ep stored</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"250\" y=\"110\">released: Ep → Ek</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"250\" y=\"140\">hits the pile: Ek drives it in</text></svg><div class=\"figcap\">Figure 18.11: a pile driver lifts a weight, then lets it fall.</div></div>\n<ul><li><b>Hydro-electricity:</b> water stored high in a reservoir falls to a lower level. Its potential energy becomes kinetic energy, which turns a turbine to make electricity.</li><li><b>Pile and tower:</b> a heavy pile is lifted and released to fall on the soil, packing loose soil before a building's foundation is laid.</li><li><b>Sledge hammer:</b> the lifted hammer has potential energy. Released onto a wedge, it hits with a large velocity, passes its kinetic energy to the wedge and splits the wood or stone.</li></ul>",
-      "ta": "<p>ஒரு சைக்கிள்காரர் சமதளத்துல வேகமா ஓட்டிட்டு மலை கிட்ட வந்ததும் பெடல் அழுத்தறத நிறுத்தறார். சைக்கிள் இன்னும் மேல ஏறுது, ஆனா வேகம் குறையுது: <b>இயக்கச் சக்தி குறையுது</b>, <b>அழுத்த சக்தி கூடுது</b>. உச்சில இயக்கச் சக்தி மிகக் குறைவு, அழுத்த சக்தி மிக அதிகம். மறுபக்கம் இறங்கும்போது அழுத்த சக்தி குறைஞ்சு இயக்கச் சக்தி மறுபடி கூடும்.</p>\n<div class=\"fig\"><svg aria-label=\"A bicycle climbs a hill: kinetic energy turns into potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><path d=\"M20 210 H150 Q220 210 280 120 Q320 60 380 60 Q430 60 500 210\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><circle cx=\"80\" cy=\"190\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"80\" y=\"150\">bottom: Ek big, Ep small</text><circle cx=\"380\" cy=\"40\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"380\" y=\"18\">top: Ek small, Ep big</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"160\" x2=\"257.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"270,232 257.0,225.9 257.0,238.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"215\" y=\"252\">Ek → Ep</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"470\" x2=\"413.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"400,232 413.0,238.1 413.0,225.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"435\" y=\"252\">Ep → Ek</text></svg><div class=\"figcap\">உரு 18.8: மேல போறப்ப இயக்கச் சக்தி அழுத்த சக்தியா மாறுது; கீழ வரப்ப திரும்ப மாறுது.</div></div>\n<div class=\"fig\"><svg aria-label=\"A swing: potential energy at the top, kinetic energy at the bottom\" role=\"img\" viewbox=\"0 0 520 265\"><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"120\" x2=\"400\" y1=\"20\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"160\" x2=\"260\" y1=\"20\" y2=\"200\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"360\" x2=\"260\" y1=\"20\" y2=\"200\"></line><path d=\"M130 130 Q260 260 390 130\" stroke-dasharray=\"6 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><circle cx=\"260\" cy=\"205\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"245\">A (lowest)</text><circle cx=\"160\" cy=\"150\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"100\" y=\"150\">B (highest)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"395\" y=\"112\">at B: v = 0, all Ep</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"430\" y=\"205\">at A: v biggest, all Ek</text></svg><div class=\"figcap\">உரு 18.9: ஊஞ்சல். A-ல வேகம் அதிகம் (எல்லாம் இயக்கச் சக்தி); B-ல ஒரு கணம் நிக்குது (எல்லாம் அழுத்த சக்தி).</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔁 A-ல இருந்து B-க்கும் திரும்பவும்</div><ul><li>A → B: வேகம் குறையுது, உயரம் கூடுது: இயக்கச் சக்தி அழுத்த சக்தியா மாறுது.</li><li>B-ல வேகம் பூச்சியம்: எல்லா இயக்கச் சக்தியும் அழுத்த சக்தியா மாறிடுச்சு.</li><li>B → A: அழுத்த சக்தி திரும்ப இயக்கச் சக்தியா மாறுது.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"A pile driver: potential energy becomes kinetic energy\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"215\"></rect><rect height=\"175\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"12\" x=\"110\" y=\"40\"></rect><rect height=\"10\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"90\" x=\"110\" y=\"28\"></rect><rect height=\"50\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"116\" y=\"98\">weight</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"116\" x2=\"116.0\" y1=\"124\" y2=\"177.0\"></line><polygon points=\"116,190 122.1,177.0 109.9,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"25\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"250\" y=\"80\">lifted high: Ep stored</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"250\" y=\"110\">released: Ep → Ek</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"250\" y=\"140\">hits the pile: Ek drives it in</text></svg><div class=\"figcap\">உரு 18.11: பைல் டிரைவர் ஒரு எடைய தூக்கி விழ விடுது.</div></div>\n<ul><li><b>நீர் மின்சாரம்:</b> உயரத்துல தேக்கி வெச்ச நீர் கீழ விழுது. அதோட அழுத்த சக்தி இயக்கச் சக்தியா மாறி டர்பைனை சுத்தி மின்சாரம் தயாரிக்குது.</li><li><b>பைல், டவர்:</b> கனமான பைலை தூக்கி விழ விட்டு, கட்டடத்தோட அஸ்திவாரம் போடும் முன் தளர்வான மண்ணை இறுக்கறாங்க.</li><li><b>சம்மட்டி:</b> தூக்கின சம்மட்டில அழுத்த சக்தி இருக்கு. ஆப்பு மேல விழ விடும்போது பெரிய வேகத்துல மோதி இயக்கச் சக்திய ஆப்புக்கு கடத்தி மரத்தை அல்லது கல்லை பிளக்குது.</li></ul>"
+      "ta": "<p>ஒரு சைக்கிள்காரர் சமதளத்துல வேகமா ஓட்டிட்டு மலை கிட்ட வந்ததும் பெடல் அழுத்தறத நிறுத்தறார். சைக்கிள் இன்னும் மேல ஏறுது, ஆனா வேகம் குறையுது: <b>இயக்கச் சக்தி குறையுது</b>, <b>அழுத்த சக்தி கூடுது</b>. உச்சில இயக்கச் சக்தி மிகக் குறைவு, அழுத்த சக்தி மிக அதிகம். மறுபக்கம் இறங்கும்போது அழுத்த சக்தி குறைஞ்சு இயக்கச் சக்தி மறுபடி கூடும்.</p>\n<div class=\"fig\"><svg aria-label=\"A bicycle climbs a hill: kinetic energy turns into potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><path d=\"M20 210 H150 Q220 210 280 120 Q320 60 380 60 Q430 60 500 210\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><circle cx=\"80\" cy=\"190\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"80\" y=\"150\">bottom: Ek big, Ep small</text><circle cx=\"380\" cy=\"40\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"380\" y=\"18\">top: Ek small, Ep big</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"160\" x2=\"257.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"270,232 257.0,225.9 257.0,238.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"215\" y=\"252\">Ek → Ep</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"470\" x2=\"413.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"400,232 413.0,238.1 413.0,225.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"435\" y=\"252\">Ep → Ek</text></svg><div class=\"figcap\">உரு 18.8: மேல போறப்ப இயக்கச் சக்தி அழுத்த சக்தியா மாறுது; கீழ வரப்ப திரும்ப மாறுது.</div></div>\n<div class=\"fig\"><svg aria-label=\"A swing: potential energy at the top, kinetic energy at the bottom\" role=\"img\" viewbox=\"0 0 520 265\"><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"120\" x2=\"400\" y1=\"20\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"160\" x2=\"260\" y1=\"20\" y2=\"200\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"360\" x2=\"260\" y1=\"20\" y2=\"200\"></line><path d=\"M130 130 Q260 260 390 130\" stroke-dasharray=\"6 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><circle cx=\"260\" cy=\"205\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"245\">A (lowest)</text><circle cx=\"160\" cy=\"150\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"100\" y=\"150\">B (highest)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"395\" y=\"112\">at B: v = 0, all Ep</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"430\" y=\"205\">at A: v biggest, all Ek</text></svg><div class=\"figcap\">உரு 18.9: ஊஞ்சல். A-ல வேகம் அதிகம் (எல்லாம் இயக்கச் சக்தி); B-ல ஒரு கணம் நிக்குது (எல்லாம் அழுத்த சக்தி).</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔁 A-ல இருந்து B-க்கும் திரும்பவும்</div><ul><li>A → B: வேகம் குறையுது, உயரம் கூடுது: இயக்கச் சக்தி அழுத்த சக்தியா மாறுது.</li><li>B-ல வேகம் பூச்சியம்: எல்லா இயக்கச் சக்தியும் அழுத்த சக்தியா மாறிடுச்சு.</li><li>B → A: அழுத்த சக்தி திரும்ப இயக்கச் சக்தியா மாறுது.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"A pile driver: potential energy becomes kinetic energy\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"215\"></rect><rect height=\"175\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"12\" x=\"110\" y=\"40\"></rect><rect height=\"10\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"90\" x=\"110\" y=\"28\"></rect><rect height=\"50\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"116\" y=\"98\">weight</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"116\" x2=\"116.0\" y1=\"124\" y2=\"177.0\"></line><polygon points=\"116,190 122.1,177.0 109.9,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"25\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"250\" y=\"80\">lifted high: Ep stored</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"250\" y=\"110\">released: Ep → Ek</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"250\" y=\"140\">hits the pile: Ek drives it in</text></svg><div class=\"figcap\">உரு 18.11: பைல் டிரைவர் ஒரு எடைய தூக்கி விழ விடுது.</div></div>\n<ul><li><b>நீர் மின்சாரம்:</b> உயரத்துல தேக்கி வெச்ச நீர் கீழ விழுது. அதோட அழுத்த சக்தி இயக்கச் சக்தியா மாறி டர்பைனை சுத்தி மின்சாரம் தயாரிக்குது.</li><li><b>பைல், டவர்:</b> கனமான பைலை தூக்கி விழ விட்டு, கட்டடத்தோட அஸ்திவாரம் போடும் முன் தளர்வான மண்ணை இறுக்கறாங்க.</li><li><b>சம்மட்டி:</b> தூக்கின சம்மட்டில அழுத்த சக்தி இருக்கு. ஆப்பு மேல விழ விடும்போது பெரிய வேகத்துல மோதி இயக்கச் சக்திய ஆப்புக்கு கடத்தி மரத்தை அல்லது கல்லை பிளக்குது.</li></ul>",
+      "si": "<p>බයිසිකලකරුවෙක් පැතලි මාර්ගයක වේගයෙන් පදිනවා, ඉන්පසු කන්දකට ළඟා වී පැඩල් කිරීම නවත්වනවා. බයිසිකලය තවමත් නගිනවා, නමුත් වේගය අඩු වෙනවා: එහි <b>චාලක ශක්තිය අඩු වන අතර</b> <b>විභව ශක්තිය වැඩි වේ</b>. ඉහළදී චාලක ශක්තිය අඩුම වන අතර විභව ශක්තිය වැඩිම වේ. අනෙක් පැත්තෙන් පහළට පෙරළෙන විට විභව ශක්තිය අඩු වී චාලක ශක්තිය නැවත වැඩි වේ.</p>\n<div class=\"fig\"><svg aria-label=\"A bicycle climbs a hill: kinetic energy turns into potential energy\" role=\"img\" viewbox=\"0 0 520 262\"><path d=\"M20 210 H150 Q220 210 280 120 Q320 60 380 60 Q430 60 500 210\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><circle cx=\"80\" cy=\"190\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"80\" y=\"150\">පහළ: Ek වැඩි, Ep අඩු</text><circle cx=\"380\" cy=\"40\" r=\"14\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"380\" y=\"18\">මුදුන: Ek අඩු, Ep වැඩි</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"160\" x2=\"257.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"270,232 257.0,225.9 257.0,238.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"215\" y=\"252\">Ek → Ep</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"470\" x2=\"413.0\" y1=\"232\" y2=\"232.0\"></line><polygon points=\"400,232 413.0,238.1 413.0,225.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"435\" y=\"252\">Ep → Ek</text></svg><div class=\"figcap\">18.8 රූපය: ඉහළ යන විට චාලක ශක්තිය විභව ශක්තිය බවට පත්වන අතර, පහළට එන විට නැවත එසේම පෙරළේ.</div></div>\n<div class=\"fig\"><svg aria-label=\"A swing: potential energy at the top, kinetic energy at the bottom\" role=\"img\" viewbox=\"0 0 520 265\"><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"120\" x2=\"400\" y1=\"20\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"160\" x2=\"260\" y1=\"20\" y2=\"200\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text-dim)\" x1=\"360\" x2=\"260\" y1=\"20\" y2=\"200\"></line><path d=\"M130 130 Q260 260 390 130\" stroke-dasharray=\"6 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><circle cx=\"260\" cy=\"205\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"245\">A (පහළම)</text><circle cx=\"160\" cy=\"150\" r=\"13\" stroke-width=\"3\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"100\" y=\"150\">B (ඉහළම)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"395\" y=\"112\">B හිදී: v = 0, සියල්ල Ep</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"430\" y=\"205\">A හිදී: v උපරිම, සියල්ල Ek</text></svg><div class=\"figcap\">18.9 රූපය: ඔංචිල්ලාවක්. A හිදී වේගය වැඩිම (සියල්ල චාලක); B හිදී එය මොහොතකට නතර වේ (සියල්ල විභව).</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔁 A සිට B දක්වා ඔංචිල්ලාවේ ගොස් ආපසු</div><ul><li>A → B: වේගය අඩු වේ, උස වැඩි වේ: චාලක ශක්තිය විභව ශක්තිය බවට පත්වේ.</li><li>B හිදී ප්‍රවේගය ශූන්‍යයි: සියලු චාලක ශක්තිය විභව ශක්තිය බවට පත්ව ඇත.</li><li>B → A: විභව ශක්තිය නැවත චාලක ශක්තිය බවට පත්වේ.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"A pile driver: potential energy becomes kinetic energy\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"215\"></rect><rect height=\"175\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"12\" x=\"110\" y=\"40\"></rect><rect height=\"10\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"90\" x=\"110\" y=\"28\"></rect><rect height=\"50\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"116\" y=\"98\">බර</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"116\" x2=\"116.0\" y1=\"124\" y2=\"177.0\"></line><polygon points=\"116,190 122.1,177.0 109.9,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"25\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"98\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"250\" y=\"80\">ඉහළට ඔසවා ඇත: Ep ගබඩා වී ඇත</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"250\" y=\"110\">මුදා හරින ලදී: Ep → Ek</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"250\" y=\"140\">කණුවේ ගැසේ: Ek එය ඇතුළට තල්ලු කරයි</text></svg><div class=\"figcap\">18.11 රූපය: පයිල් ඩ්‍රයිවරයක් බරක් ඔසවා, පසුව එය වැටීමට ඉඩ හරියි.</div></div>\n<ul><li><b>ජල විදුලිය:</b> ඉහළ ජලාශයක ගබඩා වූ ජලය පහළ මට්ටමකට වැටේ. එහි විභව ශක්තිය චාලක ශක්තිය බවට පත්වී ටර්බයිනයක් කරකවා විදුලිය නිපදවයි.</li><li><b>පයිල් සහ ටවරය:</b> බර පයිලයක් ඔසවා මුදා හරින විට එය පොළොවට වැටී, ගොඩනැගිල්ලක අත්තිවාරම දැමීමට පෙර ලිහිල් පස තදින් ඇසිරෙයි.</li><li><b>මහා මිටිය:</b> ඔසවන ලද මිටියට විභව ශක්තියක් ඇත. කුඤ්ඤයක් මත මුදා හැරි විට එය විශාල ප්‍රවේගයකින් වැදී, තම චාලක ශක්තිය කුඤ්ඤයට ලබා දී දැව හෝ ගල් පළා දමයි.</li></ul>"
      }
     },
     {
      "title": {
       "en": "18.3 Power: how fast work is done",
-      "ta": "18.3 வலு: வேலை எவ்வளவு வேகமா நடக்குது"
+      "ta": "18.3 வலு: வேலை எவ்வளவு வேகமா நடக்குது",
+      "si": "18.3 ජවය: කාර්යය කරන වේගය"
      },
      "body": {
       "en": "<p>The work done in a unit time, the <b>rate of doing work</b>, is called <b>power</b>. If 600 J of work is done in 10 s, the power is 600 J ÷ 10 s = 60 J s<sup>-1</sup>. One joule per second is one <b>watt (W)</b>, so this power is 60 W.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Power</div><div class=\"fmath\">Power = <b>Work done</b> ÷ <b>Time taken</b>   P = W ÷ t</div><div class=\"fnote\">Work in J, time in s, power in watts (W). 1 W = 1 J s<sup>-1</sup></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">It takes 10 s to lift a 5 kg mass to a height of 8 m. Find the power.</div><div class=\"work\">Weight = 5 × 10 = 50 N. Work = 50 × 8 = 400 J. Power = 400 J ÷ 10 s = <b>40 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">How much work does a machine of power output 100 W do in one minute?</div><div class=\"work\">Work = power × time = 100 J s<sup>-1</sup> × 60 s = <b>6000 J</b></div></div>",
-      "ta": "<p>ஓரலகு நேரத்துல செய்யற வேலை, அதாவது <b>வேலை செய்யும் வீதம்</b>, <b>வலு</b> எனப்படும். 10 s-ல 600 J வேலை செய்தா வலு = 600 J ÷ 10 s = 60 J s<sup>-1</sup>. ஒரு ஜூல் / வினாடி = ஒரு <b>வாட் (W)</b>, அதனால இந்த வலு 60 W.</p>\n<div class=\"formula-box\"><div class=\"flabel\">வலு</div><div class=\"fmath\">Power = <b>Work done</b> ÷ <b>Time taken</b>   P = W ÷ t</div><div class=\"fnote\">வேலை J, நேரம் s, வலு வாட் (W). 1 W = 1 J s<sup>-1</sup></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">5 kg திணிவை 8 m உயரத்துக்கு தூக்க 10 s ஆகுது. வலு என்ன?</div><div class=\"work\">Weight = 5 × 10 = 50 N. Work = 50 × 8 = 400 J. Power = 400 J ÷ 10 s = <b>40 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">100 W வலு தரும் இயந்திரம் ஒரு நிமிஷத்துல செய்யும் வேலை?</div><div class=\"work\">Work = power × time = 100 J s<sup>-1</sup> × 60 s = <b>6000 J</b></div></div>"
+      "ta": "<p>ஓரலகு நேரத்துல செய்யற வேலை, அதாவது <b>வேலை செய்யும் வீதம்</b>, <b>வலு</b> எனப்படும். 10 s-ல 600 J வேலை செய்தா வலு = 600 J ÷ 10 s = 60 J s<sup>-1</sup>. ஒரு ஜூல் / வினாடி = ஒரு <b>வாட் (W)</b>, அதனால இந்த வலு 60 W.</p>\n<div class=\"formula-box\"><div class=\"flabel\">வலு</div><div class=\"fmath\">Power = <b>Work done</b> ÷ <b>Time taken</b>   P = W ÷ t</div><div class=\"fnote\">வேலை J, நேரம் s, வலு வாட் (W). 1 W = 1 J s<sup>-1</sup></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">5 kg திணிவை 8 m உயரத்துக்கு தூக்க 10 s ஆகுது. வலு என்ன?</div><div class=\"work\">Weight = 5 × 10 = 50 N. Work = 50 × 8 = 400 J. Power = 400 J ÷ 10 s = <b>40 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">100 W வலு தரும் இயந்திரம் ஒரு நிமிஷத்துல செய்யும் வேலை?</div><div class=\"work\">Work = power × time = 100 J s<sup>-1</sup> × 60 s = <b>6000 J</b></div></div>",
+      "si": "<p>ඒකක කාලයක් තුළ කෙරෙන කාර්යය, එනම් <b>කාර්යය කිරීමේ ශීඝ්‍රතාවය</b>, <b>ජවය</b> ලෙස හැඳින්වේ. තත්පර 10ක් තුළ 600 J කාර්යයක් කෙරෙන්නේ නම්, ජවය 600 J ÷ 10 s = 60 J s<sup>-1</sup> වේ. තත්පරයකට ජූල් එකක් <b>වොට් (W)</b> එකකි, එනිසා මේ ජවය 60 W වේ.</p>\n<div class=\"formula-box\"><div class=\"flabel\">ජවය</div><div class=\"fmath\">ජවය = <b>කළ කාර්යය</b> ÷ <b>ගත වූ කාලය</b>   P = W ÷ t</div><div class=\"fnote\">කාර්යය J වලින්, කාලය s වලින්, ජවය වොට් (W) වලින්. 1 W = 1 J s<sup>-1</sup></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 1</div><div class=\"work\">5 kg ස්කන්ධයක් 8 m උසකට ඔසවීමට තත්පර 10ක් ගත වේ. ජවය සොයන්න.</div><div class=\"work\">බර = 5 × 10 = 50 N. කාර්යය = 50 × 8 = 400 J. ජවය = 400 J ÷ 10 s = <b>40 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">නිදසුන 2</div><div class=\"work\">ජව ප්‍රතිදානය 100 W වන යන්ත්‍රයක් එක් විනාඩියකදී කොපමණ කාර්යයක් කරයිද?</div><div class=\"work\">කාර්යය = ජවය × කාලය = 100 J s<sup>-1</sup> × 60 s = <b>6000 J</b></div></div>"
      },
      "section": "18.3"
     }
@@ -286,16 +326,19 @@
    "heading": {
     "title": {
      "en": "Hands-on Activities",
-     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்",
+     "si": "ප්‍රායෝගික ක්‍රියාකාරකම්"
     },
     "sub": {
      "en": "The textbook activities: try them at home or in class",
-     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு",
+     "si": "පෙළපොතේ ක්‍රියාකාරකම්: ගෙදරදී හෝ පන්තියේදී උත්සාහ කරන්න"
     }
    },
    "body": {
     "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"k\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Demonstration: what does kinetic energy depend on?</h3>\n<span class=\"act-ref\">Textbook · Figure 18.4, p.128</span>\n<p>Find out how the speed and the mass of an object change the energy it can pass on.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A small object A, a light trolley B</li><li>A flat floor, a ruler</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Push A with some speed so that it hits B. Measure how far B moves before it stops.</li><li>Push A faster and measure again.</li><li>Use bigger and bigger masses for A at the same speed and measure again.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The trolley goes further when A is faster and when A is heavier. So the kinetic energy depends on both the velocity and the mass.</div></details>\n<button class=\"btn act-done\" data-act=\"k\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"18.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 18.1: potential energy and height</h3>\n<span class=\"act-ref\">Textbook · Activity 18.1, p.131</span>\n<p>Show that the higher an object is, the more potential energy it has.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Clay (spread about 3 cm thick on the floor)</li><li>A fairly heavy weight, a ruler</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Release the weight from about 0.5 m above the clay.</li><li>Observe the depth of the dent it makes.</li><li>Repeat from different heights, with the same part of the weight touching the clay each time.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The dent gets deeper as the release height increases. The falling weight gave the energy to make the dent, so the potential energy increases with the height.</div></details>\n<button class=\"btn act-done\" data-act=\"18.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"18.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 18.2: potential energy and mass</h3>\n<span class=\"act-ref\">Textbook · Activity 18.2, p.132</span>\n<p>Show that a heavier object has more potential energy at the same height.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A plastic bottle, sand</li><li>Clay on the floor, a ruler</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fill about a quarter of the bottle with sand and let it fall from about 1 m onto the clay. Observe the dent.</li><li>Fill it half with sand and release it from the same height.</li><li>Fill it completely and release it from the same height.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The dent gets deeper as the mass increases. So the potential energy increases with the mass.</div></details>\n<button class=\"btn act-done\" data-act=\"18.2\">✅ I tried it! (+10 XP)</button>\n</div>",
-    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"k\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செய்து காட்டுதல்: இயக்கச் சக்தி எதப் பொறுத்தது?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · உரு 18.4, ப.128</span>\n<p>பொருளோட வேகமும் திணிவும் அது கடத்தக்கூடிய சக்திய எப்படி மாத்துதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு சின்ன பொருள் A, ஒரு இலேசான வண்டி B</li><li>சமதளமான தரை, ஒரு அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A-ய கொஞ்சம் வேகத்தோட தள்ளி B-ய மோத விடு. B நிக்கறதுக்கு முன் எவ்வளவு தூரம் போகுதுன்னு அளவிடு.</li><li>A-ய இன்னும் வேகமா தள்ளி மறுபடி அளவிடு.</li><li>அதே வேகத்துல A-க்கு பெரிய பெரிய திணிவுகள் பயன்படுத்தி மறுபடி அளவிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">A வேகமா இருக்கும்போதும் கனமா இருக்கும்போதும் வண்டி அதிக தூரம் போகுது. அதனால இயக்கச் சக்தி வேகம், திணிவு ரெண்டையும் பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"k\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"18.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 18.1: அழுத்த சக்தியும் உயரமும்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 18.1, ப.131</span>\n<p>பொருள் எவ்வளவு உயரத்துல இருக்கோ அவ்வளவு அழுத்த சக்தி அதுக்கு இருக்குன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>களிமண் (தரைல சுமார் 3 cm தடிமனுக்கு பரப்பியது)</li><li>ஓரளவு கனமான எடை, அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>எடைய களிமண்ணுக்கு சுமார் 0.5 m மேலயிருந்து விடு.</li><li>அது உண்டாக்கற குழியோட ஆழத்த கவனி.</li><li>எடையோட அதே பகுதி களிமண்ண தொடற மாதிரி வெவ்வேறு உயரங்கள்ல இருந்து விட்டு மறுபடி செய்.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">விடற உயரம் கூட குழி ஆழமாகுது. குழிய உண்டாக்க எடை சக்தி கொடுத்தது, அதனால அழுத்த சக்தி உயரத்தோட கூடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"18.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"18.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 18.2: அழுத்த சக்தியும் திணிவும்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 18.2, ப.132</span>\n<p>அதே உயரத்துல கனமான பொருளுக்கு அதிக அழுத்த சக்தி இருக்குன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு பிளாஸ்டிக் போத்தல், மணல்</li><li>தரைல களிமண், அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>போத்தல்ல சுமார் கால் பங்கு மணல் நிரப்பி சுமார் 1 m உயரத்துல இருந்து களிமண் மேல விடு. குழிய கவனி.</li><li>பாதி மணல் நிரப்பி அதே உயரத்துல இருந்து விடு.</li><li>முழுசா நிரப்பி அதே உயரத்துல இருந்து விடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">திணிவு கூட குழி ஆழமாகுது. அதனால அழுத்த சக்தி திணிவோட கூடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"18.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"k\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செய்து காட்டுதல்: இயக்கச் சக்தி எதப் பொறுத்தது?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · உரு 18.4, ப.128</span>\n<p>பொருளோட வேகமும் திணிவும் அது கடத்தக்கூடிய சக்திய எப்படி மாத்துதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு சின்ன பொருள் A, ஒரு இலேசான வண்டி B</li><li>சமதளமான தரை, ஒரு அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A-ய கொஞ்சம் வேகத்தோட தள்ளி B-ய மோத விடு. B நிக்கறதுக்கு முன் எவ்வளவு தூரம் போகுதுன்னு அளவிடு.</li><li>A-ய இன்னும் வேகமா தள்ளி மறுபடி அளவிடு.</li><li>அதே வேகத்துல A-க்கு பெரிய பெரிய திணிவுகள் பயன்படுத்தி மறுபடி அளவிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">A வேகமா இருக்கும்போதும் கனமா இருக்கும்போதும் வண்டி அதிக தூரம் போகுது. அதனால இயக்கச் சக்தி வேகம், திணிவு ரெண்டையும் பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"k\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"18.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 18.1: அழுத்த சக்தியும் உயரமும்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 18.1, ப.131</span>\n<p>பொருள் எவ்வளவு உயரத்துல இருக்கோ அவ்வளவு அழுத்த சக்தி அதுக்கு இருக்குன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>களிமண் (தரைல சுமார் 3 cm தடிமனுக்கு பரப்பியது)</li><li>ஓரளவு கனமான எடை, அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>எடைய களிமண்ணுக்கு சுமார் 0.5 m மேலயிருந்து விடு.</li><li>அது உண்டாக்கற குழியோட ஆழத்த கவனி.</li><li>எடையோட அதே பகுதி களிமண்ண தொடற மாதிரி வெவ்வேறு உயரங்கள்ல இருந்து விட்டு மறுபடி செய்.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">விடற உயரம் கூட குழி ஆழமாகுது. குழிய உண்டாக்க எடை சக்தி கொடுத்தது, அதனால அழுத்த சக்தி உயரத்தோட கூடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"18.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"18.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 18.2: அழுத்த சக்தியும் திணிவும்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 18.2, ப.132</span>\n<p>அதே உயரத்துல கனமான பொருளுக்கு அதிக அழுத்த சக்தி இருக்குன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு பிளாஸ்டிக் போத்தல், மணல்</li><li>தரைல களிமண், அளவுகோல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>போத்தல்ல சுமார் கால் பங்கு மணல் நிரப்பி சுமார் 1 m உயரத்துல இருந்து களிமண் மேல விடு. குழிய கவனி.</li><li>பாதி மணல் நிரப்பி அதே உயரத்துல இருந்து விடு.</li><li>முழுசா நிரப்பி அதே உயரத்துல இருந்து விடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">திணிவு கூட குழி ஆழமாகுது. அதனால அழுத்த சக்தி திணிவோட கூடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"18.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>",
+    "si": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 උපකරණ නැද්ද?</div>\n<ul><li>කරදර වෙන්න එපා: පහත <a href=\"#lab\">විද්‍යාගාරයේ</a> ඔබට මේ අදහසම දැක ගත හැකියි. නමුත් ඇත්තටම කර බැලීමෙන් එය තවත් හොඳින් මතකයේ රැඳේ!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"k\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>නිරූපණය: චාලක ශක්තිය රඳා පවතින්නේ කුමක් මතද?</h3>\n<span class=\"act-ref\">පෙළපොත · 18.4 රූපය, 128 පිටුව</span>\n<p>වස්තුවක වේගය සහ ස්කන්ධය, එයට ලබා දිය හැකි ශක්තිය වෙනස් කරන ආකාරය සොයා බලන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>කුඩා වස්තුවක් A, සැහැල්ලු කරත්තයක් B</li><li>පැතලි පොළොවක්, ස්කෙල් එකක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>A යම් වේගයකින් තල්ලු කර B ට වදින්න සලස්වන්න. B නතර වන තුරු කොපමණ දුරක් චලනය වේදැයි මනින්න.</li><li>A වේගයෙන් තල්ලු කර නැවත මනින්න.</li><li>A සඳහා එම වේගයෙන්ම ක්‍රමයෙන් වැඩි වැඩි ස්කන්ධ භාවිතා කර නැවත මනින්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">A වේගවත් වන විටත් A බර වන විටත් කරත්තය වැඩි දුරක් යයි. එනිසා චාලක ශක්තිය රඳා පවතින්නේ ප්‍රවේගය සහ ස්කන්ධය යන දෙකම මතයි.</div></details>\n<button class=\"btn act-done\" data-act=\"k\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"18.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 18.1: විභව ශක්තිය සහ උස</h3>\n<span class=\"act-ref\">පෙළපොත · ක්‍රියාකාරකම 18.1, 131 පිටුව</span>\n<p>වස්තුවක් වැඩි උසක ඇති තරමට එයට වැඩි විභව ශක්තියක් ඇති බව පෙන්වන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>මැටි (බිම මත ආසන්න වශයෙන් 3 cm ඝනකමට පතුරවා)</li><li>තරමක් බර බරක්, ස්කෙල් එකක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>බර මැටි මතින් 0.5 m පමණ උසකින් මුදා හරින්න.</li><li>එය සාදන ගිලීමේ ගැඹුර නිරීක්ෂණය කරන්න.</li><li>බරේ එකම කොටස සෑම වාරයකම මැටි ස්පර්ශ වන සේ විවිධ උස වලින් නැවත කරන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">මුදා හරින උස වැඩි වන තරමට ගිලීම ගැඹුරු වේ. වැටෙන බර ගිලීම සෑදීමට ශක්තිය ලබා දුන්නේය, එනිසා විභව ශක්තිය උස සමඟ වැඩි වේ.</div></details>\n<button class=\"btn act-done\" data-act=\"18.1\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"18.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 18.2: විභව ශක්තිය සහ ස්කන්ධය</h3>\n<span class=\"act-ref\">පෙළපොත · ක්‍රියාකාරකම 18.2, 132 පිටුව</span>\n<p>එකම උසකදී බරින් වැඩි වස්තුවකට වැඩි විභව ශක්තියක් ඇති බව පෙන්වන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>ප්ලාස්ටික් බෝතලයක්, වැලි</li><li>බිම මත මැටි, ස්කෙල් එකක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>බෝතලයෙන් හතරෙන් එකක් පමණ වැලි පුරවා, 1 m පමණ උසකින් මැටි මතට වැටීමට හරින්න. ඇති වන ගිලීමේ ගැඹුර නිරීක්ෂණය කරන්න.</li><li>එය අඩක් වැලිවලින් පුරවා, එම උසින්ම මුදා හරින්න.</li><li>එය සම්පූර්ණයෙන් පුරවා, එම උසින්ම මුදා හරින්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">ස්කන්ධය වැඩි වන තරමට ගිලීම ගැඹුරු වේ. එනිසා විභව ශක්තිය ස්කන්ධය සමඟ වැඩි වේ.</div></details>\n<button class=\"btn act-done\" data-act=\"18.2\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>"
    }
   },
   {
@@ -304,11 +347,13 @@
    "heading": {
     "title": {
      "en": "Interactive Energy Lab",
-     "ta": "சக்தி லேப்"
+     "ta": "சக்தி லேப்",
+     "si": "අන්තර්ක්‍රියාකාරී ශක්ති විද්‍යාගාරය"
     },
     "sub": {
      "en": "Lift a mass higher or make it heavier, and watch E p = m g h",
-     "ta": "எடைய உயர்த்தி அல்லது கனமாக்கி E p = m g h-ஐ பாரு"
+     "ta": "எடைய உயர்த்தி அல்லது கனமாக்கி E p = m g h-ஐ பாரு",
+     "si": "ස්කන්ධයක් ඉහළට ඔසවන්න නැතහොත් බර කරන්න, E p = m g h බලන්න"
     }
    },
    "legacy": {
@@ -323,11 +368,13 @@
    "heading": {
     "title": {
      "en": "🎮 Energy Challenge",
-     "ta": "🎮 சக்தி சவால்"
+     "ta": "🎮 சக்தி சவால்",
+     "si": "🎮 ශක්ති අභියෝගය"
     },
     "sub": {
      "en": "Work out each answer in your head, then set the slider and check",
-     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்",
+     "si": "සෑම පිළිතුරක්ම මනසින් සොයා, පසුව ස්ලයිඩරය සකසා පරීක්ෂා කරන්න"
     }
    },
    "legacy": {
@@ -341,11 +388,13 @@
    "heading": {
     "title": {
      "en": "Self-Check Quiz",
-     "ta": "சுயபரிசோதனை குயிஸ்"
+     "ta": "சுயபரிசோதனை குயிஸ்",
+     "si": "ස්වයං පරීක්ෂා ප්‍රශ්නාවලිය"
     },
     "sub": {
      "en": "Check how much you understood before the deeper walkthroughs",
-     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க",
+     "si": "ගැඹුරු පැහැදිලි කිරීම් වලට පෙර ඔබ කොපමණ තේරුම් ගත්තාදැයි පරීක්ෂා කරන්න"
     }
    },
    "questions": [
@@ -376,7 +425,8 @@
      "answer": 1,
      "explain": {
       "en": "Work = F × d = 7.5 × 8 = 60 J.",
-      "ta": "வேலை = F × d = 7.5 × 8 = 60 J."
+      "ta": "வேலை = F × d = 7.5 × 8 = 60 J.",
+      "si": "කාර්යය = F × d = 7.5 × 8 = 60 J."
      }
     },
     {
@@ -388,25 +438,30 @@
      "options": [
       {
        "en": "Newton",
-       "ta": "நியூற்றன்"
+       "ta": "நியூற்றன்",
+       "si": "නිව්ටන්"
       },
       {
        "en": "Joule",
-       "ta": "ஜூல்"
+       "ta": "ஜூல்",
+       "si": "ජූල්"
       },
       {
        "en": "Watt",
-       "ta": "வாட்"
+       "ta": "வாட்",
+       "si": "වොට්"
       },
       {
        "en": "Pascal",
-       "ta": "பாஸ்கல்"
+       "ta": "பாஸ்கல்",
+       "si": "පැස්කල්"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "Both are measured in joules (J). The watt is the unit of power.",
-      "ta": "ரெண்டும் ஜூல்ல (J) அளக்கப்படுது. வாட் வலுவோட அலகு."
+      "ta": "ரெண்டும் ஜூல்ல (J) அளக்கப்படுது. வாட் வலுவோட அலகு.",
+      "si": "දෙකම මනින්නේ ජූල් (J) වලිනි. ජවයේ ඒකකය වොට් එකයි."
      }
     },
     {
@@ -418,25 +473,30 @@
      "options": [
       {
        "en": "Mass and velocity",
-       "ta": "திணிவு, வேகம்"
+       "ta": "திணிவு, வேகம்",
+       "si": "ස්කන්ධය සහ ප්‍රවේගය"
       },
       {
        "en": "Mass and height",
-       "ta": "திணிவு, உயரம்"
+       "ta": "திணிவு, உயரம்",
+       "si": "ස්කන්ධය සහ උස"
       },
       {
        "en": "Height and velocity",
-       "ta": "உயரம், வேகம்"
+       "ta": "உயரம், வேகம்",
+       "si": "උස සහ ප්‍රවේගය"
       },
       {
        "en": "Force and time",
-       "ta": "விசை, நேரம்"
+       "ta": "விசை, நேரம்",
+       "si": "බලය සහ කාලය"
       }
      ],
      "answer": 0,
      "explain": {
       "en": "Ek = ½ m v² has the mass m and the velocity v.",
-      "ta": "Ek = ½ m v²-ல திணிவு m, வேகம் v இருக்கு."
+      "ta": "Ek = ½ m v²-ல திணிவு m, வேகம் v இருக்கு.",
+      "si": "Ek = ½ m v² හි ස්කන්ධය m සහ ප්‍රවේගය v ඇත."
      }
     },
     {
@@ -508,25 +568,30 @@
      "options": [
       {
        "en": "Potential energy becomes kinetic energy",
-       "ta": "அழுத்த சக்தி இயக்கச் சக்தியா மாறும்"
+       "ta": "அழுத்த சக்தி இயக்கச் சக்தியா மாறும்",
+       "si": "විභව ශක්තිය චාලක ශක්තිය බවට පත්වේ"
       },
       {
        "en": "Kinetic energy becomes potential energy",
-       "ta": "இயக்கச் சக்தி அழுத்த சக்தியா மாறும்"
+       "ta": "இயக்கச் சக்தி அழுத்த சக்தியா மாறும்",
+       "si": "චාලක ශක්තිය විභව ශක්තිය බවට පත්වේ"
       },
       {
        "en": "Energy disappears",
-       "ta": "சக்தி மறைஞ்சிடும்"
+       "ta": "சக்தி மறைஞ்சிடும்",
+       "si": "ශක්තිය අතුරුදහන් වේ"
       },
       {
        "en": "Nothing changes",
-       "ta": "எதுவும் மாறாது"
+       "ta": "எதுவும் மாறாது",
+       "si": "කිසිවක් වෙනස් නොවේ"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "Speed falls and height rises, so kinetic energy changes into potential energy.",
-      "ta": "வேகம் குறைஞ்சு உயரம் கூடுது, அதனால இயக்கச் சக்தி அழுத்த சக்தியா மாறுது."
+      "ta": "வேகம் குறைஞ்சு உயரம் கூடுது, அதனால இயக்கச் சக்தி அழுத்த சக்தியா மாறுது.",
+      "si": "වේගය අඩු වී උස වැඩි වේ, එනිසා චාලක ශක්තිය විභව ශක්තිය බවට පත්වේ."
      }
     },
     {
@@ -556,7 +621,8 @@
      "answer": 1,
      "explain": {
       "en": "Power = work ÷ time = 600 ÷ 10 = 60 W.",
-      "ta": "வலு = வேலை ÷ நேரம் = 600 ÷ 10 = 60 W."
+      "ta": "வலு = வேலை ÷ நேரம் = 600 ÷ 10 = 60 W.",
+      "si": "ජවය = කාර්යය ÷ කාලය = 600 ÷ 10 = 60 W."
      }
     },
     {
@@ -568,25 +634,30 @@
      "options": [
       {
        "en": "The one who takes 5 s",
-       "ta": "5 s எடுத்தவர்"
+       "ta": "5 s எடுத்தவர்",
+       "si": "තත්පර 5ක් ගන්නා අය"
       },
       {
        "en": "The one who takes 10 s",
-       "ta": "10 s எடுத்தவர்"
+       "ta": "10 s எடுத்தவர்",
+       "si": "තත්පර 10ක් ගන්නා අය"
       },
       {
        "en": "Both have the same power",
-       "ta": "ரெண்டு பேருக்கும் சம வலு"
+       "ta": "ரெண்டு பேருக்கும் சம வலு",
+       "si": "දෙදෙනාටම එකම ජවයක් ඇත"
       },
       {
        "en": "Neither does any work",
-       "ta": "யாரும் வேலை செய்யல"
+       "ta": "யாரும் வேலை செய்யல",
+       "si": "කිසිවෙකුත් කාර්යයක් නොකරයි"
       }
      ],
      "answer": 0,
      "explain": {
       "en": "The work is the same, but the shorter time gives the larger power (P = W ÷ t).",
-      "ta": "வேலை சமம், ஆனா குறைவான நேரம் அதிக வலுவ தரும் (P = W ÷ t)."
+      "ta": "வேலை சமம், ஆனா குறைவான நேரம் அதிக வலுவ தரும் (P = W ÷ t).",
+      "si": "කාර්යය එකමයි, නමුත් අඩු කාලය වැඩි ජවයක් දෙයි (P = W ÷ t)."
      }
     }
    ]
@@ -597,11 +668,13 @@
    "heading": {
     "title": {
      "en": "🧩 Energy Sort",
-     "ta": "🧩 சக்தி சார்ட்"
+     "ta": "🧩 சக்தி சார்ட்",
+     "si": "🧩 ශක්ති වර්ග කිරීම"
     },
     "sub": {
      "en": "Two short rounds: match the terms, then sort the energy examples",
-     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் சக்தி உதாரணங்கள வரிசைப்படுத்து"
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் சக்தி உதாரணங்கள வரிசைப்படுத்து",
+     "si": "කෙටි වටයන් දෙකක්: පද ගළපන්න, ඉන්පසු ශක්ති නිදසුන් වර්ග කරන්න"
     }
    },
    "legacy": {
@@ -615,11 +688,13 @@
    "heading": {
     "title": {
      "en": "Worked Examples",
-     "ta": "படிப்படியா உதாரணங்கள்"
+     "ta": "படிப்படியா உதாரணங்கள்",
+     "si": "විසඳූ නිදසුන්"
     },
     "sub": {
      "en": "Step-by-step solutions to the textbook examples",
-     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்",
+     "si": "පෙළපොතේ නිදසුන්වල පියවරෙන් පියවර විසඳුම්"
     }
    },
    "examples": [
@@ -627,99 +702,117 @@
      "id": "w1",
      "body": {
       "en": "<div class=\"qtext\">What is the work done if a force of 7.5 N acts on an object and displaces it by 8 m in the direction of the force?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Work = force × distance moved in the direction of the force.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Work = 7.5 N × 8 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 8 = 60.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>60 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">7.5 N விசை ஒரு பொருள் மேல தாக்கி அதன் திசைலயே 8 m நகர்த்தினா செய்த வேலை என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 7.5 N × 8 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 8 = 60.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>60 J</b>.</div>"
+      "ta": "<div class=\"qtext\">7.5 N விசை ஒரு பொருள் மேல தாக்கி அதன் திசைலயே 8 m நகர்த்தினா செய்த வேலை என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 7.5 N × 8 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 8 = 60.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>60 J</b>.</div>",
+      "si": "<div class=\"qtext\">7.5 N බලයක් වස්තුවක් මත ක්‍රියා කර එය බලයේ දිශාවට 8 m ක් විස්ථාපනය කරන්නේ නම් කෙරෙන කාර්යය කොපමණද?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>කාර්යය = බලය × බලයේ දිශාවට චලනය වූ දුර.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>කාර්යය = 7.5 N × 8 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 8 = 60.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>60 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.126",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.126"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.126",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 126 පිටුව"
      }
     },
     {
      "id": "w2",
      "body": {
       "en": "<div class=\"qtext\">The weight of an object is 40 N. What is the work done in lifting the object by a vertical distance of 2 m?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>To lift the object we must push it up with a force equal to its weight: 40 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Work = 40 N × 2 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>80 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">ஒரு பொருளோட நிறை 40 N. அதை நிமிர்ந்து 2 m தூக்க செய்யும் வேலை என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>பொருளை தூக்க அதோட நிறைக்கு சமமான விசைய மேல நோக்கி கொடுக்கணும்: 40 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 40 N × 2 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>80 J</b>.</div>"
+      "ta": "<div class=\"qtext\">ஒரு பொருளோட நிறை 40 N. அதை நிமிர்ந்து 2 m தூக்க செய்யும் வேலை என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>பொருளை தூக்க அதோட நிறைக்கு சமமான விசைய மேல நோக்கி கொடுக்கணும்: 40 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 40 N × 2 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>80 J</b>.</div>",
+      "si": "<div class=\"qtext\">වස්තුවක බර 40 N වේ. වස්තුව සිරස් දුර 2 m ක් ඔසවන විට කෙරෙන කාර්යය කොපමණද?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>වස්තුව ඔසවීමට එය ඉහළට තල්ලු කළ යුතු බලය එහි බරට සමාන වේ: 40 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>කාර්යය = 40 N × 2 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>80 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.126",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.126"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.126",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 126 පිටුව"
      }
     },
     {
      "id": "w3",
      "body": {
       "en": "<div class=\"qtext\">The mass of an object is 5 kg. Find the work done in lifting it upwards by 3 m.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The weight is mg = 5 kg × 10 m s⁻² = 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The force needed to lift it is 50 N, and the height is 3 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Work = 50 N × 3 m = 150 J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>150 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">ஒரு பொருளோட திணிவு 5 kg. அதை 3 m மேல தூக்க செய்யும் வேலை?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நிறை mg = 5 kg × 10 m s⁻² = 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>தூக்க தேவையான விசை 50 N, உயரம் 3 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 50 N × 3 m = 150 J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>150 J</b>.</div>"
+      "ta": "<div class=\"qtext\">ஒரு பொருளோட திணிவு 5 kg. அதை 3 m மேல தூக்க செய்யும் வேலை?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நிறை mg = 5 kg × 10 m s⁻² = 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>தூக்க தேவையான விசை 50 N, உயரம் 3 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 50 N × 3 m = 150 J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>150 J</b>.</div>",
+      "si": "<div class=\"qtext\">වස්තුවක ස්කන්ධය 5 kg වේ. එය 3 m ක් ඉහළට ඔසවන විට කෙරෙන කාර්යය සොයන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>බර mg = 5 kg × 10 m s⁻² = 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>එය ඔසවීමට අවශ්‍ය බලය 50 N වන අතර, උස 3 m වේ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>කාර්යය = 50 N × 3 m = 150 J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>150 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.127",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.127"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.127",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 127 පිටුව"
      }
     },
     {
      "id": "w4",
      "body": {
       "en": "<div class=\"qtext\">The mass of an object is 6 kg. Calculate its kinetic energy when it moves at 4 m s⁻¹.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Kinetic energy = ½ m v².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>v² = 4 × 4 = 16. So Ek = ½ × 6 × 16.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>½ × 6 = 3, and 3 × 16 = 48.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>48 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">ஒரு பொருளோட திணிவு 6 kg. அது 4 m s⁻¹-ல ஓடும்போது இயக்கச் சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இயக்கச் சக்தி = ½ m v².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>v² = 4 × 4 = 16. அதனால Ek = ½ × 6 × 16.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>½ × 6 = 3, 3 × 16 = 48.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>48 J</b>.</div>"
+      "ta": "<div class=\"qtext\">ஒரு பொருளோட திணிவு 6 kg. அது 4 m s⁻¹-ல ஓடும்போது இயக்கச் சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இயக்கச் சக்தி = ½ m v².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>v² = 4 × 4 = 16. அதனால Ek = ½ × 6 × 16.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>½ × 6 = 3, 3 × 16 = 48.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>48 J</b>.</div>",
+      "si": "<div class=\"qtext\">වස්තුවක ස්කන්ධය 6 kg වේ. එය 4 m s⁻¹ ප්‍රවේගයෙන් චලනය වන විට එහි චාලක ශක්තිය ගණනය කරන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>චාලක ශක්තිය = ½ m v².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>v² = 4 × 4 = 16. So Ek = ½ × 6 × 16.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>½ × 6 = 3, සහ 3 × 16 = 48.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>48 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.129",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.129"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.129",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 129 පිටුව"
      }
     },
     {
      "id": "w5",
      "body": {
       "en": "<div class=\"qtext\">Calculate the kinetic energy of an object of mass 4 kg at an instant that it is moving with a velocity of 2 m s⁻¹.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Ek = ½ m v² = ½ × 4 × 2².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>2² = 4, so Ek = ½ × 4 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>8 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">4 kg திணிவுள்ள பொருள் 2 m s⁻¹ வேகத்துல ஓடும் கணத்துல இயக்கச் சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Ek = ½ m v² = ½ × 4 × 2².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>2² = 4, அதனால Ek = ½ × 4 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>8 J</b>.</div>"
+      "ta": "<div class=\"qtext\">4 kg திணிவுள்ள பொருள் 2 m s⁻¹ வேகத்துல ஓடும் கணத்துல இயக்கச் சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Ek = ½ m v² = ½ × 4 × 2².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>2² = 4, அதனால Ek = ½ × 4 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>8 J</b>.</div>",
+      "si": "<div class=\"qtext\">ස්කන්ධය 4 kg වන වස්තුවක් 2 m s⁻¹ ප්‍රවේගයෙන් චලනය වන මොහොතේ එහි චාලක ශක්තිය ගණනය කරන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>Ek = ½ m v² = ½ × 4 × 2².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>2² = 4, so Ek = ½ × 4 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>8 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.129",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.129"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.129",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 129 පිටුව"
      }
     },
     {
      "id": "w6",
      "body": {
       "en": "<div class=\"qtext\">Find the gravitational potential energy of an object of mass 7.5 kg at a vertical height of 4 m.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Potential energy = m g h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>= 7.5 kg × 10 m s⁻² × 4 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 10 = 75 and 75 × 4 = 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>300 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">7.5 kg திணிவு உள்ள பொருள் 4 m நிமிர்ந்த உயரத்துல இருக்கும்போது ஈர்ப்பு அழுத்த சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>அழுத்த சக்தி = m g h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>= 7.5 kg × 10 m s⁻² × 4 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 10 = 75, 75 × 4 = 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>300 J</b>.</div>"
+      "ta": "<div class=\"qtext\">7.5 kg திணிவு உள்ள பொருள் 4 m நிமிர்ந்த உயரத்துல இருக்கும்போது ஈர்ப்பு அழுத்த சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>அழுத்த சக்தி = m g h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>= 7.5 kg × 10 m s⁻² × 4 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 10 = 75, 75 × 4 = 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>300 J</b>.</div>",
+      "si": "<div class=\"qtext\">ස්කන්ධය 7.5 kg වන වස්තුවක සිරස් උස 4 m වන විට එහි ගුරුත්වාකර්ෂණ විභව ශක්තිය සොයන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>විභව ශක්තිය = m g h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>= 7.5 kg × 10 m s⁻² × 4 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>7.5 × 10 = 75 සහ 75 × 4 = 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>300 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.134",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.134"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.134",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 134 පිටුව"
      }
     },
     {
      "id": "w7",
      "body": {
       "en": "<div class=\"qtext\">A fruit on a tree has a mass of 200 g. The vertical height to the fruit from the ground is 4 m. Find the gravitational potential energy of the fruit.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Convert the mass first: 200 g = 200 ÷ 1000 kg = 0.2 kg.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Ep = m g h = 0.2 × 10 × 4.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>0.2 × 10 = 2 and 2 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>8 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">மரத்துல ஒரு பழத்தோட திணிவு 200 g. தரைல இருந்து பழத்துக்கு நிமிர்ந்த உயரம் 4 m. பழத்தோட ஈர்ப்பு அழுத்த சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முதல்ல திணிவ மாத்து: 200 g = 200 ÷ 1000 kg = 0.2 kg.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Ep = m g h = 0.2 × 10 × 4.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>0.2 × 10 = 2, 2 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>8 J</b>.</div>"
+      "ta": "<div class=\"qtext\">மரத்துல ஒரு பழத்தோட திணிவு 200 g. தரைல இருந்து பழத்துக்கு நிமிர்ந்த உயரம் 4 m. பழத்தோட ஈர்ப்பு அழுத்த சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முதல்ல திணிவ மாத்து: 200 g = 200 ÷ 1000 kg = 0.2 kg.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Ep = m g h = 0.2 × 10 × 4.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>0.2 × 10 = 2, 2 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>8 J</b>.</div>",
+      "si": "<div class=\"qtext\">ගසක ඇති පලතුරක ස්කන්ධය 200 g වේ. බිමේ සිට පලතුර දක්වා සිරස් උස 4 m වේ. පලතුරේ ගුරුත්වාකර්ෂණ විභව ශක්තිය සොයන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>පළමුව ස්කන්ධය පරිවර්තනය කරන්න: 200 g = 200 ÷ 1000 kg = 0.2 kg.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>Ep = m g h = 0.2 × 10 × 4.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>0.2 × 10 = 2 සහ 2 × 4 = 8.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>8 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.134",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.134"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.134",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 134 පිටුව"
      }
     },
     {
      "id": "w8",
      "body": {
       "en": "<div class=\"qtext\">The time taken to lift a mass of 5 kg to a height of 8 m is 10 s. Calculate the rate of doing work (power).</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Weight = mg = 5 × 10 = 50 N, so the force to lift it is 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Work = 50 N × 8 m = 400 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Power = work ÷ time = 400 J ÷ 10 s = 40 J s⁻¹.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>40 W</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">5 kg திணிவை 8 m உயரத்துக்கு தூக்க 10 s ஆகுது. வேலை செய்யும் வீதத்த (வலு) கணக்கிடு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நிறை = mg = 5 × 10 = 50 N, அதனால தூக்க விசை 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 50 N × 8 m = 400 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = வேலை ÷ நேரம் = 400 J ÷ 10 s = 40 J s⁻¹.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>40 W</b>.</div>"
+      "ta": "<div class=\"qtext\">5 kg திணிவை 8 m உயரத்துக்கு தூக்க 10 s ஆகுது. வேலை செய்யும் வீதத்த (வலு) கணக்கிடு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நிறை = mg = 5 × 10 = 50 N, அதனால தூக்க விசை 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வேலை = 50 N × 8 m = 400 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = வேலை ÷ நேரம் = 400 J ÷ 10 s = 40 J s⁻¹.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>40 W</b>.</div>",
+      "si": "<div class=\"qtext\">5 kg ස්කන්ධයක් 8 m උසකට ඔසවීමට ගත වන කාලය තත්පර 10කි. කාර්යය කිරීමේ ශීඝ්‍රතාවය (ජවය) ගණනය කරන්න.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>බර = mg = 5 × 10 = 50 N, එනිසා එය ඔසවීමට අවශ්‍ය බලය 50 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>කාර්යය = 50 N × 8 m = 400 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>ජවය = කාර්යය ÷ කාලය = 400 J ÷ 10 s = 40 J s⁻¹.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>40 W</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.136–137",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.136–137"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.136–137",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 136–137 පිටුව"
      }
     },
     {
      "id": "w9",
      "body": {
       "en": "<div class=\"qtext\">What is the work done in a minute by a machine operating with a power output of 100 W?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Power = 100 W = 100 J s⁻¹. Time = 1 minute = 60 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>From power = work ÷ time we get work = power × time = 100 J s⁻¹ × 60 s.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>6000 J</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">100 W வலு தரும் இயந்திரம் ஒரு நிமிஷத்துல செய்யும் வேலை?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = 100 W = 100 J s⁻¹. நேரம் = 1 நிமிஷம் = 60 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = வேலை ÷ நேரம்-ல இருந்து வேலை = வலு × நேரம் = 100 J s⁻¹ × 60 s.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>6000 J</b>.</div>"
+      "ta": "<div class=\"qtext\">100 W வலு தரும் இயந்திரம் ஒரு நிமிஷத்துல செய்யும் வேலை?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = 100 W = 100 J s⁻¹. நேரம் = 1 நிமிஷம் = 60 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>வலு = வேலை ÷ நேரம்-ல இருந்து வேலை = வலு × நேரம் = 100 J s⁻¹ × 60 s.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>6000 J</b>.</div>",
+      "si": "<div class=\"qtext\">ජව ප්‍රතිදානය 100 W වන යන්ත්‍රයක් විනාඩියක දී කරන කාර්යය කොපමණද?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>ජවය = 100 W = 100 J s⁻¹. කාලය = විනාඩි 1 = 60 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2</span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>ජවය = කාර්යය ÷ කාලය සිට අපට කාර්යය = ජවය × කාලය = 100 J s⁻¹ × 60 s ලැබේ.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> <b>6000 J</b>.</div>"
      },
      "tag": {
       "en": "Textbook example · Ch.18, p.137",
-      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.137"
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 18, ப.137",
+      "si": "පෙළපොතේ නිදසුන · 18 පරිච්ඡේදය, 137 පිටුව"
      }
     }
    ]
@@ -730,18 +823,21 @@
    "heading": {
     "title": {
      "en": "Practice Exercises",
-     "ta": "பயிற்சி வினாக்கள்"
+     "ta": "பயிற்சி வினாக்கள்",
+     "si": "පුහුණු අභ්‍යාස"
     },
     "sub": {
      "en": "Every practice question from the textbook, each with a worked solution",
-     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு",
+     "si": "පෙළපොතේ සෑම පුහුණු ප්‍රශ්නයක්ම, විසඳුම සහිතව"
     }
    },
    "groups": [
     {
      "chip": {
       "en": "Exercise 18.1",
-      "ta": "பயிற்சி 18.1"
+      "ta": "பயிற்சி 18.1",
+      "si": "අභ්‍යාසය 18.1"
      },
      "items": [
       {
@@ -749,11 +845,13 @@
        "num": "1",
        "prompt": {
         "en": "<div class=\"exq\"><span>Force 20 N, displacement of force 2 m. Work done = ?</span></div>",
-        "ta": "<div class=\"exq\"><span>விசை 20 N, விசையோட இடப்பெயர்ச்சி 2 m. செய்த வேலை = ?</span></div>"
+        "ta": "<div class=\"exq\"><span>விசை 20 N, விசையோட இடப்பெயர்ச்சி 2 m. செய்த வேலை = ?</span></div>",
+        "si": "<div class=\"exq\"><span>බලය 20 N, බලයේ විස්ථාපනය 2 m. කළ කාර්යය = ?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Work = F × d = 20 × 2 = <b>40 J</b></div>",
-        "ta": "<div class=\"work\">வேலை = F × d = 20 × 2 = <b>40 J</b></div>"
+        "ta": "<div class=\"work\">வேலை = F × d = 20 × 2 = <b>40 J</b></div>",
+        "si": "<div class=\"work\">කාර්යය = F × d = 20 × 2 = <b>40 J</b></div>"
        }
       },
       {
@@ -761,11 +859,13 @@
        "num": "2",
        "prompt": {
         "en": "<div class=\"exq\"><span>Displacement 80 cm, work done 24 J. Force = ?</span></div>",
-        "ta": "<div class=\"exq\"><span>இடப்பெயர்ச்சி 80 cm, செய்த வேலை 24 J. விசை = ?</span></div>"
+        "ta": "<div class=\"exq\"><span>இடப்பெயர்ச்சி 80 cm, செய்த வேலை 24 J. விசை = ?</span></div>",
+        "si": "<div class=\"exq\"><span>විස්ථාපනය 80 cm, කළ කාර්යය 24 J. බලය = ?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">d = 80 cm = 0.8 m</div><div class=\"work\">F = work ÷ d = 24 ÷ 0.8 = <b>30 N</b></div>",
-        "ta": "<div class=\"work\">d = 80 cm = 0.8 m</div><div class=\"work\">F = வேலை ÷ d = 24 ÷ 0.8 = <b>30 N</b></div>"
+        "ta": "<div class=\"work\">d = 80 cm = 0.8 m</div><div class=\"work\">F = வேலை ÷ d = 24 ÷ 0.8 = <b>30 N</b></div>",
+        "si": "<div class=\"work\">d = 80 cm = 0.8 m</div><div class=\"work\">F = කාර්යය ÷ d = 24 ÷ 0.8 = <b>30 N</b></div>"
        }
       },
       {
@@ -773,11 +873,13 @@
        "num": "3",
        "prompt": {
         "en": "<div class=\"exq\"><span>Force 15 N, work done 22.5 J. Displacement = ?</span></div>",
-        "ta": "<div class=\"exq\"><span>விசை 15 N, செய்த வேலை 22.5 J. இடப்பெயர்ச்சி = ?</span></div>"
+        "ta": "<div class=\"exq\"><span>விசை 15 N, செய்த வேலை 22.5 J. இடப்பெயர்ச்சி = ?</span></div>",
+        "si": "<div class=\"exq\"><span>බලය 15 N, කළ කාර්යය 22.5 J. විස්ථාපනය = ?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">d = work ÷ F = 22.5 ÷ 15 = <b>1.5 m</b></div>",
-        "ta": "<div class=\"work\">d = வேலை ÷ F = 22.5 ÷ 15 = <b>1.5 m</b></div>"
+        "ta": "<div class=\"work\">d = வேலை ÷ F = 22.5 ÷ 15 = <b>1.5 m</b></div>",
+        "si": "<div class=\"work\">d = කාර්යය ÷ F = 22.5 ÷ 15 = <b>1.5 m</b></div>"
        }
       },
       {
@@ -785,23 +887,27 @@
        "num": "4",
        "prompt": {
         "en": "<div class=\"exq\"><span>Force 0.75 N, displacement 8 m. Work done = ?</span></div>",
-        "ta": "<div class=\"exq\"><span>விசை 0.75 N, இடப்பெயர்ச்சி 8 m. செய்த வேலை = ?</span></div>"
+        "ta": "<div class=\"exq\"><span>விசை 0.75 N, இடப்பெயர்ச்சி 8 m. செய்த வேலை = ?</span></div>",
+        "si": "<div class=\"exq\"><span>බලය 0.75 N, විස්ථාපනය 8 m. කළ කාර්යය = ?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Work = 0.75 × 8 = <b>6 J</b></div>",
-        "ta": "<div class=\"work\">வேலை = 0.75 × 8 = <b>6 J</b></div>"
+        "ta": "<div class=\"work\">வேலை = 0.75 × 8 = <b>6 J</b></div>",
+        "si": "<div class=\"work\">කාර්යය = 0.75 × 8 = <b>6 J</b></div>"
        }
       }
      ],
      "title": {
       "en": "Work · p.127 (fill the table)",
-      "ta": "வேலை · ப.127 (அட்டவணைய நிரப்பு)"
+      "ta": "வேலை · ப.127 (அட்டவணைய நிரப்பு)",
+      "si": "කාර්යය · 127 පිටුව (වගුව පුරවන්න)"
      }
     },
     {
      "chip": {
       "en": "Exercise 18.2",
-      "ta": "பயிற்சி 18.2"
+      "ta": "பயிற்சி 18.2",
+      "si": "අභ්‍යාසය 18.2"
      },
      "items": [
       {
@@ -809,7 +915,8 @@
        "num": "1",
        "prompt": {
         "en": "<div class=\"exq\"><span>The mass of a dog is 10 kg. If its kinetic energy is 20 J at a certain instant, what velocity is it running at?</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு நாயோட திணிவு 10 kg. ஒரு கணத்துல அதோட இயக்கச் சக்தி 20 J என்றா அது எந்த வேகத்துல ஓடுது?</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு நாயோட திணிவு 10 kg. ஒரு கணத்துல அதோட இயக்கச் சக்தி 20 J என்றா அது எந்த வேகத்துல ஓடுது?</span></div>",
+        "si": "<div class=\"exq\"><span>බල්ලෙකුගේ ස්කන්ධය 10 kg වේ. යම් මොහොතක එහි චාලක ශක්තිය 20 J නම්, එය දුවන ප්‍රවේගය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Ek = ½ m v²  →  20 = ½ × 10 × v² = 5 v²</div><div class=\"work\">v² = 20 ÷ 5 = 4,  v = <b>2 m s<sup>-1</sup></b></div>",
@@ -821,7 +928,8 @@
        "num": "2",
        "prompt": {
         "en": "<div class=\"exq\"><span>The kinetic energy of an object of mass 500 g is 9 J when it is moving with a certain velocity. Calculate the velocity at that instant.</span></div>",
-        "ta": "<div class=\"exq\"><span>500 g திணிவு உள்ள பொருளோட இயக்கச் சக்தி ஒரு வேகத்துல 9 J. அந்த கணத்துல வேகத்த கணக்கிடு.</span></div>"
+        "ta": "<div class=\"exq\"><span>500 g திணிவு உள்ள பொருளோட இயக்கச் சக்தி ஒரு வேகத்துல 9 J. அந்த கணத்துல வேகத்த கணக்கிடு.</span></div>",
+        "si": "<div class=\"exq\"><span>ස්කන්ධය 500 g වන වස්තුවක් යම් ප්‍රවේගයකින් චලනය වන විට එහි චාලක ශක්තිය 9 J වේ. එම මොහොතේ ප්‍රවේගය ගණනය කරන්න.</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">m = 500 g = 0.5 kg</div><div class=\"work\">9 = ½ × 0.5 × v² = 0.25 v²</div><div class=\"work\">v² = 9 ÷ 0.25 = 36,  v = <b>6 m s<sup>-1</sup></b></div>",
@@ -831,13 +939,15 @@
      ],
      "title": {
       "en": "Kinetic energy · p.129",
-      "ta": "இயக்கச் சக்தி · ப.129"
+      "ta": "இயக்கச் சக்தி · ப.129",
+      "si": "චාලක ශක්තිය · 129 පිටුව"
      }
     },
     {
      "chip": {
       "en": "Miscellaneous exercises",
-      "ta": "கலப்பு பயிற்சிகள்"
+      "ta": "கலப்பு பயிற்சிகள்",
+      "si": "විවිධ අභ්‍යාස"
      },
      "items": [
       {
@@ -845,11 +955,13 @@
        "num": "1(i)",
        "prompt": {
         "en": "<div class=\"exq\"><span>A child lifts a bag of mass 4 kg to a height of 1.5 m. What is the work done? (g = 10 m s⁻²)</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு குழந்தை 4 kg திணிவு உள்ள பையை 1.5 m உயரத்துக்கு தூக்குது. செய்த வேலை? (g = 10 m s⁻²)</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு குழந்தை 4 kg திணிவு உள்ள பையை 1.5 m உயரத்துக்கு தூக்குது. செய்த வேலை? (g = 10 m s⁻²)</span></div>",
+        "si": "<div class=\"exq\"><span>දරුවෙක් ස්කන්ධය 4 kg වන බෑගයක් 1.5 m උසකට ඔසවයි. කෙරෙන කාර්යය කොපමණද? (g = 10 m s⁻²)</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Weight = 4 × 10 = 40 N</div><div class=\"work\">Work = 40 × 1.5 = <b>60 J</b></div>",
-        "ta": "<div class=\"work\">நிறை = 4 × 10 = 40 N</div><div class=\"work\">வேலை = 40 × 1.5 = <b>60 J</b></div>"
+        "ta": "<div class=\"work\">நிறை = 4 × 10 = 40 N</div><div class=\"work\">வேலை = 40 × 1.5 = <b>60 J</b></div>",
+        "si": "<div class=\"work\">බර = 4 × 10 = 40 N</div><div class=\"work\">කාර්යය = 40 × 1.5 = <b>60 J</b></div>"
        }
       },
       {
@@ -857,11 +969,13 @@
        "num": "1(ii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>If the child took 3 seconds to do the work above, what is the rate of doing work (power)?</span></div>",
-        "ta": "<div class=\"exq\"><span>மேல உள்ள வேலைய செய்ய குழந்தைக்கு 3 வினாடி ஆச்சுன்னா வலு என்ன?</span></div>"
+        "ta": "<div class=\"exq\"><span>மேல உள்ள வேலைய செய்ய குழந்தைக்கு 3 வினாடி ஆச்சுன்னா வலு என்ன?</span></div>",
+        "si": "<div class=\"exq\"><span>ළමයා ඉහත කාර්යය කිරීමට තත්පර 3ක් ගත්තා නම්, කාර්යය කිරීමේ ශීඝ්‍රතාවය (ජවය) කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Power = work ÷ time = 60 ÷ 3 = <b>20 W</b></div>",
-        "ta": "<div class=\"work\">வலு = வேலை ÷ நேரம் = 60 ÷ 3 = <b>20 W</b></div>"
+        "ta": "<div class=\"work\">வலு = வேலை ÷ நேரம் = 60 ÷ 3 = <b>20 W</b></div>",
+        "si": "<div class=\"work\">ජවය = කාර්යය ÷ කාලය = 60 ÷ 3 = <b>20 W</b></div>"
        }
       },
       {
@@ -869,11 +983,13 @@
        "num": "2(i)",
        "prompt": {
         "en": "<div class=\"exq\"><span>A mass of 800 g is projected vertically upwards at a velocity of 20 m s⁻¹. What is its kinetic energy just as it is projected?</span></div>",
-        "ta": "<div class=\"exq\"><span>800 g திணிவு 20 m s⁻¹ வேகத்துல நிமிர்ந்து மேல எறியப்படுது. எறியப்படும் கணத்துல இயக்கச் சக்தி?</span></div>"
+        "ta": "<div class=\"exq\"><span>800 g திணிவு 20 m s⁻¹ வேகத்துல நிமிர்ந்து மேல எறியப்படுது. எறியப்படும் கணத்துல இயக்கச் சக்தி?</span></div>",
+        "si": "<div class=\"exq\"><span>ස්කන්ධය 800 g වන වස්තුවක් 20 m s⁻¹ ප්‍රවේගයෙන් සිරස්ව ඉහළට ප්‍රක්ෂේප කරයි. ප්‍රක්ෂේප කළ මොහොතේ එහි චාලක ශක්තිය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">m = 0.8 kg</div><div class=\"work\">Ek = ½ m v² = ½ × 0.8 × 20² = 0.4 × 400 = <b>160 J</b></div>",
-        "ta": "<div class=\"work\">m = 0.8 kg</div><div class=\"work\">Ek = ½ m v² = ½ × 0.8 × 20² = 0.4 × 400 = <b>160 J</b></div>"
+        "ta": "<div class=\"work\">m = 0.8 kg</div><div class=\"work\">Ek = ½ m v² = ½ × 0.8 × 20² = 0.4 × 400 = <b>160 J</b></div>",
+        "si": "<div class=\"work\">m = 0.8 kg</div><div class=\"work\">Ek = ½ m v² = ½ × 0.8 × 20² = 0.4 × 400 = <b>160 J</b></div>"
        }
       },
       {
@@ -881,11 +997,13 @@
        "num": "2(ii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>How long will it take to reach the maximum height?</span></div>",
-        "ta": "<div class=\"exq\"><span>அதிகபட்ச உயரத்த அடைய எவ்வளவு நேரம் ஆகும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>அதிகபட்ச உயரத்த அடைய எவ்வளவு நேரம் ஆகும்?</span></div>",
+        "si": "<div class=\"exq\"><span>උපරිම උසට ළඟා වීමට කොපමණ කාලයක් ගතවේද?</span></div>"
        },
        "answer": {
         "en": "Going up, the velocity falls by 10 m s<sup>-1</sup> every second (g = 10 m s<sup>-2</sup>), from 20 to 0:<div class=\"work\">t = v ÷ g = 20 ÷ 10 = <b>2 s</b></div>",
-        "ta": "மேல போறப்ப வேகம் ஒவ்வொரு வினாடியும் 10 m s<sup>-1</sup> குறையுது (g = 10 m s<sup>-2</sup>), 20-ல இருந்து 0 வரை:<div class=\"work\">t = v ÷ g = 20 ÷ 10 = <b>2 s</b></div>"
+        "ta": "மேல போறப்ப வேகம் ஒவ்வொரு வினாடியும் 10 m s<sup>-1</sup> குறையுது (g = 10 m s<sup>-2</sup>), 20-ல இருந்து 0 வரை:<div class=\"work\">t = v ÷ g = 20 ÷ 10 = <b>2 s</b></div>",
+        "si": "ඉහළ යන විට ප්‍රවේගය සෑම තත්පරයකම 10 m s<sup>-1</sup> කින් අඩු වේ (g = 10 m s<sup>-2</sup>), 20 සිට 0 දක්වා:<div class=\"work\">t = v ÷ g = 20 ÷ 10 = <b>2 s</b></div>"
        }
       },
       {
@@ -893,11 +1011,13 @@
        "num": "2(iii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>What is the maximum height it reaches?</span></div>",
-        "ta": "<div class=\"exq\"><span>அது அடையும் அதிகபட்ச உயரம் என்ன?</span></div>"
+        "ta": "<div class=\"exq\"><span>அது அடையும் அதிகபட்ச உயரம் என்ன?</span></div>",
+        "si": "<div class=\"exq\"><span>එය ළඟා වන උපරිම උස කොපමණද?</span></div>"
        },
        "answer": {
         "en": "At the top all the kinetic energy has become potential energy: m g h = 160, so 0.8 × 10 × h = 160.<div class=\"work\">h = 160 ÷ 8 = <b>20 m</b></div>(Check with the speeds: average speed 10 m s<sup>-1</sup> × 2 s = 20 m.)",
-        "ta": "உச்சில எல்லா இயக்கச் சக்தியும் அழுத்த சக்தியா மாறிடும்: m g h = 160, அதனால 0.8 × 10 × h = 160.<div class=\"work\">h = 160 ÷ 8 = <b>20 m</b></div>(வேகங்களால சரிபார்: சராசரி வேகம் 10 m s<sup>-1</sup> × 2 s = 20 m.)"
+        "ta": "உச்சில எல்லா இயக்கச் சக்தியும் அழுத்த சக்தியா மாறிடும்: m g h = 160, அதனால 0.8 × 10 × h = 160.<div class=\"work\">h = 160 ÷ 8 = <b>20 m</b></div>(வேகங்களால சரிபார்: சராசரி வேகம் 10 m s<sup>-1</sup> × 2 s = 20 m.)",
+        "si": "ඉහළදී සියලු චාලක ශක්තිය විභව ශක්තිය බවට පත්ව ඇත: m g h = 160, එනිසා 0.8 × 10 × h = 160.<div class=\"work\">h = 160 ÷ 8 = <b>20 m</b></div>(වේග සමඟ පරීක්ෂා කරන්න: සාමාන්‍ය වේගය 10 m s<sup>-1</sup> × 2 s = 20 m.)"
        }
       },
       {
@@ -905,11 +1025,13 @@
        "num": "2(iv)",
        "prompt": {
         "en": "<div class=\"exq\"><span>What is its potential energy at the maximum height?</span></div>",
-        "ta": "<div class=\"exq\"><span>அதிகபட்ச உயரத்துல அதோட அழுத்த சக்தி என்ன?</span></div>"
+        "ta": "<div class=\"exq\"><span>அதிகபட்ச உயரத்துல அதோட அழுத்த சக்தி என்ன?</span></div>",
+        "si": "<div class=\"exq\"><span>උපරිම උසේදී එහි විභව ශක්තිය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Ep = m g h = 0.8 × 10 × 20 = <b>160 J</b></div>It equals the kinetic energy at the start: no energy was lost.",
-        "ta": "<div class=\"work\">Ep = m g h = 0.8 × 10 × 20 = <b>160 J</b></div>இது ஆரம்பத்து இயக்கச் சக்திக்கு சமம்: சக்தி எதுவும் இழக்கப்படல."
+        "ta": "<div class=\"work\">Ep = m g h = 0.8 × 10 × 20 = <b>160 J</b></div>இது ஆரம்பத்து இயக்கச் சக்திக்கு சமம்: சக்தி எதுவும் இழக்கப்படல.",
+        "si": "<div class=\"work\">Ep = m g h = 0.8 × 10 × 20 = <b>160 J</b></div>එය ආරම්භයේ චාලක ශක්තියට සමානයි: කිසිම ශක්තියක් නැති වී නැහැ."
        }
       },
       {
@@ -917,11 +1039,13 @@
        "num": "3(i)",
        "prompt": {
         "en": "<div class=\"exq\"><span>A child of mass 35 kg climbs a staircase to a vertical height of 4 m. What is the amount of work he does?</span></div>",
-        "ta": "<div class=\"exq\"><span>35 kg திணிவுள்ள குழந்தை படிக்கட்டுல 4 m நிமிர்ந்த உயரத்துக்கு ஏறுது. அவன் செய்யும் வேலை எவ்வளவு?</span></div>"
+        "ta": "<div class=\"exq\"><span>35 kg திணிவுள்ள குழந்தை படிக்கட்டுல 4 m நிமிர்ந்த உயரத்துக்கு ஏறுது. அவன் செய்யும் வேலை எவ்வளவு?</span></div>",
+        "si": "<div class=\"exq\"><span>ස්කන්ධය 35 kg වන දරුවෙක් පඩිපෙළක් දිගේ සිරස් උස 4 m ක් නගියි. ඔහු කරන කාර්ය ප්‍රමාණය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">Weight = 35 × 10 = 350 N</div><div class=\"work\">Work = 350 × 4 = <b>1400 J</b></div>",
-        "ta": "<div class=\"work\">நிறை = 35 × 10 = 350 N</div><div class=\"work\">வேலை = 350 × 4 = <b>1400 J</b></div>"
+        "ta": "<div class=\"work\">நிறை = 35 × 10 = 350 N</div><div class=\"work\">வேலை = 350 × 4 = <b>1400 J</b></div>",
+        "si": "<div class=\"work\">බර = 35 × 10 = 350 N</div><div class=\"work\">කාර්යය = 350 × 4 = <b>1400 J</b></div>"
        }
       },
       {
@@ -929,17 +1053,20 @@
        "num": "3(ii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>If he took 1 minute to climb the stairs, what is his rate of doing work or power?</span></div>",
-        "ta": "<div class=\"exq\"><span>படிக்கட்டு ஏற 1 நிமிஷம் ஆச்சுன்னா அவனோட வேலை செய்யும் வீதம் (வலு) என்ன?</span></div>"
+        "ta": "<div class=\"exq\"><span>படிக்கட்டு ஏற 1 நிமிஷம் ஆச்சுன்னா அவனோட வேலை செய்யும் வீதம் (வலு) என்ன?</span></div>",
+        "si": "<div class=\"exq\"><span>ඔහු පඩිපෙළ නැගීමට විනාඩියක් ගත්තා නම්, ඔහුගේ කාර්යය කිරීමේ ශීඝ්‍රතාවය හෙවත් ජවය කොපමණද?</span></div>"
        },
        "answer": {
         "en": "<div class=\"work\">t = 1 min = 60 s</div><div class=\"work\">Power = 1400 ÷ 60 = <b>23.3 W</b> (about 23 W)</div>",
-        "ta": "<div class=\"work\">t = 1 நிமிஷம் = 60 s</div><div class=\"work\">வலு = 1400 ÷ 60 = <b>23.3 W</b> (சுமார் 23 W)</div>"
+        "ta": "<div class=\"work\">t = 1 நிமிஷம் = 60 s</div><div class=\"work\">வலு = 1400 ÷ 60 = <b>23.3 W</b> (சுமார் 23 W)</div>",
+        "si": "<div class=\"work\">t = 1 මිනි. = 60 s</div><div class=\"work\">ජවය = 1400 ÷ 60 = <b>23.3 W</b> (23 W පමණ)</div>"
        }
       }
      ],
      "title": {
       "en": "Work, energy and power · p.137–138",
-      "ta": "வேலை, சக்தி, வலு · ப.137–138"
+      "ta": "வேலை, சக்தி, வலு · ப.137–138",
+      "si": "කාර්යය, ශක්තිය සහ ජවය · 137–138 පිටුව"
      }
     }
    ]
@@ -950,29 +1077,35 @@
    "heading": {
     "title": {
      "en": "Fun Recap",
-     "ta": "ஜாலி ரிகேப்"
+     "ta": "ஜாலி ரிகேப்",
+     "si": "විනෝද සාරාංශය"
     },
     "sub": {
      "en": "Raja and Chittu go over the whole lesson once more, the fun way",
-     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு",
+     "si": "රාජා සහ චිට්ටු මුළු පාඩමම නැවත වරක් විනෝදජනක ලෙස පෙරළා බලනවා"
     }
    },
    "cards": [
     {
      "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚲</div><div class=\"cm-b r\"><i>Raja:</i> <span>I stopped pedalling but my bike still climbed the hill. How?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Moving things have kinetic energy, Ek = ½ m v². Going up it turns into potential energy, Ep = m g h.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏋️</div><div class=\"cm-b r\"><i>Raja:</i> <span>We both lifted the same bag, but you finished first!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⏱️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Same work, less time: more power! Power = work ÷ time, in watts.</span></div></div>\n</div>",
-     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚲</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நான் பெடல் அழுத்தறத நிறுத்தினேன், ஆனாலும் சைக்கிள் மலை ஏறிச்சு. எப்படி?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>ஓடற பொருட்களுக்கு இயக்கச் சக்தி, Ek = ½ m v². மேல போறப்ப அது அழுத்த சக்தியா மாறுது, Ep = m g h.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏋️</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நாம ரெண்டு பேரும் ஒரே பைய தூக்கினோம், ஆனா நீதான் முன்னாடி முடிச்ச!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⏱️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>அதே வேலை, குறைவான நேரம்: அதிக வலு! வலு = வேலை ÷ நேரம், வாட்-ல.</span></div></div>\n</div>"
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚲</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நான் பெடல் அழுத்தறத நிறுத்தினேன், ஆனாலும் சைக்கிள் மலை ஏறிச்சு. எப்படி?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>ஓடற பொருட்களுக்கு இயக்கச் சக்தி, Ek = ½ m v². மேல போறப்ப அது அழுத்த சக்தியா மாறுது, Ep = m g h.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏋️</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நாம ரெண்டு பேரும் ஒரே பைய தூக்கினோம், ஆனா நீதான் முன்னாடி முடிச்ச!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⏱️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>அதே வேலை, குறைவான நேரம்: அதிக வலு! வலு = வேலை ÷ நேரம், வாட்-ல.</span></div></div>\n</div>",
+     "si": "<h3>📖 රාජාගේ විකට කතාව</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚲</div><div class=\"cm-b r\"><i>රාජා:</i> <span>මම පැඩල් නවත්වුවත් මගේ බයිසිකලය තවමත් කන්ද නැග්ගා. කොහොමද?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>චලනය වන දේවල චාලක ශක්තිය ඇත, Ek = ½ m v². ඉහළ යන විට එය විභව ශක්තිය බවට පත්වේ, Ep = m g h.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏋️</div><div class=\"cm-b r\"><i>රාජා:</i> <span>අපි දෙන්නම එකම බෑගය ඔසවුවා, නමුත් ඔබ කලින් ඉවර කළා!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⏱️</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>එකම කාර්යය, අඩු කාලය: වැඩි ජවය! ජවය = කාර්යය ÷ කාලය, වොට් වලින්.</span></div></div>\n</div>"
     },
     {
      "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Work is force times distance gone,<br/>energy lets the work go on.<br/>Move it fast: ½ m v squared,<br/>lift it high: m g h is there!</div>",
-     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">விசை × தூரம் வேலை ஆகும்,<br/>சக்தி இருந்தா வேலை நடக்கும்.<br/>ஓடுனா ½ m v² சக்தி,<br/>உயர்த்தினா m g h சக்தி!</div>"
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">விசை × தூரம் வேலை ஆகும்,<br/>சக்தி இருந்தா வேலை நடக்கும்.<br/>ஓடுனா ½ m v² சக்தி,<br/>உயர்த்தினா m g h சக்தி!</div>",
+     "si": "<h3>🎵 මතක ගීතය</h3>\n<div class=\"cm-rhyme\">කාර්යය කියන්නේ බලය ඇදපු දුරයි,<br/>ශක්තිය කාර්යයට බලය දෙයි.<br/>වේගයෙන් යවන්න: ½ m v වර්ගයයි,<br/>උසට ඔසවන්න: m g h එයයි!</div>"
     },
     {
      "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Carrying a bag along a flat road is work against gravity.</td><td class=\"ok\">Work needs movement along the force. Lifting up is work against gravity; moving sideways is not.</td></tr><tr><td class=\"w\">Double the speed gives double the kinetic energy.</td><td class=\"ok\">v is squared in ½ m v², so double the speed gives four times the kinetic energy.</td></tr><tr><td class=\"w\">Power and energy are the same thing.</td><td class=\"ok\">Energy is in joules; power is the rate of doing work, in watts (joules per second).</td></tr></table></div>",
-     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">சமதளத்துல பையை சுமந்து போறது ஈர்ப்புக்கு எதிரான வேலை.</td><td class=\"ok\">வேலைக்கு விசையோட திசைல இயக்கம் வேணும். மேல தூக்கறது ஈர்ப்புக்கு எதிரான வேலை; பக்கவாட்டுல போறது இல்ல.</td></tr><tr><td class=\"w\">வேகம் ரெண்டு மடங்கானா இயக்கச் சக்தியும் ரெண்டு மடங்கு.</td><td class=\"ok\">½ m v²-ல v வர்க்கம், அதனால வேகம் ரெண்டு மடங்கானா இயக்கச் சக்தி நாலு மடங்கு.</td></tr><tr><td class=\"w\">வலுவும் சக்தியும் ஒண்ணுதான்.</td><td class=\"ok\">சக்தி ஜூல்; வலு என்பது வேலை செய்யும் வீதம், வாட் (ஜூல் / வினாடி).</td></tr></table></div>"
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">சமதளத்துல பையை சுமந்து போறது ஈர்ப்புக்கு எதிரான வேலை.</td><td class=\"ok\">வேலைக்கு விசையோட திசைல இயக்கம் வேணும். மேல தூக்கறது ஈர்ப்புக்கு எதிரான வேலை; பக்கவாட்டுல போறது இல்ல.</td></tr><tr><td class=\"w\">வேகம் ரெண்டு மடங்கானா இயக்கச் சக்தியும் ரெண்டு மடங்கு.</td><td class=\"ok\">½ m v²-ல v வர்க்கம், அதனால வேகம் ரெண்டு மடங்கானா இயக்கச் சக்தி நாலு மடங்கு.</td></tr><tr><td class=\"w\">வலுவும் சக்தியும் ஒண்ணுதான்.</td><td class=\"ok\">சக்தி ஜூல்; வலு என்பது வேலை செய்யும் வீதம், வாட் (ஜூல் / வினாடி).</td></tr></table></div>",
+     "si": "<h3>🙈 රාජාගේ වැරදි ↔ 🐦 චිට්ටුගේ නිවැරදි කිරීම්</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 රාජා කියන්නේ (වැරදියි)</th><th>🐦 චිට්ටු කියන්නේ (හරි)</th></tr><tr><td class=\"w\">පැතලි මාර්ගයක බෑගයක් ගෙන යාම ගුරුත්වාකර්ෂණයට එරෙහි කාර්යයකි.</td><td class=\"ok\">කාර්යය සඳහා බලය දිගේ චලනයක් අවශ්‍යයි. ඉහළට ඔසවන එක ගුරුත්වාකර්ෂණයට එරෙහි කාර්යයක්; පැත්තට ගෙනයාම එසේ නොවේ.</td></tr><tr><td class=\"w\">වේගය දෙගුණ කිරීමෙන් චාලක ශක්තිය දෙගුණ වේ.</td><td class=\"ok\">½ m v² හි v වර්ග වේ, එනිසා වේගය දෙගුණ කළොත් චාලක ශක්තිය හතර ගුණයක් වේ.</td></tr><tr><td class=\"w\">ජවය සහ ශක්තිය එකම දෙයයි.</td><td class=\"ok\">ශක්තිය ජූල් වලිනි; ජවය යනු කාර්යය කිරීමේ ශීඝ්‍රතාවයි, වොට් වලිනි (තත්පරයකට ජූල්).</td></tr></table></div>"
     },
     {
      "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>work = force × distance moved in the direction of the force; unit joule (J)</li><li>energy is the ability to do work; also measured in J</li><li>kinetic energy: Ek = ½ m v²</li><li>gravitational potential energy: Ep = m g h</li><li>power = work ÷ time; unit watt (1 W = 1 J s⁻¹)</li></ul>",
-     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்; அலகு ஜூல் (J)</li><li>சக்தி என்பது வேலை செய்யும் ஆற்றல்; இதுவும் J-ல</li><li>இயக்கச் சக்தி: Ek = ½ m v²</li><li>ஈர்ப்பு அழுத்த சக்தி: Ep = m g h</li><li>வலு = வேலை ÷ நேரம்; அலகு வாட் (1 W = 1 J s⁻¹)</li></ul>"
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்; அலகு ஜூல் (J)</li><li>சக்தி என்பது வேலை செய்யும் ஆற்றல்; இதுவும் J-ல</li><li>இயக்கச் சக்தி: Ek = ½ m v²</li><li>ஈர்ப்பு அழுத்த சக்தி: Ep = m g h</li><li>வலு = வேலை ÷ நேரம்; அலகு வாட் (1 W = 1 J s⁻¹)</li></ul>",
+     "si": "<h3>⭐ අනිවාර්යයෙන් දැනගත යුතු කරුණු</h3>\n<ul class=\"cm-must\"><li>කාර්යය = බලය × බලයේ දිශාවට චලනය වූ දුර; ඒකකය ජූල් (J)</li><li>ශක්තිය යනු කාර්යය කිරීමේ හැකියාවයි; එයත් J වලින් මනිනු ලැබේ</li><li>චාලක ශක්තිය: Ek = ½ m v²</li><li>ගුරුත්වාකර්ෂණ විභව ශක්තිය: Ep = m g h</li><li>ජවය = කාර්යය ÷ කාලය; ඒකකය වොට් (1 W = 1 J s⁻¹)</li></ul>"
     }
    ]
   },
@@ -982,92 +1115,113 @@
    "heading": {
     "title": {
      "en": "Chapter Summary & Key Terms",
-     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்",
+     "si": "පරිච්ඡේද සාරාංශය සහ ප්‍රධාන පද"
     },
     "sub": {
      "en": "One last read before the exam!",
-     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!",
+     "si": "විභාගයට පෙර අවසාන වරට කියවන්න!"
     }
    },
    "points": [
     {
      "en": "The work done by a force is the force multiplied by the distance moved in the direction of the force: work = F × d.",
-     "ta": "ஒரு விசை செய்த வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்: வேலை = F × d."
+     "ta": "ஒரு விசை செய்த வேலை = விசை × விசையோட திசைல நகர்ந்த தூரம்: வேலை = F × d.",
+     "si": "බලයකින් කෙරෙන කාර්යය යනු බලය, බලයේ දිශාවට චලනය වූ දුරෙන් ගුණ කිරීමයි: කාර්යය = F × d."
     },
     {
      "en": "If there is no energy loss, the work done equals the energy used up.",
-     "ta": "சக்தி இழப்பு இல்லன்னா செய்த வேலை செலவழிஞ்ச சக்திக்கு சமம்."
+     "ta": "சக்தி இழப்பு இல்லன்னா செய்த வேலை செலவழிஞ்ச சக்திக்கு சமம்.",
+     "si": "ශක්ති හානියක් නැත්නම්, කළ කාර්යය වැය වූ ශක්තියට සමානයි."
     },
     {
      "en": "Work and energy are measured in joules (J).",
-     "ta": "வேலை, சக்தி ரெண்டும் ஜூல்ல (J) அளக்கப்படுது."
+     "ta": "வேலை, சக்தி ரெண்டும் ஜூல்ல (J) அளக்கப்படுது.",
+     "si": "කාර්යය සහ ශක්තිය මනින්නේ ජූල් (J) වලිනි."
     },
     {
      "en": "The two forms of mechanical energy are potential energy and kinetic energy.",
-     "ta": "பொறிமுறைச் சக்தியோட ரெண்டு வடிவங்கள் அழுத்த சக்தியும் இயக்கச் சக்தியும்."
+     "ta": "பொறிமுறைச் சக்தியோட ரெண்டு வடிவங்கள் அழுத்த சக்தியும் இயக்கச் சக்தியும்.",
+     "si": "යාන්ත්‍රික ශක්තියේ ආකාර දෙක විභව ශක්තිය සහ චාලක ශක්තියයි."
     },
     {
      "en": "Kinetic energy depends on the mass and the velocity: Ek = ½ m v².",
-     "ta": "இயக்கச் சக்தி திணிவு, வேகம் இவற்றைப் பொறுத்தது: Ek = ½ m v²."
+     "ta": "இயக்கச் சக்தி திணிவு, வேகம் இவற்றைப் பொறுத்தது: Ek = ½ m v².",
+     "si": "චාලක ශක්තිය රඳා පවතින්නේ ස්කන්ධය සහ ප්‍රවේගය මතයි: Ek = ½ m v²."
     },
     {
      "en": "Gravitational potential energy depends on mass, gravitational acceleration and height: Ep = m g h.",
-     "ta": "ஈர்ப்பு அழுத்த சக்தி திணிவு, ஈர்ப்பு ஆர்முடுகல், உயரம் இவற்றைப் பொறுத்தது: Ep = m g h."
+     "ta": "ஈர்ப்பு அழுத்த சக்தி திணிவு, ஈர்ப்பு ஆர்முடுகல், உயரம் இவற்றைப் பொறுத்தது: Ep = m g h.",
+     "si": "ගුරුත්වාකර්ෂණ විභව ශක්තිය රඳා පවතින්නේ ස්කන්ධය, ගුරුත්වජ ත්වරණය සහ උස මතයි: Ep = m g h."
     },
     {
      "en": "The potential energy of an object also changes when its shape changes (elastic potential energy).",
-     "ta": "பொருளோட வடிவம் மாறும்போதும் அழுத்த சக்தி மாறும் (மீள்தன்மை அழுத்த சக்தி)."
+     "ta": "பொருளோட வடிவம் மாறும்போதும் அழுத்த சக்தி மாறும் (மீள்தன்மை அழுத்த சக்தி).",
+     "si": "වස්තුවක හැඩය වෙනස් වන විටත් එහි විභව ශක්තිය වෙනස් වේ (ප්‍රත්‍යාස්ථ විභව ශක්තිය)."
     },
     {
      "en": "When an object moves up, kinetic energy is lost and becomes potential energy; coming down, it changes back.",
-     "ta": "பொருள் மேல போகும்போது இயக்கச் சக்தி குறைஞ்சு அழுத்த சக்தியா மாறுது; கீழ வரும்போது திரும்ப மாறுது."
+     "ta": "பொருள் மேல போகும்போது இயக்கச் சக்தி குறைஞ்சு அழுத்த சக்தியா மாறுது; கீழ வரும்போது திரும்ப மாறுது.",
+     "si": "වස්තුවක් ඉහළ යන විට චාලක ශක්තිය අඩු වී විභව ශක්තිය බවට පත්වේ; පහළට එන විට නැවත එසේ වෙනස් වේ."
     },
     {
      "en": "Power is the rate of doing work: P = W ÷ t. Its unit is the watt (1 W = 1 J s⁻¹).",
-     "ta": "வலு என்பது வேலை செய்யும் வீதம்: P = W ÷ t. அலகு வாட் (1 W = 1 J s⁻¹)."
+     "ta": "வலு என்பது வேலை செய்யும் வீதம்: P = W ÷ t. அலகு வாட் (1 W = 1 J s⁻¹).",
+     "si": "ජවය යනු කාර්යය කිරීමේ ශීඝ්‍රතාවයි: P = W ÷ t. එහි ඒකකය වොට් (1 W = 1 J s⁻¹)."
     }
    ],
    "glossary": [
     {
      "en": "Work",
-     "ta": "வேலை"
+     "ta": "வேலை",
+     "si": "කාර්යය"
     },
     {
      "en": "Energy",
-     "ta": "சக்தி"
+     "ta": "சக்தி",
+     "si": "ශක්තිය"
     },
     {
      "en": "Mechanical energy",
-     "ta": "பொறிமுறைச் சக்தி"
+     "ta": "பொறிமுறைச் சக்தி",
+     "si": "යාන්ත්‍රික ශක්තිය"
     },
     {
      "en": "Kinetic energy",
-     "ta": "இயக்கச் சக்தி"
+     "ta": "இயக்கச் சக்தி",
+     "si": "චාලක ශක්තිය"
     },
     {
      "en": "Potential energy",
-     "ta": "அழுத்த சக்தி"
+     "ta": "அழுத்த சக்தி",
+     "si": "විභව ශක්තිය"
     },
     {
      "en": "Power",
-     "ta": "வலு"
+     "ta": "வலு",
+     "si": "ජවය"
     },
     {
      "en": "Joule",
-     "ta": "ஜூல்"
+     "ta": "ஜூல்",
+     "si": "ජූල්"
     },
     {
      "en": "Watt",
-     "ta": "வாட்"
+     "ta": "வாட்",
+     "si": "වොට්"
     }
    ],
    "points_title": {
     "en": "📌 Summary — 9 key points",
-    "ta": "📌 பொழிப்பு — 9 முக்கிய புள்ளிகள்"
+    "ta": "📌 பொழிப்பு — 9 முக்கிய புள்ளிகள்",
+    "si": "📌 සාරාංශය — ප්‍රධාන කරුණු 9"
    },
    "glossary_title": {
     "en": "📖 Key terms (Tamil – English)",
-    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)",
+    "si": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)"
    }
   }
  ]

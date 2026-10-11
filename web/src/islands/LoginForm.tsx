@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'preact/hooks';
 import Ico from './Ico';
+import { clearPageCache } from '../lib/page-cache';
 
 interface Device { id: string; name?: string; created_at?: number }
 interface Creds { username: string; password: string }
@@ -23,12 +24,6 @@ function timeAgo(ts?: number): string {
   if (diff < 86400) return Math.floor(diff / 3600) + ' hr ago';
   const days = Math.floor(diff / 86400);
   return days === 1 ? 'yesterday' : days + ' days ago';
-}
-
-/** Offline lesson pages hold one student's progress: forget them whenever the login page opens (shared computers). */
-function clearPageCache() {
-  try { navigator.serviceWorker?.controller?.postMessage({ type: 'clear-pages' }); } catch { /* no worker */ }
-  try { caches.keys().then((ks) => ks.filter((k) => k.indexOf('stemcloud-pages-') === 0).forEach((k) => caches.delete(k))); } catch { /* no Cache API */ }
 }
 
 async function login(body: Creds & { kick_device?: string }) {

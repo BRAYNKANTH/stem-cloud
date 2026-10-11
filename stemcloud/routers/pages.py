@@ -65,7 +65,9 @@ def terms_page():
 
 @router.get('/account')
 def account_page(req: Request):
-    return FileResponse(STATIC / 'account.html') if current_user(req) else RedirectResponse('/login?next=/account', status_code=302)
+    if not current_user(req):
+        return RedirectResponse('/login?next=/account', status_code=302)
+    return page(WEB_SHELL / 'account' / 'index.html', 'account.html')
 
 @router.get('/admin')
 def admin_page(req: Request):

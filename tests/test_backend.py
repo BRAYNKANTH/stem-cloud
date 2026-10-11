@@ -212,6 +212,27 @@ class LoginRoute(unittest.TestCase):
                 self.assertEqual((r.status_code, r.headers['location']), (302, where), nxt)
 
 
+class AccountRoute(unittest.TestCase):
+    """/account: not signed in -> the login page (and back afterwards); signed in -> the account page."""
+
+    def test_visitor_is_sent_to_login_and_student_gets_the_page(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'account.db')
+        migrations._ready = False
+        shell = Path(TMP) / 'shell-account'
+        (shell / 'account').mkdir(parents=True, exist_ok=True)
+        (shell / 'account' / 'index.html').write_text('<!doctype html><title>Astro account</title>', encoding='utf-8')
+        client = TestClient(app)
+        with patch.object(pages, 'WEB_SHELL', shell):
+            r = client.get('/account', follow_redirects=False)
+            self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=/account'))
+            r = client.post('/api/signup', headers=H, json={'username': 'acct_admin', 'password': 'acct-password-1'})
+            self.assertEqual(r.status_code, 200, r.text)
+            r = client.get('/account', follow_redirects=False)
+            self.assertEqual(r.status_code, 200)
+            self.assertIn('Astro account', r.text)
+            self.assertEqual(r.headers['cache-control'], 'no-store')     # the security middleware: personal pages are never stored
+
+
 class HealthMedia(unittest.TestCase):
     """/healthz says how media is served, so a deployment can be checked without logging in."""
     R2 = {'R2_MEDIA_ENABLED': '1', 'R2_ACCOUNT_ID': 'a' * 32, 'R2_ACCESS_KEY_ID': 'key-id-value',

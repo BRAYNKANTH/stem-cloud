@@ -20,14 +20,16 @@
    "id": "story",
    "title": {
     "en": "How do we balance the seesaw?",
-    "ta": "சீசாவ எப்படி சமநிலையில வைக்கறது?"
+    "ta": "சீசாவ எப்படி சமநிலையில வைக்கறது?",
+    "si": "අපි සීසෝව සමතුලිත කරන්නේ කොහොමද?"
    },
    "lines": [
     {
      "speaker": "raja",
      "text": {
       "en": "Chittu, I'm heavy (300 N) and you are light (100 N). How can we balance the seesaw?",
-      "ta": "சிட்டு, நான் பாரம் (300 N), நீ லேசு (100 N). சீசாவ எப்படி சமநிலையில வைக்கறது?"
+      "ta": "சிட்டு, நான் பாரம் (300 N), நீ லேசு (100 N). சீசாவ எப்படி சமநிலையில வைக்கறது?",
+      "si": "චිට්ටු, මම බරයි (300 N), ඔයා සැහැල්ලුයි (100 N). අපි සීසෝව සමතුලිත කරන්නේ කොහොමද?"
      },
      "scene": "🎠🐒",
      "audio": {
@@ -38,7 +40,8 @@
      "speaker": "chittu",
      "text": {
       "en": "The heavier one sits closer to the middle. Raja sits 1 m from the pivot. How far should I sit?",
-      "ta": "பாரமானவன் நடுவுக்கு பக்கத்துல உக்காரணும். ராஜா நடுவுல இருந்து 1 m-ல உக்கார்றான். நான் எவ்வளவு தூரத்துல உக்காரணும்?"
+      "ta": "பாரமானவன் நடுவுக்கு பக்கத்துல உக்காரணும். ராஜா நடுவுல இருந்து 1 m-ல உக்கார்றான். நான் எவ்வளவு தூரத்துல உக்காரணும்?",
+      "si": "බර තැනැත්තා මැදට ළං වාඩි වේ. රාජා භ්‍රමණ ලක්ෂ්‍යයෙන් 1 m කින් වාඩි වේ. මම කොපමණ දුරකින් වාඩි විය යුතුද?"
      },
      "scene": "📏",
      "audio": {
@@ -60,7 +63,8 @@
      "speaker": "chittu",
      "text": {
       "en": "Use moments: force × distance. Raja: 300 × 1 = 300 N m. Mine must also be 300: 100 × d = 300, so d = 3 m.",
-      "ta": "திருப்பம் பயன்படுத்து: விசை × தூரம். ராஜா: 300 × 1 = 300 N m. என்னோடதும் 300 வேணும்: 100 × d = 300, அதனால d = 3 m."
+      "ta": "திருப்பம் பயன்படுத்து: விசை × தூரம். ராஜா: 300 × 1 = 300 N m. என்னோடதும் 300 வேணும்: 100 × d = 300, அதனால d = 3 m.",
+      "si": "ඝූර්ණ භාවිතා කරන්න: බලය × දුර. රාජා: 300 × 1 = 300 N m. මගේ එකත් 300 විය යුතුයි: 100 × d = 300, එබැවින් d = 3 m."
      },
      "scene": "🧮",
      "audio": {
@@ -71,7 +75,8 @@
      "speaker": "raja",
      "text": {
       "en": "Why is the door handle on the far side from the hinges?",
-      "ta": "கதவோட கைப்பிடி கீல்ல இருந்து தூரமா இருக்கறது ஏன்?"
+      "ta": "கதவோட கைப்பிடி கீல்ல இருந்து தூரமா இருக்கறது ஏன்?",
+      "si": "දොර මිට සන්ධිවලින් ඈත පැත්තේ ඇත්තේ ඇයි?"
      },
      "scene": "🚪",
      "audio": {
@@ -82,7 +87,8 @@
      "speaker": "chittu",
      "text": {
       "en": "The farther from the hinge, the smaller the force you need. A spanner works the same way.",
-      "ta": "கீல்ல இருந்து தூரமா இருந்தா குறைவான விசையே போதும். ஸ்பேனரும் இதே மாதிரிதான்."
+      "ta": "கீல்ல இருந்து தூரமா இருந்தா குறைவான விசையே போதும். ஸ்பேனரும் இதே மாதிரிதான்.",
+      "si": "සන්ධියෙන් වැඩි දුරකින්, අවශ්‍ය බලය අඩුයි. ස්පැනරයක් ද ක්‍රියා කරන්නේ එලෙසමයි."
      },
      "scene": "🔧",
      "audio": {
@@ -93,7 +99,8 @@
      "speaker": "raja",
      "text": {
       "en": "And opening a tap with two fingers?",
-      "ta": "ரெண்டு விரல்ல குழாய திறக்கறது?"
+      "ta": "ரெண்டு விரல்ல குழாய திறக்கறது?",
+      "si": "ඒ වගේම ඇඟිලි දෙකකින් කරාමයක් විවෘත කිරීමේදී?"
      },
      "scene": "🚰",
      "audio": {
@@ -104,7 +111,8 @@
      "speaker": "chittu",
      "text": {
       "en": "That is a couple: two equal and opposite parallel forces, making it turn easily.",
-      "ta": "அதுதான் இணை: சமமான, எதிரான, சமாந்தரமான ரெண்டு விசைகள்; அது எளிதா சுழற்றும்."
+      "ta": "அதுதான் இணை: சமமான, எதிரான, சமாந்தரமான ரெண்டு விசைகள்; அது எளிதா சுழற்றும்.",
+      "si": "ඒක තමයි බල යුග්මය: සමාන හා ප්‍රතිවිරුද්ධ සමාන්තර බල දෙකක්, එය පහසුවෙන් හරවයි."
      },
      "scene": "🔄",
      "audio": {
@@ -115,7 +123,8 @@
      "speaker": "raja",
      "text": {
       "en": "Moments, balance and couples! Let's go!",
-      "ta": "திருப்பம், சமநிலை, இணை! வாங்க போகலாம்!"
+      "ta": "திருப்பம், சமநிலை, இணை! வாங்க போகலாம்!",
+      "si": "ඝූර්ණ, සමතුලිතතාව සහ බල යුග්ම! අපි යමු!"
      },
      "scene": "🚀",
      "audio": {
@@ -125,11 +134,13 @@
    ],
    "cta": {
     "en": "Start the lesson: turning effect of forces →",
-    "ta": "பாடத்த ஆரம்பிக்கலாம்: விசையின் திரும்பல் விளைவு →"
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: விசையின் திரும்பல் விளைவு →",
+    "si": "පාඩම අරඹන්න: බලයක භ්‍රමණ ආචරණය →"
    },
    "quest": {
     "en": "In this module: learn how forces cause objects to rotate (turning effect / moment), how wrenches and see-saws work, and master the Principle of Moments.",
-    "ta": "இந்த பாடத்தில்: விசைகள் பொருட்களை எவ்வாறு சுழற்றுகின்றன (திருப்பம்), நெம்புகோல் தத்துவம் மற்றும் திருப்பங்களின் தத்துவத்தை கற்போம்."
+    "ta": "இந்த பாடத்தில்: விசைகள் பொருட்களை எவ்வாறு சுழற்றுகின்றன (திருப்பம்), நெம்புகோல் தத்துவம் மற்றும் திருப்பங்களின் தத்துவத்தை கற்போம்.",
+    "si": "මෙම මොඩියුලයේ: බල මගින් වස්තු භ්‍රමණය වන ආකාරය (භ්‍රමණ ආචරණය / ඝූර්ණය), ස්පැනර් සහ සීසෝ ක්‍රියා කරන ආකාරය ඉගෙන ගෙන ඝූර්ණ මූලධර්මය ප්‍රගුණ කරන්න."
    }
   },
   {
@@ -138,71 +149,84 @@
    "heading": {
     "title": {
      "en": "Start from zero: why things turn",
-     "ta": "முதல்ல இருந்து: பொருட்கள் ஏன் சுத்துது"
+     "ta": "முதல்ல இருந்து: பொருட்கள் ஏன் சுத்துது",
+     "si": "මුල සිට: දේවල් භ්‍රමණය වන්නේ ඇයි"
     },
     "sub": {
      "en": "No big words yet. Let us start easy.",
-     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்.",
+     "si": "තවම අමාරු වචන නැහැ. පහසුවෙන් පටන් ගමු."
     }
    },
    "cards": [
     {
      "title": {
       "en": "Far from the hinge is easier",
-      "ta": "கீலுக்கு தூரமா தள்ளுறது ஈசி"
+      "ta": "கீலுக்கு தூரமா தள்ளுறது ஈசி",
+      "si": "සරනේරුවෙන් දුරින් තල්ලු කිරීම පහසුයි"
      },
      "body": {
       "en": "<p>A door turns around its hinge. Push far away and it opens with a little push.</p><div aria-hidden=\"true\" class=\"bs-pic\">📍hinge ───── 👆</div>",
-      "ta": "<p>கதவு கீலை சுத்தி திரும்பும். தூரமா தள்ளினா சின்ன தள்ளலுக்கே தொறக்கும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">📍hinge ───── 👆</div>"
+      "ta": "<p>கதவு கீலை சுத்தி திரும்பும். தூரமா தள்ளினா சின்ன தள்ளலுக்கே தொறக்கும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">📍hinge ───── 👆</div>",
+      "si": "<p>දොරක් භ්‍රමණය වන්නේ සරනේරුව වටායි. දුරින් තල්ලු කළොත් පොඩි තල්ලුවකින්ම විවෘත වෙනවා.</p><div aria-hidden=\"true\" class=\"bs-pic\">📍සන්ධිය ───── 👆</div>"
      },
      "icon": "🚪"
     },
     {
      "title": {
       "en": "A long spanner helps",
-      "ta": "நீளமான ஸ்பேனர் உதவும்"
+      "ta": "நீளமான ஸ்பேனர் உதவும்",
+      "si": "දිගු ස්පැනරයක් උදව් වෙයි"
      },
      "body": {
       "en": "<p>A tight nut turns easily with a long handle.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ═════ 🔧</div>",
-      "ta": "<p>இறுக்கமான நட்ட நீளமான கைப்பிடியால ஈசியா திருப்பலாம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ═════ 🔧</div>"
+      "ta": "<p>இறுக்கமான நட்ட நீளமான கைப்பிடியால ஈசியா திருப்பலாம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ═════ 🔧</div>",
+      "si": "<p>තද නටයක් දිගු හසුරුවකින් පහසුවෙන් කරකවා ගත හැකියි.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ═════ 🔧</div>"
      },
      "icon": "🔧"
     },
     {
      "title": {
       "en": "The see-saw",
-      "ta": "ஏற்றம் இறக்கம் (சீ-சா)"
+      "ta": "ஏற்றம் இறக்கம் (சீ-சா)",
+      "si": "පැද්දෙන ලෑල්ල (සී-සෝ)"
      },
      "body": {
       "en": "<p>A heavy child sits near the middle, a light child sits far away, and it balances.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 ▲ ─────── 👶</div>",
-      "ta": "<p>கனமான குழந்தை நடுவுக்கு பக்கத்தில, லேசான குழந்தை தூரத்தில உட்கார்ந்தா சமநிலை வரும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 ▲ ─────── 👶</div>"
+      "ta": "<p>கனமான குழந்தை நடுவுக்கு பக்கத்தில, லேசான குழந்தை தூரத்தில உட்கார்ந்தா சமநிலை வரும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 ▲ ─────── 👶</div>",
+      "si": "<p>බර දරුවා මැදට ළඟින් සිටගන්නා අතර සැහැල්ලු දරුවා දුරින් සිටියොත් එය සමතුලිත වෙයි.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 ▲ ─────── 👶</div>"
      },
      "icon": "🎠"
     },
     {
      "title": {
       "en": "Push times distance",
-      "ta": "தள்ளல் x தூரம்"
+      "ta": "தள்ளல் x தூரம்",
+      "si": "තල්ලුව × දුර"
      },
      "body": {
       "en": "<p>A bigger push or a longer distance from the turning point gives a stronger turn.</p><div aria-hidden=\"true\" class=\"bs-pic\">push × distance</div>",
-      "ta": "<p>பெரிய தள்ளல் அல்லது சுத்தற புள்ளில இருந்து அதிக தூரம் இருந்தா சுத்தற திறன் அதிகம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">push × distance</div>"
+      "ta": "<p>பெரிய தள்ளல் அல்லது சுத்தற புள்ளில இருந்து அதிக தூரம் இருந்தா சுத்தற திறன் அதிகம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">push × distance</div>",
+      "si": "<p>විශාල තල්ලුවක් හෝ භ්‍රමණ ලක්ෂ්‍යයෙන් වැඩි දුරක් තිබුණොත් භ්‍රමණ බලපෑම වැඩියි.</p><div aria-hidden=\"true\" class=\"bs-pic\">තල්ලුව × දුර</div>"
      },
      "icon": "✖️"
     }
    ],
    "hook": {
     "en": "Where do you push a door to open it easily: near the hinge or far from it?",
-    "ta": "கதவ தொறக்க எங்க தள்ளணும்: கீல் பக்கத்திலயா, தூரத்திலயா?"
+    "ta": "கதவ தொறக்க எங்க தள்ளணும்: கீல் பக்கத்திலயா, தூரத்திலயா?",
+    "si": "දොර පහසුවෙන් විවෘත කිරීමට එය තල්ලු කළ යුත්තේ කොහේද: සරනේරුව (hinge) ළඟද, ඉන් දුරටද?"
    },
    "extra": [
     {
      "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Open a door by pushing near the hinge, then far from it. Feel the difference.</p></div>",
-     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>கதவ கீல் பக்கத்திலயும் தூரத்திலயும் தள்ளி தொறந்து பாரு. வித்தியாசம் தெரியும்.</p></div>"
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>கதவ கீல் பக்கத்திலயும் தூரத்திலயும் தள்ளி தொறந்து பாரு. வித்தியாசம் தெரியும்.</p></div>",
+     "si": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>දොරක් සරනේරුව ළඟින් තල්ලු කර විවෘත කරන්න, පසුව ඉන් දුරින්. වෙනස දැනෙයි.</p></div>"
     },
     {
      "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>That strength of turning has a name: the moment. Let's measure it.</p></div>",
-     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இந்த சுத்தற திறனுக்கு பேர் திருப்புத்திறன். அத அளக்கலாம்.</p></div>"
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இந்த சுத்தற திறனுக்கு பேர் திருப்புத்திறன். அத அளக்கலாம்.</p></div>",
+     "si": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>මේ භ්‍රමණ ශක්තියට නමක් තිබෙනවා: සූර්ණය. අපි එය මනිමු.</p></div>"
     }
    ]
   },
@@ -212,11 +236,13 @@
    "heading": {
     "title": {
      "en": "Watch it happen: balancing the seesaw",
-     "ta": "பாரு: சீசா சமநிலை"
+     "ta": "பாரு: சீசா சமநிலை",
+     "si": "සිදුවන දේ බලන්න: සීසෝව සමතුලිත කිරීම"
     },
     "sub": {
      "en": "Press play and watch Chittu move to balance Raja",
-     "ta": "Play அழுத்தி ராஜாவ சமநிலைப்படுத்த சிட்டு நகர்றத பாரு"
+     "ta": "Play அழுத்தி ராஜாவ சமநிலைப்படுத்த சிட்டு நகர்றத பாரு",
+     "si": "ධාවනය කර රාජා සමතුලිත කිරීමට චිට්ටු චලනය වන ආකාරය බලන්න"
     }
    },
    "animation": {
@@ -230,64 +256,76 @@
    "heading": {
     "title": {
      "en": "Notes",
-     "ta": "குறிப்புகள்"
+     "ta": "குறிப்புகள்",
+     "si": "සටහන්"
     },
     "sub": {
      "en": "Tap a stepping stone to explore each topic",
-     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ",
+     "si": "එක් එක් මාතෘකාව ගවේෂණය කිරීමට පියවර ගලක් ස්පර්ශ කරන්න"
     }
    },
    "cards": [
     {
      "title": {
       "en": "11.1a A Force Can Turn Things Too!",
-      "ta": "11.1a ஒரு விசை பொருளை திருப்பவும் செய்யும்!"
+      "ta": "11.1a ஒரு விசை பொருளை திருப்பவும் செய்யும்!",
+      "si": "11.1a බලයකට දේවල් හැරවිය හැකියි!"
      },
      "body": {
       "en": "<p>So far we've seen force push, pull, and lift an object. But force has another job — it can also <b>turn</b> (rotate) an object! A door is a great example — push near the hinge and it's really hard to open, but push near the handle and it opens easily.</p>\n<p>This turning tendency is called the <b>moment of a force</b>. It's what decides whether an object turns/rotates about a particular point or axis. Notice what point the door turns about? Its hinge — that point is called the <b>turning axis (pivot)</b>.</p>",
-      "ta": "<p>இது வரைக்கும் விசை ஒரு பொருளை தள்ளும், இழுக்கும், தூக்கும்னு பாத்தோம். ஆனா விசைக்கு இன்னொரு வேலையும் இருக்கு — அது ஒரு பொருள <b>திருப்பவும்</b> (turn/rotate) செய்யும்! கதவு ஒரு நல்ல உதாரணம் — கதவோட மூட்டு (hinge) பக்கத்துல தள்ளினா அது ரொம்ப கஷ்டமா திறக்கும், ஆனா கைப்பிடி (handle) பக்கத்துல தள்ளினா ரொம்ப சுலபமா திறக்கும்.</p>\n<p>இந்த திருப்புற தன்மைக்கு பேர்தான் <b>விசையின் திருப்பம்</b> (Moment of a Force). ஒரு பொருள் ஒரு குறிப்பிட்ட புள்ளியை அல்லது அச்சை (axis) பற்றி திரும்புவதா, சுழல்வதா என்பதை தீர்மானிக்குறது இதுதான். கதவு எந்த புள்ளியை பற்றி திரும்புதுன்னு பாத்தீங்களா? அதோட மூட்டுதான் அந்த புள்ளி — இதுக்கு <b>சுழற்சி அச்சு</b> (turning axis / pivot) அப்படீங்குறோம்.</p>"
+      "ta": "<p>இது வரைக்கும் விசை ஒரு பொருளை தள்ளும், இழுக்கும், தூக்கும்னு பாத்தோம். ஆனா விசைக்கு இன்னொரு வேலையும் இருக்கு — அது ஒரு பொருள <b>திருப்பவும்</b> (turn/rotate) செய்யும்! கதவு ஒரு நல்ல உதாரணம் — கதவோட மூட்டு (hinge) பக்கத்துல தள்ளினா அது ரொம்ப கஷ்டமா திறக்கும், ஆனா கைப்பிடி (handle) பக்கத்துல தள்ளினா ரொம்ப சுலபமா திறக்கும்.</p>\n<p>இந்த திருப்புற தன்மைக்கு பேர்தான் <b>விசையின் திருப்பம்</b> (Moment of a Force). ஒரு பொருள் ஒரு குறிப்பிட்ட புள்ளியை அல்லது அச்சை (axis) பற்றி திரும்புவதா, சுழல்வதா என்பதை தீர்மானிக்குறது இதுதான். கதவு எந்த புள்ளியை பற்றி திரும்புதுன்னு பாத்தீங்களா? அதோட மூட்டுதான் அந்த புள்ளி — இதுக்கு <b>சுழற்சி அச்சு</b> (turning axis / pivot) அப்படீங்குறோம்.</p>",
+      "si": "<p>මෙතෙක් අපි දුටුවේ බලයක් වස්තුවක් තල්ලු කරන, අදින සහ ඔසවන ආකාරයයි. නමුත් බලයට තවත් කාර්යයක් ඇත — එයට වස්තුවක් <b>හැරවීමට</b> (භ්‍රමණය කිරීමට) ද හැක! දොරක් එයට හොඳ නිදසුනකි — සන්ධිය අසල තල්ලු කළොත් එය විවෘත කිරීම ඉතා අපහසුයි, නමුත් මිට අසල තල්ලු කළොත් එය පහසුවෙන් විවෘත වේ.</p>\n<p>මෙම හැරවීමේ නැඹුරුව <b>බලයක ඝූර්ණය</b> ලෙස හැඳින්වේ. වස්තුවක් විශේෂිත ලක්ෂ්‍යයක් හෝ අක්ෂයක් වටා හැරේද භ්‍රමණය වේද යන්න තීරණය කරන්නේ එයයි. දොර හැරෙන්නේ කුමන ලක්ෂ්‍යය වටාද? එහි සන්ධිය — ඒ ලක්ෂ්‍යය <b>භ්‍රමණ අක්ෂය (පිවට්)</b> ලෙස හැඳින්වේ.</p>"
      }
     },
     {
      "title": {
       "en": "11.1b How Do You Calculate a Moment?",
-      "ta": "11.1b திருப்பத்தை கணக்கு போடுறது எப்படி?"
+      "ta": "11.1b திருப்பத்தை கணக்கு போடுறது எப்படி?",
+      "si": "11.1b ඝූර්ණයක් ගණනය කරන්නේ කෙසේද?"
      },
      "body": {
       "en": "<p>Measure the force needed to open a door at various points (at different distances from the hinge) with a spring balance — the farther from the hinge you push, the <b>less force</b> you need. But here's a surprising fact — multiply that force by the distance, and the answer is <b>almost always the same value</b>!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Moment of a Force</div>\n<div class=\"fmath\">Moment = Force (N) × perpendicular distance from the axis to the force's line of action (m)</div>\n<div class=\"fnote\">Unit: N m (newton-metre). \"Perpendicular distance\" means the shortest distance from the axis, measured at a right angle to the force.</div>\n</div>\n<p>This is exactly why a longer spanner loosens a nut more easily — holding it farther from the nut (the turning axis) gives you a bigger moment for the same effort.</p>",
-      "ta": "<p>கதவை பல்வேறு புள்ளிகளில் (சுழற்சி அச்சிலிருந்து வெவ்வேறு தூரத்தில்) திறக்க தேவையான விசையை நியூற்றன் தராசால அளந்து பாத்தா — சுழற்சி அச்சிலிருந்து எவ்வளவு தூரமா தள்ளுறோமோ, அவ்வளவு <b>குறைவான விசை</b> போதும் என்பதை காணலாம். ஆனா ஒரு ஆச்சரியமான உண்மை — அந்த விசையும் தூரமும் ஒண்ணையொண்ணு பெருக்கினா, மதிப்பு <b>எப்பவும் ஏறக்குறைய ஒரே அளவா</b> வரும்!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">விசையின் திருப்பம் (Moment)</div>\n<div class=\"fmath\">திருப்பம் = விசை (N) × சுழற்சி அச்சிலிருந்து விசையின் தாக்கக் கோட்டிற்கு உள்ள செங்குத்துத் தூரம் (m)</div>\n<div class=\"fnote\">அலகு: N m (நியூட்டன் மீட்டர்). ‘செங்குத்து தூரம்’் என்றால் அச்சிலிருந்து விசைக்கு நேர் லம்பமான குறுகிய தூரம்.</div>\n</div>\n<p>இதுதான் ஸ்பேனர் (wrench) நீளமா இருந்தா நட்டு சுலபமா அவிழ்குறதுக்கு காரணம் — நீங்க நட்டுலிருந்து (சுழற்சி அச்சு) தூரமா பிடிச்சு விசை கொடுத்தா, அதே விசைக்கும் திருப்பம் (moment) அதிகமா கிடைக்கும்.</p>"
+      "ta": "<p>கதவை பல்வேறு புள்ளிகளில் (சுழற்சி அச்சிலிருந்து வெவ்வேறு தூரத்தில்) திறக்க தேவையான விசையை நியூற்றன் தராசால அளந்து பாத்தா — சுழற்சி அச்சிலிருந்து எவ்வளவு தூரமா தள்ளுறோமோ, அவ்வளவு <b>குறைவான விசை</b> போதும் என்பதை காணலாம். ஆனா ஒரு ஆச்சரியமான உண்மை — அந்த விசையும் தூரமும் ஒண்ணையொண்ணு பெருக்கினா, மதிப்பு <b>எப்பவும் ஏறக்குறைய ஒரே அளவா</b> வரும்!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">விசையின் திருப்பம் (Moment)</div>\n<div class=\"fmath\">திருப்பம் = விசை (N) × சுழற்சி அச்சிலிருந்து விசையின் தாக்கக் கோட்டிற்கு உள்ள செங்குத்துத் தூரம் (m)</div>\n<div class=\"fnote\">அலகு: N m (நியூட்டன் மீட்டர்). ‘செங்குத்து தூரம்’் என்றால் அச்சிலிருந்து விசைக்கு நேர் லம்பமான குறுகிய தூரம்.</div>\n</div>\n<p>இதுதான் ஸ்பேனர் (wrench) நீளமா இருந்தா நட்டு சுலபமா அவிழ்குறதுக்கு காரணம் — நீங்க நட்டுலிருந்து (சுழற்சி அச்சு) தூரமா பிடிச்சு விசை கொடுத்தா, அதே விசைக்கும் திருப்பம் (moment) அதிகமா கிடைக்கும்.</p>",
+      "si": "<p>දොරක් විවිධ ලක්ෂ්‍යවලදී (සන්ධියේ සිට වෙනස් දුරවල) විවෘත කිරීමට අවශ්‍ය බලය දුනු තරාදියකින් මනින්න — සන්ධියෙන් දුරින් තල්ලු කරන තරමට <b>අඩු බලයක්</b> අවශ්‍ය වේ. නමුත් පුදුම කරුණක් මෙයයි — ඒ බලය දුරින් ගුණ කළ විට, පිළිතුර <b>බොහෝ විට එකම අගයකි</b>!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">බලයක ඝූර්ණය</div>\n<div class=\"fmath\">ඝූර්ණය = බලය (N) × අක්ෂයේ සිට බලයේ ක්‍රියා රේඛාවට ලම්බ දුර (m)</div>\n<div class=\"fnote\">ඒකකය: N m (නිව්ටන්-මීටර). “ලම්බ දුර” යනු අක්ෂයේ සිට බලයට සෘජු කෝණයෙන් මනින කෙටිම දුරයි.</div>\n</div>\n<p>දිගු ස්පැනරයක් නට් එකක් වඩාත් පහසුවෙන් ලිහිල් කරන්නේ ඒ නිසයි — එය නට් එකෙන් (භ්‍රමණ අක්ෂයෙන්) වැඩි දුරකින් අල්ලා ගැනීමෙන් එකම උත්සාහයට විශාල ඝූර්ණයක් ලැබේ.</p>"
      }
     },
     {
      "title": {
       "en": "11.1c Equilibrium — How a See-Saw Balances",
-      "ta": "11.1c சமநிலை — சீசா (see-saw) பாலன்ஸ் ஆவது எப்படி?"
+      "ta": "11.1c சமநிலை — சீசா (see-saw) பாலன்ஸ் ஆவது எப்படி?",
+      "si": "11.1c සමතුලිතතාව — සීසෝවක් සමතුලිත වන ආකාරය"
      },
      "body": {
       "en": "<p>Hang a rod at its centre, with weights hanging on both sides — when does it stay perfectly balanced? One side going up or down happens because of a <b>moment</b> — so for balance, the moments on both sides must be exactly equal.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Principle of Moments</div>\n<div class=\"ltext\">For an object to be in equilibrium, the sum of the moments on one side of the pivot must equal the sum of the moments on the other side.</div>\n</div>\n<p>Split them into \"clockwise\" moments on one side and \"anticlockwise\" moments on the other: for balance, <b>total clockwise moment = total anticlockwise moment</b>. This is exactly why, on a real see-saw, the heavier kid has to sit closer to the middle and the lighter kid has to sit at the far end!</p>",
-      "ta": "<p>ஒரு கோலை (rod) அதோட நடுவுல தொங்கவிட்டு, ரெண்டு பக்கமும் நிறை தொங்கவிட்டா — எப்போ அது சமநிலையில் (balanced) நிக்கும்? ஒரு பக்கம் ஏறினா அல்லது இறங்கினா, அது <b>திருப்பத்தால்்</b> நடக்குறது — அதனால் சமநிலைக்கு, ரெண்டு பக்கத்து திருப்பமும் ஒண்ணுக்கொண்ணு சமமா இருக்கணும்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">திருப்பங்களின் கொள்கை (Principle of Moments)</div>\n<div class=\"ltext\">ஒரு பொருள் சமநிலையில் இருக்க வேண்டுமெனின், அச்சுக்கு ஒரு பக்கத்தில் உள்ள திருப்பங்களின் கூட்டுத்தொகை, மறுபக்கத்தில் உள்ள திருப்பங்களின் கூட்டுத்தொகைக்கு சமமாக இருக்க வேண்டும்.</div>\n</div>\n<p>‘கடிகார முள் திசை’் (clockwise) திருப்பம் ஒரு பக்கம், ‘கடிகார முள் திசைக்கு எதிர்’் (anticlockwise) திருப்பம் மறுபக்கம் என்று பிரிக்கலாம். சமநிலைக்கு: <b>கடிகார திசை திருப்பங்களின் கூட்டுத்தொகை = எதிர்-கடிகார திசை திருப்பங்களின் கூட்டுத்தொகை</b>. இந்த ஐடியாதான் நீங்க அசுவாரின்யா சீசா ஆடுறப்போ, பாரமான பையன் ஒதுக்கத்துக்கு நகர்ந்தும், லேசான பையன் நுனிக்கு நகர்ந்தும் அமர வேண்டியிருப்பதை விளக்குது!</p>"
+      "ta": "<p>ஒரு கோலை (rod) அதோட நடுவுல தொங்கவிட்டு, ரெண்டு பக்கமும் நிறை தொங்கவிட்டா — எப்போ அது சமநிலையில் (balanced) நிக்கும்? ஒரு பக்கம் ஏறினா அல்லது இறங்கினா, அது <b>திருப்பத்தால்்</b> நடக்குறது — அதனால் சமநிலைக்கு, ரெண்டு பக்கத்து திருப்பமும் ஒண்ணுக்கொண்ணு சமமா இருக்கணும்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">திருப்பங்களின் கொள்கை (Principle of Moments)</div>\n<div class=\"ltext\">ஒரு பொருள் சமநிலையில் இருக்க வேண்டுமெனின், அச்சுக்கு ஒரு பக்கத்தில் உள்ள திருப்பங்களின் கூட்டுத்தொகை, மறுபக்கத்தில் உள்ள திருப்பங்களின் கூட்டுத்தொகைக்கு சமமாக இருக்க வேண்டும்.</div>\n</div>\n<p>‘கடிகார முள் திசை’் (clockwise) திருப்பம் ஒரு பக்கம், ‘கடிகார முள் திசைக்கு எதிர்’் (anticlockwise) திருப்பம் மறுபக்கம் என்று பிரிக்கலாம். சமநிலைக்கு: <b>கடிகார திசை திருப்பங்களின் கூட்டுத்தொகை = எதிர்-கடிகார திசை திருப்பங்களின் கூட்டுத்தொகை</b>. இந்த ஐடியாதான் நீங்க அசுவாரின்யா சீசா ஆடுறப்போ, பாரமான பையன் ஒதுக்கத்துக்கு நகர்ந்தும், லேசான பையன் நுனிக்கு நகர்ந்தும் அமர வேண்டியிருப்பதை விளக்குது!</p>",
+      "si": "<p>දණ්ඩක් මැදින් එල්ලා, දෙපසම බර එල්ලන්න — එය හරියටම සමතුලිතව පවතින්නේ කවදාද? එක් පැත්තක් ඉහළට හෝ පහළට යාම සිදුවන්නේ <b>ඝූර්ණයක්</b> නිසා — එබැවින් සමතුලිතතාවට දෙපැත්තේ ඝූර්ණ හරියටම සමාන විය යුතුය.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">ඝූර්ණ මූලධර්මය</div>\n<div class=\"ltext\">වස්තුවක් සමතුලිතතාවයේ පැවතීමට නම්, භ්‍රමණ ලක්ෂ්‍යයේ එක් පැත්තක ඝූර්ණවල එකතුව අනෙක් පැත්තේ ඝූර්ණවල එකතුවට සමාන විය යුතුය.</div>\n</div>\n<p>ඒවා එක් පැත්තක “දක්ෂිණාවර්ත” ඝූර්ණ සහ අනෙක් පැත්තේ “වාමාවර්ත” ඝූර්ණ ලෙස වෙන් කරන්න: සමතුලිතතාවට <b>මුළු දක්ෂිණාවර්ත ඝූර්ණය = මුළු වාමාවර්ත ඝූර්ණය</b>. සැබෑ සීසෝවක බර දරුවා මැදට ළං වී වාඩි වී සැහැල්ලු දරුවා ඈත කෙළවරේ වාඩි විය යුත්තේ ඒ නිසයි!</p>"
      }
     },
     {
      "title": {
       "en": "11.2 Couple — Turning with a Pair of Forces",
-      "ta": "11.2 விசை இணை (Couple) — இரட்டை விசையால் திருப்புறது"
+      "ta": "11.2 விசை இணை (Couple) — இரட்டை விசையால் திருப்புறது",
+      "si": "11.2 බල යුග්මය — බල යුගලයකින් හැරවීම"
      },
      "body": {
       "en": "<p>When you turn a water tap, how do you do it? You push one finger \"up\" and another \"down\" — equal forces, opposite directions, not along the same line. This is called a <b>couple</b>.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">What is a Couple?</div>\n<div class=\"ltext\">A couple is a pair of equal, parallel forces acting on an object in opposite directions, causing it to turn or rotate about an axis.</div>\n</div>\n<p>Using a couple makes turning something much easier — because the two forces are opposite, they don't move the object anywhere (no net force at all), they only turn it. That's why turning a steering wheel with two hands, or a screwdriver with your fingers, feels so light.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Moment of a Couple</div>\n<div class=\"fmath\">Moment of couple = Force × perpendicular distance between the forces' lines of action</div>\n<div class=\"fnote\">Also measured in N m — but here you use the distance between the two forces, not the distance from a single axis.</div>\n</div>",
-      "ta": "<p>ஒரு நீர்த் தூம்பு குழாயை (tap) திறக்கும்போது, நீங்க எப்படி திருப்புறீங்க? ஒரு விரலால ‘மேல’் தள்ளி, இன்னொரு விரலால ‘கீழ’் தள்றீங்க — ரெண்டும் சம விசை, எதிரெதிர் திசையில், ஒரே நேர்கோட்டில் இல்லாம. இதுக்குதான் <b>விசை இணை</b> (Couple) அப்படீங்குறோம்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">விசை இணை என்றால் என்ன?</div>\n<div class=\"ltext\">ஒரு பொருள் ஒரு குறிப்பிட்ட அச்சைப் பற்றி திரும்புவதற்கு அல்லது சுழல்வதற்கு, அப்பொருளின் மீது எதிர் திசைகளில் பிரயோகிக்கப்படும் சமமும் சமாந்தரமுமான இரு விசைகளே விசை இணை (couple) எனப்படும்.</div>\n</div>\n<p>ஒரு விசை இணையை பயன்படுத்தினா ஒரு பொருள திருப்புறது ரொம்ப சுலபமாகும் — ஏன்னா ரெண்டு விசைகளும் எதிரெதிர் திசையில் இருக்குறதால, அவை ஒண்ணையொண்ணு <b>காமா நகர்த்தாது</b> (இயக்கமே கிடையாது), ஆனா திருப்ப மட்டும் செய்யும். இதனால்தான் ஸ்டீயரிங் வீல் ரெண்டு கைகளால் திருப்பறதும், ஸ்க்ரூடிரைவரை விரல்களால் திருப்பறதும் ரொம்ப லேசா இருக்கு.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">விசை இணையின் திருப்பம்</div>\n<div class=\"fmath\">இணையின் திருப்பம் = விசை × விசைகளின் தாக்கக் கோடுகளுக்கிடையேயான செங்குத்துத் தூரம்</div>\n<div class=\"fnote\">இதுவும் N m அலகில்தான் — ஆனா இங்க ரெண்டு விசைகளுக்கும் இடையேயான தூரத்தை பயன்படுத்துறோம், ஒரு அச்சிலிருந்தான தூரத்த இல்ல.</div>\n</div>"
+      "ta": "<p>ஒரு நீர்த் தூம்பு குழாயை (tap) திறக்கும்போது, நீங்க எப்படி திருப்புறீங்க? ஒரு விரலால ‘மேல’் தள்ளி, இன்னொரு விரலால ‘கீழ’் தள்றீங்க — ரெண்டும் சம விசை, எதிரெதிர் திசையில், ஒரே நேர்கோட்டில் இல்லாம. இதுக்குதான் <b>விசை இணை</b> (Couple) அப்படீங்குறோம்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">விசை இணை என்றால் என்ன?</div>\n<div class=\"ltext\">ஒரு பொருள் ஒரு குறிப்பிட்ட அச்சைப் பற்றி திரும்புவதற்கு அல்லது சுழல்வதற்கு, அப்பொருளின் மீது எதிர் திசைகளில் பிரயோகிக்கப்படும் சமமும் சமாந்தரமுமான இரு விசைகளே விசை இணை (couple) எனப்படும்.</div>\n</div>\n<p>ஒரு விசை இணையை பயன்படுத்தினா ஒரு பொருள திருப்புறது ரொம்ப சுலபமாகும் — ஏன்னா ரெண்டு விசைகளும் எதிரெதிர் திசையில் இருக்குறதால, அவை ஒண்ணையொண்ணு <b>காமா நகர்த்தாது</b> (இயக்கமே கிடையாது), ஆனா திருப்ப மட்டும் செய்யும். இதனால்தான் ஸ்டீயரிங் வீல் ரெண்டு கைகளால் திருப்பறதும், ஸ்க்ரூடிரைவரை விரல்களால் திருப்பறதும் ரொம்ப லேசா இருக்கு.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">விசை இணையின் திருப்பம்</div>\n<div class=\"fmath\">இணையின் திருப்பம் = விசை × விசைகளின் தாக்கக் கோடுகளுக்கிடையேயான செங்குத்துத் தூரம்</div>\n<div class=\"fnote\">இதுவும் N m அலகில்தான் — ஆனா இங்க ரெண்டு விசைகளுக்கும் இடையேயான தூரத்தை பயன்படுத்துறோம், ஒரு அச்சிலிருந்தான தூரத்த இல்ல.</div>\n</div>",
+      "si": "<p>ඔබ ජල කරාමයක් හරවන විට, එය කරන්නේ කෙසේද? ඔබ එක් ඇඟිල්ලක් “ඉහළට” ද තවත් එකක් “පහළට” ද තල්ලු කරයි — සමාන බල, ප්‍රතිවිරුද්ධ දිශාවලට, එකම රේඛාවක නොවේ. මෙය <b>බල යුග්මයක්</b> ලෙස හැඳින්වේ.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">බල යුග්මයක් යනු කුමක්ද?</div>\n<div class=\"ltext\">බල යුග්මයක් යනු වස්තුවක් මත ප්‍රතිවිරුද්ධ දිශාවලට ක්‍රියා කරන, අක්ෂයක් වටා එය හැරවීමට හෝ භ්‍රමණය කිරීමට සලස්වන සමාන, සමාන්තර බල යුගලයකි.</div>\n</div>\n<p>බල යුග්මයක් භාවිතා කිරීමෙන් යමක් හැරවීම ඉතා පහසු වේ — මොකද බල දෙක ප්‍රතිවිරුද්ධ බැවින් ඒවා වස්තුව කොතැනටවත් චලනය නොකරයි (ශුද්ධ බලයක් නැත), ඒවා හරවනවා පමණි. සුක්කානම අතින් දෙකෙන් හැරවීම, හෝ ඉස්කුරුප්පු නියනයක් ඇඟිලිවලින් හැරවීම ඉතා සැහැල්ලු යැයි දැනෙන්නේ ඒ නිසයි.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">බල යුග්මයක ඝූර්ණය</div>\n<div class=\"fmath\">බල යුග්මයේ ඝූර්ණය = බලය × බලවල ක්‍රියා රේඛා අතර ලම්බ දුර</div>\n<div class=\"fnote\">එයත් මනින්නේ N m වලිනි — නමුත් මෙහිදී ඔබ භාවිතා කරන්නේ තනි අක්ෂයකින් නොව බල දෙක අතර දුරයි.</div>\n</div>"
      },
      "section": "11.2"
     }
    ],
    "intro": {
     "en": "In Sector 1, you saw forces turning a lever and see-saw. Below are the moment equations (M = F × d) and textbook equilibrium calculations!",
-    "ta": "பகுதி 1-ல் சுழலும் விசைகளை பார்த்தோம். அதற்கான திருப்ப சமன்பாடுகள் (M = F × d), சமநிலை கணித்தல்களை இங்கே கற்போம்!"
+    "ta": "பகுதி 1-ல் சுழலும் விசைகளை பார்த்தோம். அதற்கான திருப்ப சமன்பாடுகள் (M = F × d), சமநிலை கணித்தல்களை இங்கே கற்போம்!",
+    "si": "1 වන කොටසේදී ඔබ බල මගින් ලීවරයක් සහ සීසෝවක් හරවන ආකාරය දුටුවා. පහත ඇත්තේ ඝූර්ණ සමීකරණ (M = F × d) සහ පෙළපොතේ සමතුලිතතා ගණනය කිරීම්!"
    },
    "extra": [
     {
      "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>\"Distance\" always means perpendicular distance!</b> If a force acts at an angle, don't use the plain distance — use the distance measured at a right angle (90°) from the axis to the force's line of action.</li>\n<li><b>Don't forget clockwise vs anticlockwise.</b> In balance problems, add up moments on one side and set them equal to the other side — don't wrongly lump everything together as if it's all the same direction.</li>\n<li><b>A couple has no net force, but it DOES have a net moment.</b> Because the two forces are equal and opposite, they don't push/pull the object anywhere — but they still turn it.</li>\n<li><b>The unit of moment is N m — not N!</b> Force alone is in N, but the moment of a force is always in N m (newton-metre).</li>\n</ul>\n</div>",
-     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>‘தூரம்’் என்றால் எப்பவும் செங்குத்து தூரம்!</b> ஒரு விசை கோணத்தில் தாக்குனா, சாதாரண தூரம் இல்ல — சுழற்சி அச்சிலிருந்து விசையின் கோட்டுக்கு நேர் லம்பமான (90°) தூரத்தையே பயன்படுத்தணும்.</li>\n<li><b>கடிகார/எதிர்-கடிகார திசை மறந்துடாதீங்க.</b> சமநிலை கணக்குகள்ல, ஒரு பக்கத்து திருப்பங்களை மட்டும் கூட்டி, மறுபக்கத்து திருப்பங்களுக்கு சமமாக்கணும் — எல்லாத்தையும் ஒரே பக்கமா கருதி தப்பா கூட்டிடாதீங்க.</li>\n<li><b>விசை இணைக்கு (Couple) ‘நிகர விசை’் இல்ல, ஆனா ‘நிகர திருப்பம்’் இருக்கு.</b> ரெண்டு விசைகளும் சமமா, எதிரெதிர் திசையில் இருக்குறதால, அவை பொருள ஒரு பக்கமும் இழுக்காது/தள்ளாது — ஆனா திருப்பும்.</li>\n<li><b>திருப்பத்தின் அலகு N m — N (நியூட்டன்) இல்ல!</b> விசை மட்டும் N ல் இருக்கும், விசையின் திருப்பம் எப்பவும் N m (நியூட்டன் மீட்டர்) அலகிலதான் இருக்கும்.</li>\n</ul>\n</div>"
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>‘தூரம்’் என்றால் எப்பவும் செங்குத்து தூரம்!</b> ஒரு விசை கோணத்தில் தாக்குனா, சாதாரண தூரம் இல்ல — சுழற்சி அச்சிலிருந்து விசையின் கோட்டுக்கு நேர் லம்பமான (90°) தூரத்தையே பயன்படுத்தணும்.</li>\n<li><b>கடிகார/எதிர்-கடிகார திசை மறந்துடாதீங்க.</b> சமநிலை கணக்குகள்ல, ஒரு பக்கத்து திருப்பங்களை மட்டும் கூட்டி, மறுபக்கத்து திருப்பங்களுக்கு சமமாக்கணும் — எல்லாத்தையும் ஒரே பக்கமா கருதி தப்பா கூட்டிடாதீங்க.</li>\n<li><b>விசை இணைக்கு (Couple) ‘நிகர விசை’் இல்ல, ஆனா ‘நிகர திருப்பம்’் இருக்கு.</b> ரெண்டு விசைகளும் சமமா, எதிரெதிர் திசையில் இருக்குறதால, அவை பொருள ஒரு பக்கமும் இழுக்காது/தள்ளாது — ஆனா திருப்பும்.</li>\n<li><b>திருப்பத்தின் அலகு N m — N (நியூட்டன்) இல்ல!</b> விசை மட்டும் N ல் இருக்கும், விசையின் திருப்பம் எப்பவும் N m (நியூட்டன் மீட்டர்) அலகிலதான் இருக்கும்.</li>\n</ul>\n</div>",
+     "si": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ පොදු වැරදි</div>\n<ul>\n<li><b>“දුර” යන්නෙන් සෑම විටම අදහස් වන්නේ ලම්බ දුරයි!</b> බලයක් කෝණයකින් ක්‍රියා කරන්නේ නම්, සරල දුර භාවිතා නොකරන්න — අක්ෂයේ සිට බලයේ ක්‍රියා රේඛාවට සෘජු කෝණයකින් (90°) මනින දුර භාවිතා කරන්න.</li>\n<li><b>දක්ෂිණාවර්ත සහ වාමාවර්ත අමතක නොකරන්න.</b> සමතුලිතතා ගැටළුවල, එක් පැත්තක ඝූර්ණ එකතු කර අනෙක් පැත්ත සමඟ සමාන කරන්න — සියල්ල එකම දිශාවේ යැයි වැරදි ලෙස එකට නොගන්න.</li>\n<li><b>බල යුග්මයකට ශුද්ධ බලයක් නැත, නමුත් ශුද්ධ ඝූර්ණයක් ඇත.</b> බල දෙක සමාන හා ප්‍රතිවිරුද්ධ බැවින් ඒවා වස්තුව කොතැනටවත් තල්ලු/අදින්නේ නැත — නමුත් එය තවමත් හරවයි.</li>\n<li><b>ඝූර්ණයේ ඒකකය N m — N නොවේ!</b> බලය පමණක් N වලින් වන නමුත්, බලයක ඝූර්ණය සෑම විටම N m (නිව්ටන්-මීටර) වේ.</li>\n</ul>\n</div>"
     }
    ]
   },
@@ -297,16 +335,19 @@
    "heading": {
     "title": {
      "en": "Hands-on Activities",
-     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்",
+     "si": "ප්‍රායෝගික ක්‍රියාකාරකම්"
     },
     "sub": {
      "en": "The textbook's experiments — try them at home or in class",
-     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு",
+     "si": "පෙළපොතේ පරීක්ෂණ — ඒවා ගෙදරදී හෝ පන්තියේදී උත්සාහ කරන්න"
     }
    },
    "body": {
     "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>No worries — you can see the same ideas in the <a href=\"#lab\">Lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"11.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 1 — Opening a door</h3>\n<span class=\"act-ref\">Textbook · p.199–200</span>\n<p>Find how the place where you push a door changes the force needed to open it.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A door fixed with hinges</li><li>A newton balance (spring balance)</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Mark four points A, B, C and D at the same horizontal level on the door (Fig. 11.1).</li><li>Attach the newton balance at A and pull to open the door. Read the force at the moment the door just starts to move.</li><li>Repeat at B, C and D and fill in Table 11.1: the force, the perpendicular distance from the hinge axis, and force × distance (N m).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The farther from the hinge (the axis of rotation) you apply the force, the smaller the force needed to open the door. Pushing close to the hinges is hard. The turning effect depends on the perpendicular distance of the force from the axis.</div></details>\n<button class=\"btn act-done\" data-act=\"11.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"11.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 2 — Does the size of the force matter?</h3>\n<span class=\"act-ref\">Textbook · p.201–203</span>\n<p>Find how the magnitude of the force affects the turning effect.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A wooden strip with holes O, A, B, C, D (15 cm, 30 cm, 45 cm, 60 cm from O)</li><li>Two rubber washers, a drill, a screw, a newton balance</li><li>A table or board</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fix the strip to the board at O with the screw between the two washers (Fig. 11.3).</li><li>Hook the newton balance at D and pull at right angles to the strip, until it just starts to turn. Read the force.</li><li>Tighten the screw half a turn and find the force again. Then tighten one full turn and find it again.</li><li>Record the readings in Table 11.2.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">As the screw is tightened, the force needed to turn the strip increases (the textbook sample readings: 2 N at the start, 5 N after half a turn, 9 N after a full turn). So the turning effect depends on the size of the force.</div></details>\n<button class=\"btn act-done\" data-act=\"11.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"11.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 3 — Does the distance matter?</h3>\n<span class=\"act-ref\">Textbook · p.203–204</span>\n<p>Test whether the perpendicular distance from the pivot affects the turning effect.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>The same strip, screw and washers as Activity 2</li><li>A newton balance and a thread</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Tie a thread through the strip near A and attach the newton balance. With the screw as set at the start, pull until the strip just turns. Note the force F₁ and the distance from O.</li><li>Tighten the screw a quarter turn more. Keep the reading at F₁ and move the balance away from O until the strip just turns again. Measure the distance.</li><li>Tighten another quarter turn (half a turn in total) and repeat. Fill in Table 11.3.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">With the same force F₁ (1.5 N in the textbook sample), the balance has to be placed farther and farther from O as the screw gets tighter (sample distances 15, 32 and 55). So the turning effect depends on the perpendicular distance from the pivot to the force.</div></details>\n<button class=\"btn act-done\" data-act=\"11.3\">✅ I tried it! (+10 XP)</button>\n</div>",
-    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"11.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 1 — கதவ திறக்கறது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.199–200</span>\n<p>கதவ எங்க தள்ளறோம்ங்கறது, அத திறக்க தேவையான விசைய எப்படி மாத்துதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>பிணையல்களோட பொருத்தின ஒரு கதவு</li><li>ஒரு நியூற்றன் தராசு</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>கதவுல ஒரே கிடை மட்டத்துல A, B, C, D ன்னு நாலு புள்ளிகள குறிச்சுக்கோ (உரு 11.1).</li><li>தராச A-ல மாட்டி கதவ திறக்க இழு. கதவு இப்பதான் நகர ஆரம்பிக்கும் நிமிஷத்து விசைய வாசி.</li><li>B, C, D-லயும் இதையே செஞ்சு, அட்டவணை 11.1-ஐ நிரப்பு: விசை, கீல் அச்சுல இருந்து செங்குத்துத் தூரம், விசை × தூரம் (N m).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">கீல்ல (சுழற்சி அச்சு) இருந்து தூரமா தள்ளினா, குறைவான விசையே போதும்; கீலுக்கு பக்கத்துல தள்ளினா ரொம்ப கஷ்டம். திருப்பம், அச்சுல இருந்து விசைக்கு உள்ள செங்குத்துத் தூரத்த பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"11.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 2 — விசையோட பருமன் முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.201–203</span>\n<p>விசையோட பருமன் திருப்பத்த எப்படி பாதிக்குதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>O, A, B, C, D துளைகள் (O-ல இருந்து 15, 30, 45, 60 cm) இட்ட மரப்பட்டி</li><li>இரு இறப்பர் வார்கள் (washers), ஒரு துளைப்பான், ஒரு திருகாணி, ஒரு நியூற்றன் தராசு</li><li>ஒரு மேசை அல்லது பலகை</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>பட்டிய O-ல, ரெண்டு washers நடுவுல திருகாணி வெச்சு பலகையோட பொருத்து (உரு 11.3).</li><li>தராச D-ல மாட்டி, பட்டிக்கு செங்குத்தா இழு, அது இப்பதான் சுழல ஆரம்பிக்கும்போது விசைய வாசி.</li><li>திருகாணிய அரை சுற்று இறுக்கி, மறுபடி விசைய கண்டுபிடி. அப்புறம் ஒரு முழு சுற்று இறுக்கி, திரும்ப கண்டுபிடி.</li><li>வாசிப்புகள அட்டவணை 11.2-ல குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">திருகாணிய இறுக்க இறுக்க, பட்டிய சுழற்ற தேவையான விசை கூடுது (புத்தகத்து மாதிரி வாசிப்புகள்: ஆரம்பத்துல 2 N, அரை சுற்றுக்கு பிறகு 5 N, முழு சுற்றுக்கு பிறகு 9 N). அதனால திருப்பம் விசையோட பருமன பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"11.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 3 — தூரம் முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.203–204</span>\n<p>சுழல் புள்ளியில இருந்து உள்ள செங்குத்துத் தூரம் திருப்பத்த பாதிக்குதான்னு சோதிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>செயற்பாடு 2-ல உள்ள அதே பட்டி, திருகாணி, washers</li><li>ஒரு நியூற்றன் தராசு, ஒரு நூல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A-க்கு பக்கத்துல நூல கட்டி தராச மாட்டு. ஆரம்ப நிலையில இழுத்து பட்டி இப்பதான் சுழல்ற விசை F₁-ஐயும், O-ல இருந்து தூரத்தையும் குறிச்சுக்கோ.</li><li>திருகாணிய கால் சுற்று இன்னும் இறுக்கு. வாசிப்ப F₁-லயே வெச்சுக்கிட்டு, தராச O-ல இருந்து தூரமா நகர்த்தி, பட்டி மறுபடி இப்பதான் சுழல்ற இடத்த கண்டுபிடிச்சு தூரத்த அளக்கோ.</li><li>இன்னொரு கால் சுற்று (மொத்தம் அரை சுற்று) இறுக்கி திரும்ப செய். அட்டவணை 11.3-ஐ நிரப்பு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">அதே விசை F₁ (புத்தகத்து மாதிரியில 1.5 N)-ல, திருகாணி இறுகும்போது தராச O-ல இருந்து இன்னும் தூரமா வெக்க வேண்டியிருக்கு (மாதிரி தூரங்கள்: 15, 32, 55). அதனால திருப்பம் சுழல் புள்ளியில இருந்து விசைக்கு உள்ள செங்குத்துத் தூரத்த பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"11.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 1 — கதவ திறக்கறது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.199–200</span>\n<p>கதவ எங்க தள்ளறோம்ங்கறது, அத திறக்க தேவையான விசைய எப்படி மாத்துதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>பிணையல்களோட பொருத்தின ஒரு கதவு</li><li>ஒரு நியூற்றன் தராசு</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>கதவுல ஒரே கிடை மட்டத்துல A, B, C, D ன்னு நாலு புள்ளிகள குறிச்சுக்கோ (உரு 11.1).</li><li>தராச A-ல மாட்டி கதவ திறக்க இழு. கதவு இப்பதான் நகர ஆரம்பிக்கும் நிமிஷத்து விசைய வாசி.</li><li>B, C, D-லயும் இதையே செஞ்சு, அட்டவணை 11.1-ஐ நிரப்பு: விசை, கீல் அச்சுல இருந்து செங்குத்துத் தூரம், விசை × தூரம் (N m).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">கீல்ல (சுழற்சி அச்சு) இருந்து தூரமா தள்ளினா, குறைவான விசையே போதும்; கீலுக்கு பக்கத்துல தள்ளினா ரொம்ப கஷ்டம். திருப்பம், அச்சுல இருந்து விசைக்கு உள்ள செங்குத்துத் தூரத்த பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"11.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 2 — விசையோட பருமன் முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.201–203</span>\n<p>விசையோட பருமன் திருப்பத்த எப்படி பாதிக்குதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>O, A, B, C, D துளைகள் (O-ல இருந்து 15, 30, 45, 60 cm) இட்ட மரப்பட்டி</li><li>இரு இறப்பர் வார்கள் (washers), ஒரு துளைப்பான், ஒரு திருகாணி, ஒரு நியூற்றன் தராசு</li><li>ஒரு மேசை அல்லது பலகை</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>பட்டிய O-ல, ரெண்டு washers நடுவுல திருகாணி வெச்சு பலகையோட பொருத்து (உரு 11.3).</li><li>தராச D-ல மாட்டி, பட்டிக்கு செங்குத்தா இழு, அது இப்பதான் சுழல ஆரம்பிக்கும்போது விசைய வாசி.</li><li>திருகாணிய அரை சுற்று இறுக்கி, மறுபடி விசைய கண்டுபிடி. அப்புறம் ஒரு முழு சுற்று இறுக்கி, திரும்ப கண்டுபிடி.</li><li>வாசிப்புகள அட்டவணை 11.2-ல குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">திருகாணிய இறுக்க இறுக்க, பட்டிய சுழற்ற தேவையான விசை கூடுது (புத்தகத்து மாதிரி வாசிப்புகள்: ஆரம்பத்துல 2 N, அரை சுற்றுக்கு பிறகு 5 N, முழு சுற்றுக்கு பிறகு 9 N). அதனால திருப்பம் விசையோட பருமன பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"11.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 3 — தூரம் முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.203–204</span>\n<p>சுழல் புள்ளியில இருந்து உள்ள செங்குத்துத் தூரம் திருப்பத்த பாதிக்குதான்னு சோதிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>செயற்பாடு 2-ல உள்ள அதே பட்டி, திருகாணி, washers</li><li>ஒரு நியூற்றன் தராசு, ஒரு நூல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A-க்கு பக்கத்துல நூல கட்டி தராச மாட்டு. ஆரம்ப நிலையில இழுத்து பட்டி இப்பதான் சுழல்ற விசை F₁-ஐயும், O-ல இருந்து தூரத்தையும் குறிச்சுக்கோ.</li><li>திருகாணிய கால் சுற்று இன்னும் இறுக்கு. வாசிப்ப F₁-லயே வெச்சுக்கிட்டு, தராச O-ல இருந்து தூரமா நகர்த்தி, பட்டி மறுபடி இப்பதான் சுழல்ற இடத்த கண்டுபிடிச்சு தூரத்த அளக்கோ.</li><li>இன்னொரு கால் சுற்று (மொத்தம் அரை சுற்று) இறுக்கி திரும்ப செய். அட்டவணை 11.3-ஐ நிரப்பு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">அதே விசை F₁ (புத்தகத்து மாதிரியில 1.5 N)-ல, திருகாணி இறுகும்போது தராச O-ல இருந்து இன்னும் தூரமா வெக்க வேண்டியிருக்கு (மாதிரி தூரங்கள்: 15, 32, 55). அதனால திருப்பம் சுழல் புள்ளியில இருந்து விசைக்கு உள்ள செங்குத்துத் தூரத்த பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"11.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>",
+    "si": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 උපකරණ නැද්ද?</div>\n<ul><li>බය වෙන්න එපා — පහත <a href=\"#lab\">විද්‍යාගාරයේ</a> ඔබට එම අදහස් ම දැකිය හැක. නමුත් සැබෑවට කළ විට එය තවත් හොඳින් මතකයේ රැඳේ!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"11.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 1 — දොරක් විවෘත කිරීම</h3>\n<span class=\"act-ref\">පෙළපොත · පි.199–200</span>\n<p>දොරක් තල්ලු කරන ස්ථානය එය විවෘත කිරීමට අවශ්‍ය බලය වෙනස් කරන ආකාරය සොයන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>සන්ධිවලින් සවි කළ දොරක්</li><li>නිව්ටන් තරාදියක් (දුනු තරාදියක්)</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>දොරේ එකම තිරස් මට්ටමේ A, B, C සහ D ලක්ෂ්‍ය හතරක් සලකුණු කරන්න (11.1 රූපය).</li><li>නිව්ටන් තරාදිය A හි සවි කර දොර විවෘත කිරීමට අදින්න. දොර සැහැල්ලුවෙන් චලනය වීමට පටන් ගන්නා මොහොතේ බලය කියවන්න.</li><li>B, C සහ D හි නැවත කර 11.1 වගුව පුරවන්න: බලය, සන්ධි අක්ෂයේ සිට ලම්බ දුර, සහ බලය × දුර (N m).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">බලය යොදන්නේ සන්ධියෙන් (භ්‍රමණ අක්ෂයෙන්) වැඩි දුරකින් නම්, දොර විවෘත කිරීමට අවශ්‍ය බලය අඩු වේ. සන්ධි අසල තල්ලු කිරීම අපහසුයි. භ්‍රමණ ආචරණය රඳා පවතින්නේ අක්ෂයේ සිට බලයට ඇති ලම්බ දුර මත ය.</div></details>\n<button class=\"btn act-done\" data-act=\"11.1\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"11.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 2 — බලයේ ප්‍රමාණය වැදගත්ද?</h3>\n<span class=\"act-ref\">පෙළපොත · පි.201–203</span>\n<p>බලයේ විශාලත්වය භ්‍රමණ ආචරණයට බලපාන ආකාරය සොයන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>O, A, B, C, D සිදු සහිත ලී පටියක් (O සිට 15 cm, 30 cm, 45 cm, 60 cm)</li><li>රබර් වොෂර් දෙකක්, ඩ්‍රිල් එකක්, ඉස්කුරුප්පුවක්, නිව්ටන් තරාදියක්</li><li>මේසයක් හෝ පුවරුවක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>ඉස්කුරුප්පුව රබර් වොෂර් දෙක අතර තබා පටිය O හිදී පුවරුවට සවි කරන්න (11.3 රූපය).</li><li>නිව්ටන් තරාදිය D හි ඇමිණ, පටිය හැරීමට පටන් ගන්නා තෙක් පටියට සෘජු කෝණයෙන් අදින්න. බලය කියවන්න.</li><li>ඉස්කුරුප්පුව භාගයක් වටය තදින් කර බලය නැවත සොයන්න. ඉන්පසු සම්පූර්ණ වටයක් තදින් කර නැවත සොයන්න.</li><li>කියවීම් 11.2 වගුවේ සටහන් කරන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">ඉස්කුරුප්පුව තදින් කරන විට, පටිය හැරවීමට අවශ්‍ය බලය වැඩි වේ (පෙළපොතේ නියැදි කියවීම්: ආරම්භයේ 2 N, භාගයක් හැරවූ පසු 5 N, සම්පූර්ණ වටයකට පසු 9 N). එබැවින් භ්‍රමණ ආචරණය බලයේ ප්‍රමාණය මත රඳා පවතී.</div></details>\n<button class=\"btn act-done\" data-act=\"11.2\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"11.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>ක්‍රියාකාරකම 3 — දුර වැදගත්ද?</h3>\n<span class=\"act-ref\">පෙළපොත · පි.203–204</span>\n<p>භ්‍රමණ ලක්ෂ්‍යයේ සිට ලම්බ දුර භ්‍රමණ ආචරණයට බලපාන්නේද යන්න පරීක්ෂා කරන්න.</p>\n<div class=\"act-box\"><b>🧰 ඔබට අවශ්‍ය දේ</b><ul><li>ක්‍රියාකාරකම 2 හි එම පටියම, ඉස්කුරුප්පුවම සහ වොෂර්ම</li><li>නිව්ටන් තරාදියක් සහ නූලක්</li></ul></div>\n<div class=\"act-box\"><b>📝 පියවර</b><ol><li>A අසල පටිය හරහා නූලක් බැඳ නිව්ටන් තරාදිය සවි කරන්න. ආරම්භයේ තබා ඇති ලෙස ඉස්කුරුප්පුව සහිතව, පටිය හැරෙන තෙක් අදින්න. බලය F₁ සහ O සිට දුර සටහන් කරන්න.</li><li>ඉස්කුරුප්පුව තවත් කාර්තු වටයක් තදින් කරන්න. කියවීම F₁ හිම තබා ගෙන, පටිය නැවත හැරෙන තෙක් තරාදිය O සිට ඈතට ගෙන යන්න. දුර මනින්න.</li><li>තවත් කාර්තු වටයක් තදින් කර (මුළු භාගයක් වටය) නැවත කරන්න. 11.3 වගුව පුරවන්න.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 ඔබ සොයාගත යුත්තේ කුමක්ද? (ස්පර්ශ කරන්න)</summary><div class=\"act-res\">එකම F₁ බලය සමඟ (පෙළපොතේ නියැදියේ 1.5 N), ඉස්කුරුප්පුව තද වන විට තරාදිය O සිට වැඩි වැඩියෙන් දුරින් තැබිය යුතුය (නියැදි දුර 15, 32 සහ 55). එබැවින් භ්‍රමණ ආචරණය රඳා පවතින්නේ භ්‍රමණ ලක්ෂ්‍යයේ සිට බලයට ඇති ලම්බ දුර මත ය.</div></details>\n<button class=\"btn act-done\" data-act=\"11.3\">✅ මම උත්සාහ කළා! (+10 XP)</button>\n</div>"
    }
   },
   {
@@ -315,11 +356,13 @@
    "heading": {
     "title": {
      "en": "Interactive Balance Lab",
-     "ta": "தராசு லேப்"
+     "ta": "தராசு லேப்",
+     "si": "අන්තර්ක්‍රියාකාරී සමතුලිතතා විද්‍යාගාරය"
     },
     "sub": {
      "en": "Change the force and distance on each side — watch the see-saw tip live",
-     "ta": "ரெண்டு பக்கத்திலும் விசையையும் தூரத்தையும் மாத்தி பாரு — சீசா எப்படி சாய்றதுன்னு பாத்துக்கோ!"
+     "ta": "ரெண்டு பக்கத்திலும் விசையையும் தூரத்தையும் மாத்தி பாரு — சீசா எப்படி சாய்றதுன்னு பாத்துக்கோ!",
+     "si": "සෑම පැත්තකම බලය සහ දුර වෙනස් කර සීසෝව සජීවීව නැමෙන ආකාරය බලන්න"
     }
    },
    "legacy": {
@@ -334,11 +377,13 @@
    "heading": {
     "title": {
      "en": "🎮 Balance It! Challenge",
-     "ta": "🎮 பாலன்ஸ் இட்! சவால்"
+     "ta": "🎮 பாலன்ஸ் இட்! சவால்",
+     "si": "🎮 සමතුලිත කිරීමේ අභියෝගය"
     },
     "sub": {
      "en": "Each level, guess the force needed to balance the see-saw!",
-     "ta": "ஒவ்வொரு லெவலிலும், சீசாவை சமநிலைப்படுத்த தேவையான விசையை யூகி!"
+     "ta": "ஒவ்வொரு லெவலிலும், சீசாவை சமநிலைப்படுத்த தேவையான விசையை யூகி!",
+     "si": "සෑම මට්ටමකදීම, සීසෝව සමතුලිත කිරීමට අවශ්‍ය බලය අනුමාන කරන්න!"
     }
    },
    "legacy": {
@@ -352,11 +397,13 @@
    "heading": {
     "title": {
      "en": "Self-Check Quiz",
-     "ta": "சுயபரிசோதனை குயிஸ்"
+     "ta": "சுயபரிசோதனை குயிஸ்",
+     "si": "ස්වයං පරීක්ෂා ප්‍රශ්නාවලිය"
     },
     "sub": {
      "en": "Quick check before the worked examples",
-     "ta": "கஷ்டமான உதாரணங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+     "ta": "கஷ்டமான உதாரணங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!",
+     "si": "වැඩ කළ නිදසුන්වලට පෙර ඉක්මන් පරීක්ෂාවක්"
     }
    },
    "questions": [
@@ -369,25 +416,30 @@
      "options": [
       {
        "en": "More force",
-       "ta": "அதிக விசை"
+       "ta": "அதிக விசை",
+       "si": "වැඩි බලයක්"
       },
       {
        "en": "Less force",
-       "ta": "குறைவான விசை"
+       "ta": "குறைவான விசை",
+       "si": "අඩු බලයක්"
       },
       {
        "en": "The exact same force",
-       "ta": "சரியா அதே விசை"
+       "ta": "சரியா அதே விசை",
+       "si": "හරියටම එම බලයම"
       },
       {
        "en": "No force at all",
-       "ta": "விசையே தேவையில்ல"
+       "ta": "விசையே தேவையில்ல",
+       "si": "කිසිම බලයක් නැත"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "Moment = Force × distance from the axis. A bigger distance means less force is needed to produce the same moment.",
-      "ta": "திருப்பம் = விசை × அச்சிலிருந்து தூரம். தூரம் அதிகமா இருந்தா, அதே திருப்பத்துக்கு குறைவான விசை போதும்."
+      "ta": "திருப்பம் = விசை × அச்சிலிருந்து தூரம். தூரம் அதிகமா இருந்தா, அதே திருப்பத்துக்கு குறைவான விசை போதும்.",
+      "si": "ඝූර්ණය = බලය × අක්ෂයේ සිට දුර. වැඩි දුරක් යනු එකම ඝූර්ණය ඇති කිරීමට අඩු බලයක් අවශ්‍ය බවයි."
      }
     },
     {
@@ -417,7 +469,8 @@
      "answer": 2,
      "explain": {
       "en": "Moment = Force × distance = 6 × 3 = 18 N m. Don't forget the unit is N m, not N!",
-      "ta": "திருப்பம் = விசை × தூரம் = 6 × 3 = 18 N m. அலகு N m தான், N இல்ல!"
+      "ta": "திருப்பம் = விசை × தூரம் = 6 × 3 = 18 N m. அலகு N m தான், N இல்ல!",
+      "si": "ඝූර්ණය = බලය × දුර = 6 × 3 = 18 N m. ඒකකය N නොව N m බව අමතක නොකරන්න!"
      }
     },
     {
@@ -447,7 +500,8 @@
      "answer": 1,
      "explain": {
       "en": "For balance: 12 × 2 = F × 3, so F = 24 ÷ 3 = 8 N.",
-      "ta": "சமநிலை: 12 × 2 = F × 3, அதனால் F = 24 ÷ 3 = 8 N."
+      "ta": "சமநிலை: 12 × 2 = F × 3, அதனால் F = 24 ÷ 3 = 8 N.",
+      "si": "සමතුලිතතාවට: 12 × 2 = F × 3, එබැවින් F = 24 ÷ 3 = 8 N."
      }
     },
     {
@@ -459,25 +513,30 @@
      "options": [
       {
        "en": "Two equal forces in the same direction",
-       "ta": "ஒரே திசையில் இரு சம விசைகள்"
+       "ta": "ஒரே திசையில் இரு சம விசைகள்",
+       "si": "එකම දිශාවට සමාන බල දෙකක්"
       },
       {
        "en": "Two equal, opposite, parallel forces not along the same line",
-       "ta": "ஒரே நேர்கோட்டில் இல்லாத, சமமும் எதிர் திசையும் சமாந்தரமுமான இரு விசைகள்"
+       "ta": "ஒரே நேர்கோட்டில் இல்லாத, சமமும் எதிர் திசையும் சமாந்தரமுமான இரு விசைகள்",
+       "si": "එකම රේඛාවක නොමැති සමාන, ප්‍රතිවිරුද්ධ, සමාන්තර බල දෙකක්"
       },
       {
        "en": "Any two forces acting on an object",
-       "ta": "ஒரு பொருள் மேல தாக்கும் எந்த இரு விசைகளும்"
+       "ta": "ஒரு பொருள் மேல தாக்கும் எந்த இரு விசைகளும்",
+       "si": "වස්තුවක් මත ක්‍රියා කරන ඕනෑම බල දෙකක්"
       },
       {
        "en": "A single force applied twice",
-       "ta": "ஒரு விசையை இரண்டு தடவை பிரயோகித்தல்"
+       "ta": "ஒரு விசையை இரண்டு தடவை பிரயோகித்தல்",
+       "si": "එක් බලයක් දෙවරක් යෙදීම"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "A couple is specifically two equal, parallel, opposite forces that don't act along the same line — this produces pure rotation with no net force.",
-      "ta": "விசை இணை என்பது சரியாக ஒரே நேர்கோட்டில் இல்லாத, சமமும் எதிர்திசையும் சமாந்தரமுமான இரு விசைகள் — இது நிகர விசை இல்லாம, சுத்த திருப்பத்த மட்டும் உண்டாக்கும்."
+      "ta": "விசை இணை என்பது சரியாக ஒரே நேர்கோட்டில் இல்லாத, சமமும் எதிர்திசையும் சமாந்தரமுமான இரு விசைகள் — இது நிகர விசை இல்லாம, சுத்த திருப்பத்த மட்டும் உண்டாக்கும்.",
+      "si": "බල යුග්මයක් යනු එකම රේඛාවක ක්‍රියා නොකරන සමාන, සමාන්තර, ප්‍රතිවිරුද්ධ බල දෙකකි — මෙය ශුද්ධ බලයක් නැතිව පිරිසිදු භ්‍රමණයක් ඇති කරයි."
      }
     },
     {
@@ -489,25 +548,30 @@
      "options": [
       {
        "en": "It depends on which point you choose",
-       "ta": "எந்த புள்ளியா தேர்ந்தெடுக்குறோமோ அதை பொறுத்தது"
+       "ta": "எந்த புள்ளியா தேர்ந்தெடுக்குறோமோ அதை பொறுத்தது",
+       "si": "එය රඳා පවතින්නේ ඔබ තෝරන ලක්ෂ්‍යය මත ය"
       },
       {
        "en": "Always zero",
-       "ta": "எப்பவுமே பூச்சியம்"
+       "ta": "எப்பவுமே பூச்சியம்",
+       "si": "සෑම විටම ශුන්‍යයි"
       },
       {
        "en": "Equal to the largest force",
-       "ta": "மிகப்பெரிய விசைக்கு சமம்"
+       "ta": "மிகப்பெரிய விசைக்கு சமம்",
+       "si": "විශාලතම බලයට සමාන"
       },
       {
        "en": "Cannot be determined",
-       "ta": "கண்டுபிடிக்க முடியாது"
+       "ta": "கண்டுபிடிக்க முடியாது",
+       "si": "තීරණය කළ නොහැක"
       }
      ],
      "answer": 1,
      "explain": {
       "en": "If a system is in full equilibrium, the net moment about ANY point — not just the pivot — is always zero.",
-      "ta": "ஒரு அமைப்பு முழுசமநிலையில் இருந்தா, எந்த ஒரு புள்ளியை பற்றியும் — பிவாட் மட்டுமல்ல — நிகர திருப்பம் எப்பவும் பூச்சியம்தான்."
+      "ta": "ஒரு அமைப்பு முழுசமநிலையில் இருந்தா, எந்த ஒரு புள்ளியை பற்றியும் — பிவாட் மட்டுமல்ல — நிகர திருப்பம் எப்பவும் பூச்சியம்தான்.",
+      "si": "පද්ධතියක් සම්පූර්ණ සමතුලිතතාවයේ නම්, භ්‍රමණ ලක්ෂ්‍යය පමණක් නොව ඕනෑම ලක්ෂ්‍යයක් වටා ශුද්ධ ඝූර්ණය සෑම විටම ශුන්‍ය වේ."
      }
     }
    ]
@@ -518,11 +582,13 @@
    "heading": {
     "title": {
      "en": "🧩 Moment Match",
-     "ta": "🧩 மொமெண்ட் மேட்ச்"
+     "ta": "🧩 மொமெண்ட் மேட்ச்",
+     "si": "🧩 ඝූර්ණ ගැළපීම"
     },
     "sub": {
      "en": "Two quick rounds — match the term, then sort seesaw pairs by balanced or not!",
-     "ta": "இரண்டு சின்ன சுற்றுகள் — வார்த்தையை இணை, அப்புறம் சீசா ஜோடிகளை சமநிலையா இல்லையான்னு வரிசைப்படுத்து!"
+     "ta": "இரண்டு சின்ன சுற்றுகள் — வார்த்தையை இணை, அப்புறம் சீசா ஜோடிகளை சமநிலையா இல்லையான்னு வரிசைப்படுத்து!",
+     "si": "ඉක්මන් වටයන් දෙකක් — පදය ගළපන්න, ඉන්පසු සීසෝ යුගල සමතුලිතද නැද්ද යන්න අනුව වර්ග කරන්න!"
     }
    },
    "legacy": {
@@ -536,11 +602,13 @@
    "heading": {
     "title": {
      "en": "Worked Textbook Examples",
-     "ta": "பாட புத்தக உதாரணங்கள்"
+     "ta": "பாட புத்தக உதாரணங்கள்",
+     "si": "පෙළපොතේ වැඩ කළ නිදසුන්"
     },
     "sub": {
      "en": "Tap through each step — mark values shown as in an examiner's scheme",
-     "ta": "ஒவ்வொரு படியையும் தொட்டுப் பாரு — மார்க் ஸ்கீம் மாதிரி மதிப்பெண்ணும் காட்டியிருக்கேன்"
+     "ta": "ஒவ்வொரு படியையும் தொட்டுப் பாரு — மார்க் ஸ்கீம் மாதிரி மதிப்பெண்ணும் காட்டியிருக்கேன்",
+     "si": "එක් එක් පියවර ස්පර්ශ කරන්න — පරීක්ෂකයෙකුගේ ලකුණු යෝජනා ක්‍රමයේ මෙන් පෙන්වා ඇති අගයන් සලකුණු කරන්න"
     }
    },
    "examples": [
@@ -548,22 +616,26 @@
      "id": "w1",
      "body": {
       "en": "<div class=\"qtext\">A uniform 1 m rod AB is suspended and balanced at its centre. A 4 N weight hangs at end B (0.5 m from the pivot). (i) Find the moment caused by the 4 N force. (ii) What weight, hung at point C (0.4 m from the pivot), would keep the rod balanced?</div>\n<div class=\"qdiagram\">\n<svg id=\"q1Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 160\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) Moment = Force × distance = 4 N × 0.5 m</p>\n<div class=\"work\">= 2 N m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) For balance: left moment = right moment, i.e. w × 0.4 = 4 × 0.5</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Make w the subject: w = (4 × 0.5) ÷ 0.4</p>\n<div class=\"work\">= 2 ÷ 0.4 = 5 N</div>\n<div class=\"note\"><b>Where marks are lost:</b> not setting up the balance condition (w × distance = 4 × distance) correctly.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answers:</b> (i) Moment = 2 N m   (ii) Required weight w = <b>5 N</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">1 m நீளமுள்ள சீரான கோல் AB அதன் நடுவில் தொங்கவிடப்பட்டு சமநிலைப்படுத்தப்பட்டுள்ளது. அந்தம் B யில் ஒரு 4 N நிறை (பிவாட்டிலிருந்து 0.5 m) தொங்கவிடப்பட்டுள்ளது. (i) 4 N விசை காரணமாக உண்டாகும் திருப்பத்தைக் காண்க. (ii) சமநிலைப் புள்ளியிலிருந்து 0.4 m தூரத்தில் உள்ள புள்ளி C யிலிருந்து எந்நிறையைத் தொங்கவிட்டால், கோல் மறுமடியும் சமநிலையில் இருக்கும்?</div>\n<div class=\"qdiagram\">\n<svg id=\"q1Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 160\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) திருப்பம் = விசை × தூரம் = 4 N × 0.5 m</p>\n<div class=\"work\">= 2 N m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) சமநிலைக்கு: இடப்புற திருப்பம் = வலப்புற திருப்பம், அதாவது w × 0.4 = 4 × 0.5</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>w-ஐ தனியே எடு: w = (4 × 0.5) ÷ 0.4</p>\n<div class=\"work\">= 2 ÷ 0.4 = 5 N</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> சமநிலை நிபந்தனையை (w × தூரம் = 4 × தூரம்) சரியா எழுதாதது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்கள்:</b> (i) திருப்பம் = 2 N m   (ii) தேவையான நிறை w = <b>5 N</b>.</div>"
+      "ta": "<div class=\"qtext\">1 m நீளமுள்ள சீரான கோல் AB அதன் நடுவில் தொங்கவிடப்பட்டு சமநிலைப்படுத்தப்பட்டுள்ளது. அந்தம் B யில் ஒரு 4 N நிறை (பிவாட்டிலிருந்து 0.5 m) தொங்கவிடப்பட்டுள்ளது. (i) 4 N விசை காரணமாக உண்டாகும் திருப்பத்தைக் காண்க. (ii) சமநிலைப் புள்ளியிலிருந்து 0.4 m தூரத்தில் உள்ள புள்ளி C யிலிருந்து எந்நிறையைத் தொங்கவிட்டால், கோல் மறுமடியும் சமநிலையில் இருக்கும்?</div>\n<div class=\"qdiagram\">\n<svg id=\"q1Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 160\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) திருப்பம் = விசை × தூரம் = 4 N × 0.5 m</p>\n<div class=\"work\">= 2 N m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) சமநிலைக்கு: இடப்புற திருப்பம் = வலப்புற திருப்பம், அதாவது w × 0.4 = 4 × 0.5</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>w-ஐ தனியே எடு: w = (4 × 0.5) ÷ 0.4</p>\n<div class=\"work\">= 2 ÷ 0.4 = 5 N</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> சமநிலை நிபந்தனையை (w × தூரம் = 4 × தூரம்) சரியா எழுதாதது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்கள்:</b> (i) திருப்பம் = 2 N m   (ii) தேவையான நிறை w = <b>5 N</b>.</div>",
+      "si": "<div class=\"qtext\">ඒකාකාර 1 m දණ්ඩක් AB මැදින් එල්ලා සමතුලිත කර ඇත. B කෙළවරේ (භ්‍රමණ ලක්ෂ්‍යයේ සිට 0.5 m) 4 N බරක් එල්ලා ඇත. (i) 4 N බලය නිසා ඇතිවන ඝූර්ණය සොයන්න. (ii) දණ්ඩ සමතුලිතව තබා ගැනීමට C ලක්ෂ්‍යයේ (භ්‍රමණ ලක්ෂ්‍යයේ සිට 0.4 m) එල්ලිය යුතු බර කොපමණද?</div>\n<div class=\"qdiagram\">\n<svg id=\"q1Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 160\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1 <span class=\"marks\">ලකුණු 2</span></span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>(i) ඝූර්ණය = බලය × දුර = 4 N × 0.5 m</p>\n<div class=\"work\">= 2 N m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2 <span class=\"marks\">ලකුණු 1</span></span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) සමතුලිතතාවට: වම් ඝූර්ණය = දකුණු ඝූර්ණය, එනම් w × 0.4 = 4 × 0.5</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 3 <span class=\"marks\">ලකුණු 2</span></span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>w උක්ත කරන්න: w = (4 × 0.5) ÷ 0.4</p>\n<div class=\"work\">= 2 ÷ 0.4 = 5 N</div>\n<div class=\"note\"><b>ලකුණු නැති වන්නේ:</b> සමතුලිතතා අවශ්‍යතාව (w × දුර = 4 × දුර) නිවැරදිව සකස් නොකිරීමෙන්.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුරු:</b> (i) ඝූර්ණය = 2 N m   (ii) අවශ්‍ය බර w = <b>5 N</b>.</div>"
      },
      "tag": {
       "en": "Worked Example · Ch.11, p.205",
-      "ta": "பாட புத்தக உதாரணம் · பாடம் 11, ப. 205"
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 11, ப. 205",
+      "si": "වැඩ කළ නිදසුන · 11 පරි., පි.205"
      }
     },
     {
      "id": "w2",
      "body": {
       "en": "<div class=\"qtext\">A thin plate pivoted at O has a 10 N force upward and a 10 N force downward acting on it — one at 0.4 m from O, the other at 0.3 m from O (on opposite sides). Find the moment of this couple.</div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 140\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Total perpendicular distance between the two forces = 0.4 + 0.3</p>\n<div class=\"work\">= 0.7 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Moment of couple = Force × distance = 10 N × 0.7 m</p>\n<div class=\"work\">= 7 N m</div>\n<div class=\"note\"><b>Where marks are lost:</b> using only 0.4 or only 0.3 — you need to add both distances to get the total.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Moment of the couple = <b>7 N m</b>.\n      </div>",
-      "ta": "<div class=\"qtext\">O இல் சுழலிடப்பட்ட ஒரு மெல்லிய பலகை மீது 10 N விசை மேல்நோக்கியும், 10 N விசை கீழ்நோக்கியும் பிரயோகிக்கப்படுகின்றன — ஒன்று O விலிருந்து 0.4 m தூரத்திலும், மற்றொன்று O விலிருந்து 0.3 m தூரத்திலும் (எதிர்ப்பக்கங்களில்). இவ்விணையின் திருப்பத்தைக் காண்க.</div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 140\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இரு விசைகளுக்குமிடையேயான மொத்த செங்குத்துத் தூரம் = 0.4 + 0.3</p>\n<div class=\"work\">= 0.7 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இணையின் திருப்பம் = விசை × தூரம் = 10 N × 0.7 m</p>\n<div class=\"work\">= 7 N m</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> 0.4 அல்லது 0.3 மட்டும் பயன்படுத்துறது — ரெண்டு தூரத்தையும் கூட்டித்தான் மொத்த தூரம் கிடைக்கும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> இணையின் திருப்பம் = <b>7 N m</b>.</div>"
+      "ta": "<div class=\"qtext\">O இல் சுழலிடப்பட்ட ஒரு மெல்லிய பலகை மீது 10 N விசை மேல்நோக்கியும், 10 N விசை கீழ்நோக்கியும் பிரயோகிக்கப்படுகின்றன — ஒன்று O விலிருந்து 0.4 m தூரத்திலும், மற்றொன்று O விலிருந்து 0.3 m தூரத்திலும் (எதிர்ப்பக்கங்களில்). இவ்விணையின் திருப்பத்தைக் காண்க.</div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 140\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இரு விசைகளுக்குமிடையேயான மொத்த செங்குத்துத் தூரம் = 0.4 + 0.3</p>\n<div class=\"work\">= 0.7 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இணையின் திருப்பம் = விசை × தூரம் = 10 N × 0.7 m</p>\n<div class=\"work\">= 7 N m</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> 0.4 அல்லது 0.3 மட்டும் பயன்படுத்துறது — ரெண்டு தூரத்தையும் கூட்டித்தான் மொத்த தூரம் கிடைக்கும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> இணையின் திருப்பம் = <b>7 N m</b>.</div>",
+      "si": "<div class=\"qtext\">O හි භ්‍රමණය වන තුනී තහඩුවකට ඉහළට 10 N බලයක් සහ පහළට 10 N බලයක් ක්‍රියා කරයි — එකක් O සිට 0.4 m දී, අනෙක O සිට 0.3 m දී (ප්‍රතිවිරුද්ධ පැතිවල). මෙම බල යුග්මයේ ඝූර්ණය සොයන්න.</div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 140\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 1 <span class=\"marks\">ලකුණු 1</span></span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>බල දෙක අතර මුළු ලම්බ දුර = 0.4 + 0.3</p>\n<div class=\"work\">= 0.7 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>පියවර 2 <span class=\"marks\">ලකුණු 2</span></span><span>පෙන්වීමට ස්පර්ශ කරන්න</span></button>\n<div class=\"step-content hidden\">\n<p>බල යුග්මයේ ඝූර්ණය = බලය × දුර = 10 N × 0.7 m</p>\n<div class=\"work\">= 7 N m</div>\n<div class=\"note\"><b>ලකුණු නැති වන්නේ:</b> 0.4 පමණක් හෝ 0.3 පමණක් භාවිතා කිරීමෙන් — මුළු දුර ලබා ගැනීමට ඔබ දෙකම එකතු කළ යුතුය.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">අවසාන පිළිතුර පෙන්වන්න</button>\n<div class=\"final-answer hidden\"><b>අවසාන පිළිතුර:</b> බල යුග්මයේ ඝූර්ණය = <b>7 N m</b>.</div>"
      },
      "tag": {
       "en": "Worked Example · Ch.11, p.208 (Couple)",
-      "ta": "பாட புத்தக உதாரணம் · பாடம் 11, ப. 208"
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 11, ப. 208",
+      "si": "වැඩ කළ නිදසුන · 11 පරි., පි.208 (බල යුග්මය)"
      }
     }
    ]
@@ -574,18 +646,21 @@
    "heading": {
     "title": {
      "en": "Practice Exercises",
-     "ta": "பயிற்சி வினாக்கள்"
+     "ta": "பயிற்சி வினாக்கள்",
+     "si": "පුහුණු අභ්‍යාස"
     },
     "sub": {
      "en": "Every practice question from the textbook — each with a full worked solution",
-     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு"
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு",
+     "si": "පෙළපොතේ සෑම පුහුණු ප්‍රශ්නයක් ම — එක් එකකට සම්පූර්ණ විසඳුමක් සමඟ"
     }
    },
    "groups": [
     {
      "chip": {
       "en": "Exercise 11.1",
-      "ta": "பயிற்சி 11.1"
+      "ta": "பயிற்சி 11.1",
+      "si": "අභ්‍යාසය 11.1"
      },
      "items": [
       {
@@ -593,11 +668,13 @@
        "num": "1",
        "prompt": {
         "en": "<div class=\"exq\"><span>A rod XY is 0.8 m long. A 2 N weight hangs at end X. For the rod to remain balanced, at what distance from the pivot should a 4 N weight be hung on the other side?</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு கோல் XY ஆனது 0.8 m நீளமுள்ளது. அதன் அந்தம் X இல் ஓர் 2 N நிறை தொங்கவிடப்பட்டுள்ளது. கோல் மறுபடியும் சமநிலை அடைவதற்கு, கோலின் மற்றைய பக்கத்தில் ஒரு 4 N நிறையை சமநிலைப் புள்ளியிலிருந்து என்ன தூரத்தில் தொங்க விடப்பட வேண்டும்?</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு கோல் XY ஆனது 0.8 m நீளமுள்ளது. அதன் அந்தம் X இல் ஓர் 2 N நிறை தொங்கவிடப்பட்டுள்ளது. கோல் மறுபடியும் சமநிலை அடைவதற்கு, கோலின் மற்றைய பக்கத்தில் ஒரு 4 N நிறையை சமநிலைப் புள்ளியிலிருந்து என்ன தூரத்தில் தொங்க விடப்பட வேண்டும்?</span></div>",
+        "si": "<div class=\"exq\"><span>XY දණ්ඩේ දිග 0.8 m කි. X කෙළවරේ 2 N බරක් එල්ලා ඇත. දණ්ඩ සමතුලිතව තබා ගැනීමට අනෙක් පැත්තේ භ්‍රමණ ලක්ෂ්‍යයේ සිට කොපමණ දුරක 4 N බරක් එල්ලිය යුතුද?</span></div>"
        },
        "answer": {
         "en": "<div>X is 0.4 m from the centre (half of 0.8 m). Balance: 2 × 0.4 = 4 × x</div>\n<div class=\"work\">x = 0.8 ÷ 4 = <b>0.2 m</b></div>",
-        "ta": "<div>X, மையத்திலிருந்து 0.4 m (0.8m இன் பாதி). சமநிலை: 2 × 0.4 = 4 × x</div>\n<div class=\"work\">x = 0.8 ÷ 4 = <b>0.2 m</b></div>"
+        "ta": "<div>X, மையத்திலிருந்து 0.4 m (0.8m இன் பாதி). சமநிலை: 2 × 0.4 = 4 × x</div>\n<div class=\"work\">x = 0.8 ÷ 4 = <b>0.2 m</b></div>",
+        "si": "<div>X මැදින් 0.4 m කි (0.8 m හි අඩක්). සමතුලිතතාව: 2 × 0.4 = 4 × x</div>\n<div class=\"work\">x = 0.8 ÷ 4 = <b>0.2 m</b></div>"
        }
       },
       {
@@ -605,23 +682,27 @@
        "num": "2",
        "prompt": {
         "en": "<div class=\"exq\"><span>Three everyday situations using the turning effect of a force: (1) using a spanner to loosen a bolt (2) applying force to a bicycle pedal (3) using a wheelbarrow. Describe how the moment acts in each.</span></div>",
-        "ta": "<div class=\"exq\"><span>ஒரு விசையின் திருப்பம் தினசரி வாழ்வில் பயன்படுத்தப்படும் மூன்று சந்தர்ப்பங்கள்: (1) சுரையாணியை கழற்றுவதற்கு ஸ்பானரைப் பயன்படுத்தல் (2) சைக்கிளின் மிதிப்படிக்கு விசையைப் பிரயோகித்தல் (3) கை வண்டியைப் பயன்படுத்தல். ஒவ்வொன்றிலும் திருப்பம் தாக்கும் விதத்தை விவரிக்குக.</span></div>"
+        "ta": "<div class=\"exq\"><span>ஒரு விசையின் திருப்பம் தினசரி வாழ்வில் பயன்படுத்தப்படும் மூன்று சந்தர்ப்பங்கள்: (1) சுரையாணியை கழற்றுவதற்கு ஸ்பானரைப் பயன்படுத்தல் (2) சைக்கிளின் மிதிப்படிக்கு விசையைப் பிரயோகித்தல் (3) கை வண்டியைப் பயன்படுத்தல். ஒவ்வொன்றிலும் திருப்பம் தாக்கும் விதத்தை விவரிக்குக.</span></div>",
+        "si": "<div class=\"exq\"><span>බලයක භ්‍රමණ ආචරණය භාවිතා කරන දෛනික අවස්ථා තුනක්: (1) බෝල්ටුවක් ලිහිල් කිරීමට ස්පැනරයක් භාවිතය (2) බයිසිකල් පැඩලයකට බලයක් යෙදීම (3) රෝද කරත්තයක් භාවිතය. එක් එකකදී ඝූර්ණය ක්‍රියා කරන ආකාරය විස්තර කරන්න.</span></div>"
        },
        "answer": {
         "en": "<div>(1) Spanner: applying force at the far end of the handle gives a large moment (since the distance from the bolt — the pivot — is large), so the bolt loosens with less effort.</div>\n<div>(2) Bicycle pedal: the force applied by the foot on the pedal creates a moment about the crank's axle, turning the chain wheel.</div>\n<div>(3) Wheelbarrow: the force applied at the handles creates a large moment about the wheel's axle (the pivot), lifting the load with less effort.</div>",
-        "ta": "<div>(1) ஸ்பானர்: கைப்பிடி நுனியில் விசை பிரயோகிக்கும்போது, சுரையாணியிலிருந்து (சுழற்சி அச்சு) அதிக தூரம் இருப்பதால் பெரிய திருப்பம் கிடைத்து, குறைந்த விசையிலேயே அது அவிழும்.</div>\n<div>(2) சைக்கிள் மிதிப்படி: காலால் மிதிப்படியில் பிரயோகிக்கப்படும் விசை, க்ராங்க் அச்சைப் பற்றி ஒரு திருப்பத்தை உண்டாக்கி, சங்கிலி சக்கரத்தைச் சுழற்றுகிறது.</div>\n<div>(3) கை வண்டி: கைப்பிடிகளில் பிரயோகிக்கப்படும் விசை, சக்கர அச்சை (சுழற்சி அச்சு) பற்றி ஒரு பெரிய திருப்பத்தை உண்டாக்கி, குறைந்த முயற்சியில் சுமையை தூக்குகிறது.</div>"
+        "ta": "<div>(1) ஸ்பானர்: கைப்பிடி நுனியில் விசை பிரயோகிக்கும்போது, சுரையாணியிலிருந்து (சுழற்சி அச்சு) அதிக தூரம் இருப்பதால் பெரிய திருப்பம் கிடைத்து, குறைந்த விசையிலேயே அது அவிழும்.</div>\n<div>(2) சைக்கிள் மிதிப்படி: காலால் மிதிப்படியில் பிரயோகிக்கப்படும் விசை, க்ராங்க் அச்சைப் பற்றி ஒரு திருப்பத்தை உண்டாக்கி, சங்கிலி சக்கரத்தைச் சுழற்றுகிறது.</div>\n<div>(3) கை வண்டி: கைப்பிடிகளில் பிரயோகிக்கப்படும் விசை, சக்கர அச்சை (சுழற்சி அச்சு) பற்றி ஒரு பெரிய திருப்பத்தை உண்டாக்கி, குறைந்த முயற்சியில் சுமையை தூக்குகிறது.</div>",
+        "si": "<div>(1) ස්පැනරය: හැඩලයේ ඈත කෙළවරේ බලයක් යෙදීමෙන් විශාල ඝූර්ණයක් ලැබේ (බෝල්ටුවේ — භ්‍රමණ ලක්ෂ්‍යයේ — සිට දුර විශාල බැවින්), එබැවින් බෝල්ටුව අඩු උත්සාහයකින් ලිහිල් වේ.</div>\n<div>(2) බයිසිකල් පැඩලය: පාදයෙන් පැඩලය මත යෙදෙන බලය ක්‍රෑන්කයේ අක්ෂය වටා ඝූර්ණයක් ඇති කර දාම රෝදය හරවයි.</div>\n<div>(3) රෝද කරත්තය: මිටි මත යෙදෙන බලය රෝද අක්ෂය (භ්‍රමණ ලක්ෂ්‍යය) වටා විශාල ඝූර්ණයක් ඇති කර අඩු උත්සාහයකින් බර ඔසවයි.</div>"
        }
       }
      ],
      "title": {
       "en": "Moments",
-      "ta": "திருப்பம்"
+      "ta": "திருப்பம்",
+      "si": "ඝූර්ණ"
      }
     },
     {
      "chip": {
       "en": "Exercise 11.2",
-      "ta": "பயிற்சி 11.2"
+      "ta": "பயிற்சி 11.2",
+      "si": "අභ්‍යාසය 11.2"
      },
      "items": [
       {
@@ -629,11 +710,13 @@
        "num": "1(i)",
        "prompt": {
         "en": "<div class=\"exq\"><span>Give two examples of situations where a couple acts.</span></div>",
-        "ta": "<div class=\"exq\"><span>விசையிணை தாக்கும் சந்தர்ப்பங்களுக்கு இரு உதாரணங்கள் தருக.</span></div>"
+        "ta": "<div class=\"exq\"><span>விசையிணை தாக்கும் சந்தர்ப்பங்களுக்கு இரு உதாரணங்கள் தருக.</span></div>",
+        "si": "<div class=\"exq\"><span>බල යුග්මයක් ක්‍රියා කරන අවස්ථා දෙකක් දෙන්න.</span></div>"
        },
        "answer": {
         "en": "(1) Turning a vehicle's steering wheel with two hands in opposite directions. (2) Turning a water tap with two fingers in opposite directions (or turning a screwdriver).",
-        "ta": "(1) வாகனத்தின் செலுத்து சக்கரத்தை (steering wheel) இரு கைகளாலும் எதிர் திசைகளில் திருப்புதல். (2) நீர்த் தூம்பு குழாயை இரு விரல்களால் எதிர் திசைகளில் திருப்புதல் (அல்லது ஸ்க்ரூடிரைவர் திருப்புதல்)."
+        "ta": "(1) வாகனத்தின் செலுத்து சக்கரத்தை (steering wheel) இரு கைகளாலும் எதிர் திசைகளில் திருப்புதல். (2) நீர்த் தூம்பு குழாயை இரு விரல்களால் எதிர் திசைகளில் திருப்புதல் (அல்லது ஸ்க்ரூடிரைவர் திருப்புதல்).",
+        "si": "(1) වාහනයක සුක්කානම අතින් දෙකෙන් ප්‍රතිවිරුද්ධ දිශාවලට හැරවීම. (2) ජල කරාමයක් ඇඟිලි දෙකකින් ප්‍රතිවිරුද්ධ දිශාවලට හැරවීම (හෝ ඉස්කුරුප්පු නියනයක් හැරවීම)."
        }
       },
       {
@@ -641,22 +724,26 @@
        "num": "1(ii)",
        "prompt": {
         "en": "<div class=\"exq\"><span>A thin plate pivoted at O has forces applied as shown (10 N forces, at 0.4 m and 0.3 m from O, on opposite sides). Find the moment of the couple.</span></div>",
-        "ta": "<div class=\"exq\"><span>O இல் சுழலிடப்பட்ட ஒரு மெல்லிய பலகை உருவில் காணப்படுகின்றவாறு, பலகை மீது விசைகள் பிரயோகிக்கப்படுமெனின், அவ்விணையின் திருப்பத்தைக் காண்க. (10 N விசைகள், O விலிருந்து 0.4 m மற்றும் 0.3 m தூரத்தில், எதிர்ப்பக்கங்களில்)</span></div>"
+        "ta": "<div class=\"exq\"><span>O இல் சுழலிடப்பட்ட ஒரு மெல்லிய பலகை உருவில் காணப்படுகின்றவாறு, பலகை மீது விசைகள் பிரயோகிக்கப்படுமெனின், அவ்விணையின் திருப்பத்தைக் காண்க. (10 N விசைகள், O விலிருந்து 0.4 m மற்றும் 0.3 m தூரத்தில், எதிர்ப்பக்கங்களில்)</span></div>",
+        "si": "<div class=\"exq\"><span>O හි භ්‍රමණය වන තුනී තහඩුවකට පෙන්වා ඇති පරිදි බල යෙදේ (O සිට 0.4 m සහ 0.3 m දී, ප්‍රතිවිරුද්ධ පැතිවල 10 N බල). බල යුග්මයේ ඝූර්ණය සොයන්න.</span></div>"
        },
        "answer": {
-        "en": "<div class=\"work\">10 N × (0.4 + 0.3) m = <b>7 N m</b> (see Worked Example 2 above)</div>"
+        "en": "<div class=\"work\">10 N × (0.4 + 0.3) m = <b>7 N m</b> (see Worked Example 2 above)</div>",
+        "si": "<div class=\"work\">10 N × (0.4 + 0.3) m = <b>7 N m</b> (ඉහත වැඩ කළ නිදසුන 2 බලන්න)</div>"
        }
       }
      ],
      "title": {
       "en": "Couples",
-      "ta": "விசை இணை"
+      "ta": "விசை இணை",
+      "si": "බල යුග්ම"
      }
     },
     {
      "chip": {
       "en": "Chapter Exercise",
-      "ta": "அத்தியாய பயிற்சி"
+      "ta": "அத்தியாய பயிற்சி",
+      "si": "පරිච්ඡේද අභ්‍යාසය"
      },
      "items": [
       {
@@ -664,11 +751,13 @@
        "num": "1",
        "prompt": {
         "en": "<div class=\"exq\"><span>A 1.2 m rod AB is suspended and balanced at its centre. A 10 N weight hangs at end A (0.6 m from the pivot). Find the force that must be applied at 0.3 m from the pivot, on the other side, to keep the rod balanced.</span></div>",
-        "ta": "<div class=\"exq\"><span>1.2 m நீளமுள்ள கோல் AB அதன் நடுவில் தொங்கவிடப்பட்டு சமநிலையில் உள்ளது. அந்தம் A யில் 10 N நிறை தொங்கவிடப்பட்டுள்ளது (பிவாட்டிலிருந்து 0.6 m). கோல் சமநிலையில் இருப்பதற்கு, சமநிலைப் புள்ளியிலிருந்து 0.3 m தூரத்தில் பிரயோகிக்க வேண்டிய விசையைக் காண்க.</span></div>"
+        "ta": "<div class=\"exq\"><span>1.2 m நீளமுள்ள கோல் AB அதன் நடுவில் தொங்கவிடப்பட்டு சமநிலையில் உள்ளது. அந்தம் A யில் 10 N நிறை தொங்கவிடப்பட்டுள்ளது (பிவாட்டிலிருந்து 0.6 m). கோல் சமநிலையில் இருப்பதற்கு, சமநிலைப் புள்ளியிலிருந்து 0.3 m தூரத்தில் பிரயோகிக்க வேண்டிய விசையைக் காண்க.</span></div>",
+        "si": "<div class=\"exq\"><span>දිග 1.2 m වන AB දණ්ඩක් මැදින් එල්ලා සමතුලිත කර ඇත. A කෙළවරේ (භ්‍රමණ ලක්ෂ්‍යයේ සිට 0.6 m) 10 N බරක් එල්ලා ඇත. දණ්ඩ සමතුලිතව තබා ගැනීමට අනෙක් පැත්තේ භ්‍රමණ ලක්ෂ්‍යයේ සිට 0.3 m දී යෙදිය යුතු බලය සොයන්න.</span></div>"
        },
        "answer": {
         "en": "<div>Balance: 10 × 0.6 = F × 0.3</div>\n<div class=\"work\">F = 6 ÷ 0.3 = <b>20 N</b></div>",
-        "ta": "<div>சமநிலை: 10 × 0.6 = F × 0.3</div>\n<div class=\"work\">F = 6 ÷ 0.3 = <b>20 N</b></div>"
+        "ta": "<div>சமநிலை: 10 × 0.6 = F × 0.3</div>\n<div class=\"work\">F = 6 ÷ 0.3 = <b>20 N</b></div>",
+        "si": "<div>සමතුලිතතාව: 10 × 0.6 = F × 0.3</div>\n<div class=\"work\">F = 6 ÷ 0.3 = <b>20 N</b></div>"
        }
       },
       {
@@ -676,17 +765,20 @@
        "num": "2",
        "prompt": {
         "en": "<div class=\"exq\"><span>An 8 m beam AC has 10 N down at 2 m from A, 20 N up at the centre (B, 4 m), and 10 N down at 6 m. Find the moment caused by these three forces about (a) point A (b) point B (c) point C.</span></div>",
-        "ta": "<div class=\"exq\"><span>8 m நீளமுள்ள கீற்று AC மீது, A விலிருந்து 2 m இல் 10 N கீழ்நோக்கியும், நடுவில் (B, 4 m) 20 N மேல்நோக்கியும், 6 m இல் 10 N கீழ்நோக்கியும் தாக்குகின்றன. இம்மூன்று விசைகளினாலும் ஏற்படும் திருப்பங்களை (a) A புள்ளி (b) B புள்ளி (c) C புள்ளி — ஒவ்வொன்றையும் சுற்றியும் காண்க.</span></div>"
+        "ta": "<div class=\"exq\"><span>8 m நீளமுள்ள கீற்று AC மீது, A விலிருந்து 2 m இல் 10 N கீழ்நோக்கியும், நடுவில் (B, 4 m) 20 N மேல்நோக்கியும், 6 m இல் 10 N கீழ்நோக்கியும் தாக்குகின்றன. இம்மூன்று விசைகளினாலும் ஏற்படும் திருப்பங்களை (a) A புள்ளி (b) B புள்ளி (c) C புள்ளி — ஒவ்வொன்றையும் சுற்றியும் காண்க.</span></div>",
+        "si": "<div class=\"exq\"><span>8 m ක AC ලීයක A සිට 2 m දී පහළට 10 N, මැද (B, 4 m) දී ඉහළට 20 N, සහ 6 m දී පහළට 10 N ඇත. මෙම බල තුන නිසා (a) A ලක්ෂ්‍යය (b) B ලක්ෂ්‍යය (c) C ලක්ෂ්‍යය වටා ඇතිවන ඝූර්ණය සොයන්න.</span></div>"
        },
        "answer": {
         "en": "<div>(a) About A: anticlockwise (20N × 4m = 80) vs clockwise (10N × 2m + 10N × 6m = 20+60 = 80) → net moment = 0 (balanced)</div>\n<div>(b) About B: anticlockwise (10N × 2m = 20) vs clockwise (10N × 2m = 20) → net moment = 0 (the 20N force passes right through B, so it has zero moment there)</div>\n<div>(c) About C: clockwise (20N × 4m = 80) vs anticlockwise (10N × 6m + 10N × 2m = 60+20 = 80) → net moment = 0 (balanced)</div>\n<div class=\"work\"><b>எல்லா மூன்று புள்ளிகள் பற்றியும் நிகர திருப்பம் = 0 N m / Net moment about all three points = 0 N m</b></div>\n<div>This shows a beautiful fact — if a system is in equilibrium, the net moment about ANY point is zero, not just about the pivot!</div>",
-        "ta": "<div>(a) A புள்ளி பற்றி: எதிர்-கடிகார (20N × 4m = 80) vs கடிகார (10N × 2m + 10N × 6m = 20+60 = 80) → நிகர திருப்பம் = 0 (சமநிலை)</div>\n<div>(b) B புள்ளி பற்றி: எதிர்-கடிகார (10N × 2m = 20) vs கடிகார (10N × 2m = 20) → நிகர திருப்பம் = 0 (20N விசை B வழியாகவே செல்வதால் அதற்கு திருப்பமே இல்லை)</div>\n<div>(c) C புள்ளி பற்றி: கடிகார (20N × 4m = 80) vs எதிர்-கடிகார (10N × 6m + 10N × 2m = 60+20 = 80) → நிகர திருப்பம் = 0 (சமநிலை)</div>\n<div class=\"work\"><b>எல்லா மூன்று புள்ளிகள் பற்றியும் நிகர திருப்பம் = 0 N m / Net moment about all three points = 0 N m</b></div>\n<div>இது ஒரு அழகான உண்மையை காட்டுது — ஒரு அமைப்பு சமநிலையில் இருந்தால், எந்தப் புள்ளியை பற்றியும் நிகர திருப்பம் பூச்சியமாகவே இருக்கும், பிவாட்டை பற்றி மட்டுமல்ல!</div>"
+        "ta": "<div>(a) A புள்ளி பற்றி: எதிர்-கடிகார (20N × 4m = 80) vs கடிகார (10N × 2m + 10N × 6m = 20+60 = 80) → நிகர திருப்பம் = 0 (சமநிலை)</div>\n<div>(b) B புள்ளி பற்றி: எதிர்-கடிகார (10N × 2m = 20) vs கடிகார (10N × 2m = 20) → நிகர திருப்பம் = 0 (20N விசை B வழியாகவே செல்வதால் அதற்கு திருப்பமே இல்லை)</div>\n<div>(c) C புள்ளி பற்றி: கடிகார (20N × 4m = 80) vs எதிர்-கடிகார (10N × 6m + 10N × 2m = 60+20 = 80) → நிகர திருப்பம் = 0 (சமநிலை)</div>\n<div class=\"work\"><b>எல்லா மூன்று புள்ளிகள் பற்றியும் நிகர திருப்பம் = 0 N m / Net moment about all three points = 0 N m</b></div>\n<div>இது ஒரு அழகான உண்மையை காட்டுது — ஒரு அமைப்பு சமநிலையில் இருந்தால், எந்தப் புள்ளியை பற்றியும் நிகர திருப்பம் பூச்சியமாகவே இருக்கும், பிவாட்டை பற்றி மட்டுமல்ல!</div>",
+        "si": "<div>(a) A වටා: වාමාවර්ත (20N × 4m = 80) එදිරිව දක්ෂිණාවර්ත (10N × 2m + 10N × 6m = 20+60 = 80) → ශුද්ධ ඝූර්ණය = 0 (සමතුලිතයි)</div>\n<div>(b) B වටා: වාමාවර්ත (10N × 2m = 20) එදිරිව දක්ෂිණාවර්ත (10N × 2m = 20) → ශුද්ධ ඝූර්ණය = 0 (20N බලය B හරහා ම යන බැවින් එහි ඝූර්ණය ශුන්‍යයි)</div>\n<div>(c) C වටා: දක්ෂිණාවර්ත (20N × 4m = 80) එදිරිව වාමාවර්ත (10N × 6m + 10N × 2m = 60+20 = 80) → ශුද්ධ ඝූර්ණය = 0 (සමතුලිතයි)</div>\n<div class=\"work\"><b>ලක්ෂ්‍ය තුනම වටා ශුද්ධ ඝූර්ණය = 0 N m</b></div>\n<div>මෙය ලස්සන කරුණක් පෙන්වයි — පද්ධතියක් සමතුලිතතාවයේ නම්, භ්‍රමණ ලක්ෂ්‍යය වටා පමණක් නොව ඕනෑම ලක්ෂ්‍යයක් වටා ශුද්ධ ඝූර්ණය ශුන්‍ය වේ!</div>"
        }
       }
      ],
      "title": {
       "en": "Everything together",
-      "ta": "எல்லாமே சேர்த்து"
+      "ta": "எல்லாமே சேர்த்து",
+      "si": "සියල්ල එකට"
      }
     }
    ]
@@ -697,29 +789,35 @@
    "heading": {
     "title": {
      "en": "Fun Recap",
-     "ta": "ஜாலி ரிகேப்"
+     "ta": "ஜாலி ரிகேப்",
+     "si": "විනෝද සාරාංශය"
     },
     "sub": {
      "en": "Raja and Chittu go over the whole lesson once more, the fun way",
-     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு",
+     "si": "රාජා සහ චිට්ටු මුළු පාඩමම නැවත වරක් විනෝදජනක ලෙස පෙරළා බලනවා"
     }
    },
    "cards": [
     {
      "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎠</div><div class=\"cm-b r\"><i>Raja:</i> <span>I am heavy and you are light. How do we balance the seesaw?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>Chittu:</i> <span>The heavy one sits near the middle. 300 × 1 = 100 × 3.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚪</div><div class=\"cm-b r\"><i>Raja:</i> <span>Why is the door handle far from the hinges?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔧</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Farther from the pivot means a bigger moment, so you need less force.</span></div></div>\n</div>",
-     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎠</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நான் பாரம், நீ லேசு. சீசாவ எப்படி சமநிலைப்படுத்தறது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>பாரமானவன் நடுவுக்கு பக்கத்துல உக்காரணும். 300 × 1 = 100 × 3.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚪</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>கதவோட கைப்பிடி கீல்ல இருந்து தூரமா இருக்கறது ஏன்?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔧</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>சுழல் புள்ளியில இருந்து தூரமா இருந்தா திருப்பம் அதிகம், குறைவான விசையே போதும்.</span></div></div>\n</div>"
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎠</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நான் பாரம், நீ லேசு. சீசாவ எப்படி சமநிலைப்படுத்தறது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>பாரமானவன் நடுவுக்கு பக்கத்துல உக்காரணும். 300 × 1 = 100 × 3.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚪</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>கதவோட கைப்பிடி கீல்ல இருந்து தூரமா இருக்கறது ஏன்?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔧</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>சுழல் புள்ளியில இருந்து தூரமா இருந்தா திருப்பம் அதிகம், குறைவான விசையே போதும்.</span></div></div>\n</div>",
+     "si": "<h3>📖 රාජාගේ විකට කතාව</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🎠</div><div class=\"cm-b r\"><i>රාජා:</i> <span>මම බරයි, ඔයා සැහැල්ලුයි. අපි සීසෝව සමතුලිත කරන්නේ කොහොමද?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>බර එක මැද ළඟ වාඩි වේ. 300 × 1 = 100 × 3.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚪</div><div class=\"cm-b r\"><i>රාජා:</i> <span>දොර මිට සන්ධිවලින් දුරින් ඇත්තේ ඇයි?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔧</div><div class=\"cm-b c\"><i>චිට්ටු:</i> <span>භ්‍රමණ ලක්ෂ්‍යයෙන් වැඩි දුරකදී ඝූර්ණය විශාල වන බැවින් ඔබට අඩු බලයක් අවශ්‍යයි.</span></div></div>\n</div>"
     },
     {
      "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Force times distance is the moment,<br/>far from the pivot, the turning is bigger.<br/>Left equals right, the seesaw is level,<br/>and a couple makes it turn with ease!</div>",
-     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">விசை × தூரம் — திருப்பம்,<br/>தூரமா இருந்தா திருப்பம் அதிகம்.<br/>இடது = வலது — சீசா சமம்,<br/>இணை இருந்தா சுழற்ற சுலபம்!</div>"
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">விசை × தூரம் — திருப்பம்,<br/>தூரமா இருந்தா திருப்பம் அதிகம்.<br/>இடது = வலது — சீசா சமம்,<br/>இணை இருந்தா சுழற்ற சுலபம்!</div>",
+     "si": "<h3>🎵 මතක ගීතය</h3>\n<div class=\"cm-rhyme\">බලය ගුණ දුර ඝූර්ණයයි,<br/>භ්‍රමණ ලක්ෂ්‍යයෙන් ඈතට හැරවීම වැඩියි.<br/>වම දකුණට සමාන නම් සීසෝව සමතලයි,<br/>බල යුග්මයෙන් ඉතා පහසුවෙන් හැරේ!</div>"
     },
     {
      "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Use any distance from the force.</td><td class=\"ok\">Use the PERPENDICULAR distance from the pivot to the line of action of the force.</td></tr><tr><td class=\"w\">A moment is measured in newtons (N).</td><td class=\"ok\">The unit of a moment is N m (force × distance).</td></tr><tr><td class=\"w\">A couple is just one force.</td><td class=\"ok\">A couple is TWO equal, opposite, parallel forces.</td></tr></table></div>",
-     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">விசையில இருந்து எந்த தூரத்தையும் எடுக்கலாம்.</td><td class=\"ok\">சுழல் புள்ளியில இருந்து விசையோட தாக்கக் கோட்டுக்கு உள்ள செங்குத்துத் தூரத்த எடு.</td></tr><tr><td class=\"w\">திருப்பம் நியூற்றன் (N)-ல அளக்கப்படும்.</td><td class=\"ok\">திருப்பத்தோட அலகு N m (விசை × தூரம்).</td></tr><tr><td class=\"w\">இணை ஒரே ஒரு விசைதான்.</td><td class=\"ok\">இணை = சமமான, எதிரான, சமாந்தரமான ரெண்டு விசைகள்.</td></tr></table></div>"
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">விசையில இருந்து எந்த தூரத்தையும் எடுக்கலாம்.</td><td class=\"ok\">சுழல் புள்ளியில இருந்து விசையோட தாக்கக் கோட்டுக்கு உள்ள செங்குத்துத் தூரத்த எடு.</td></tr><tr><td class=\"w\">திருப்பம் நியூற்றன் (N)-ல அளக்கப்படும்.</td><td class=\"ok\">திருப்பத்தோட அலகு N m (விசை × தூரம்).</td></tr><tr><td class=\"w\">இணை ஒரே ஒரு விசைதான்.</td><td class=\"ok\">இணை = சமமான, எதிரான, சமாந்தரமான ரெண்டு விசைகள்.</td></tr></table></div>",
+     "si": "<h3>🙈 රාජාගේ වැරදි ↔ 🐦 චිට්ටුගේ නිවැරදි කිරීම්</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 රාජා කියන්නේ (වැරදියි)</th><th>🐦 චිට්ටු කියන්නේ (හරි)</th></tr><tr><td class=\"w\">බලයේ සිට ඕනෑම දුරක් භාවිතා කරන්න.</td><td class=\"ok\">භ්‍රමණ ලක්ෂ්‍යයේ සිට බලයේ ක්‍රියා රේඛාවට ලම්බ දුර භාවිතා කරන්න.</td></tr><tr><td class=\"w\">ඝූර්ණයක් මනින්නේ නිව්ටන් (N) වලිනි.</td><td class=\"ok\">ඝූර්ණයක ඒකකය N m (බලය × දුර).</td></tr><tr><td class=\"w\">බල යුග්මයක් යනු එක බලයක් පමණි.</td><td class=\"ok\">බල යුග්මයක් යනු සමාන, ප්‍රතිවිරුද්ධ, සමාන්තර බල දෙකකි.</td></tr></table></div>"
     },
     {
      "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>moment of a force = force × perpendicular distance from the pivot; unit N m</li><li>balanced (in equilibrium): clockwise moments = anticlockwise moments</li><li>farther from the pivot = bigger turning effect, so less force is needed</li><li>a couple = two equal, opposite, parallel forces; it only turns the object</li><li>couples are used in taps, steering wheels and screwdrivers</li></ul>",
-     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>விசையின் திருப்பம் = விசை × சுழல் புள்ளியில இருந்து செங்குத்துத் தூரம்; அலகு N m</li><li>சமநிலை: வலஞ்சுழி திருப்பங்கள் = இடஞ்சுழி திருப்பங்கள்</li><li>சுழல் புள்ளியில இருந்து தூரம் = அதிக திருப்பம், குறைவான விசை போதும்</li><li>இணை = சம, எதிர், சமாந்தர ரெண்டு விசைகள்; அது பொருளை சுழற்றும் மட்டும்</li><li>குழாய், ஸ்டியரிங் வீல், ஸ்க்ரூட்ரைவர்ல இணை பயன்படுது</li></ul>"
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>விசையின் திருப்பம் = விசை × சுழல் புள்ளியில இருந்து செங்குத்துத் தூரம்; அலகு N m</li><li>சமநிலை: வலஞ்சுழி திருப்பங்கள் = இடஞ்சுழி திருப்பங்கள்</li><li>சுழல் புள்ளியில இருந்து தூரம் = அதிக திருப்பம், குறைவான விசை போதும்</li><li>இணை = சம, எதிர், சமாந்தர ரெண்டு விசைகள்; அது பொருளை சுழற்றும் மட்டும்</li><li>குழாய், ஸ்டியரிங் வீல், ஸ்க்ரூட்ரைவர்ல இணை பயன்படுது</li></ul>",
+     "si": "<h3>⭐ අනිවාර්යයෙන් දැනගත යුතු කරුණු</h3>\n<ul class=\"cm-must\"><li>බලයේ ඝූර්ණය = බලය × භ්‍රමණ ලක්ෂ්‍යයේ සිට ලම්බ දුර; ඒකකය N m</li><li>සමතුලිතයි (සමතුලිතතාවයේ): දක්ෂිණාවර්ත ඝූර්ණ = වාමාවර්ත ඝූර්ණ</li><li>භ්‍රමණ ලක්ෂ්‍යයෙන් වැඩි දුරකින් = විශාල භ්‍රමණ ආචරණයක්, එබැවින් අඩු බලයක් අවශ්‍යයි</li><li>බල යුග්මයක් = සමාන, ප්‍රතිවිරුද්ධ, සමාන්තර බල දෙකක්; එය වස්තුව හරවනවා පමණි</li><li>බල යුග්ම භාවිතා වන්නේ කරාමවල, සුක්කානම්වල සහ ඉස්කුරුප්පු නියනවල</li></ul>"
     }
    ]
   },
@@ -729,52 +827,63 @@
    "heading": {
     "title": {
      "en": "Chapter Summary & Key Terms",
-     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்",
+     "si": "පරිච්ඡේද සාරාංශය සහ ප්‍රධාන පද"
     },
     "sub": {
      "en": "One last read before the exam!",
-     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!",
+     "si": "විභාගයට පෙර අවසාන වරට කියවන්න!"
     }
    },
    "points": [
     {
      "en": "The turning (or rotating) effect produced about a point or an axis when a force acts on an object is called the moment of the force (turning effect).",
-     "ta": "ஒரு பொருள் மேல விசை தாக்கும்போது, ஒரு புள்ளிய அல்லது அச்சப் பத்தி உண்டாகும் சுழற்சி விளைவு, அந்த விசையோட திருப்பம்."
+     "ta": "ஒரு பொருள் மேல விசை தாக்கும்போது, ஒரு புள்ளிய அல்லது அச்சப் பத்தி உண்டாகும் சுழற்சி விளைவு, அந்த விசையோட திருப்பம்.",
+     "si": "වස්තුවක් මත බලයක් ක්‍රියා කරන විට ලක්ෂ්‍යයක් හෝ අක්ෂයක් වටා ඇතිවන භ්‍රමණ (හැරවීමේ) ආචරණය බලයේ ඝූර්ණය (භ්‍රමණ ආචරණය) ලෙස හැඳින්වේ."
     },
     {
      "en": "Moment of a force = force × perpendicular distance from the pivot to the line of action of the force. Its unit is N m.",
-     "ta": "விசையின் திருப்பம் = விசை × சுழல் புள்ளியில இருந்து விசையோட தாக்கக் கோட்டுக்கு உள்ள செங்குத்துத் தூரம். அலகு N m."
+     "ta": "விசையின் திருப்பம் = விசை × சுழல் புள்ளியில இருந்து விசையோட தாக்கக் கோட்டுக்கு உள்ள செங்குத்துத் தூரம். அலகு N m.",
+     "si": "බලයක ඝූර්ණය = භ්‍රමණ ලක්ෂ්‍යයේ සිට බලයේ ක්‍රියා රේඛාවට ලම්බ දුර × බලය. එහි ඒකකය N m වේ."
     },
     {
      "en": "Applying a couple is the easiest way to turn (or rotate) an object in a given direction.",
-     "ta": "ஒரு பொருள ஒரு குறிப்பிட்ட திசையில திருப்ப (சுழற்ற) இணைய பிரயோகிக்கறதுதான் ரொம்ப எளிது."
+     "ta": "ஒரு பொருள ஒரு குறிப்பிட்ட திசையில திருப்ப (சுழற்ற) இணைய பிரயோகிக்கறதுதான் ரொம்ப எளிது.",
+     "si": "බල යුග්මයක් යෙදීම යනු වස්තුවක් දී ඇති දිශාවකට හැරවීමට (හෝ භ්‍රමණය කිරීමට) පහසුම ක්‍රමයයි."
     },
     {
      "en": "A couple is a pair of equal, parallel forces acting in opposite directions on the object.",
-     "ta": "இணைன்னா பொருள் மேல எதிர்த் திசையில தாக்கும் சமமான, சமாந்தரமான இரு விசைகள்."
+     "ta": "இணைன்னா பொருள் மேல எதிர்த் திசையில தாக்கும் சமமான, சமாந்தரமான இரு விசைகள்.",
+     "si": "බල යුග්මයක් යනු වස්තුව මත ප්‍රතිවිරුද්ධ දිශාවලට ක්‍රියා කරන සමාන, සමාන්තර බල යුගලයකි."
     }
    ],
    "glossary": [
     {
      "en": "Moment of force",
-     "ta": "விசையின் திருப்பம்"
+     "ta": "விசையின் திருப்பம்",
+     "si": "බලයේ ඝූර්ණය"
     },
     {
      "en": "Turning effect of a force",
-     "ta": "திருப்பல் விளைவு"
+     "ta": "திருப்பல் விளைவு",
+     "si": "බලයේ භ්‍රමණ ආචරණය"
     },
     {
      "en": "Couple of force",
-     "ta": "விசை இணை"
+     "ta": "விசை இணை",
+     "si": "බල යුග්මයක්"
     }
    ],
    "points_title": {
     "en": "📌 Summary — 4 key points",
-    "ta": "📌 பொழிப்பு — 4 முக்கிய புள்ளிகள்"
+    "ta": "📌 பொழிப்பு — 4 முக்கிய புள்ளிகள்",
+    "si": "📌 සාරාංශය — ප්‍රධාන කරුණු 4"
    },
    "glossary_title": {
     "en": "📖 Key terms (Tamil – English)",
-    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)",
+    "si": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)"
    }
   }
  ]

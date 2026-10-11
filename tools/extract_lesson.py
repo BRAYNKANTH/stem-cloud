@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup, Tag
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from content_schema.lesson import Lesson  # noqa: E402
+from tools.sinhala import Sinhala  # noqa: E402
 
 PAGES = ROOT / 'site' / 'lessons'
 AUDIO = ROOT / 'public' / 'static' / 'audio' / 'story'
@@ -28,6 +29,7 @@ CONTENT = ROOT / 'content'
 GAMES = {'challenge', 'holdgame', 'pushit', 'tugofwar', 'balancegame'}
 SKIP_SECTIONS = {'fw_path', 'fw_finish'}          # the lesson's own start and finish screens (app chrome, not content)
 NL, CR = chr(10), chr(13)
+SI: Sinhala | None = None                         # the chapter's Sinhala translation memory, set by extract()
 DROP_INTERACTIVE = ['.path-explorer']             # small live demos inside notes; they need the lesson's script
 # Interface parts of a lesson page, not content: section labels, chips, navigation, score lines and reveal buttons.
 # Everything else in a section is carried over; the self-check ignores only these.
@@ -116,8 +118,9 @@ def rich(el: Tag, report: list, where: str, drop: str = '') -> dict | None:
         return None
     en_el = copy.copy(el)
     ta_el = tamil_version(el)
+    si_el = SI.version(el) if SI else None
     out = {}
-    for lang, node in (('en', en_el), ('ta', ta_el)):
+    for lang, node in (('en', en_el), ('ta', ta_el), ('si', si_el)):
         if node is None:
             continue
         if drop:
@@ -142,6 +145,22 @@ def text(el: Tag) -> dict | None:
         ta = ' '.join(ta_el.get_text(' ', strip=True).split())
         if ta and ta != en:
             out['ta'] = ta
+    si_el = SI.version(el) if SI else None
+    if si_el is not None:
+        si = ' '.join(si_el.get_text(' ', strip=True).split())
+        if si and si != en:
+            out['si'] = si
+    return out
+
+
+def tri(en: str, ta: str | None = None) -> dict:
+    """A plain string from the page's script data, with its Tamil and the Sinhala the translation memory has."""
+    out = {'en': en}
+    if ta:
+        out['ta'] = ta
+    si = SI.text(en) if SI else None
+    if si:
+        out['si'] = si
     return out
 
 
@@ -163,16 +182,16 @@ def story(sec: Tag, html: str, legacy_id: str, report: list) -> dict | None:
         return None
     lines = []
     for i, (who, scene, en, ta) in enumerate(data['lines']):
-        line = {'speaker': {'R': 'raja', 'C': 'chittu'}[who], 'text': {'en': en, 'ta': ta} if ta else {'en': en}}
+        line = {'speaker': {'R': 'raja', 'C': 'chittu'}[who], 'text': tri(en, ta)}
         if scene:
             line['scene'] = scene
         mp3 = AUDIO / legacy_id / ('line%02d.mp3' % i)
         if mp3.exists():
             line['audio'] = {'ta': '%s/line%02d.mp3' % (legacy_id, i)}
         lines.append(line)
-    step = {'type': 'story', 'id': 'story', 'title': {'en': data['title'][0], 'ta': data['title'][1]}, 'lines': lines}
+    step = {'type': 'story', 'id': 'story', 'title': tri(data['title'][0], data['title'][1]), 'lines': lines}
     if data.get('cta'):
-        step['cta'] = {'en': data['cta'][0], 'ta': data['cta'][1]}
+        step['cta'] = tri(data['cta'][0], data['cta'][1])
     quest = sec.select_one('.so-quest p')
     if quest is not None:
         step['quest'] = rich(quest, report, 'story quest')
@@ -288,10 +307,10 @@ def quiz(html: str, report: list) -> dict | None:
     qs = []
     for i, q in enumerate(data, 1):
         opts_ta = q.get('optsTa') or [None] * len(q['opts'])
-        item = {'id': 'q%d' % i, 'prompt': {'en': q['q'], **({'ta': q['qTa']} if q.get('qTa') else {})},
-                'options': [{'en': o, **({'ta': t} if t else {})} for o, t in zip(q['opts'], opts_ta)], 'answer': q['correct']}
+        item = {'id': 'q%d' % i, 'prompt': tri(q['q'], q.get('qTa')),
+                'options': [tri(o, t) for o, t in zip(q['opts'], opts_ta)], 'answer': q['correct']}
         if q.get('explain'):
-            item['explain'] = {'en': q['explain'], **({'ta': q['explainTa']} if q.get('explainTa') else {})}
+            item['explain'] = tri(q['explain'], q.get('explainTa'))
         qs.append(item)
     return qs
 
@@ -345,6 +364,9 @@ def summary(sec: Tag, report: list) -> dict:
         tt, te = tr.select_one('td.tt'), tr.select_one('td.te')
         if tt and te and te.get_text(strip=True):
             term = {'en': te.get_text(' ', strip=True), 'ta': tt.get_text(' ', strip=True)}
+            si_term = SI.lookup('@' + te.get_text(' ', strip=True)) if SI else None
+            if si_term:
+                term['si'] = BeautifulSoup(si_term, 'html.parser').get_text(' ', strip=True)
             meaning = [td for td in tr.find_all('td') if td is not tt and td is not te]
             if meaning and text(meaning[0]):
                 term['meaning'] = text(meaning[0])
@@ -368,6 +390,8 @@ def summary(sec: Tag, report: list) -> dict:
 
 # ----------------------------------------------------------------------------------------------- the chapter
 def extract(file: str, meta: dict) -> tuple[dict, list]:
+    global SI
+    SI = Sinhala(file[:-len('.html')])
     html = (PAGES / file).read_text(encoding='utf-8')
     soup = BeautifulSoup(html, 'html.parser')
     report = []

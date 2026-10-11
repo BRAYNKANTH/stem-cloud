@@ -45,6 +45,7 @@ const { title, description = 'GCE O/L Physics with Raja and Chittu, in English, 
     <script is:inline>
       try {
         var d = document.documentElement, s = localStorage;
+        d.classList.add('js');
         if (!s.getItem('stem_bright_v1')) { s.setItem('lessonTheme', 'light'); s.setItem('stem_theme', 'light'); s.setItem('stem_bright_v1', '1'); }
         d.setAttribute('data-theme', (s.getItem('stem_theme') || s.getItem('lessonTheme')) === 'dark' ? 'dark' : 'light');
         var l = s.getItem('lessonLang'); d.lang = l === 'ta' || l === 'si' ? l : 'en';

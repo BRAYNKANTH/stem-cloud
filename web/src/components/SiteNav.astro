@@ -1,8 +1,10 @@
 ---
 // Top bar of the public Home and About pages: logo, page links, theme switch and Log in / My Lessons.
-// On phones the links wrap under the logo (as on the current pages). Extra buttons can be passed in the "actions" slot.
+// On phones the links fold behind a menu button (they wrap under the logo instead when JavaScript is off).
+// Extra buttons can be passed in the "actions" slot; give them class="wide-only" to hide them on phones.
 import ThemeToggle from '../islands/ThemeToggle';
 import AuthButton from '../islands/AuthButton';
+import NavMenu from '../islands/NavMenu';
 
 interface Props {
   links: { href: string; label: string; active?: boolean }[];
@@ -15,13 +17,14 @@ const { links } = Astro.props;
       <img src="/static/brand/logo-mark.png" alt="" width="44" height="29" />
       <span>STEM <b>Cloud</b></span>
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="site-nav-links">
       {links.map((l) => <li><a href={l.href} aria-current={l.active ? 'page' : undefined}>{l.label}</a></li>)}
     </ul>
     <div class="nav-actions">
       <slot name="actions" />
       <ThemeToggle client:idle />
       <AuthButton client:idle />
+      <NavMenu client:media="(max-width: 720px)" />
     </div>
   </div>
 </nav>
@@ -34,7 +37,7 @@ const { links } = Astro.props;
     border-bottom: 1px solid var(--sc-line);
     padding-top: env(safe-area-inset-top);
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 20px; }
+  .nav-inner { position: relative; display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 20px; }
   .nav-brand { display: flex; align-items: center; gap: 12px; min-height: var(--tap); font-family: var(--font-head); font-weight: 800;
                font-size: 1.35rem; color: var(--sc-ink); text-decoration: none; white-space: nowrap; }
   .nav-brand b { color: var(--sc-blue); font-weight: 800; }
@@ -43,14 +46,23 @@ const { links } = Astro.props;
   .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--sc-ink); }
   .nav-actions { display: flex; align-items: center; gap: 12px; }
   .nav-actions :global(.btn) { white-space: nowrap; }
-  .nav-actions :global(.theme-toggle) {
+  .nav-actions :global(.theme-toggle), .nav-actions :global(.nav-menu-btn) {
     width: var(--tap); height: var(--tap); border-radius: var(--r); border: 2px solid var(--sc-line); background: var(--sc-panel);
     color: var(--sc-ink-2); display: inline-flex; align-items: center; justify-content: center; font-size: 1.15rem; cursor: pointer;
     box-shadow: 0 3px 0 var(--sc-line);
   }
+  .nav-actions :global(.nav-menu-btn) { display: none; color: var(--sc-ink); }
   @media (max-width: 720px) {
-    .nav-inner { min-height: 60px; flex-wrap: wrap; gap: 6px 12px; padding-block: 8px; }
+    .nav-inner { min-height: 60px; flex-wrap: wrap; gap: 6px 10px; padding-block: 8px; }
+    .nav-brand { font-size: 1.2rem; gap: 8px; }
     .nav-actions { gap: 8px; margin-left: auto; }
+    .nav-actions :global(.wide-only) { display: none; }
+    /* without JavaScript the links wrap under the logo */
     .nav-links { order: 5; width: 100%; flex-wrap: wrap; gap: 0 16px; }
+    /* with JavaScript they fold behind the menu button */
+    :global(html.js) .nav-actions :global(.nav-menu-btn) { display: inline-flex; }
+    :global(html.js) .nav-links { display: none; }
+    :global(html.js) .site-nav[data-open] .nav-links { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 4px 0 10px; }
+    :global(html.js) .site-nav[data-open] .nav-links a { width: 100%; }
   }
 </style>

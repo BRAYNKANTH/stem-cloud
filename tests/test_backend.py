@@ -18,6 +18,7 @@ os.environ['GATE_SECRET'] = 'test-gate-secret'
 
 from fastapi.testclient import TestClient  # noqa: E402
 from stemcloud import db as dbmod, migrations, security  # noqa: E402
+from stemcloud.routers import pages  # noqa: E402
 from stemcloud.main import app  # noqa: E402
 
 H = {'X-Requested-With': 'stemcloud'}
@@ -134,6 +135,48 @@ class GateCookie(unittest.TestCase):
             self.assertEqual(r.status_code, 200, r.text)
             self.assertIsNone(gate_cookie(r))
             self.assertIsNone(security.check_gate(security.gate_value(self.uid)))
+
+
+class HomeRoute(unittest.TestCase):
+    """/ sends signed-in students to their lessons (the installed app opens /) and shows everyone else the Home page:
+    the Astro build when it is bundled, the original page otherwise."""
+
+    def setUp(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'home.db')
+        migrations._ready = False
+        self.built = Path(TMP) / 'web-home.html'
+        self.built.write_text('<!doctype html><meta name="generator" content="Astro test"><title>Astro home</title>', encoding='utf-8')
+
+    def get_root(self, client, path='/'):
+        return client.get(path, follow_redirects=False)
+
+    def test_visitor_gets_the_astro_home_when_built(self):
+        with patch.object(pages, 'WEB_HOME', self.built):
+            r = self.get_root(TestClient(app))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('Astro home', r.text)
+        self.assertEqual(r.headers['cache-control'], 'no-cache')
+        self.assertTrue(r.headers['content-type'].startswith('text/html'))
+
+    def test_visitor_gets_the_original_home_without_a_build(self):
+        with patch.object(pages, 'WEB_HOME', Path(TMP) / 'missing.html'):
+            r = self.get_root(TestClient(app))
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('STEM Cloud', r.text)
+        self.assertNotIn('Astro home', r.text)
+
+    def test_signed_in_student_goes_to_lessons_unless_asking_for_home(self):
+        client = TestClient(app)
+        r = client.post('/api/signup', headers=H, json={'username': 'home_admin', 'password': 'home-password-1'})
+        if r.status_code != 200:            # an earlier test class created the first account in this database
+            r = client.post('/api/login', headers=H, json={'username': 'home_admin', 'password': 'home-password-1'})
+        self.assertEqual(r.status_code, 200, r.text)
+        with patch.object(pages, 'WEB_HOME', self.built):
+            r = self.get_root(client)
+            self.assertEqual((r.status_code, r.headers['location']), (302, '/lessons/index.html'))
+            r = self.get_root(client, '/?home=1')
+            self.assertEqual(r.status_code, 200)
+            self.assertIn('Astro home', r.text)
 
 
 class HealthMedia(unittest.TestCase):

@@ -2,7 +2,7 @@
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 
-from ..config import STATIC
+from ..config import STATIC, WEB_HOME
 from ..db import PG, db
 from ..legacy import safe_next
 from ..media import media_problems, media_status
@@ -12,9 +12,13 @@ router = APIRouter()
 
 @router.get('/')
 def home(req: Request):
+    """Signed-in students go straight to their lessons (the installed app opens /); everyone else gets the Home page:
+    the Astro build when it is bundled (on Vercel), the original page otherwise (local runs without a web build)."""
     if current_user(req) and not req.query_params.get('home') and not req.query_params.get('preview'):
         return RedirectResponse('/lessons/index.html', status_code=302)
-    return FileResponse(STATIC / 'home.html')
+    page = WEB_HOME if WEB_HOME.is_file() else STATIC / 'home.html'
+    # the answer depends on the visitor, so browsers must ask again instead of reusing an old copy
+    return FileResponse(page, media_type='text/html', headers={'Cache-Control': 'no-cache'})
 
 @router.get('/home')
 def home_alias(req: Request):

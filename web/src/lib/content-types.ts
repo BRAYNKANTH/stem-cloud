@@ -79,6 +79,10 @@ export type Icon = string | null;
  * Textbook section number, e.g. "2.1".
  */
 export type Section = string | null;
+/**
+ * Further content after the cards (a home activity, a bridge to the notes), kept as it is.
+ */
+export type Extra = Rich[];
 export type Id3 = string;
 export type Type1 = 'basics';
 export type LessonFile1 = string;
@@ -90,6 +94,10 @@ export type Type2 = 'watch';
  * @minItems 1
  */
 export type Cards1 = [Card, ...Card[]];
+/**
+ * Further content beside the cards (e.g. common mistakes), kept as it is.
+ */
+export type Extra1 = Rich[];
 export type Id5 = string;
 export type Type3 = 'notes';
 export type Id6 = string;
@@ -146,7 +154,7 @@ export type Type9 = 'recap';
 /**
  * Any further summary cards, kept as they are.
  */
-export type Extra = Rich[];
+export type Extra2 = Rich[];
 export type En2 = string;
 export type Si2 = string | null;
 export type Ta2 = string | null;
@@ -228,6 +236,7 @@ export interface Rich {
  */
 export interface BasicsStep {
   cards: Cards;
+  extra?: Extra;
   heading: Heading;
   hook?: Rich | null;
   id: Id3;
@@ -278,6 +287,7 @@ export interface Legacy {
  */
 export interface NotesStep {
   cards: Cards1;
+  extra?: Extra1;
   heading: Heading;
   id: Id5;
   intro?: Rich | null;
@@ -390,11 +400,13 @@ export interface RecapStep {
  * via the `definition` "SummaryStep".
  */
 export interface SummaryStep {
-  extra?: Extra;
+  extra?: Extra2;
   glossary?: Glossary;
+  glossary_title?: Text | null;
   heading: Heading;
   id: Id15;
   points: Points;
+  points_title?: Text | null;
   type: Type10;
 }
 /**
@@ -403,6 +415,10 @@ export interface SummaryStep {
  */
 export interface GlossaryTerm {
   en: En2;
+  /**
+   * A short meaning, where the glossary has one.
+   */
+  meaning?: Text | null;
   si?: Si2;
   ta?: Ta2;
 }

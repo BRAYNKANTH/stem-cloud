@@ -41,6 +41,15 @@
           "title": "Cards",
           "type": "array"
         },
+        "extra": {
+          "default": [],
+          "description": "Further content after the cards (a home activity, a bridge to the notes), kept as it is.",
+          "items": {
+            "$ref": "#/$defs/Rich"
+          },
+          "title": "Extra",
+          "type": "array"
+        },
         "heading": {
           "$ref": "#/$defs/Heading"
         },
@@ -230,6 +239,18 @@
           "title": "En",
           "type": "string"
         },
+        "meaning": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "A short meaning, where the glossary has one."
+        },
         "si": {
           "anyOf": [
             {
@@ -385,6 +406,15 @@
           },
           "minItems": 1,
           "title": "Cards",
+          "type": "array"
+        },
+        "extra": {
+          "default": [],
+          "description": "Further content beside the cards (e.g. common mistakes), kept as it is.",
+          "items": {
+            "$ref": "#/$defs/Rich"
+          },
+          "title": "Extra",
           "type": "array"
         },
         "heading": {
@@ -714,6 +744,17 @@
           "title": "Glossary",
           "type": "array"
         },
+        "glossary_title": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
         "heading": {
           "$ref": "#/$defs/Heading"
         },
@@ -730,6 +771,17 @@
           "minItems": 1,
           "title": "Points",
           "type": "array"
+        },
+        "points_title": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         },
         "type": {
           "const": "summary",

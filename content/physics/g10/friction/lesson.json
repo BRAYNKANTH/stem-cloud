@@ -1,0 +1,864 @@
+{
+ "schema": 2,
+ "id": "physics.g10.friction",
+ "slug": "friction",
+ "subject": "physics",
+ "grade": 10,
+ "number": "5",
+ "title": {
+  "en": "Friction",
+  "ta": "உராய்வு",
+  "si": "ඝර්ෂණය"
+ },
+ "legacy": {
+  "id": "c5",
+  "file": "chapter-05-friction.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why did Raja slip?",
+    "ta": "ராஜா ஏன் வழுக்கினான்?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Look Chittu, I'm ice-skating on the mopped floor! Weeee... oh no... THUD!",
+      "ta": "பாரு சிட்டு, மாப் போட்ட தரையில ஐஸ் ஸ்கேட்டிங் பண்றேன்! வீ... ஐயோ... தொம்!"
+     },
+     "scene": "🧼💦🐒",
+     "audio": {
+      "ta": "c5/line00.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "You slipped because the mopped floor has very little friction. Friction is the force that opposes sliding between two surfaces.",
+      "ta": "நீ வழுக்குனதுக்கு காரணம், மாப் போட்ட தரையில உராய்வு ரொம்ப குறைவு. உராய்வுன்னா ரெண்டு மேற்பரப்புகளுக்கு நடுவுல சறுக்குறத எதிர்க்கும் விசை."
+     },
+     "scene": "🔍",
+     "audio": {
+      "ta": "c5/line01.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, when I rub my hands they get warm!",
+      "ta": "சிட்டு, கைய தேய்ச்சா சூடாகுது!"
+     },
+     "scene": "🙌🔥",
+     "audio": {
+      "ta": "c5/line02.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Good catch! Friction always makes heat. That is how people made fire by rubbing sticks.",
+      "ta": "சரியா பிடிச்சே! உராய்வு எப்பவும் சூடு உண்டாக்கும். அதனாலதான் மரத்துண்டுகள தேய்ச்சு நெருப்பு உண்டாக்கினாங்க."
+     },
+     "scene": "🔥",
+     "audio": {
+      "ta": "c5/line03.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "If I wear giant slippers, there is more contact area, so more friction. Right?",
+      "ta": "நான் பெரிய செருப்பு போட்டா தொடுகை பரப்பு அதிகம், அதனால உராய்வும் அதிகம். சரியா?"
+     },
+     "scene": "👟👟",
+     "audio": {
+      "ta": "c5/line04.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Wrong, Raja! Contact area does NOT affect friction. Only the roughness of the surfaces and the weight pressing down matter.",
+      "ta": "தப்பு ராஜா! தொடுகைப் பரப்பளவு உராய்வ பாதிக்காது. மேற்பரப்போட கரடுமுரடும், அழுத்தும் எடையும்தான் பாதிக்கும்."
+     },
+     "scene": "🚫📐",
+     "audio": {
+      "ta": "c5/line05.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "So that is why they sprinkle powder on a carrom board!",
+      "ta": "அதான் கரம் போர்டுல பொடி தூவுறாங்களா!"
+     },
+     "scene": "🎯",
+     "audio": {
+      "ta": "c5/line06.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Yes, and why bus tyres have grooves. Sometimes we need less friction, sometimes more.",
+      "ta": "ஆமா, பஸ் டயர்ல கோடுகள் இருக்கறதும் அதுக்குத்தான். சில நேரம் உராய்வு குறைவா வேணும், சில நேரம் அதிகமா வேணும்."
+     },
+     "scene": "🛞",
+     "audio": {
+      "ta": "c5/line07.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Static, limiting, dynamic friction... Let's go!",
+      "ta": "நிலையியல், எல்லை, இயக்கவியல் உராய்வு... வாங்க போகலாம்!"
+     },
+     "scene": "🚀",
+     "audio": {
+      "ta": "c5/line08.mp3"
+     }
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: friction →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: உராய்வு →"
+   },
+   "quest": {
+    "en": "In this module: explore what causes friction between contacting surfaces, compare static vs dynamic friction, and find out how friction helps us walk and drive.",
+    "ta": "இந்த பாடத்தில்: தொடுகை மேற்பரப்புகளுக்கு இடையே உராய்வு எவ்வாறு உருவாகிறது, நிலை மற்றும் இயக்க உராய்வு, அதன் பயன்களை ஆராய்வோம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: why things stop sliding",
+     "ta": "முதல்ல இருந்து: சறுக்கறது ஏன் நிக்குது"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "Smooth or rough",
+      "ta": "வழுவழுப்பா அல்லது சொரசொரப்பா"
+     },
+     "body": {
+      "en": "<p>Ice is smooth and slippery. Sandpaper is rough and grabby.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 slippery   🪨 rough</div>",
+      "ta": "<p>ஐஸ் வழுவழுப்பு, வழுக்கும். மணல் காகிதம் சொரசொரப்பு, பிடிக்கும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 slippery   🪨 rough</div>"
+     },
+     "icon": "🧊"
+    },
+    {
+     "title": {
+      "en": "Rub your hands",
+      "ta": "உள்ளங்கைய தேய்ச்சு பாரு"
+     },
+     "body": {
+      "en": "<p>Rub them fast. They feel warm and something holds them back. That holding-back push is friction.</p><div aria-hidden=\"true\" class=\"bs-pic\">🙌 ↔️ 🔥</div>",
+      "ta": "<p>வேகமா தேய்ச்சா சூடாகுது, எதோ தடுக்குது. அந்த தடுக்கற விசைதான் உராய்வு.</p><div aria-hidden=\"true\" class=\"bs-pic\">🙌 ↔️ 🔥</div>"
+     },
+     "icon": "🙌"
+    },
+    {
+     "title": {
+      "en": "Friction helps us",
+      "ta": "உராய்வு நமக்கு உதவும்"
+     },
+     "body": {
+      "en": "<p>Shoes grip the road, brakes stop a bike, a pencil writes. Without friction you would slip everywhere.</p><div aria-hidden=\"true\" class=\"bs-pic\">👟 🛑 ✏️</div>",
+      "ta": "<p>செருப்பு தரைய பிடிக்குது, பிரேக் சைக்கிள நிறுத்துது, பென்சில் எழுதுது. உராய்வு இல்லன்னா எல்லா இடமும் வழுக்கும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">👟 🛑 ✏️</div>"
+     },
+     "icon": "👟"
+    },
+    {
+     "title": {
+      "en": "We can make it smaller",
+      "ta": "குறைக்கவும் முடியும்"
+     },
+     "body": {
+      "en": "<p>Oil, polish and wheels make sliding easier. Rolling is easier than dragging.</p><div aria-hidden=\"true\" class=\"bs-pic\">🛢️ ✨   📦 ➜ 🛞</div>",
+      "ta": "<p>எண்ணெய், பாலிஷ், சக்கரம் சறுக்கறத ஈசியாக்கும். இழுக்கறத விட உருட்டறது ஈசி.</p><div aria-hidden=\"true\" class=\"bs-pic\">🛢️ ✨   📦 ➜ 🛞</div>"
+     },
+     "icon": "🛢️"
+    }
+   ],
+   "hook": {
+    "en": "Slide a book on the floor. Why does it stop by itself?",
+    "ta": "புத்தகத்த தரைல சறுக்கு. அது தானா ஏன் நிக்குது?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Slide a book on a table, then on a cloth. On which does it stop sooner?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>புத்தகத்த மேசைலயும் துணி மேலயும் சறுக்கிப்பாரு. எதுல சீக்கிரம் நிக்குது?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Friction is a force with rules. Let's find them.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>உராய்வுக்கும் விதிகள் இருக்கு. கண்டுபிடிக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: inside a surface",
+     "ta": "பாரு: மேற்பரப்புக்கு உள்ள"
+    },
+    "sub": {
+     "en": "A magic microscope shows where friction comes from",
+     "ta": "ஒரு மந்திர மைக்ராஸ்கோப் உராய்வு எங்க இருந்து வருதுன்னு காட்டும்"
+    }
+   },
+   "animation": {
+    "file": "chapter-05-friction.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Every idea, explained deeply, with real examples",
+     "ta": "ஒவ்வொரு கருத்தும், ஆழமா, உதாரணத்தோட"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "5.1 What is Friction, and Where Does It Come From?",
+      "ta": "5.1 உராய்வு என்றால் என்ன? எங்கிருந்து வருது?"
+     },
+     "body": {
+      "en": "<p>Roll a ball along the ground — it travels a bit, slows down gradually, and finally stops, right? We have all seen an object moving over a rough surface lose speed little by little and come to rest. The reason: the rough surface opposes the object's motion!</p>\n<p>Try pushing a heavy bookshelf across the floor — it's tough, right? That difficulty has a name: <b>friction</b>. When two surfaces are in contact and one tries to slide (or actually slides) over the other, a force arises from those surfaces that opposes that sliding motion — that's the friction force.</p>\n<p>Here's the secret — no matter how \"smooth\" something looks, no surface is 100% perfectly flat. At the microscopic level, every surface has tiny bumps and dips invisible to the eye. Put two surfaces together, and these tiny bumps catch on each other, resisting the slide — that's exactly where friction comes from. That's why rougher surfaces produce more friction than smoother ones.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🔎 Feel it for yourself</div>\n<ul>\n<li>Rub your palm slowly on a table — does it warm up? That heat is energy produced by friction! Friction always produces heat — that's exactly why the old method of rubbing two sticks together makes fire.</li>\n</ul>\n</div>",
+      "ta": "<p>ஒரு பந்த தரையில உருட்டி விட்டுப் பாரு — கொஞ்ச தூரம் போய், மெதுவா மெதுவா அதோட வேகம் குறைஞ்சு, கடைசில நின்னுடும் இல்லையா? ஒரு பொருளை ஒரு கரடுமுரடான தரையில இயங்க வெச்சா, அதோட வேகம் படிப்படியா குறைஞ்சு கடைசில ஓய்வுக்கு வர்றத நாம எல்லாரும் பாத்திருக்கோம். இதுக்கு காரணம் — அந்த கரடுமுரடான தரை, பொருளோட இயக்கத்த எதிர்க்குது!</p>\n<p>ஒரு பாரமான புத்தக அலமாரியை தரையில தள்ளிப் பாரு — ரொம்ப கஷ்டமா இருக்கும் இல்லையா? அந்த கஷ்டத்துக்கு பேர்தான் <b>உராய்வு</b> (Friction). ஒண்ணோடொண்று தொடுகையில இருக்குற இரு பொருள்களின் மேற்பரப்புகளில், ஒன்று மற்றொன்றின் மேல சறுக்க (அல்லது சறுக்க முயற்சிக்க) முற்படும்போது, அந்த இயக்கத்தை எதிர்க்குற வகையில அந்த மேற்பரப்புகளின் மூலம் பிரயோகிக்கப்படும் விசைதான் உராய்வு விசை.</p>\n<p>ரகசியம் என்னன்னா — எவ்வளவு ‘மினுமினுப்பா’் (smooth) தெரிஞ்சாலும், எந்த மேற்பரப்புமே 100% சமமா இருக்காது. கண்ணுக்கு தெரியாத மைக்ரோ லெவல்ல, ஒவ்வொரு மேற்பரப்புலயும் சின்ன சின்ன மேடு பள்ளங்கள் (bumps and dips) இருக்கும். ரெண்டு மேற்பரப்புகளையும் ஒண்ணோடொண்று வைச்சா, இந்த மேடு பள்ளங்கள் ஒண்ணோடொண்று சிக்கிக்கிட்டு, சறுக்குறத தடுக்க முயற்சிக்கும் — இதுதான் உராய்வு உண்டாகுற காரணம். அதனால்தான் இரண்டு மேற்பரப்புகள் எவ்வளவு கரடுமுரடா இருக்குதோ (rough), அவ்வளவு உராய்வு அதிகமா இருக்கும்.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🔎 நேரடியா உணர்ந்து பாரு</div>\n<ul>\n<li>ஒரு மேசை மேல உன் உள்ளங்கையை வெச்சு, மெதுவா தேய்த்துப் பாரு — கை சூடாகுதா? அந்த சூடு உராய்வால உண்டான ஆற்றல் (energy)! உராய்வுன்னா எப்பவுமே சூடு உண்டாக்கும் — அதனால்தான் மரத்துண்டுகளை தேய்த்து நெருப்பு உண்டாக்குற பழைய முறை வேலை செய்தது.</li>\n</ul>\n</div>"
+     },
+     "section": "5.1"
+    },
+    {
+     "title": {
+      "en": "5.2 Three Types of Friction",
+      "ta": "5.2 உராய்வின் மூன்று வகைகள்"
+     },
+     "body": {
+      "en": "<p>Take a heavy wooden block on a table, and pull it with a spring balance, little by little. Pull gently at first, and the block doesn't move — but your pulling force isn't wasted either, because friction \"matches\" it exactly. This is the first type.</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>1️⃣ Static Friction</h4>\n<ul>\n<li>Acts when a force is applied but the object still hasn't started moving.</li>\n<li>A \"self-adjusting\" force — it grows to exactly match however much you pull, up to a limit.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>2️⃣ Limiting Friction</h4>\n<ul>\n<li>The maximum static friction — right at the instant the object is just about to start moving.</li>\n<li>Only once your force exceeds this value does the object actually start moving.</li>\n</ul>\n</div>\n</div>\n<div class=\"compare\">\n<div class=\"cbox\" style=\"grid-column:1/-1;\">\n<h4>3️⃣ Dynamic (Kinetic) Friction</h4>\n<ul>\n<li>The friction that acts on an object while it is already moving, opposing that motion.</li>\n<li>Slightly less than limiting friction — that's exactly why it's harder to <i>start</i> moving a heavy object than to <i>keep</i> it moving once it's already sliding!</li>\n</ul>\n</div>\n</div>",
+      "ta": "<p>ஒரு பாரமான மரக்குற்றியை (wooden block) மேசை மேல வெச்சு, நியூற்றன் தராசால (spring balance) கொஞ்சம் கொஞ்சமா இழுத்துப் பாருங்க. முதல்ல லேசா இழுத்தா, குற்றி அசையாது — ஆனா நீங்க இழுக்குற விசை வீணாகவும் போகாது, ஏன்னா உராய்வு விசையும் அதே அளவுக்கு ‘சரி, நான் இவ்வளவு தடுக்குறேன்’்னு சரிசெய்துகிட்டு எதிர்க்கும். இதுதான் முதல் வகை.</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>1️⃣ நிலையியல் உராய்வு (Static Friction)</h4>\n<ul>\n<li>விசை பிரயோகிக்கப்பட்டாலும், பொருள் இன்னும் அசையாத போது தாக்கும் உராய்வு.</li>\n<li>இது ஒரு ‘சுயசரிசெய்யும்’் (self-adjusting) விசை — நீங்க இழுக்குற விசை எவ்வளவோ, அதே அளவுக்கு இதுவும் அதிகரிக்கும்.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>2️⃣ எல்லை உராய்வு (Limiting Friction)</h4>\n<ul>\n<li>பொருள் இயங்க ‘மட்டும் மட்டும்’் ஆரம்பிக்குற தருணத்தில் தாக்கும் அதிகபட்ச நிலையியல் உராய்வு.</li>\n<li>இதை தாண்டி விசை பிரயோகிச்சா மட்டும்தான் பொருள் நகரும்.</li>\n</ul>\n</div>\n</div>\n<div class=\"compare\">\n<div class=\"cbox\" style=\"grid-column:1/-1;\">\n<h4>3️⃣ இயக்கவியல் உராய்வு (Dynamic / Kinetic Friction)</h4>\n<ul>\n<li>பொருள் ஏற்கனவே இயங்கிக்கொண்டிருக்கும் போது, அந்த இயக்கத்திற்கு எதிராகத் தாக்கும் உராய்வு.</li>\n<li>இது எல்லை உராய்விலும் பார்க்க கொஞ்சம் குறைவு — அதனால்தான் ஒரு பாரமான பொருளை ‘நகர்த்த ஆரம்பிக்குறது’் கஷ்டமா இருந்தாலும், ஒரு தடவை நகர ஆரம்பிச்சா, ‘தொடர்ந்து நகர்த்துறது’் ஒப்பீட்டளவில் லேசா ஆகும்!</li>\n</ul>\n</div>\n</div>"
+     },
+     "section": "5.2"
+    },
+    {
+     "title": {
+      "en": "5.3 What Affects Limiting Friction — and What Doesn't",
+      "ta": "5.3 எல்லை உராய்வை பாதிக்குற காரணிகள் — எது பாதிக்காது?"
+     },
+     "body": {
+      "en": "<p>The textbook investigates this with three experiments. Let's look at each.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Factor 1 — Nature of the Surfaces</div>\n<div class=\"ltext\">The rougher the surfaces, the more friction. Smooth, polished surfaces produce less friction.</div>\n</div>\n<p>Pulling the same block over sandpapers of different roughness, the rougher paper makes the spring balance read a higher value — meaning more force (more friction) is needed.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Factor 2 — Normal Reaction (Weight)</div>\n<div class=\"ltext\">As an object's weight increases, the normal reaction from the surface below also increases — and so does the limiting friction.</div>\n</div>\n<p>A simple example — moving an empty box is easy, but fill it with stones to make it heavy, and it's much harder to push — weight went up, so friction went up too. In the textbook's experiment (Activity 5.4), stacking more and more blocks (each 20 N) on top and pulling them shows the required limiting friction force steadily increasing.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">😲 Surprising fact — surface area does NOT matter!</div>\n<ul>\n<li>Pull the same block on its long side, its short side, or its thick side — the limiting friction stays <b>exactly the same</b>! It doesn't matter whether the contact area is big or small — this is something students commonly get wrong.</li>\n</ul>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">What limiting friction depends on</div>\n<div class=\"fmath\">Depends on: nature of surfaces (roughness), normal reaction (weight)  |  Does NOT depend on: contact surface area</div>\n</div>",
+      "ta": "<p>பாடப்புத்தகத்துல மூணு சோதனைகள் மூலமா இத ஆராய்றாங்க. ஒவ்வொண்ணையும் பாப்போம்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">காரணி 1 — மேற்பரப்புகளின் இயல்பு</div>\n<div class=\"ltext\">மேற்பரப்புகள் இன்னும் கரடுமுரடா இருக்குதோ, அவ்வளவு உராய்வு அதிகமா இருக்கும். மினுமினுப்பான (polished) மேற்பரப்புகளுக்கு உராய்வு குறைவு.</div>\n</div>\n<p>ஒரே மரக்குற்றியை, வெவ்வேறு கரடுமுரட்டுத்தன்மையுள்ள மணற்தாள் (sandpaper) மேல வெச்சு இழுத்து பாக்கும்போது, கரடுமுரடான தாளுக்கு நியூற்றன் தராசு அதிக மதிப்பை காட்டும் — அதாவது, அதிக உராய்வு தேவைப்படுது.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">காரணி 2 — செவ்வன் மறுதாக்கம் (Normal Reaction) / நிறை</div>\n<div class=\"ltext\">ஒரு பொருளின் நிறை (எடை) அதிகரிக்கும் போது, மேசை மேல் அது கொடுக்கும் செவ்வன் மறுதாக்கமும் அதிகரிக்கும் — இதனால் எல்லை உராய்வும் அதிகரிக்கும்.</div>\n</div>\n<p>இதுக்கு ஒரு எளிய உதாரணம் — காலியான பெட்டியை நகர்த்துறது சுலபம், ஆனா அதே பெட்டியில கல்லு நிரப்பி பாரமாக்கினா தள்ள ரொம்ப கஷ்டமாகும் — நிறை அதிகரிச்ச காரணத்தால உராய்வும் அதிகரிச்சிடுச்சு. பாடப்புத்தகத்து சோதனையில (செயற்பாடு 5.4), ஒரு மரக்குற்றியின் மேல மேலும் மேலும் குற்றிகளை அடுக்கி (ஒவ்வொண்ணும் 20 N நிறை) இழுக்கும்போது, தேவையான எல்லை உராய்வு விசை படிப்படியா அதிகரிக்கறத பாக்கலாம்.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">😲 ஆச்சரியமான உண்மை — பரப்பளவு பாதிக்காது!</div>\n<ul>\n<li>அதே மரக்குற்றியை, அதோட நீளமான பக்கம், குட்டையான பக்கம், அல்லது தடிமனான பக்கம் — எந்த பக்கத்தில மேசை மேல வைச்சு இழுத்தாலும், எல்லை உராய்வு <b>ஒரே அளவாகவே</b> இருக்கும்! பரப்பளவு பெரிசா இருந்தாலும் சிறிசா இருந்தாலும் இது மாறாது — இது பொதுவா மாணவர்கள் தப்பா நினைக்குற ஒரு விஷயம்.</li>\n</ul>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">எல்லை உராய்வை பாதிக்குறது / பாதிக்காதது</div>\n<div class=\"fmath\">பாதிக்கும்: மேற்பரப்பின் இயல்பு (கரடுமுரடா?), செவ்வன் மறுதாக்கம் (நிறை)  |  பாதிக்காது: தொடுகைப் பரப்பளவு</div>\n</div>"
+     },
+     "section": "5.3"
+    },
+    {
+     "title": {
+      "en": "5.4 Friction in Daily Life — Reducing It, and Using It",
+      "ta": "5.4 தினசரி வாழ்வில் உராய்வு — குறைக்கிறது, பயன்படுத்துறது"
+     },
+     "body": {
+      "en": "<p>Friction always wastes energy (as heat) — so machines use several methods to reduce it.</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>🔧 Ways to reduce friction</h4>\n<ul>\n<li>Polishing/smoothing the surface — reduces roughness.</li>\n<li>Using lubricants (oil, grease) — creates a slippery layer between the surfaces.</li>\n<li>Using ball or roller bearings — rolling friction is much less than sliding friction. Used in bicycle wheel axles and to move heavy wood in carpentry.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>✅ Where friction actually helps us</h4>\n<ul>\n<li>Walking — the tread pattern on shoe soles increases friction and stops us from slipping.</li>\n<li>Vehicle tyres — give grip on the road; the tread grooves channel rainwater away.</li>\n<li>Twisting a rope — the friction between fibres (jute or nylon) is what holds the rope together. It's also why knots hold.</li>\n<li>Brakes — a bicycle's rubber pad pressing on the rim, or a car's disc brake pads pressed on the disc by a piston — both use friction's resistance to stop the vehicle.</li>\n</ul>\n</div>\n</div>",
+      "ta": "<p>உராய்வு எப்பவுமே சக்தியை (energy) வீணாக்கும் — அதனால்தான் இயந்திரங்களில் அதைக் குறைக்க பல வழிமுறைகள் உபயோகிக்கிறாங்க.</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>🔧 உராய்வைக் குறைக்குற வழிகள்</h4>\n<ul>\n<li>மேற்பரப்பை மினுமினுப்பாக்குதல் (பாலிஷ் செய்தல்) — கரடுமுரட்டுத்தன்மை குறையும்.</li>\n<li>எண்ணெய், கிரீஸ் போன்ற மசகுகள் பயன்படுத்துதல் — ரெண்டு மேற்பரப்புக்கும் நடுவுல ஒரு ‘வழுக்கும்’் படலம் உண்டாக்கும்.</li>\n<li>பந்து பேரிங் (ball bearing) அல்லது உருளை பேரிங் (roller bearing) பயன்படுத்துதல் — சறுக்குறதுக்குப் பதிலா ‘உருளும்’் உராய்வு (rolling friction) ரொம்ப குறைவு. சைக்கிள் சக்கர அச்சாணியிலும், தச்சு தொழிலில் மரத்தை உருட்டுறதுக்கும் இது பயன்படுது.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>✅ உராய்வு நமக்கு உதவுறதும் இங்க தான்!</h4>\n<ul>\n<li>நடக்குறது — காலணியின் அடிப்பாகத்தில் இருக்குற வடிவங்கள் (tread pattern) உராய்வை அதிகரிச்சு வழுக்காம பாதுகாக்கும்.</li>\n<li>வாகன டயர் — ரோட்டுல பிடிக்குற தன்மை (grip) கொடுக்குது; மழையில தண்ணீர வெளியேற்ற தவாணிப்புகள் (grooves) இருக்கும்.</li>\n<li>கயிறு முறுக்குதல் — தும்பு அல்லது நைலான் நார்களுக்கு நடுவுல இருக்குற உராய்வுதான் கயிறு அறுந்து போகாம வெச்சிருக்கு. முடிச்சு (knot) நிக்குறதுக்கும் இதே காரணம்.</li>\n<li>பிரேக் — சைக்கிள்ல ரப்பர் தடுப்பு சில்லுல அழுத்துறதும், காருல தட்டு தடுப்பு (disc brake) பிஸ்டன் மூலம் தட்டுல அழுத்துறதும் — இரண்டுமே உராய்வால உண்டாகுற தடையை பயன்படுத்தி வண்டியை நிறுத்துது.</li>\n</ul>\n</div>\n</div>"
+     },
+     "section": "5.4"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you saw surfaces resisting motion. Below are the official laws of friction, limiting friction formulas, and practical calculations!",
+    "ta": "பகுதி 1-ல் உராய்வின் விளைவை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ உராய்வு விதிகள், சூத்திரங்கள், கணித்தல்களை இங்கே கற்போம்!"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>Surface area does not affect friction!</b> Whether the object rests on its large face or small face, limiting friction stays the same. Don't wrongly assume \"bigger area = more friction.\"</li>\n<li><b>Static friction is not always at its maximum.</b> It matches whatever force you apply exactly — it only increases up to the limiting friction value.</li>\n<li><b>Kinetic (dynamic) friction is slightly less than limiting friction.</b> That's why a heavy object is hardest to <i>start</i> moving, but slightly easier to keep sliding once it has started.</li>\n<li><b>Friction is not always harmful.</b> Walking, gripping, and braking are all impossible without it — don't treat it as something to be \"eliminated entirely\"; it should be reduced or increased depending on the situation.</li>\n</ul>\n</div>",
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>பரப்பளவு உராய்வை பாதிக்காது!</b> ஒரு பொருளை அதோட பெரிய பக்கத்துல வைச்சாலும், சின்ன பக்கத்துல வைச்சாலும் — எல்லை உராய்வு ஒரே அளவுதான். ‘பெரிய பரப்பு = அதிக உராய்வு’் அப்படீன்னு தப்பா நினைக்காதீங்க.</li>\n<li><b>நிலையியல் உராய்வு எப்பவுமே அதிகபட்சமா இருக்காது.</b> அது நீங்க பிரயோகிக்குற விசைக்கு ‘சரி’்யா பொருந்தி இருக்கும் — எல்லை உராய்வு தாண்டும் வரைக்கும் மட்டும்தான் அது அதிகரிக்கும்.</li>\n<li><b>இயக்கவியல் உராய்வு எல்லை உராய்விலும் கொஞ்சம் குறைவு.</b> அதனால்தான் ஒரு பாரமான பொருளை நகர்த்த ஆரம்பிக்கும்போது கஷ்டமா இருந்தாலும், ஒரு தடவை நகர ஆரம்பிச்சதும் லேசா தள்ள முடியும்.</li>\n<li><b>உராய்வு எப்போதும் தீங்கானது இல்லை.</b> நடக்குறது, பிடிக்குறது, பிரேக் போடுறது எல்லாமே உராய்வு இல்லாம சாத்தியமே இல்ல — அதனால அத ‘முழுசுமா ஒழிக்க வேண்டியது’் அப்படீன்னு நினைக்காதீங்க, தேவையான இடத்தில் குறைக்கணும்/அதிகரிக்கணும்.</li>\n</ul>\n</div>"
+    }
+   ]
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook's four experiments — try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள 4 சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No spring balance?</div>\n<ul><li>No worries — you can see the same results in the <a href=\"#lab\">Friction Lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"5.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 5.1 — When does the block finally move?</h3>\n<span class=\"act-ref\">Textbook · p.105</span>\n<p>See how friction behaves while a block is NOT moving, and find the exact pull at which it just starts to move.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A spring balance (newton balance)</li><li>A wooden block of weight 60 N, with a small ring fixed to it</li><li>A flat, horizontal table</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fix a small ring on the block and hook the spring balance to it.</li><li>Place the block on the horizontal table.</li><li>Pull the balance very gently, horizontally. Read the force. The block stays still — this pull is too small to move it.</li><li>Increase the pull little by little. At some moment the block just starts to move. Note the reading at that exact moment.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">While the block stays still, friction (static friction) exactly matches your pull — it grows as you pull more. The reading at the instant the block just starts to move is the LIMITING FRICTION: the biggest static friction these two surfaces can give.</div></details>\n<button class=\"btn act-done\" data-act=\"5.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"5.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 5.2 — Does roughness matter?</h3>\n<span class=\"act-ref\">Textbook · p.107</span>\n<p>Find out how the nature (roughness) of the touching surfaces changes limiting friction.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A wooden block of weight 60 N</li><li>A spring balance</li><li>Several sandpapers of different roughness</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Wrap one sandpaper completely around the bottom face of the block.</li><li>Place the block on the table with the sandpaper touching the table. Pull gently with the spring balance, then increase the pull little by little.</li><li>Note the reading at the moment the block just starts to move. That is the limiting friction.</li><li>Repeat with sandpapers of different roughness, and compare your readings.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The rougher the sandpaper, the bigger the limiting friction. Surface roughness DOES affect friction.</div></details>\n<button class=\"btn act-done\" data-act=\"5.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"5.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 5.3 — Does contact area matter?</h3>\n<span class=\"act-ref\">Textbook · p.108–109</span>\n<p>Test whether the size of the contact area changes limiting friction.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A 60 N wooden block with faces of different sizes (length, width and height all different)</li><li>A spring balance</li><li>Sandpapers of the SAME roughness</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Cover each face of the block (different areas) with sandpaper of the same roughness.</li><li>Place the block on the table on its LARGEST face and find the limiting friction as before.</li><li>Turn the block onto each of its other faces and find the limiting friction each time.</li><li>Compare the readings for all the faces.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The limiting friction is the SAME whichever face is on the table. Contact area does NOT affect limiting friction.</div></details>\n<button class=\"btn act-done\" data-act=\"5.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"5.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 5.4 — Does weight matter?</h3>\n<span class=\"act-ref\">Textbook · p.110</span>\n<p>See how the weight of the object (the normal reaction) changes limiting friction.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Three wooden blocks, each of weight 20 N</li><li>A spring balance</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Place one 20 N block on the table and find its limiting friction with the spring balance.</li><li>Put a second 20 N block on top of the first and find the limiting friction again (total weight 40 N).</li><li>Put the third block on top as well and repeat (total weight 60 N).</li><li>Compare the three readings.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The more weight you stack, the bigger the normal reaction R from the table — and the bigger the limiting friction. The readings rise step by step.</div></details>\n<button class=\"btn act-done\" data-act=\"5.4\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 தராசு இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">ஃபிரிக்‌ஷன் லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"5.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 5.1 — மரக்குற்றி எப்போ நகரும்?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.105</span>\n<p>குற்றி அசையாத வரைக்கும் உராய்வு என்ன பண்ணுது, எந்த இழுவையில அது நகர ஆரம்பிக்குதுன்னு கண்டுபிடிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு நியூற்றன் தராசு</li><li>60 N நிறையுள்ள ஒரு மரக்குற்றி, அதுல ஒரு சின்ன வளையம் பொருத்தி</li><li>ஒரு சமமான, கிடையான மேசை</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குற்றியில ஒரு சின்ன வளையத்த பொருத்தி, அதுல நியூற்றன் தராச மாட்டு.</li><li>குற்றிய கிடையான மேசை மேல வெச்சுக்கோ.</li><li>தராச ரொம்ப லேசா, கிடையா இழு. வாசிப்ப பாரு. குற்றி அசையாது — இந்த விசை அதை நகர்த்த போதாது.</li><li>விசைய கொஞ்சம் கொஞ்சமா கூட்டு. ஒரு கட்டத்துல குற்றி இப்பதான் நகர ஆரம்பிக்கும் — அந்த நிமிஷத்து வாசிப்ப குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">குற்றி அசையாத வரைக்கும், உராய்வு (நிலையியல் உராய்வு) நீ இழுக்குற அளவுக்கு சரியா சமமா இருக்கும் — நீ கூட்ட கூட்ட அதுவும் கூடும். குற்றி இப்பதான் நகர ஆரம்பிக்கிற நிமிஷத்து வாசிப்புதான் எல்லை உராய்வு — இந்த ரெண்டு மேற்பரப்புகளால கொடுக்க முடிஞ்ச அதிகபட்ச நிலையியல் உராய்வு.</div></details>\n<button class=\"btn act-done\" data-act=\"5.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"5.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 5.2 — கரடுமுரடு முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.107</span>\n<p>தொடுகை மேற்பரப்பு எவ்வளவு கரடுமுரடுன்னு இருக்கறது எல்லை உராய்வ எப்படி மாத்துதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>60 N நிறையுள்ள ஒரு மரக்குற்றி</li><li>ஒரு நியூற்றன் தராசு</li><li>வெவ்வேறு கரடுமுரட்டுத்தன்மை உள்ள சில அரத்தாள்கள் (sandpaper)</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஒரு அரத்தாளை குற்றியோட அடிப்பக்கத்துல முழுசா சுத்திக்கோ.</li><li>அரத்தாள் மேசைய தொடுறமாதிரி குற்றிய வெச்சு, தராசால லேசா இழு, அப்புறம் கொஞ்சம் கொஞ்சமா கூட்டு.</li><li>குற்றி இப்பதான் நகர ஆரம்பிக்கிற நிமிஷத்து வாசிப்ப குறிச்சுக்கோ. அதுதான் எல்லை உராய்வு.</li><li>வெவ்வேறு கரடுமுரடுள்ள அரத்தாள்களோட இதையே திரும்ப பண்ணி, வாசிப்புகள ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">அரத்தாள் எவ்வளவு கரடுமுரடோ, எல்லை உராய்வும் அவ்வளவு அதிகம். மேற்பரப்பின் கரடுமுரடு உராய்வ பாதிக்கும்.</div></details>\n<button class=\"btn act-done\" data-act=\"5.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"5.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 5.3 — தொடுகைப் பரப்பளவு முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.108–109</span>\n<p>தொடுகைப் பரப்போட அளவு எல்லை உராய்வ மாத்துதான்னு சோதிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>நீளம், அகலம், உயரம் மூணும் வேற வேறா இருக்கற 60 N மரக்குற்றி</li><li>ஒரு நியூற்றன் தராசு</li><li>சம கரடுமுரட்டுத்தன்மை உள்ள அரத்தாள்கள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குற்றியோட ஒவ்வொரு பக்கத்தையும் (வேற வேற பரப்பளவு) ஒரே கரடுமுரடுள்ள அரத்தாளால மூடிக்கோ.</li><li>குற்றிய அதோட மிகப்பெரிய பக்கம் மேசை மேல இருக்குறமாதிரி வெச்சு, முன்ன மாதிரியே எல்லை உராய்வ கண்டுபிடி.</li><li>குற்றிய மத்த பக்கங்கள்ல ஒவ்வொண்ணா திருப்பி வெச்சு, ஒவ்வொரு தடவையும் எல்லை உராய்வ கண்டுபிடி.</li><li>எல்லா பக்கங்களுக்கும் வந்த வாசிப்புகள ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">எந்த பக்கம் மேசை மேல இருந்தாலும் எல்லை உராய்வு ஒரே அளவுதான். தொடுகைப் பரப்பளவு எல்லை உராய்வ பாதிக்காது.</div></details>\n<button class=\"btn act-done\" data-act=\"5.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"5.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 5.4 — எடை முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.110</span>\n<p>பொருளோட எடை (செவ்வன் மறுதாக்கம்) எல்லை உராய்வ எப்படி மாத்துதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>தலா 20 N நிறையுள்ள மூணு மரக்குற்றிகள்</li><li>ஒரு நியூற்றன் தராசு</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஒரு 20 N குற்றிய மேசை மேல வெச்சு, தராசால அதோட எல்லை உராய்வ கண்டுபிடி.</li><li>அதுக்கு மேல இன்னொரு 20 N குற்றிய வெச்சு, மறுபடி எல்லை உராய்வ கண்டுபிடி (மொத்த நிறை 40 N).</li><li>மூணாவது குற்றியையும் மேல வெச்சு, திரும்ப செய் (மொத்த நிறை 60 N).</li><li>மூணு வாசிப்புகளையும் ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">எவ்வளவு எடை அடுக்கறோமோ, மேசை கொடுக்கும் செவ்வன் மறுதாக்கம் R அவ்வளவு அதிகம் — எல்லை உராய்வும் அவ்வளவு அதிகம். வாசிப்புகள் படிப்படியா கூடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"5.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Friction Lab",
+     "ta": "ஃபிரிக்‌ஷன் லேப்"
+    },
+    "sub": {
+     "en": "Slowly increase the applied force — watch how friction responds",
+     "ta": "பிரயோகிக்குற விசையை மெதுவா அதிகரி — உராய்வு எப்படி பதில் தரும்னு பாத்துக்கோ!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-05-friction.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "pushit",
+   "kind": "pushit",
+   "heading": {
+    "title": {
+     "en": "🎮 Push It! Challenge",
+     "ta": "🎮 Push It! சவால்"
+    },
+    "sub": {
+     "en": "Each level, guess the smallest force needed to move the crate — the closer your guess, the more stars!",
+     "ta": "ஒவ்வொரு லெவலிலும், பெட்டியை நகர்த்த தேவையான குறைந்தபட்ச விசையை யூகி — நெருக்கமா யூகிச்சா அதிக நட்சத்திரம்!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-05-friction.html",
+    "hash": "pushit"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Quick check before the deeper walkthroughs",
+     "ta": "கஷ்டமான விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "You push a heavy box gently, and it doesn't move, but your push isn't wasted. What kind of friction is balancing your push exactly?",
+      "ta": "ஒரு பாரமான பெட்டியை லேசா தள்றீங்க, அது அசையலை, ஆனா உங்க விசை வீணாகல. உங்க விசைக்கு சரியா சமமா என்ன உராய்வு தாக்குது?"
+     },
+     "options": [
+      {
+       "en": "Limiting friction",
+       "ta": "எல்லை உராய்வு"
+      },
+      {
+       "en": "Static friction",
+       "ta": "நிலையியல் உராய்வு"
+      },
+      {
+       "en": "Dynamic friction",
+       "ta": "இயக்கவியல் உராய்வு"
+      },
+      {
+       "en": "No friction at all",
+       "ta": "உராய்வே இல்ல"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Static friction is self-adjusting — it exactly matches your applied force as long as the object stays still.",
+      "ta": "நிலையியல் உராய்வு சுயசரிசெய்யும் — பொருள் அசையாத வரை, உங்க பிரயோகிக்கும் விசைக்கு அது சரியா சமமா இருக்கும்."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "Which of these does NOT affect the limiting friction between two surfaces?",
+      "ta": "இரு மேற்பரப்புகளுக்கு இடையேயான எல்லை உராய்வை எது பாதிக்காது?"
+     },
+     "options": [
+      {
+       "en": "The roughness of the surfaces",
+       "ta": "மேற்பரப்புகளின் கரடுமுரட்டுத்தன்மை"
+      },
+      {
+       "en": "The weight pressing the surfaces together",
+       "ta": "மேற்பரப்புகளை அழுத்தும் நிறை"
+      },
+      {
+       "en": "The area of the contact surfaces",
+       "ta": "தொடுகைப் பரப்பளவு"
+      },
+      {
+       "en": "Whether the surfaces are polished or not",
+       "ta": "மேற்பரப்பு பாலிஷ் செய்யப்பட்டதா இல்லையா"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Surface area does not affect limiting friction — a surprising but well-tested fact. Only the roughness of the surfaces and the normal reaction (weight) matter.",
+      "ta": "தொடுகைப் பரப்பளவு எல்லை உராய்வை பாதிக்காது — ஆச்சரியமான ஆனா நன்கு நிரூபிக்கப்பட்ட உண்மை. மேற்பரப்பின் கரடுமுரட்டுத்தன்மையும் செவ்வன் மறுதாக்கமும் (நிறை) மட்டும்தான் முக்கியம்."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "Why is it easier to keep a heavy cupboard sliding than to get it started?",
+      "ta": "ஒரு பாரமான அலமாரியை நகர்த்தத் தொடங்குறதைவிட, ஏற்கனவே நகருது அத தொடர்ந்து நகர்த்துறது ஏன் லேசாக இருக்கு?"
+     },
+     "options": [
+      {
+       "en": "Because dynamic friction is slightly less than limiting friction",
+       "ta": "இயக்கவியல் உராய்வு எல்லை உராய்விலும் கொஞ்சம் குறைவு என்பதால்"
+      },
+      {
+       "en": "Because the cupboard becomes lighter once moving",
+       "ta": "நகரும்போது அலமாரி லேசாகிடும் என்பதால்"
+      },
+      {
+       "en": "Because surface area increases once it slides",
+       "ta": "நகரும்போது பரப்பளவு அதிகரிக்கும் என்பதால்"
+      },
+      {
+       "en": "There's no real difference",
+       "ta": "உண்மையில் வித்தியாசம் ஏதுமில்ல"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Dynamic (kinetic) friction is always slightly less than limiting friction — so once motion starts, less force is needed to sustain it.",
+      "ta": "இயக்கவியல் உராய்வு எப்பவுமே எல்லை உராய்விலும் கொஞ்சம் குறைவு — அதனால் இயக்கம் ஆரம்பிச்சதும், அதைத் தொடர அதிக விசை தேவையில்ல."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "Which of these is an example of friction being REDUCED using a bearing?",
+      "ta": "பேரிங் (bearing) பயன்படுத்தி உராய்வு குறைக்கப்படுவதற்கு எது உதாரணம்?"
+     },
+     "options": [
+      {
+       "en": "Shoe tread patterns",
+       "ta": "காலணி அடிப்பாக வடிவங்கள்"
+      },
+      {
+       "en": "A bicycle wheel's axle",
+       "ta": "சைக்கிள் சக்கர அச்சாணி"
+      },
+      {
+       "en": "Tyre grooves in the rain",
+       "ta": "மழையில் டயர் தவாணிப்புகள்"
+      },
+      {
+       "en": "A rope's twisted fibres",
+       "ta": "கயிற்றின் முறுக்கப்பட்ட நார்கள்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "A bicycle wheel's axle uses ball bearings so it rolls instead of sliding — this is a direct example of using bearings to reduce friction.",
+      "ta": "சைக்கிள் சக்கர அச்சாணியில் பந்து பேரிங் பயன்படுத்தப்படுவதால் அது சறுக்குறதுக்கு பதிலா உருளுது — இது பேரிங் மூலம் உராய்வு குறைக்கப்படுவதற்கு நேரடி உதாரணம்."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "Why does a smooth (polished) surface cause less friction than a rough one?",
+      "ta": "ஒரு மினுமினுப்பான (பாலிஷ் செய்த) மேற்பரப்பு, கரடுமுரடான மேற்பரப்பை விட ஏன் குறைவான உராய்வை உண்டாக்குது?"
+     },
+     "options": [
+      {
+       "en": "Because it weighs less",
+       "ta": "அது எடையில் குறைவு என்பதால்"
+      },
+      {
+       "en": "Because it has fewer microscopic bumps that catch on the other surface",
+       "ta": "மற்ற மேற்பரப்பில் சிக்கிக்கொள்ள குறைவான நுண் மேடு-பள்ளங்கள் இருப்பதால்"
+      },
+      {
+       "en": "Because it has a bigger contact area",
+       "ta": "அதிக தொடுகைப் பரப்பளவு இருப்பதால்"
+      },
+      {
+       "en": "It doesn't — roughness makes no difference",
+       "ta": "இல்ல — கரடுமுரட்டுத்தன்மை எந்த வித்தியாசமும் செய்யாது"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Every surface has microscopic bumps and dips. Smoother surfaces have fewer/smaller ones to catch against the other surface, so less friction results.",
+      "ta": "ஒவ்வொரு மேற்பரப்பிலும் நுண் மேடு-பள்ளங்கள் இருக்கும். மினுமினுப்பான மேற்பரப்புகளில் இவை குறைவு/சிறியதாக இருக்குறதால், உராய்வும் குறைவா இருக்கும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Friction Sort",
+     "ta": "🧩 ஃபிரிக்‌ஷன் சார்ட்"
+    },
+    "sub": {
+     "en": "Two quick rounds — match the term to its definition, then sort each item as increasing or reducing friction!",
+     "ta": "இரண்டு சின்ன சுற்றுகள் — வார்த்தையையும் விளக்கத்தையும் இணைச்சு, அப்புறம் உராய்வை அதிகரிக்குதா குறைக்குதான்னு வரிசைப்படுத்து!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-05-friction.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Concept Walkthroughs",
+     "ta": "கருத்து விளக்கங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step reasoning for real textbook questions — friction has no formulas to plug in, but needs deep understanding!",
+     "ta": "பாடப்புத்தக கேள்விகளுக்கு படிப்படியான பகுத்தறிவு — உராய்வு அத்தியாயத்தில் கணக்குகள் இல்ல, ஆனா ஆழமான புரிதல் தேவை!"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">Why is it dangerous to drive a vehicle with worn-out tyre treads on rainy days?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>What do tread grooves do? — Normally, the tyre and road need direct contact for good grip. When it rains, a film of water forms on the road — the grooves push that water sideways and out of the way, letting the tyre touch the road directly.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>What happens once the treads wear out? — There's no way for the water to escape anymore. A thin film of water stays trapped between the tyre and the road — the tyre never actually touches the road directly!</p>\n<div class=\"note\"><b>Key idea:</b> water has very low friction (it's very slippery). So as long as that thin film is there, friction drops sharply.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Worn treads can't push away the water, so a film of water forms between tyre and road, cutting friction drastically — the vehicle can skid and lose grip and control, which is dangerous.\n      </div>",
+      "ta": "<div class=\"qtext\">மழை நாட்களில் தவாணிப்புகள் தேய்ந்த தயர் உள்ள வாகனங்களைச் செலுத்துதல் ஆபத்தானது ஏன்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>டயர்ல இருக்குற தவாணிப்புகள் (tread grooves) என்ன வேலை செய்யுது? — சாதாரணமா, டயரும் ரோட்டும் நேரடியா தொடுகையில இருந்து நல்ல உராய்வு தர வேணும். மழை பெஞ்சா ரோட்டுல தண்ணீர் படலம் உண்டாகும் — தவாணிப்புகள் அந்த தண்ணீரை பக்கவாட்டா தள்ளி வெளியேத்துது, டயரும் ரோட்டும் நேரடியா தொட முடியும்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>தவாணிப்புகள் தேஞ்சு போச்சுன்னா என்ன ஆகும்? — தண்ணீரை வெளியேத்த வழி இல்லாம போயிடுச்சு. அதனால டயருக்கும் ரோட்டுக்கும் நடுவுல ஒரு மெல்லிய தண்ணீர் படலம் நிக்குது — டயர் ரோட்ட நேரடியா தொடவே தொடாது!</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> தண்ணீருக்கு உராய்வு ரொம்ப குறைவு (சறுக்கும் தன்மை அதிகம்). அதனால் அந்த மெல்லிய படலம் இருக்குற வரைக்கும் உராய்வு பெரிய அளவு குறைஞ்சுடும்.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> தவாணிப்புகள் தேஞ்ச டயர் தண்ணீரை வெளியேத்த முடியாததால், டயருக்கும் ரோட்டுக்கும் நடுவுல தண்ணீர் படலம் உண்டாகி உராய்வு பெரிதும் குறையும் — இதனால் வாகனம் பிடிமானம் இழந்து சறுக்கி (skid) ஓட்டுநர் கட்டுப்பாட்டை இழக்கக்கூடும் — இது ஆபத்தானது.</div>"
+     },
+     "tag": {
+      "en": "Textbook Question · Ch.5, p.115",
+      "ta": "பாடப்புத்தக கேள்வி · பாடம் 5, ப. 115"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">Why is it hard to get a heavy almirah <i>started</i> moving, but relatively easier to <i>keep</i> it moving once it has started sliding?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Before it starts moving: as long as the almirah is still, you need to apply a force exceeding the <b>limiting friction</b> — the maximum resistance the contact surfaces can offer.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Once it starts moving: now it's <b>dynamic (kinetic) friction</b> that acts — and this is slightly less than limiting friction.</p>\n<div class=\"note\"><b>Key idea:</b> force needed to \"start\" it (limiting friction) &gt; force needed to \"keep it going\" (kinetic friction). That's why it suddenly feels like the resistance dropped once it starts sliding!</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Starting motion requires exceeding limiting friction (needs more force); once moving, only dynamic friction resists, which is less than limiting friction — so keeping it moving is easier.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு பாரமான அலமாரியை நகர்த்தத் தொடங்குறது ஏன் கஷ்டமா இருக்கு, ஆனா ஒரு தடவை அது நகர ஆரம்பிச்சதும் ஏன் ஒப்பீட்டளவில் லேசா தள்ள முடியுது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நகர ஆரம்பிக்கும் முன்: அலமாரி இன்னும் அசையாதவரை, அதை நகர்த்த நீங்க <b>எல்லை உராய்வை</b> (limiting friction) தாண்டி விசை பிரயோகிக்கணும் — இது தொடுகை மேற்பரப்புகளின் அதிகபட்ச உராய்வு எதிர்ப்பு.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஒரு தடவை நகர ஆரம்பிச்ச பிறகு: இப்போ செயல்படுறது <b>இயக்கவியல் உராய்வு</b> (dynamic/kinetic friction) — இது எல்லை உராய்விலும் பார்க்க கொஞ்சம் குறைவு.</p>\n<div class=\"note\"><b>முக்கிய கருத்து:</b> ‘தொடங்குறதுக்கு’் தேவையான விசை (எல்லை உராய்வு) &gt; ‘தொடர்ந்து நகர்த்துறதுக்கு’் தேவையான விசை (இயக்கவியல் உராய்வு). அதனால் ஒரு தடவை நகர ஆரம்பிச்சதும், சட்டுன்னு எதிர்ப்பு குறைஞ்ச மாதிரி உணரும்!</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> நகர ஆரம்பிக்க எல்லை உராய்வை தாண்டணும் (அதிக விசை தேவை); நகர்ந்த பிறகு இயக்கவியல் உராய்வு மட்டும் எதிர்க்குது, அது எல்லை உராய்விலும் குறைவு — அதனால் நகர்த்திக்கிட்டே போறது சுலபமாகும்.</div>"
+     },
+     "tag": {
+      "en": "Concept Walkthrough 2",
+      "ta": "கருத்து விளக்கம் 2"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">Explain two methods used to reduce friction.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Method 1 — Lubricant: pour oil or grease between two surfaces, and they no longer touch directly — they \"float\" on the lubricant layer instead. A liquid layer's friction is much lower than solid-surface-to-solid-surface friction.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Method 2 — Bearings: rolling friction is much lower than sliding friction. Fit ball or roller bearings, and an axle \"rolls\" instead of \"sliding\" — friction drops substantially.</p>\n<div class=\"note\"><b>Remember:</b> polishing the surface smooth is a third method — it directly reduces the rough bumps.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (1) Using lubricants (oil/grease) — a liquid layer prevents direct surface-to-surface contact. (2) Using ball/roller bearings — rolling instead of sliding, greatly reducing friction.\n      </div>",
+      "ta": "<div class=\"qtext\">உராய்வைக் குறைக்கப் பயன்படுத்தப்படும் இரு உபாயங்களை விளக்குக.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முறை 1 — மசகு (Lubricant): எண்ணெய் அல்லது கிரீஸ் ரெண்டு மேற்பரப்புகளுக்கு நடுவுல ஊற்றினா, அவை நேரடியா ஒண்ணோடொண்று தொடாம, மசகு படலத்தின் மேல ‘மிதக்குது’். திண்ம மேற்பரப்பு-மேற்பரப்பு உராய்விலும், திரவப் படலத்தின் உராய்வு ரொம்ப குறைவு.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முறை 2 — பேரிங் (Bearings): சறுக்குற உராய்விலும் (sliding friction), உருளுற உராய்வு (rolling friction) ரொம்ப குறைவு. பந்து பேரிங் அல்லது உருளை பேரிங் வெச்சா, ஒரு அச்சாணி ‘சறுக்குறதுக்கு’் பதிலா ‘உருளும்’் — உராய்வு பெருமளவு குறையும்.</p>\n<div class=\"note\"><b>ஞாபகம் வெச்சுக்கோ:</b> மேற்பரப்பை மினுமினுப்பாக்குதலும் (பாலிஷ் செய்தல்) மூன்றாவது வழி — கரடுமுரடான புள்ளிகளை நேரடியாகவே குறைக்குது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (1) மசகு (எண்ணெய்/கிரீஸ்) பயன்படுத்துதல் — திரவப் படலத்தால் மேற்பரப்புகள் நேரடித் தொடுகையைத் தவிர்க்கும். (2) பந்து/உருளை பேரிங் பயன்படுத்துதல் — சறுக்குறதுக்குப் பதில் உருளுறது, உராய்வைப் பெருமளவு குறைக்கும்.</div>"
+     },
+     "tag": {
+      "en": "Textbook Question · Ch.5, p.115",
+      "ta": "பாடப்புத்தக கேள்வி · பாடம் 5, ப. 115"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook — each with a full worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise",
+      "ta": "பயிற்சி"
+     },
+     "items": [
+      {
+       "id": "xx-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Briefly define friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>உராய்வு என்பதைச் சுருக்கமாக வரையிலக்கணப்படுத்துக.</span></div>"
+       },
+       "answer": {
+        "en": "Friction is the force exerted by two contacting surfaces on each other, opposing relative motion (or attempted relative motion) between them.",
+        "ta": "தொடுகையிலுள்ள இரு மேற்பரப்புகளில் ஒன்று மற்றொன்றின் மீது சறுக்க முயலும்போது (அல்லது சறுக்கும்போது), அந்த இயக்கத்தை எதிர்க்கும் வகையில் அம்மேற்பரப்புகளால் பிரயோகிக்கப்படும் விசை உராய்வு விசையாகும்."
+       }
+      },
+      {
+       "id": "xx-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Briefly define static friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>நிலையியல் உராய்வு என்பதைச் சுருக்கமாக வரையிலக்கணப்படுத்துக.</span></div>"
+       },
+       "answer": {
+        "en": "The friction that acts, equal and opposite to the applied force, when a force is applied to an object but it still does not move.",
+        "ta": "ஒரு பொருளுக்கு விசை பிரயோகிக்கப்பட்டாலும் அது இயங்காத நிலையில், அப்பிரயோகிக்கப்படும் விசைக்குச் சமமாக, எதிர்த் திசையில் தாக்கும் உராய்வு நிலையியல் உராய்வு எனப்படும்."
+       }
+      },
+      {
+       "id": "xx-1iii",
+       "num": "1(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Briefly define limiting friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>எல்லை உராய்வு என்பதைச் சுருக்கமாக வரையிலக்கணப்படுத்துக.</span></div>"
+       },
+       "answer": {
+        "en": "The maximum static friction, acting at the exact instant the object is just about to start moving.",
+        "ta": "பொருள் மட்டும்மட்டாக இயங்க ஆரம்பிக்கும் தருணத்தில் தாக்கும் அதிகபட்ச நிலையியல் உராய்வு எல்லை உராய்வு எனப்படும்."
+       }
+      },
+      {
+       "id": "xx-1iv",
+       "num": "1(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>In what situation does dynamic (kinetic) friction act?</span></div>",
+        "ta": "<div class=\"exq\"><span>இயக்கவியல் உராய்வு என்பது எந்தச் சந்தர்ப்பத்தில் தொழிற்படும் உராய்வு விசையாகும்?</span></div>"
+       },
+       "answer": {
+        "en": "It acts on a moving object, opposing its motion — that is, while relative motion (actual sliding) is taking place.",
+        "ta": "ஓர் இயங்கும் பொருளின் மீது, அதன் இயக்கத்திற்கு எதிராகத் தாக்கும் உராய்வு விசை இயக்கவியல் உராய்வு ஆகும் — அதாவது, சார்பியக்கம் நடைபெறும் சந்தர்ப்பத்தில்."
+       }
+      },
+      {
+       "id": "xx-1v",
+       "num": "1(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What are the two main factors that affect limiting friction?</span></div>",
+        "ta": "<div class=\"exq\"><span>எல்லை உராய்வில் செல்வாக்குச் செலுத்தும் இரு பிரதான காரணிகளும் யாவை?</span></div>"
+       },
+       "answer": {
+        "en": "(1) The nature of the contact surfaces (rough / smooth)   (2) The normal reaction (depends on weight)",
+        "ta": "(1) தொடுகைப் பரப்புகளின் இயல்பு (கரடுமுரடா / மினுமினுப்பா)   (2) செவ்வன் மறுதாக்கம் (நிறையைப் பொறுத்தது)"
+       }
+      },
+      {
+       "id": "xx-1vi",
+       "num": "1(vi)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What factor does NOT affect friction?</span></div>",
+        "ta": "<div class=\"exq\"><span>உராய்வில் செல்வாக்குச் செலுத்தாத காரணி யாது?</span></div>"
+       },
+       "answer": {
+        "en": "The area of the contact surfaces.",
+        "ta": "தொடுகைப் பரப்புகளின் பரப்பளவு (contact surface area)."
+       }
+      },
+      {
+       "id": "xx-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Give two advantages of friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>உராய்வின் இரு அனுகூலங்களைத் தருக.</span></div>"
+       },
+       "answer": {
+        "en": "(1) It stops us from slipping while walking. (2) It lets vehicles grip the road and stop when brakes are applied (also why rope knots hold).",
+        "ta": "(1) நடக்கும்போது வழுக்காமல் இருக்க உதவுகிறது. (2) வாகனங்கள் ரோட்டில் பிடிமானம் பெற்று பிரேக் போடும்போது நிற்க உதவுகிறது (கயிறு முடிச்சு நிற்பதற்கும் இதே காரணம்)."
+       }
+      },
+      {
+       "id": "xx-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write two harmful effects of friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>உராய்வின் இரு பாதகமான விளைவுகளை எழுதுக.</span></div>"
+       },
+       "answer": {
+        "en": "(1) Wastes energy as heat. (2) Wears out machine parts, shoe soles, and tyres, shortening their lifespan.",
+        "ta": "(1) சக்தியை வீணடித்து வெப்பமாக இழக்கச் செய்கிறது. (2) இயந்திர பாகங்கள், காலணி அடி, டயர் போன்றவை தேய்மானமடையக் காரணமாகி அவற்றின் ஆயுளைக் குறைக்கிறது."
+       }
+      },
+      {
+       "id": "xx-2iii",
+       "num": "2(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Why is it dangerous to drive vehicles with worn-out tyre treads on rainy days?</span></div>",
+        "ta": "<div class=\"exq\"><span>மழை நாட்களில் தவாணிப்புகள் தேய்ந்த தயர் உள்ள வாகனங்களைச் செலுத்துதல் ஆபத்தானது ஏன்?</span></div>"
+       },
+       "answer": {
+        "en": "Treads need to clear water away from the surface — once worn, a thin film of water stays trapped between tyre and road, sharply cutting friction. This raises the risk of skidding and accidents (see Concept Walkthrough 1 above for the full explanation).",
+        "ta": "தவாணிப்புகள் மேற்பரப்பில் இருக்கும் தண்ணீரை வெளியேற்ற வேண்டும் — தேய்ந்துவிட்டால், டயருக்கும் ரோட்டுக்கும் நடுவே ஒரு மெல்லிய நீர்ப்படலம் தங்கி, உராய்வு பெரிதும் குறையும். இதனால் வாகனம் சறுக்கி விபத்து ஏற்படும் வாய்ப்பு அதிகரிக்கும் (see Concept Walkthrough 1 above for the full explanation)."
+       }
+      },
+      {
+       "id": "xx-2iv",
+       "num": "2(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write two methods used to reduce friction.</span></div>",
+        "ta": "<div class=\"exq\"><span>உராய்வைக் குறைக்கப் பயன்படுத்தப்படும் இரு உபாயங்களை எழுதுக.</span></div>"
+       },
+       "answer": {
+        "en": "(1) Using lubricants (oil, grease). (2) Using ball/roller bearings (see Concept Walkthrough 3 above for the full explanation).",
+        "ta": "(1) மசகுகள் (எண்ணெய், கிரீஸ்) பயன்படுத்துதல். (2) பந்து/உருளை பேரிங் பயன்படுத்துதல் (see Concept Walkthrough 3 above for the full explanation)."
+       }
+      }
+     ],
+     "title": {
+      "en": "Ch. 5, p.115",
+      "ta": "பாடம் 5, ப. 115"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🧼</div><div class=\"cm-b r\"><i>Raja:</i> <span>Look, I am ice-skating on the mopped floor! ...THUD!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🔍</div><div class=\"cm-b c\"><i>Chittu:</i> <span>You slipped because the floor has very little friction.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">👟</div><div class=\"cm-b r\"><i>Raja:</i> <span>Big slippers touch more floor, so there is more friction. Right?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🚫</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Wrong! The contact area does NOT matter. Only roughness and weight do.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🧼</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>பாரு, மாப் போட்ட தரையில ஐஸ் ஸ்கேட்டிங் பண்றேன்! ...தொம்!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🔍</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>தரையில உராய்வு ரொம்ப குறைவு, அதனாலதான் வழுக்கினே.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">👟</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>பெரிய செருப்பு தரைய அதிகமா தொடும், அதனால உராய்வு அதிகம். சரியா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🚫</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>தப்பு! தொடுகைப் பரப்பளவு முக்கியமில்ல. கரடுமுரடும் எடையும்தான்.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Rough goes up, friction goes up.<br/>Heavy goes up, friction goes up.<br/>Area? Poor area, it does not count!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">கரடு கூடினா உராய்வு கூடும்,<br/>எடை கூடினா உராய்வு கூடும்,<br/>பரப்பு மட்டும் பாவம் பாவம் —<br/>கணக்குலயே வராது!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">A bigger contact area means more friction.</td><td class=\"ok\">Contact area does not affect friction. Roughness and the normal reaction (weight) do.</td></tr><tr><td class=\"w\">There is friction only when something moves.</td><td class=\"ok\">Static friction acts even when nothing moves. It matches your push, up to the limit.</td></tr><tr><td class=\"w\">Friction is always bad.</td><td class=\"ok\">We need it to walk, to brake and to tie knots. We reduce it only in machines.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">பெரிய தொடுகைப் பரப்பு = அதிக உராய்வு.</td><td class=\"ok\">பரப்பளவு உராய்வ பாதிக்காது. கரடுமுரடும் செவ்வன் மறுதாக்கமும் (எடை) பாதிக்கும்.</td></tr><tr><td class=\"w\">நகரும்போதுதான் உராய்வு இருக்கும்.</td><td class=\"ok\">நகராதப்பவும் நிலையியல் உராய்வு இருக்கு. எல்லை வரை உன் தள்ளலுக்கு சமமா இருக்கும்.</td></tr><tr><td class=\"w\">உராய்வு எப்பவும் கெட்டது.</td><td class=\"ok\">நடக்க, பிரேக் போட, முடிச்சு போட உராய்வு வேணும். இயந்திரங்கள்ல மட்டும் குறைக்கிறோம்.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>friction opposes sliding between two touching surfaces; it always makes heat</li><li>three kinds: static (not moving) → limiting (just about to move) → dynamic (moving)</li><li>limiting friction depends on the roughness and the normal reaction, NOT on contact area</li><li>dynamic friction is a little less than limiting friction</li><li>reduce: polish, oil or grease, ball bearings. Use: walking, tyres, brakes, rope knots</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>உராய்வு தொடுகையில இருக்கும் மேற்பரப்புகளோட சறுக்குறத எதிர்க்கும்; எப்பவும் சூடு உண்டாக்கும்</li><li>மூணு வகை: நிலையியல் (நகரல) → எல்லை (நகரப்போகுது) → இயக்கவியல் (நகருது)</li><li>எல்லை உராய்வு கரடுமுரடையும் செவ்வன் மறுதாக்கத்தையும் பொறுத்தது; பரப்பளவ அல்ல</li><li>இயக்கவியல் உராய்வு, எல்லை உராய்வ விட கொஞ்சம் குறைவு</li><li>குறைக்க: பாலிஷ், எண்ணெய்/கிரீஸ், பந்து பேரிங். பயன்படுத்த: நடக்க, டயர், பிரேக், கயிறு முடிச்சு</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "Friction is the force exerted by the touching surfaces that opposes the motion when one of two objects in contact moves (or tries to move) over the other.",
+     "ta": "தொடுகையில இருக்கற ரெண்டு பொருள்ல ஒண்ணு இயங்கும்போது (அல்லது இயங்க முயற்சிக்கும்போது), அந்த இயக்கத்த எதிர்க்க மேற்பரப்புகள் கொடுக்கற விசைதான் உராய்வு."
+    },
+    {
+     "en": "Static friction between two surfaces is different from a force applied from outside — it is the surfaces' own reaction, matching the applied force up to a limit.",
+     "ta": "ரெண்டு மேற்பரப்புக்கு நடுவுல இருக்கற நிலையியல் உராய்வு, வெளிய இருந்து நாம பிரயோகிக்கற விசை இல்ல — அது மேற்பரப்புகளோட சொந்த எதிர்ப்பு; ஒரு எல்லை வரைக்கும் நம்ம விசைக்கு சமமா இருக்கும்."
+    },
+    {
+     "en": "The force that must be applied to just start an object moving equals the limiting friction.",
+     "ta": "ஒரு பொருள இப்பதான் நகர வைக்க பிரயோகிக்க வேண்டிய விசைதான் எல்லை உராய்வு."
+    },
+    {
+     "en": "Limiting friction depends on two things: (1) the nature of the touching surfaces, (2) the normal reaction.",
+     "ta": "எல்லை உராய்வு ரெண்டு விஷயத்த பொறுத்தது: (1) தொடுகை மேற்பரப்புகளோட இயல்பு, (2) செவ்வன் மறுதாக்கம்."
+    },
+    {
+     "en": "The area of the contact surfaces does NOT affect limiting friction.",
+     "ta": "தொடுகை மேற்பரப்புகளோட பரப்பளவு எல்லை உராய்வ பாதிக்காது."
+    },
+    {
+     "en": "The friction acting on an object that is already moving is dynamic friction.",
+     "ta": "ஏற்கனவே இயங்கிட்டு இருக்கற பொருள் மேல தாக்கற உராய்வு இயக்கவியல் உராய்வு."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Friction",
+     "ta": "உராய்வு",
+     "meaning": {
+      "en": "The force that opposes sliding between touching surfaces",
+      "ta": "தொடுகை மேற்பரப்புகளுக்கு நடுவுல சறுக்குறத எதிர்க்கும் விசை"
+     }
+    },
+    {
+     "en": "Static friction",
+     "ta": "நிலையியல் உராய்வு",
+     "meaning": {
+      "en": "Acts when a force is applied but the object has not started to move",
+      "ta": "விசை பிரயோகிச்சும் பொருள் இன்னும் நகராதப்ப தாக்கும் உராய்வு"
+     }
+    },
+    {
+     "en": "Limiting friction",
+     "ta": "எல்லை உராய்வு",
+     "meaning": {
+      "en": "The maximum static friction, just as the object starts to move",
+      "ta": "பொருள் நகர ஆரம்பிக்கற நிமிஷத்து அதிகபட்ச நிலையியல் உராய்வு"
+     }
+    },
+    {
+     "en": "Dynamic friction",
+     "ta": "இயக்கவியல் உராய்வு",
+     "meaning": {
+      "en": "Acts on an object that is already moving",
+      "ta": "ஏற்கனவே நகரும் பொருள் மேல தாக்கும் உராய்வு"
+     }
+    },
+    {
+     "en": "Weight",
+     "ta": "நிறை",
+     "meaning": {
+      "en": "The gravitational pull of the Earth on an object (in newtons)",
+      "ta": "பொருள் மேல புவி செலுத்தும் ஈர்ப்பு விசை (நியூற்றன்ல)"
+     }
+    },
+    {
+     "en": "Normal reaction",
+     "ta": "செவ்வன் மறுதாக்கம்",
+     "meaning": {
+      "en": "The push of a surface on an object, at right angles to the surface",
+      "ta": "மேற்பரப்பு பொருள தள்ளுற விசை, மேற்பரப்புக்கு செங்குத்தா"
+     }
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 6 key points",
+    "ta": "📌 பொழிப்பு — 6 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+   }
+  }
+ ]
+}

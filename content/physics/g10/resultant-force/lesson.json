@@ -1,0 +1,866 @@
+{
+ "schema": 2,
+ "id": "physics.g10.resultant-force",
+ "slug": "resultant-force",
+ "subject": "physics",
+ "grade": 10,
+ "number": "9",
+ "title": {
+  "en": "Resultant Force",
+  "ta": "விளையுள் விசை",
+  "si": "සම්ප්‍රයුක්ත බලය"
+ },
+ "legacy": {
+  "id": "c9",
+  "file": "chapter-09-resultant-force.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Who wins the tug of war?",
+    "ta": "கயிறிழுக்கறதுல யாரு ஜெயிப்பா?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Tug of war, Chittu! My team pulls with 300 N and your team pulls with 260 N!",
+      "ta": "கயிறிழுக்கற போட்டி சிட்டு! என் டீம் 300 N-ல இழுக்குது, உன் டீம் 260 N-ல இழுக்குது!"
+     },
+     "scene": "🪢🐒💪",
+     "audio": {
+      "ta": "c9/line00.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Who wins, and by how much?",
+      "ta": "யாரு ஜெயிப்பாங்க, எவ்வளவு வித்தியாசத்துல?"
+     },
+     "scene": "🤔",
+     "audio": {
+      "ta": "c9/line01.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Me... by... a lot?",
+      "ta": "நான்... நிறைய... வித்தியாசத்துல?"
+     },
+     "scene": "😅",
+     "audio": {
+      "ta": "c9/line02.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "The two forces are opposite, so we subtract: 300 − 260 = 40 N. The resultant force is 40 N, towards your side.",
+      "ta": "ரெண்டு விசையும் எதிர்த் திசையில, அதனால கழிக்கணும்: 300 − 260 = 40 N. விளையுள் விசை 40 N, உன் பக்கம்."
+     },
+     "scene": "➖",
+     "audio": {
+      "ta": "c9/line03.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And if two friends push a cart the SAME way, 8 N and 6 N?",
+      "ta": "ரெண்டு நண்பர்கள் ஒரே பக்கம் வண்டிய தள்ளினா, 8 N, 6 N?"
+     },
+     "scene": "🛒➡️",
+     "audio": {
+      "ta": "c9/line04.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Same direction, so we add: 8 + 6 = 14 N.",
+      "ta": "ஒரே திசை, அதனால கூட்டணும்: 8 + 6 = 14 N."
+     },
+     "scene": "➕",
+     "audio": {
+      "ta": "c9/line05.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "What if the two pushes are at an angle, like when two players hit the ball?",
+      "ta": "ரெண்டு தள்ளல் சாய்வா இருந்தா என்ன? ரெண்டு பேர் பந்த அடிக்கற மாதிரி?"
+     },
+     "scene": "🏏",
+     "audio": {
+      "ta": "c9/line06.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Then the resultant points in a direction between the two forces.",
+      "ta": "அப்போ விளையுள், அவ்விரு விசைகளுக்கும் நடுவுல இருக்கற திசையில இருக்கும்."
+     },
+     "scene": "↗️↘️",
+     "audio": {
+      "ta": "c9/line07.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "One force that does the job of many! Let's go!",
+      "ta": "பல விசைகளோட வேலைய செய்யற ஒரே விசை! வாங்க போகலாம்!"
+     },
+     "scene": "🚀",
+     "audio": {
+      "ta": "c9/line08.mp3"
+     }
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: resultant force →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: விளையுள் விசை →"
+   },
+   "quest": {
+    "en": "In this module: understand how multiple forces acting on an object combine into a single resultant force along a straight line or in parallel.",
+    "ta": "இந்த பாடத்தில்: ஒரு பொருள் மீது செயல்படும் பல விசைகள் எவ்வாறு ஒரு விளைவுள் விசையாக இணைகின்றன என்பதை ஆராய்வோம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: many pushes at once",
+     "ta": "முதல்ல இருந்து: ஒரே நேரத்துல நிறைய தள்ளல்"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "Forces can team up",
+      "ta": "விசைகள் சேர்ந்து வேலை செய்யும்"
+     },
+     "body": {
+      "en": "<p>Two friends pulling the same way pull harder together.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 🧒 ➜➜ 📦</div>",
+      "ta": "<p>ரெண்டு நண்பர்கள் ஒரே பக்கம் இழுத்தா சேர்ந்து அதிகமா இழுப்பாங்க.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧒 🧒 ➜➜ 📦</div>"
+     },
+     "icon": "🧒"
+    },
+    {
+     "title": {
+      "en": "Same way: add",
+      "ta": "ஒரே திசை: கூட்டு"
+     },
+     "body": {
+      "en": "<p>3 N and 2 N in the same direction make 5 N.</p><div aria-hidden=\"true\" class=\"bs-pic\">3 N ➜ + 2 N ➜ = 5 N ➜</div>",
+      "ta": "<p>ஒரே திசைல 3 N உம் 2 N உம் சேர்ந்தா 5 N.</p><div aria-hidden=\"true\" class=\"bs-pic\">3 N ➜ + 2 N ➜ = 5 N ➜</div>"
+     },
+     "icon": "➕"
+    },
+    {
+     "title": {
+      "en": "Opposite ways: subtract",
+      "ta": "எதிர் திசை: கழி"
+     },
+     "body": {
+      "en": "<p>In tug of war the stronger side wins by the difference.</p><div aria-hidden=\"true\" class=\"bs-pic\">5 N ➜  ⬅️ 3 N = 2 N ➜</div>",
+      "ta": "<p>கயிறு இழுக்கற போட்டில பலமான பக்கம், வித்தியாசம் அளவுக்கு ஜெயிக்கும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">5 N ➜  ⬅️ 3 N = 2 N ➜</div>"
+     },
+     "icon": "➖"
+    },
+    {
+     "title": {
+      "en": "Balanced pushes do not change motion",
+      "ta": "சமமான எதிர் விசைகள் இயக்கத்தை மாற்றாது"
+     },
+     "body": {
+      "en": "<p>Equal pushes in opposite directions do not change motion. A still box stays still; a moving box keeps the same speed and direction. The combined force is called the resultant. N means newton, a unit of force.</p><div aria-hidden=\"true\" class=\"bs-pic\">5 N ➜  ⬅️ 5 N = 0</div>",
+      "ta": "<p>சமமான எதிர் விசைகள் இயக்கத்தை மாற்றாது. நின்ற பெட்டி நின்றே இருக்கும்; நகரும் பெட்டி அதே கதியிலும் திசையிலும் நகரும். மொத்த விசை விளையுள் விசை. N என்பது விசையின் அலகான நியூற்றன்.</p><div aria-hidden=\"true\" class=\"bs-pic\">5 N ➜  ⬅️ 5 N = 0</div>"
+     },
+     "icon": "⚖️"
+    }
+   ],
+   "hook": {
+    "en": "Two children pull a box together. What happens if one of them pulls the other way?",
+    "ta": "ரெண்டு குழந்தைங்க ஒரு பெட்டிய இழுக்கறாங்க. ஒருத்தர் எதிர்ப்பக்கம் இழுத்தா என்ன ஆகும்?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Play a mini tug of war with a friend using a scarf. Who wins? Why?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>நண்பரோட ஒரு துண்டுல இழுக்கற போட்டி விளையாடு. யார் ஜெயிக்கறாங்க? ஏன்?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's learn to find that one single force.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப அந்த ஒரே விசைய கண்டுபிடிக்க கத்துக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: tug of war",
+     "ta": "பாரு: கயிறிழுக்கற போட்டி"
+    },
+    "sub": {
+     "en": "Press play and see two forces turn into one",
+     "ta": "Play அழுத்தி ரெண்டு விசை ஒண்ணா மாறுறத பாரு"
+    }
+   },
+   "animation": {
+    "file": "chapter-09-resultant-force.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "9.1 Several Forces At Once — Which One \"Wins\"?",
+      "ta": "9.1 ஒரே சமயத்தில் பல விசைகள் — இதுல எது ஜெயிக்கும்?"
+     },
+     "body": {
+      "en": "<p>A car has stalled on the road, and one person pushes — but that one person's force isn't enough to move the heavy car. A second person joins in — still not enough. Finally a third person joins, and the car starts moving! What does this tell us? When more than one force acts on the same object, they all combine to act like a single force — this single, equivalent force is called the <b>resultant force</b>.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">What is a Resultant Force?</div>\n<div class=\"ltext\">When more than one force is applied to an object, the single equivalent force that produces the same combined effect as all of them together is called the resultant force.</div>\n</div>\n<p>This idea matters a lot — in real life, an object almost never has just one force on it (gravity, friction from the ground, and any force you apply could all act at once). To predict what the object will do, you first add up all those forces into one <b>resultant force</b> — this resultant is what actually decides the motion (remember Newton's laws — it's the unbalanced force that changes motion!).</p>",
+      "ta": "<p>ரோட்டுல நிண்ணுட்ட ஒரு காரை ஒரு ஆள் தள்ளுறார் — ஆனா அந்த ஒரு ஆளோட விசை அந்த பாரமான காரை நகர்த்த போதாது. அப்புறம் இன்னொரு ஆளும் சேர்ந்து தள்ளுறார் — இருந்தாலும் இன்னும் நகரல. கடைசியா மூணாவது ஆளும் சேர்ந்து தள்ளுனா, காரு நகர ஆரம்பிக்குது! இது என்ன சொல்லுது? ஒரே பொருள் மேல ஒண்ணுக்கு மேல விசைகள் பிரயோகிக்கப்படும்போது, அவை எல்லாம் சேர்ந்து ஒரே ஒரு விசையா செயல்படுது — இந்த ஒற்றை, சம்மான விசைக்குதான் <b>விளையுள் விசை</b> (Resultant Force) அப்படீங்குறோம்.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">விளையுள் விசை என்றால் என்ன?</div>\n<div class=\"ltext\">ஒரு பொருள் மேல் ஒன்றுக்கு மேற்பட்ட விசைகள் பிரயோகிக்கப்படும்போது, அவை அனைத்தினதும் இணைந்த விளைவை உண்டாக்கும் ஒற்றை, சமமான விசையே விளையுள் விசை எனப்படும்.</div>\n</div>\n<p>இந்த ஐடியா ரொம்ப முக்கியம் — நிஜ வாழ்க்கையில ஒரு பொருள் மேல எப்பவுமே ஒரே ஒரு விசை மட்டும் இருக்காது (ஈர்ப்பு விசை, தரையோட உராய்வு, இன்னும் நீங்க பிரயோகிக்குற விசை — எல்லாமே ஒரே நேரத்துல செயல்படலாம்). அந்த பொருள் என்ன பண்ணும்னு கணிக்க வேண்டுமா, முதல்ல அந்த எல்லா விசைகளையும் கூட்டி, ஒரே <b>விளையுள் விசையா</b> மாத்தணும் — இந்த விளையுள் விசைதான் இயக்கத்த தீர்மானிக்கும் (நியூற்றனின் விதிகள் நினைவிருக்கா — சமநிலைப்படுத்தப்படாத விசைதான் இயக்கத்த மாத்தும்!).</p>"
+     },
+     "section": "9.1"
+    },
+    {
+     "title": {
+      "en": "9.2 Resultant of Two Forces on the Same Line",
+      "ta": "9.2 ஒரே நேர்கோட்டில் தாக்கும் இரு விசைகளின் விளையுள்"
+     },
+     "body": {
+      "en": "<p>Think of fishermen pulling in a fishing net — everyone pulls the same rope in the same direction. This makes it easy to haul in the net together. That's because when everyone's force is in the <b>same direction</b>, the resultant is simply the <b>sum</b> of all their forces.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Two forces in the SAME direction</div>\n<div class=\"fmath\">Resultant = Force 1 + Force 2</div>\n<div class=\"fnote\">e.g. Two kids pull a box in the same direction with 8 N and 6 N — resultant = 8+6 = 14 N</div>\n</div>\n<p>But in a tug-of-war, two teams pull in opposite directions — the forces are in <b>opposite directions</b>. Now the resultant isn't a sum, it's a <b>difference</b> — the difference between the two forces, in the direction of whichever team pulled harder.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Two forces in OPPOSITE directions</div>\n<div class=\"fmath\">Resultant = larger force − smaller force (in the direction of the larger force)</div>\n<div class=\"fnote\">e.g. 5 N one way, 2 N the opposite way — resultant = 5 + (−2) = 3 N (in the direction of the 5 N)</div>\n</div>\n<div class=\"callout tip\">\n<div class=\"ctitle\">💡 Easy trick</div>\n<ul>\n<li>Pick one direction as positive (+) and the opposite as negative (−). Then just add all the forces up — the sign (+/−) automatically gives you the correct direction!</li>\n</ul>\n</div>",
+      "ta": "<p>மீன்பிடி வலையை இழுக்கிற தொழிலாளிகளை நினைச்சுப்பாரு — எல்லாருமே ஒரே கயிற்றை, ஒரே திசையில இழுக்குறாங்க. இதனால அவங்க எளிதா வலையை இழுக்க முடியுது. ஏன்னா, எல்லாருமோட விசையும் <b>ஒரே திசையில்</b> இருக்கும்போது, விளையுள் விசை அவங்க எல்லாருடைய விசையையும் <b>கூட்டினா்</b> கிடைக்கும் அளவுக்கு இருக்கும்.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">ஒரே திசையில் தாக்கும் இரு விசைகள்</div>\n<div class=\"fmath\">விளையுள் விசை = விசை 1 + விசை 2</div>\n<div class=\"fnote\">எ.கா: இரு பிள்ளைகள் ஒரு பெட்டியை ஒரே திசையில் 8 N, 6 N விசையால் இழுத்தால் — விளையுள் = 8+6 = 14 N</div>\n</div>\n<p>ஆனா, கயிற்றிழுத்தல் போட்டியில (tug of war) எதிரெதிர் திசையில ரெண்டு குழுவினர் இழுக்குறாங்க — இதுல விசைகள் <b>எதிர் திசையில்</b> இருக்கு. இப்போ விளையுள் விசை கூட்டல் இல்ல, <b>கழித்தல்்</b> — பெரிய விசை போட்ட குழுவின் திசையில், ரெண்டு விசைகளுக்கு இடையேயான வித்தியாசம்தான் விளையுள் விசை.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">எதிர் திசையில் தாக்கும் இரு விசைகள்</div>\n<div class=\"fmath\">விளையுள் விசை = பெரிய விசை − சிறிய விசை (பெரிய விசையின் திசையில்)</div>\n<div class=\"fnote\">எ.கா: 5 N ஒரு திசையில், 2 N எதிர் திசையில் — விளையுள் = 5 + (−2) = 3 N (5N திசையில்)</div>\n</div>\n<div class=\"callout tip\">\n<div class=\"ctitle\">💡 எளிய டிரிக்</div>\n<ul>\n<li>ஒரு திசைய பாசிட்டிவ்-ஆவும் (+), எதிர் திசைய நெகட்டிவ்-ஆவும் (−) எடுத்துக்கோ. அப்புறம் எல்லா விசைகளையும் வெறுமனே கூட்டு — சைன் (+/−) தானாகவே சரியான பதிலை தரும்!</li>\n</ul>\n</div>"
+     },
+     "section": "9.2"
+    },
+    {
+     "title": {
+      "en": "9.3 Resultant of Two Parallel Forces",
+      "ta": "9.3 இரு சமாந்தர விசைகளின் விளையுள்"
+     },
+     "body": {
+      "en": "<p>A single person pushes a stalled car with 150 N — it doesn't move, that force isn't enough to overcome the car's friction and weight. A second person helps by pushing in the same direction with 200 N — together they now apply 350 N — and now it moves!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Two parallel forces, same direction</div>\n<div class=\"fmath\">Resultant = Force 1 + Force 2 = 150 N + 200 N = 350 N</div>\n<div class=\"fnote\">\"Parallel\" just means both forces point the same way — they don't have to act along exactly the same line (e.g. pushing at different points on the car still works).</div>\n</div>\n<p>The textbook demonstrates this directly with a simple experiment — spring balances at three points on a wooden strip attached to a trolley, showing that a third upward-pulling force equals the sum of two downward-pulling forces at the other points — proving that the resultant of parallel forces equals their sum.</p>",
+      "ta": "<p>ஒருத்தர் மோட்டார் வண்டியை 150 N விசையால தள்ளினா, அது நகராது — வண்டியோட உராய்வும் நிறையும் தாண்ட அந்த விசை போதாது. இன்னொருத்தர் அதே திசையில் 200 N விசையால உதவி பண்ணினா, ரெண்டு பேரும் சேர்ந்து பிரயோகிக்குற விசை 350 N ஆகும் — இப்போ வண்டி நகரும்!</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">சமாந்தரமாக ஒரே திசையில் தாக்கும் இரு விசைகள்</div>\n<div class=\"fmath\">விளையுள் விசை = விசை 1 + விசை 2 = 150 N + 200 N = 350 N</div>\n<div class=\"fnote\">‘சமாந்தரம்’் என்றால் இரு விசைகளும் ஒரே திசையை நோக்கி இருக்க வேண்டும் — அவை ஒரே நேர்கோட்டில் இருக்க வேண்டியதில்லை (எ.கா: வண்டியின் வெவ்வேறு புள்ளிகளில் தள்ளினாலும் சரி).</div>\n</div>\n<p>இதை பாடப்புத்தகத்தில் ஒரு சின்ன சோதனை மூலம் நேரடியா காட்டுறாங்க — ஒரு துரோல்லியில் (trolley) இணைக்கப்பட்ட மரப்பட்டியில் மூணு புள்ளிகளில் நியூற்றன் தராசுகள் இணைச்சு, ரெண்டு பக்கத்திலும் கீழ்நோக்கி இழுக்கும் விசைகளின் கூட்டுத்தொகைக்கு, மேல்நோக்கி இழுக்கும் மூன்றாவது விசை சமமா இருக்குறத காட்டுறாங்க — அதாவது, சமாந்தர விசைகளின் விளையுள் அவற்றின் கூட்டுத்தொகைக்கு சமம்.</p>"
+     },
+     "section": "9.3"
+    },
+    {
+     "title": {
+      "en": "9.4 Resultant of Two Non-Parallel (Inclined) Forces",
+      "ta": "9.4 சமாந்தரமற்ற (சாய்ந்த) விசைகளின் விளையுள்"
+     },
+     "body": {
+      "en": "<p>Everything we've seen so far was forces along the same direction or line. But what happens when two forces hit an object at <b>different angles</b> (inclined to each other)? For example, if forces P and Q act on an object at an angle, the object won't move in P's direction, and won't move in Q's direction either — it will move in <b>a new direction somewhere between the two</b>!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Resultant of Non-Parallel Forces</div>\n<div class=\"ltext\">The resultant of two non-parallel forces acts in a direction between the two forces.</div>\n</div>\n<p>You'll study this idea more deeply, with proper angle calculations (the parallelogram of forces), in higher grades. For now, just remember: \"when directions differ, the resultant direction lies somewhere between them.\"</p>",
+      "ta": "<p>இது வரைக்கும் நாம பாத்த எல்லாமே ஒரே திசையில அல்லது ஒரே நேர்கோட்டில் இருக்குற விசைகள். ஆனா என்ன ஆகும், ரெண்டு விசைகள் <b>வெவ்வேறு திசையில்்</b> (சாய்ந்து) ஒரு பொருள் மேல தாக்கினா? உதாரணமா, ஒரு பொருள் மேல P, Q என்ற ரெண்டு விசைகள் ஒரு கோணத்தில் தாக்குனா, பொருள் P-யோட திசையிலும் போகாது, Q-யோட திசையிலும் போகாது — <b>அந்த ரெண்டு திசைகளுக்கும் இடையே இருக்குற ஒரு புது திசையில்்</b> போகும்!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">சமாந்தரமற்ற விசைகளின் விளையுள்</div>\n<div class=\"ltext\">இரு சமாந்தரமற்ற விசைகளின் விளையுள், அவ்விரு விசைகளுக்குமிடையே உள்ள திசையில் தாக்குகின்றது.</div>\n</div>\n<p>இந்த கருத்தை மேலும் ஆழமா, கோணங்களோட சரியான கணக்கீடுகளோட (parallelogram of forces) — உயர் வகுப்புகளில் படிப்பீங்க. இப்போதைக்கு, ‘திசை வேற வேற இருந்தா, விளையுள் திசை அந்த ரெண்டுக்கும் நடுவுல இருக்கும்’் அப்படீங்குற கருத்தை மட்டும் நினைவு வெச்சுக்கோ.</p>"
+     },
+     "section": "9.4"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you observed forces pushing together and against each other. Below are the formulas and vector rules for calculating resultant forces!",
+    "ta": "பகுதி 1-ல் பல விசைகளின் போட்டியை பார்த்தோம். அதற்கான விளைவுள் விசை கணித்தல் சூத்திரங்களையும் விதிகளையும் இங்கே கற்போம்!"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>Never forget direction!</b> First check if the forces are in the same direction or opposite. If opposite, you must subtract, not add — otherwise the answer is wrong.</li>\n<li><b>The resultant always points in the direction of the LARGER force</b> (in the opposite-direction case). Don't accidentally state the direction of the smaller force.</li>\n<li><b>\"Parallel\" doesn't mean \"same line\"!</b> Parallel forces point the same way, but they can act at different points on the object — the addition rule still applies the same.</li>\n<li><b>The resultant's unit is always N (newton)</b> — whether you add or subtract, the unit of force never changes.</li>\n</ul>\n</div>",
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>திசையை மறந்துடாதீங்க!</b> விசைகள் ஒரே திசையிலா, எதிர் திசையிலான்னு முதல்ல பாருங்க. எதிர் திசையில் இருந்தா, கூட்டாம கழிக்கணும் — இல்லைனா பதில் தப்பா வரும்.</li>\n<li><b>விளையுள் விசையின் திசை எப்பவும் பெரிய விசையின் திசையில் இருக்கும்</b> (எதிர் திசை வழக்கில்). சிறிய விசையின் திசையில் பதில் சொல்லிடாதீங்க.</li>\n<li><b>‘சமாந்தரம்’் = ஒரே நேர்கோடு இல்ல!</b> சமாந்தர விசைகள் ஒரே திசையை நோக்கி இருந்தாலும், அவை பொருளின் வெவ்வேறு புள்ளிகளில் பிரயோகிக்கப்படலாம் — ஆனா கூட்டல் விதி இன்னும் அதே.</li>\n<li><b>விளையுள் விசையின் அலகு எப்பவும் N (நியூட்டன்)</b> — கூட்டுறதோ கழிக்குறதோ, விசைகளின் அலகு மாறாது.</li>\n</ul>\n</div>"
+    }
+   ]
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook's experiments — try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>No worries — you can see the same ideas in the <a href=\"#lab\">Lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"9.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 9.1 — Two forces in the same direction</h3>\n<span class=\"act-ref\">Textbook · p.166</span>\n<p>Find the resultant of two forces that act in the same direction along one straight line.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A trolley</li><li>Three spring balances (newton balances): A, B and C</li><li>Two pulleys and a ring</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Place the trolley on a table. Tie strong threads to a ring, and pass two of them over the pulleys to spring balances B and C. Attach spring balance A to the trolley (Fig. 9.5).</li><li>Pull with spring balances B and C so that the forces act together in the same direction, and note their readings.</li><li>Note the reading of spring balance A.</li><li>Find the relationship between the three readings. Repeat several times with different pulls.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The reading of A equals the sum of the readings of B and C. So when two forces act in the same direction on a straight line, their resultant is the sum of the two forces.</div></details>\n<button class=\"btn act-done\" data-act=\"9.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"9.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 9.2 — Two forces in opposite directions</h3>\n<span class=\"act-ref\">Textbook · p.169</span>\n<p>See what happens to a trolley when two forces pull it in opposite directions.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A trolley</li><li>Two spring balances, A and B</li><li>Two identical pulleys and spring-balance stands</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Put the trolley on a table. Tie a thread to each side, pass the free ends over the pulleys, and attach spring balances A and B (Fig. 9.7).</li><li>Case 1: pull each balance with 4 N and watch the trolley.</li><li>Case 2: pull A with 4 N and B with 6 N and watch the trolley.</li><li>Case 3: pull A with 6 N and B with 6 N and watch the trolley.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Cases 1 and 3: the trolley does not move, because equal opposite forces cancel. Case 2: it moves towards B, as if pulled by a single 2 N force (6 − 4). So the resultant of two opposite forces is their difference, in the direction of the larger force.</div></details>\n<button class=\"btn act-done\" data-act=\"9.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"9.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity 9.3 — Two parallel forces</h3>\n<span class=\"act-ref\">Textbook · p.172</span>\n<p>Show that the resultant of two parallel forces in the same direction is their sum.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A wooden strip with three holes X, Y, Z</li><li>Three spring balances A, B, C</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Hang spring balances A, B and C from holes X, Y and Z of the strip (Fig. 9.10).</li><li>Pull the strip with the balances so that it stays at rest.</li><li>Note the readings of A, B and C and compare them.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">When the strip is at rest, the reading of C equals the sum of the readings of A and B. C balances the resultant of A and B, so the resultant of two parallel forces in the same direction is their sum.</div></details>\n<button class=\"btn act-done\" data-act=\"9.3\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"9.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 9.1 — ஒரே திசையில் இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.166</span>\n<p>ஒரே திசையில், ஒரே நேர்கோட்டுல தாக்கும் இரு விசைகளோட விளையுளை கண்டுபிடிக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு துரொல்லி</li><li>மூன்று நியூற்றன் தராசுகள் (A, B, C)</li><li>இரு கப்பிகள், ஒரு வளையம்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>துரொல்லிய மேசை மேல வெச்சு, வலிமையான நூல்கள ஒரு வளையத்துல கட்டி, ரெண்டு நூல கப்பிகள் வழியா தராசு B, C-ல மாட்டு. தராசு A-ய துரொல்லியோட இணை (உரு 9.5).</li><li>தராசு B, C-ஆல ஒரே திசையில விசைய பிரயோகிச்சு இழுத்து, அவற்றோட வாசிப்புகள குறிச்சுக்கோ.</li><li>தராசு A-யோட வாசிப்பையும் குறிச்சுக்கோ.</li><li>மூணு வாசிப்புகளுக்கும் நடுவுல இருக்கற தொடர்ப கண்டுபிடி. வெவ்வேறு விசைகள்ல பல தடவை செஞ்சு பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">A-யோட வாசிப்பு, B + C-யோட கூட்டுத்தொகைக்கு சமம். அதனால ஒரே நேர்கோட்டுல ஒரே திசையில தாக்கும் இரு விசைகளோட விளையுள் அவற்றோட கூட்டுத்தொகை.</div></details>\n<button class=\"btn act-done\" data-act=\"9.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"9.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 9.2 — எதிர்த் திசையில் இரு விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.169</span>\n<p>எதிர் எதிர் திசையில இரு விசைகள் இழுக்கும்போது துரொல்லிக்கு என்ன நடக்குதுன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு துரொல்லி</li><li>இரு நியூற்றன் தராசுகள் (A, B)</li><li>இரு ஒரே மாதிரி கப்பிகள், தராசு படிகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>துரொல்லிய மேசை மேல வெச்சு, ரெண்டு பக்கமும் நூல் கட்டி, கப்பிகள் வழியா தராசு A, B-ல இணை (உரு 9.7).</li><li>சந்தர்ப்பம் 1: ஒவ்வொரு தராசையும் 4 N-ல இழுத்து துரொல்லிய கவனி.</li><li>சந்தர்ப்பம் 2: A-ய 4 N, B-ய 6 N-ல இழுத்து கவனி.</li><li>சந்தர்ப்பம் 3: A-ய 6 N, B-ய 6 N-ல இழுத்து கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">சந்தர்ப்பம் 1, 3: சம, எதிர் விசைகள் ஒண்ணையொண்ணு கான்சல் பண்றதால துரொல்லி நகராது. சந்தர்ப்பம் 2: B-யை நோக்கி 2 N (6 − 4) விசையில இழுத்த மாதிரி நகரும். அதனால எதிர் விசைகளோட விளையுள் அவற்றோட வித்தியாசம், பெரிய விசையோட திசையில.</div></details>\n<button class=\"btn act-done\" data-act=\"9.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"9.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு 9.3 — இரு சமாந்தர விசைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.172</span>\n<p>ஒரே திசையில தாக்கும் இரு சமாந்தர விசைகளோட விளையுள் அவற்றோட கூட்டுத்தொகைன்னு காட்டலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>X, Y, Z ன்னு மூணு துளைகள் இட்ட ஒரு மரப்பட்டி</li><li>மூன்று நியூற்றன் தராசுகள் (A, B, C)</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>மரப்பட்டியோட X, Y, Z துளைகள்ல தராசு A, B, C-ய தொங்கவிடு (உரு 9.10).</li><li>பட்டி ஓய்வுல இருக்கற மாதிரி தராசுகளால இழு.</li><li>A, B, C வாசிப்புகள குறிச்சு ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">பட்டி ஓய்வுல இருக்கும்போது, C-யோட வாசிப்பு A + B-க்கு சமம். A, B-யோட விளையுளை C சமநிலைப்படுத்துது. அதனால ஒரே திசை இரு சமாந்தர விசைகளோட விளையுள் அவற்றோட கூட்டுத்தொகை.</div></details>\n<button class=\"btn act-done\" data-act=\"9.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Resultant Lab",
+     "ta": "ஃபோர்ஸ் லேப்"
+    },
+    "sub": {
+     "en": "Change two forces — watch the resultant respond live",
+     "ta": "ரெண்டு விசைகளை மாத்தி பாரு — விளையுள் விசை லைவா மாறுறத பாத்துக்கோ!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-09-resultant-force.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "tugofwar",
+   "kind": "tugofwar",
+   "heading": {
+    "title": {
+     "en": "🎮 Tug of War Showdown",
+     "ta": "🎮 கயிற்றிழுத்தல் சவால்"
+    },
+    "sub": {
+     "en": "Each level, guess the correct resultant force — the closer your guess, the more stars!",
+     "ta": "ஒவ்வொரு லெவலிலும், சரியான விளையுள் விசையை யூகி — நெருக்கமா யூகிச்சா அதிக நட்சத்திரம்!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-09-resultant-force.html",
+    "hash": "tugofwar"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Quick check before the worked examples",
+     "ta": "கஷ்டமான உதாரணங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "Two people push a stalled car in the same direction with 120 N and 90 N. What is the resultant force?",
+      "ta": "நிண்ணுட்ட காரை ரெண்டு பேர் ஒரே திசையில் 120 N, 90 N விசையால் தள்றாங்க. விளையுள் விசை என்ன?"
+     },
+     "options": [
+      {
+       "en": "30 N",
+       "ta": "30 N"
+      },
+      {
+       "en": "210 N",
+       "ta": "210 N"
+      },
+      {
+       "en": "120 N",
+       "ta": "120 N"
+      },
+      {
+       "en": "It cannot be found",
+       "ta": "கண்டுபிடிக்க முடியாது"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Same direction forces add: 120 + 90 = 210 N.",
+      "ta": "ஒரே திசை விசைகள் கூடும்: 120 + 90 = 210 N."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "In a tug of war, Team A pulls with 300 N and Team B pulls with 260 N in the opposite direction. What happens?",
+      "ta": "கயிற்றிழுத்தல் போட்டியில் அணி A 300 N, அணி B எதிர் திசையில் 260 N இழுக்குது. என்ன நடக்கும்?"
+     },
+     "options": [
+      {
+       "en": "Nothing moves — it's balanced",
+       "ta": "ஒண்ணுமே நகராது — சமநிலை"
+      },
+      {
+       "en": "Team B wins, resultant 40 N toward B",
+       "ta": "அணி B ஜெயிக்கும், விளையுள் 40 N அணி B பக்கம்"
+      },
+      {
+       "en": "Team A wins, resultant 40 N toward A",
+       "ta": "அணி A ஜெயிக்கும், விளையுள் 40 N அணி A பக்கம்"
+      },
+      {
+       "en": "Team A wins, resultant 560 N toward A",
+       "ta": "அணி A ஜெயிக்கும், விளையுள் 560 N அணி A பக்கம்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Opposite directions subtract: 300 − 260 = 40 N, in the direction of the larger force (Team A).",
+      "ta": "எதிர் திசை விசைகள் கழிக்கப்படும்: 300 − 260 = 40 N, பெரிய விசையின் திசையில் (அணி A)."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "What is the resultant of two equal and opposite forces, both 50 N?",
+      "ta": "சமமான, எதிரெதிர் திசையில் இருக்கும் 50 N ரெண்டு விசைகளின் விளையுள் என்ன?"
+     },
+     "options": [
+      {
+       "en": "100 N",
+       "ta": "100 N"
+      },
+      {
+       "en": "50 N",
+       "ta": "50 N"
+      },
+      {
+       "en": "0 N — balanced",
+       "ta": "0 N — சமநிலை"
+      },
+      {
+       "en": "25 N",
+       "ta": "25 N"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "50 − 50 = 0. Equal and opposite forces are perfectly balanced — no resultant, no motion.",
+      "ta": "50 − 50 = 0. சமமான, எதிரெதிர் விசைகள் முழுமையா சமநிலையில் இருக்கும் — விளையுள் இல்ல, இயக்கமும் இல்ல."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "Two parallel forces of 6 N and 4 N act on an object in the same direction (at different points). What is the resultant?",
+      "ta": "6 N, 4 N சமாந்தர விசைகள் ஒரு பொருள் மேல ஒரே திசையில் (வெவ்வேறு புள்ளிகளில்) தாக்குது. விளையுள் என்ன?"
+     },
+     "options": [
+      {
+       "en": "2 N",
+       "ta": "2 N"
+      },
+      {
+       "en": "10 N",
+       "ta": "10 N"
+      },
+      {
+       "en": "24 N",
+       "ta": "24 N"
+      },
+      {
+       "en": "Cannot combine parallel forces",
+       "ta": "சமாந்தர விசைகளை கூட்ட முடியாது"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Parallel forces in the same direction simply add: 6 + 4 = 10 N.",
+      "ta": "ஒரே திசையில் இருக்கும் சமாந்தர விசைகள் வெறுமனே கூடும்: 6 + 4 = 10 N."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "Two forces P and Q act on an object at an angle to each other (not parallel). Which way does the object move?",
+      "ta": "P, Q ஆகிய இரு விசைகள் ஒரு பொருள் மேல ஒரு கோணத்தில் (சமாந்தரமில்லாமல்) தாக்குது. பொருள் எந்தப் பக்கம் நகரும்?"
+     },
+     "options": [
+      {
+       "en": "Exactly in P's direction",
+       "ta": "சரியாக P-யின் திசையில்"
+      },
+      {
+       "en": "Exactly in Q's direction",
+       "ta": "சரியாக Q-வின் திசையில்"
+      },
+      {
+       "en": "In a direction between P and Q",
+       "ta": "P, Q-வுக்கு இடையே இருக்கும் ஒரு திசையில்"
+      },
+      {
+       "en": "It won't move at all",
+       "ta": "அது எந்திசையிலும் நகராது"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "For non-parallel (inclined) forces, the resultant acts in a direction between the two original directions.",
+      "ta": "சமாந்தரமற்ற (சாய்ந்த) விசைகளுக்கு, விளையுள் அந்த இரு அசல் திசைகளுக்கும் இடையே இருக்கும் ஒரு திசையில் தாக்கும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Force Combo Sort",
+     "ta": "🧩 ஃபோர்ஸ் காம்போ சார்ட்"
+    },
+    "sub": {
+     "en": "Two quick rounds — match the rule to its meaning, then sort force pairs by which way they move!",
+     "ta": "இரண்டு சின்ன சுற்றுகள் — விதியையும் விளக்கத்தையும் இணைச்சு, அப்புறம் விசை ஜோடிகளை வரிசைப்படுத்து!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-09-resultant-force.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Textbook Examples",
+     "ta": "பாட புத்தக உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Tap through each step — mark values shown as in an examiner's scheme",
+     "ta": "ஒவ்வொரு படியையும் தொட்டுப் பாரு — மார்க் ஸ்கீம் மாதிரி மதிப்பெண்ணும் காட்டியிருக்கேன்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">Two children pull a thread attached to a box on a table, in the same direction. One child applies 8 N, the other 6 N. What is the resultant force pulling the box?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Both forces are in the same direction — so add them: Resultant = 8 N + 6 N</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Calculate:</p>\n<div class=\"work\">= 14 N</div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting the unit N.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Resultant force = <b>14 N</b> (in the direction both children are pulling).\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு மேசை மீது வைக்கப்பட்டுள்ள பெட்டியுடன் இணைக்கப்பட்ட இழையை இரு பிள்ளைகள் ஒரே திசையில் இழுக்கின்றனர். ஒரு பிள்ளை பிரயோகிக்கும் விசை 8 N ஆகும், மற்றைய பிள்ளை பிரயோகிக்கும் விசை 6 N ஆகும். இவ்விரு பிள்ளைகளும் பெட்டியை இழுக்கும் விளையுள் விசை யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ரெண்டு விசைகளும் ஒரே திசையில் — அதனால் கூட்டணும்: விளையுள் = 8 N + 6 N</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கணக்கிடு:</p>\n<div class=\"work\">= 14 N</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> அலகு N எழுதத் தவறுறது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> விளையுள் விசை = <b>14 N</b> (இரு பிள்ளைகளும் இழுக்கும் திசையில்).</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Ch.9, p.167",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 9, ப. 167"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">An object on a table is pulled with 5 N in one direction and 2 N in the opposite direction. What is the resultant of these pulling forces?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Take the 5 N direction as positive (+) and the opposite as negative (−).</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Resultant = (5 N) + (−2 N)</p>\n<div class=\"work\">= 3 N</div>\n<div class=\"note\"><b>Where marks are lost:</b> not applying the negative sign correctly, or wrongly adding 5+2=7N.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Resultant force = <b>3 N</b>, in the direction of the 5 N force.\n      </div>",
+      "ta": "<div class=\"qtext\">மேசை மீது வைக்கப்பட்டுள்ள பொருள் ஒன்று ஒரு திசையில் 5 N விசையினாலும், அதற்கு எதிரான திசையில் 2 N விசையினாலும் இழுக்கப்பட்டால், இழுக்கும் விசைகளின் விளையுள் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>5 N திசையை பாசிட்டிவ் (+) ஆகவும், எதிர் திசையை நெகட்டிவ் (−) ஆகவும் எடுத்துக்கோ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>விளையுள் விசை = (5 N) + (−2 N)</p>\n<div class=\"work\">= 3 N</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> சைன் (−) ஐ சரியா பயன்படுத்தாதது, அல்லது 5+2=7N அப்படீன்னு தப்பா கூட்டிடுறது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> விளையுள் விசை = <b>3 N</b>, 5 N விசையின் திசையில்.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Ch.9, p.169",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 9, ப. 169"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">Two strong threads attached to a trolley, held parallel to each other, are pulled with 8 N and 16 N. What is the resultant of these two forces?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Both forces are parallel and same direction — so add them: Resultant = 8 N + 16 N</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Calculate:</p>\n<div class=\"work\">= 24 N</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Resultant force = <b>24 N</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு துரோல்லியுடன் இணைக்கப்பட்ட இரு வலிமையான இழைகளை ஒன்றுக்கொன்று சமாந்தரமாக வைத்துக்கொண்டு, ஒரு இழையை 8 N விசையினாலும், மற்றைய இழையை 16 N விசையினாலும் இழுக்கப்படுகின்றது. இவ்விரு விசைகளினதும் விளையுள் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ரெண்டு விசைகளும் சமாந்தரமா, ஒரே திசையில் — அதனால் கூட்டணும்: விளையுள் = 8 N + 16 N</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கணக்கிடு:</p>\n<div class=\"work\">= 24 N</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> விளையுள் விசை = <b>24 N</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Ch.9, p.173",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 9, ப. 173"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook — each with a full worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 9.1",
+      "ta": "பயிற்சி 9.1"
+     },
+     "items": [
+      {
+       "id": "x91-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the resultant of 100 N and 200 N acting in the same direction.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரே திசையில் 100 N, 200 N விசைகள் தாக்கும் விளையுள் விசையைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">100 + 200 = <b>300 N</b></div>"
+       }
+      },
+      {
+       "id": "x91-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the resultant of 20 N and 40 N acting in the same direction.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரே திசையில் 20 N, 40 N விசைகள் தாக்கும் விளையுள் விசையைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">20 + 40 = <b>60 N</b></div>"
+       }
+      },
+      {
+       "id": "x91-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>One child pushes an object with 5 N while another pulls it in the same direction with 7 N. What is the resultant of these two forces?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பிள்ளை ஒரு பொருளை ஒரு திசையில் 5 N விசையால் தள்ளும் அதே வேளை, வேறொரு பிள்ளை அதே திசையில் 7 N விசையால் இழுக்கின்றது. இவ்விரு விசைகளின் விளையுள் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">5 + 7 = <b>12 N</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Same direction",
+      "ta": "ஒரே திசை"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 9.2",
+      "ta": "பயிற்சி 9.2"
+     },
+     "items": [
+      {
+       "id": "x92-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Two children push/pull a box: 15 N one way, 11 N the opposite way. Find the resultant of these two forces.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருள் தளத்தில் இரு பிள்ளைகள் தள்ளும்/இழுக்கும் விசைகள் படத்தில் காட்டப்பட்டுள்ளன்: 15 N ஒரு திசையில், 11 N எதிர் திசையில். இவ்விரு விசைகளினதும் விளையுள் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">15 − 11 = <b>4 N</b></div><div>In the direction of the 15 N force.</div>",
+        "ta": "<div class=\"work\">15 − 11 = <b>4 N</b></div><div>15 N விசையின் திசையில்.</div>"
+       }
+      },
+      {
+       "id": "x92-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object on a table is given a 10 N force westward. It is also pulled by force X in the opposite (eastward) direction. If the resultant drags it with an effective 5 N, find the magnitude of X.</span></div>",
+        "ta": "<div class=\"exq\"><span>மேசையின் மீது வைக்கப்பட்டுள்ள பொருளொன்றுக்கு மேற்குத் திசையில் 10 N விசை வழங்கப்படுகின்றது. பொருளானது X விசையால் எதிர்த் திசையில் இழுக்கப்பட்டு, விளையுள் விசையால் அது 5 N விசையினால் இழுத்துச் செல்லப்படுமாயின், X-இன் பருமனைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div>X wins (the object moves in X's direction), so X − 10 = 5</div>\n<div class=\"work\">X = 5 + 10 = <b>15 N</b></div>",
+        "ta": "<div>X அதன் திசையில் வெல்கிறது (பொருள் X-இன் திசையில் நகர்கிறது), அதனால் X − 10 = 5</div>\n<div class=\"work\">X = 5 + 10 = <b>15 N</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Opposite direction",
+      "ta": "எதிர் திசை"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 9.3",
+      "ta": "பயிற்சி 9.3"
+     },
+     "items": [
+      {
+       "id": "x93-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Two parallel threads pull a trolley with a resultant of 20 N. Thread A applies 12 N. Find the force applied by thread B.</span></div>",
+        "ta": "<div class=\"exq\"><span>மேசை மீது உள்ள ஒரு துரோல்லியுடன் இணைக்கப்பட்ட இரு இழைகளைச் சமாந்தரமாகப் பேணிக் கொண்டு இழுக்குமாறு உண்டாகும் விளையுள் 20 N ஆகும். இழை A யினால் பிரயோகிக்கப்படும் விசை 12 N ஆகும். இழை B யினால் பிரயோகிக்கப்படும் விசையைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div>A + B = 20 (parallel, same direction, so they add)</div>\n<div class=\"work\">B = 20 − 12 = <b>8 N</b></div>",
+        "ta": "<div>A + B = 20 (சமாந்தரம், ஒரே திசை என்பதால் கூட்டல்)</div>\n<div class=\"work\">B = 20 − 12 = <b>8 N</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Parallel forces",
+      "ta": "சமாந்தர விசைகள்"
+     }
+    },
+    {
+     "chip": {
+      "en": "Chapter Exercise",
+      "ta": "அத்தியாய பயிற்சி"
+     },
+     "items": [
+      {
+       "id": "xc-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object is pulled by 10 N and 6 N in the same direction. What is the resultant?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(ii).</span><span>If the same two forces are applied in opposite directions, what is the resultant?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருள் ஒரே திசையில் 10 N, 6 N என்னும் இரு விசைகளினால் இழுக்கப்படுமெனின், அவ்விரு விசைகளினதும் விளையுள் விசை யாது?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(ii).</span><span>அப்பொருளின் மீது அவ்விரு விசைகளும் எதிர்த் திசைகளில் பிரயோகிக்கப்பட்டால், விளையுள் விசை யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(i) 10 + 6 = <b>16 N</b></div>\n<div class=\"work\">(ii) 10 − 6 = <b>4 N</b> (10 N இன் திசையில் / in the direction of the 10 N force)</div>"
+       }
+      },
+      {
+       "id": "xc-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the resultant of these two parallel forces? (6 N, 4 N)</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii)(a).</span><span>What force, applied in the opposite direction, would make the resultant zero?</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii)(b).</span><span>Represent it with a diagram.</span></div>",
+        "ta": "<div class=\"exq\"><span>பின்வரும் இரு சமாந்தர விசைகளினதும் விளையுள் விசை யாது? (6 N, 4 N)</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii)(a).</span><span>அவ் விசைகள் பிரயோகிக்கப்படும் திசைக்கு எதிரான திசையில் எந்த விசையைப் பிரயோகிக்கும் போது விளையுளைப் பூச்சியமாக்கலாம்?</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii)(b).</span><span>ஒரு வரிப்படத்தின் மூலம் அதை வகைகுறிக்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(i) 6 + 4 = <b>10 N</b></div>\n<div class=\"work\">(ii)(a) <b>10 N</b>, applied in the opposite direction</div>\n<div>(ii)(b) Draw an object with two equal-length arrows — one 10 N pointing right, one 10 N pointing left, directly opposite each other.</div>",
+        "ta": "<div class=\"work\">(i) 6 + 4 = <b>10 N</b></div>\n<div class=\"work\">(ii)(a) <b>10 N</b>, applied in the opposite direction</div>\n<div>(ii)(b) ஒரு பொருள் மேல் 10 N வலப்புறமும், 10 N இடப்புறமும் காட்டும் அம்புக்குறிகள் — நீளம் சமமா, திசை நேர் எதிராக இருக்கும் மாதிரி வரையவும்.</div>"
+       }
+      },
+      {
+       "id": "xc-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A pair of bullocks ploughing pull a yoke — one with 100 N, the other with 80 N. What is the resultant force pulling the yoke forward?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு சோடி மாடுகள் கட்டப்பட்ட ஒரு கலப்பையினால் உழும்போது ஒரு மாடு 100 N விசையினாலும் மற்றைய மாடு 80 N விசையினாலும் இழுக்குமெனின், கலப்பை முன்னோக்கி இழுக்கப்படுவதற்குரிய விளையுள் விசையின் பெறுமானம் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">100 + 80 = <b>180 N</b> (இரண்டும் முன்னோக்கிய திசையில் சமாந்தரம் / both parallel, forward)</div>"
+       }
+      },
+      {
+       "id": "xc-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A spring balance reads 80 g for one hanging object. When a second 50 g object is also hung, what is the resultant downward force in newtons? (g = 10 ms⁻²)</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு விற்றராசில் ஒரு பொருள் தொங்கவிடப்படும் போது வாசிப்பு 80 g ஆகும். 50 g வாசிப்பு உள்ள வேறொரு பொருளைத் தொங்கவிடும்போது விற்றராசு கீழே இழுக்கப்படும் விளையுள் விசை நியூற்றனில் யாது? (g = 10 ms⁻²)</span></div>"
+       },
+       "answer": {
+        "en": "<div>Total mass = 80 g + 50 g = 130 g = 0.13 kg</div>\n<div class=\"work\">W = mg = 0.13 × 10 = <b>1.3 N</b></div>",
+        "ta": "<div>மொத்த திணிவு = 80 g + 50 g = 130 g = 0.13 kg</div>\n<div class=\"work\">W = mg = 0.13 × 10 = <b>1.3 N</b></div>"
+       }
+      },
+      {
+       "id": "xc-5",
+       "num": "5",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A trolley is pulled 20 N eastward and 15 N westward. In which direction is it pulled, and with what resultant force?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு துரோல்லி கிழக்கு நோக்கி 20 N விசையினாலும், மேற்கு நோக்கி 15 N விசையினாலும் இழுக்கப்படுமெனின், அது எத்திசையில் இழுக்கப்படும்? அது எவ்விளையுள் விசையினால் இழுக்கப்படும்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">20 − 15 = <b>5 N, towards the East</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Everything together",
+      "ta": "எல்லாமே சேர்த்து"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🪢</div><div class=\"cm-b r\"><i>Raja:</i> <span>Tug of war! My team pulls 300 N, yours pulls 260 N.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">➖</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Opposite forces: subtract. 300 − 260 = 40 N, towards your side.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🛒</div><div class=\"cm-b r\"><i>Raja:</i> <span>And two friends pushing a cart the same way, 8 N and 6 N?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Same direction: add. 8 + 6 = 14 N. One force does the job of both.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🪢</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>கயிறிழுக்கற போட்டி! என் டீம் 300 N, உன் டீம் 260 N.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">➖</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>எதிர் விசைகள்: கழி. 300 − 260 = 40 N, உன் பக்கம்.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🛒</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>ரெண்டு நண்பர்கள் ஒரே பக்கம் வண்டிய தள்ளினா, 8 N, 6 N?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">➕</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>ஒரே திசை: கூட்டு. 8 + 6 = 14 N. ஒரே விசை ரெண்டோட வேலையையும் செய்யுது.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Same way, you add them up.<br/>Opposite, you take them off.<br/>The bigger one decides the way,<br/>that is the resultant, hooray!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">ஒரே திசை — கூட்டு,<br/>எதிர் திசை — கழி.<br/>பெரிய விசை திசையிலதான்<br/>விளையுள் போகும், சரி!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Always add the forces.</td><td class=\"ok\">Add only when they act the same way. Opposite forces are subtracted.</td></tr><tr><td class=\"w\">The resultant has no direction.</td><td class=\"ok\">The resultant acts in the direction of the bigger force. Always say which way.</td></tr><tr><td class=\"w\">For two forces at an angle, just add the numbers.</td><td class=\"ok\">The resultant acts in a direction between the two forces; the numbers do not simply add.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">எப்பவும் விசைகள கூட்டணும்.</td><td class=\"ok\">ஒரே திசையில இருந்தா மட்டும் கூட்டு. எதிர் விசைகள கழி.</td></tr><tr><td class=\"w\">விளையுளுக்கு திசை இல்ல.</td><td class=\"ok\">விளையுள் பெரிய விசையோட திசையில தாக்கும். எப்பவும் எந்த திசைன்னு சொல்லு.</td></tr><tr><td class=\"w\">சாய்வான ரெண்டு விசைக்கு எண்கள கூட்டினா போதும்.</td><td class=\"ok\">விளையுள் ரெண்டு விசைக்கும் நடுவுல இருக்கற திசையில தாக்கும்; எண்கள் வெறுமனே கூடாது.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>resultant force = the single force that has the same effect as all the forces together</li><li>same direction on one line: resultant = F₁ + F₂</li><li>opposite directions on one line: resultant = the difference, towards the bigger force</li><li>two non-parallel forces: the resultant points between them</li><li>forces are measured in newtons (N) with a spring balance</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>விளையுள் விசை = எல்லா விசைகளும் சேர்ந்து உண்டாக்கும் அதே விளைவ தனியா உண்டாக்கும் ஒரே விசை</li><li>ஒரே திசையில, ஒரே கோட்டுல: விளையுள் = F₁ + F₂</li><li>எதிர்த் திசையில: விளையுள் = வித்தியாசம், பெரிய விசை பக்கம்</li><li>சமாந்தரமற்ற ரெண்டு விசை: விளையுள் அவற்றுக்கு நடுவுல</li><li>விசை நியூற்றன்ல (N), நியூற்றன் தராசால அளக்கப்படும்</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "A single force that produces the same effect as several forces acting together is called their resultant force.",
+     "ta": "பல விசைகள் சேர்ந்து உண்டாக்கும் அதே விளைவ தனியா உண்டாக்கும் ஒரு விசைதான் அவற்றோட விளையுள் விசை."
+    },
+    {
+     "en": "The resultant of two forces in the same direction along one line is the sum of the two forces.",
+     "ta": "ஒரே திசையில, ஒரே நேர்கோட்டுல தாக்கும் இரு விசைகளோட விளையுள், அவற்றோட கூட்டுத்தொகை."
+    },
+    {
+     "en": "For two opposite forces along one line, the resultant equals the difference of the two forces and acts in the direction of the larger force.",
+     "ta": "எதிர்த் திசையில ஒரே கோட்டுல இருக்கும் இரு விசைகளுக்கு, விளையுள் அவற்றோட வித்தியாசம்; பெரிய விசையோட திசையில தாக்கும்."
+    },
+    {
+     "en": "The resultant of two non-parallel forces acts in a direction between the two forces.",
+     "ta": "சமாந்தரமற்ற இரு விசைகளோட விளையுள், அவ்விரு விசைகளுக்கும் நடுவுல இருக்கும் திசையில தாக்கும்."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Resultant force",
+     "ta": "விளையுள் விசை"
+    },
+    {
+     "en": "Newton balance",
+     "ta": "நியூற்றன் தராசு"
+    },
+    {
+     "en": "Unbalanced force",
+     "ta": "சமநிலைப்படாத விசை"
+    },
+    {
+     "en": "Opposite direction",
+     "ta": "எதிர்த் திசை"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 4 key points",
+    "ta": "📌 பொழிப்பு — 4 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+   }
+  }
+ ]
+}

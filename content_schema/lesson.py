@@ -102,6 +102,7 @@ class BasicsStep(_Strict):
     heading: Heading
     hook: Optional[Rich] = None
     cards: list[Card] = Field(min_length=1)
+    extra: list[Rich] = Field(default=[], description='Further content after the cards (a home activity, a bridge to the notes), kept as it is.')
 
 
 class WatchStep(_Strict):
@@ -118,6 +119,7 @@ class NotesStep(_Strict):
     heading: Heading
     intro: Optional[Rich] = None
     cards: list[Card] = Field(min_length=1)
+    extra: list[Rich] = Field(default=[], description='Further content beside the cards (e.g. common mistakes), kept as it is.')
 
 
 class ActivitiesStep(_Strict):
@@ -201,13 +203,16 @@ class GlossaryTerm(_Strict):
     en: str = Field(min_length=1)
     ta: Optional[str] = None
     si: Optional[str] = None
+    meaning: Optional[Text] = Field(default=None, description='A short meaning, where the glossary has one.')
 
 
 class SummaryStep(_Strict):
     type: Literal['summary']
     id: ID
     heading: Heading
+    points_title: Optional[Text] = None
     points: list[Rich] = Field(min_length=1)
+    glossary_title: Optional[Text] = None
     glossary: list[GlossaryTerm] = []
     extra: list[Rich] = Field(default=[], description='Any further summary cards, kept as they are.')
 

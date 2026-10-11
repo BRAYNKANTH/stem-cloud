@@ -1,0 +1,484 @@
+{
+ "schema": 1,
+ "lessons": [
+  {
+   "id": "physics.g10.motion-in-a-straight-line",
+   "subject": "physics",
+   "grade": 10,
+   "number": "2",
+   "slug": "motion-in-a-straight-line",
+   "title": {
+    "en": "Motion in a Straight Line",
+    "ta": "நேர்க்கோட்டு இயக்கம்",
+    "si": "සරල රේඛීය චලිතය"
+   },
+   "path": "content/physics/g10/motion-in-a-straight-line/lesson.json",
+   "legacy": {
+    "id": "u2",
+    "file": "unit-02-motion-in-a-straight-line.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.newtons-laws",
+   "subject": "physics",
+   "grade": 10,
+   "number": "4",
+   "slug": "newtons-laws",
+   "title": {
+    "en": "Newton's Laws of Motion",
+    "ta": "நியூற்றனின் இயக்க விதிகள்",
+    "si": "චලිතය පිළිබඳ නිව්ටන් නියම"
+   },
+   "path": "content/physics/g10/newtons-laws/lesson.json",
+   "legacy": {
+    "id": "c4",
+    "file": "chapter-04-newtons-laws.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.friction",
+   "subject": "physics",
+   "grade": 10,
+   "number": "5",
+   "slug": "friction",
+   "title": {
+    "en": "Friction",
+    "ta": "உராய்வு",
+    "si": "ඝර්ෂණය"
+   },
+   "path": "content/physics/g10/friction/lesson.json",
+   "legacy": {
+    "id": "c5",
+    "file": "chapter-05-friction.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.resultant-force",
+   "subject": "physics",
+   "grade": 10,
+   "number": "9",
+   "slug": "resultant-force",
+   "title": {
+    "en": "Resultant Force",
+    "ta": "விளையுள் விசை",
+    "si": "සම්ප්‍රයුක්ත බලය"
+   },
+   "path": "content/physics/g10/resultant-force/lesson.json",
+   "legacy": {
+    "id": "c9",
+    "file": "chapter-09-resultant-force.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.turning-effect",
+   "subject": "physics",
+   "grade": 10,
+   "number": "11",
+   "slug": "turning-effect",
+   "title": {
+    "en": "Turning Effect of Forces",
+    "ta": "விசையின் திரும்பல் விளைவு",
+    "si": "බලයක භ්‍රමණ ආචරණය"
+   },
+   "path": "content/physics/g10/turning-effect/lesson.json",
+   "legacy": {
+    "id": "c11",
+    "file": "chapter-11-turning-effect.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.equilibrium",
+   "subject": "physics",
+   "grade": 10,
+   "number": "12",
+   "slug": "equilibrium",
+   "title": {
+    "en": "Equilibrium of Forces",
+    "ta": "விசைகளின் சமநிலை",
+    "si": "බල සමතුලිතතාව"
+   },
+   "path": "content/physics/g10/equilibrium/lesson.json",
+   "legacy": {
+    "id": "c12",
+    "file": "chapter-12-equilibrium.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.hydrostatic-pressure",
+   "subject": "physics",
+   "grade": 10,
+   "number": "15",
+   "slug": "hydrostatic-pressure",
+   "title": {
+    "en": "Pressure of Liquids",
+    "ta": "திரவ அமுக்கம்",
+    "si": "ද්‍රවස්ථිති පීඩනය හා එහි යෙදීම්"
+   },
+   "path": "content/physics/g10/hydrostatic-pressure/lesson.json",
+   "legacy": {
+    "id": "g10c15",
+    "file": "g10-chapter-15-hydrostatic-pressure.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.work-energy-power",
+   "subject": "physics",
+   "grade": 10,
+   "number": "18",
+   "slug": "work-energy-power",
+   "title": {
+    "en": "Work, Energy and Power",
+    "ta": "வேலை, சக்தி, வலு",
+    "si": "කාර්යය, ශක්තිය හා ජවය"
+   },
+   "path": "content/physics/g10/work-energy-power/lesson.json",
+   "legacy": {
+    "id": "g10c18",
+    "file": "g10-chapter-18-work-energy-power.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g10.current-electricity",
+   "subject": "physics",
+   "grade": 10,
+   "number": "19",
+   "slug": "current-electricity",
+   "title": {
+    "en": "Current Electricity",
+    "ta": "ஓட்ட மின்னியல்",
+    "si": "ධාරා විද්‍යුතය"
+   },
+   "path": "content/physics/g10/current-electricity/lesson.json",
+   "legacy": {
+    "id": "g10c19",
+    "file": "g10-chapter-19-current-electricity.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.waves",
+   "subject": "physics",
+   "grade": 11,
+   "number": "4",
+   "slug": "waves",
+   "title": {
+    "en": "Waves and their Applications",
+    "ta": "அலைகளும் அவற்றின் பயன்பாடுகளும்",
+    "si": "තරංග සහ ඒවායේ යෙදීම්"
+   },
+   "path": "content/physics/g11/waves/lesson.json",
+   "legacy": {
+    "id": "g11c04",
+    "file": "g11-chapter-04-waves.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.geometrical-optics",
+   "subject": "physics",
+   "grade": 11,
+   "number": "5",
+   "slug": "geometrical-optics",
+   "title": {
+    "en": "Geometrical Optics",
+    "ta": "வடிவவியல் ஒளியியல்",
+    "si": "ප්‍රකාශ විද්‍යාව"
+   },
+   "path": "content/physics/g11/geometrical-optics/lesson.json",
+   "legacy": {
+    "id": "g11c05",
+    "file": "g11-chapter-05-geometrical-optics.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.heat",
+   "subject": "physics",
+   "grade": 11,
+   "number": "9",
+   "slug": "heat",
+   "title": {
+    "en": "Heat",
+    "ta": "வெப்பம்",
+    "si": "තාපය"
+   },
+   "path": "content/physics/g11/heat/lesson.json",
+   "legacy": {
+    "id": "g11c09",
+    "file": "g11-chapter-09-heat.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.electric-appliances",
+   "subject": "physics",
+   "grade": 11,
+   "number": "10",
+   "slug": "electric-appliances",
+   "title": {
+    "en": "Power and Energy of Electric Appliances",
+    "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்",
+    "si": "විදුලි උපකරණවල ජවය හා ශක්තිය"
+   },
+   "path": "content/physics/g11/electric-appliances/lesson.json",
+   "legacy": {
+    "id": "g11c10",
+    "file": "g11-chapter-10-electric-appliances.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.electronics",
+   "subject": "physics",
+   "grade": 11,
+   "number": "11",
+   "slug": "electronics",
+   "title": {
+    "en": "Electronics",
+    "ta": "மின்னணுவியல்",
+    "si": "ඉලෙක්ට්‍රොනික විද්‍යාව"
+   },
+   "path": "content/physics/g11/electronics/lesson.json",
+   "legacy": {
+    "id": "g11c11",
+    "file": "g11-chapter-11-electronics.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  },
+  {
+   "id": "physics.g11.electromagnetism",
+   "subject": "physics",
+   "grade": 11,
+   "number": "13",
+   "slug": "electromagnetism",
+   "title": {
+    "en": "Electromagnetism and Induction",
+    "ta": "மின்காந்தவியலும் தூண்டலும்",
+    "si": "විද්‍යුත් චුම්බකත්වය සහ විද්‍යුත් චුම්බක ප්‍රේරණය"
+   },
+   "path": "content/physics/g11/electromagnetism/lesson.json",
+   "legacy": {
+    "id": "g11c13",
+    "file": "g11-chapter-13-electromagnetism.html"
+   },
+   "steps": [
+    "story",
+    "basics",
+    "watch",
+    "notes",
+    "activities",
+    "lab",
+    "game",
+    "quiz",
+    "sort",
+    "worked",
+    "exercises",
+    "recap",
+    "summary"
+   ]
+  }
+ ]
+}

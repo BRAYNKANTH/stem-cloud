@@ -1,0 +1,986 @@
+{
+ "schema": 2,
+ "id": "physics.g10.newtons-laws",
+ "slug": "newtons-laws",
+ "subject": "physics",
+ "grade": 10,
+ "number": "4",
+ "title": {
+  "en": "Newton's Laws of Motion",
+  "ta": "நியூற்றனின் இயக்க விதிகள்",
+  "si": "චලිතය පිළිබඳ නිව්ටන් නියම"
+ },
+ "legacy": {
+  "id": "c4",
+  "file": "chapter-04-newtons-laws.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why did I fly forward?",
+    "ta": "நான் ஏன் முன்னாடி பறந்தேன்?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Ouch! The bus braked suddenly and I flew forward into the seat in front!",
+      "ta": "ஐயோ! பஸ் திடீர்னு பிரேக் போட்டுச்சு, நான் முன்னாடி சீட்டுல போய் இடிச்சேன்!"
+     },
+     "scene": "🚌🛑",
+     "audio": {
+      "ta": "c4/line00.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "The bus stopped, but your body wanted to keep moving. That is inertia, Newton's first law.",
+      "ta": "பஸ் நின்னுடுச்சு, ஆனா உன் உடம்பு தொடர்ந்து போகணும்னு நினைச்சுச்சு. அதுதான் சடத்துவம், நியூற்றனின் முதலாவது விதி."
+     },
+     "scene": "🧠",
+     "audio": {
+      "ta": "c4/line01.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Then why is a cart full of stones harder to push than an empty one?",
+      "ta": "அப்போ கல் நிரப்பின வண்டி, காலி வண்டிய விட தள்ள கஷ்டம் ஏன்?"
+     },
+     "scene": "🛒",
+     "audio": {
+      "ta": "c4/line02.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Second law, F = ma. Push with 20 N: a 10 kg cart gets a = 2 m/s², but a 40 kg cart gets only 0.5 m/s². More mass, less acceleration.",
+      "ta": "இரண்டாவது விதி, F = ma. 20 N-ல தள்ளினா: 10 kg வண்டிக்கு a = 2 m/s², ஆனா 40 kg வண்டிக்கு 0.5 m/s² தான். திணிவு அதிகம்னா ஆர்முடுகல் குறைவு."
+     },
+     "scene": "⚖️",
+     "audio": {
+      "ta": "c4/line03.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And when I punched the wall, my hand hurt!",
+      "ta": "நான் சுவர குத்தினப்ப என் கை வலிச்சுது!"
+     },
+     "scene": "🤕",
+     "audio": {
+      "ta": "c4/line04.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Third law: the wall pushed back on your hand with an equal and opposite force. Action and reaction!",
+      "ta": "மூன்றாவது விதி: சுவர் உன் கை மேல சமமான எதிர் விசையில திரும்ப தள்ளுச்சு. தாக்கம் – மறுதாக்கம்!"
+     },
+     "scene": "🧱↔️👊",
+     "audio": {
+      "ta": "c4/line05.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "My mass is 30 kg. So what is my weight?",
+      "ta": "என் திணிவு 30 kg. அப்போ என் நிறை எவ்வளவு?"
+     },
+     "scene": "🐒⚖️",
+     "audio": {
+      "ta": "c4/line06.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Weight = m × g = 30 × 10 = 300 N. Mass is the matter in you; weight is the Earth's pull on you.",
+      "ta": "நிறை = m × g = 30 × 10 = 300 N. திணிவு உன்கிட்ட இருக்கற சடப்பொருள்; நிறை உன் மேல புவி இழுக்கற விசை."
+     },
+     "scene": "🌍",
+     "audio": {
+      "ta": "c4/line07.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Newton's three laws, momentum, mass and weight... Let's go!",
+      "ta": "நியூற்றனின் மூணு விதிகள், உந்தம், திணிவு, நிறை... வாங்க போகலாம்!"
+     },
+     "scene": "🚀",
+     "audio": {
+      "ta": "c4/line08.mp3"
+     }
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: Newton's three laws →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: நியூற்றனின் மூணு விதிகள் →"
+   },
+   "quest": {
+    "en": "In this module: discover how forces produce motion, why moving objects resist stopping (Inertia), and master Newton's 3 Laws of Motion. Watch Raja carefully when the bus brakes!",
+    "ta": "இந்த பாடத்தில்: விசைகள் எவ்வாறு இயக்கத்தை மாற்றுகின்றன, சடத்துவம் (Inertia), மற்றும் நியூற்றனின் மூன்று இயக்க விதிகளை கற்போம். பஸ் பிரேக் போடும்போது ராஜாவுக்கு என்ன நடக்கிறது என்பதை கவனியுங்கள்!"
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: pushes and pulls",
+     "ta": "முதல்ல இருந்து: தள்ளல், இழுத்தல்"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "A force is a push or a pull",
+      "ta": "விசை என்றால் தள்ளல் அல்லது இழுத்தல்"
+     },
+     "body": {
+      "en": "<p>Opening a door, kicking a ball, pulling a rope: each one is a force.</p><div aria-hidden=\"true\" class=\"bs-pic\">🦶 ➜ ⚽</div>",
+      "ta": "<p>கதவ தொறக்கறது, பந்த உதைக்கறது, கயிறு இழுக்கறது: எல்லாமே விசைதான்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🦶 ➜ ⚽</div>"
+     },
+     "icon": "🤏"
+    },
+    {
+     "title": {
+      "en": "Things like to stay as they are",
+      "ta": "பொருட்கள் இருக்கற மாதிரியே இருக்கும்"
+     },
+     "body": {
+      "en": "<p>A still ball stays still. A rolling ball keeps rolling, until something stops it.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽ 💤   ⚽ ➜ ➜ ➜</div>",
+      "ta": "<p>நிக்கற பந்து நிக்கும். உருளற பந்து எதாவது நிறுத்தற வரை உருளும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚽ 💤   ⚽ ➜ ➜ ➜</div>"
+     },
+     "icon": "😴"
+    },
+    {
+     "title": {
+      "en": "Heavy things are harder to speed up",
+      "ta": "கனமான பொருள வேகப்படுத்த கஷ்டம்"
+     },
+     "body": {
+      "en": "<p>The same push moves an empty cart faster than a full one.</p><div aria-hidden=\"true\" class=\"bs-pic\">🛒 ➜➜➜   🛒📦📦 ➜</div>",
+      "ta": "<p>ஒரே தள்ளலுக்கு காலி வண்டி வேகமா போகும், நிறைஞ்ச வண்டி மெதுவா போகும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🛒 ➜➜➜   🛒📦📦 ➜</div>"
+     },
+     "icon": "🛒"
+    },
+    {
+     "title": {
+      "en": "Pushes come in pairs",
+      "ta": "தள்ளல் எப்பவும் ஜோடியா வரும்"
+     },
+     "body": {
+      "en": "<p>Push a wall and the wall pushes you back. When you swim, you push the water back and it pushes you forward.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍➜🧱   🧱➜🧍</div>",
+      "ta": "<p>சுவர தள்ளினா சுவர் உன்ன திரும்ப தள்ளும். நீந்தும்போது தண்ணிய பின்னால தள்ளுவே, அது உன்ன முன்னால தள்ளும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧍➜🧱   🧱➜🧍</div>"
+     },
+     "icon": "🤝"
+    }
+   ],
+   "hook": {
+    "en": "Why does a ball stay still until you kick it? And why does it stop after rolling?",
+    "ta": "பந்து ஏன் உதைக்கற வரை அசையாம இருக்கு? உருண்டு போய் ஏன் நிக்குது?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Push an empty bag and a full bag with one finger. Which one moves more easily?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>காலி பையையும் நிறைஞ்ச பையையும் ஒரு விரலால தள்ளிப்பாரு. எது ஈசியா நகருது?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>These four ideas are Newton's three laws. Let's meet them one by one.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இந்த நாலு ஐடியாதான் நியூட்டனோட மூணு விதிகள். ஒண்ணொண்ணா பார்க்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: the bus brakes",
+     "ta": "பாரு: பஸ் பிரேக் போடுது"
+    },
+    "sub": {
+     "en": "Press play and see why you lurch forward",
+     "ta": "Play அழுத்தி நீ ஏன் முன்னாடி சாயுறேன்னு பாரு"
+    }
+   },
+   "animation": {
+    "file": "chapter-04-newtons-laws.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "2.1 Theory & Notes",
+     "ta": "பாடக் குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு ஸ்டோனையும் தொட்டு விதிகளை தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "4.1a What is Force, and What Does It Do?",
+      "ta": "4.1a விசை என்றால் என்ன? அது என்ன பண்ணும்?"
+     },
+     "body": {
+      "en": "<p>When you kick a ball, push a door, or lift a bag — do you know what you're actually doing? You're applying a <b>force</b>! A push or a pull, in the simplest sense, is a force. You can't see a force directly, but you can always see what it does.</p>\n<p>A force acting on an object can do four things: (1) start a body that is at rest, (2) stop a body that is moving, (3) change the speed of a moving body (speed it up or slow it down), or (4) change its <b>direction</b> (like a cricket ball changing direction when hit by a bat). Sometimes a force also changes an object's <b>shape</b> — squeeze a rubber ball, and it deforms.</p>\n<p>But just applying a force doesn't always mean an object starts moving! Try pushing gently on a heavy table — it won't budge. Why? Because friction from the floor pushes back against you with an equal opposing force. As long as the force you apply and the opposing friction force are <b>balanced</b>, they cancel out — no motion starts. Only when your force grows bigger than friction does the table finally move. What decides \"does it move or not\" is whether there's an <b>unbalanced force</b> acting.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Remember</div>\n<div class=\"fmath\">Motion only starts or changes when there is an unbalanced (net) force</div>\n<div class=\"fnote\">Think of a bullock pulling a cart, or people pushing a stalled car — everyone is trying to create this unbalanced force.</div>\n</div>",
+      "ta": "<p>நீ ஒரு பந்த உதைக்கிறே, ஒரு கதவ தள்றே, ஒரு பையை தூக்குறே — இதெல்லாம் என்ன பண்றேன்னு தெரியுமா? நீ ஒரு <b>விசையை</b> (Force) பிரயோகிக்குறே! எதையாவது தள்ளுறது அல்லது இழுக்குறதுதான் விசை. நாம கண்ணால பாக்க முடியாது, ஆனா அது என்ன பண்ணுதுன்னு பாத்தா தெரியும்.</p>\n<p>ஒரு விசை ஒரு பொருள மேல பிரயோகிச்சா, அது நாலு வேலைகள் பண்ண முடியும்: (1) ஓய்வுல இருக்குற ஒரு பொருள இயங்க வைக்கலாம் — எ.கா, தரையில நிக்குற பந்த உதைக்கும்போது. (2) இயங்குற ஒரு பொருள நிறுத்தலாம் — எ.கா, ஓடி வர்ற பந்த கால்ல நிறுத்துறது. (3) இயங்குற ஒரு பொருளோட வேகத்த மாத்தலாம் (அதிகரிக்கலாம் அல்லது குறைக்கலாம்) — சைக்கிள் மிதிக்குற வேகத்த கூட்டுறதும், பிரேக் போட்டு குறைக்குறதும் இதுக்கு நல்ல உதாரணம். (4) அல்லது அந்த பொருள் இயங்குற <b>திசையையே</b> மாத்தலாம் — கிரிக்கெட் பந்த பேட்டால அடிச்சா, ஓடி வந்த திசையில இருந்து முற்றிலும் வேற திசைக்கு பறக்குது. சில நேரம் விசை ஒரு பொருளோட <b>வடிவத்தையும்</b> மாத்தும் — ரப்பர் பந்த கையால அழுத்தினா அது தட்டையாகுது, மாவை பிசைஞ்சா அதோட வடிவம் மாறுது. ஆக, விசைன்னா ஒரு பொருளோட நிலை, வேகம், திசை அல்லது வடிவம் — இதுல எதையாவது மாத்துற ஒரு காரணி.</p>\n<p>ஆனா, ஒரு விசைய பிரயோகிச்சதனால மட்டும் எப்பவுமே அந்த பொருள் இயங்க ஆரம்பிக்காது! ஒரு பாரமான மேசைய லேசா தள்ளிப் பாரு — அது அசையாது. ஏன்? ஏன்னா தரையோட உராய்வு (friction) அதுக்கு எதிரா ஒரு விசையை கொடுக்குது. நாம பிரயோகிக்குற விசையும், அந்த எதிர் உராய்வு விசையும் <b>சமமா</b> இருந்தா, ரெண்டும் ஒண்ணையொண்ணு காமா தள்ளி — இயக்கம் ஆரம்பிக்காது. நாம பிரயோகிக்குற விசைய இன்னும் அதிகரிச்சு, உராய்வு விசைய தாண்டுனா மட்டும்தான் மேசை நகரும். இந்த ‘நகரலயா, நகருதா’் அப்படீங்குறத தீர்மானிக்குறது — <b>சமநிலைப்படுத்தப்படாத விசை</b> (Unbalanced Force) இருக்கானு பாக்குறதுதான்.   இதை இன்னும் ஈசியா புரிஞ்சுக்க, டக் ஆஃப் வார் (கயிறு இழுக்குற போட்டி) நினைச்சுப்பாரு — ரெண்டு பக்கமும் ஆட்கள் சம விசையில இழுத்தா, கயிறு நடுவுலயே நிக்கும், யாருமே ஜெயிக்க மாட்டாங்க. ஒரு பக்கம் இன்னும் கொஞ்சம் அதிகமா இழுத்தா மட்டும்தான், அந்தப் பக்கம் கயிறு நகரும் — இதுதான் ‘சமநிலைப்படுத்தப்படாத விசை’்.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">ஞாபகம் வெச்சுக்கோ</div>\n<div class=\"fmath\">சமநிலைப்படுத்தப்படாத விசை இருந்தா மட்டும்தான் இயக்கம் ஆரம்பிக்கும் / மாறும்</div>\n<div class=\"fnote\">எருது வண்டி இழுக்கிற எருது, ரோட்டுல மோட்டார் வண்டிய தள்ளுற ஆட்கள் — எல்லாருமே இந்த சமநிலையில்லாத விசைய உண்டாக்கத்தான் முயற்சி செய்யுறாங்க.</div>\n</div>"
+     }
+    },
+    {
+     "title": {
+      "en": "4.1b Newton's First Law — the Law of Laziness (Inertia)",
+      "ta": "4.1b நியூற்றனின் முதலாவது விதி — சோம்பேறித்தனம் (Inertia)!"
+     },
+     "body": {
+      "en": "<p>Here's a secret — every object has a bit of \"laziness\" built into it! Something at rest wants to stay at rest, and something moving wants to keep moving at the same speed and direction, until a force comes along and makes it change. This \"resistance to change\" is called <b>inertia</b>.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Newton's First Law</div>\n<div class=\"ltext\">Unless an unbalanced force acts on it, a body at rest stays at rest, and a body moving with uniform velocity keeps moving with that same uniform velocity.</div>\n</div>\n<p>Want to see it directly? Think of a <b>carrom board</b> game. The powder sprinkled on it reduces friction. Flick the striker with your finger, and it slides a long way — because there's almost no friction force trying to stop it. That \"keeps going\" tendency is inertia. Same reason you lurch forward when a bus brakes suddenly — your body \"wants\" to keep moving even though the bus has stopped!</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>🚌 Sudden brake — you lurch forward</h4>\n<ul>\n<li>The bus is moving forward at speed.</li>\n<li>It brakes suddenly — the bus stops.</li>\n<li>But your body still \"wants\" the forward speed — so you tip forward.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>🚌 Sudden start — you're pushed back</h4>\n<ul>\n<li>The bus is at rest, and so are you.</li>\n<li>It suddenly starts moving forward.</li>\n<li>Your body still \"wants\" to stay at rest — so you feel pushed backward.</li>\n</ul>\n</div>\n</div>\n<p>This is exactly why wearing a seatbelt matters — in a crash, the car stops suddenly, but your body still \"wants\" to keep moving forward (inertia!). Without a seatbelt, you'd fly forward into the steering wheel or windscreen. The seatbelt holds you safely and controls that forward motion.</p>",
+      "ta": "<p>ஒரு ரகசியம் சொல்லட்டுமா — எல்லா பொருளுக்கும் ஒரு ‘சோம்பேறித்தனம்’் இருக்கு! ஓய்வுல இருக்குற ஒரு பொருள் ஓய்விலேயே இருக்க விரும்பும், இயங்குற ஒரு பொருள் அதே வேகத்துலயே இயங்க விரும்பும் — யாராவது வந்து விசை பிரயோகிக்குற வரைக்கும். இந்த ‘மாறாம இருக்க விரும்புற குணத்துக்கு’் <b>சடத்துவம்</b> (Inertia) அப்படீங்குறோம்.   ஒரு சின்ன மேஜிக் ட்ரிக் மூலமா இதை நேரடியா பாக்கலாம் — ஒரு டேபிள் மேல துணி விரிச்சு, அதுல ஒரு தட்டையும் தண்ணீர் கிளாசையும் வெச்சு, துணிய ரொம்ப வேகமா, திடீர்னு இழுத்தா என்ன ஆகும்? துணி மட்டும் வேகமா வெளியே வந்திடும், ஆனா தட்டும் கிளாசும் அதே இடத்துல அப்படியே நிக்கும்! ஏன்னா அவைகளுக்கு ‘அப்படியே நிக்கணும்’் அப்படீங்குற சடத்துவம் இருக்கு, துணிய இழுக்குற வேகம் அவ்வளவு குறுகிய நேரம் இருக்குறதால அவைகள மேல பெரிய தாக்கம் ஏற்படுத்தாது.</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">நியூற்றனின் முதலாவது விதி</div>\n<div class=\"ltext\">சமநிலைப்படுத்தப்படாத விசை பிரயோகிக்கப்படாத வரைக்கும், ஓய்வில் இருக்கும் பொருள் ஓய்வில் இருக்கும், சீரான வேகத்துடன் இயங்கும் பொருள் அதே சீரான வேகத்துடன் இயங்கிக் கொண்டிருக்கும்.</div>\n</div>\n<p>இன்னொரு உதாரணமும் பாப்போம் — ஒரு <b>கரம் பலகை</b> (carrom board) விளையாட்டு நினைச்சுப்பாரு. நடுவுல இருக்குற பூச்சு மாவு உராய்வை குறைக்குது. ஒரு கரத் தட்டை (striker) விரலால தட்டினா, அது நீண்ட தூரம் சறுக்கிப் போகுது — ஏன்னா தட்டை நிறுத்த முயற்சிக்குற உராய்வு விசை மிக மிக குறைவு. இந்த ‘நிக்காம போற தன்மைதான்’் சடத்துவம். நிஜமா, உராய்வு (friction) என்பதே இல்லைனா, ஒரு தட்டு ஒருமுறை தள்ளப்பட்டா என்றென்றைக்கும் அதே வேகத்துல போய்க்கிட்டே இருக்கும் — ஆனா நிஜ உலகில் தரையோட உராய்வு அதை மெல்ல மெல்ல நிறுத்துது! அதே மாதிரி, திடீர்னு பிரேக் போட்ட பேருந்துல நீ முன்னாடி சாஞ்சிடுவே — உன் உடம்பு ‘இன்னும் இயங்கிண்டே இருக்கணும்’்னு நினைக்குது, ஆனா பேருந்து நிறுத்திடுச்சு! கால்பந்த கேமையும் யோசிச்சுப்பாரு — புல்வெளியில ஒரு பந்த உருட்டினா அது கொஞ்சம் தூரம் போய் நின்னிடும்; ஆனா அதே பந்த ஐஸ் மேல உருட்டினா, உராய்வு ரொம்ப குறைவு இருக்குறதால அது நெடுந்தூரம் போகுது — சடத்துவம் மட்டும் இருந்தா அது நிக்கவே நிக்காது!</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>🚌 திடீர் பிரேக் — முன்னாடி சாய்வு</h4>\n<ul>\n<li>பேருந்து முன்னாடி வேகமா போயிண்டு இருக்கு.</li>\n<li>திடீர்னு பிரேக் போடுது — பேருந்து நிக்குது.</li>\n<li>ஆனா உன் உடம்பு இன்னும் முன்னாடி வேகத்துல இருக்க நினைக்குது — அதனால முன்னாடி சாஞ்சிடுவே.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>🚌 திடீர் புறப்படுதல் — பின்னாடி தள்ளுதல்</h4>\n<ul>\n<li>பேருந்து ஓய்வில் நிக்குது, நீயும் ஓய்வில் இருக்க.</li>\n<li>திடீர்னு முன்னாடி புறப்படுது.</li>\n<li>உன் உடம்பு இன்னும் ஓய்வில் இருக்க நினைக்குது — அதனால பின்னாடி தள்ளப்படுற மாதிரி உணருவே.</li>\n</ul>\n</div>\n</div>\n<p>இதுக்குதான் காரோட சீட் பெல்ட் அணியுறது ரொம்ப முக்கியம் — ஒரு விபத்துல கார் திடீர்னு நின்னாலும், உன் உடம்பு இன்னும் முன்னாடி வேகத்துல போக நினைக்கும் (சடத்துவம்!). சீட் பெல்ட் இல்லாம இருந்தா, நீ முன்னாடி பறந்து ஸ்டியரிங்க் அல்லது கண்ணாடியில மோதுவே. சீட் பெல்ட் உன்ன பாதுகாப்பா பிடிச்சு, இந்த முன்னாடி இயக்கத்த கட்டுப்படுத்துது. அதே காரணத்துக்காகதான் லாரியில சாமான் ஏத்துனா, அத கயிறால கட்டி வெக்குறாங்க — லாரி திடீர்னு நின்னா, கயிறு இல்லாம இருந்தா சாமான் முன்னாடி பறந்து விழும். ஸ்கூல் பஸ்ஸுல திடீர்னு பிரேக் போட்டா, நிக்குற பிள்ளைங்க கைப்பிடிய இறுக்கமா பிடிச்சுக்கணும்னு டீச்சர் சொல்றதும் இதே காரணத்துக்குதான்!</p>"
+     }
+    },
+    {
+     "title": {
+      "en": "4.1c Newton's Second Law — F = ma",
+      "ta": "4.1c நியூற்றனின் இரண்டாவது விதி — F = ma"
+     },
+     "body": {
+      "en": "<p>The first law tells us <i>when</i> motion starts or changes. The second law tells us <i>how much</i> it changes — specifically, how much <b>acceleration</b> results from applying a force.</p>\n<p>Think of two things: (1) For the same mass, a bigger force gives a bigger acceleration — so acceleration is <b>directly proportional</b> to force (a ∝ F). (2) For the same force, a heavier object accelerates less — so acceleration is <b>inversely proportional</b> to mass (a ∝ 1/m). A perfect everyday example — pushing an empty cart is easy, but the same cart loaded with heavy goods is hard to push — more mass means less acceleration for the same push.</p>\n<p>Combine the two: a ∝ F/m. Add a constant of proportionality, so F/m ÷ a = a constant. The unit of force is defined so that this constant becomes exactly 1 — that is, the force needed to give a 1 kg mass an acceleration of 1 ms⁻² is defined as one <b>newton</b> (N). That makes F/m ÷ a = 1, i.e. <b>F = ma</b> — this small, powerful equation is Newton's Second Law!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">Newton's Second Law</div>\n<div class=\"ltext\">The acceleration produced in a body is directly proportional to the unbalanced force applied to it, and inversely proportional to the mass of the body.</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">Newton's Second Law (equation)</div>\n<div class=\"fmath\">F = m × a</div>\n<div class=\"fnote\">F = force (N)  |  m = mass (kg)  |  a = acceleration (ms<sup>-2</sup>). 1 N = 1 kg × 1 ms<sup>-2</sup> = 1 kg ms<sup>-2</sup></div>\n</div>\n<p>This one equation can be used three ways — whichever value is unknown, find it from the other two: Need F? F = ma. Need a? a = F/m. Need m? m = F/a. We'll work through all three in the Examples section below.</p>",
+      "ta": "<p>முதலாவது விதி ‘எப்பொழுது’் இயக்கம் ஆரம்பிக்கும்/மாறும்னு சொல்லுச்சு. இரண்டாவது விதி ‘எவ்வளவு’் மாறும்னு சொல்லும் — அதாவது, ஒரு விசைய பிரயோகிச்சா, எவ்வளவு <b>முடுக்கம்</b> (acceleration) கிடைக்கும் அப்படீங்குறது.</p>\n<p>ரெண்டு விஷயங்க யோசிச்சு பாரு: (1) ஒரே திணிவுள்ள (mass) ஒரு பொருளுக்கு அதிகமா விசை கொடுத்தா, அது அதிக முடுக்கத்துடன் இயங்கும் — அதனால முடுக்கம் விசைக்கு <b>நேர்மாறு விகிதசமம்</b> (a ∝ F). கிரிக்கெட்ல பேட்டால பந்த லேசா தட்டினா மெதுவா போகுது, இன்னும் பலமா (அதிக விசையோட) அடிச்சா பந்து இன்னும் வேகமா, அதிக முடுக்கத்தோட பறக்குது — அதே பந்துதான் (அதே திணிவு), விசை மட்டும் மாறுச்சு. (2) அதே விசைய, திணிவு அதிகமான ஒரு பொருளுக்கு கொடுத்தா, அது குறைவான முடுக்கத்துடன் இயங்கும் — அதனால முடுக்கம் திணிவுக்கு <b>நேர்மாறு விகிதசமம்</b> (a ∝ 1/m). இதுல ஒரு நல்ல எடுத்துக்காட்டு — காலியான வண்டிய தள்ளுறது சுலபம், ஆனா அதே வண்டி நிறையா சாமான் ஏத்தி இருந்தா தள்ள கஷ்டம் — திணிவு அதிகமானதால் முடுக்கம் குறைவு. அதே மாதிரி, ஒரு டென்னிஸ் பந்தையும் ஒரு ஷாட்புட் (shot put) இரும்பு உருண்டையையும் ஒரே அளவு விசையால தள்ளிப் பாரு — லேசான டென்னிஸ் பந்து வேகமா பறக்கும், ஆனா பாரமான ஷாட்புட் ரொம்ப கொஞ்சம் மட்டும்தான் நகரும்.</p>\n<p>இந்த ரெண்டையும் சேர்த்தா: a ∝ F/m. ஒரு ‘மாறிலி’் (constant) சேர்த்தா F/m ÷ a = மாறிலி. இந்த மாறிலி 1 ஆக இருக்கும் மாதிரி விசையின் அலகை நிர்ணயிக்கிறாங்க — அதாவது, 1 kg திணிவுக்கு 1 ms⁻² முடுக்கல கொடுக்குற விசைதான் ஒரு <b>நியூற்றன்</b> (N) என்ற அலகு. இதனால, F/m ÷ a = 1, அதாவது <b>F = ma</b> — இந்த சின்ன, சக்திவாய்ந்த சமன்பாடுதான் நியூற்றனின் இரண்டாவது விதி!</p>\n<div class=\"lawbox\">\n<div class=\"llabel\">நியூற்றனின் இரண்டாவது விதி</div>\n<div class=\"ltext\">ஒரு பொருளில் ஏற்படும் முடுக்கம், அதற்குப் பிரயோகிக்கப்படும் சமநிலைப்படுத்தப்படாத விசைக்கு நேர்மாறு விகிதசமமாகவும், பொருளின் திணிவுக்கு நேர்மாறு விகிதசமமாகவும் இருக்கும்.</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">நியூற்றனின் இரண்டாவது விதி (சமன்பாடு)</div>\n<div class=\"fmath\">F = m × a</div>\n<div class=\"fnote\">F = விசை (N)  |  m = திணிவு (kg)  |  a = முடுக்கம் (ms⁻²). 1 N = 1 kg × 1 ms⁻² = 1 kg ms⁻²</div>\n</div>\n<p>இந்த சமன்பாட்ட மூணு வழியில உபயோகிக்கலாம் — எது கேட்டாலும் மத்த ரெண்டை வெச்சு கண்டுபிடிக்கலாம்: F தெரியல்ல? F = ma. a தெரியல்ல? a = F/m. m தெரியல்ல? m = F/a. கீழ இருக்குற ‘உதாரணங்கள்’் பகுதியில மூணும் பாப்போம்.</p>"
+     }
+    },
+    {
+     "title": {
+      "en": "4.1d Newton's Third Law — Action and Reaction",
+      "ta": "4.1d நியூற்றனின் மூன்றாவது விதி — தாக்கமும் மறுதாக்கமும்"
+     },
+     "body": {
+      "en": "<div class=\"lawbox\">\n<div class=\"llabel\">Newton's Third Law</div>\n<div class=\"ltext\">For every action (force), there is an equal and opposite reaction (force).</div>\n</div>\n<p>This means — when you push something, it pushes you back, equally and in the opposite direction! Hard to believe? Think of a <b>balloon</b> — when you let go of an inflated balloon, air rushes out one way (the action), so the balloon shoots off the other way (the reaction)! The same principle sends rockets into space.</p>\n<p>More examples — a <b>rower</b> pushes the water backward with the oar (the action), and the water pushes the boat forward (the reaction) — so the boat moves forward. <b>Swimmers</b> push water backward with their hands, and the water pushes them forward. If two kids on skateboards push against each other, both get pushed apart in opposite directions!</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">💡 Important to notice</div>\n<ul>\n<li><b>Action and reaction always act on two different objects</b> — never on the same one! The rower acts on the water; the water reacts on the boat.</li>\n<li data-ta-note=\"1\"><b>That's why they don't cancel out</b> and leave everything motionless — since they act on different objects, each produces its own separate effect.</li>\n</ul>\n</div>",
+      "ta": "<div class=\"lawbox\">\n<div class=\"llabel\">நியூற்றனின் மூன்றாவது விதி</div>\n<div class=\"ltext\">ஒவ்வொரு தாக்கத்திற்கும் (விசை) சமனான, எதிரான திசையிலான மறுதாக்கம் (விசை) உண்டு.</div>\n</div>\n<p>இது சொல்றது என்னன்னா — நீ எதையாவது தள்ளினா, அதுவும் உன்ன அதே அளவுல, எதிர் திசையில தள்ளுது! நம்பமுடியலையா? ஒரு <b>பலூன்</b> நினைச்சுப்பாரு — வளி நிரம்பி இருக்குற பலூனை விட்டா, வளி ஒரு திசையில வேகமா வெளியேறுது (தாக்கம்), அதனால பலூன் எதிர் திசையில பறக்குது (மறுதாக்கம்)! அதே கொள்கைதான் ராக்கெட் விண்வெளிக்கு போறதுக்கும் உபயோகம்.</p>\n<p>இன்னும் சில உதாரணங்க — <b>படகோட்டுறவர்</b> துடுப்பால தண்ணீரை பின்னாடி தள்றார் (தாக்கம்), தண்ணீரும் படகை முன்னாடி தள்ளுது (மறுதாக்கம்) — அதனால படகு முன்னாடி போகுது. <b>நீச்சல் அடிக்குறவங்க</b> கைகளால தண்ணீரை பின்னாடி தள்றாங்க, தண்ணீரும் அவங்கள முன்னாடி தள்ளுது. இரண்டு பிள்ளைங்க ஸ்கேட்போர்டு மேல நின்னு ஒருவரை ஒருவர் தள்ளினா — இருவருமே எதிர் எதிர் திசையில தள்ளப்படுவாங்க!   நீ <b>நடக்கிறதே</b> கூட இதே கொள்கைதான் — உன் கால் தரையை பின்னாடி தள்ளுது (தாக்கம்), தரையும் உன் காலை முன்னாடி தள்ளுது (மறுதாக்கம்) — அதனால நீ முன்னாடி நடக்குற. வாழைப்பட்டை மேல வழுக்கினா விழுறது ஏன்னா, அங்க உராய்வு குறைவா இருக்குறதால, தரை உன் காலை சரியா பின்நோக்கி தள்ள முடியலை. துப்பாக்கி சுட்டப்படும்போது, துப்பாக்கி தோட்டாவை முன்னாடி தள்ளுது (தாக்கம்), தோட்டாவும் துப்பாக்கிய பின்னாடி தள்ளுது (மறுதாக்கம்) — இதுதான் ‘recoil’் அப்படீங்குறது, சுடுறவரோட தோள் பின்னாடி உலுக்குறது இதனாலதான்!</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">💡 கவனிக்க வேண்டியது</div>\n<ul>\n<li>தாக்கமும் மறுதாக்கமும் <b>எப்பவுமே ரெண்டு வெவ்வேறு பொருள்கள் மேல</b> வேலை செய்யும் — ஒரே பொருள் மேல இல்ல! படகோட்டுறவர் தண்ணீர மேல தாக்கம் செய்றார், தண்ணீர் படகு மேல மறுதாக்கம் செய்யுது.</li>\n<li data-ta-note=\"1\">இதனாலதான் அவை ஒண்ணையொண்ணு கான்சல் ஆகி பொருள அசையாம வெக்காது — வெவ்வேறு பொருள் மேல இருக்குறதால, ஒவ்வொண்ணும் தன் சொந்த விளைவை உண்டாக்கும்.</li>\n</ul>\n</div>"
+     }
+    },
+    {
+     "title": {
+      "en": "4.2 Momentum — Mass and Velocity Together",
+      "ta": "4.2 உந்தம் (Momentum) — திணிவும் வேகமும் சேர்ந்து"
+     },
+     "body": {
+      "en": "<p>Picture two balls moving at the same speed — a small table-tennis ball and a heavy bowling ball. Both move at the same speed, but which one is harder to stop? The heavy one — because it has more mass. Now roll the same ball at two different speeds — the faster one is harder to stop. So what decides \"how hard it is to stop\" is mass <i>and</i> velocity together. This combination is called <b>momentum</b>.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Momentum</div>\n<div class=\"fmath\">momentum = mass × velocity  (p = m × v)</div>\n<div class=\"fnote\">Unit: kg ms<sup>-1</sup> (since mass is in kg and velocity in ms<sup>-1</sup>)</div>\n</div>\n<p>A fast-moving motor vehicle has a lot of momentum — that's exactly why it needs a longer distance and more time to stop. As speed decreases gradually, momentum decreases; as speed increases, momentum increases too.</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🔗 A deeper connection (bonus)</div>\n<ul>\n<li>Newton's Second Law can be stated even more generally as: <b>force is the rate of change of momentum</b> (F = Δp / Δt). For a constant mass, this works out to exactly F = ma. You can see this live in the Force Lab below!</li>\n</ul>\n</div>",
+      "ta": "<p>ஒரே வேகத்துல வர்ற ரெண்டு பந்துகள நினைச்சுப்பாரு — ஒண்ணு சின்ன பிங்பாங் பந்து, இன்னொண்ணு பெரிய பந்து (bowling ball). ரெண்டும் ஒரே வேகத்துல வந்தாலும், எதை நிறுத்துறது கஷ்டம்? பெரிய பந்துதான் — ஏன்னா அதுக்கு திணிவு அதிகம். இப்போ அதே பந்த ரெண்டு வெவ்வேறு வேகத்துல உருட்டினா — வேகமா வர்ற பந்த நிறுத்துறது கஷ்டம். அதாவது, ஒரு பொருள எவ்வளவு ‘கஷ்டமா’் நிறுத்த முடியும்னு தீர்மானிக்குறது — திணிவும் வேகமும் சேர்ந்துதான். இதுக்குதான் <b>உந்தம்</b> (Momentum) அப்படீங்குறோம்.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">உந்தம்</div>\n<div class=\"fmath\">உந்தம் = திணிவு × வேகம்  (p = m × v)</div>\n<div class=\"fnote\">அலகு: kg ms⁻¹ (திணிவின் அலகு kg, வேகத்தின் அலகு ms⁻¹ என்பதால்)</div>\n</div>\n<p>வேகமா செல்லுற ஒரு மோட்டார் வாகனத்துக்கு உந்தம் அதிகம் — அதுதான் அதுக்கு நிறுத்த அதிக தூரமும், நேரமும் தேவைப்படும் காரணம். வேகம் படிப்படியா குறையும் போது உந்தமும் குறையுது; வேகம் அதிகரிக்கும் போது உந்தமும் அதிகரிக்குது.   கிரிக்கெட்ல வேகமா வர்ற பந்த பிடிக்கும்போது ஃபீல்டர்கள் ஏன் கையை பின்னாடி இழுத்து பிடிக்குறாங்கன்னு கவனிச்சிருக்கியா? பந்துக்கு நிறைய உந்தம் இருக்கு — அத திடீர்னு (குறுகிய நேரத்துல) நிறுத்தினா, கைக்கு அதிக விசை தாக்கும் (வலிக்கும்!). கை பின்னாடி இழுத்து, கொஞ்சம் அதிக நேரம் எடுத்து பந்த நிறுத்தினா, அதே உந்த மாற்றத்துக்கு குறைவான விசைதான் தேவைப்படும் — அதனால வலி குறையும். இதேதான் கால்பந்த கோல்கீப்பர் பந்த பிடிக்கும்போதும், நாம உயரத்துல இருந்து குதிக்கும்போது முழங்கால மடக்கி இறங்குறதுக்கும் காரணம்!</p>\n<div class=\"callout tip\">\n<div class=\"ctitle\">🔗 ஆழமான தொடர்பு (Bonus)</div>\n<ul>\n<li>நியூற்றனின் இரண்டாவது விதிய இன்னும் ஆழமா சொல்லனும்னா — <b>விசை என்பது உந்தம் மாறுற வேகம்தான்</b> (F = Δp / Δt). நிலையான திணிவுக்கு, இது சரியா F = ma க்கு சமமாகும். கீழ இருக்குற ஃபோர்ஸ் லேப்புல இதை நேரடியா பாக்கலாம்!</li>\n</ul>\n</div>"
+     },
+     "section": "4.2"
+    },
+    {
+     "title": {
+      "en": "4.3 Mass and Weight — Not the Same Thing!",
+      "ta": "4.3 திணிவும் நிறையும் — இது ஒண்ணும் ஒண்ணு இல்ல!"
+     },
+     "body": {
+      "en": "<p>Every day we say \"weight\" — but scientifically there are two separate ideas hiding in that word: <b>mass</b> and <b>weight</b>. Mixing these up is one of the most common mistakes — read carefully!</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>⚖️ Mass</h4>\n<ul>\n<li>The amount of matter contained in an object.</li>\n<li>Unit: kg (kilogram)</li>\n<li>Stays the same no matter where you are (Earth, Moon, space) — <b>never changes.</b></li>\n<li>It's a scalar quantity.</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>🌍 Weight</h4>\n<ul>\n<li>The gravitational force pulling an object toward the centre of the Earth (or any planet).</li>\n<li>Unit: N (newton) — it's a force!</li>\n<li><b>Changes</b> from place to place — as gravity changes, weight changes.</li>\n<li>It's a vector quantity — always directed downward.</li>\n</ul>\n</div>\n</div>\n<p>Applying Newton's Second Law (F = ma) to weight, using the gravitational acceleration (g): <b>Weight (W) = mass (m) × gravitational acceleration (g)</b>. On Earth, g ≈ 10 ms<sup>-2</sup> (for easy calculation) — so a 1 kg mass has a weight of 10 N.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Weight</div>\n<div class=\"fmath\">W = m × g</div>\n<div class=\"fnote\">On Earth g ≈ 10 ms<sup>-2</sup>  |  On the Moon, gravity is only 1/6th of Earth's!</div>\n</div>\n<p>This leads to something amazing — take a 3 kg object to the Moon, and its <b>mass is still 3 kg</b> (the matter hasn't changed). But since gravity on the Moon is only 1/6 of Earth's, its <b>weight there is only 1/6 of what it was on Earth</b>. That's exactly why astronauts can jump so easily on the Moon — their mass didn't change, but their weight did!</p>",
+      "ta": "<p>தினமும் நாம ‘நிறை’் அப்படீன்னு சொல்லுறது — உண்மையில அதுல ரெண்டு வெவ்வேறு அறிவியல் கருத்துக்கள் இருக்கு: <b>திணிவு</b> (Mass), <b>நிறை</b> (Weight). இதுல தப்பு பண்ணுறது ரொம்ப சகஜம் — கவனமா படி!   வீட்டுல எடை போட்டு பாக்குற ஒரு ‘spring balance’் (ஸ்பிரிங் தராசு) நினைச்சுப்பாரு — அது உண்மையில நீங்க கீழ நோக்கி இழுக்குற <b>விசையை</b>தான் அளக்குது (அதாவது நிறையை), திணிவை நேரடியா அல்ல. அதனால்தான் நிலவுல அதே தராசுல நின்னா, முள் ரொம்ப குறைவா காட்டும் (ஈர்ப்பு குறைவு) — ஆனா உங்க உடம்புல இருக்குற சடப்பொருள் (திணிவு) ஒரு கிராம் கூட மாறல்ல!</p>\n<div class=\"compare\">\n<div class=\"cbox\">\n<h4>⚖️ திணிவு (Mass)</h4>\n<ul>\n<li>ஒரு பொருளில் அடங்கியிருக்கும் சடப்பொருளின் அளவு.</li>\n<li>அலகு: kg (kilogram)</li>\n<li>எங்கு இருந்தாலும் (பூமியில், நிலவில், விண்வெளியில்) — <b>மாறாது.</b></li>\n<li>இது ஒரு அளவெண் அளவு (Scalar).</li>\n</ul>\n</div>\n<div class=\"cbox\">\n<h4>🌍 நிறை (Weight)</h4>\n<ul>\n<li>ஒரு பொருளை புவி (அல்லது வேறு கோள்) தன் மையத்தை நோக்கி இழுக்கும் ஈர்ப்பு விசை.</li>\n<li>அலகு: N (newton) — இது ஒரு விசை!</li>\n<li>இடத்துக்கு இடம் <b>மாறும்</b> — ஈர்ப்பு மாறினால் நிறையும் மாறும்.</li>\n<li>இது ஒரு திசையுள்ள அளவு (Vector) — எப்பவும் கீழ நோக்கி.</li>\n</ul>\n</div>\n</div>\n<p>நியூற்றனின் இரண்டாவது விதிய (F = ma) நிறைக்கு பொருத்தினா, ஈர்ப்பு முடுக்கம் (g) பயன்படுத்தி: <b>நிறை (W) = திணிவு (m) × ஈர்ப்பு முடுக்கம் (g)</b>. புவியில் g ≈ 10 ms⁻² (எளிமையா கணக்கு போட) — அதனால் 1 kg திணிவுள்ள ஒரு பொருளின் நிறை 10 N ஆகும்.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">நிறை</div>\n<div class=\"fmath\">W = m × g</div>\n<div class=\"fnote\">புவியில் g ≈ 10 ms⁻²  |  நிலவில் ஈர்ப்பு புவியில் இருப்பதில் வெறும் 1/6 மட்டுமே!</div>\n</div>\n<p>இதனால ஒரு விந்தை நடக்குது — 3 kg திணிவுள்ள ஒரு பொருள் நிலவுக்கு எடுத்துப் போனாலும், அதோட <b>திணிவு இன்னும் 3 kg தான்</b> (சடப்பொருள் மாறல்ல). ஆனா நிலவுல ஈர்ப்பு புவியில் 1/6 மட்டும் இருப்பதால், அதோட <b>நிறை புவியில் இருந்த நிறையில் வெறும் 1/6 மட்டும்தான்</b> இருக்கும். அதனால விண்வெளி வீரர்கள் நிலவுல ரொம்ப லேசா குதிக்க முடியுது — அவங்க திணிவு மாறலைன்னாலும், நிறை குறைஞ்சு போச்சு!</p>"
+     },
+     "section": "4.3"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you saw Raja lurch forward when the bus braked. Below are the official physics laws (Newton's 3 Laws), formulas (F = ma), and textbook calculations explaining why!",
+    "ta": "பகுதி 1-ல் ராஜா பஸ்ஸில் முன்னால் சாய்ந்ததை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ இயற்பியல் விதிகளையும் (நியூற்றனின் 3 விதிகள்), சூத்திரங்களையும் (F = ma) இங்கே கற்போம்!"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>Mass ≠ Weight.</b> Everyday speech saying \"weight is 60 kg\" is technically wrong (kg is the unit of mass) — correctly: \"mass is 60 kg,\" \"weight is 600 N.\" Don't mix up the units (kg vs N) in an exam.</li>\n<li><b>All three values in F = ma need the right units</b> — mass always in kg (divide by 1000 if given in grams!), acceleration in ms<sup>-2</sup>, and force comes out in N.</li>\n<li><b>Action and reaction never cancel on one object.</b> They act on two different objects — don't wrongly assume \"two opposite forces on the same object\" and conclude \"so it won't move.\"</li>\n<li><b>Momentum is a vector quantity</b> — because velocity has direction, momentum does too. If direction reverses, the sign of momentum reverses too (e.g. momentum going up is positive, coming down is negative).</li>\n</ul>\n</div>",
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>திணிவு ≠ நிறை!</b> தினசரி பேச்சுல ‘நிறை 60 kg’் அப்படீன்னு சொல்றது தப்பு (kg என்பது திணிவுக்கான அலகு) — சரியா சொல்லனும்னா ‘திணிவு 60 kg’், ‘நிறை 600 N’். எக்ஸாமுல இந்த ரெண்டு அலகுகளையும் (kg vs N) குழப்பாதீங்க.</li>\n<li><b>F = ma வுல மூணு மாறிகளையும் சரியான அலகுல வெக்கணும்</b> — திணிவு எப்பவும் kg-ல (g கிடைச்சா 1000 ஆல வகுக்கணும்!), முடுக்கம் ms⁻²-ல, விசை N-ல வரும்.</li>\n<li><b>தாக்கமும் மறுதாக்கமும் ஒரு பொருள் மேல கான்சல் ஆகாது.</b> அவை ரெண்டு வெவ்வேறு பொருள் மேல வேலை செய்யும் — ஒரு பொருள் மேல ரெண்டு எதிரெதிர் விசை இருக்கும்னு தப்பா நினைச்சு ‘அந்த பொருள் அசையாது’்னு முடிவு கட்டாதீங்க.</li>\n<li><b>உந்தம் ஒரு திசையுள்ள அளவு</b> — வேகத்துக்கு திசை இருக்குற காரணத்தால், உந்தத்துக்கும் திசை இருக்கும். திசை மாறினா உந்தத்தின் சைனும் மாறும் (எ.கா, மேல போற உந்தம் பாசிட்டிவ், கீழ வர்ற உந்தம் நெகட்டிவ்).</li>\n</ul>\n</div>"
+    }
+   ]
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook's experiments — try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள சோதனைகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>No worries — you can see the same ideas in the <a href=\"#lab\">Lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"4.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity — Force, mass and acceleration (trolley and rubber bands)</h3>\n<span class=\"act-ref\">Textbook · p.93–94</span>\n<p>See Newton's second law: how the acceleration depends on the force and on the mass.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Three identical rubber bands</li><li>A trolley and a smooth, level table</li><li>Some extra masses to load the trolley</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Put the trolley on the level table and hold it with a string. Attach one rubber band to the trolley (Fig. 4.6).</li><li>Stretch the rubber band to a fixed length and release the trolley. Keep moving your hand so the stretch stays the same, and watch the trolley accelerate.</li><li>Repeat with two rubber bands side by side, stretched by the same amount, and then with three. Compare the acceleration each time (same mass, bigger force).</li><li>Now put extra mass on the trolley and pull with one rubber band, stretched by the same amount as before. Compare the acceleration (same force, bigger mass).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">With more rubber bands (a bigger force) the acceleration is bigger. With more mass on the trolley the acceleration is smaller. So a is proportional to F, and a is inversely proportional to m, which gives a = F / m.</div></details>\n<button class=\"btn act-done\" data-act=\"4.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"4.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity — The balloon rocket (third law)</h3>\n<span class=\"act-ref\">Textbook · p.96</span>\n<p>See Newton's third law: action and reaction.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A balloon filled with air</li><li>A piece of cellophane tape and a piece of straw (drinking straw)</li><li>A long thread (string)</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Thread the string through the straw and stretch the string horizontally, fixed at both ends (Fig. 4.8).</li><li>Blow up the balloon, keep its mouth closed, and tape it to the straw.</li><li>Release the mouth of the balloon, so that the air rushes out. Watch the balloon.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The air rushes out one way (the action) and the balloon moves along the string the opposite way (the reaction). Action and reaction are equal and opposite, and they act on two different objects: air and balloon.</div></details>\n<button class=\"btn act-done\" data-act=\"4.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"4.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>Activity — Two friends pushing on skateboards</h3>\n<span class=\"act-ref\">Textbook · p.97</span>\n<p>See action and reaction when two people push each other.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Two small wooden boards on wheels (like skateboards)</li><li>Two students, one to sit on each board</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Place the two boards close to each other, and let one student sit on each board (Fig. 4.9).</li><li>The two students put their palms against each other and push.</li><li>Watch which way each board moves.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Both students are pushed apart in opposite directions. When one pushes the other, the other pushes back with an equal and opposite force.</div></details>\n<button class=\"btn act-done\" data-act=\"4.3\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே முடிவுகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா இன்னும் நல்லா ஞாபகம் இருக்கும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"4.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு — விசை, திணிவு, ஆர்முடுகல் (துரொல்லியும் இறப்பர் பட்டிகளும்)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.93–94</span>\n<p>நியூற்றனோட இரண்டாவது விதிய நேரடியா பாக்கலாம்: ஆர்முடுகல் விசைய, திணிவ எப்படி பொறுத்திருக்குதுன்னு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>மூணு ஒரே மாதிரி இறப்பர் பட்டிகள்</li><li>ஒரு துரொல்லி, ஒரு சமமான ஒப்பமான மேசை</li><li>துரொல்லி மேல ஏத்த சில கூடுதல் திணிவுகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>துரொல்லிய சமமான மேசை மேல வெச்சு, ஒரு நூலால பிடிச்சுக்கோ. ஒரு இறப்பர் பட்டிய அதோட இணை (உரு 4.6).</li><li>இறப்பர் பட்டிய ஒரு நிலையான நீளத்துக்கு இழுத்து, துரொல்லிய விடு. இழுப்பு அதே அளவா இருக்க கைய நகர்த்திக்கிட்டே, துரொல்லி ஆர்முடுகுறத கவனி.</li><li>ரெண்டு இறப்பர் பட்டிகள், அப்புறம் மூணு பட்டிகள ஒரே அளவு இழுத்து திரும்ப செய். ஒவ்வொரு தடவையும் ஆர்முடுகல ஒப்பிடு (திணிவு அதே, விசை அதிகம்).</li><li>இப்போ துரொல்லி மேல கூடுதல் திணிவ வெச்சு, முன்ன மாதிரியே ஒரு இறப்பர் பட்டிய அதே அளவு இழுத்து செய். ஆர்முடுகல ஒப்பிடு (விசை அதே, திணிவு அதிகம்).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">அதிக இறப்பர் பட்டிகள் (பெரிய விசை) இருந்தா ஆர்முடுகல் அதிகம். துரொல்லி மேல திணிவு அதிகமானா ஆர்முடுகல் குறையும். அதனால a, F-க்கு நேர் விகிதசமம்; a, m-க்கு நேர்மாறு விகிதசமம் — அதுதான் a = F / m.</div></details>\n<button class=\"btn act-done\" data-act=\"4.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"4.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு — பலூன் ராக்கெட் (மூன்றாவது விதி)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.96</span>\n<p>நியூற்றனோட மூன்றாவது விதிய பாக்கலாம்: தாக்கம் — மறுதாக்கம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>வளி நிரப்பின ஒரு பலூன்</li><li>ஒரு செலோரேப் துண்டு, ஒரு பானக் குழாய்த் துண்டு</li><li>ஒரு நீளமான நூல் (கம்பி)</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>நூல பானக் குழாய் வழியா செலுத்தி, ரெண்டு பக்கமும் கட்டி, கிடையா இழுத்துக்கோ (உரு 4.8).</li><li>பலூன ஊதி, வாய மூடிப் பிடிச்சு, செலோரேப்பால பானக் குழாயோட ஒட்டு.</li><li>பலூனோட வாய விடு; வளி வேகமா வெளியேறும். பலூன கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">வளி ஒரு பக்கம் வேகமா வெளியேறுது (தாக்கம்), பலூன் எதிர் பக்கம் நூல் வழியா நகருது (மறுதாக்கம்). தாக்கமும் மறுதாக்கமும் சமம், எதிரானவை; ரெண்டு வேற வேற பொருள் (வளி, பலூன்) மேல தாக்குது.</div></details>\n<button class=\"btn act-done\" data-act=\"4.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"4.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path><path d=\"M8 15h8\" stroke-opacity=\"0.5\"></path></svg></div>\n<h3>செயற்பாடு — ஸ்கேட்போர்டுல இரு நண்பர்கள் தள்ளுறது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · p.97</span>\n<p>ரெண்டு பேர் ஒருத்தரை ஒருத்தர் தள்ளும்போது தாக்கம்–மறுதாக்கம் எப்படி இருக்குன்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>சக்கரங்கள் உள்ள ரெண்டு சின்ன பலகைகள் (ஸ்கேட்போர்டு போல)</li><li>ரெண்டு மாணவர்கள் (ஒவ்வொரு பலகையிலயும் ஒருத்தர்)</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ரெண்டு பலகைகளையும் பக்கத்துல பக்கத்துல வெச்சு, ஒவ்வொண்ணுலயும் ஒரு மாணவர் உக்காரட்டும் (உரு 4.9).</li><li>ரெண்டு பேரும் உள்ளங்கைய ஒண்ணோடொண்ணு வெச்சு தள்ளட்டும்.</li><li>ஒவ்வொரு பலகையும் எந்த பக்கம் நகருதுன்னு கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரெண்டு பேரும் எதிர் எதிர் திசையில தள்ளப்படுவாங்க. ஒருத்தர் மத்தவர தள்ளும்போது, அவரும் சமமான எதிர் விசையில திரும்ப தள்ளுறார்.</div></details>\n<button class=\"btn act-done\" data-act=\"4.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Force Lab",
+     "ta": "ஃபோர்ஸ் லேப்"
+    },
+    "sub": {
+     "en": "Change the force and mass — watch acceleration, velocity, and momentum respond live",
+     "ta": "விசையையும் திணிவையும் மாத்தி பாரு — முடுக்கமும், வேகமும், உந்தமும் லைவா மாறுறத பாத்துக்கோ!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-04-newtons-laws.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "holdgame",
+   "kind": "holdgame",
+   "heading": {
+    "title": {
+     "en": "🎮 Force Factory",
+     "ta": "🎮 ஃபோர்ஸ் ஃபேக்டரி"
+    },
+    "sub": {
+     "en": "Newton's second law in action! Work out the missing number, set the slider, and the crate slides to the target line when you are right.",
+     "ta": "நியூற்றனின் இரண்டாவது விதி நேரடியா! விடுபட்ட எண்ணை கணக்கு போட்டு, ஸ்லைடரை வை — சரியா இருந்தா பெட்டி இலக்கு கோட்டுக்கு சறுக்கிப் போகும்!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-04-newtons-laws.html",
+    "hash": "holdgame"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Quick check before the worked examples",
+     "ta": "கஷ்டமான உதாரணங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "A bus is moving forward at speed and suddenly brakes. Why do standing passengers lurch forward?",
+      "ta": "ஒரு பேருந்து முன்னோக்கி வேகமாக இயங்கிக்கொண்டு திடீரென்று பிரேக் போடுகிறது. நின்றுகொண்டிருக்கும் பயணிகள் ஏன் முன்னோக்கி சாய்கிறார்கள்?"
+     },
+     "options": [
+      {
+       "en": "Because the bus pushes them forward",
+       "ta": "பேருந்து அவர்களை முன்னோக்கி தள்ளுவதால்"
+      },
+      {
+       "en": "Because of their body's inertia — it still 'wants' to keep moving forward",
+       "ta": "அவர்களின் உடலின் சடத்துவத்தால் — அது இன்னும் முன்னோக்கி இயங்க விரும்புவதால்"
+      },
+      {
+       "en": "Because of Newton's third law",
+       "ta": "நியூற்றனின் மூன்றாவது விதியால்"
+      },
+      {
+       "en": "Because their weight increases suddenly",
+       "ta": "அவர்களின் நிறை திடீரென அதிகரிப்பதால்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "This is Newton's First Law (inertia) — a moving body keeps moving unless an unbalanced force acts on it. The bus stops, but the passenger's body still 'wants' to keep its forward velocity.",
+      "ta": "இது நியூற்றனின் முதலாவது விதி (சடத்துவம்) — சமநிலைப்படுத்தப்படாத விசை இல்லாத வரை இயங்கும் பொருள் இயங்கிக்கொண்டே இருக்கும். பேருந்து நிற்கிறது, ஆனால் பயணியின் உடல் இன்னும் முன்னோக்கிய வேகத்தை வைத்திருக்க விரும்புகிறது."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "A 4 kg object accelerates at 3 ms⁻² when a force is applied. What is that force?",
+      "ta": "4 kg திணிவுள்ள ஒரு பொருள் ஒரு விசை பிரயோகிக்கும்போது 3 ms⁻² முடுக்கலைப் பெறுகிறது. அந்த விசை யாது?"
+     },
+     "options": [
+      {
+       "en": "7 N",
+       "ta": "7 N"
+      },
+      {
+       "en": "1.33 N",
+       "ta": "1.33 N"
+      },
+      {
+       "en": "12 N",
+       "ta": "12 N"
+      },
+      {
+       "en": "4 N",
+       "ta": "4 N"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "F = ma = 4 kg × 3 ms⁻² = 12 N.",
+      "ta": "F = ma = 4 kg × 3 ms⁻² = 12 N."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "A swimmer pushes water backward with their hands. What pushes the swimmer forward?",
+      "ta": "ஒரு நீச்சல் வீரர் தன் கைகளால் தண்ணீரை பின்நோக்கி தள்ளுகிறார். நீச்சல் வீரரை முன்னோக்கி தள்ளுவது எது?"
+     },
+     "options": [
+      {
+       "en": "The swimmer's own muscles alone",
+       "ta": "நீச்சல் வீரரின் தசைகள் மட்டும்"
+      },
+      {
+       "en": "The reaction force from the water, pushing forward",
+       "ta": "தண்ணீரிலிருந்து வரும் மறுதாக்க விசை, முன்னோக்கி தள்ளுகிறது"
+      },
+      {
+       "en": "Gravity",
+       "ta": "புவியீர்ப்பு"
+      },
+      {
+       "en": "There is no forward force — the swimmer glides on momentum alone",
+       "ta": "முன்னோக்கிய விசை எதுவும் இல்லை — நீச்சல் வீரர் உந்தத்தால் மட்டும் மிதக்கிறார்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "This is Newton's Third Law — the swimmer's hands push water backward (action), and the water pushes the swimmer forward with an equal and opposite reaction force.",
+      "ta": "இது நியூற்றனின் மூன்றாவது விதி — நீச்சல் வீரரின் கைகள் தண்ணீரைப் பின்நோக்கி தள்ளுகின்றன (தாக்கம்), தண்ணீரும் நீச்சல் வீரரை சமமான, எதிரான மறுதாக்க விசையால் முன்நோக்கித் தள்ளுகிறது."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "A 2 kg object moves at 3 ms⁻¹. What is its momentum?",
+      "ta": "2 kg திணிவுள்ள ஒரு பொருள் 3 ms⁻¹ வேகத்தில் இயங்குகிறது. அதன் உந்தம் யாது?"
+     },
+     "options": [
+      {
+       "en": "1.5 kg ms⁻¹",
+       "ta": "1.5 kg ms⁻¹"
+      },
+      {
+       "en": "5 kg ms⁻¹",
+       "ta": "5 kg ms⁻¹"
+      },
+      {
+       "en": "6 kg ms⁻¹",
+       "ta": "6 kg ms⁻¹"
+      },
+      {
+       "en": "9 kg ms⁻¹",
+       "ta": "9 kg ms⁻¹"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "momentum = mv = 2 kg × 3 ms⁻¹ = 6 kg ms⁻¹.",
+      "ta": "உந்தம் = mv = 2 kg × 3 ms⁻¹ = 6 kg ms⁻¹."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "An astronaut has a mass of 80 kg. On the Moon, where gravity is 1/6 of Earth's, what happens to their mass and weight?",
+      "ta": "ஒரு விண்வெளி வீரரின் திணிவு 80 kg. நிலவில், ஈர்ப்பு புவியில் இருப்பதில் 1/6 மட்டுமே இருக்கும். அவருடைய திணிவும் நிறையும் என்ன ஆகும்?"
+     },
+     "options": [
+      {
+       "en": "Both mass and weight stay the same",
+       "ta": "திணிவும் நிறையும் ரெண்டும் மாறாது"
+      },
+      {
+       "en": "Mass stays 80 kg, weight becomes 1/6 of what it was on Earth",
+       "ta": "திணிவு 80 kg ஆகவே இருக்கும், நிறை மட்டும் புவியில் இருந்ததில் 1/6 ஆகும்"
+      },
+      {
+       "en": "Mass becomes 1/6, weight stays the same",
+       "ta": "திணிவு 1/6 ஆகும், நிறை மாறாது"
+      },
+      {
+       "en": "Both mass and weight become 1/6",
+       "ta": "திணிவும் நிறையும் ரெண்டுமே 1/6 ஆகும்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Mass is the amount of matter — it never changes with location. Weight depends on gravity (W = mg), so on the Moon (1/6 the gravity), weight becomes 1/6 of its Earth value.",
+      "ta": "திணிவு என்பது சடப்பொருளின் அளவு — இடத்தால் ஒருபோதும் மாறாது. நிறை ஈர்ப்பைச் சார்ந்தது (W = mg), அதனால் நிலவில் (1/6 ஈர்ப்பு) நிறை புவியில் இருந்ததில் 1/6 ஆகிவிடும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Mass or Weight?",
+     "ta": "🧩 திணிவா? நிறையா?"
+    },
+    "sub": {
+     "en": "Two quick rounds — match Newton's ideas, then sort the facts into Mass and Weight!",
+     "ta": "ரெண்டு சின்ன சுற்றுகள் — நியூற்றனின் கருத்துகளை இணை, அப்புறம் உண்மைகளை திணிவு / நிறை னு வரிசைப்படுத்து!"
+    }
+   },
+   "legacy": {
+    "file": "chapter-04-newtons-laws.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Textbook Examples",
+     "ta": "பாட புத்தக உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Tap through each step — mark values shown as in an examiner's scheme",
+     "ta": "ஒவ்வொரு படியையும் தொட்டுப் பாரு — மார்க் ஸ்கீம் மாதிரி மதிப்பெண்ணும் காட்டியிருக்கேன்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">What force is needed to give a 5 kg mass an acceleration of 2 ms<sup>-1</sup>?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Write the correct formula: F = ma</p>\n<div class=\"note\"><b>Mark for:</b> selecting the correct formula.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Substitute the values: F = 5 kg × 2 ms<sup>-2</sup></p>\n<div class=\"work\">= 10 N</div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting the unit N — remember 1 kgms<sup>-2</sup> = 1 N.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Force needed = <b>10 N</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">5 kg திணிவுள்ள ஒரு பொருளுக்கு 2 ms⁻² முடுக்கலை வழங்குவதற்குத் தேவையான விசை யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>சரியான ஃபார்முலா எழுது: F = ma</p>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> சரியான ஃபார்முலா தேர்ந்தெடுத்ததற்கு.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மதிப்புகளை பொருத்து: F = 5 kg × 2 ms⁻²</p>\n<div class=\"work\">= 10 N</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> அலகு N எழுதத் தவறுறது — 1 kgms⁻² = 1 N என்பதை மறவாதீங்க.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> தேவையான விசை = <b>10 N</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example 1 · F = ma · Ch.4, p.94",
+      "ta": "பாட புத்தக உதாரணம் 1 · F = ma · பாடம் 4, ப. 94"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">A body of mass 6 kg, moving at a steady velocity, has an extra 12 N force applied in its direction of motion. Find the acceleration produced.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Rearrange F = ma to make a the subject: a = F/m</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Substitute the values: a = 12 N ÷ 6 kg</p>\n<div class=\"work\">= 2 ms<sup>-2</sup></div>\n<div class=\"note\"><b>Where marks are lost:</b> not showing that dividing N by kg correctly gives the unit ms<sup>-2</sup>.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Acceleration = <b>2 ms<sup>-2</sup></b>.\n      </div>",
+      "ta": "<div class=\"qtext\">சீரான வேகத்துடன் இயங்கிக்கொண்டிருக்கும் 6 kg திணிவுள்ள ஒரு பொருளுக்கு, அது இயங்கும் திசையில் 12 N மேலதிக விசையைப் பிரயோகித்தால் உண்டாகும் முடுக்கலைக் காண்க.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>F = ma என்பதிலிருந்து a-வை தனியே எடு: a = F/m</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மதிப்புகளை பொருத்து: a = 12 N ÷ 6 kg</p>\n<div class=\"work\">= 2 ms<sup>-2</sup></div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> N ஐ kg ஆல் வகுக்கும்போது அலகு ms⁻² வருதுன்னு நியாயப்படுத்தத் தவறுறது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> முடுக்கல் = <b>2 ms⁻²</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example 2 · F = ma · Ch.4, p.95",
+      "ta": "பாட புத்தக உதாரணம் 2 · F = ma · பாடம் 4, ப. 95"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A certain object gets an acceleration of 2 ms<sup>-2</sup> when an extra force of 8 N is applied in its direction of motion. Find the object's mass.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Rearrange F = ma to make m the subject: m = F/a</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Substitute the values: m = 8 N ÷ 2 ms<sup>-2</sup></p>\n<div class=\"work\">= 4 kg</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Mass = <b>4 kg</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு குறிப்பிட்ட பொருளுக்கு, அது இயங்கும் திசையில் 8 N மேலதிக விசையைப் பிரயோகிக்கும் போது அதில் 2 ms⁻² முடுக்கல் உண்டாகுமெனின், அப்பொருளின் திணிவைக் காண்க.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>F = ma என்பதிலிருந்து m-ஐ தனியே எடு: m = F/a</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மதிப்புகளை பொருத்து: m = 8 N ÷ 2 ms⁻²</p>\n<div class=\"work\">= 4 kg</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> திணிவு = <b>4 kg</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example 3 · F = ma · Ch.4, p.95",
+      "ta": "பாட புத்தக உதாரணம் 3 · F = ma · பாடம் 4, ப. 95"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">A 5 kg object moves with a velocity of 2 ms<sup>-1</sup>. What is its momentum?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Formula: momentum = mv</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Substitute the values: momentum = 5 kg × 2 ms<sup>-1</sup></p>\n<div class=\"work\">= 10 kg ms<sup>-1</sup></div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Momentum = <b>10 kg ms<sup>-1</sup></b>.\n      </div>",
+      "ta": "<div class=\"qtext\">5 kg திணிவுள்ள ஒரு பொருள் 2 ms⁻¹ வேகத்துடன் இயங்கும்போது அதன் உந்தம் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஃபார்முலா: உந்தம் = mv</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மதிப்புகளை பொருத்து: உந்தம் = 5 kg × 2 ms⁻¹</p>\n<div class=\"work\">= 10 kg ms<sup>-1</sup></div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> உந்தம் = <b>10 kg ms⁻¹</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example 1 · Momentum · Ch.4, p.98",
+      "ta": "பாட புத்தக உதாரணம் 1 · உந்தம் · பாடம் 4, ப. 98"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">A 750 g object moves with a velocity of 4 ms<sup>-1</sup>. What is its momentum?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Careful! Mass is given in grams — convert to kg: 750 g = 750/1000 kg</p>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting to convert grams to kg — a very common slip!</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>momentum = mv = 0.75 kg × 4 ms<sup>-1</sup></p>\n<div class=\"work\">= 3 kg ms<sup>-1</sup></div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Momentum = <b>3 kg ms<sup>-1</sup></b>.\n      </div>",
+      "ta": "<div class=\"qtext\">750 g திணிவுள்ள ஒரு பொருள் 4 ms⁻¹ வேகத்துடன் இயங்கும்போது அதன் உந்தம் யாது?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கவனம்! திணிவு கிராமில் கொடுக்கப்பட்டுள்ளது — kg ஆக மாற்று: 750 g = 750/1000 kg</p>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> கிராமை kg ஆக மாற்றத் தவறுறது — இது ரொம்ப சகஜமான தப்பு!</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>உந்தம் = mv = 0.75 kg × 4 ms⁻¹</p>\n<div class=\"work\">= 3 kg ms<sup>-1</sup></div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> உந்தம் = <b>3 kg ms⁻¹</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example 2 · Momentum · Ch.4, p.98",
+      "ta": "பாட புத்தக உதாரணம் 2 · உந்தம் · பாடம் 4, ப. 98"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook — each with a full worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வோடு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 4.1",
+      "ta": "பயிற்சி 4.1"
+     },
+     "items": [
+      {
+       "id": "x41-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Fill in the blanks in the table below.</span></div>\n<div class=\"extable qdiagram\">\n<table class=\"qtable\">\n<tr><th>Force F (N)</th><th>Mass m (kg)</th><th>Acceleration a (ms⁻²)</th></tr>\n<tr><td>?</td><td>3</td><td>2</td></tr>\n<tr><td>40</td><td>10</td><td>?</td></tr>\n<tr><td>30</td><td>?</td><td>1.5</td></tr>\n<tr><td>2</td><td>500</td><td>?</td></tr>\n</table>\n</div>",
+        "ta": "<div class=\"exq\"><span>கீழ்க்கண்ட அட்டவணையில் உள்ள வெற்றிடங்களை நிரப்புக.</span></div>\n<div class=\"extable qdiagram\">\n<table class=\"qtable\">\n<tr><th>விசை F (N)</th><th>திணிவு m (kg)</th><th>முடுக்கல் a (ms⁻²)</th></tr>\n<tr><td>?</td><td>3</td><td>2</td></tr>\n<tr><td>40</td><td>10</td><td>?</td></tr>\n<tr><td>30</td><td>?</td><td>1.5</td></tr>\n<tr><td>2</td><td>500</td><td>?</td></tr>\n</table>\n</div>"
+       },
+       "answer": {
+        "en": "<div>Row 1: F = ma = 3 × 2 = <b>6 N</b></div>\n<div>Row 2: a = F/m = 40 ÷ 10 = <b>4 ms⁻²</b></div>\n<div>Row 3: m = F/a = 30 ÷ 1.5 = <b>20 kg</b></div>\n<div>Row 4: a = F/m = 2 ÷ 500 = <b>0.004 ms⁻²</b></div>",
+        "ta": "<div>வரிசை 1: F = ma = 3 × 2 = <b>6 N</b></div>\n<div>வரிசை 2: a = F/m = 40 ÷ 10 = <b>4 ms⁻²</b></div>\n<div>வரிசை 3: m = F/a = 30 ÷ 1.5 = <b>20 kg</b></div>\n<div>வரிசை 4: a = F/m = 2 ÷ 500 = <b>0.004 ms⁻²</b></div>"
+       }
+      },
+      {
+       "id": "x41-2a",
+       "num": "2(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A 4 kg mass, moving at steady velocity, has a 6 N force applied in its direction of motion. Calculate the resulting acceleration.</span></div>",
+        "ta": "<div class=\"exq\"><span>சீரான வேகத்துடன் இயங்கிக்கொண்டிருந்த 4 kg திணிவுள்ள ஒரு பொருளுக்கு, அது இயங்கும் திசையில் 6 N விசையைப் பிரயோகித்தால், அதில் உண்டாகும் முடுக்கலைக் கணிக்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = F/m = 6 ÷ 4 = 1.5 ms⁻²</div>\n<div>The object speeds up further in the same direction.</div>",
+        "ta": "<div class=\"work\">a = F/m = 6 ÷ 4 = 1.5 ms⁻²</div>\n<div>பொருள் இன்னும் அதே திசையில் வேகம் அதிகரிக்கும்.</div>"
+       }
+      },
+      {
+       "id": "x41-2b",
+       "num": "2(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the acceleration if the same force is applied in the direction opposite to its motion.</span></div>",
+        "ta": "<div class=\"exq\"><span>அதே விசையை, இயங்கும் திசைக்கு எதிரான திசையில் பிரயோகித்தால் உண்டாகும் முடுக்கலைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = −6 ÷ 4 = −1.5 ms⁻²</div>\n<div>This is a deceleration — the object slows down.</div>",
+        "ta": "<div class=\"work\">a = −6 ÷ 4 = −1.5 ms⁻²</div>\n<div>இது ஒரு எதிர்முடுக்கம் (deceleration) — பொருள் மெதுவாகும்.</div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "F = ma"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 4.2",
+      "ta": "பயிற்சி 4.2"
+     },
+     "items": [
+      {
+       "id": "x42-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A motor vehicle has a mass of 800 kg. Calculate its momentum at the instant it moves with a velocity of 5 ms⁻¹.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு மோட்டார் வாகனத்தின் திணிவு 800 kg ஆகும். அது வேகம் 5 ms⁻¹ உடன் இயங்கும் கணத்தில் அதன் உந்தத்தைக் கணிக்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">p = mv = 800 × 5 = <b>4000 kg ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "x42-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A certain object has a mass of 600 kg. Find its momentum at an instant when its velocity is 5 ms⁻¹.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குறிப்பிட்ட பொருளின் திணிவு 600 kg ஆகும். அதன் வேகம் 5 ms⁻¹ ஆக இருக்கும் ஒரு கணத்தில் உந்தத்தைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">p = mv = 600 × 5 = <b>3000 kg ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "x42-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A certain object has a weight of 2 N (g = 10 ms⁻²). It moves with a velocity of 4 ms⁻¹. What is its momentum?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குறிப்பிட்ட பொருளின் நிறை 2 N ஆகும் (g = 10 ms⁻²). அது வேகம் 4 ms⁻¹ உடன் இயங்குகின்றது. உந்தம் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div>First find mass from weight: W = mg ⇒ m = W/g = 2 ÷ 10 = 0.2 kg</div>\n<div class=\"work\">p = mv = 0.2 × 4 = <b>0.8 kg ms⁻¹</b></div>",
+        "ta": "<div>முதலில் நிறையிலிருந்து திணிவைக் கண்டுபிடி: W = mg ⇒ m = W/g = 2 ÷ 10 = 0.2 kg</div>\n<div class=\"work\">p = mv = 0.2 × 4 = <b>0.8 kg ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "x42-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A moving object has a momentum of 6 kg ms⁻¹. If its mass is 500 g, find its velocity.</span></div>",
+        "ta": "<div class=\"exq\"><span>இயங்கிக் கொண்டிருக்கும் ஒரு குறிப்பிட்ட பொருளின் உந்தம் 6 kg ms⁻¹ ஆகும். அப்பொருளின் திணிவு 500 g எனின், அதன் வேகத்தைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div>500 g = 0.5 kg</div>\n<div class=\"work\">v = p/m = 6 ÷ 0.5 = <b>12 ms⁻¹</b></div>",
+        "ta": "<div>500 g = 0.5 kg</div>\n<div class=\"work\">v = p/m = 6 ÷ 0.5 = <b>12 ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "x42-5",
+       "num": "5",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A 3 kg object is thrown vertically upward. Its velocity as the motion begins is 10 ms⁻¹.</span></div>\n<div class=\"exq\"><span class=\"exnum\">(a)</span><span>What is the momentum with which it is sent upward?</span></div>\n<div class=\"exq\"><span class=\"exnum\">(b)</span><span>What is its momentum at the maximum height it reaches?</span></div>",
+        "ta": "<div class=\"exq\"><span>3 kg திணிவுள்ள ஒரு பொருள் நிலைக்குத்தாக மேல்நோக்கி எறியப்படுகின்றது. இயக்கம் ஆரம்பிக்கும் போது அதன் வேகம் 10 ms⁻¹ ஆகும்.</span></div>\n<div class=\"exq\"><span class=\"exnum\">(a)</span><span>அதை மேல்நோக்கி அனுப்ப தேவையான உந்தம் யாது?</span></div>\n<div class=\"exq\"><span class=\"exnum\">(b)</span><span>அது கிளம்பும் உயர்ந்தபட்ச உயரத்தில் அதன் உந்தம் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(a) p = mv = 3 × 10 = <b>30 kg ms⁻¹</b> (மேல்நோக்கி / upward)</div>\n<div>(b) At the highest point, the object is momentarily at rest — that is, v = 0.</div>\n<div class=\"work\">p = mv = 3 × 0 = <b>0 kg ms⁻¹</b></div>",
+        "ta": "<div class=\"work\">(a) p = mv = 3 × 10 = <b>30 kg ms⁻¹</b> (மேல்நோக்கி / upward)</div>\n<div>(b) உயரமான புள்ளியில், பொருள் ஒரு கணம் நிற்கும் — அதாவது v = 0.</div>\n<div class=\"work\">p = mv = 3 × 0 = <b>0 kg ms⁻¹</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Momentum",
+      "ta": "உந்தம்"
+     }
+    },
+    {
+     "chip": {
+      "en": "Chapter Exercise",
+      "ta": "அத்தியாய பயிற்சி"
+     },
+     "items": [
+      {
+       "id": "xc-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>State Newton's first law.</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(ii).</span><span>Why are seated passengers thrown forward when brakes are applied on a moving bus?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(iii).</span><span>A passenger sits in a bus at rest. When the bus starts moving forward, the passenger is pushed backward. Why?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(iv).</span><span>What is the use of wearing a seat belt while travelling in vehicles?</span></div>",
+        "ta": "<div class=\"exq\"><span>நியூற்றனின் முதலாவது விதியைத் தருக.</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(ii).</span><span>இயங்கும் பேருந்து ஒன்றில் தடுப்பைப் பிரயோகிக்கும் போது, அமர்ந்திருக்கும் பயணிகள் முன்னோக்கி வீசப்படுவதேன்?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(iii).</span><span>ஓய்வில் இருக்கும் பேருந்து ஒன்றில் ஒரு பயணி அமர்ந்திருக்கின்றார். பேருந்து முன்னோக்கி இயங்க ஆரம்பிக்கும் போது பயணி பின்னோக்கி தள்ளப்படுகிறார். அது ஏன்?</span></div>\n<div class=\"exq\"><span class=\"exnum\">1(iv).</span><span>வாகனங்களில் செல்லும்போது ஆசனப் பட்டியை அணிவதன் பயன் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div>(i) A body at rest stays at rest, and a body moving with uniform velocity keeps that velocity, unless an unbalanced force acts on it.</div>\n<div>(ii) Their bodies still \"want\" to keep the forward velocity (inertia) — even though the bus has stopped, the body tries to keep moving forward.</div>\n<div>(iii) The passenger's body \"wants\" to stay at rest — as the bus moves forward, the body lags behind and feels pushed backward.</div>\n<div>(iv) It restrains the passenger safely to the seat, preventing them from being thrown forward by inertia during a sudden stop.</div>",
+        "ta": "<div>(i) சமநிலைப்படுத்தப்படாத விசை பிரயோகிக்கப்படாத வரைக்கும், ஓய்வில் உள்ள பொருள் ஓய்விலேயே இருக்கும்; சீரான வேகத்தில் இயங்கும் பொருள் அதே வேகத்திலேயே இயங்கும்.</div>\n<div>(ii) பயணிகளின் உடல் இன்னும் முன்னோக்கிய வேகத்தில் இருக்க விரும்புகிறது (சடத்துவம்) — பேருந்து நின்றாலும் உடல் முன்னோக்கிச் செல்ல முயல்கிறது.</div>\n<div>(iii) பயணியின் உடல் ஓய்விலேயே இருக்க விரும்புகிறது — பேருந்து முன்னோக்கி நகர்ந்தாலும் உடல் பின்தங்கி, பின்னோக்கித் தள்ளப்பட்டதைப் போல் உணரப்படும்.</div>\n<div>(iv) விபத்தின்போது சடத்துவத்தால் முன்னோக்கி வீசப்படுவதைத் தடுத்து, பயணியைப் பாதுகாப்பாக இருக்கையுடன் பிணைக்கிறது.</div>"
+       }
+      },
+      {
+       "id": "xc-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>State Newton's second law.</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii).</span><span>A body has a mass of 12 kg. If an unbalanced force of 6 N is applied to it in its direction of motion, what acceleration results?</span></div>",
+        "ta": "<div class=\"exq\"><span>நியூற்றனின் இரண்டாவது விதியைத் தருக.</span></div>\n<div class=\"exq\"><span class=\"exnum\">2(ii).</span><span>ஒரு பொருளின் திணிவு 12 kg ஆகும். அது இயங்கும் திசையில் அதன் மீது 6 N சமநிலைப்படுத்தப்படாத விசையைப் பிரயோகித்தால், உண்டாகும் முடுக்கல் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div>(i) The acceleration produced in a body is directly proportional to the unbalanced force applied to it, and inversely proportional to its mass.</div>\n<div class=\"work\">(ii) a = F/m = 6 ÷ 12 = <b>0.5 ms⁻²</b></div>",
+        "ta": "<div>(i) ஒரு பொருளில் ஏற்படும் முடுக்கல், அதற்குப் பிரயோகிக்கப்படும் சமநிலைப்படுத்தப்படாத விசைக்கு நேர்மாறு விகிதசமமாகவும், பொருளின் திணிவுக்கு நேர்மாறு விகிதசமமாகவும் இருக்கும்.</div>\n<div class=\"work\">(ii) a = F/m = 6 ÷ 12 = <b>0.5 ms⁻²</b></div>"
+       }
+      },
+      {
+       "id": "xc-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Fill in the blanks in the table below.</span></div>\n<div class=\"extable qdiagram\">\n<table class=\"qtable\">\n<tr><th>F (N)</th><th>m (kg)</th><th>a (ms⁻²)</th></tr>\n<tr><td>?</td><td>10</td><td>2</td></tr>\n<tr><td>60</td><td>12</td><td>?</td></tr>\n<tr><td>4</td><td>0.5</td><td>?</td></tr>\n<tr><td>40</td><td>?</td><td>5</td></tr>\n</table>\n</div>",
+        "ta": "<div class=\"exq\"><span>பின்வரும் அட்டவணையில் உள்ள வெற்றிடங்களை நிரப்புக.</span></div>\n<div class=\"extable qdiagram\">\n<table class=\"qtable\">\n<tr><th>F (N)</th><th>m (kg)</th><th>a (ms⁻²)</th></tr>\n<tr><td>?</td><td>10</td><td>2</td></tr>\n<tr><td>60</td><td>12</td><td>?</td></tr>\n<tr><td>4</td><td>0.5</td><td>?</td></tr>\n<tr><td>40</td><td>?</td><td>5</td></tr>\n</table>\n</div>"
+       },
+       "answer": {
+        "en": "<div>Row 1: F = 10 × 2 = <b>20 N</b></div>\n<div>Row 2: a = 60 ÷ 12 = <b>5 ms⁻²</b></div>\n<div>Row 3: a = 4 ÷ 0.5 = <b>8 ms⁻²</b></div>\n<div>Row 4: m = 40 ÷ 5 = <b>8 kg</b></div>",
+        "ta": "<div>வரிசை 1: F = 10 × 2 = <b>20 N</b></div>\n<div>வரிசை 2: a = 60 ÷ 12 = <b>5 ms⁻²</b></div>\n<div>வரிசை 3: a = 4 ÷ 0.5 = <b>8 ms⁻²</b></div>\n<div>வரிசை 4: m = 40 ÷ 5 = <b>8 kg</b></div>"
+       }
+      },
+      {
+       "id": "xc-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A certain object has a mass of 6 kg. If its velocity increases from 5 ms⁻¹ to 13 ms⁻¹ in 4 seconds, find the force applied to it.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குறிப்பிட்ட பொருளின் திணிவு 6 kg ஆகும். 4 செக்கனில் அதன் வேகம் 5 ms⁻¹ இலிருந்து 13 ms⁻¹ இற்கு அதிகரிக்குமெனின், அதன் மீது பிரயோகிக்கப்பட்ட விசையைக் காண்க.</span></div>"
+       },
+       "answer": {
+        "en": "<div>First find acceleration: a = (13 − 5) ÷ 4 = 2 ms⁻²</div>\n<div class=\"work\">F = ma = 6 × 2 = <b>12 N</b></div>",
+        "ta": "<div>முதலில் முடுக்கலைக் கணக்கிடு: a = (13 − 5) ÷ 4 = 2 ms⁻²</div>\n<div class=\"work\">F = ma = 6 × 2 = <b>12 N</b></div>"
+       }
+      },
+      {
+       "id": "xc-5i",
+       "num": "5(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write Newton's third law.</span></div>\n<div class=\"exq\"><span class=\"exnum\">5(ii).</span><span>Name three situations where Newton's third law applies.</span></div>\n<div class=\"exq\"><span class=\"exnum\">5(iii).</span><span>What factors influence an object's momentum?</span></div>",
+        "ta": "<div class=\"exq\"><span>நியூற்றனின் மூன்றாவது விதியை எழுதுக.</span></div>\n<div class=\"exq\"><span class=\"exnum\">5(ii).</span><span>நியூற்றனின் மூன்றாவது விதி பிரயோகிக்கப்படும் மூன்று சந்தர்ப்பங்களைக் குறிப்பிடுக.</span></div>\n<div class=\"exq\"><span class=\"exnum\">5(iii).</span><span>ஒரு பொருளின் உந்தத்தின் மீது செல்வாக்குச் செலுத்தும் காரணிகள் யாவை?</span></div>"
+       },
+       "answer": {
+        "en": "<div>(i) For every action, there is an equal and opposite reaction.</div>\n<div>(ii) Rowing a boat (oar pushes water back, water pushes boat forward); swimming (hand pushes water back, water pushes swimmer forward); a balloon releasing air (air rushes back, balloon moves forward).</div>\n<div>(iii) The object's mass, and its velocity.</div>",
+        "ta": "<div>(i) ஒவ்வொரு தாக்கத்திற்கும் சமனான, எதிரான மறுதாக்கம் உண்டு.</div>\n<div>(ii) படகு துடுப்பு வலித்தல் (துடுப்பு தண்ணீரைப் பின்நோக்கி தள்ள, தண்ணீர் படகை முன்னோக்கி தள்ளும்); நீச்சல் அடித்தல் (கை தண்ணீரைப் பின்நோக்கி தள்ள, தண்ணீர் உடலை முன்னோக்கித் தள்ளும்); பலூன் வளியை வெளியேற்றுதல் (வளி பின்நோக்கி வெளியேறும் போது பலூன் முன்நோக்கிச் செல்லும்).</div>\n<div>(iii) பொருளின் திணிவும், அதன் வேகமும்.</div>"
+       }
+      },
+      {
+       "id": "xc-6",
+       "num": "6",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the momentum of a 10 kg object moving with a velocity of 4 ms⁻¹?</span></div>",
+        "ta": "<div class=\"exq\"><span>4 ms⁻¹ வேகத்துடன் இயங்கிக்கொண்டிருக்கும் 10 kg திணிவுள்ள ஒரு பொருளின் உந்தம் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">p = mv = 10 × 4 = <b>40 kg ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "xc-7",
+       "num": "7",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object has a mass of 750 g. If its velocity at a certain instant is 8 ms⁻¹, what is its momentum at that instant?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருளின் திணிவு 750 g ஆகும். ஒரு குறிப்பிட்ட கணத்தில் அதன் வேகம் 8 ms⁻¹ எனின், அக்கணத்தில் அதன் உந்தம் யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">p = mv = 0.75 × 8 = <b>6 kg ms⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "xc-8",
+       "num": "8",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>At a certain instant, an object's momentum is 6 kg ms⁻¹. If its velocity at that instant is 3 ms⁻¹, what is its mass?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குறிப்பிட்ட கணத்தில் ஒரு பொருளின் உந்தம் 6 kg ms⁻¹ ஆகும். அக்கணத்தில் அதன் வேகம் 3 ms⁻¹ எனின், அதன் திணிவு யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">m = p/v = 6 ÷ 3 = <b>2 kg</b></div>"
+       }
+      },
+      {
+       "id": "xc-9i",
+       "num": "9(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object has a mass of 60 kg. What is its weight? (g = 10 ms⁻²)</span></div>\n<div class=\"exq\"><span class=\"exnum\">9(ii).</span><span>If the gravitational acceleration on the Moon is 1/6 of Earth's, what is its weight on the Moon?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருளின் திணிவு 60 kg. அதன் நிறை யாது? (g = 10 ms⁻²)</span></div>\n<div class=\"exq\"><span class=\"exnum\">9(ii).</span><span>சந்திரனின் மீது புவியீர்ப்பினாலான முடுக்கல் புவியின் புவியீர்ப்பினாலான முடுக்கலில் 1/6 எனின், சந்திரனின் மீது அதன் நிறை யாது?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(i) W = mg = 60 × 10 = <b>600 N</b></div>\n<div class=\"work\">(ii) W<sub>moon</sub> = 600 × 1/6 = <b>100 N</b></div>\n<div>Notice: the mass (60 kg) stays the same on the Moon too — only the weight changes!</div>",
+        "ta": "<div class=\"work\">(i) W = mg = 60 × 10 = <b>600 N</b></div>\n<div class=\"work\">(ii) W<sub>moon</sub> = 600 × 1/6 = <b>100 N</b></div>\n<div>கவனிக்க: திணிவு (60 kg) சந்திரனிலும் மாறாது — நிறை மட்டுமே மாறுகிறது!</div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Everything together",
+      "ta": "எல்லாமே சேர்த்து"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚌</div><div class=\"cm-b r\"><i>Raja:</i> <span>The bus stopped, but I kept going!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🧠</div><div class=\"cm-b c\"><i>Chittu:</i> <span>That is inertia: things keep doing what they are already doing, unless a force changes it.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🛒</div><div class=\"cm-b r\"><i>Raja:</i> <span>So with the same push, why does a full cart speed up slowly?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>F = ma. More mass, less acceleration. And every action has an equal and opposite reaction.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🚌</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>பஸ் நின்னுடுச்சு, ஆனா நான் தொடர்ந்து போனேன்!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🧠</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>அதுதான் சடத்துவம்: ஒரு விசை மாத்தாத வரை பொருட்கள் அவை செய்யறதையே தொடர்ந்து செய்யும்.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🛒</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>அப்போ அதே தள்ளலுக்கு நிறைஞ்ச வண்டி ஏன் மெதுவா வேகமெடுக்குது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>F = ma. திணிவு அதிகம், முடுக்கம் குறைவு. ஒவ்வொரு தாக்கத்துக்கும் சம, எதிர் மறுதாக்கம் உண்டு.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">No push, no change, that is the law,<br/>F equals m times a, you saw.<br/>Action, reaction, equal and opposite,<br/>on two different things, never on one!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">விசை இல்லன்னா மாற்றம் இல்ல,<br/>F = m × a, இது எல்லை இல்ல.<br/>தாக்கம் மறுதாக்கம் சமம், எதிர்,<br/>ரெண்டு வேற பொருள் மேல, ஒண்ணு மேல இல்ல!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Mass and weight are the same.</td><td class=\"ok\">Mass (kg) is the matter in an object and never changes. Weight (N) is the Earth's pull: W = m × g.</td></tr><tr><td class=\"w\">Action and reaction cancel each other out.</td><td class=\"ok\">They act on two different objects, so they never cancel.</td></tr><tr><td class=\"w\">Use the mass in grams in F = ma.</td><td class=\"ok\">Always change grams to kg first (divide by 1000).</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">திணிவும் நிறையும் ஒண்ணுதான்.</td><td class=\"ok\">திணிவு (kg) = பொருளில இருக்கற சடப்பொருள், மாறாது. நிறை (N) = புவி இழுக்கற விசை: W = m × g.</td></tr><tr><td class=\"w\">தாக்கமும் மறுதாக்கமும் ஒண்ணையொண்ணு கான்சல் பண்ணும்.</td><td class=\"ok\">அவை ரெண்டு வேற பொருள் மேல தாக்குது, அதனால கான்சல் ஆகாது.</td></tr><tr><td class=\"w\">F = ma-ல திணிவ கிராம்ல போடலாம்.</td><td class=\"ok\">எப்பவும் முதல்ல கிராம kg-ஆ மாத்து (1000-ஆல வகு).</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>1st law: no unbalanced force → rest stays rest, steady motion stays steady</li><li>2nd law: F = m a; 1 N = 1 kg × 1 m/s²</li><li>3rd law: equal and opposite reaction, on a different object</li><li>momentum p = m × v, unit kg m/s</li><li>weight W = m × g (g = 10 m/s²); mass in kg, weight in N</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>1வது விதி: சமநிலையற்ற விசை இல்லன்னா ஓய்வு ஓய்வா, சீரான இயக்கம் சீரா இருக்கும்</li><li>2வது விதி: F = m a; 1 N = 1 kg × 1 m/s²</li><li>3வது விதி: சம, எதிர் மறுதாக்கம், வேற பொருள் மேல</li><li>உந்தம் p = m × v, அலகு kg m/s</li><li>நிறை W = m × g (g = 10 m/s²); திணிவு kg, நிறை N</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "Newton's first law: a body stays at rest, or keeps moving at uniform velocity, until an unbalanced force acts on it.",
+     "ta": "நியூற்றனின் முதலாவது விதி: சமநிலைப்படுத்தப்படாத விசை பிரயோகிக்கப்படும் வரைக்கும் ஓய்வுல இருக்கும் பொருள் ஓய்விலேயே இருக்கும்; இயங்கும் பொருள் சீரான வேகத்துடன் இயங்கும்."
+    },
+    {
+     "en": "Newton's second law: the acceleration of a body is directly proportional to the unbalanced force applied (F) and inversely proportional to its mass (m).",
+     "ta": "நியூற்றனின் இரண்டாவது விதி: ஒரு பொருளுக்கு ஏற்படும் ஆர்முடுகல், பிரயோகிக்கப்படும் விசை (F)-க்கு நேர் விகிதசமம், பொருளோட திணிவு (m)-க்கு நேர்மாறு விகிதசமம்."
+    },
+    {
+     "en": "Newton's third law: for every action there is an equal and opposite reaction.",
+     "ta": "நியூற்றனின் மூன்றாவது விதி: ஒவ்வொரு தாக்கத்துக்கும் சமமும் எதிருமான மறுதாக்கம் உண்டு."
+    },
+    {
+     "en": "The weight of an object is the force with which the Earth pulls it towards its centre. It is the force that gives the object the acceleration due to gravity (g): W = m g.",
+     "ta": "ஒரு பொருளோட நிறை, புவி அத தன் மையத்த நோக்கி இழுக்கும் விசை. அது பொருளுக்கு புவியீர்ப்பினாலான ஆர்முடுகல் (g)-ஐ கொடுக்க தேவையான விசை: W = m g."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Force",
+     "ta": "விசை"
+    },
+    {
+     "en": "Unbalanced force",
+     "ta": "சமநிலைப்படாத விசை"
+    },
+    {
+     "en": "Uniform acceleration",
+     "ta": "சீரான ஆர்முடுகல்"
+    },
+    {
+     "en": "Uniform velocity",
+     "ta": "சீரான வேகம்"
+    },
+    {
+     "en": "Mass",
+     "ta": "திணிவு"
+    },
+    {
+     "en": "Acceleration",
+     "ta": "ஆர்முடுகல்"
+    },
+    {
+     "en": "Action",
+     "ta": "தாக்கம்"
+    },
+    {
+     "en": "Reaction",
+     "ta": "மறுதாக்கம்"
+    },
+    {
+     "en": "Momentum",
+     "ta": "உந்தம்"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 4 key points",
+    "ta": "📌 பொழிப்பு — 4 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+   }
+  }
+ ]
+}

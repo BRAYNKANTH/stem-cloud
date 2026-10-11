@@ -76,7 +76,7 @@ def admin_page(req: Request):
         return RedirectResponse('/login?next=/admin', status_code=302)
     if u['role'] != 'admin':
         raise HTTPException(403, 'Admins only.')
-    return FileResponse(STATIC / 'admin.html')
+    return page(WEB_SHELL / 'admin' / 'index.html', 'admin.html')
 
 
 # ----------------------------------------------------------------------------- app files that must live at the site root

@@ -216,11 +216,20 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - `middleware.ts` gate for `/learn/*` (§3.1).
 - **Done when**: public pages are served by Astro in production, Lighthouse meets the budget, and the old lessons still work.
 
-### Phase 3: App shell islands (≈2 weeks)
-- `AuthForm` (signup and login, same rules: nickname only, rate-limit messages), `AccountPanel`, `AdminApp`, `BottomNav`, `LangSwitch`, and the theme and motion prefs.
-- Course home `/learn/`: greeting, stat tiles, Continue card and grade tabs, built from `catalog.json` (built by hand from the 15 chapters until Phase 4 generates it). Chapter cards link to the **old** lesson URLs for now.
-- Port the shared-device rule: when `acct_owner` changes, clear the old student's local data.
-- **Done when**: login, home, account and admin are Preact islands in production, and the old `login.html`, `account.html`, `admin.html` and `index.html` are retired.
+### Phase 3: App shell islands (done 2026-10-11, except the course home)
+- **Done:** login (3.1), account with the phone bottom bar (3.2) and admin (3.3) are Astro pages with Preact islands. Text and Tamil / Sinhala wording are unchanged.
+- **How they are served:** `/login`, `/account` and `/admin` stay **Python routes that decide first**:
+  - signed in → go on to a safe `?next=`;
+  - not signed in → login page;
+  - not an admin → 403.
+  - Then they serve the Astro build from `web/dist/shell/<page>/` (bundled with the function, `routers/pages.page()`).
+  - Building under `/shell/` keeps the CDN from serving these pages without the check. The data always comes from the API, which checks the session itself.
+- **Fixes made on the way:**
+  - the login page now really clears the previous student's offline lesson copies;
+  - admin-generated passwords use `crypto.getRandomValues`;
+  - forms are read when they are submitted, so a fill-and-submit can't send stale values.
+- **Course home moved to Phase 5/6.** `/lessons/index.html` is built from browser-stored progress that the server injects with the v1 merge rules. It writes back day-streak dates through the old `account.js`, and the old app layer adds the account menu and the topic links to it. Porting it now would mean re-implementing v1 progress syncing only to replace it with progress v2. It will be rebuilt from `catalog.json` and the v2 progress API, and keeps working unchanged until then.
+- **Not done:** the gate cookie middleware (milestone 2.4) is waiting for `GATE_SECRET` in Vercel (see `docs/owner-tasks.md`). It is needed only for the Phase 5 lesson pages.
 
 ### Phase 4: Content schema and extractor (≈2–3 weeks)
 - `content_schema/` Pydantic models (§3.3), JSON Schema export and TS type generation (`npm run gen:types`).

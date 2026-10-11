@@ -3,6 +3,8 @@
 
     python tools/perf_baseline.py                 # writes docs/perf/<date>-<label>.md (+ raw JSON in docs/perf/raw/)
     python tools/perf_baseline.py --label astro   # name the snapshot
+    python tools/perf_baseline.py --label astro --base http://localhost:4330 --pages /home/,/about/
+                                                  # public pages of an already running server (e.g. `astro preview` of web/)
 
 Starts the API on a throwaway SQLite database, signs up a local test student, and runs Lighthouse
 (mobile, simulated slow 4G, 4x CPU slowdown) on the public pages and on logged-in lesson pages.
@@ -59,7 +61,13 @@ def bytes_by_type(lhr):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--label', default='legacy')
+    ap.add_argument('--base', default='', help='measure an already running server instead of starting the API (public pages only)')
+    ap.add_argument('--pages', default='', help='comma-separated paths to measure with --base, e.g. /home/,/about/')
     args = ap.parse_args()
+    base = args.base.rstrip('/') or BASE
+    pages = [(p, p, False) for p in args.pages.split(',') if p] if args.base else PAGES
+    if args.base and not pages:
+        sys.exit('--base needs --pages')
     chrome = find_browser()
     npx = shutil.which('npx') or sys.exit('npx not found (install Node)')
     day = datetime.date.today().isoformat()
@@ -72,20 +80,22 @@ def main():
     for k in ('DATABASE_URL', 'POSTGRES_URL', 'VERCEL'):
         env.pop(k, None)
     env['DB_PATH'] = os.path.join(tmp, 'perf.db')
-    srv = subprocess.Popen([sys.executable, '-m', 'uvicorn', 'index:app', '--port', str(PORT), '--log-level', 'warning'],
-                           cwd=ROOT / 'api', env=env)
+    srv = None if args.base else subprocess.Popen(
+        [sys.executable, '-m', 'uvicorn', 'index:app', '--port', str(PORT), '--log-level', 'warning'], cwd=ROOT / 'api', env=env)
     rows = []
     try:
-        for _ in range(80):
-            try:
-                urllib.request.urlopen(BASE + '/healthz', timeout=1); break
-            except Exception:
-                time.sleep(0.3)
-        cookie = signup_cookie()
-        for name, path, auth in PAGES:
+        cookie = ''
+        if srv:
+            for _ in range(80):
+                try:
+                    urllib.request.urlopen(BASE + '/healthz', timeout=1); break
+                except Exception:
+                    time.sleep(0.3)
+            cookie = signup_cookie()
+        for name, path, auth in pages:
             slug = path.strip('/').replace('/', '_').replace('.html', '') or 'root'
             report = raw_dir / (slug + '.json')
-            cmd = [npx, '-y', LIGHTHOUSE, BASE + path, '--quiet', '--output=json', '--output-path=' + str(report),
+            cmd = [npx, '-y', LIGHTHOUSE, base + path, '--quiet', '--output=json', '--output-path=' + str(report),
                    '--only-categories=' + ','.join(CATS), '--form-factor=mobile', '--screenEmulation.mobile',
                    '--throttling-method=simulate', '--chrome-path=' + chrome,
                    '--chrome-flags=--headless=new --no-first-run --user-data-dir=' + os.path.join(tmp, 'chrome-' + slug)]
@@ -106,21 +116,22 @@ def main():
                 'kb_doc': round(by.get('Document', 0) / 1024), 'kb_font': round(by.get('Font', 0) / 1024),
             })
     finally:
-        srv.terminate()
-        try:
-            srv.wait(8)
-        except Exception:
-            srv.kill()
+        if srv:
+            srv.terminate()
+            try:
+                srv.wait(8)
+            except Exception:
+                srv.kill()
 
     lines = ['# Performance snapshot: %s (%s)' % (args.label, day), '',
              'Local run of `tools/perf_baseline.py`: Lighthouse %s, mobile, simulated slow 4G with 4x CPU slowdown, '
-             'served by uvicorn on this machine (no CDN, no network distance). Compare snapshots with each other, not with field data.'
-             % LIGHTHOUSE.split('@')[1], '',
+             'served by %s on this machine (no CDN, no network distance). Compare snapshots with each other, not with field data.'
+             % (LIGHTHOUSE.split('@')[1], 'the server at ' + base if args.base else 'uvicorn'), '',
              '| Page | Perf | A11y | Best pr. | FCP | LCP | TBT | CLS | Speed index | Total KB | JS KB | HTML KB | Font KB |',
              '|---|---|---|---|---|---|---|---|---|---|---|---|---|']
     for r in rows:
         s, m = r['scores'], r['metrics']
-        flag = '' if r['final'].endswith(r['path']) else ' (redirected to %s)' % r['final'].replace(BASE, '')
+        flag = '' if r['final'].endswith(r['path']) else ' (redirected to %s)' % r['final'].replace(base, '')
         lines.append('| %s%s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s | %s |' % (
             r['name'], flag, s['performance'], s['accessibility'], s['best-practices'],
             m['FCP'], m['LCP'], m['TBT'], m['CLS'], m['Speed index'], r['kb_total'], r['kb_js'], r['kb_doc'], r['kb_font']))

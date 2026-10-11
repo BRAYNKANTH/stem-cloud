@@ -1,0 +1,1027 @@
+{
+  "$defs": {
+    "ActivitiesStep": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/Rich"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "activities",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "body"
+      ],
+      "title": "ActivitiesStep",
+      "type": "object"
+    },
+    "BasicsStep": {
+      "additionalProperties": false,
+      "properties": {
+        "cards": {
+          "items": {
+            "$ref": "#/$defs/Card"
+          },
+          "minItems": 1,
+          "title": "Cards",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "hook": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rich"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "basics",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "cards"
+      ],
+      "title": "BasicsStep",
+      "type": "object"
+    },
+    "Card": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/Rich"
+        },
+        "icon": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Icon"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textbook section number, e.g. \"2.1\".",
+          "title": "Section"
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "title",
+        "body"
+      ],
+      "title": "Card",
+      "type": "object"
+    },
+    "Exercise": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rich"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "num": {
+          "title": "Num",
+          "type": "string"
+        },
+        "prompt": {
+          "$ref": "#/$defs/Rich"
+        }
+      },
+      "required": [
+        "id",
+        "num",
+        "prompt"
+      ],
+      "title": "Exercise",
+      "type": "object"
+    },
+    "ExerciseGroup": {
+      "additionalProperties": false,
+      "properties": {
+        "chip": {
+          "$ref": "#/$defs/Text"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/Exercise"
+          },
+          "minItems": 1,
+          "title": "Items",
+          "type": "array"
+        },
+        "title": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "chip",
+        "items"
+      ],
+      "title": "ExerciseGroup",
+      "type": "object"
+    },
+    "ExercisesStep": {
+      "additionalProperties": false,
+      "properties": {
+        "groups": {
+          "items": {
+            "$ref": "#/$defs/ExerciseGroup"
+          },
+          "minItems": 1,
+          "title": "Groups",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "exercises",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "groups"
+      ],
+      "title": "ExercisesStep",
+      "type": "object"
+    },
+    "GlossaryTerm": {
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "minLength": 1,
+          "title": "En",
+          "type": "string"
+        },
+        "si": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Si"
+        },
+        "ta": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ta"
+        }
+      },
+      "required": [
+        "en"
+      ],
+      "title": "GlossaryTerm",
+      "type": "object"
+    },
+    "Heading": {
+      "additionalProperties": false,
+      "properties": {
+        "sub": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "Heading",
+      "type": "object"
+    },
+    "InteractiveStep": {
+      "additionalProperties": false,
+      "description": "A lab or game, still the lesson page's own (legacy) until it is rebuilt.",
+      "properties": {
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Which game, e.g. \"pushit\", \"tugofwar\".",
+          "title": "Kind"
+        },
+        "legacy": {
+          "$ref": "#/$defs/Legacy"
+        },
+        "type": {
+          "enum": [
+            "lab",
+            "game",
+            "sort"
+          ],
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "legacy"
+      ],
+      "title": "InteractiveStep",
+      "type": "object"
+    },
+    "Legacy": {
+      "additionalProperties": false,
+      "description": "A part still served by the existing lesson page, shown in a frame: /lessons/<file>?embed=1#<hash>.",
+      "properties": {
+        "file": {
+          "pattern": "^[a-z0-9-]+\\.html$",
+          "title": "LessonFile",
+          "type": "string"
+        },
+        "hash": {
+          "pattern": "^[a-z0-9_]+$",
+          "title": "Hash",
+          "type": "string"
+        }
+      },
+      "required": [
+        "file",
+        "hash"
+      ],
+      "title": "Legacy",
+      "type": "object"
+    },
+    "LegacyRef": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "pattern": "^[a-z0-9-]+\\.html$",
+          "title": "LessonFile",
+          "type": "string"
+        },
+        "id": {
+          "description": "The id the current lesson page stores progress under, e.g. \"c5\".",
+          "title": "Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "file"
+      ],
+      "title": "LegacyRef",
+      "type": "object"
+    },
+    "NotesStep": {
+      "additionalProperties": false,
+      "properties": {
+        "cards": {
+          "items": {
+            "$ref": "#/$defs/Card"
+          },
+          "minItems": 1,
+          "title": "Cards",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "intro": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rich"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "type": {
+          "const": "notes",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "cards"
+      ],
+      "title": "NotesStep",
+      "type": "object"
+    },
+    "QuizQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "answer": {
+          "minimum": 0,
+          "title": "Answer",
+          "type": "integer"
+        },
+        "explain": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 6,
+          "minItems": 2,
+          "title": "Options",
+          "type": "array"
+        },
+        "prompt": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "id",
+        "prompt",
+        "options",
+        "answer"
+      ],
+      "title": "QuizQuestion",
+      "type": "object"
+    },
+    "QuizStep": {
+      "additionalProperties": false,
+      "properties": {
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "questions": {
+          "items": {
+            "$ref": "#/$defs/QuizQuestion"
+          },
+          "minItems": 1,
+          "title": "Questions",
+          "type": "array"
+        },
+        "type": {
+          "const": "quiz",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "questions"
+      ],
+      "title": "QuizStep",
+      "type": "object"
+    },
+    "RecapStep": {
+      "additionalProperties": false,
+      "properties": {
+        "cards": {
+          "items": {
+            "$ref": "#/$defs/Rich"
+          },
+          "minItems": 1,
+          "title": "Cards",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "recap",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "cards"
+      ],
+      "title": "RecapStep",
+      "type": "object"
+    },
+    "Rich": {
+      "additionalProperties": false,
+      "description": "A safe subset of HTML in each language the lesson has (see check_html).",
+      "properties": {
+        "en": {
+          "minLength": 1,
+          "title": "En",
+          "type": "string"
+        },
+        "si": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Si"
+        },
+        "ta": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ta"
+        }
+      },
+      "required": [
+        "en"
+      ],
+      "title": "Rich",
+      "type": "object"
+    },
+    "StoryLine": {
+      "additionalProperties": false,
+      "properties": {
+        "audio": {
+          "anyOf": [
+            {
+              "additionalProperties": {
+                "type": "string"
+              },
+              "propertyNames": {
+                "enum": [
+                  "en",
+                  "ta",
+                  "si"
+                ]
+              },
+              "type": "object"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Recorded voice per language, path under /static/audio/story/.",
+          "title": "Audio"
+        },
+        "scene": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Scene emoji drawn above the bubble.",
+          "title": "Scene"
+        },
+        "speaker": {
+          "enum": [
+            "raja",
+            "chittu"
+          ],
+          "title": "Speaker",
+          "type": "string"
+        },
+        "text": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "speaker",
+        "text"
+      ],
+      "title": "StoryLine",
+      "type": "object"
+    },
+    "StoryStep": {
+      "additionalProperties": false,
+      "properties": {
+        "cta": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "lines": {
+          "items": {
+            "$ref": "#/$defs/StoryLine"
+          },
+          "minItems": 1,
+          "title": "Lines",
+          "type": "array"
+        },
+        "quest": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Rich"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        },
+        "type": {
+          "const": "story",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "title",
+        "lines"
+      ],
+      "title": "StoryStep",
+      "type": "object"
+    },
+    "SummaryStep": {
+      "additionalProperties": false,
+      "properties": {
+        "extra": {
+          "default": [],
+          "description": "Any further summary cards, kept as they are.",
+          "items": {
+            "$ref": "#/$defs/Rich"
+          },
+          "title": "Extra",
+          "type": "array"
+        },
+        "glossary": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/GlossaryTerm"
+          },
+          "title": "Glossary",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "$ref": "#/$defs/Rich"
+          },
+          "minItems": 1,
+          "title": "Points",
+          "type": "array"
+        },
+        "type": {
+          "const": "summary",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "points"
+      ],
+      "title": "SummaryStep",
+      "type": "object"
+    },
+    "Text": {
+      "additionalProperties": false,
+      "description": "Plain text in each language the lesson has.",
+      "properties": {
+        "en": {
+          "minLength": 1,
+          "title": "En",
+          "type": "string"
+        },
+        "si": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Si"
+        },
+        "ta": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ta"
+        }
+      },
+      "required": [
+        "en"
+      ],
+      "title": "Text",
+      "type": "object"
+    },
+    "WatchStep": {
+      "additionalProperties": false,
+      "properties": {
+        "animation": {
+          "$ref": "#/$defs/Legacy"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "seconds": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Seconds"
+        },
+        "type": {
+          "const": "watch",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "animation"
+      ],
+      "title": "WatchStep",
+      "type": "object"
+    },
+    "WorkedExample": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/Rich"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "tag": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "body"
+      ],
+      "title": "WorkedExample",
+      "type": "object"
+    },
+    "WorkedStep": {
+      "additionalProperties": false,
+      "properties": {
+        "examples": {
+          "items": {
+            "$ref": "#/$defs/WorkedExample"
+          },
+          "minItems": 1,
+          "title": "Examples",
+          "type": "array"
+        },
+        "heading": {
+          "$ref": "#/$defs/Heading"
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "type": {
+          "const": "worked",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "id",
+        "heading",
+        "examples"
+      ],
+      "title": "WorkedStep",
+      "type": "object"
+    }
+  },
+  "$id": "https://www.stemcloud.site/schemas/lesson-2.json",
+  "additionalProperties": false,
+  "properties": {
+    "grade": {
+      "maximum": 13,
+      "minimum": 6,
+      "title": "Grade",
+      "type": "integer"
+    },
+    "id": {
+      "description": "Global, stable: \"<subject>.g<grade>.<slug>\".",
+      "maxLength": 120,
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "legacy": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LegacyRef"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "number": {
+      "description": "Chapter or unit number as printed in the textbook, e.g. \"5\" or \"2\".",
+      "title": "ChapterNumber",
+      "type": "string"
+    },
+    "schema": {
+      "const": 2,
+      "title": "Schema",
+      "type": "integer"
+    },
+    "slug": {
+      "pattern": "^[a-z0-9-]+$",
+      "title": "Slug",
+      "type": "string"
+    },
+    "steps": {
+      "items": {
+        "discriminator": {
+          "mapping": {
+            "activities": "#/$defs/ActivitiesStep",
+            "basics": "#/$defs/BasicsStep",
+            "exercises": "#/$defs/ExercisesStep",
+            "game": "#/$defs/InteractiveStep",
+            "lab": "#/$defs/InteractiveStep",
+            "notes": "#/$defs/NotesStep",
+            "quiz": "#/$defs/QuizStep",
+            "recap": "#/$defs/RecapStep",
+            "sort": "#/$defs/InteractiveStep",
+            "story": "#/$defs/StoryStep",
+            "summary": "#/$defs/SummaryStep",
+            "watch": "#/$defs/WatchStep",
+            "worked": "#/$defs/WorkedStep"
+          },
+          "propertyName": "type"
+        },
+        "oneOf": [
+          {
+            "$ref": "#/$defs/StoryStep"
+          },
+          {
+            "$ref": "#/$defs/BasicsStep"
+          },
+          {
+            "$ref": "#/$defs/WatchStep"
+          },
+          {
+            "$ref": "#/$defs/NotesStep"
+          },
+          {
+            "$ref": "#/$defs/ActivitiesStep"
+          },
+          {
+            "$ref": "#/$defs/InteractiveStep"
+          },
+          {
+            "$ref": "#/$defs/QuizStep"
+          },
+          {
+            "$ref": "#/$defs/WorkedStep"
+          },
+          {
+            "$ref": "#/$defs/ExercisesStep"
+          },
+          {
+            "$ref": "#/$defs/RecapStep"
+          },
+          {
+            "$ref": "#/$defs/SummaryStep"
+          }
+        ]
+      },
+      "minItems": 1,
+      "title": "Steps",
+      "type": "array"
+    },
+    "subject": {
+      "enum": [
+        "physics",
+        "chemistry",
+        "biology",
+        "mathematics",
+        "science"
+      ],
+      "title": "Subject",
+      "type": "string"
+    },
+    "title": {
+      "$ref": "#/$defs/Text"
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "slug",
+    "subject",
+    "grade",
+    "number",
+    "title",
+    "steps"
+  ],
+  "title": "Lesson",
+  "type": "object"
+}

@@ -1,0 +1,1220 @@
+{
+ "schema": 2,
+ "id": "physics.g11.heat",
+ "slug": "heat",
+ "subject": "physics",
+ "grade": 11,
+ "number": "9",
+ "title": {
+  "en": "Heat",
+  "ta": "வெப்பம்",
+  "si": "තාපය"
+ },
+ "legacy": {
+  "id": "g11c09",
+  "file": "g11-chapter-09-heat.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why does a hot cup of tea cool down?",
+    "ta": "சூடான தேநீர் ஏன் ஆறுது?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, my tea is going cold and the cup is getting warm. Where does the heat go?",
+      "ta": "சிட்டு, என் தேநீர் ஆறுது, கப் சூடாகுது. வெப்பம் எங்க போகுது?"
+     },
+     "scene": "🍵"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Heat always flows from the hotter thing to the colder thing, Raja, until both have the same temperature.",
+      "ta": "வெப்பம் எப்பவும் சூடான பொருள்ல இருந்து குளிர்ந்த பொருளுக்கு போகும் ராஜா, ரெண்டும் ஒரே வெப்பநிலை வர்ற வரை."
+     },
+     "scene": "🌡️"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Why is the sea cooler than the beach sand at noon?",
+      "ta": "மத்தியானம் மணல விட கடல் ஏன் குளிர்ச்சியா இருக்கு?"
+     },
+     "scene": "🌊"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Water has a big specific heat capacity: 4200 J kg⁻¹ K⁻¹. It needs lots of heat for each degree. Q = m c θ.",
+      "ta": "நீருக்கு பெரிய தன்வெப்பக் கொள்ளளவு: 4200 J kg⁻¹ K⁻¹. ஒவ்வொரு பாகைக்கும் நிறைய வெப்பம் வேணும். Q = m c θ."
+     },
+     "scene": "🏖️"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And when ice melts, the thermometer stays at 0 °C even though I keep heating. Is it broken?",
+      "ta": "ஐஸ் உருகறப்ப நான் சூடாக்கிட்டே இருந்தாலும் வெப்பமானி 0 °C-லயே நிக்குது. உடைஞ்சிடுச்சா?"
+     },
+     "scene": "🧊"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "No! The heat goes into breaking the bonds. That hidden heat is latent heat.",
+      "ta": "இல்ல! வெப்பம் பிணைப்புகள உடைக்க செலவாகுது. அந்த மறைஞ்சிருக்கற வெப்பம்தான் மறை வெப்பம்."
+     },
+     "scene": "💧"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And the Sun's heat reaches us through empty space!",
+      "ta": "சூரிய வெப்பம் வெற்று வெளி வழியாவும் வருதே!"
+     },
+     "scene": "☀️"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "That is radiation. Conduction, convection and radiation are the three ways heat travels. Let us explore.",
+      "ta": "அது கதிர்வீச்சு. கடத்தல், காவுகை, கதிர்வீச்சு: வெப்பம் பயணிக்கும் மூணு வழிகள். ஆராயலாம்."
+     },
+     "scene": "🔥"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Heat, here we come!",
+      "ta": "வெப்பமே, வந்துட்டோம்!"
+     },
+     "scene": "🚀"
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: temperature, heat and how it moves →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: வெப்பநிலை, வெப்பம், அது எப்படி நகருது →"
+   },
+   "quest": {
+    "en": "In this module: understand temperature scales, mechanisms of heat transfer (conduction, convection, radiation), and calculate heat capacity using Q = mcΔθ.",
+    "ta": "இந்த பாடத்தில்: வெப்பநிலை அளவீடுகள், வெப்பப் பெயர்ச்சி முறைகள் (கடத்தல், மேற்காவுகை, கதிர்வீச்சு), மற்றும் Q = mcΔθ சூத்திரத்தை கற்போம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: hot and cold",
+     "ta": "முதல்ல இருந்து: சூடும் குளிரும்"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "Everything is made of tiny particles",
+      "ta": "எல்லாமே சின்ன துகள்களால ஆனது"
+     },
+     "body": {
+      "en": "<p>They are always jiggling. Hot things have particles that jiggle faster.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 • •   🔥 ••••</div>",
+      "ta": "<p>அவை எப்பவும் ஆடிட்டே இருக்கும். சூடான பொருள்ல துகள்கள் வேகமா ஆடும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 • •   🔥 ••••</div>"
+     },
+     "icon": "⚛️"
+    },
+    {
+     "title": {
+      "en": "A thermometer tells how hot",
+      "ta": "தெர்மாமீட்டர் எவ்வளவு சூடுன்னு சொல்லும்"
+     },
+     "body": {
+      "en": "<p>We measure how hot or cold something is with a thermometer, in degrees Celsius.</p><div aria-hidden=\"true\" class=\"bs-pic\">🌡️ 30 °C</div>",
+      "ta": "<p>ஒரு பொருள் எவ்வளவு சூடு அல்லது குளிர்னு தெர்மாமீட்டரால செல்சியஸ் டிகிரில அளப்போம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🌡️ 30 °C</div>"
+     },
+     "icon": "🌡️"
+    },
+    {
+     "title": {
+      "en": "Heat moves from hot to cold",
+      "ta": "வெப்பம் சூட்டுல இருந்து குளிருக்கு போகும்"
+     },
+     "body": {
+      "en": "<p>A metal spoon in hot tea warms up. The tea slowly cools. Heat always flows this way.</p><div aria-hidden=\"true\" class=\"bs-pic\">☕🔥 ➜ 🥄</div>",
+      "ta": "<p>சூடான டீல இருக்கற உலோக கரண்டி சூடாகும். டீ மெதுவா ஆறும். வெப்பம் எப்பவும் இப்படிதான் போகும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">☕🔥 ➜ 🥄</div>"
+     },
+     "icon": "🥄"
+    },
+    {
+     "title": {
+      "en": "Heat can change what something is",
+      "ta": "வெப்பம் நிலைய மாத்தும்"
+     },
+     "body": {
+      "en": "<p>Ice melts into water, and water boils into steam, when it gets enough heat.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 ➜ 💧 ➜ ☁️</div>",
+      "ta": "<p>போதுமான வெப்பம் கிடைச்சா ஐஸ் தண்ணியாகும், தண்ணி நீராவியாகும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧊 ➜ 💧 ➜ ☁️</div>"
+     },
+     "icon": "🧊"
+    }
+   ],
+   "hook": {
+    "en": "A hot cup of tea slowly gets cold. Where did the heat go?",
+    "ta": "சூடான டீ மெதுவா ஆறுது. வெப்பம் எங்க போச்சு?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Put a metal spoon and a wooden spoon in warm water. Which one gets warm first?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>உலோக கரண்டியையும் மர கரண்டியையும் வெதுவெதுப்பான தண்ணில வை. எது முதல்ல சூடாகுது?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's measure heat and find the rules.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப வெப்பத்த அளந்து விதிகள கண்டுபிடிக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: heat, latent heat and the three ways heat travels",
+     "ta": "பாரு: வெப்பம், மறை வெப்பம், வெப்பம் பயணிக்கும் மூணு வழிகள்"
+    },
+    "sub": {
+     "en": "Hot iron in water, a heating curve with plateaus, then conduction, convection and radiation",
+     "ta": "தண்ணில சூடான இரும்பு, சமதளங்களோட வெப்பமூட்டல் வளைவு, அப்புறம் கடத்தல், காவுகை, கதிர்வீச்சு"
+    }
+   },
+   "animation": {
+    "file": "g11-chapter-09-heat.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "9.1 Temperature and its scales",
+      "ta": "9.1 வெப்பநிலையும் அதன் அளவுத்திட்டங்களும்"
+     },
+     "body": {
+      "en": "<p><b>Temperature</b> tells how hot or cold an object is. It is a measure of the <b>mean kinetic energy</b> of the particles of the object. Touch is not accurate and gives no number, so we use a <b>thermometer</b> (the first was made by Galileo Galilei around 1600 A.D.).</p>\n<ul><li><b>Glass-mercury thermometer:</b> mercury in a bulb expands up a narrow tube; the scale is read from the length of the column. Mercury expands uniformly, conducts heat well and is liquid from −39 °C to 357 °C, but it is toxic, so these are used less now.</li><li><b>Glass-alcohol thermometer:</b> ethanol (coloured) instead of mercury. It melts at −115 °C, so it suits very low temperatures, and expands a lot and uniformly.</li><li><b>Digital thermometer:</b> uses an electrical property, such as resistance, that depends on temperature.</li></ul>\n<div class=\"fig\"><svg aria-label=\"The Celsius, Fahrenheit and Kelvin scales\" role=\"img\" viewbox=\"0 0 520 228\"><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"81\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"85\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"24\">Celsius (°C)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"54\">100</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"134\">0</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"192\">−273.15</text><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"251\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"255\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"24\">Fahrenheit (°F)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"54\">212</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"134\">32</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"192\">−459.67</text><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"421\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"425\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"430\" y=\"24\">Kelvin (K)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"54\">373.15</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"134\">273.15</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"192\">0</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"215\">boiling point of water, melting point of ice, absolute zero</text></svg><div class=\"figcap\">Figures 9.6 and 9.7: the three temperature scales.</div></div>\n<ul><li><b>Celsius scale:</b> the melting point of pure ice is 0 °C and the boiling point of water is 100 °C (at one atmosphere); these <b>fixed points</b> are divided into 100 divisions.</li><li><b>Fahrenheit scale:</b> ice melts at 32 °F and water boils at 212 °F: 180 divisions.</li><li><b>Kelvin scale:</b> Lord Kelvin showed there is a lowest possible temperature, <b>absolute zero</b> (−273.15 °C), when the particles have no kinetic energy. 0 K is absolute zero, and 1 K is the same size as 1 °C. The Kelvin is the <b>international unit</b> of temperature.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">Converting Celsius and Kelvin</div><div class=\"fmath\"><b>T (K) = θ (°C) + 273</b>    θ (°C) = T (K) − 273</div><div class=\"fnote\">one Kelvin degree equals one Celsius degree; only the zeros differ</div></div>\n<div class=\"worked\"><div class=\"wt\">Example</div><div class=\"work\">(i) Write 50 °C in kelvin. (ii) Write 373 K in °C.</div><div class=\"work\">(i) 50 + 273 = <b>323 K</b></div><div class=\"work\">(ii) 373 − 273 = <b>100 °C</b></div></div>",
+      "ta": "<p><b>வெப்பநிலை</b> ஒரு பொருள் எவ்வளவு சூடு அல்லது குளிர்ச்சின்னு சொல்லும். அது பொருளோட துணிக்கைகளோட <b>சராசரி இயக்க சக்தியோட</b> அளவு. தொட்டுப் பாக்கறது துல்லியம் இல்ல, எண்ணும் தராது, அதனால <b>வெப்பமானி</b> பயன்படுத்தறோம் (முதல் வெப்பமானிய கலிலியோ கலிலி சுமார் 1600-ல உருவாக்கினாரு).</p>\n<ul><li><b>கண்ணாடி இரச வெப்பமானி:</b> குமிழுல இருக்கற இரசம் விரிஞ்சு ஒடுங்கிய குழாய்ல மேல போகும்; நிரலோட நீளத்துல இருந்து அளவை வாசிக்கலாம். இரசம் சீரா விரியும், வெப்பத்த நல்லா கடத்தும், −39 °C முதல் 357 °C வரை திரவம், ஆனா நச்சு, அதனால இப்போ குறைவா பயன்படுது.</li><li><b>கண்ணாடி அற்கஹோல் வெப்பமானி:</b> இரசத்துக்கு பதிலா (நிறமூட்டிய) எத்தனோல். அது −115 °C-ல உருகும், அதனால ரொம்ப குறைந்த வெப்பநிலைக்கு ஏத்தது; அதிகமா, சீரா விரியும்.</li><li><b>இலக்க வெப்பமானி:</b> வெப்பநிலையப் பொறுத்த மின் இயல்பு (தடை போல) பயன்படுத்தும்.</li></ul>\n<div class=\"fig\"><svg aria-label=\"The Celsius, Fahrenheit and Kelvin scales\" role=\"img\" viewbox=\"0 0 520 228\"><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"81\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"85\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"90\" y=\"24\">Celsius (°C)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"54\">100</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"134\">0</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"74\" x2=\"81\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"112\" y=\"192\">−273.15</text><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"251\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"255\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"24\">Fahrenheit (°F)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"54\">212</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"134\">32</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"244\" x2=\"251\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"282\" y=\"192\">−459.67</text><rect height=\"160\" rx=\"9\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"18\" x=\"421\" y=\"40\"></rect><rect height=\"100\" rx=\"5\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"10\" x=\"425\" y=\"96\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"430\" y=\"24\">Kelvin (K)</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"50\" y2=\"50\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"54\">373.15</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"130\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"134\">273.15</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"414\" x2=\"421\" y1=\"188\" y2=\"188\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"452\" y=\"192\">0</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"215\">boiling point of water, melting point of ice, absolute zero</text></svg><div class=\"figcap\">உரு 9.6, 9.7: மூணு வெப்பநிலை அளவுத்திட்டங்கள்.</div></div>\n<ul><li><b>செல்சியஸ் அளவு:</b> தூய பனிக்கட்டியோட உருகுநிலை 0 °C, நீரோட கொதிநிலை 100 °C (ஒரு வளிமண்டல அமுக்கத்துல); இந்த <b>நிலைத்த புள்ளிகள்</b> 100 பிரிவுகளா பிரிக்கப்படுது.</li><li><b>பாரன்ஹீட் அளவு:</b> பனி 32 °F-ல உருகும், நீர் 212 °F-ல கொதிக்கும்: 180 பிரிவுகள்.</li><li><b>கெல்வின் அளவு:</b> லார்ட் கெல்வின் மிகக் குறைந்த வெப்பநிலை உண்டுன்னு காட்டினாரு, அது <b>தனிச்சுழி</b> (−273.15 °C), துணிக்கைகளுக்கு இயக்க சக்தியே இல்லாத நிலை. 0 K தனிச்சுழி, 1 K = 1 °C அளவு. கெல்வின் வெப்பநிலையோட <b>பன்னாட்டு அலகு</b>.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">செல்சியஸ், கெல்வின் மாத்தறது</div><div class=\"fmath\"><b>T (K) = θ (°C) + 273</b>    θ (°C) = T (K) − 273</div><div class=\"fnote\">ஒரு கெல்வின் ஒரு செல்சியஸ் பாகைக்கு சமம்; பூச்சியங்கள் மட்டும்தான் வேறு</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம்</div><div class=\"work\">(i) 50 °C-ஐ கெல்வின்ல எழுது. (ii) 373 K-ஐ °C-ல எழுது.</div><div class=\"work\">(i) 50 + 273 = <b>323 K</b></div><div class=\"work\">(ii) 373 − 273 = <b>100 °C</b></div></div>"
+     },
+     "section": "9.1"
+    },
+    {
+     "title": {
+      "en": "9.2 Heat and heat transfer",
+      "ta": "9.2 வெப்பமும் வெப்பப் பரிமாற்றமும்"
+     },
+     "body": {
+      "en": "<p>Light a burner under one of two identical vessels of water: its temperature rises, the other stays the same. Something has moved from the flame to the water: <b>heat</b>. Heat is the energy transferred from one object to another because of a temperature difference. It is a form of energy (Count Rumford showed this in 1798; James Joule investigated it from 1840), measured in <b>joules (J)</b>; the <b>calorie</b> is also used.</p>\n<div class=\"fig\"><svg aria-label=\"Heat flows from the hotter iron to the colder water until thermal equilibrium\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"80\" opacity=\"0.55\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--danger);stroke:var(--text)\" width=\"130\" x=\"30\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"95\" y=\"85\">hot iron</text><rect height=\"80\" opacity=\"0.35\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"160\" x=\"330\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"410\" y=\"85\">cold water</text><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--danger)\" x1=\"165\" x2=\"312.0\" y1=\"80\" y2=\"80.0\"></line><polygon points=\"325,80 312.0,72.5 312.0,87.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"245\" y=\"66\">heat flows</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"95\" y=\"150\">higher temperature</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"410\" y=\"150\">lower temperature</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"190\">it stops when both reach the same temperature: thermal equilibrium</text></svg><div class=\"figcap\">Figure 9.9 (Activity 9.1): hot iron in cold water.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🌡️ Which way does heat flow?</div><ul><li>Heat flows from the body at the <b>higher</b> temperature to the body at the <b>lower</b> temperature, like water flowing downhill.</li><li>The cooler body warms up; the hotter body cools down.</li><li>When both reach the same temperature, there is no more flow: <b>thermal equilibrium</b>.</li></ul></div>",
+      "ta": "<p>ஒரே மாதிரி ரெண்டு நீர்ப் பாத்திரங்கள்ல ஒண்ணுக்கு கீழ பர்னர ஏத்து: அதோட வெப்பநிலை ஏறும், மத்தது அப்படியே இருக்கும். தீயில இருந்து நீருக்கு ஏதோ போயிருக்கு: <b>வெப்பம்</b>. வெப்பநிலை வித்தியாசத்தால ஒரு பொருளுல இருந்து இன்னொண்ணுக்கு கடத்தப்படும் சக்தி வெப்பம். அது ஒரு சக்தி வடிவம் (கவுண்ட் ரம்ஃபோர்ட் 1798-ல காட்டினாரு; ஜேம்ஸ் ஜூல் 1840-ல இருந்து ஆராய்ஞ்சாரு), <b>ஜூல் (J)</b>-ல அளக்கப்படும்; <b>கலோரி</b>யும் பயன்படுது.</p>\n<div class=\"fig\"><svg aria-label=\"Heat flows from the hotter iron to the colder water until thermal equilibrium\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"80\" opacity=\"0.55\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--danger);stroke:var(--text)\" width=\"130\" x=\"30\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"95\" y=\"85\">hot iron</text><rect height=\"80\" opacity=\"0.35\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"160\" x=\"330\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"410\" y=\"85\">cold water</text><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--danger)\" x1=\"165\" x2=\"312.0\" y1=\"80\" y2=\"80.0\"></line><polygon points=\"325,80 312.0,72.5 312.0,87.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"245\" y=\"66\">heat flows</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"95\" y=\"150\">higher temperature</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"410\" y=\"150\">lower temperature</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"190\">it stops when both reach the same temperature: thermal equilibrium</text></svg><div class=\"figcap\">உரு 9.9 (செயற்பாடு 9.1): குளிர்ந்த நீருக்குள்ள சூடான இரும்பு.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🌡️ வெப்பம் எந்த பக்கம் ஓடும்?</div><ul><li>வெப்பம் <b>அதிக</b> வெப்பநிலை உள்ள பொருள்ல இருந்து <b>குறைந்த</b> வெப்பநிலை உள்ள பொருளுக்கு ஓடும், நீர் கீழ ஓடறது மாதிரி.</li><li>குளிர்ந்த பொருள் சூடாகும்; சூடான பொருள் ஆறும்.</li><li>ரெண்டும் ஒரே வெப்பநிலைய அடைஞ்சதும் ஓட்டம் நிக்கும்: <b>வெப்பச் சமநிலை</b>.</li></ul></div>"
+     },
+     "section": "9.2"
+    },
+    {
+     "title": {
+      "en": "9.3 Heat capacity and specific heat capacity",
+      "ta": "9.3 வெப்பக் கொள்ளளவும் தன்வெப்பக் கொள்ளளவும்"
+     },
+     "body": {
+      "en": "<p>Heat equal amounts to water and to coconut oil, or to one beaker of water and a beaker with double the water (Activity 9.2): the temperature rises differ. Different objects need different amounts of heat for the same rise.</p>\n<ul><li><b>Heat capacity (C):</b> the heat needed to raise the temperature of an object by one unit. Unit: J K<sup>-1</sup> (or J °C<sup>-1</sup>). It depends on the substance and the mass.</li><li><b>Specific heat capacity (c):</b> the heat needed to raise the temperature of <b>1 kg</b> of a substance by one degree. Unit: J kg<sup>-1</sup> K<sup>-1</sup>. It depends only on the substance.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">Heat capacity</div><div class=\"fmath\"><b>C = m c</b></div><div class=\"fnote\">C in J K<sup>-1</sup>, m in kg, c in J kg<sup>-1</sup> K<sup>-1</sup></div></div>\n<div class=\"formula-box\"><div class=\"flabel\">Quantity of heat</div><div class=\"fmath\"><b>Q = m c θ</b></div><div class=\"fnote\">Q in J, m in kg, c in J kg<sup>-1</sup> K<sup>-1</sup>, θ = temperature change in K or °C (same size)</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Substance</th><th>c (J kg⁻¹ K⁻¹)</th><th>Substance</th><th>c (J kg⁻¹ K⁻¹)</th></tr><tr><td>Water</td><td class=\"num\">4200</td><td>Concrete</td><td class=\"num\">3000</td></tr><tr><td>Ice</td><td class=\"num\">2100</td><td>Iron</td><td class=\"num\">460</td></tr><tr><td>Kerosene oil</td><td class=\"num\">2140</td><td>Asbestos</td><td class=\"num\">820</td></tr><tr><td>Coconut oil</td><td class=\"num\">2200</td><td>Copper</td><td class=\"num\">400</td></tr><tr><td>Alcohol</td><td class=\"num\">2500</td><td>Zinc</td><td class=\"num\">380</td></tr><tr><td>Rubber</td><td class=\"num\">1700</td><td>Mercury</td><td class=\"num\">140</td></tr><tr><td>Aluminium</td><td class=\"num\">900</td><td>Lead</td><td class=\"num\">130</td></tr></table></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">How much heat raises the temperature of 2 kg of water by 10 K? (c = 4200)</div><div class=\"work\">Q = m c θ = 2 × 4200 × 10 = <b>84 000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">A 500 g aluminium block is heated from 30 °C to 50 °C. Find the heat needed. (c = 900)</div><div class=\"work\">Q = 0.5 × 900 × (50 − 30) = <b>9000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 3</div><div class=\"work\">20 000 J is given to 2 kg of copper at 30 °C. Find the final temperature. (c = 400)</div><div class=\"work\">20 000 = 2 × 400 × θ, so θ = 25 °C. Final temperature = 30 + 25 = <b>55 °C</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 4</div><div class=\"work\">A copper vessel with 1 kg of water weighs 1.6 kg in total. The water is at 25 °C. Find the heat needed to bring it to the boil. (c water 4200, c copper 400)</div><div class=\"work\">Vessel mass = 1.6 − 1.0 = 0.6 kg. Vessel: 0.6 × 400 × 75 = 18 000 J. Water: 1 × 4200 × 75 = 315 000 J. Total = <b>333 000 J</b></div></div>",
+      "ta": "<p>சம அளவு வெப்பத்த நீருக்கும் தேங்காய் எண்ணெய்க்கும், அல்லது ஒரு பீக்கர் நீருக்கும் ரெண்டு மடங்கு நீருக்கும் கொடு (செயற்பாடு 9.2): வெப்பநிலை உயர்வு வேறுபடும். வெவ்வேறு பொருட்களுக்கு ஒரே உயர்வுக்கு வெவ்வேறு அளவு வெப்பம் தேவை.</p>\n<ul><li><b>வெப்பக் கொள்ளளவு (C):</b> ஒரு பொருளோட வெப்பநிலைய ஒரு அலகால உயர்த்த தேவையான வெப்பம். அலகு: J K<sup>-1</sup> (அல்லது J °C<sup>-1</sup>). அது பொருளையும் திணிவையும் பொறுத்தது.</li><li><b>தன்வெப்பக் கொள்ளளவு (c):</b> ஒரு பொருளோட <b>1 kg</b>-ஐ ஒரு பாகை உயர்த்த தேவையான வெப்பம். அலகு: J kg<sup>-1</sup> K<sup>-1</sup>. அது பொருளை மட்டும்தான் பொறுத்தது.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">வெப்பக் கொள்ளளவு</div><div class=\"fmath\"><b>C = m c</b></div><div class=\"fnote\">C: J K<sup>-1</sup>, m: kg, c: J kg<sup>-1</sup> K<sup>-1</sup></div></div>\n<div class=\"formula-box\"><div class=\"flabel\">வெப்ப அளவு</div><div class=\"fmath\"><b>Q = m c θ</b></div><div class=\"fnote\">Q: J, m: kg, c: J kg<sup>-1</sup> K<sup>-1</sup>, θ = வெப்பநிலை மாற்றம் K அல்லது °C (ஒரே அளவு)</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>பொருள்</th><th>c (J kg⁻¹ K⁻¹)</th><th>பொருள்</th><th>c (J kg⁻¹ K⁻¹)</th></tr><tr><td>நீர்</td><td class=\"num\">4200</td><td>காங்கிரீட்</td><td class=\"num\">3000</td></tr><tr><td>பனிக்கட்டி</td><td class=\"num\">2100</td><td>இரும்பு</td><td class=\"num\">460</td></tr><tr><td>மண்ணெண்ணெய்</td><td class=\"num\">2140</td><td>அஸ்பெஸ்டாஸ்</td><td class=\"num\">820</td></tr><tr><td>தேங்காய் எண்ணெய்</td><td class=\"num\">2200</td><td>செம்பு</td><td class=\"num\">400</td></tr><tr><td>அற்கஹோல்</td><td class=\"num\">2500</td><td>துத்தநாகம்</td><td class=\"num\">380</td></tr><tr><td>இறப்பர்</td><td class=\"num\">1700</td><td>இரசம்</td><td class=\"num\">140</td></tr><tr><td>அலுமினியம்</td><td class=\"num\">900</td><td>ஈயம்</td><td class=\"num\">130</td></tr></table></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">2 kg நீரோட வெப்பநிலைய 10 K உயர்த்த எவ்வளவு வெப்பம்? (c = 4200)</div><div class=\"work\">Q = m c θ = 2 × 4200 × 10 = <b>84 000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">500 g அலுமினியத் துண்டு 30 °C-ல இருந்து 50 °C வரை சூடாக்கப்படுது. தேவையான வெப்பம்? (c = 900)</div><div class=\"work\">Q = 0.5 × 900 × (50 − 30) = <b>9000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 3</div><div class=\"work\">30 °C-ல இருக்கற 2 kg செம்புக்கு 20 000 J கொடுக்கப்படுது. இறுதி வெப்பநிலை? (c = 400)</div><div class=\"work\">20 000 = 2 × 400 × θ, so θ = 25 °C. Final temperature = 30 + 25 = <b>55 °C</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 4</div><div class=\"work\">1 kg நீர் உள்ள செம்புப் பாத்திரத்தோட மொத்த நிறை 1.6 kg. நீர் 25 °C. கொதிக்க வைக்க தேவையான வெப்பம்? (நீரோட c 4200, செம்போட c 400)</div><div class=\"work\">Vessel mass = 1.6 − 1.0 = 0.6 kg. Vessel: 0.6 × 400 × 75 = 18 000 J. Water: 1 × 4200 × 75 = 315 000 J. Total = <b>333 000 J</b></div></div>"
+     },
+     "section": "9.3"
+    },
+    {
+     "title": {
+      "en": "9.4 Change of state and latent heat",
+      "ta": "9.4 நிலை மாற்றமும் மறை வெப்பமும்"
+     },
+     "body": {
+      "en": "<p>A substance can be a solid, liquid or gas, and heating or cooling changes its state: melting, freezing (solidifying), boiling and condensing are <b>changes of state</b>. The <b>melting point</b> is the temperature at which a heated solid becomes liquid; the <b>freezing point</b> of a substance has the same value. The <b>boiling point</b> is where a liquid forms bubbles inside and becomes vapour. All of them depend on the pressure (usually quoted at 1 atmosphere).</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Substance</th><th>Melting point (°C)</th><th>Substance</th><th>Boiling point (°C)</th></tr><tr><td>Ice</td><td class=\"num\">0</td><td>Water</td><td class=\"num\">100</td></tr><tr><td>Paraffin</td><td class=\"num\">54</td><td>Ethanol</td><td class=\"num\">78</td></tr><tr><td>Naphthalene</td><td class=\"num\">80</td><td>Mercury</td><td class=\"num\">357</td></tr><tr><td>Sulphur</td><td class=\"num\">114</td><td>Zinc</td><td class=\"num\">907</td></tr><tr><td>Lead</td><td class=\"num\">330</td><td>Copper</td><td class=\"num\">2310</td></tr><tr><td>Zinc</td><td class=\"num\">410</td><td>Iron</td><td class=\"num\">2750</td></tr><tr><td>Aluminium</td><td class=\"num\">660</td><td>Oxygen</td><td class=\"num\">−183</td></tr><tr><td>Gold</td><td class=\"num\">1063</td><td class=\"num\"></td><td class=\"num\"></td></tr><tr><td>Iron</td><td class=\"num\">1535</td><td class=\"num\"></td><td class=\"num\"></td></tr><tr><td>Tungsten</td><td class=\"num\">5385</td><td class=\"num\"></td><td class=\"num\"></td></tr></table></div>\n<div class=\"fig\"><svg aria-label=\"Heating curve of ice: the temperature stays constant while the state changes\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">heat supplied</text><path d=\"M60 170 L120 130 L200 130 L300 66 L380 66 L470 30\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"52\" y=\"133\">0</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"52\" y=\"69\">100</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"56\" x2=\"64\" y1=\"130\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"56\" x2=\"64\" y1=\"66\" y2=\"66\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"160\" y=\"118\">melting</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"160\" y=\"150\">latent heat of fusion</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"340\" y=\"54\">boiling</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"340\" y=\"86\">latent heat of vaporization</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"88\" y=\"160\">ice</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"250\" y=\"112\">water</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"56\">steam</text></svg><div class=\"figcap\">Figures 9.12 and 9.13: the temperature stays constant while the state changes.</div></div>\n<p>Heat ice that is just below 0 °C: its temperature rises to 0 °C. Then, while it melts, the temperature <b>does not rise</b> even though heat is still supplied. The heat is spent working against the attractive forces between the molecules. This hidden heat, absorbed with no temperature change during a change of state, is the <b>latent heat</b>. Once all the ice has become water at 0 °C, extra heat raises the temperature again. When the water reaches 100 °C the same happens again as it turns to steam.</p>\n<ul><li><b>Latent heat of fusion:</b> the heat absorbed when ice at 0 °C becomes water at 0 °C. The same amount is released when water freezes.</li><li><b>Specific latent heat of fusion</b> of ice: <b>3.36 × 10<sup>5</sup> J kg<sup>-1</sup></b>: the heat to change 1 kg of ice at 0 °C into water at 0 °C.</li><li><b>Specific latent heat of vaporization</b> of water: <b>2.26 × 10<sup>6</sup> J kg<sup>-1</sup></b>: the heat to change 1 kg of water at 100 °C into steam at 100 °C. Steam gives the same heat out when it condenses.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">Heat for a change of state</div><div class=\"fmath\"><b>Q = m L</b>   (L = specific latent heat, J kg<sup>-1</sup>)</div><div class=\"fnote\">the temperature stays constant while Q is absorbed</div></div>\n<p><b>Vaporization</b> is turning into gas. It happens by <b>boiling</b> (at the boiling point, with bubbles inside the liquid) or by <b>evaporation</b> (slowly, only at the surface, at any temperature below the boiling point). Both absorb latent heat. Evaporation dries clothes, and sweating cools us: the large latent heat of water takes a lot of heat from the skin.</p>",
+      "ta": "<p>ஒரு பொருள் திண்மம், திரவம், வாயுவா இருக்கலாம்; சூடாக்கறது அல்லது குளிர்விக்கறது நிலைய மாத்தும்: உருகல், உறைதல், கொதித்தல், ஒடுங்கல் <b>நிலை மாற்றங்கள்</b>. சூடாக்கப்படும் திண்மம் திரவமாகும் வெப்பநிலை <b>உருகுநிலை</b>; ஒரு பொருளோட <b>உறைநிலை</b> அதே பெறுமானம். திரவத்துக்குள்ளயே குமிழிகள் உண்டாகி ஆவியாகும் வெப்பநிலை <b>கொதிநிலை</b>. எல்லாம் அமுக்கத்த பொறுத்தது (பொதுவா 1 வளிமண்டலத்துல குறிப்பிடப்படும்).</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>பொருள்</th><th>உருகுநிலை (°C)</th><th>பொருள்</th><th>கொதிநிலை (°C)</th></tr><tr><td>பனிக்கட்டி</td><td class=\"num\">0</td><td>நீர்</td><td class=\"num\">100</td></tr><tr><td>பரபின்</td><td class=\"num\">54</td><td>எத்தனோல்</td><td class=\"num\">78</td></tr><tr><td>நாப்தலீன்</td><td class=\"num\">80</td><td>இரசம்</td><td class=\"num\">357</td></tr><tr><td>கந்தகம்</td><td class=\"num\">114</td><td>துத்தநாகம்</td><td class=\"num\">907</td></tr><tr><td>ஈயம்</td><td class=\"num\">330</td><td>செம்பு</td><td class=\"num\">2310</td></tr><tr><td>துத்தநாகம்</td><td class=\"num\">410</td><td>இரும்பு</td><td class=\"num\">2750</td></tr><tr><td>அலுமினியம்</td><td class=\"num\">660</td><td>ஒட்சிசன்</td><td class=\"num\">−183</td></tr><tr><td>தங்கம்</td><td class=\"num\">1063</td><td class=\"num\"></td><td class=\"num\"></td></tr><tr><td>இரும்பு</td><td class=\"num\">1535</td><td class=\"num\"></td><td class=\"num\"></td></tr><tr><td>தங்ஸ்டன்</td><td class=\"num\">5385</td><td class=\"num\"></td><td class=\"num\"></td></tr></table></div>\n<div class=\"fig\"><svg aria-label=\"Heating curve of ice: the temperature stays constant while the state changes\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">heat supplied</text><path d=\"M60 170 L120 130 L200 130 L300 66 L380 66 L470 30\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"52\" y=\"133\">0</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"52\" y=\"69\">100</text><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"56\" x2=\"64\" y1=\"130\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--text)\" x1=\"56\" x2=\"64\" y1=\"66\" y2=\"66\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"160\" y=\"118\">melting</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"160\" y=\"150\">latent heat of fusion</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"340\" y=\"54\">boiling</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"340\" y=\"86\">latent heat of vaporization</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"88\" y=\"160\">ice</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"250\" y=\"112\">water</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"56\">steam</text></svg><div class=\"figcap\">உரு 9.12, 9.13: நிலை மாறும்போது வெப்பநிலை மாறாம இருக்கும்.</div></div>\n<p>0 °C-க்கு கொஞ்சம் கீழ இருக்கற பனிக்கட்டிய சூடாக்கு: வெப்பநிலை 0 °C வரை உயரும். அப்புறம் உருகும்போது வெப்பம் கொடுத்துட்டே இருந்தாலும் வெப்பநிலை <b>ஏறாது</b>. வெப்பம் மூலக்கூறுகளுக்கு இடையிலான கவர்ச்சி விசைகளுக்கு எதிரா வேலை செய்ய செலவாகுது. நிலை மாறும்போது வெப்பநிலை மாறாம உறிஞ்சப்படும் இந்த மறைஞ்ச வெப்பம்தான் <b>மறை வெப்பம்</b>. எல்லா பனியும் 0 °C நீரா ஆன பிறகு கூடுதல் வெப்பம் வெப்பநிலைய திரும்ப உயர்த்தும். நீர் 100 °C-ல ஆவியாகும்போது அதே நடக்கும்.</p>\n<ul><li><b>உருகலின் மறை வெப்பம்:</b> 0 °C பனி 0 °C நீராகும்போது உறிஞ்சப்படும் வெப்பம். நீர் உறையும்போது அதே அளவு வெளிவிடப்படும்.</li><li>பனியோட <b>உருகலின் தன்மறை வெப்பம்</b>: <b>3.36 × 10<sup>5</sup> J kg<sup>-1</sup></b>: 0 °C-ல 1 kg பனிய 0 °C நீரா மாத்த தேவையான வெப்பம்.</li><li>நீரோட <b>ஆவியாதலின் தன்மறை வெப்பம்</b>: <b>2.26 × 10<sup>6</sup> J kg<sup>-1</sup></b>: 100 °C-ல 1 kg நீர 100 °C ஆவியா மாத்த தேவையான வெப்பம். ஆவி ஒடுங்கும்போது அதே வெப்பத்த வெளிவிடும்.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">நிலை மாற்றத்துக்கு வெப்பம்</div><div class=\"fmath\"><b>Q = m L</b>   (L = specific latent heat, J kg<sup>-1</sup>)</div><div class=\"fnote\">Q உறிஞ்சப்படும் போது வெப்பநிலை மாறாது</div></div>\n<p><b>ஆவியாதல் (vaporization)</b> என்பது வாயுவா மாறறது. அது <b>கொதித்தல்</b> (கொதிநிலைல, திரவத்துக்குள்ள குமிழிகளோட) அல்லது <b>ஆவியாதல் (evaporation)</b> (மெதுவா, மேற்பரப்புல மட்டும், கொதிநிலைக்கு கீழ எந்த வெப்பநிலைலயும்) மூலமா நடக்கும். ரெண்டுலயும் மறை வெப்பம் உறிஞ்சப்படும். ஆவியாதல் துணிகள உலர்த்தும், வியர்வை நம்மள குளிர்விக்கும்: நீரோட பெரிய மறை வெப்பம் தோல்ல இருந்து நிறைய வெப்பத்த எடுக்கும்.</p>"
+     },
+     "section": "9.4"
+    },
+    {
+     "title": {
+      "en": "9.5 Thermal expansion",
+      "ta": "9.5 வெப்பவிரிவு"
+     },
+     "body": {
+      "en": "<p>The increase in length, area or volume of a substance when it is heated is <b>thermal expansion</b>; the decrease on cooling is <b>contraction</b>. Two stuck glasses can be parted by pouring cold water in the inner one and standing the outer one in warm water. An iron ball that just passes through a ring will no longer pass when hot (Activity 9.3).</p>\n<ul><li><b>Solids:</b> iron rims are fitted to wooden cart wheels while hot; railway rails have small gaps; telephone and power cables hang loosely between poles; a tight metal bottle lid opens after being warmed (metal expands more than glass).</li><li><b>Liquids:</b> the liquid in mercury and alcohol thermometers expands up the tube (in Activity 9.4 the level first drops as the glass expands, then rises as the liquid expands more).</li><li><b>Gases:</b> warm the air in a bottle and the balloon on its mouth inflates; it shrinks again when the air cools (Activity 9.5).</li></ul>\n<div class=\"fig\"><svg aria-label=\"A bimetallic strip bends when it is heated\" role=\"img\" viewbox=\"0 0 520 165\"><rect height=\"8\" rx=\"1\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"130\" x=\"30\" y=\"70\"></rect><rect height=\"8\" rx=\"1\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"130\" x=\"30\" y=\"78\"></rect><rect height=\"36\" rx=\"2\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"24\" x=\"10\" y=\"60\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"95\" y=\"108\">cold: straight</text><rect height=\"36\" rx=\"2\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"24\" x=\"210\" y=\"60\"></rect><path d=\"M234 74 Q330 74 380 120\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" style=\"fill:none;stroke:#e0b13a\"></path><path d=\"M234 82 Q326 84 372 128\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" style=\"fill:none;stroke:#8b97a6\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"310\" y=\"148\">hot: bends, the metal that expands more is outside</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"300\" y=\"52\">metal that expands more</text></svg><div class=\"figcap\">Figure 9.20: a bimetallic strip.</div></div>\n<p>A <b>bimetallic strip</b> has two metals that expand by different amounts riveted together. When heated it bends, so it can switch off an electric heater when the temperature gets too high. It is used in electric irons and rice cookers to control the temperature.</p>",
+      "ta": "<p>ஒரு பொருளை சூடாக்கும்போது அதோட நீளம், பரப்பளவு அல்லது கனவளவு கூடறது <b>வெப்பவிரிவு</b>; குளிரும்போது குறையறது <b>சுருக்கம்</b>. ஒட்டிக்கிட்ட ரெண்டு கண்ணாடிகள உள் கண்ணாடில குளிர்ந்த நீர் ஊத்தி, வெளிக் கண்ணாடிய வெந்நீர்ல வெச்சு பிரிக்கலாம். ஒரு வளையத்துக்குள்ள போற இரும்புப் பந்து சூடானா போகாது (செயற்பாடு 9.3).</p>\n<ul><li><b>திண்மங்கள்:</b> மாட்டு வண்டி சக்கரத்துக்கு இரும்பு வளையம் சூடா போடப்படும்; தண்டவாளங்களுக்கு இடையில சின்ன இடைவெளி; தொலைபேசி, மின் கம்பிகள் தூண்களுக்கு இடையில தளர்வா; இறுக்கமான உலோக மூடிய சூடாக்கினா திறக்கலாம் (உலோகம் கண்ணாடிய விட அதிகம் விரியும்).</li><li><b>திரவங்கள்:</b> இரச, அற்கஹோல் வெப்பமானிகள்ல திரவம் விரிஞ்சு குழாய்ல ஏறும் (செயற்பாடு 9.4-ல கண்ணாடி விரியும்போது மட்டம் முதல்ல இறங்கும், அப்புறம் திரவம் அதிகம் விரியறதால ஏறும்).</li><li><b>வாயுக்கள்:</b> போத்தல்ல இருக்கற காத்த சூடாக்கினா வாய்ல இருக்கற பலூன் ஊதும்; காத்து குளிர்ந்ததும் திரும்ப சுருங்கும் (செயற்பாடு 9.5).</li></ul>\n<div class=\"fig\"><svg aria-label=\"A bimetallic strip bends when it is heated\" role=\"img\" viewbox=\"0 0 520 165\"><rect height=\"8\" rx=\"1\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"130\" x=\"30\" y=\"70\"></rect><rect height=\"8\" rx=\"1\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"130\" x=\"30\" y=\"78\"></rect><rect height=\"36\" rx=\"2\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"24\" x=\"10\" y=\"60\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"95\" y=\"108\">cold: straight</text><rect height=\"36\" rx=\"2\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\" width=\"24\" x=\"210\" y=\"60\"></rect><path d=\"M234 74 Q330 74 380 120\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" style=\"fill:none;stroke:#e0b13a\"></path><path d=\"M234 82 Q326 84 372 128\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"8\" style=\"fill:none;stroke:#8b97a6\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"310\" y=\"148\">hot: bends, the metal that expands more is outside</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"300\" y=\"52\">metal that expands more</text></svg><div class=\"figcap\">உரு 9.20: ஈருலோகப் பட்டி.</div></div>\n<p><b>ஈருலோகப் பட்டில</b> வேறுவேறு அளவுல விரியும் ரெண்டு உலோகங்கள் ஒண்ணா இணைக்கப்பட்டிருக்கு. சூடாக்கினா வளையும், அதனால வெப்பநிலை ரொம்ப கூடினா மின் வெப்பமூட்டிய அணைக்கலாம். மின் இஸ்திரி பெட்டி, சோறு சமைக்கற மின்கலம்ல வெப்பநிலைய கட்டுப்படுத்த பயன்படுது.</p>"
+     },
+     "section": "9.5"
+    },
+    {
+     "title": {
+      "en": "9.6 Conduction, convection and radiation",
+      "ta": "9.6 கடத்தல், காவுகை, கதிர்வீச்சு"
+     },
+     "body": {
+      "en": "<p>Heat is really the random kinetic energy of particles (vibration, rotation, translation). <b>Heat transfer</b> is the spreading of that energy from a hotter region to a colder region, in three ways.</p>\n<div class=\"fig\"><svg aria-label=\"Conduction along a metal rod heated at one end\" role=\"img\" viewbox=\"0 0 520 200\"><rect height=\"50\" opacity=\"0.5\" rx=\"8\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"70\"></rect><circle cx=\"70\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"112\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"154\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"196\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"238\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"280\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"322\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"364\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"406\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"448\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"100\" cy=\"80\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"180\" cy=\"108\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"270\" cy=\"82\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"360\" cy=\"106\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"440\" cy=\"84\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"140\" cy=\"100\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"320\" cy=\"90\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><rect height=\"70\" opacity=\"0.8\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"28\" x=\"8\" y=\"60\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"22\" y=\"150\">flame</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"22\" y=\"54\">A</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"480\" y=\"62\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"80\" x2=\"427.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"440,160 427.0,153.6 427.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"184\">vibrating atoms and free electrons pass the energy along from A to B</text></svg><div class=\"figcap\">Figure 9.27: conduction along a metal rod.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Conduction</div><div class=\"ltext\">Heat passes along a material from particle to particle by collisions, with no bulk movement of the material. It is the main way heat moves in <b>solids</b>. In metals the <b>free electrons</b> carry energy too, so metals are good conductors.</div></div>\n<ul><li><b>Good conductors:</b> silver, copper, iron, mercury, aluminium. <b>Insulators:</b> wood, plastic, asbestos, clay, wool, air. Water is a very poor conductor.</li><li>A robin fluffs its feathers to trap air, a poor conductor, so it stays warm. Seals have a thick layer of fat (blubber) to stop heat loss.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Convection currents in a beaker of water heated from below\" role=\"img\" viewbox=\"0 0 520 222\"><path d=\"M150 30 V170 H370 V30\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"98\" opacity=\"0.3\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"216\" x=\"152\" y=\"70\"></rect><rect height=\"14\" rx=\"4\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"90\" x=\"215\" y=\"168\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"260\" x2=\"260.0\" y1=\"150\" y2=\"89.0\"></line><polygon points=\"260,76 253.2,89.0 266.8,89.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"275\" x2=\"327.0\" y1=\"74\" y2=\"74.0\"></line><polygon points=\"340,74 327.0,67.9 327.0,80.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"342\" x2=\"342.0\" y1=\"78\" y2=\"137.0\"></line><polygon points=\"342,150 348.1,137.0 335.9,137.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"338\" x2=\"298.0\" y1=\"152\" y2=\"152.0\"></line><polygon points=\"285,152 298.0,158.1 298.0,145.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"245\" x2=\"193.0\" y1=\"74\" y2=\"74.0\"></line><polygon points=\"180,74 193.0,80.1 193.0,67.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"178\" x2=\"178.0\" y1=\"78\" y2=\"137.0\"></line><polygon points=\"178,150 184.1,137.0 171.9,137.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"182\" x2=\"222.0\" y1=\"152\" y2=\"152.0\"></line><polygon points=\"235,152 222.0,145.9 222.0,158.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"206\">warm water rises (less dense), cooler water sinks</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"400\" y=\"100\">heater below</text></svg><div class=\"figcap\">Figure 9.28: convection currents.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Convection</div><div class=\"ltext\">When a liquid or gas is heated it expands, becomes less dense and rises; cooler fluid sinks to take its place. This circulation, <b>convection currents</b>, carries heat upwards from the heated part. It only happens in fluids (liquids and gases).</div></div>\n<p>An immersion heater must be fully immersed or placed low: if only the top is heated, the water near the top gets hot and the bottom stays cool, because convection currents do not flow downwards.</p>\n<div class=\"fig\"><svg aria-label=\"Sea breeze by day and land breeze by night\" role=\"img\" viewbox=\"0 0 540 195\"><g transform=\"translate(10,0)\"><rect height=\"40\" opacity=\"0.45\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"130\" x=\"0\" y=\"100\"></rect><rect height=\"40\" opacity=\"0.6\" rx=\"0\" stroke-width=\"0\" style=\"fill:#b9824a;stroke:none\" width=\"120\" x=\"130\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"65\" y=\"125\">sea</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"125\">land</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"125\" y=\"20\">Sea breeze (day)</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"190\" x2=\"190.0\" y1=\"95\" y2=\"53.0\"></line><polygon points=\"190,40 183.6,53.0 196.4,53.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"60\" x2=\"157.0\" y1=\"85\" y2=\"85.0\"></line><polygon points=\"170,85 157.0,78.5 157.0,91.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"210\" x2=\"83.0\" y1=\"38\" y2=\"38.0\"></line><polygon points=\"70,38 83.0,44.5 83.0,31.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"165\">land hotter: air rises</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"182\">cool air moves to fill the gap</text></g><g transform=\"translate(280,0)\"><rect height=\"40\" opacity=\"0.45\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"130\" x=\"0\" y=\"100\"></rect><rect height=\"40\" opacity=\"0.6\" rx=\"0\" stroke-width=\"0\" style=\"fill:#b9824a;stroke:none\" width=\"120\" x=\"130\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"65\" y=\"125\">sea</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"125\">land</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"125\" y=\"20\">Land breeze (night)</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"65\" x2=\"65.0\" y1=\"95\" y2=\"53.0\"></line><polygon points=\"65,40 58.5,53.0 71.5,53.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"190\" x2=\"93.0\" y1=\"85\" y2=\"85.0\"></line><polygon points=\"80,85 93.0,91.5 93.0,78.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"55\" x2=\"182.0\" y1=\"38\" y2=\"38.0\"></line><polygon points=\"195,38 182.0,31.6 182.0,44.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"165\">sea warmer: air rises</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"182\">cool air moves to fill the gap</text></g></svg><div class=\"figcap\">Figures 9.31 and 9.32: sea breeze and land breeze.</div></div>\n<ul><li><b>Sea breeze (day):</b> land has a smaller specific heat capacity than sea water, so it heats up faster; the air above it warms, rises and lowers the pressure, and cool air flows from the sea to the land.</li><li><b>Land breeze (night):</b> the land cools quickly and the sea slowly, so the air over the sea is warmer and rises; wind blows from the land to the sea.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Thermal radiation from the Sun and how surfaces absorb or reflect it\" role=\"img\" viewbox=\"0 0 520 228\"><circle cx=\"60\" cy=\"60\" r=\"30\" stroke-width=\"0\" style=\"fill:#e0b13a;stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"60\" y=\"110\">Sun</text><path d=\"M110 51.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M180 57.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M250 63.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M320 69.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><circle cx=\"470\" cy=\"60\" r=\"22\" stroke-width=\"2\" style=\"fill:#4fb7ee;stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"470\" y=\"100\">Earth</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"130\">150 million km of vacuum: no medium needed</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"150\">thermal radiation (electromagnetic waves)</text><rect height=\"28\" opacity=\"0.9\" rx=\"4\" stroke-width=\"0\" style=\"fill:var(--text);stroke:none\" width=\"70\" x=\"80\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"115\" y=\"215\">black: absorbs most</text><rect height=\"28\" rx=\"4\" stroke-width=\"2\" style=\"fill:#ffffff;stroke:var(--text)\" width=\"70\" x=\"190\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"225\" y=\"215\">white: reflects most</text><rect height=\"28\" rx=\"4\" stroke-width=\"2\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"70\" x=\"300\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"335\" y=\"215\">shiny: reflects most</text></svg><div class=\"figcap\">Figure 9.33: thermal radiation, and surfaces that absorb or reflect it.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Thermal radiation</div><div class=\"ltext\">The flow of heat as electromagnetic waves from a warm body, with <b>no material medium</b> needed. This is how the Sun's heat reaches the Earth through about 150 million kilometres of vacuum. Every hot body radiates.</div></div>\n<ul><li>Dark and rough surfaces <b>absorb</b> radiation well. Shiny, polished and white surfaces <b>reflect</b> it well.</li><li>Cricketers wear white in the sun; people in cold climates wear dark colours indoors; black cooking pots absorb heat fast; the inside of a thermos flask is silvered to reflect heat back or keep it out.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Cross-section of a thermos flask\" role=\"img\" viewbox=\"0 0 520 225\"><path d=\"M200 40 V190 Q200 206 216 206 H304 Q320 206 320 190 V40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><path d=\"M214 52 V186 Q214 196 224 196 H296 Q306 196 306 186 V52\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text-faint)\"></path><rect height=\"96\" opacity=\"0.55\" rx=\"6\" stroke-width=\"0\" style=\"fill:#e0b13a;stroke:none\" width=\"72\" x=\"224\" y=\"96\"></rect><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"100\" x=\"210\" y=\"24\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"110\">silvered walls</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent)\" x1=\"104\" x2=\"208\" y1=\"106\" y2=\"106\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"140\">vacuum gap</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent)\" x1=\"104\" x2=\"210\" y1=\"136\" y2=\"136\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"60\">stopper: stops convection</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"420\" y=\"150\">hot liquid</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"80\">and evaporation</text></svg><div class=\"figcap\">Figure 9.34: a thermos flask uses a vacuum, silvered walls and a stopper.</div></div>",
+      "ta": "<p>வெப்பம் உண்மையில துணிக்கைகளோட கண்டபடி இயக்க சக்தி (அதிர்வு, சுழற்சி, இடப்பெயர்வு). <b>வெப்பப் பரிமாற்றம்</b> என்பது அந்த சக்தி சூடான பகுதில இருந்து குளிர்ந்த பகுதிக்கு மூணு வழிகள்ல பரவறது.</p>\n<div class=\"fig\"><svg aria-label=\"Conduction along a metal rod heated at one end\" role=\"img\" viewbox=\"0 0 520 200\"><rect height=\"50\" opacity=\"0.5\" rx=\"8\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"70\"></rect><circle cx=\"70\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"112\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"154\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"196\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"238\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"280\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"322\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"364\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"406\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"448\" cy=\"95\" r=\"12\" stroke-width=\"1.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"100\" cy=\"80\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"180\" cy=\"108\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"270\" cy=\"82\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"360\" cy=\"106\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"440\" cy=\"84\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"140\" cy=\"100\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"320\" cy=\"90\" r=\"3.5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><rect height=\"70\" opacity=\"0.8\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"28\" x=\"8\" y=\"60\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"22\" y=\"150\">flame</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"22\" y=\"54\">A</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"480\" y=\"62\">B</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"80\" x2=\"427.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"440,160 427.0,153.6 427.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"184\">vibrating atoms and free electrons pass the energy along from A to B</text></svg><div class=\"figcap\">உரு 9.27: உலோகக் கம்பி வழியா கடத்தல்.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">கடத்தல்</div><div class=\"ltext\">பொருள் முழுக்க நகராம, துணிக்கைகள் மோதறதால வெப்பம் துணிக்கைல இருந்து துணிக்கைக்கு பரவும். <b>திண்மங்கள்ல</b> வெப்பம் நகரும் முக்கிய வழி இது. உலோகங்கள்ல <b>சுயாதீன இலத்திரன்களும்</b> சக்திய கடத்தும், அதனால உலோகங்கள் நல்ல கடத்திகள்.</div></div>\n<ul><li><b>நல்ல கடத்திகள்:</b> வெள்ளி, செம்பு, இரும்பு, இரசம், அலுமினியம். <b>காவலிகள்:</b> மரம், பிளாஸ்டிக், அஸ்பெஸ்டாஸ், களிமண், கம்பளி, காற்று. நீர் ரொம்ப மோசமான கடத்தி.</li><li>ராபின் குருவி இறகுகள ஊதி காத்த அடைச்சு வெப்பம் இழப்பத தடுக்கும்; காற்று மோசமான கடத்தி. சீல்களுக்கு தடிமனான கொழுப்பு அடுக்கு வெப்ப இழப்பத் தடுக்கும்.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Convection currents in a beaker of water heated from below\" role=\"img\" viewbox=\"0 0 520 222\"><path d=\"M150 30 V170 H370 V30\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"98\" opacity=\"0.3\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"216\" x=\"152\" y=\"70\"></rect><rect height=\"14\" rx=\"4\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"90\" x=\"215\" y=\"168\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"260\" x2=\"260.0\" y1=\"150\" y2=\"89.0\"></line><polygon points=\"260,76 253.2,89.0 266.8,89.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"275\" x2=\"327.0\" y1=\"74\" y2=\"74.0\"></line><polygon points=\"340,74 327.0,67.9 327.0,80.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"342\" x2=\"342.0\" y1=\"78\" y2=\"137.0\"></line><polygon points=\"342,150 348.1,137.0 335.9,137.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"338\" x2=\"298.0\" y1=\"152\" y2=\"152.0\"></line><polygon points=\"285,152 298.0,158.1 298.0,145.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"245\" x2=\"193.0\" y1=\"74\" y2=\"74.0\"></line><polygon points=\"180,74 193.0,80.1 193.0,67.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"178\" x2=\"178.0\" y1=\"78\" y2=\"137.0\"></line><polygon points=\"178,150 184.1,137.0 171.9,137.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"182\" x2=\"222.0\" y1=\"152\" y2=\"152.0\"></line><polygon points=\"235,152 222.0,145.9 222.0,158.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"206\">warm water rises (less dense), cooler water sinks</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"400\" y=\"100\">heater below</text></svg><div class=\"figcap\">உரு 9.28: காவுகை நீரோட்டங்கள்.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">காவுகை</div><div class=\"ltext\">திரவம் அல்லது வாயுவ சூடாக்கினா விரிஞ்சு அடர்த்தி குறைஞ்சு மேல போகும்; குளிர்ந்தது கீழ இறங்கி இடத்த நிரப்பும். இந்த சுழற்சி, <b>காவுகை நீரோட்டங்கள்</b>, சூடாக்கும் இடத்துல இருந்து வெப்பத்த மேல கொண்டு போகும். இது பாய்மங்கள்ல (திரவம், வாயு) மட்டும்தான் நடக்கும்.</div></div>\n<p>மின் வெப்பமூட்டி முழுசா மூழ்கியிருக்கணும் அல்லது கீழ இருக்கணும்: மேல மட்டும் சூடாக்கினா மேல நீர் சூடாகும், கீழ குளிரா இருக்கும், ஏன்னா காவுகை நீரோட்டங்கள் கீழ நோக்கி போகாது.</p>\n<div class=\"fig\"><svg aria-label=\"Sea breeze by day and land breeze by night\" role=\"img\" viewbox=\"0 0 540 195\"><g transform=\"translate(10,0)\"><rect height=\"40\" opacity=\"0.45\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"130\" x=\"0\" y=\"100\"></rect><rect height=\"40\" opacity=\"0.6\" rx=\"0\" stroke-width=\"0\" style=\"fill:#b9824a;stroke:none\" width=\"120\" x=\"130\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"65\" y=\"125\">sea</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"125\">land</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"125\" y=\"20\">Sea breeze (day)</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"190\" x2=\"190.0\" y1=\"95\" y2=\"53.0\"></line><polygon points=\"190,40 183.6,53.0 196.4,53.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"60\" x2=\"157.0\" y1=\"85\" y2=\"85.0\"></line><polygon points=\"170,85 157.0,78.5 157.0,91.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"210\" x2=\"83.0\" y1=\"38\" y2=\"38.0\"></line><polygon points=\"70,38 83.0,44.5 83.0,31.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"165\">land hotter: air rises</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"182\">cool air moves to fill the gap</text></g><g transform=\"translate(280,0)\"><rect height=\"40\" opacity=\"0.45\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"130\" x=\"0\" y=\"100\"></rect><rect height=\"40\" opacity=\"0.6\" rx=\"0\" stroke-width=\"0\" style=\"fill:#b9824a;stroke:none\" width=\"120\" x=\"130\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"65\" y=\"125\">sea</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"125\">land</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"125\" y=\"20\">Land breeze (night)</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"65\" x2=\"65.0\" y1=\"95\" y2=\"53.0\"></line><polygon points=\"65,40 58.5,53.0 71.5,53.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"190\" x2=\"93.0\" y1=\"85\" y2=\"85.0\"></line><polygon points=\"80,85 93.0,91.5 93.0,78.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--accent)\" x1=\"55\" x2=\"182.0\" y1=\"38\" y2=\"38.0\"></line><polygon points=\"195,38 182.0,31.6 182.0,44.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"165\">sea warmer: air rises</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"125\" y=\"182\">cool air moves to fill the gap</text></g></svg><div class=\"figcap\">உரு 9.31, 9.32: கடற்காற்று, நிலக்காற்று.</div></div>\n<ul><li><b>கடற்காற்று (பகல்):</b> நிலத்தோட தன்வெப்பக் கொள்ளளவு கடல் நீரவிட குறைவு, அதனால அது வேகமா சூடாகும்; அது மேல இருக்கற காற்று சூடாகி உயர்ந்து அமுக்கத்த குறைக்கும், கடல்ல இருந்து நிலத்துக்கு குளிர்ந்த காற்று வீசும்.</li><li><b>நிலக்காற்று (இரவு):</b> நிலம் வேகமா குளிரும், கடல் மெதுவா குளிரும், அதனால கடல் மேல காற்று சூடா இருந்து உயரும்; நிலத்துல இருந்து கடலுக்கு காற்று வீசும்.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Thermal radiation from the Sun and how surfaces absorb or reflect it\" role=\"img\" viewbox=\"0 0 520 228\"><circle cx=\"60\" cy=\"60\" r=\"30\" stroke-width=\"0\" style=\"fill:#e0b13a;stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"60\" y=\"110\">Sun</text><path d=\"M110 51.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M180 57.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M250 63.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M320 69.0 q 10 -14 20 0 q 10 14 20 0 q 10 -14 20 0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--danger)\"></path><circle cx=\"470\" cy=\"60\" r=\"22\" stroke-width=\"2\" style=\"fill:#4fb7ee;stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"470\" y=\"100\">Earth</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"130\">150 million km of vacuum: no medium needed</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"150\">thermal radiation (electromagnetic waves)</text><rect height=\"28\" opacity=\"0.9\" rx=\"4\" stroke-width=\"0\" style=\"fill:var(--text);stroke:none\" width=\"70\" x=\"80\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"115\" y=\"215\">black: absorbs most</text><rect height=\"28\" rx=\"4\" stroke-width=\"2\" style=\"fill:#ffffff;stroke:var(--text)\" width=\"70\" x=\"190\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"225\" y=\"215\">white: reflects most</text><rect height=\"28\" rx=\"4\" stroke-width=\"2\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"70\" x=\"300\" y=\"170\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"335\" y=\"215\">shiny: reflects most</text></svg><div class=\"figcap\">உரு 9.33: வெப்பக் கதிர்வீச்சு, அதை உறிஞ்சும்/தெறிக்கும் மேற்பரப்புகள்.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">வெப்பக் கதிர்வீச்சு</div><div class=\"ltext\">சூடான பொருள்ல இருந்து மின்காந்த அலைகளா வெப்பம் பரவறது, <b>பருப்பொருள் ஊடகம் தேவையில்ல</b>. சுமார் 15 கோடி கிலோமீற்றர் வெற்றிடம் வழியா சூரிய வெப்பம் பூமிக்கு வர்றது இப்படித்தான். ஒவ்வொரு சூடான பொருளும் கதிர்வீசும்.</div></div>\n<ul><li>கருமையான, சொரசொரப்பான மேற்பரப்புகள் கதிர்வீச்ச நல்லா <b>உறிஞ்சும்</b>. பளபளப்பான, மெருகேற்றின, வெள்ளை மேற்பரப்புகள் <b>தெறிக்க வைக்கும்</b>.</li><li>கிரிக்கெட் வீரர்கள் வெயில்ல வெள்ளை; குளிர் பிரதேச மக்கள் வீட்டுக்குள்ள கருநிறம்; கருப்பு பாத்திரங்கள் வெப்பத்த வேகமா உறிஞ்சும்; தெர்மோஸ் குடுவையோட உட்புறம் வெள்ளி பூசப்பட்டு வெப்பத்த திருப்பி அனுப்பும் அல்லது உள்ள வராம தடுக்கும்.</li></ul>\n<div class=\"fig\"><svg aria-label=\"Cross-section of a thermos flask\" role=\"img\" viewbox=\"0 0 520 225\"><path d=\"M200 40 V190 Q200 206 216 206 H304 Q320 206 320 190 V40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--text)\"></path><path d=\"M214 52 V186 Q214 196 224 196 H296 Q306 196 306 186 V52\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text-faint)\"></path><rect height=\"96\" opacity=\"0.55\" rx=\"6\" stroke-width=\"0\" style=\"fill:#e0b13a;stroke:none\" width=\"72\" x=\"224\" y=\"96\"></rect><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"100\" x=\"210\" y=\"24\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"110\">silvered walls</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent)\" x1=\"104\" x2=\"208\" y1=\"106\" y2=\"106\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"140\">vacuum gap</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent)\" x1=\"104\" x2=\"210\" y1=\"136\" y2=\"136\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"60\">stopper: stops convection</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"420\" y=\"150\">hot liquid</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"420\" y=\"80\">and evaporation</text></svg><div class=\"figcap\">உரு 9.34: தெர்மோஸ் குடுவை வெற்றிடம், வெள்ளி பூசிய சுவர்கள், மூடி பயன்படுத்தும்.</div></div>"
+     },
+     "section": "9.6"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you saw heat expanding and transferring. Below are the thermal formulas (Q = mcΔθ), Joules per kilogram units, and calorimetry calculations!",
+    "ta": "பகுதி 1-ல் வெப்பப் பரிமாற்றத்தை பார்த்தோம். அதற்கான வெப்பச் சமன்பாடுகள் (Q = mcΔθ), அலகுகள், கணித்தல்களை இங்கே கற்போம்!"
+   }
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook activities: try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"9.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 9.1: hot iron in cold water</h3>\n<span class=\"act-ref\">Textbook · Activity 9.1, p.7</span>\n<p>See heat flow from a hot body to a cold one.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A heated block of iron, a vessel of water at room temperature</li><li>A thermometer, a stirrer</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Put the hot iron into the cold water.</li><li>Stir and watch the temperature of the water.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The water temperature rises and the iron cools until both are at the same temperature (thermal equilibrium). Heat flows from the higher to the lower temperature.</div></details>\n<button class=\"btn act-done\" data-act=\"9.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"9.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 9.2: different substances, different heating</h3>\n<span class=\"act-ref\">Textbook · Activity 9.2, p.8–9</span>\n<p>Compare the temperature rise of water and coconut oil for the same heat.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Three identical beakers, water, coconut oil</li><li>Three thermometers, three burners, a stirrer</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Put a measured volume of water in one beaker, the same volume of coconut oil in another and twice that volume of water in the third.</li><li>Measure the temperatures. Heat all three for the same time (about 5 minutes).</li><li>Measure the temperatures again.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The rises are different although the same heat was supplied: different substances and different masses have different heat capacities.</div></details>\n<button class=\"btn act-done\" data-act=\"9.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"9.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 9.3: expansion of a solid</h3>\n<span class=\"act-ref\">Textbook · Activity 9.3, p.17</span>\n<p>Show that a metal ball expands when heated.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>An iron ball with a holder, a ring through which it just passes</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Check that the cold ball passes through the ring.</li><li>Heat the ball and try again.</li><li>Cool it and try once more.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The hot ball does not pass through; after cooling it passes again. Solids expand when heated and contract when cooled.</div></details>\n<button class=\"btn act-done\" data-act=\"9.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"9.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 9.4: expansion of a liquid</h3>\n<span class=\"act-ref\">Textbook · Activity 9.4, p.20</span>\n<p>Watch coloured water expand in a tube.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A test tube with coloured water, a rubber stopper with a glass tube</li><li>A vessel of warm water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fill the test tube, fit the stopper and mark the level A in the glass tube.</li><li>Stand the test tube in warm water for a few minutes and watch the level.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The level first drops slightly to B (the glass expands) and then rises to C (the liquid expands more than the glass). Liquids expand when heated.</div></details>\n<button class=\"btn act-done\" data-act=\"9.4\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"9.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 9.5: expansion of a gas</h3>\n<span class=\"act-ref\">Textbook · Activity 9.5, p.21</span>\n<p>Show that air expands when warmed.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>An empty plastic bottle, a balloon, ice and water, hot water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Stand the bottle in ice water for a short while, then fit the balloon on its mouth.</li><li>Stand the bottle in a vessel and pour in hot water.</li><li>Take it out and watch the balloon.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The balloon inflates as the air in the bottle warms and expands, and shrinks when the air cools. Gases expand when heated.</div></details>\n<button class=\"btn act-done\" data-act=\"9.5\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"9.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 9.1: குளிர்ந்த நீருக்குள்ள சூடான இரும்பு</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 9.1, ப.7</span>\n<p>சூடான பொருள்ல இருந்து குளிர்ந்த பொருளுக்கு வெப்பம் ஓடறத பாரு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>சூடாக்கிய இரும்புத் துண்டு, அறை வெப்பநிலை நீர் உள்ள பாத்திரம்</li><li>ஒரு வெப்பமானி, ஒரு கலக்கி</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>சூடான இரும்ப குளிர்ந்த நீருக்குள்ள போடு.</li><li>கலக்கி நீரோட வெப்பநிலைய கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">நீரோட வெப்பநிலை ஏறுது, இரும்பு குளிருது, ரெண்டும் ஒரே வெப்பநிலை அடையும் வரை (வெப்பச் சமநிலை). வெப்பம் அதிக வெப்பநிலைல இருந்து குறைவுக்கு ஓடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"9.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"9.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 9.2: வேறு பொருட்கள், வேறு சூடாதல்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 9.2, ப.8–9</span>\n<p>ஒரே வெப்பத்துக்கு நீர், தேங்காய் எண்ணெயோட வெப்பநிலை உயர்வ ஒப்பிடு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரே மாதிரி மூணு பீக்கர்கள், நீர், தேங்காய் எண்ணெய்</li><li>மூணு வெப்பமானிகள், மூணு பர்னர்கள், ஒரு கலக்கி</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஒரு பீக்கர்ல அளவான நீர், இன்னொண்ணுல அதே கனவளவு தேங்காய் எண்ணெய், மூணாவதுல ரெண்டு மடங்கு நீர் ஊத்து.</li><li>வெப்பநிலைகள அளவிடு. மூணையும் ஒரே நேரம் (சுமார் 5 நிமிஷம்) சூடாக்கு.</li><li>மறுபடி வெப்பநிலைகள அளவிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ஒரே வெப்பம் கொடுத்தும் உயர்வுகள் வேறு: வெவ்வேறு பொருட்களுக்கும் திணிவுகளுக்கும் வெப்பக் கொள்ளளவு வேறு.</div></details>\n<button class=\"btn act-done\" data-act=\"9.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"9.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 9.3: திண்மத்தோட விரிவு</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 9.3, ப.17</span>\n<p>உலோகப் பந்து சூடாக்கினா விரியுதுன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>பிடியுள்ள இரும்புப் பந்து, அது அரிதா போகும் ஒரு வளையம்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குளிர்ந்த பந்து வளையத்துக்குள்ள போகுதான்னு பாரு.</li><li>பந்த சூடாக்கி மறுபடி முயற்சி பண்ணு.</li><li>குளிர வெச்சு இன்னொரு தடவ முயற்சி பண்ணு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">சூடான பந்து போகாது; குளிர்ந்த பிறகு திரும்ப போகும். திண்மங்கள் சூடானா விரியும், குளிர்ந்தா சுருங்கும்.</div></details>\n<button class=\"btn act-done\" data-act=\"9.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"9.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 9.4: திரவத்தோட விரிவு</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 9.4, ப.20</span>\n<p>குழாய்ல நிறமூட்டிய நீர் விரியறத பாரு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>நிறமூட்டிய நீர் உள்ள சோதனைக் குழாய், கண்ணாடிக் குழாய் உள்ள ரப்பர் மூடி</li><li>வெந்நீர் பாத்திரம்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>குழாய்ல நிரப்பி மூடிய பொருத்தி கண்ணாடிக் குழாய்ல மட்டம் A-ய குறி.</li><li>சில நிமிஷம் சோதனைக் குழாய வெந்நீர்ல வெச்சு மட்டத்த பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">மட்டம் முதல்ல B-க்கு கொஞ்சம் இறங்கும் (கண்ணாடி விரியும்), அப்புறம் C வரை ஏறும் (திரவம் கண்ணாடிய விட அதிகம் விரியும்). திரவங்கள் சூடானா விரியும்.</div></details>\n<button class=\"btn act-done\" data-act=\"9.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"9.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 9.5: வாயுவோட விரிவு</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 9.5, ப.21</span>\n<p>காற்று சூடானா விரியுதுன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு வெற்று பிளாஸ்டிக் போத்தல், ஒரு பலூன், பனிக்கட்டி, நீர், வெந்நீர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>போத்தல கொஞ்ச நேரம் பனி நீர்ல வெச்சு வாய்ல பலூன பொருத்து.</li><li>போத்தல வேற பாத்திரத்துல வெச்சு வெந்நீர் ஊத்து.</li><li>வெளிய எடுத்து பலூன பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">போத்தல்ல காற்று சூடாகி விரியறதால பலூன் ஊதும், காற்று குளிர்ந்ததும் சுருங்கும். வாயுக்கள் சூடானா விரியும்.</div></details>\n<button class=\"btn act-done\" data-act=\"9.5\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Heat Lab",
+     "ta": "வெப்ப லேப்"
+    },
+    "sub": {
+     "en": "Choose a substance, a mass and a temperature rise, and watch Q = m c θ",
+     "ta": "ஒரு பொருள், திணிவு, வெப்பநிலை உயர்வ தேர்ந்தெடுத்து Q = m c θ-ஐ பாரு"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-09-heat.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "challenge",
+   "kind": "challenge",
+   "heading": {
+    "title": {
+     "en": "🎮 Heat Challenge",
+     "ta": "🎮 வெப்ப சவால்"
+    },
+    "sub": {
+     "en": "Work out each answer in your head, then set the slider and check",
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-09-heat.html",
+    "hash": "challenge"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Check how much you understood before the deeper walkthroughs",
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "What is the international unit of temperature?",
+      "ta": "வெப்பநிலையோட பன்னாட்டு அலகு?"
+     },
+     "options": [
+      {
+       "en": "Degree Celsius",
+       "ta": "செல்சியஸ் பாகை"
+      },
+      {
+       "en": "Kelvin",
+       "ta": "கெல்வின்"
+      },
+      {
+       "en": "Degree Fahrenheit",
+       "ta": "பாரன்ஹீட் பாகை"
+      },
+      {
+       "en": "Joule",
+       "ta": "ஜூல்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "The kelvin (K) is the SI unit of temperature.",
+      "ta": "கெல்வின் (K) வெப்பநிலையோட SI அலகு."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "Convert 27 °C into kelvin.",
+      "ta": "27 °C-ஐ கெல்வினுக்கு மாத்து."
+     },
+     "options": [
+      {
+       "en": "246 K",
+       "ta": "246 K"
+      },
+      {
+       "en": "300 K",
+       "ta": "300 K"
+      },
+      {
+       "en": "27 K",
+       "ta": "27 K"
+      },
+      {
+       "en": "373 K",
+       "ta": "373 K"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "T = 27 + 273 = 300 K.",
+      "ta": "T = 27 + 273 = 300 K."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "Heat always flows from…",
+      "ta": "வெப்பம் எப்பவும் ஓடுறது…"
+     },
+     "options": [
+      {
+       "en": "a colder body to a hotter body",
+       "ta": "குளிர்ந்த பொருள்ல இருந்து சூடான பொருளுக்கு"
+      },
+      {
+       "en": "a hotter body to a colder body",
+       "ta": "சூடான பொருள்ல இருந்து குளிர்ந்த பொருளுக்கு"
+      },
+      {
+       "en": "a heavier body to a lighter one",
+       "ta": "கனமான பொருள்ல இருந்து லேசான பொருளுக்கு"
+      },
+      {
+       "en": "a large body to a small one",
+       "ta": "பெரிய பொருள்ல இருந்து சிறிய பொருளுக்கு"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Heat flows from higher to lower temperature.",
+      "ta": "வெப்பம் அதிக வெப்பநிலைல இருந்து குறைவுக்கு ஓடும்."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "How much heat raises 2 kg of water by 10 K? (c = 4200 J kg⁻¹ K⁻¹)",
+      "ta": "2 kg நீரை 10 K உயர்த்த எவ்வளவு வெப்பம்? (c = 4200 J kg⁻¹ K⁻¹)"
+     },
+     "options": [
+      {
+       "en": "8400 J",
+       "ta": "8400 J"
+      },
+      {
+       "en": "42 000 J",
+       "ta": "42 000 J"
+      },
+      {
+       "en": "84 000 J",
+       "ta": "84 000 J"
+      },
+      {
+       "en": "840 J",
+       "ta": "840 J"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Q = m c θ = 2 × 4200 × 10 = 84 000 J.",
+      "ta": "Q = m c θ = 2 × 4200 × 10 = 84 000 J."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "While ice at 0 °C is melting, the heat supplied…",
+      "ta": "0 °C பனி உருகும்போது கொடுக்கற வெப்பம்…"
+     },
+     "options": [
+      {
+       "en": "raises its temperature",
+       "ta": "அதோட வெப்பநிலைய உயர்த்தும்"
+      },
+      {
+       "en": "breaks the bonds between molecules; the temperature stays at 0 °C",
+       "ta": "மூலக்கூறு பிணைப்புகள உடைக்கும்; வெப்பநிலை 0 °C-ல நிக்கும்"
+      },
+      {
+       "en": "is lost to the air",
+       "ta": "காற்றுல இழக்கப்படும்"
+      },
+      {
+       "en": "makes the ice heavier",
+       "ta": "பனிய கனமாக்கும்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "This hidden heat is the latent heat.",
+      "ta": "இந்த மறைஞ்ச வெப்பம்தான் மறை வெப்பம்."
+     }
+    },
+    {
+     "id": "q6",
+     "prompt": {
+      "en": "Which method of heat transfer needs no material medium?",
+      "ta": "எந்த வெப்பப் பரிமாற்ற வழிக்கு பருப்பொருள் ஊடகம் வேணாம்?"
+     },
+     "options": [
+      {
+       "en": "Conduction",
+       "ta": "கடத்தல்"
+      },
+      {
+       "en": "Convection",
+       "ta": "காவுகை"
+      },
+      {
+       "en": "Radiation",
+       "ta": "கதிர்வீச்சு"
+      },
+      {
+       "en": "All of them",
+       "ta": "எல்லாம்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Radiation travels as electromagnetic waves, even through a vacuum.",
+      "ta": "கதிர்வீச்சு மின்காந்த அலைகளா வெற்றிடத்துலயும் போகும்."
+     }
+    },
+    {
+     "id": "q7",
+     "prompt": {
+      "en": "Why does warm water rise in a heated beaker?",
+      "ta": "சூடாக்கிய பீக்கர்ல சூடான நீர் ஏன் மேல போகுது?"
+     },
+     "options": [
+      {
+       "en": "It expands and becomes less dense",
+       "ta": "அது விரிஞ்சு அடர்த்தி குறையுது"
+      },
+      {
+       "en": "It becomes heavier",
+       "ta": "அது கனமாகுது"
+      },
+      {
+       "en": "It is attracted by the heater",
+       "ta": "வெப்பமூட்டி கவருது"
+      },
+      {
+       "en": "It evaporates completely",
+       "ta": "முழுசா ஆவியாகுது"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Less dense warm water floats up and cooler water sinks: convection.",
+      "ta": "அடர்த்தி குறைஞ்ச சூடான நீர் மேல போகும், குளிர்ந்தது இறங்கும்: காவுகை."
+     }
+    },
+    {
+     "id": "q8",
+     "prompt": {
+      "en": "Why is a sea breeze blowing during the day?",
+      "ta": "பகல்ல கடற்காற்று ஏன் வீசுது?"
+     },
+     "options": [
+      {
+       "en": "The land heats faster than the sea, so air over the land rises and cooler sea air flows in",
+       "ta": "நிலம் கடலவிட வேகமா சூடாகுது, நிலத்து காற்று உயர்ந்து குளிர்ந்த கடல் காற்று உள்ள வருது"
+      },
+      {
+       "en": "The sea is hotter than the land",
+       "ta": "கடல் நிலத்தவிட சூடு"
+      },
+      {
+       "en": "The Moon pulls the air",
+       "ta": "சந்திரன் காற்றை இழுக்குது"
+      },
+      {
+       "en": "Sand has a larger specific heat capacity",
+       "ta": "மணலுக்கு தன்வெப்பக் கொள்ளளவு அதிகம்"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Land has the smaller specific heat capacity, so it warms faster.",
+      "ta": "நிலத்துக்கு தன்வெப்பக் கொள்ளளவு குறைவு, அதனால வேகமா சூடாகும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Heat Sort",
+     "ta": "🧩 வெப்ப சார்ட்"
+    },
+    "sub": {
+     "en": "Two short rounds: match the terms, then sort the heat transfer examples",
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் வெப்பப் பரிமாற்ற உதாரணங்கள வரிசைப்படுத்து"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-09-heat.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Examples",
+     "ta": "படிப்படியா உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step solutions to the textbook examples",
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">Write 50 °C in kelvin, and 373 K in degrees Celsius.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>To go from Celsius to kelvin, add 273: 50 + 273.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>To go from kelvin to Celsius, subtract 273: 373 − 273.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>323 K</b> and <b>100 °C</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">50 °C-ஐ கெல்வின்லயும், 373 K-ஐ செல்சியஸ் பாகைலயும் எழுது.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>செல்சியஸ்ல இருந்து கெல்வினுக்கு 273 கூட்டு: 50 + 273.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கெல்வின்ல இருந்து செல்சியஸுக்கு 273 கழி: 373 − 273.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>323 K</b>, <b>100 °C</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.9, p.5",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 9, ப.5"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">Find the heat needed to raise 2 kg of water by 10 K. (c of water = 4200 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Q = m c θ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 2 × 4200 × 10.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>84 000 J</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">2 kg நீரை 10 K உயர்த்த தேவையான வெப்பத்த காணு. (நீரோட c = 4200 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Q = m c θ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 2 × 4200 × 10.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>84 000 J</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.9, p.11",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 9, ப.11"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A 500 g aluminium block is heated from 30 °C to 50 °C. Find the heat needed. (c = 900 J kg⁻¹ °C⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Change the mass to kg: 500 g = 0.5 kg. The temperature change is 50 − 30 = 20 °C.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 0.5 × 900 × 20.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>9000 J</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">500 g அலுமினியத் துண்டு 30 °C-ல இருந்து 50 °C வரை சூடாக்கப்படுது. தேவையான வெப்பம்? (c = 900 J kg⁻¹ °C⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>திணிவ kg-க்கு மாத்து: 500 g = 0.5 kg. வெப்பநிலை மாற்றம் 50 − 30 = 20 °C.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 0.5 × 900 × 20.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>9000 J</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.9, p.11",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 9, ப.11"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">20 000 J of heat is given to 2 kg of copper at 30 °C. What is the final temperature? (c of copper = 400 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Q = m c θ, so 20 000 = 2 × 400 × θ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>θ = 20 000 ÷ 800 = 25 °C.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Final temperature = 30 + 25.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>55 °C</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">30 °C-ல இருக்கற 2 kg செம்புக்கு 20 000 J வெப்பம் கொடுக்கப்படுது. இறுதி வெப்பநிலை? (செம்போட c = 400 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Q = m c θ, அதனால 20 000 = 2 × 400 × θ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>θ = 20 000 ÷ 800 = 25 °C.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இறுதி வெப்பநிலை = 30 + 25.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>55 °C</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.9, p.11",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 9, ப.11"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">A copper vessel contains 1 kg of water; the vessel with water has a mass of 1.6 kg. The water is at 25 °C. Find the heat needed to heat the water until it boils. (c of water 4200, c of copper 400 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Both the vessel and the water heat up. Vessel mass = 1.6 − 1.0 = 0.6 kg. The rise is 100 − 25 = 75 K for both.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Vessel: 0.6 × 400 × 75 = 18 000 J. Water: 1 × 4200 × 75 = 315 000 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Total = 18 000 + 315 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>333 000 J</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">செம்புப் பாத்திரத்துல 1 kg நீர் இருக்கு; நீரோட பாத்திரத்தோட நிறை 1.6 kg. நீர் 25 °C. கொதிக்கும் வரை சூடாக்க தேவையான வெப்பம்? (நீரோட c 4200, செம்போட c 400 J kg⁻¹ K⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>பாத்திரமும் நீரும் சூடாகும். பாத்திர திணிவு = 1.6 − 1.0 = 0.6 kg. ரெண்டுக்கும் உயர்வு 100 − 25 = 75 K.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>பாத்திரம்: 0.6 × 400 × 75 = 18 000 J. நீர்: 1 × 4200 × 75 = 315 000 J.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மொத்தம் = 18 000 + 315 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>333 000 J</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.9, p.11–12",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 9, ப.11–12"
+     }
+    },
+    {
+     "id": "w6",
+     "body": {
+      "en": "<div class=\"qtext\">How much heat is needed to melt 2 kg of ice at 0 °C? (specific latent heat of fusion of ice = 3.36 × 10⁵ J kg⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The ice is already at its melting point, so all the heat goes into the change of state: Q = m L.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 2 × 3.36 × 10⁵ = 6.72 × 10⁵ J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>672 000 J</b> (the temperature stays at 0 °C).\n      </div>",
+      "ta": "<div class=\"qtext\">0 °C-ல 2 kg பனிய உருக்க எவ்வளவு வெப்பம் வேணும்? (பனியோட உருகலின் தன்மறை வெப்பம் = 3.36 × 10⁵ J kg⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>பனி ஏற்கனவே உருகுநிலைல இருக்கு, அதனால எல்லா வெப்பமும் நிலை மாற்றத்துக்கு: Q = m L.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>Q = 2 × 3.36 × 10⁵ = 6.72 × 10⁵ J.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>672 000 J</b> (வெப்பநிலை 0 °C-லயே இருக்கும்).</div>"
+     },
+     "tag": {
+      "en": "Practice example · from Q = m L",
+      "ta": "பயிற்சி உதாரணம் · Q = m L"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 9.1",
+      "ta": "பயிற்சி 9.1"
+     },
+     "items": [
+      {
+       "id": "x91-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Convert into kelvin: (i) 10 °C (ii) 27 °C (iii) 87 °C (iv) 127 °C (v) 100 °C.</span></div>",
+        "ta": "<div class=\"exq\"><span>கெல்வினுக்கு மாத்து: (i) 10 °C (ii) 27 °C (iii) 87 °C (iv) 127 °C (v) 100 °C.</span></div>"
+       },
+       "answer": {
+        "en": "Add 273 to each: (i) <b>283 K</b> (ii) <b>300 K</b> (iii) <b>360 K</b> (iv) <b>400 K</b> (v) <b>373 K</b>.",
+        "ta": "ஒவ்வொண்ணுக்கும் 273 கூட்டு: (i) <b>283 K</b> (ii) <b>300 K</b> (iii) <b>360 K</b> (iv) <b>400 K</b> (v) <b>373 K</b>."
+       }
+      },
+      {
+       "id": "x91-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Convert into degrees Celsius: (i) 0 K (ii) 100 K (iii) 273 K (iv) 373 K (v) 400 K.</span></div>",
+        "ta": "<div class=\"exq\"><span>செல்சியஸ் பாகைக்கு மாத்து: (i) 0 K (ii) 100 K (iii) 273 K (iv) 373 K (v) 400 K.</span></div>"
+       },
+       "answer": {
+        "en": "Subtract 273 from each: (i) <b>−273 °C</b> (absolute zero) (ii) <b>−173 °C</b> (iii) <b>0 °C</b> (iv) <b>100 °C</b> (v) <b>127 °C</b>.",
+        "ta": "ஒவ்வொண்ணுலயும் 273 கழி: (i) <b>−273 °C</b> (தனிச்சுழி) (ii) <b>−173 °C</b> (iii) <b>0 °C</b> (iv) <b>100 °C</b> (v) <b>127 °C</b>."
+       }
+      }
+     ],
+     "title": {
+      "en": "Celsius and kelvin · p.6",
+      "ta": "செல்சியஸ், கெல்வின் · ப.6"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 9.2",
+      "ta": "பயிற்சி 9.2"
+     },
+     "items": [
+      {
+       "id": "x92-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the heat needed to raise 2 kg of iron from 25 °C to 65 °C. (c of iron = 460 J kg⁻¹ K⁻¹)</span></div>",
+        "ta": "<div class=\"exq\"><span>2 kg இரும்ப 25 °C-ல இருந்து 65 °C வரை உயர்த்த தேவையான வெப்பம்? (இரும்போட c = 460 J kg⁻¹ K⁻¹)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">θ = 65 − 25 = 40 °C</div><div class=\"work\">Q = m c θ = 2 × 460 × 40 = <b>36 800 J</b></div>",
+        "ta": "<div class=\"work\">θ = 65 − 25 = 40 °C</div><div class=\"work\">Q = m c θ = 2 × 460 × 40 = <b>36 800 J</b></div>"
+       }
+      },
+      {
+       "id": "x92-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the temperature of 0.8 kg of aluminium at 30 °C when 14 400 J of heat is transferred to it. (c = 900 J kg⁻¹ K⁻¹)</span></div>",
+        "ta": "<div class=\"exq\"><span>30 °C-ல இருக்கற 0.8 kg அலுமினியத்துக்கு 14 400 J வெப்பம் கொடுத்தா அதோட வெப்பநிலை? (c = 900 J kg⁻¹ K⁻¹)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">14 400 = 0.8 × 900 × θ = 720 θ</div><div class=\"work\">θ = 14 400 ÷ 720 = 20 °C</div><div class=\"work\">Final temperature = 30 + 20 = <b>50 °C</b></div>",
+        "ta": "<div class=\"work\">14 400 = 0.8 × 900 × θ = 720 θ</div><div class=\"work\">θ = 14 400 ÷ 720 = 20 °C</div><div class=\"work\">இறுதி வெப்பநிலை = 30 + 20 = <b>50 °C</b></div>"
+       }
+      },
+      {
+       "id": "x92-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A glass vessel of mass 500 g contains 400 g of water at 25 °C. Find the heat needed to boil the water. (c of glass = 840, c of water = 4200 J kg⁻¹ K⁻¹)</span></div>",
+        "ta": "<div class=\"exq\"><span>500 g நிறை உள்ள கண்ணாடிப் பாத்திரத்துல 25 °C-ல 400 g நீர் இருக்கு. நீர கொதிக்க வைக்க தேவையான வெப்பம்? (கண்ணாடியோட c = 840, நீரோட c = 4200 J kg⁻¹ K⁻¹)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">θ = 100 − 25 = 75 °C for both</div><div class=\"work\">Glass: 0.5 × 840 × 75 = 31 500 J</div><div class=\"work\">Water: 0.4 × 4200 × 75 = 126 000 J</div><div class=\"work\">Total = 31 500 + 126 000 = <b>157 500 J</b></div>",
+        "ta": "<div class=\"work\">ரெண்டுக்கும் θ = 100 − 25 = 75 °C</div><div class=\"work\">கண்ணாடி: 0.5 × 840 × 75 = 31 500 J</div><div class=\"work\">நீர்: 0.4 × 4200 × 75 = 126 000 J</div><div class=\"work\">மொத்தம் = 31 500 + 126 000 = <b>157 500 J</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Quantity of heat · p.12",
+      "ta": "வெப்ப அளவு · ப.12"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 9.3",
+      "ta": "பயிற்சி 9.3"
+     },
+     "items": [
+      {
+       "id": "x93-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The international unit of temperature is ………… and the international unit of heat is …………</span></div>",
+        "ta": "<div class=\"exq\"><span>வெப்பநிலையோட பன்னாட்டு அலகு ………… , வெப்பத்தோட பன்னாட்டு அலகு …………</span></div>"
+       },
+       "answer": {
+        "en": "The <b>kelvin (K)</b>; the <b>joule (J)</b>.",
+        "ta": "<b>கெல்வின் (K)</b>; <b>ஜூல் (J)</b>."
+       }
+      },
+      {
+       "id": "x93-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The absolute zero is equal to ………… Celsius.</span></div>",
+        "ta": "<div class=\"exq\"><span>தனிச்சுழி ………… செல்சியஸுக்கு சமம்.</span></div>"
+       },
+       "answer": {
+        "en": "<b>−273 °C</b> (more exactly −273.15 °C).",
+        "ta": "<b>−273 °C</b> (சரியா −273.15 °C)."
+       }
+      },
+      {
+       "id": "x93-1iii",
+       "num": "1(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The ………… does not change when absorbing latent heat while the ………… changes.</span></div>",
+        "ta": "<div class=\"exq\"><span>………… மறை வெப்பத்த உறிஞ்சும்போது ………… மாறாது, ஆனா ………… மாறும்.</span></div>"
+       },
+       "answer": {
+        "en": "The <b>temperature</b> does not change while the <b>state</b> changes.",
+        "ta": "<b>வெப்பநிலை</b> மாறாது, ஆனா <b>நிலை</b> மாறும்."
+       }
+      },
+      {
+       "id": "x93-1iv",
+       "num": "1(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The method of transferring heat without the influence of a medium is …………</span></div>",
+        "ta": "<div class=\"exq\"><span>ஊடகத்தோட தாக்கம் இல்லாம வெப்பம் கடத்தும் முறை …………</span></div>"
+       },
+       "answer": {
+        "en": "<b>Radiation</b> (thermal radiation).",
+        "ta": "<b>கதிர்வீச்சு</b> (வெப்பக் கதிர்வீச்சு)."
+       }
+      },
+      {
+       "id": "x93-1v",
+       "num": "1(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Bodies with low specific heat capacities increase their temperature …………, bodies with high specific heat capacities increase their temperature …………</span></div>",
+        "ta": "<div class=\"exq\"><span>தன்வெப்பக் கொள்ளளவு குறைந்த பொருட்கள் வெப்பநிலைய ………… உயர்த்தும், கூடிய பொருட்கள் ………… உயர்த்தும்.</span></div>"
+       },
+       "answer": {
+        "en": "<b>quickly</b> (fast); <b>slowly</b>.",
+        "ta": "<b>வேகமா</b>; <b>மெதுவா</b>."
+       }
+      },
+      {
+       "id": "x93-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Cooling curves of cups A and B are given (graph). What is the temperature of the tea in cup A after five minutes?</span></div>",
+        "ta": "<div class=\"exq\"><span>A, B கப்களோட குளிர்ச்சி வளைவுகள் தரப்பட்டிருக்கு (வரைபடம்). 5 நிமிஷத்துக்கு பிறகு கப் A-ல தேநீரோட வெப்பநிலை?</span></div>"
+       },
+       "answer": {
+        "en": "Read from the graph: about <b>55 °C</b>.<div class=\"work\"><svg aria-label=\"Cooling curves of cups A and B\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">time (min)</text><path d=\"M60 56 Q150 100 260 140 T460 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M60 56 Q130 110 240 150 T460 168\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent-2)\"></path><line stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"480\" y1=\"170\" y2=\"170\"></line><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"488\" y=\"166\">room</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"430\" y=\"134\">A</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-2)\" text-anchor=\"middle\" x=\"430\" y=\"190\">B</text></svg></div><i>(Graph readings are approximate; a few degrees either way is acceptable.)</i>",
+        "ta": "வரைபடத்துல இருந்து வாசி: சுமார் <b>55 °C</b>.<div class=\"work\"><svg aria-label=\"Cooling curves of cups A and B\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">time (min)</text><path d=\"M60 56 Q150 100 260 140 T460 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--danger)\"></path><path d=\"M60 56 Q130 110 240 150 T460 168\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent-2)\"></path><line stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"480\" y1=\"170\" y2=\"170\"></line><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"488\" y=\"166\">room</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"430\" y=\"134\">A</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-2)\" text-anchor=\"middle\" x=\"430\" y=\"190\">B</text></svg></div><i>(வரைபட வாசிப்புகள் தோராயம்; ரெண்டு பக்கமும் சில பாகை வித்தியாசம் பரவாயில்ல.)</i>"
+       }
+      },
+      {
+       "id": "x93-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the time taken for the tea in cup B to drop by 30 °C?</span></div>",
+        "ta": "<div class=\"exq\"><span>கப் B-ல தேநீர் 30 °C குறைய ஆகும் நேரம்?</span></div>"
+       },
+       "answer": {
+        "en": "B starts at about 78 °C and reaches about 48 °C after roughly <b>4 to 5 minutes</b>.",
+        "ta": "B சுமார் 78 °C-ல தொடங்கி சுமார் 48 °C-ஐ சுமார் <b>4 முதல் 5 நிமிஷத்துல</b> அடையுது."
+       }
+      },
+      {
+       "id": "x93-2iii",
+       "num": "2(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the difference in temperature of the tea in the two cups after 15 minutes?</span></div>",
+        "ta": "<div class=\"exq\"><span>15 நிமிஷத்துக்கு பிறகு ரெண்டு கப்கள்ல தேநீரோட வெப்பநிலை வித்தியாசம்?</span></div>"
+       },
+       "answer": {
+        "en": "A is at about 28 °C and B at about 24 °C: a difference of about <b>4 °C</b>.",
+        "ta": "A சுமார் 28 °C, B சுமார் 24 °C: வித்தியாசம் சுமார் <b>4 °C</b>."
+       }
+      },
+      {
+       "id": "x93-2iv",
+       "num": "2(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Which cup is made of the material with the lower heat conductivity?</span></div>",
+        "ta": "<div class=\"exq\"><span>எந்த கப் குறைந்த வெப்பக் கடத்துதிறன் உள்ள பொருளால செய்யப்பட்டது?</span></div>"
+       },
+       "answer": {
+        "en": "<b>Cup A</b>.",
+        "ta": "<b>கப் A</b>."
+       }
+      },
+      {
+       "id": "x93-2v",
+       "num": "2(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the reason for your answer?</span></div>",
+        "ta": "<div class=\"exq\"><span>உன் பதிலுக்கான காரணம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "The tea in cup A cools more slowly: its material conducts heat out to the air less quickly, so it loses heat more slowly.",
+        "ta": "கப் A-ல தேநீர் மெதுவா குளிருது: அதோட பொருள் வெப்பத்த வெளிக்காற்றுக்கு மெதுவா கடத்துது, அதனால வெப்பத்த மெதுவா இழக்குது."
+       }
+      },
+      {
+       "id": "x93-2vi",
+       "num": "2(vi)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the ultimate temperature of the tea in the two cups?</span></div>",
+        "ta": "<div class=\"exq\"><span>ரெண்டு கப்கள்லயும் தேநீரோட இறுதி வெப்பநிலை?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>room temperature</b> (about 18 to 20 °C on the graph): heat flows out until the tea is in thermal equilibrium with the room.",
+        "ta": "<b>அறை வெப்பநிலை</b> (வரைபடத்துல சுமார் 18 முதல் 20 °C): தேநீர் அறையோட வெப்பச் சமநிலைய அடையும் வரை வெப்பம் வெளிய போகும்."
+       }
+      },
+      {
+       "id": "x93-3i",
+       "num": "3(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>There are two situations that a thermos flask can be used. What are they?</span></div>",
+        "ta": "<div class=\"exq\"><span>தெர்மோஸ் குடுவைய பயன்படுத்தக்கூடிய ரெண்டு சூழ்நிலைகள் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "To keep hot liquids <b>hot</b> and to keep cold liquids <b>cold</b>.",
+        "ta": "சூடான திரவங்கள <b>சூடாவும்</b>, குளிர்ந்த திரவங்கள <b>குளிர்ச்சியாவும்</b> வெக்க."
+       }
+      },
+      {
+       "id": "x93-3ii",
+       "num": "3(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What techniques are used in the flask to prevent heat loss?</span></div>",
+        "ta": "<div class=\"exq\"><span>வெப்ப இழப்பத் தடுக்க குடுவைல பயன்படுத்தற நுட்பங்கள் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>vacuum</b> between the double walls stops conduction and convection; the <b>silvered walls</b> reflect heat radiation back; the <b>lid (stopper)</b> stops convection and evaporation out of the top.",
+        "ta": "ரெட்டைச் சுவர்களுக்கு இடையில இருக்கற <b>வெற்றிடம்</b> கடத்தல், காவுகைய தடுக்கும்; <b>வெள்ளி பூசிய சுவர்கள்</b> வெப்பக் கதிர்வீச்ச திருப்பி அனுப்பும்; <b>மூடி</b> மேல வழியா காவுகை, ஆவியாதல தடுக்கும்."
+       }
+      },
+      {
+       "id": "x93-3iii",
+       "num": "3(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Calculate the heat lost when 500 ml of water at 100 °C cools to 25 °C. (c of water = 4200 J kg⁻¹ K⁻¹)</span></div>",
+        "ta": "<div class=\"exq\"><span>100 °C-ல 500 ml நீர் 25 °C-க்கு குளிரும்போது இழக்கப்படும் வெப்பத்த கணக்கிடு. (நீரோட c = 4200 J kg⁻¹ K⁻¹)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">500 ml of water has a mass of 0.5 kg; θ = 100 − 25 = 75 °C</div><div class=\"work\">Q = m c θ = 0.5 × 4200 × 75 = <b>157 500 J</b></div>",
+        "ta": "<div class=\"work\">500 ml நீரோட திணிவு 0.5 kg; θ = 100 − 25 = 75 °C</div><div class=\"work\">Q = m c θ = 0.5 × 4200 × 75 = <b>157 500 J</b></div>"
+       }
+      },
+      {
+       "id": "x93-3iv",
+       "num": "3(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>It is not appropriate to remove the hot water from a flask and fill it with cold water immediately. What is the reason?</span></div>",
+        "ta": "<div class=\"exq\"><span>குடுவைல இருந்த சூடான நீர எடுத்து உடனே குளிர்ந்த நீர நிரப்பறது சரியில்ல. காரணம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "The inner glass wall is hot. Cold water would make it contract suddenly and unevenly (thermal contraction), so the thin glass can <b>crack</b>; the hot wall would also warm up the cold water.",
+        "ta": "உள் கண்ணாடிச் சுவர் சூடு. குளிர்ந்த நீர் அத திடீர்னு, சமமில்லாம சுருங்க வைக்கும் (வெப்பச் சுருக்கம்), அதனால மெல்லிய கண்ணாடி <b>உடையலாம்</b>; சூடான சுவர் குளிர்ந்த நீரையும் சூடாக்கும்."
+       }
+      },
+      {
+       "id": "x93-4i",
+       "num": "4(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the heat released in cooling 10 g of water at 100 °C down to 25 °C.</span></div>",
+        "ta": "<div class=\"exq\"><span>100 °C-ல 10 g நீர 25 °C வரை குளிர்விக்கறப்ப வெளிவிடப்படும் வெப்பத்த காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">m = 10 g = 0.01 kg; θ = 75 °C</div><div class=\"work\">Q = 0.01 × 4200 × 75 = <b>3150 J</b></div>",
+        "ta": "<div class=\"work\">m = 10 g = 0.01 kg; θ = 75 °C</div><div class=\"work\">Q = 0.01 × 4200 × 75 = <b>3150 J</b></div>"
+       }
+      },
+      {
+       "id": "x93-4ii",
+       "num": "4(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A burn from steam at 100 °C is more harmful than a burn from boiling water at 100 °C. Explain.</span></div>",
+        "ta": "<div class=\"exq\"><span>100 °C நீராவியால ஏற்படும் தீக்காயம் 100 °C கொதிக்கும் நீரால ஏற்படறத விட மோசம். விளக்கு.</span></div>"
+       },
+       "answer": {
+        "en": "Steam at 100 °C condenses on the skin and gives out its <b>latent heat of vaporization</b> (2.26 × 10<sup>6</sup> J for every kg) as well as the heat from cooling. Boiling water gives out only the heat from cooling. So steam delivers much more heat to the skin.",
+        "ta": "100 °C நீராவி தோல் மேல ஒடுங்கும்போது குளிர்ச்சியால வரும் வெப்பத்தோட சேர்த்து அதோட <b>ஆவியாதலின் மறை வெப்பத்தையும்</b> (ஒவ்வொரு kg-க்கும் 2.26 × 10<sup>6</sup> J) வெளிவிடும். கொதிக்கும் நீர் குளிர்ச்சியால வரும் வெப்பத்த மட்டும்தான் வெளிவிடும். அதனால நீராவி தோலுக்கு அதிக வெப்பத்த தருது."
+       }
+      },
+      {
+       "id": "x93-5i",
+       "num": "5(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A piece of paraffin is heated and the temperature plotted against time (25 °C at the start, 55 °C flat between 2 and 3 min, 70 °C at 4 min). What is the room temperature?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பரபின் துண்டு சூடாக்கப்பட்டு நேரத்துக்கு எதிரா வெப்பநிலை வரையப்பட்டிருக்கு (தொடக்கத்துல 25 °C, 2–3 நிமிஷம் இடையில 55 °C சமதளம், 4 நிமிஷத்துல 70 °C). அறை வெப்பநிலை?</span></div>"
+       },
+       "answer": {
+        "en": "The graph starts at <b>25 °C</b>, the room temperature.",
+        "ta": "வரைபடம் <b>25 °C</b>-ல தொடங்குது, அதுதான் அறை வெப்பநிலை."
+       }
+      },
+      {
+       "id": "x93-5ii",
+       "num": "5(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the melting point of paraffin?</span></div>",
+        "ta": "<div class=\"exq\"><span>பரபினோட உருகுநிலை?</span></div>"
+       },
+       "answer": {
+        "en": "The flat part is at <b>55 °C</b>.",
+        "ta": "சமதளப் பகுதி <b>55 °C</b>-ல."
+       }
+      },
+      {
+       "id": "x93-5iii",
+       "num": "5(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>How long after starting did the paraffin begin to melt?</span></div>",
+        "ta": "<div class=\"exq\"><span>தொடங்கி எவ்வளவு நேரத்துல பரபின் உருக ஆரம்பிச்சது?</span></div>"
+       },
+       "answer": {
+        "en": "After <b>2 minutes</b>, when the temperature reached 55 °C.",
+        "ta": "வெப்பநிலை 55 °C-ஐ அடைஞ்ச <b>2 நிமிஷத்துல</b>."
+       }
+      },
+      {
+       "id": "x93-5iv",
+       "num": "5(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Why does the temperature stay constant between 2 and 3 minutes?</span></div>",
+        "ta": "<div class=\"exq\"><span>2 முதல் 3 நிமிஷம் வரை வெப்பநிலை ஏன் மாறாம இருக்கு?</span></div>"
+       },
+       "answer": {
+        "en": "The paraffin is melting: the heat supplied is used as <b>latent heat of fusion</b> to break the bonds between the molecules, not to raise the temperature.",
+        "ta": "பரபின் உருகுது: கொடுக்கற வெப்பம் வெப்பநிலைய உயர்த்த இல்ல, மூலக்கூறு பிணைப்புகள உடைக்கும் <b>உருகலின் மறை வெப்பமா</b> செலவாகுது."
+       }
+      },
+      {
+       "id": "x93-5v",
+       "num": "5(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>If the heating stops at 4 minutes, sketch how the temperature of the paraffin varies with time afterwards.</span></div>",
+        "ta": "<div class=\"exq\"><span>4 நிமிஷத்துல சூடாக்கறத நிறுத்தினா அதுக்குப் பிறகு பரபினோட வெப்பநிலை நேரத்தோட எப்படி மாறும்னு ஒரு தோராய வரைபடம் வரை.</span></div>"
+       },
+       "answer": {
+        "en": "The temperature falls, quickly at first and then more slowly, back towards room temperature (25 °C). If it cooled below 55 °C it would go solid again, with a short flat part at 55 °C while it freezes and gives out its latent heat.<div class=\"work\"><svg aria-label=\"Temperature of paraffin after the heating stops at 4 minutes\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">time (min)</text><path d=\"M60 130 L130 70 L200 70 L260 36\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><path d=\"M260 36 Q330 120 460 150\" stroke-dasharray=\"7 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--danger)\"></path><line stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"480\" y1=\"150\" y2=\"150\"></line><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"488\" y=\"154\">room temperature (25 °C)</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"340\" y=\"92\">cools towards room temperature</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"260\" x2=\"260\" y1=\"190\" y2=\"20\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"206\">4</text></svg></div>",
+        "ta": "வெப்பநிலை குறையும், முதல்ல வேகமா அப்புறம் மெதுவா, அறை வெப்பநிலை (25 °C) நோக்கி. 55 °C-க்கு கீழ போனா அது திரும்ப திண்மமாகும், உறையும்போது மறை வெப்பத்த வெளிவிட்டு 55 °C-ல ஒரு சின்ன சமதளப் பகுதி இருக்கும்.<div class=\"work\"><svg aria-label=\"Temperature of paraffin after the heating stops at 4 minutes\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"60\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"490\" y1=\"190\" y2=\"190\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"54\" y=\"18\">T (°C)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"488\" y=\"210\">time (min)</text><path d=\"M60 130 L130 70 L200 70 L260 36\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><path d=\"M260 36 Q330 120 460 150\" stroke-dasharray=\"7 5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--danger)\"></path><line stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"480\" y1=\"150\" y2=\"150\"></line><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"488\" y=\"154\">room temperature (25 °C)</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"340\" y=\"92\">cools towards room temperature</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"260\" x2=\"260\" y1=\"190\" y2=\"20\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"206\">4</text></svg></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Heat · p.27–30",
+      "ta": "வெப்பம் · ப.27–30"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🍵</div><div class=\"cm-b r\"><i>Raja:</i> <span>My tea cools down and the cup warms up. Where does the heat go?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🌡️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Heat flows from hot to cold until the temperatures are equal. Q = m c θ tells how much.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🧊</div><div class=\"cm-b r\"><i>Raja:</i> <span>The ice melts but the thermometer is stuck at 0 °C!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">💧</div><div class=\"cm-b c\"><i>Chittu:</i> <span>That is latent heat: Q = m L. And heat travels by conduction, convection and radiation.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🍵</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>என் தேநீர் ஆறுது, கப் சூடாகுது. வெப்பம் எங்க போகுது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">🌡️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>வெப்பம் சூட்டுல இருந்து குளிருக்கு ரெண்டும் சமமாகற வரை ஓடும். எவ்வளவுன்னு Q = m c θ சொல்லும்.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🧊</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>பனி உருகுது ஆனா வெப்பமானி 0 °C-லயே நிக்குது!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">💧</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>அதுதான் மறை வெப்பம்: Q = m L. வெப்பம் கடத்தல், காவுகை, கதிர்வீச்சால பயணிக்கும்.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Heat flows hot to cold, till they are the same,<br/>Q is m c θ, that's the heat-flow game.<br/>Melting keeps the temperature still,<br/>that is latent heat, working with a will!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">வெப்பம் சூட்டுல இருந்து குளிருக்கு ஓடும், சமமாகற வரை,<br/>Q = m c θ, இதான் கணக்கு முறை.<br/>உருகறப்ப வெப்பநிலை அசையாது,<br/>மறை வெப்பம் வேலை செய்யுது, அது தெரியாது!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Temperature and heat are the same thing.</td><td class=\"ok\">Temperature measures the mean kinetic energy of the particles (K); heat is energy transferred because of a temperature difference (J).</td></tr><tr><td class=\"w\">Heating a substance always raises its temperature.</td><td class=\"ok\">During a change of state the heat is latent heat and the temperature stays constant.</td></tr><tr><td class=\"w\">Convection can happen in a solid.</td><td class=\"ok\">Convection needs a fluid (liquid or gas); in solids heat moves by conduction.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">வெப்பநிலையும் வெப்பமும் ஒண்ணுதான்.</td><td class=\"ok\">வெப்பநிலை துணிக்கைகளோட சராசரி இயக்க சக்திய (K) அளக்கும்; வெப்பம் வெப்பநிலை வித்தியாசத்தால கடத்தப்படும் சக்தி (J).</td></tr><tr><td class=\"w\">ஒரு பொருளை சூடாக்கினா எப்பவும் வெப்பநிலை ஏறும்.</td><td class=\"ok\">நிலை மாறும்போது வெப்பம் மறை வெப்பம், வெப்பநிலை மாறாம இருக்கும்.</td></tr><tr><td class=\"w\">காவுகை திண்மத்துலயும் நடக்கும்.</td><td class=\"ok\">காவுகைக்கு பாய்மம் (திரவம், வாயு) வேணும்; திண்மங்கள்ல வெப்பம் கடத்தலால நகரும்.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>T (K) = θ (°C) + 273; kelvin is the international unit of temperature</li><li>heat flows from higher to lower temperature until thermal equilibrium</li><li>Q = m c θ; C = m c; c in J kg⁻¹ K⁻¹</li><li>latent heat: Q = m L (L of fusion of ice 3.36 × 10⁵, of vaporization of water 2.26 × 10⁶ J kg⁻¹)</li><li>conduction, convection, radiation; thermal expansion and bimetallic strips</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>T (K) = θ (°C) + 273; கெல்வின் வெப்பநிலையோட பன்னாட்டு அலகு</li><li>வெப்பம் அதிக வெப்பநிலைல இருந்து குறைவுக்கு வெப்பச் சமநிலை வரை ஓடும்</li><li>Q = m c θ; C = m c; c: J kg⁻¹ K⁻¹</li><li>மறை வெப்பம்: Q = m L (பனி உருகல் 3.36 × 10⁵, நீர் ஆவியாதல் 2.26 × 10⁶ J kg⁻¹)</li><li>கடத்தல், காவுகை, கதிர்வீச்சு; வெப்பவிரிவு, ஈருலோகப் பட்டி</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "Temperature is a measure of the mean kinetic energy of the particles of an object. It is measured with a thermometer in °C, °F or K; the international unit is the kelvin.",
+     "ta": "வெப்பநிலை பொருளோட துணிக்கைகளோட சராசரி இயக்க சக்தியோட அளவு. வெப்பமானியால °C, °F, K-ல அளக்கப்படும்; பன்னாட்டு அலகு கெல்வின்."
+    },
+    {
+     "en": "Heat is the energy transferred from one object to another because of a temperature difference. Its unit is the joule.",
+     "ta": "வெப்பம் என்பது வெப்பநிலை வித்தியாசத்தால ஒரு பொருளுல இருந்து இன்னொண்ணுக்கு கடத்தப்படும் சக்தி. அலகு ஜூல்."
+    },
+    {
+     "en": "Heat capacity C = m c; the quantity of heat Q = m c θ.",
+     "ta": "வெப்பக் கொள்ளளவு C = m c; வெப்ப அளவு Q = m c θ."
+    },
+    {
+     "en": "Specific heat capacity c: the heat to raise 1 kg by one degree (J kg⁻¹ K⁻¹).",
+     "ta": "தன்வெப்பக் கொள்ளளவு c: 1 kg-ஐ ஒரு பாகை உயர்த்த தேவையான வெப்பம் (J kg⁻¹ K⁻¹)."
+    },
+    {
+     "en": "Latent heat is absorbed or released in a change of state without any change of temperature; its specific value is in J kg⁻¹ (fusion and vaporization).",
+     "ta": "நிலை மாற்றத்துல வெப்பநிலை மாறாம மறை வெப்பம் உறிஞ்சப்படும்/வெளிவிடப்படும்; அதோட தன் பெறுமானம் J kg⁻¹ (உருகல், ஆவியாதல்)."
+    },
+    {
+     "en": "Thermal expansion is the increase in length, area or volume on heating.",
+     "ta": "வெப்பவிரிவு என்பது சூடாக்கும்போது நீளம், பரப்பு அல்லது கனவளவு கூடறது."
+    },
+    {
+     "en": "Heat flows from a higher to a lower temperature by conduction, convection and radiation.",
+     "ta": "வெப்பம் அதிக வெப்பநிலைல இருந்து குறைவுக்கு கடத்தல், காவுகை, கதிர்வீச்சு மூலமா ஓடும்."
+    },
+    {
+     "en": "Conduction: through particles colliding. Convection: rising of heated fluid. Radiation: electromagnetic waves, no medium.",
+     "ta": "கடத்தல்: துணிக்கைகள் மோதறதால. காவுகை: சூடான பாய்மம் உயர்றதால. கதிர்வீச்சு: மின்காந்த அலைகள், ஊடகம் வேணாம்."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Temperature",
+     "ta": "வெப்பநிலை"
+    },
+    {
+     "en": "Glass-mercury thermometer",
+     "ta": "கண்ணாடி இரச வெப்பமானி"
+    },
+    {
+     "en": "Glass-alcohol thermometer",
+     "ta": "கண்ணாடி அற்கஹோல் வெப்பமானி"
+    },
+    {
+     "en": "Heat capacity",
+     "ta": "வெப்பக் கொள்ளளவு"
+    },
+    {
+     "en": "Specific heat capacity",
+     "ta": "தன்வெப்பக் கொள்ளளவு"
+    },
+    {
+     "en": "Melting point",
+     "ta": "உருகுநிலை"
+    },
+    {
+     "en": "Freezing point",
+     "ta": "உறைநிலை"
+    },
+    {
+     "en": "Boiling point",
+     "ta": "கொதிநிலை"
+    },
+    {
+     "en": "Latent heat",
+     "ta": "மறை வெப்பம்"
+    },
+    {
+     "en": "Latent heat of fusion",
+     "ta": "உருகலின் தன்மறை வெப்பம்"
+    },
+    {
+     "en": "Latent heat of vaporization",
+     "ta": "ஆவியாதலின் தன்மறை வெப்பம்"
+    },
+    {
+     "en": "Vaporization",
+     "ta": "கொதித்து ஆவியாதல்"
+    },
+    {
+     "en": "Evaporation",
+     "ta": "ஆவியாதல்"
+    },
+    {
+     "en": "Thermal expansion",
+     "ta": "வெப்பவிரிவு"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 8 key points",
+    "ta": "📌 பொழிப்பு — 8 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+   }
+  }
+ ]
+}

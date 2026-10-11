@@ -32,6 +32,8 @@ jobs:
         run: python tests/test_r2_storage.py
       - name: Lesson format
         run: python tests/test_content_schema.py
+      - name: Lesson content is current with the lesson pages, nothing lost
+        run: python tools/extract_lesson.py --all --check
       - name: Lesson content (format, legacy links, stable ids, catalog)
         run: python tools/validate_content.py
 

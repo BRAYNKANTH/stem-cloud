@@ -1,0 +1,1048 @@
+{
+ "schema": 2,
+ "id": "physics.g10.hydrostatic-pressure",
+ "slug": "hydrostatic-pressure",
+ "subject": "physics",
+ "grade": 10,
+ "number": "15",
+ "title": {
+  "en": "Pressure of Liquids",
+  "ta": "திரவ அமுக்கம்",
+  "si": "ද්‍රවස්ථිති පීඩනය හා එහි යෙදීම්"
+ },
+ "legacy": {
+  "id": "g10c15",
+  "file": "g10-chapter-15-hydrostatic-pressure.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why do my ears hurt under water?",
+    "ta": "தண்ணிக்குள்ள என் காது ஏன் வலிக்குது?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, when I dive deep into the lake my ears hurt! Why?",
+      "ta": "சிட்டு, நான் ஏரில ஆழமா முழுகினா என் காது வலிக்குது! ஏன்?"
+     },
+     "scene": "🏊"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Because water pressure grows with depth, Raja. P = h ρ g: the deeper you go (bigger h), the bigger the pressure.",
+      "ta": "ஏன்னா ஆழம் கூடக்கூட நீரோட அமுக்கம் கூடும் ராஜா. P = h ρ g: ஆழம் (h) கூடினா அமுக்கமும் கூடும்."
+     },
+     "scene": "💧"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And when I drink juice with a straw, my mouth pulls the juice up, right?",
+      "ta": "ஜூஸ் ஸ்ட்ராவால குடிக்கறப்ப என் வாய்தான் அத மேல இழுக்குது, சரியா?"
+     },
+     "scene": "🥤"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Not really! You lower the pressure inside the straw, and the atmospheric pressure outside pushes the juice up.",
+      "ta": "இல்ல! நீ ஸ்ட்ரா உள்ள அமுக்கத்த குறைக்கற, வெளிய இருக்கற வளிமண்டல அமுக்கம் ஜூஸ மேல தள்ளுது."
+     },
+     "scene": "🌍"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Then why does a huge iron ship float, but my small stone sinks?",
+      "ta": "அப்போ பெரிய இரும்புக் கப்பல் மிதக்குது, என் சின்ன கல்லு ஏன் மூழ்குது?"
+     },
+     "scene": "🚢"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Upthrust! The water pushes up with a force equal to the weight of the water displaced. The ship displaces so much water that this equals its weight.",
+      "ta": "மேலுதைப்பு! இடம்பெயர்த்த நீரோட நிறைக்கு சமமான விசையால நீர் மேல தள்ளுது. கப்பல் நிறைய நீர இடம்பெயர்த்து தன் நிறைக்கு சமமான மேலுதைப்ப பெறுது."
+     },
+     "scene": "⚖️"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And how can a small push lift a big car at the garage?",
+      "ta": "கராஜ்ல சின்ன அழுத்தம் ஒரு பெரிய காரை எப்படி தூக்குது?"
+     },
+     "scene": "🚗"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Pressure travels through the oil. A small piston pushes, and the same pressure on a large piston gives a big force.",
+      "ta": "அமுக்கம் எண்ணெய் வழியா கடத்தப்படுது. சின்ன பிஸ்டன் தள்ளுது, பெரிய பிஸ்டன்ல அதே அமுக்கம் பெரிய விசைய தருது."
+     },
+     "scene": "🔧"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Pressure, atmosphere, upthrust and hydraulics! Let's go!",
+      "ta": "அமுக்கம், வளிமண்டலம், மேலுதைப்பு, நீரியல்! வாங்க போகலாம்!"
+     },
+     "scene": "🚀"
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: pressure and floating →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: அமுக்கமும் மிதத்தலும் →"
+   },
+   "quest": {
+    "en": "In this module: discover how liquids exert pressure in all directions, calculate liquid pressure using P = hρg, and learn how hydraulic jacks lift heavy cars.",
+    "ta": "இந்த பாடத்தில்: திரவங்கள் அனைத்து திசைகளிலும் அழுத்தம் கொடுப்பதை அறிவோம், P = hρg சூத்திரத்தை கற்போம், மற்றும் நீரியல் உயர்த்தி எவ்வாறு செயல்படுகிறது என்பதை பார்ப்போம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: pressing and water",
+     "ta": "முதல்ல இருந்து: அழுத்தமும் தண்ணியும்"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "A push on a small spot is strong",
+      "ta": "சின்ன இடத்துல தள்ளல் வலிமை"
+     },
+     "body": {
+      "en": "<p>The same push feels stronger on a tiny spot, like a pin, than on a big area.</p><div aria-hidden=\"true\" class=\"bs-pic\">📌 sharp   🧱 wide</div>",
+      "ta": "<p>ஒரே தள்ளல் ஊசி மாதிரி சின்ன இடத்துல பெரிசா தெரியும், பெரிய இடத்துல குறைவா.</p><div aria-hidden=\"true\" class=\"bs-pic\">📌 sharp   🧱 wide</div>"
+     },
+     "icon": "👆"
+    },
+    {
+     "title": {
+      "en": "Pressure = push on each square",
+      "ta": "அழுத்தம் = ஒவ்வொரு சதுரத்துக்கும் தள்ளல்"
+     },
+     "body": {
+      "en": "<p>Pressure tells how hard something pushes on each bit of area.</p><div aria-hidden=\"true\" class=\"bs-pic\">force ÷ area</div>",
+      "ta": "<p>ஒவ்வொரு சின்ன பரப்புக்கும் எவ்வளவு தள்ளல் இருக்குன்னு சொல்றதுதான் அழுத்தம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">force ÷ area</div>"
+     },
+     "icon": "📐"
+    },
+    {
+     "title": {
+      "en": "Water pushes from all sides",
+      "ta": "தண்ணி எல்லா பக்கமும் தள்ளும்"
+     },
+     "body": {
+      "en": "<p>Water presses on the bottom and on the sides of its container.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬇️ ⬅️ ➡️</div>",
+      "ta": "<p>தண்ணி பாத்திரத்தோட அடியிலயும் பக்கங்கள்லயும் அழுத்தும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬇️ ⬅️ ➡️</div>"
+     },
+     "icon": "🌊"
+    },
+    {
+     "title": {
+      "en": "Deeper means stronger",
+      "ta": "ஆழம் அதிகம் என்றால் அழுத்தம் அதிகம்"
+     },
+     "body": {
+      "en": "<p>Ask an adult to prepare a bottle with holes. Watch only: water from the lowest hole squirts farthest.</p><div aria-hidden=\"true\" class=\"bs-pic\">🥤 ⤵️⤵️⤵️</div>",
+      "ta": "<p>துளையுள்ள பாட்டிலைப் பெரியவர் தயாரிக்கட்டும். நீ பார்த்தால் போதும்: கீழ் துளையிலிருந்து நீர் அதிக தூரம் பாயும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🥤 ⤵️⤵️⤵️</div>"
+     },
+     "icon": "🥤"
+    }
+   ],
+   "hook": {
+    "en": "Why does a sharp knife cut but a blunt one does not? And why do your ears feel it in deep water?",
+    "ta": "கூர்மையான கத்தி வெட்டுது, மொண்ணை கத்தி வெட்டல. ஆழமான தண்ணில காது ஏன் வலிக்குது?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>With an adult, press the broad and narrow ends of a blunt block into modelling clay using the same gentle push. Which makes a deeper dent? Never press a sharp object into your skin.</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>பெரியவர் உதவியுடன் மழுங்கிய கட்டையின் அகலமான, குறுகிய முனைகளை ஒரே மென்மையான விசையால் களிமண்ணில் அழுத்து. எது ஆழமான பள்ளம் தருகிறது? கூரிய பொருளைத் தோலில் அழுத்தாதே.</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's see exactly how pressure grows with depth.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>ஆழத்தோட அழுத்தம் எப்படி கூடுதுன்னு இப்ப சரியா பார்க்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: pressure in a liquid",
+     "ta": "பாரு: திரவத்துல அமுக்கம்"
+    },
+    "sub": {
+     "en": "Water jets from a bag and a bottle, then a hydraulic press",
+     "ta": "பை, போத்தல்ல நீர் தாரைகள், அப்புறம் ஒரு நீரியல் அழுத்தி"
+    }
+   },
+   "animation": {
+    "file": "g10-chapter-15-hydrostatic-pressure.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "15.1 Pressure: force on each square metre",
+      "ta": "15.1 அமுக்கம்: ஒவ்வொரு சதுர மீற்றர் மேலும் தாக்கும் விசை"
+     },
+     "body": {
+      "en": "<p>Press your palm flat on a table, then press the sharp tip of a pencil with the same force. The pencil tip hurts, the palm does not. The force is the same, but the tip has a much smaller area. That idea is called <b>pressure</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">What pressure means</div><div class=\"ltext\">Pressure is the force acting on a unit area.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">Pressure</div><div class=\"fmath\">Pressure = <b>F</b> ÷ <b>A</b>   (F = perpendicular force, A = area)</div><div class=\"fnote\">The force must act at right angles to the surface.</div></div>\n<div class=\"fig\"><svg aria-label=\"A box pressing on a table\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"150\"></rect><rect height=\"44\" rx=\"0\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"12\" x=\"80\" y=\"166\"></rect><rect height=\"44\" rx=\"0\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"12\" x=\"428\" y=\"166\"></rect><rect height=\"72\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"140\" x=\"190\" y=\"78\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"120\">box</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"260\" x2=\"260.0\" y1=\"24\" y2=\"63.0\"></line><polygon points=\"260,76 266.8,63.0 253.2,63.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"272\" y=\"40\">F (weight)</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"190\" x2=\"330\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"190\" x2=\"190\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"330\" x2=\"330\" y1=\"183\" y2=\"193\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260.0\" y=\"181\">A  (contact area)</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Pressure = F ÷ A</text></svg><div class=\"figcap\">A box of weight F presses on the table through its contact area A.</div></div>\n<p>The unit of pressure is newton per square metre (N m<sup>-2</sup>). To honour the French scientist Blaise Pascal it is called the <b>pascal (Pa)</b>: 1 N m<sup>-2</sup> = 1 Pa. Pressure has only a size and no direction, so it is a <b>scalar</b>.</p>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">A cubic box of weight 400 N sits on a table. Its bottom area is 0.2 m². Find the pressure on the table.</div><div class=\"work\">Pressure = F ÷ A = 400 N ÷ 0.2 m² = <b>2000 Pa</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">A pile of soil spread over 8 m² of ground exerts a pressure of 150 Pa. What is the force on the ground?</div><div class=\"work\">Force = pressure × area = 150 N m<sup>-2</sup> × 8 m² = <b>1200 N</b></div></div>",
+      "ta": "<p>உன் உள்ளங்கைய மேசை மேல தட்டையா அழுத்து, அப்புறம் அதே விசையில பென்சில் நுனிய அழுத்து. நுனிதான் வலிக்கும். விசை ஒண்ணுதான், ஆனா நுனியோட பரப்பளவு ரொம்ப சின்னது. இதுதான் <b>அமுக்கம்</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">அமுக்கம் என்றால் என்ன</div><div class=\"ltext\">அமுக்கம் என்பது ஓரலகு பரப்பளவின் மீது தாக்கும் விசையாகும்.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">அமுக்கம்</div><div class=\"fmath\">Pressure = <b>F</b> ÷ <b>A</b>   (F = perpendicular force, A = area)</div><div class=\"fnote\">விசை மேற்பரப்புக்கு செங்குத்தா தாக்கணும்.</div></div>\n<div class=\"fig\"><svg aria-label=\"A box pressing on a table\" role=\"img\" viewbox=\"0 0 520 240\"><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"150\"></rect><rect height=\"44\" rx=\"0\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"12\" x=\"80\" y=\"166\"></rect><rect height=\"44\" rx=\"0\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"12\" x=\"428\" y=\"166\"></rect><rect height=\"72\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"140\" x=\"190\" y=\"78\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"120\">box</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"260\" x2=\"260.0\" y1=\"24\" y2=\"63.0\"></line><polygon points=\"260,76 266.8,63.0 253.2,63.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"272\" y=\"40\">F (weight)</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"190\" x2=\"330\" y1=\"188\" y2=\"188\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"190\" x2=\"190\" y1=\"183\" y2=\"193\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-dim)\" x1=\"330\" x2=\"330\" y1=\"183\" y2=\"193\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260.0\" y=\"181\">A  (contact area)</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"230\">Pressure = F ÷ A</text></svg><div class=\"figcap\">F நிறை உள்ள பெட்டி தொடு பரப்பளவு A வழியா மேசைய அழுத்துது.</div></div>\n<p>அமுக்கத்தோட அலகு நியூற்றன் / சதுர மீற்றர் (N m<sup>-2</sup>). பிரெஞ்சு அறிஞர் பிளேஸ் பாஸ்கலை கௌரவிக்க இது <b>பாஸ்கல் (Pa)</b> எனப்படும்: 1 N m<sup>-2</sup> = 1 Pa. அமுக்கத்துக்கு பருமன் மட்டும்தான், திசை இல்ல, அதனால இது ஒரு <b>அளவை (scalar)</b>.</p>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">நிறை 400 N உள்ள கனசதுரப் பெட்டி மேசை மேல இருக்கு. அடிப்பரப்பு 0.2 m². மேசை மேல அமுக்கம் என்ன?</div><div class=\"work\">Pressure = F ÷ A = 400 N ÷ 0.2 m² = <b>2000 Pa</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">8 m² நிலத்து மேல பரவியிருக்கற மண் குவியல் 150 Pa அமுக்கத்த தருது. நிலத்து மேல விசை என்ன?</div><div class=\"work\">Force = pressure × area = 150 N m<sup>-2</sup> × 8 m² = <b>1200 N</b></div></div>"
+     },
+     "section": "15.1"
+    },
+    {
+     "title": {
+      "en": "15.2 Pressure in a liquid (hydrostatic pressure)",
+      "ta": "15.2 திரவத்துல அமுக்கம் (நீர்நிலை அமுக்கம்)"
+     },
+     "body": {
+      "en": "<p>A solid presses on the table because its weight spreads over the contact area. In the same way a liquid presses on the bottom of its container, and on the vertical walls too. Let us see what this <b>hydrostatic pressure</b> is like.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🔬 Three quick experiments</div><ul><li>A polythene bag with holes, filled with water: water leaves through every hole, whichever way the hole faces. So the pressure acts in <b>every direction</b>.</li><li>A bottle with holes at the same level near the bottom: every stream travels the same distance. So the pressure at the <b>same level</b> is the same.</li><li>A bottle with holes from top to bottom: the lower holes shoot the water faster. So the pressure <b>increases with depth</b>.</li></ul></div>\n<div class=\"lawbox\"><div class=\"llabel\">Characteristics of liquid pressure</div><div class=\"ltext\">(i) It increases with the height (depth) of the liquid column above the point. (ii) It is the same at the same level of a liquid. (iii) At a point it is the same in all directions. (iv) It depends on the vertical height of the column, not on the shape of the column or the amount of liquid.</div></div>\n<div class=\"fig\"><svg aria-label=\"Tubes of different shapes joined at the bottom: the water reaches the same height\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"22\" rx=\"6\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"440\" x=\"40\" y=\"188\"></rect><rect height=\"18\" opacity=\"0.5\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"436\" x=\"42\" y=\"190\"></rect><path d=\"M80 188 V70 M104 188 V70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"84\" y=\"56\">a</text><path d=\"M150 188 V104 L128 70 M174 188 V104 L196 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"164\" y=\"56\">b</text><path d=\"M232 188 V70 M248 188 V70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"244\" y=\"56\">c</text><path d=\"M310 188 V130 Q286 112 304 84 L304 70 M334 188 V130 Q358 112 340 84 L340 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"324\" y=\"56\">d</text><path d=\"M392 188 L376 70 M416 188 L412 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"412\" y=\"56\">e</text><rect height=\"78\" opacity=\"0.18\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"380\" x=\"60\" y=\"110\"></rect><line stroke-dasharray=\"7 5\" stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--accent-3)\" x1=\"40\" x2=\"480\" y1=\"110\" y2=\"110\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"480\" y=\"100\">same height</text></svg><div class=\"figcap\">Activity 15.1: tubes of different shapes joined at the bottom. The water reaches the same height in all of them.</div></div>\n<p>Take a column of liquid of height <b>h</b> and density <b>ρ</b> standing on a base of area 1 m². Its mass is ρ × (1 × h) = hρ, so its weight is <b>hρg</b>. This weight spreads over 1 m², so the pressure at the bottom is hρg. The same works at any depth inside the liquid.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Pressure due to a liquid column</div><div class=\"fmath\"><b>P = h ρ g</b></div><div class=\"fnote\">h in m, ρ in kg m<sup>-3</sup>, g in m s<sup>-2</sup> → P in N m<sup>-2</sup> (Pa)</div></div>\n<div class=\"fig\"><svg aria-label=\"Pressure at a depth h in a liquid\" role=\"img\" viewbox=\"0 0 520 250\"><rect height=\"200\" rx=\"4\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"30\"></rect><rect height=\"148\" opacity=\"0.35\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"396\" x=\"62\" y=\"80\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"62\" x2=\"458\" y1=\"80\" y2=\"80\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"76\" y=\"72\">surface</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text)\" x1=\"260\" x2=\"260\" y1=\"80\" y2=\"150\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"236\" x2=\"236\" y1=\"80\" y2=\"150\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"231\" x2=\"241\" y1=\"80\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"231\" x2=\"241\" y1=\"150\" y2=\"150\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"228\" y=\"120.0\">h</text><circle cx=\"260\" cy=\"150\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"251.5\" x2=\"239.0\" y1=\"150.0\" y2=\"150.0\"></line><polygon points=\"226,150 239.0,155.8 239.0,144.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"268.5\" x2=\"281.0\" y1=\"150.0\" y2=\"150.0\"></line><polygon points=\"294,150 281.0,144.2 281.0,155.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"260.0\" x2=\"260.0\" y1=\"141.5\" y2=\"129.0\"></line><polygon points=\"260,116 254.2,129.0 265.8,129.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"260.0\" x2=\"260.0\" y1=\"158.5\" y2=\"171.0\"></line><polygon points=\"260,184 265.8,171.0 254.2,171.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"254.0\" x2=\"245.2\" y1=\"144.0\" y2=\"135.2\"></line><polygon points=\"236,126 241.1,139.3 249.3,131.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"266.0\" x2=\"274.8\" y1=\"144.0\" y2=\"135.2\"></line><polygon points=\"284,126 270.7,131.1 278.9,139.3\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"254.0\" x2=\"245.2\" y1=\"156.0\" y2=\"164.8\"></line><polygon points=\"236,174 249.3,168.9 241.1,160.7\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"266.0\" x2=\"274.8\" y1=\"156.0\" y2=\"164.8\"></line><polygon points=\"284,174 278.9,160.7 270.7,168.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"160\">same pressure in</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"178\">every direction</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"214\">P = h ρ g</text></svg><div class=\"figcap\">The pressure at a point depends on the depth h below the surface.</div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">A point in a lake is 1.5 m deep. Find the pressure of the water there. (ρ = 1000 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>)</div><div class=\"work\">P = hρg = 1.5 × 1000 × 10 = <b>15 000 Pa</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">The sea is 10 m deep at a place. Find the pressure of the sea water there. (ρ = 1050 kg m<sup>-3</sup>)</div><div class=\"work\">P = hρg = 10 × 1050 × 10 = <b>105 000 Pa</b></div></div>",
+      "ta": "<p>ஒரு திண்மம் தன் நிறையால மேசைய அழுத்துற மாதிரி, திரவம் தன் கொள்கலனோட அடிய அழுத்துது; நிமிர்ந்த சுவர்களையும் அழுத்துது. இந்த <b>நீர்நிலை அமுக்கம் (hydrostatic pressure)</b> எப்படின்னு பாக்கலாம்.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🔬 மூணு சின்ன சோதனைகள்</div><ul><li>ஓட்டைகள் போட்ட பாலிதீன் பையில நீர் ஊத்தினா, ஓட்டை எந்த பக்கம் இருந்தாலும் நீர் வெளிய வருது. அதனால அமுக்கம் <b>எல்லாத் திசையிலயும்</b> தாக்குது.</li><li>ஒரே மட்டத்துல அடிக்கு பக்கத்துல ஓட்டைகள் போட்ட போத்தல்ல நீர் எல்லா ஓட்டைலயும் ஒரே தூரம் போகுது. அதனால <b>ஒரே மட்டத்துல</b> அமுக்கம் சமம்.</li><li>மேல இருந்து கீழ வரை ஓட்டைகள் போட்ட போத்தல்ல கீழ இருக்கற ஓட்டைகள்ல நீர் வேகமா பாயுது. அதனால ஆழம் கூட <b>அமுக்கம் கூடும்</b>.</li></ul></div>\n<div class=\"lawbox\"><div class=\"llabel\">திரவ அமுக்கத்தோட இயல்புகள்</div><div class=\"ltext\">(i) புள்ளிக்கு மேல இருக்கற திரவ நிரலோட உயரம் (ஆழம்) கூட அமுக்கம் கூடும். (ii) திரவத்தோட ஒரே மட்டத்துல அமுக்கம் சமம். (iii) ஒரு புள்ளில எல்லாத் திசையிலயும் அமுக்கம் சமம். (iv) அது நிரலோட நிமிர்ந்த உயரத்தப் பொறுத்தது; நிரலோட வடிவம், திரவத்தோட அளவு பாதிக்காது.</div></div>\n<div class=\"fig\"><svg aria-label=\"Tubes of different shapes joined at the bottom: the water reaches the same height\" role=\"img\" viewbox=\"0 0 520 230\"><rect height=\"22\" rx=\"6\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"440\" x=\"40\" y=\"188\"></rect><rect height=\"18\" opacity=\"0.5\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"436\" x=\"42\" y=\"190\"></rect><path d=\"M80 188 V70 M104 188 V70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"84\" y=\"56\">a</text><path d=\"M150 188 V104 L128 70 M174 188 V104 L196 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"164\" y=\"56\">b</text><path d=\"M232 188 V70 M248 188 V70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"244\" y=\"56\">c</text><path d=\"M310 188 V130 Q286 112 304 84 L304 70 M334 188 V130 Q358 112 340 84 L340 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"324\" y=\"56\">d</text><path d=\"M392 188 L376 70 M416 188 L412 70\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"412\" y=\"56\">e</text><rect height=\"78\" opacity=\"0.18\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"380\" x=\"60\" y=\"110\"></rect><line stroke-dasharray=\"7 5\" stroke-linecap=\"round\" stroke-width=\"2\" style=\"stroke:var(--accent-3)\" x1=\"40\" x2=\"480\" y1=\"110\" y2=\"110\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"480\" y=\"100\">same height</text></svg><div class=\"figcap\">செயற்பாடு 15.1: அடில இணைக்கப்பட்ட வெவ்வேறு வடிவக் குழாய்கள். எல்லாத்துலயும் நீர் ஒரே உயரம் வரை நிக்குது.</div></div>\n<p>அடிப்பரப்பு 1 m², உயரம் <b>h</b>, அடர்த்தி <b>ρ</b> உள்ள திரவ நிரல எடுத்துக்கோ. அதோட திணிவு ρ × (1 × h) = hρ, அதனால நிறை <b>hρg</b>. இந்த நிறை 1 m² மேல பரவுது, அதனால அடில அமுக்கம் hρg. திரவத்துக்குள்ள எந்த ஆழத்துலயும் இதே சூத்திரம்தான்.</p>\n<div class=\"formula-box\"><div class=\"flabel\">திரவ நிரலால ஏற்படும் அமுக்கம்</div><div class=\"fmath\"><b>P = h ρ g</b></div><div class=\"fnote\">h: m, ρ: kg m<sup>-3</sup>, g: m s<sup>-2</sup> → P: N m<sup>-2</sup> (Pa)</div></div>\n<div class=\"fig\"><svg aria-label=\"Pressure at a depth h in a liquid\" role=\"img\" viewbox=\"0 0 520 250\"><rect height=\"200\" rx=\"4\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"30\"></rect><rect height=\"148\" opacity=\"0.35\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"396\" x=\"62\" y=\"80\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"62\" x2=\"458\" y1=\"80\" y2=\"80\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"76\" y=\"72\">surface</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text)\" x1=\"260\" x2=\"260\" y1=\"80\" y2=\"150\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"236\" x2=\"236\" y1=\"80\" y2=\"150\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"231\" x2=\"241\" y1=\"80\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"231\" x2=\"241\" y1=\"150\" y2=\"150\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"228\" y=\"120.0\">h</text><circle cx=\"260\" cy=\"150\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"251.5\" x2=\"239.0\" y1=\"150.0\" y2=\"150.0\"></line><polygon points=\"226,150 239.0,155.8 239.0,144.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"268.5\" x2=\"281.0\" y1=\"150.0\" y2=\"150.0\"></line><polygon points=\"294,150 281.0,144.2 281.0,155.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"260.0\" x2=\"260.0\" y1=\"141.5\" y2=\"129.0\"></line><polygon points=\"260,116 254.2,129.0 265.8,129.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"260.0\" x2=\"260.0\" y1=\"158.5\" y2=\"171.0\"></line><polygon points=\"260,184 265.8,171.0 254.2,171.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"254.0\" x2=\"245.2\" y1=\"144.0\" y2=\"135.2\"></line><polygon points=\"236,126 241.1,139.3 249.3,131.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"266.0\" x2=\"274.8\" y1=\"144.0\" y2=\"135.2\"></line><polygon points=\"284,126 270.7,131.1 278.9,139.3\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"254.0\" x2=\"245.2\" y1=\"156.0\" y2=\"164.8\"></line><polygon points=\"236,174 249.3,168.9 241.1,160.7\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"266.0\" x2=\"274.8\" y1=\"156.0\" y2=\"164.8\"></line><polygon points=\"284,174 278.9,160.7 270.7,168.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"160\">same pressure in</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"178\">every direction</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"214\">P = h ρ g</text></svg><div class=\"figcap\">ஒரு புள்ளியோட அமுக்கம் மேற்பரப்புக்கு கீழ இருக்கற ஆழம் h-ஐ பொறுத்தது.</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">ஏரில 1.5 m ஆழத்துல ஒரு புள்ளி. அங்க நீரோட அமுக்கம்? (ρ = 1000 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>)</div><div class=\"work\">P = hρg = 1.5 × 1000 × 10 = <b>15 000 Pa</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">ஒரு இடத்துல கடல் 10 m ஆழம். அங்க கடல் நீரோட அமுக்கம்? (ρ = 1050 kg m<sup>-3</sup>)</div><div class=\"work\">P = hρg = 10 × 1050 × 10 = <b>105 000 Pa</b></div></div>"
+     },
+     "section": "15.2"
+    },
+    {
+     "title": {
+      "en": "15.3 Pressure travels through a liquid",
+      "ta": "15.3 அமுக்கம் திரவம் வழியா கடத்தப்படுது"
+     },
+     "body": {
+      "en": "<p>A liquid cannot be squeezed into a smaller volume. So a pressure made at one point of a liquid is passed on to every other point. Machines built on this idea are called <b>hydraulic machines</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A hydraulic press\" role=\"img\" viewbox=\"0 0 520 240\"><path d=\"M110 60 V150 H70 V220 H440 V150 H400 V60\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"68\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"286\" x=\"112\" y=\"150\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"38\" x=\"112\" y=\"100\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"46\" x=\"352\" y=\"100\"></rect><rect height=\"12\" rx=\"2\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"38\" x=\"112\" y=\"90\"></rect><rect height=\"12\" rx=\"2\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"46\" x=\"352\" y=\"90\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"131\" x2=\"131.0\" y1=\"28\" y2=\"75.0\"></line><polygon points=\"131,88 137.8,75.0 124.2,75.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"131\" y=\"20\">20 N</text><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--good)\" x1=\"375\" x2=\"375.0\" y1=\"142\" y2=\"69.0\"></line><polygon points=\"375,56 367.5,69.0 382.5,69.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"375\" y=\"46\">400 N</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"131\" y=\"178\">A = 10 cm²</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"375\" y=\"178\">B = 200 cm²</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"131\" y=\"120\">piston A</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"262\" y=\"200\">liquid</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"262\" y=\"120\">same pressure everywhere</text></svg><div class=\"figcap\">Hydraulic press: a small force on the small piston A gives a large force on the large piston B.</div></div>\n<div class=\"worked\"><div class=\"wt\">Hydraulic press (textbook figure 15.6)</div><div class=\"work\">Piston A has an area of 10 cm² and piston B has 200 cm². A force of 20 N pushes on A.</div><div class=\"work\">Pressure = F ÷ A = 20 N ÷ 10<sup>-3</sup> m² = 20 000 N m<sup>-2</sup> = <b>2 N cm<sup>-2</sup></b></div><div class=\"work\">This same pressure acts on piston B: 2 N on every cm². Total force on B = 2 × 200 = <b>400 N</b>.</div></div>\n<p>The liquid's own weight is tiny compared with these forces, so it is ignored in the calculation.</p>\n<ul><li><b>Vehicle hoist</b> at a service station: a small force on a small piston is transmitted through oil to a large piston carrying the vehicle. (Real hoists use a compressor to pump oil, because moving a small piston a long way is hard.)</li><li><b>Hydraulic jack</b>: lifts one side of a vehicle when a wheel must be removed. A force on a small piston lifts a large piston.</li><li><b>Vehicle brakes</b>: the pedal pushes the piston of the master cylinder; the oil carries the pressure to the slave cylinder at the wheel. The slave cylinder is wider, so it presses the brake pads harder than the driver pushes the pedal.</li></ul>",
+      "ta": "<p>திரவத்த அழுத்தி அதோட கனவளவ குறைக்க முடியாது. அதனால திரவத்துல ஒரு புள்ளில உண்டாக்கற அமுக்கம் மத்த எல்லாப் புள்ளிகளுக்கும் கடத்தப்படுது. இந்த தத்துவத்தால வேலை செய்யற இயந்திரங்கள் <b>நீரியல் இயந்திரங்கள்</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A hydraulic press\" role=\"img\" viewbox=\"0 0 520 240\"><path d=\"M110 60 V150 H70 V220 H440 V150 H400 V60\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"68\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"286\" x=\"112\" y=\"150\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"38\" x=\"112\" y=\"100\"></rect><rect height=\"50\" opacity=\"0.4\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"46\" x=\"352\" y=\"100\"></rect><rect height=\"12\" rx=\"2\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"38\" x=\"112\" y=\"90\"></rect><rect height=\"12\" rx=\"2\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"46\" x=\"352\" y=\"90\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"131\" x2=\"131.0\" y1=\"28\" y2=\"75.0\"></line><polygon points=\"131,88 137.8,75.0 124.2,75.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"131\" y=\"20\">20 N</text><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--good)\" x1=\"375\" x2=\"375.0\" y1=\"142\" y2=\"69.0\"></line><polygon points=\"375,56 367.5,69.0 382.5,69.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"375\" y=\"46\">400 N</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"131\" y=\"178\">A = 10 cm²</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"375\" y=\"178\">B = 200 cm²</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"131\" y=\"120\">piston A</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"262\" y=\"200\">liquid</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"262\" y=\"120\">same pressure everywhere</text></svg><div class=\"figcap\">நீரியல் அழுத்தி: சின்ன பிஸ்டன் A மேல சின்ன விசை, பெரிய பிஸ்டன் B மேல பெரிய விசைய தருது.</div></div>\n<div class=\"worked\"><div class=\"wt\">நீரியல் அழுத்தி (பாடப்புத்தக உரு 15.6)</div><div class=\"work\">பிஸ்டன் A பரப்பளவு 10 cm², பிஸ்டன் B 200 cm². A மேல 20 N விசை.</div><div class=\"work\">Pressure = F ÷ A = 20 N ÷ 10<sup>-3</sup> m² = 20 000 N m<sup>-2</sup> = <b>2 N cm<sup>-2</sup></b></div><div class=\"work\">இதே அமுக்கம் B மேலயும் தாக்குது: ஒவ்வொரு cm²-க்கும் 2 N. B மேல மொத்த விசை = 2 × 200 = <b>400 N</b>.</div></div>\n<p>இந்த விசைகளோட ஒப்பிடும்போது திரவத்தோட நிறை ரொம்ப சின்னது, அதனால கணக்குல எடுத்துக்க மாட்டோம்.</p>\n<ul><li><b>வாகன உயர்த்தி</b> (சர்வீஸ் ஸ்டேஷன்): சின்ன பிஸ்டன் மேல சின்ன விசை எண்ணெய் வழியா வாகனம் இருக்கற பெரிய பிஸ்டனுக்கு போகுது. (நிஜ உயர்த்திகள்ல கம்ப்ரசர் எண்ணெய அடிக்குது, ஏன்னா சின்ன பிஸ்டன நீண்ட தூரம் நகர்த்தறது கஷ்டம்.)</li><li><b>நீரியல் உயர்த்தி (hydraulic jack)</b>: சக்கரத்த கழட்ட வாகனத்தோட ஒரு பக்கத்த தூக்குது. சின்ன பிஸ்டன் மேல விசை, பெரிய பிஸ்டன தூக்குது.</li><li><b>வாகன பிரேக்</b>: பெடல் மாஸ்டர் சிலிண்டர் பிஸ்டனை தள்ளுது; எண்ணெய் அமுக்கத்த சக்கரத்துக்கு பக்கத்துல இருக்கற ஸ்லேவ் சிலிண்டருக்கு கடத்துது. ஸ்லேவ் சிலிண்டர் அகலமானதால டிரைவர் பெடல தள்ளுறத விட பிரேக் பேடை அதிக விசையால அழுத்துது.</li></ul>"
+     },
+     "section": "15.3"
+    },
+    {
+     "title": {
+      "en": "15.4 Gases and the atmosphere",
+      "ta": "15.4 வாயுக்களும் வளிமண்டலமும்"
+     },
+     "body": {
+      "en": "<p>Gases press too. A gas can make pressure in two ways: by the weight of a column of gas (this is how <b>atmospheric pressure</b> comes about), or when a compressed gas tries to expand.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🎈 Activity 15.2: a balloon and a U-tube</div><ul><li>Water in a U-tube stands at the same level in both arms. Connect a balloon full of air to arm X and open it: the water in X goes down and in Y goes up.</li><li>So the compressed air in the balloon makes extra pressure on the water in X.</li></ul></div>\n<p>The <b>atmosphere</b> is the layer of air around the Earth, hundreds of kilometres thick. Just as water presses on a point at the bottom of a pond, the weight of the air above any point makes the <b>atmospheric pressure</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A mercury barometer\" role=\"img\" viewbox=\"0 0 520 250\"><rect height=\"40\" opacity=\"0.55\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"220\" x=\"150\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"218\">mercury</text><rect height=\"190\" rx=\"3\" stroke-width=\"2.5\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"30\" x=\"245\" y=\"30\"></rect><rect height=\"120\" opacity=\"0.8\" rx=\"0\" stroke-width=\"0\" style=\"fill:#9aa6b2;stroke:none\" width=\"26\" x=\"247\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"70\">vacuum</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"100\" y2=\"190\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"295\" x2=\"305\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"295\" x2=\"305\" y1=\"190\" y2=\"190\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"start\" x=\"308\" y=\"150.0\">76 cm</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"245\" x2=\"310\" y1=\"190\" y2=\"190\"></line><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"245\" x2=\"310\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"170\" x2=\"170.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"170,186 176.1,173.0 163.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"200.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"200,186 206.1,173.0 193.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"330\" x2=\"330.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"330,186 336.1,173.0 323.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"355\" x2=\"355.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"355,186 361.1,173.0 348.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"140\">atmospheric</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"158\">pressure</text></svg><div class=\"figcap\">Torricelli's mercury barometer: the mercury column is held up by the atmospheric pressure.</div></div>\n<ol><li>Fill a glass tube (about 1 m long, closed at one end) with mercury.</li><li>Turn it upside down without letting air in, and stand it in a dish of mercury.</li><li>The mercury drops a little and stops with a column about <b>76 cm</b> high. Above it is empty space: a vacuum.</li></ol>\n<p>The atmospheric pressure outside pushes on the dish and balances the 76 cm column, so the height of the column measures the atmospheric pressure. Push the tube deeper or tilt it: the <i>vertical</i> height stays 76 cm. Going up a mountain the air column gets shorter, so the pressure falls (about 25 cm Hg on top of Everest).</p>\n<div class=\"lawbox\"><div class=\"llabel\">Atmospheric pressure at sea level</div><div class=\"ltext\">About 76 cm Hg: the pressure of a mercury column 76 cm high. In pascals: P = hρg.</div></div>\n<div class=\"worked\"><div class=\"wt\">Converting 76 cm Hg</div><div class=\"work\">(ρ of mercury = 13 600 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>, ρ of water = 1000 kg m<sup>-3</sup>)</div><div class=\"work\">(i) P = hρg = (76 ÷ 100) × 13 600 × 10 = <b>103 360 Pa</b></div><div class=\"work\">(ii) A water column of height h gives the same pressure: h × 1000 × 10 = 103 360, so h = <b>10.336 m</b>.</div></div>\n<p>Two instruments measure atmospheric pressure: the <b>mercury barometer</b> above, and the <b>aneroid barometer</b>, which has no liquid. It has a sealed metal box with the air pumped out; when the outside pressure changes the thin walls bend, and a pointer moves over a scale.</p>\n<ul><li><b>Drinking with a straw:</b> sucking lowers the pressure inside the straw; the atmospheric pressure on the juice outside pushes it up the straw.</li><li><b>Siphon:</b> fill a tube with water, lower one end below the level of tank A. The pressure at the end in A (water column + atmosphere) is higher than the pressure at the free end, so water flows to the lower tank B.</li><li><b>Rubber sucker:</b> pressed on glass, it pushes out most of the air. The pressure inside is lower than outside, so the atmosphere holds it on (only if no air leaks in at the edge).</li></ul>",
+      "ta": "<p>வாயுக்களும் அமுக்கத்த உண்டாக்குது. ரெண்டு வழிகள்: வாயு நிரலோட நிறையால (இப்படித்தான் <b>வளிமண்டல அமுக்கம்</b> உண்டாகுது), அல்லது அழுத்தப்பட்ட வாயு விரிய முயற்சி பண்ணும்போது.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🎈 செயற்பாடு 15.2: பலூனும் U-குழாயும்</div><ul><li>U-குழாயில ரெண்டு பக்கமும் நீர் ஒரே மட்டத்துல இருக்கு. காத்து நிறைஞ்ச பலூன X பக்கத்துல இணைச்சு திறந்தா X-ல நீர் கீழ போகுது, Y-ல மேல வருது.</li><li>அதனால பலூனுக்குள்ள இருக்கற அழுத்தப்பட்ட காத்து X-ல இருக்கற நீர் மேல கூடுதல் அமுக்கத்த தருது.</li></ul></div>\n<p><b>வாயுமண்டலம் (atmosphere)</b> என்பது பூமிய சுத்தி நூற்றுக்கணக்கான கிலோமீற்றர் தடிமனுக்கு இருக்கற காத்து அடுக்கு. குளத்தோட அடில இருக்கற புள்ளிய நீர் அழுத்துற மாதிரி, ஒரு புள்ளிக்கு மேல இருக்கற காத்தோட நிறை <b>வளிமண்டல அமுக்கத்த</b> உண்டாக்குது.</p>\n<div class=\"fig\"><svg aria-label=\"A mercury barometer\" role=\"img\" viewbox=\"0 0 520 250\"><rect height=\"40\" opacity=\"0.55\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#9aa6b2;stroke:var(--text)\" width=\"220\" x=\"150\" y=\"190\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"218\">mercury</text><rect height=\"190\" rx=\"3\" stroke-width=\"2.5\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"30\" x=\"245\" y=\"30\"></rect><rect height=\"120\" opacity=\"0.8\" rx=\"0\" stroke-width=\"0\" style=\"fill:#9aa6b2;stroke:none\" width=\"26\" x=\"247\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"70\">vacuum</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"300\" x2=\"300\" y1=\"100\" y2=\"190\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"295\" x2=\"305\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"295\" x2=\"305\" y1=\"190\" y2=\"190\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"start\" x=\"308\" y=\"150.0\">76 cm</text><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"245\" x2=\"310\" y1=\"190\" y2=\"190\"></line><line stroke-dasharray=\"4 4\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"245\" x2=\"310\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"170\" x2=\"170.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"170,186 176.1,173.0 163.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"200.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"200,186 206.1,173.0 193.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"330\" x2=\"330.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"330,186 336.1,173.0 323.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"355\" x2=\"355.0\" y1=\"150\" y2=\"173.0\"></line><polygon points=\"355,186 361.1,173.0 348.9,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"140\">atmospheric</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"100\" y=\"158\">pressure</text></svg><div class=\"figcap\">தொரிசெல்லியோட இரச பாரமானி: இரச நிரல வளிமண்டல அமுக்கம் தாங்கிப் பிடிச்சிருக்கு.</div></div>\n<ol><li>ஒரு முனை மூடிய சுமார் 1 m நீள கண்ணாடிக் குழாய்ல இரசத்த நிரப்பு.</li><li>காத்து உள்ள போகாம தலைகீழா திருப்பி, இரசம் உள்ள தட்டுல நிறுத்து.</li><li>இரசம் கொஞ்சம் இறங்கி சுமார் <b>76 cm</b> உயரத்துல நிக்குது. மேல வெற்றிடம் (vacuum) இருக்கு.</li></ol>\n<p>வெளிய இருக்கற வளிமண்டல அமுக்கம் 76 cm நிரல சமநிலைப்படுத்துது, அதனால நிரலோட உயரம் வளிமண்டல அமுக்கத்த அளக்குது. குழாய ஆழமா அமுக்கினாலும் சாய்ச்சாலும் <i>நிமிர்ந்த</i> உயரம் 76 cm-தான். மலை மேல போனா காத்து நிரல் குறையும், அதனால அமுக்கம் குறையும் (எவரெஸ்ட் உச்சில சுமார் 25 cm Hg).</p>\n<div class=\"lawbox\"><div class=\"llabel\">கடல் மட்டத்துல வளிமண்டல அமுக்கம்</div><div class=\"ltext\">சுமார் 76 cm Hg: 76 cm உயர இரச நிரலோட அமுக்கம். பாஸ்கல்ல: P = hρg.</div></div>\n<div class=\"worked\"><div class=\"wt\">76 cm Hg-ஐ மாத்தறது</div><div class=\"work\">(இரசத்தோட ρ = 13 600 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>, நீரோட ρ = 1000 kg m<sup>-3</sup>)</div><div class=\"work\">(i) P = hρg = (76 ÷ 100) × 13 600 × 10 = <b>103 360 Pa</b></div><div class=\"work\">(ii) அதே அமுக்கத்த தர நீர் நிரலோட உயரம் h: h × 1000 × 10 = 103 360, h = <b>10.336 m</b>.</div></div>\n<p>வளிமண்டல அமுக்கத்த அளக்க ரெண்டு கருவிகள்: மேல இருக்கற <b>இரச பாரமானி</b>, திரவம் இல்லாத <b>அனிரொய்ட் பாரமானி</b>. இதுல காத்து வெளியேற்றப்பட்ட மூடிய உலோகப் பெட்டி இருக்கு; வெளி அமுக்கம் மாறினா மெல்லிய சுவர்கள் வளையும், ஒரு முள்ளு அளவுகோல் மேல நகரும்.</p>\n<ul><li><b>ஸ்ட்ராவால குடிக்கறது:</b> உறிஞ்சினா ஸ்ட்ரா உள்ள அமுக்கம் குறையுது; வெளிய ஜூஸ் மேல இருக்கற வளிமண்டல அமுக்கம் அத ஸ்ட்ராவுக்குள்ள தள்ளுது.</li><li><b>சைஃபன்:</b> குழாய்ல நீர நிரப்பி ஒரு முனைய தொட்டி A-யோட மட்டத்துக்கு கீழ கொண்டு போ. A-ல இருக்கற முனைல அமுக்கம் (நீர் நிரல் + வளிமண்டலம்) சுதந்திர முனை அமுக்கத்த விட அதிகம், அதனால நீர் கீழ இருக்கற தொட்டி B-க்கு ஓடுது.</li><li><b>ரப்பர் சக்கர் (sucker):</b> கண்ணாடி மேல அழுத்தினா பெரும்பாலான காத்து வெளிய போகுது. உள்ள அமுக்கம் வெளிய விட குறைவு, அதனால வளிமண்டலம் அத ஒட்டிப் பிடிச்சிருக்கு (ஓரத்துல காத்து உள்ள வராத வரை).</li></ul>"
+     },
+     "section": "15.4"
+    },
+    {
+     "title": {
+      "en": "15.5 Floating and sinking: upthrust",
+      "ta": "15.5 மிதத்தலும் மூழ்குதலும்: மேலுதைப்பு"
+     },
+     "body": {
+      "en": "<p>A stone sinks but a piece of wood floats. Push a floating plank down and you feel the water pushing back up. Even a sinking object feels lighter in water than in air. The upward force that a fluid exerts on an object in it is called the <b>upthrust</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A spring balance reads less when the metal is in water\" role=\"img\" viewbox=\"0 0 520 270\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"14\" y2=\"40\"></line><rect height=\"70\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"44\" x=\"88\" y=\"40\"></rect><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"110\" y=\"82\">20 N</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"110\" y2=\"150\"></line><rect height=\"38\" opacity=\"0.9\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"44\" x=\"88\" y=\"150\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"110\" y=\"252\">Spring balance in air</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"360\" x2=\"360\" y1=\"14\" y2=\"40\"></line><rect height=\"70\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"44\" x=\"338\" y=\"40\"></rect><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"360\" y=\"82\">5 N</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"360\" x2=\"360\" y1=\"110\" y2=\"150\"></line><rect height=\"38\" opacity=\"0.9\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"44\" x=\"338\" y=\"150\"></rect><rect height=\"92\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"120\" x=\"300\" y=\"138\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"400\" x2=\"400.0\" y1=\"190\" y2=\"173.0\"></line><polygon points=\"400,160 393.9,173.0 406.1,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"406\" y=\"156\">upthrust</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"360\" y=\"252\">Spring balance in water</text><text font-size=\"30\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"235\" y=\"160\">→</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"235\" y=\"188\">20 − 5 = 15 N</text></svg><div class=\"figcap\">Activity 15.3: the spring balance reads less when the metal is in water, because the water pushes it up.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Stage (Activity 15.4, sample readings)</th><th>Spring balance (N)</th><th>Upthrust (N)</th><th>Weight of displaced water (N)</th></tr><tr><td>(a) cube near the surface</td><td class=\"num\">1.2</td><td class=\"num\">0</td><td class=\"num\">0</td></tr><tr><td>(b) half submerged</td><td class=\"num\">0.9</td><td class=\"num\">0.3</td><td class=\"num\">0.3</td></tr><tr><td>(c) fully submerged, near the surface</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td></tr><tr><td>(d) fully submerged, deep down</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td></tr></table></div>\n<div class=\"lawbox\"><div class=\"llabel\">Archimedes' principle</div><div class=\"ltext\">When an object is partly or completely submerged in a fluid, the upthrust on it equals the weight of the fluid it displaces.</div></div>\n<div class=\"fig\"><svg aria-label=\"Three objects in water: A floats, B floats fully submerged, C sinks\" role=\"img\" viewbox=\"0 0 520 280\"><rect height=\"190\" rx=\"8\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"40\"></rect><rect height=\"128\" opacity=\"0.35\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"436\" x=\"42\" y=\"100\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"42\" x2=\"478\" y1=\"100\" y2=\"100\"></line><rect height=\"60\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"80\" x=\"80\" y=\"70\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"120\" x2=\"120.0\" y1=\"128\" y2=\"147.0\"></line><polygon points=\"120,160 126.1,147.0 113.9,147.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"100\" x2=\"100.0\" y1=\"112\" y2=\"95.0\"></line><polygon points=\"100,82 93.9,95.0 106.1,95.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"196\">A</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"120\" y=\"214\">floats</text><rect height=\"56\" opacity=\"0.55\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"230\" y=\"118\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"270\" x2=\"270.0\" y1=\"174\" y2=\"193.0\"></line><polygon points=\"270,206 276.1,193.0 263.9,193.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"250\" x2=\"250.0\" y1=\"118\" y2=\"103.0\"></line><polygon points=\"250,90 243.9,103.0 256.1,103.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"270\" y=\"108\">B</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"270\" y=\"224\">floats, fully submerged</text><rect height=\"38\" opacity=\"0.85\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"70\" x=\"380\" y=\"190\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--good)\" x1=\"415\" x2=\"415.0\" y1=\"190\" y2=\"177.0\"></line><polygon points=\"415,164 409.2,177.0 420.8,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"415\" y=\"150\">C</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"415\" y=\"244\">sinks</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"60\" y=\"270\">red arrow = weight   green arrow = upthrust</text></svg><div class=\"figcap\">Activity 15.5: A floats partly submerged, B floats fully submerged, C sinks.</div></div>\n<p>In the activity the object that floats (partly or fully submerged) has an upthrust equal to its weight. The object that sinks has a weight <b>greater</b> than the upthrust.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">⚖️ When an object is fully immersed in a fluid, the upthrust is…</div><ul><li><b>less than</b> its weight → it <b>sinks</b>.</li><li><b>equal to</b> its weight → it <b>floats fully submerged</b>.</li><li><b>greater than</b> its weight → it rises and <b>floats partly submerged</b>, until the upthrust equals its weight.</li></ul></div>\n<p>A <b>hydrometer</b> is a glass instrument with a bulb loaded with mercury or lead shot, so it floats upright. It sinks only a little in a dense liquid (little liquid has to be displaced) and more in a light liquid. The density is read straight from the scale.</p>",
+      "ta": "<p>கல்லு மூழ்குது, மரத்துண்டு மிதக்குது. மிதக்கற பலகைய கீழ அமுக்கினா நீர் மேல தள்றத நீ உணருவே. மூழ்கற பொருளும் காத்துல இருக்கறத விட நீர்ல லேசா தெரியும். திரவம் அதுல இருக்கற பொருள் மேல கொடுக்கற மேல்நோக்கிய விசைக்கு <b>மேலுதைப்பு (upthrust)</b> னு பேரு.</p>\n<div class=\"fig\"><svg aria-label=\"A spring balance reads less when the metal is in water\" role=\"img\" viewbox=\"0 0 520 270\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"14\" y2=\"40\"></line><rect height=\"70\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"44\" x=\"88\" y=\"40\"></rect><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"110\" y=\"82\">20 N</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"110\" y2=\"150\"></line><rect height=\"38\" opacity=\"0.9\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"44\" x=\"88\" y=\"150\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"110\" y=\"252\">Spring balance in air</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"360\" x2=\"360\" y1=\"14\" y2=\"40\"></line><rect height=\"70\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"44\" x=\"338\" y=\"40\"></rect><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"360\" y=\"82\">5 N</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"360\" x2=\"360\" y1=\"110\" y2=\"150\"></line><rect height=\"38\" opacity=\"0.9\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"44\" x=\"338\" y=\"150\"></rect><rect height=\"92\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"120\" x=\"300\" y=\"138\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"400\" x2=\"400.0\" y1=\"190\" y2=\"173.0\"></line><polygon points=\"400,160 393.9,173.0 406.1,173.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"406\" y=\"156\">upthrust</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"360\" y=\"252\">Spring balance in water</text><text font-size=\"30\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"235\" y=\"160\">→</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"235\" y=\"188\">20 − 5 = 15 N</text></svg><div class=\"figcap\">செயற்பாடு 15.3: உலோகம் நீர்ல இருக்கறப்ப நீர் மேல தள்றதால இழுவைத் தராசு குறைவா காட்டுது.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>நிலை (செயற்பாடு 15.4, மாதிரி அளவீடுகள்)</th><th>தராசு (N)</th><th>மேலுதைப்பு (N)</th><th>இடம்பெயர்த்த நீரோட நிறை (N)</th></tr><tr><td>(a) மேற்பரப்பு பக்கத்துல கனசதுரம்</td><td class=\"num\">1.2</td><td class=\"num\">0</td><td class=\"num\">0</td></tr><tr><td>(b) பாதி மூழ்கியது</td><td class=\"num\">0.9</td><td class=\"num\">0.3</td><td class=\"num\">0.3</td></tr><tr><td>(c) முழுசா மூழ்கி, மேற்பரப்பு பக்கத்துல</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td></tr><tr><td>(d) முழுசா மூழ்கி, ஆழத்துல</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td><td class=\"num\">0.6</td></tr></table></div>\n<div class=\"lawbox\"><div class=\"llabel\">ஆர்க்கிமிடிஸ் தத்துவம்</div><div class=\"ltext\">ஒரு பொருள் ஒரு பாய்மத்துல பகுதியாவோ முழுசாவோ மூழ்கியிருக்கறப்ப, அதன்மேல மேலுதைப்பு அது இடம்பெயர்த்த பாய்மத்தோட நிறைக்கு சமம்.</div></div>\n<div class=\"fig\"><svg aria-label=\"Three objects in water: A floats, B floats fully submerged, C sinks\" role=\"img\" viewbox=\"0 0 520 280\"><rect height=\"190\" rx=\"8\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"440\" x=\"40\" y=\"40\"></rect><rect height=\"128\" opacity=\"0.35\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"436\" x=\"42\" y=\"100\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"42\" x2=\"478\" y1=\"100\" y2=\"100\"></line><rect height=\"60\" opacity=\"0.8\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"80\" x=\"80\" y=\"70\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"120\" x2=\"120.0\" y1=\"128\" y2=\"147.0\"></line><polygon points=\"120,160 126.1,147.0 113.9,147.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"100\" x2=\"100.0\" y1=\"112\" y2=\"95.0\"></line><polygon points=\"100,82 93.9,95.0 106.1,95.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"196\">A</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"120\" y=\"214\">floats</text><rect height=\"56\" opacity=\"0.55\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"80\" x=\"230\" y=\"118\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"270\" x2=\"270.0\" y1=\"174\" y2=\"193.0\"></line><polygon points=\"270,206 276.1,193.0 263.9,193.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"250\" x2=\"250.0\" y1=\"118\" y2=\"103.0\"></line><polygon points=\"250,90 243.9,103.0 256.1,103.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"270\" y=\"108\">B</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"270\" y=\"224\">floats, fully submerged</text><rect height=\"38\" opacity=\"0.85\" rx=\"4\" stroke-width=\"2.5\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"70\" x=\"380\" y=\"190\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--good)\" x1=\"415\" x2=\"415.0\" y1=\"190\" y2=\"177.0\"></line><polygon points=\"415,164 409.2,177.0 420.8,177.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"18\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"415\" y=\"150\">C</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"415\" y=\"244\">sinks</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"60\" y=\"270\">red arrow = weight   green arrow = upthrust</text></svg><div class=\"figcap\">செயற்பாடு 15.5: A பகுதி மூழ்கி மிதக்குது, B முழுசா மூழ்கி மிதக்குது, C மூழ்குது.</div></div>\n<p>செயற்பாட்டுல மிதக்கற பொருளுக்கு (பகுதியா அல்லது முழுசா மூழ்கி) மேலுதைப்பு அதோட நிறைக்கு சமம். மூழ்கற பொருளோட நிறை மேலுதைப்ப விட <b>அதிகம்</b>.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">⚖️ பொருள் பாய்மத்துல முழுசா மூழ்கியிருக்கறப்ப மேலுதைப்பு…</div><ul><li>நிறைய விட <b>குறைவு</b> → <b>மூழ்கும்</b>.</li><li>நிறைக்கு <b>சமம்</b> → <b>முழுசா மூழ்கி மிதக்கும்</b>.</li><li>நிறைய விட <b>அதிகம்</b> → மேல எழும்பி <b>பகுதியா மூழ்கி மிதக்கும்</b>, மேலுதைப்பு நிறைக்கு சமமாகும் வரை.</li></ul></div>\n<p><b>ஹைட்ரோமீட்டர்</b> என்பது இரசம் அல்லது ஈயக் குண்டுகள் இருக்கற குமிழ் உள்ள கண்ணாடிக் கருவி, அதனால அது நிமிர்ந்து மிதக்கும். அடர்த்தியான திரவத்துல கொஞ்சமாதான் மூழ்கும் (கொஞ்ச திரவத்த இடம்பெயர்த்தா போதும்), லேசான திரவத்துல அதிகமா மூழ்கும். அடர்த்திய அளவுகோல்ல நேரா படிக்கலாம்.</p>"
+     },
+     "section": "15.5"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you observed water pressure and hydraulic lifting. Below are the formulas (P = hρg), SI units, and exam calculations!",
+    "ta": "பகுதி 1-ல் திரவ அழுத்த விளைவுகளை பார்த்தோம். அதற்கான சூத்திரங்கள் (P = hρg), அலகுகள், பரீட்சை கணித்தல்களை இங்கே கற்போம்!"
+   }
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook activities: try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"15.d\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Demonstrations: bag and bottle with holes</h3>\n<span class=\"act-ref\">Textbook · p.64–65</span>\n<p>See that water pressure acts in every direction, is the same at the same level, and grows with depth.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A polythene bag</li><li>A plastic bottle about 25 cm high</li><li>A pin or nail to make holes, water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Make holes on different sides of a polythene bag, fill it with water and hold it up.</li><li>Make holes at the same level near the bottom of the bottle, fill it with water and watch how far each stream goes.</li><li>Make a second bottle with holes from top to bottom, hold it above the ground and compare the streams.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Water leaves every hole in the bag (pressure in every direction). Streams from holes at the same level travel the same distance (same pressure at the same level). Lower holes shoot water faster (pressure increases with depth).</div></details>\n<button class=\"btn act-done\" data-act=\"15.d\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"15.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 15.1: does the shape of the liquid column matter?</h3>\n<span class=\"act-ref\">Textbook · p.66</span>\n<p>Find out whether liquid pressure depends on the shape of the column.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Five transparent tubes of different shapes (a to e)</li><li>A PVC tube with closed ends</li><li>Water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fix the five tubes to the PVC tube as in the figure.</li><li>Fill the system with water.</li><li>Record the vertical height of the water column in each tube.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The height is the same in every tube. The pressure at equal levels is equal, so the pressure of a liquid column depends only on its height, not on the amount of liquid or the shape of the column.</div></details>\n<button class=\"btn act-done\" data-act=\"15.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"15.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 15.2: a compressed gas makes pressure</h3>\n<span class=\"act-ref\">Textbook · p.71–72</span>\n<p>Show that compressed air in a balloon makes a pressure.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A U-tube, water</li><li>An air-filled balloon, thread</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Pour water into the U-tube until the levels in arms X and Y are equal.</li><li>Tie the balloon mouth with a thread (easy to untie). Connect it to arm X with another thread.</li><li>Slowly undo the knot on the balloon and watch the water levels.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The water level in X goes down and in Y goes up. The compressed air in the balloon adds pressure on the water in X.</div></details>\n<button class=\"btn act-done\" data-act=\"15.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"15.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 15.3: showing the upthrust</h3>\n<span class=\"act-ref\">Textbook · p.77</span>\n<p>Show that water pushes an object upwards.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A spring balance, a piece of metal</li><li>A beaker of water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Hang the metal on the spring balance and read its weight.</li><li>Push the metal down a little: the reading goes up. Pull it up a little: the reading goes down.</li><li>Now lower the metal into the water and read the balance.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">A downward force raises the reading and an upward force lowers it. In water the reading falls, so the water exerts an upward force: the upthrust.</div></details>\n<button class=\"btn act-done\" data-act=\"15.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"15.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 15.4: upthrust and displaced water (Archimedes)</h3>\n<span class=\"act-ref\">Textbook · p.78–79</span>\n<p>Compare the upthrust with the weight of the water the metal pushes out of the way.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A metal cube with a line marking half its volume</li><li>Spring balance, beaker, water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Weigh the cube in air, and weigh the empty beaker.</li><li>Lower the cube: just at the surface, half submerged, fully submerged near the surface, fully submerged deep down.</li><li>Each time, record the balance reading and the weight of the beaker with the displaced water. Upthrust = weight in air − reading.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Upthrust equals the weight of the displaced water (0.3 N and 0.3 N when half submerged, 0.6 N and 0.6 N when fully submerged). It does not change with depth once fully submerged. This is Archimedes' principle.</div></details>\n<button class=\"btn act-done\" data-act=\"15.4\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"15.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 15.5: floating and sinking objects</h3>\n<span class=\"act-ref\">Textbook · p.80–82</span>\n<p>Find how weight and upthrust compare for a floating object and a sinking object.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A: an object that floats partly submerged</li><li>B: a closed bottle with sand that floats fully submerged</li><li>C: an object that sinks</li><li>Spring balance, water</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Measure the weight of A, B and C in air.</li><li>Measure their apparent weights in water (A floating, B floating fully submerged, C sunk).</li><li>Upthrust = weight − apparent weight. Press A down: do you feel an extra upward force?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Sample results: A (1.1 N) and B (1.8 N) have an upthrust equal to their weights (1.1 N and 1.8 N). C weighs 2.4 N but the upthrust is only 1.9 N, so it sinks. Press A down and the upthrust becomes larger than its weight, so it springs back to the floating position.</div></details>\n<button class=\"btn act-done\" data-act=\"15.5\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"15.d\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செய்து காட்டுதல்: ஓட்டைகள் போட்ட பை, போத்தல்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.64–65</span>\n<p>நீரோட அமுக்கம் எல்லாத் திசையிலயும் தாக்குது, ஒரே மட்டத்துல சமம், ஆழம் கூட கூடும்னு பாக்கலாம்.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு பாலிதீன் பை</li><li>சுமார் 25 cm உயர பிளாஸ்டிக் போத்தல்</li><li>ஓட்டை போட ஊசி/ஆணி, நீர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>பாலிதீன் பையோட வெவ்வேறு பக்கங்கள்ல ஓட்டைகள் போட்டு, நீர் நிரப்பி தூக்கிப் பிடி.</li><li>போத்தலோட அடிக்கு பக்கத்துல ஒரே மட்டத்துல ஓட்டைகள் போட்டு நீர் நிரப்பி, ஒவ்வொரு தாரையும் எவ்வளவு தூரம் போகுதுன்னு பாரு.</li><li>ரெண்டாவது போத்தல்ல மேல இருந்து கீழ வரை ஓட்டைகள் போட்டு, தரைக்கு மேல பிடிச்சு தாரைகள ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">பையோட எல்லா ஓட்டைகள்லயும் நீர் வருது (எல்லாத் திசையிலயும் அமுக்கம்). ஒரே மட்டத்து ஓட்டைகள்ல தாரைகள் ஒரே தூரம் போகுது (ஒரே மட்டத்துல சம அமுக்கம்). கீழ இருக்கற ஓட்டைகள்ல நீர் வேகமா பாயுது (ஆழம் கூட அமுக்கம் கூடும்).</div></details>\n<button class=\"btn act-done\" data-act=\"15.d\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"15.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 15.1: திரவ நிரலோட வடிவம் முக்கியமா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.66</span>\n<p>திரவ அமுக்கம் நிரலோட வடிவத்தப் பொறுத்ததான்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>வெவ்வேறு வடிவ ஐந்து தெளிவான குழாய்கள் (a முதல் e வரை)</li><li>முனைகள் மூடிய PVC குழாய்</li><li>நீர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஐந்து குழாய்களையும் உருவுல உள்ள மாதிரி PVC குழாயோட இணை.</li><li>அமைப்பு முழுக்க நீர் நிரப்பு.</li><li>ஒவ்வொரு குழாய்லயும் நீர் நிரலோட நிமிர்ந்த உயரத்த குறிச்சுக்கோ.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">எல்லா குழாய்லயும் உயரம் ஒண்ணுதான். ஒரே மட்டத்துல அமுக்கம் சமம், அதனால திரவ நிரலோட அமுக்கம் அதோட உயரத்த மட்டும்தான் பொறுத்தது; திரவத்தோட அளவையோ நிரலோட வடிவத்தையோ இல்ல.</div></details>\n<button class=\"btn act-done\" data-act=\"15.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"15.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 15.2: அழுத்தப்பட்ட வாயு அமுக்கத்த தருது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.71–72</span>\n<p>பலூன்ல இருக்கற அழுத்தப்பட்ட காத்து அமுக்கத்த தருதுன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு U-குழாய், நீர்</li><li>காத்து நிறைஞ்ச பலூன், நூல்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>U-குழாயில X, Y பக்கங்கள்ல நீர் மட்டம் சமமாகும் வரை நீர் ஊத்து.</li><li>பலூன் வாய நூலால கட்டு (சுலபமா அவிழ்க்கற மாதிரி). இன்னொரு நூலால X பக்கத்தோட இணை.</li><li>பலூன் முடிச்ச மெதுவா அவிழ்த்து நீர் மட்டங்கள பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">X-ல நீர் மட்டம் இறங்குது, Y-ல ஏறுது. பலூன்ல இருக்கற அழுத்தப்பட்ட காத்து X-ல இருக்கற நீர் மேல கூடுதல் அமுக்கத்த தருது.</div></details>\n<button class=\"btn act-done\" data-act=\"15.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"15.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 15.3: மேலுதைப்ப காட்டுதல்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.77</span>\n<p>நீர் பொருளை மேல தள்ளுதுன்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு இழுவைத் தராசு, ஒரு உலோகத் துண்டு</li><li>நீர் உள்ள பீக்கர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>உலோகத்த தராசுல தொங்கவிட்டு நிறைய படி.</li><li>உலோகத்த கொஞ்சம் கீழ அமுக்கு: வாசிப்பு கூடும். கொஞ்சம் மேல இழு: வாசிப்பு குறையும்.</li><li>இப்போ உலோகத்த நீர்ல இறக்கி தராசு வாசிப்ப படி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">கீழ்நோக்கிய விசை வாசிப்ப கூட்டுது, மேல்நோக்கிய விசை குறைக்குது. நீர்ல வாசிப்பு குறையுது, அதனால நீர் மேல்நோக்கிய விசைய தருது: மேலுதைப்பு.</div></details>\n<button class=\"btn act-done\" data-act=\"15.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"15.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 15.4: மேலுதைப்பும் இடம்பெயர்த்த நீரும் (ஆர்க்கிமிடிஸ்)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.78–79</span>\n<p>உலோகம் ஒதுக்கித் தள்ளற நீரோட நிறையோட மேலுதைப்ப ஒப்பிடு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>பாதி கனவளவ குறிக்கற கோடு போட்ட உலோகக் கனசதுரம்</li><li>இழுவைத் தராசு, பீக்கர், நீர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>கனசதுரத்த காத்துல நிறுத்து, வெற்று பீக்கரையும் நிறு.</li><li>கனசதுரத்த இறக்கு: மேற்பரப்புல, பாதி மூழ்கி, முழுசா மூழ்கி மேற்பரப்பு பக்கத்துல, முழுசா மூழ்கி ஆழத்துல.</li><li>ஒவ்வொரு தடவையும் தராசு வாசிப்பையும், இடம்பெயர்த்த நீர் உள்ள பீக்கரோட நிறையையும் குறி. மேலுதைப்பு = காத்துல நிறை − வாசிப்பு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">மேலுதைப்பு இடம்பெயர்த்த நீரோட நிறைக்கு சமம் (பாதி மூழ்கறப்ப 0.3 N, 0.3 N; முழுசா மூழ்கறப்ப 0.6 N, 0.6 N). முழுசா மூழ்கிட்டா ஆழத்தோட அது மாறாது. இதுதான் ஆர்க்கிமிடிஸ் தத்துவம்.</div></details>\n<button class=\"btn act-done\" data-act=\"15.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"15.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 15.5: மிதக்கற, மூழ்கற பொருட்கள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ப.80–82</span>\n<p>மிதக்கற பொருளுக்கும் மூழ்கற பொருளுக்கும் நிறையும் மேலுதைப்பும் எப்படி ஒப்பிடுதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>A: பகுதி மூழ்கி மிதக்கற பொருள்</li><li>B: முழுசா மூழ்கி மிதக்கற, மணல் நிரப்பிய மூடிய போத்தல்</li><li>C: மூழ்கற பொருள்</li><li>இழுவைத் தராசு, நீர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A, B, C-யோட நிறைய காத்துல அளவிடு.</li><li>நீர்ல அவற்றோட தோற்ற நிறைய அளவிடு (A மிதக்க, B முழுசா மூழ்கி மிதக்க, C மூழ்கி).</li><li>மேலுதைப்பு = நிறை − தோற்ற நிறை. A-ய கீழ அமுக்கு: கூடுதல் மேல்நோக்கிய விசை உணர்றியா?</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">மாதிரி முடிவுகள்: A (1.1 N), B (1.8 N) ஆகியவற்றுக்கு மேலுதைப்பு அவற்றோட நிறைக்கு சமம் (1.1 N, 1.8 N). C நிறை 2.4 N ஆனா மேலுதைப்பு 1.9 N-தான், அதனால மூழ்குது. A-ய கீழ அமுக்கினா மேலுதைப்பு நிறைய விட அதிகமாகி, அது மிதக்கற நிலைக்கு திரும்பி வருது.</div></details>\n<button class=\"btn act-done\" data-act=\"15.5\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Pressure Lab",
+     "ta": "அமுக்க லேப்"
+    },
+    "sub": {
+     "en": "Change the depth and the liquid, and watch P = h ρ g",
+     "ta": "ஆழத்தையும் திரவத்தையும் மாத்தி P = h ρ g-ஐ பாரு"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-15-hydrostatic-pressure.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "challenge",
+   "kind": "challenge",
+   "heading": {
+    "title": {
+     "en": "🎮 Pressure Challenge",
+     "ta": "🎮 அமுக்க சவால்"
+    },
+    "sub": {
+     "en": "Work out each answer in your head, then set the slider and check",
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-15-hydrostatic-pressure.html",
+    "hash": "challenge"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Check how much you understood before the deeper walkthroughs",
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "What is meant by \"the pressure is 1500 Pa\"?",
+      "ta": "\"அமுக்கம் 1500 Pa\" என்றால் என்ன அர்த்தம்?"
+     },
+     "options": [
+      {
+       "en": "A force of 1500 N acts on every 1 m²",
+       "ta": "ஒவ்வொரு 1 m² மேலயும் 1500 N விசை தாக்குது"
+      },
+      {
+       "en": "A force of 1500 N acts on the whole surface",
+       "ta": "மொத்த மேற்பரப்பு மேலயும் 1500 N விசை தாக்குது"
+      },
+      {
+       "en": "1500 kg of liquid is present",
+       "ta": "1500 kg திரவம் இருக்கு"
+      },
+      {
+       "en": "The surface has an area of 1500 m²",
+       "ta": "மேற்பரப்பு 1500 m² பரப்பளவு"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "1 Pa = 1 N m⁻², so 1500 Pa means 1500 N on every square metre.",
+      "ta": "1 Pa = 1 N m⁻², அதனால 1500 Pa என்றா ஒவ்வொரு சதுர மீற்றர் மேலயும் 1500 N."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "Which formula gives pressure?",
+      "ta": "அமுக்கத்த தரும் சூத்திரம் எது?"
+     },
+     "options": [
+      {
+       "en": "F ÷ A",
+       "ta": "F ÷ A"
+      },
+      {
+       "en": "F × A",
+       "ta": "F × A"
+      },
+      {
+       "en": "A ÷ F",
+       "ta": "A ÷ F"
+      },
+      {
+       "en": "F + A",
+       "ta": "F + A"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Pressure = perpendicular force ÷ area.",
+      "ta": "அமுக்கம் = செங்குத்து விசை ÷ பரப்பளவு."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "Which of these does the pressure at a point in a liquid NOT depend on?",
+      "ta": "திரவத்துல ஒரு புள்ளியோட அமுக்கம் இதுல எத பொறுத்தது இல்ல?"
+     },
+     "options": [
+      {
+       "en": "The depth of the point",
+       "ta": "புள்ளியோட ஆழம்"
+      },
+      {
+       "en": "The density of the liquid",
+       "ta": "திரவத்தோட அடர்த்தி"
+      },
+      {
+       "en": "The shape of the container",
+       "ta": "கொள்கலனோட வடிவம்"
+      },
+      {
+       "en": "The acceleration due to gravity",
+       "ta": "ஈர்ப்பு (g) ஆர்முடுகல்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "P = hρg has no shape in it: only the vertical height of the column matters.",
+      "ta": "P = hρg-ல வடிவம் இல்ல: நிரலோட நிமிர்ந்த உயரம் மட்டும்தான் முக்கியம்."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "A pond is 2 m deep. Find the pressure at the bottom due to the water (ρ = 1000 kg m⁻³, g = 10 m s⁻²).",
+      "ta": "ஒரு குளம் 2 m ஆழம். நீரால அடில அமுக்கம்? (ρ = 1000 kg m⁻³, g = 10 m s⁻²)"
+     },
+     "options": [
+      {
+       "en": "2000 Pa",
+       "ta": "2000 Pa"
+      },
+      {
+       "en": "20 000 Pa",
+       "ta": "20 000 Pa"
+      },
+      {
+       "en": "200 Pa",
+       "ta": "200 Pa"
+      },
+      {
+       "en": "200 000 Pa",
+       "ta": "200 000 Pa"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "P = hρg = 2 × 1000 × 10 = 20 000 Pa.",
+      "ta": "P = hρg = 2 × 1000 × 10 = 20 000 Pa."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "In a hydraulic press piston A has 5 cm² and piston B has 100 cm². A force of 10 N pushes on A. What force acts on B?",
+      "ta": "நீரியல் அழுத்தில பிஸ்டன் A 5 cm², பிஸ்டன் B 100 cm². A மேல 10 N விசை. B மேல விசை?"
+     },
+     "options": [
+      {
+       "en": "20 N",
+       "ta": "20 N"
+      },
+      {
+       "en": "50 N",
+       "ta": "50 N"
+      },
+      {
+       "en": "200 N",
+       "ta": "200 N"
+      },
+      {
+       "en": "1000 N",
+       "ta": "1000 N"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Pressure = 10 ÷ 5 = 2 N cm⁻². The same pressure acts on B: 2 × 100 = 200 N.",
+      "ta": "அமுக்கம் = 10 ÷ 5 = 2 N cm⁻². B மேலயும் அதே அமுக்கம்: 2 × 100 = 200 N."
+     }
+    },
+    {
+     "id": "q6",
+     "prompt": {
+      "en": "Why does the mercury in a barometer stay up at about 76 cm?",
+      "ta": "பாரமானில இரசம் ஏன் சுமார் 76 cm உயரத்துல நிக்குது?"
+     },
+     "options": [
+      {
+       "en": "The atmospheric pressure balances the mercury column",
+       "ta": "வளிமண்டல அமுக்கம் இரச நிரல சமநிலைப்படுத்துது"
+      },
+      {
+       "en": "The glass tube holds the mercury",
+       "ta": "கண்ணாடிக் குழாய் இரசத்த பிடிச்சிருக்கு"
+      },
+      {
+       "en": "The vacuum sucks it up",
+       "ta": "வெற்றிடம் அத உறிஞ்சுது"
+      },
+      {
+       "en": "Mercury is too light to fall",
+       "ta": "இரசம் விழ முடியாத அளவு லேசு"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "The pressure of the 76 cm mercury column equals the atmospheric pressure outside.",
+      "ta": "76 cm இரச நிரலோட அமுக்கம் வெளிய இருக்கற வளிமண்டல அமுக்கத்துக்கு சமம்."
+     }
+    },
+    {
+     "id": "q7",
+     "prompt": {
+      "en": "What is the upthrust on an object in a fluid equal to?",
+      "ta": "பாய்மத்துல இருக்கற பொருள் மேல மேலுதைப்பு எதுக்கு சமம்?"
+     },
+     "options": [
+      {
+       "en": "The weight of the fluid it displaces",
+       "ta": "அது இடம்பெயர்த்த பாய்மத்தோட நிறை"
+      },
+      {
+       "en": "The weight of the object",
+       "ta": "பொருளோட நிறை"
+      },
+      {
+       "en": "The volume of the container",
+       "ta": "கொள்கலனோட கனவளவு"
+      },
+      {
+       "en": "The depth of the fluid",
+       "ta": "பாய்மத்தோட ஆழம்"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "That is Archimedes' principle.",
+      "ta": "இதுதான் ஆர்க்கிமிடிஸ் தத்துவம்."
+     }
+    },
+    {
+     "id": "q8",
+     "prompt": {
+      "en": "A fully immersed object weighs 5 N, and the upthrust on it would be 8 N. What happens?",
+      "ta": "முழுசா மூழ்கிய பொருளோட நிறை 5 N, அதுமேல மேலுதைப்பு 8 N. என்ன நடக்கும்?"
+     },
+     "options": [
+      {
+       "en": "It sinks",
+       "ta": "அது மூழ்கும்"
+      },
+      {
+       "en": "It stays fully submerged where it is",
+       "ta": "இருக்கற இடத்துலயே முழுசா மூழ்கி நிக்கும்"
+      },
+      {
+       "en": "It rises and floats partly submerged",
+       "ta": "மேல எழும்பி பகுதியா மூழ்கி மிதக்கும்"
+      },
+      {
+       "en": "It breaks",
+       "ta": "உடையும்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Upthrust greater than weight pushes it up until the part under water gives an upthrust of 5 N.",
+      "ta": "மேலுதைப்பு நிறைய விட அதிகம், அதனால தண்ணிக்குள்ள இருக்கற பகுதி 5 N மேலுதைப்ப தரும் வரை அது மேல எழும்பும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Pressure Sort",
+     "ta": "🧩 அமுக்க சார்ட்"
+    },
+    "sub": {
+     "en": "Two short rounds: match the terms, then sort the factors",
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் காரணிகள வரிசைப்படுத்து"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-15-hydrostatic-pressure.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Examples",
+     "ta": "படிப்படியா உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step solutions to the textbook examples",
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">A cubic box of weight 400 N is on a table. The area of its bottom is 0.2 m². Find the pressure on the table under the box.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Pressure is force on each unit area, so Pressure = force ÷ area. The force is the box's weight, 400 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Put the numbers in: 400 N ÷ 0.2 m².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>400 ÷ 0.2 = 2000. The unit is N m⁻², which is the pascal.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> the pressure is <b>2000 Pa</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">நிறை 400 N உள்ள கனசதுரப் பெட்டி மேசை மேல இருக்கு. அடிப்பரப்பு 0.2 m². பெட்டிக்கு கீழ மேசை மேல அமுக்கம் என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>அமுக்கம் ஓரலகு பரப்பளவு மேல தாக்கும் விசை, அதனால அமுக்கம் = விசை ÷ பரப்பளவு. விசை பெட்டியோட நிறை, 400 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>எண்கள வெச்சுப் பாரு: 400 N ÷ 0.2 m².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>400 ÷ 0.2 = 2000. அலகு N m⁻², அதுதான் பாஸ்கல்.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> அமுக்கம் <b>2000 Pa</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.63",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.63"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">A pile of soil spread over 8 m² of ground makes a pressure of 150 Pa. What force does the soil exert on the ground?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>From Pressure = Force ÷ Area we get Force = Pressure × Area.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Force = 150 N m⁻² × 8 m².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>150 × 8 = 1200.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> the force is <b>1200 N</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">8 m² நிலத்து மேல பரவிய மண் குவியல் 150 Pa அமுக்கத்த தருது. மண் நிலத்து மேல கொடுக்கற விசை என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>அமுக்கம் = விசை ÷ பரப்பளவு-ல இருந்து விசை = அமுக்கம் × பரப்பளவு.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>விசை = 150 N m⁻² × 8 m².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>150 × 8 = 1200.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> விசை <b>1200 N</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.64",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.64"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A point in a lake is 1.5 m deep. Find the pressure of the water there. (density of water = 1000 kg m⁻³, g = 10 m s⁻²)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>For a liquid column we use P = h ρ g.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>h = 1.5 m, ρ = 1000 kg m⁻³, g = 10 m s⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>P = 1.5 × 1000 × 10 = 15 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> the pressure is <b>15 000 Pa</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஏரில ஒரு புள்ளி 1.5 m ஆழம். அங்க நீரோட அமுக்கம்? (நீரோட அடர்த்தி = 1000 kg m⁻³, g = 10 m s⁻²)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>திரவ நிரலுக்கு P = h ρ g பயன்படுத்துவோம்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>h = 1.5 m, ρ = 1000 kg m⁻³, g = 10 m s⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>P = 1.5 × 1000 × 10 = 15 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> அமுக்கம் <b>15 000 Pa</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.67",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.67"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">At one place the sea is 10 m deep. Find the pressure of the sea water there. (density of sea water = 1050 kg m⁻³, g = 10 m s⁻²)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Again P = h ρ g.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>P = 10 m × 1050 kg m⁻³ × 10 m s⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>10 × 1050 = 10 500, and × 10 = 105 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>105 000 Pa</b>. The sea water is denser than lake water, so the pressure is larger.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு இடத்துல கடல் 10 m ஆழம். அங்க கடல் நீரோட அமுக்கம்? (கடல் நீரோட அடர்த்தி = 1050 kg m⁻³, g = 10 m s⁻²)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மறுபடியும் P = h ρ g.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>P = 10 m × 1050 kg m⁻³ × 10 m s⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>10 × 1050 = 10 500, அதை × 10 = 105 000.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>105 000 Pa</b>. கடல் நீர் ஏரி நீரை விட அடர்த்தி அதிகம், அதனால அமுக்கமும் அதிகம்.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.68",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.68"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">Piston A of a hydraulic press has an area of 10 cm² and piston B has 200 cm². A force of 20 N is applied on A. What force does B give?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The pressure made by A is Force ÷ Area = 20 N ÷ 10 cm² = 2 N cm⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Liquids pass pressure on without change, so the pressure at B is also 2 N cm⁻²: 2 N on every cm² of B.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Force on B = pressure × area = 2 × 200 = 400 N.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>400 N</b>: a 20 N push becomes a 400 N push (20 times bigger, because B is 20 times larger in area).\n      </div>",
+      "ta": "<div class=\"qtext\">நீரியல் அழுத்தின் பிஸ்டன் A பரப்பளவு 10 cm², பிஸ்டன் B 200 cm². A மேல 20 N விசை. B கொடுக்கற விசை?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>A உண்டாக்கற அமுக்கம் = விசை ÷ பரப்பளவு = 20 N ÷ 10 cm² = 2 N cm⁻².</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>திரவம் அமுக்கத்த மாறாம கடத்துது, அதனால B-யிலயும் அமுக்கம் 2 N cm⁻²: B-யோட ஒவ்வொரு cm²-க்கும் 2 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>B மேல விசை = அமுக்கம் × பரப்பளவு = 2 × 200 = 400 N.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>400 N</b>: 20 N தள்ளல் 400 N-ஆ மாறுது (20 மடங்கு, ஏன்னா B பரப்பளவு 20 மடங்கு பெரிசு).</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.68–69",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.68–69"
+     }
+    },
+    {
+     "id": "w6",
+     "body": {
+      "en": "<div class=\"qtext\">The atmospheric pressure at sea level is 76 cm Hg. (ρ of mercury = 13 600 kg m⁻³, g = 10 m s⁻²) (i) Find it in pascals. (ii) What height of water column does it balance? (ρ of water = 1000 kg m⁻³)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) Use P = hρg with h = 76 cm = 0.76 m. P = 0.76 × 13 600 × 10.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>0.76 × 13 600 = 10 336, and × 10 = 103 360 Pa.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) For water: h × 1000 × 10 = 103 360, so h = 103 360 ÷ 10 000 = 10.336 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (i) <b>103 360 Pa</b>, (ii) <b>10.336 m</b>. That is why a mercury barometer is short and a water barometer would be over 10 m tall!\n      </div>",
+      "ta": "<div class=\"qtext\">கடல் மட்டத்துல வளிமண்டல அமுக்கம் 76 cm Hg. (இரசத்தோட ρ = 13 600 kg m⁻³, g = 10 m s⁻²) (i) பாஸ்கல்ல காணு. (ii) எவ்வளவு உயர நீர் நிரலுக்கு சமம்? (நீரோட ρ = 1000 kg m⁻³)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) P = hρg பயன்படுத்து, h = 76 cm = 0.76 m. P = 0.76 × 13 600 × 10.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>0.76 × 13 600 = 10 336, ×10 = 103 360 Pa.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) நீருக்கு: h × 1000 × 10 = 103 360, அதனால h = 103 360 ÷ 10 000 = 10.336 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) <b>103 360 Pa</b>, (ii) <b>10.336 m</b>. அதனாலதான் இரச பாரமானி குட்டை, நீர் பாரமானி 10 m-க்கு மேல உயரமா இருக்கும்!</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.15, p.76",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 15, ப.76"
+     }
+    },
+    {
+     "id": "w7",
+     "body": {
+      "en": "<div class=\"qtext\">In Activity 15.4 the cube weighs 1.2 N in air. Half submerged, the balance reads 0.9 N and the beaker with displaced water weighs 1.6 N (the empty beaker weighs 1.3 N). Compare the upthrust with the weight of the displaced water.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Upthrust = weight in air − balance reading = 1.2 − 0.9 = 0.3 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Weight of displaced water = beaker with water − empty beaker = 1.6 − 1.3 = 0.3 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The two are equal. The same happens when the cube is fully submerged: 0.6 N and 0.6 N.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> upthrust = weight of the displaced water = <b>0.3 N</b> (Archimedes' principle).\n      </div>",
+      "ta": "<div class=\"qtext\">செயற்பாடு 15.4-ல கனசதுரத்தோட நிறை காத்துல 1.2 N. பாதி மூழ்கறப்ப தராசு 0.9 N, இடம்பெயர்த்த நீர் உள்ள பீக்கரோட நிறை 1.6 N (வெற்று பீக்கர் 1.3 N). மேலுதைப்ப இடம்பெயர்த்த நீரோட நிறையோட ஒப்பிடு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மேலுதைப்பு = காத்துல நிறை − தராசு வாசிப்பு = 1.2 − 0.9 = 0.3 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>இடம்பெயர்த்த நீரோட நிறை = நீர் உள்ள பீக்கர் − வெற்று பீக்கர் = 1.6 − 1.3 = 0.3 N.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ரெண்டும் சமம். கனசதுரம் முழுசா மூழ்கறப்பவும் இப்படித்தான்: 0.6 N, 0.6 N.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> மேலுதைப்பு = இடம்பெயர்த்த நீரோட நிறை = <b>0.3 N</b> (ஆர்க்கிமிடிஸ் தத்துவம்).</div>"
+     },
+     "tag": {
+      "en": "Textbook activity 15.4 · Ch.15, p.78–79",
+      "ta": "பாடப்புத்தக செயற்பாடு 15.4 · பாடம் 15, ப.78–79"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 15.1",
+      "ta": "பயிற்சி 15.1"
+     },
+     "items": [
+      {
+       "id": "x151-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The pressure at the bottom of a container due to the liquid in it is 1500 Pa. What is meant by \"the pressure is 1500 Pa\"?</span></div>",
+        "ta": "<div class=\"exq\"><span>கொள்கலனுக்குள்ள இருக்கற திரவத்தால அடில அமுக்கம் 1500 Pa. \"அமுக்கம் 1500 Pa\" என்பதன் கருத்து என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "A force of <b>1500 N</b> acts on every <b>1 m²</b> of the bottom, because 1 Pa = 1 N m<sup>-2</sup>.",
+        "ta": "அடியோட ஒவ்வொரு <b>1 m²</b> மேலயும் <b>1500 N</b> விசை தாக்குது, ஏன்னா 1 Pa = 1 N m<sup>-2</sup>."
+       }
+      },
+      {
+       "id": "x151-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the pressure of a mercury column 10 cm high. (density of mercury = 13 600 kg m⁻³)</span></div>",
+        "ta": "<div class=\"exq\"><span>10 cm உயர இரச நிரலோட அமுக்கத்த காணு. (இரசத்தோட அடர்த்தி = 13 600 kg m⁻³)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">h = 10 cm = 0.1 m, g = 10 m s<sup>-2</sup></div><div class=\"work\">P = hρg = 0.1 × 13 600 × 10 = <b>13 600 Pa</b></div>",
+        "ta": "<div class=\"work\">h = 10 cm = 0.1 m, g = 10 m s<sup>-2</sup></div><div class=\"work\">P = hρg = 0.1 × 13 600 × 10 = <b>13 600 Pa</b></div>"
+       }
+      },
+      {
+       "id": "x151-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The depth of a pond is 1.5 m. Calculate the pressure caused by the water at the bottom.</span></div>",
+        "ta": "<div class=\"exq\"><span>குளத்தோட ஆழம் 1.5 m. அடில நீரால உண்டாகும் அமுக்கத்த கணக்கிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(ρ of water = 1000 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>, as in the textbook examples)</div><div class=\"work\">P = hρg = 1.5 × 1000 × 10 = <b>15 000 Pa</b></div>",
+        "ta": "<div class=\"work\">(நீரோட ρ = 1000 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>, பாடப்புத்தக உதாரணங்கள்ல உள்ள மாதிரி)</div><div class=\"work\">P = hρg = 1.5 × 1000 × 10 = <b>15 000 Pa</b></div>"
+       }
+      },
+      {
+       "id": "x151-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The depth at a point in the sea is 1 km. Find the pressure of the sea water at the bottom there. (density of sea water = 1050 kg m⁻³)</span></div>",
+        "ta": "<div class=\"exq\"><span>கடல்ல ஒரு புள்ளியோட ஆழம் 1 km. அங்க அடில கடல் நீரோட அமுக்கத்த காணு. (கடல் நீரோட அடர்த்தி = 1050 kg m⁻³)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">h = 1 km = 1000 m</div><div class=\"work\">P = hρg = 1000 × 1050 × 10 = <b>10 500 000 Pa</b> (1.05 × 10<sup>7</sup> Pa)</div>",
+        "ta": "<div class=\"work\">h = 1 km = 1000 m</div><div class=\"work\">P = hρg = 1000 × 1050 × 10 = <b>10 500 000 Pa</b> (1.05 × 10<sup>7</sup> Pa)</div>"
+       }
+      },
+      {
+       "id": "x151-5a",
+       "num": "5(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A tank of length 5 m, width 3 m and depth 2 m is filled with a liquid of density 800 kg m⁻³. What is the pressure at the bottom of the tank due to the liquid?</span></div>",
+        "ta": "<div class=\"exq\"><span>நீளம் 5 m, அகலம் 3 m, ஆழம் 2 m உள்ள தொட்டி அடர்த்தி 800 kg m⁻³ திரவத்தால நிரப்பப்பட்டிருக்கு. திரவத்தால அடில அமுக்கம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">P = hρg = 2 × 800 × 10 = <b>16 000 Pa</b></div>",
+        "ta": "<div class=\"work\">P = hρg = 2 × 800 × 10 = <b>16 000 Pa</b></div>"
+       }
+      },
+      {
+       "id": "x151-5b",
+       "num": "5(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the force acting on the bottom of the tank due to that pressure?</span></div>",
+        "ta": "<div class=\"exq\"><span>அந்த அமுக்கத்தால தொட்டியோட அடி மேல தாக்கும் விசை என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Area of the bottom = 5 × 3 = 15 m²</div><div class=\"work\">F = P × A = 16 000 × 15 = <b>240 000 N</b></div>",
+        "ta": "<div class=\"work\">அடிப்பரப்பு = 5 × 3 = 15 m²</div><div class=\"work\">F = P × A = 16 000 × 15 = <b>240 000 N</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Pressure and hydrostatic pressure · p.71",
+      "ta": "அமுக்கமும் நீர்நிலை அமுக்கமும் · ப.71"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 15.2",
+      "ta": "பயிற்சி 15.2"
+     },
+     "items": [
+      {
+       "id": "x152-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The depth of a reservoir is 1.2 m. Calculate the pressure at the bottom due to the water. (g = 10 m s⁻², density of water = 1000 kg m⁻³)</span></div>",
+        "ta": "<div class=\"exq\"><span>நீர்த்தேக்கத்தோட ஆழம் 1.2 m. நீரால அடில அமுக்கத்த கணக்கிடு. (g = 10 m s⁻², நீரோட அடர்த்தி = 1000 kg m⁻³)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">P = hρg = 1.2 × 1000 × 10 = <b>12 000 Pa</b></div>",
+        "ta": "<div class=\"work\">P = hρg = 1.2 × 1000 × 10 = <b>12 000 Pa</b></div>"
+       }
+      },
+      {
+       "id": "x152-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the force exerted by the water on an area of 200 cm² at the bottom of the reservoir.</span></div>",
+        "ta": "<div class=\"exq\"><span>நீர்த்தேக்கத்தோட அடில 200 cm² பரப்பளவு மேல நீர் கொடுக்கற விசைய காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">A = 200 cm² = 200 × 10<sup>-4</sup> m² = 0.02 m²</div><div class=\"work\">F = P × A = 12 000 × 0.02 = <b>240 N</b></div>",
+        "ta": "<div class=\"work\">A = 200 cm² = 200 × 10<sup>-4</sup> m² = 0.02 m²</div><div class=\"work\">F = P × A = 12 000 × 0.02 = <b>240 N</b></div>"
+       }
+      },
+      {
+       "id": "x152-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Describe a simple experiment to show that \"the pressure in a liquid increases with increasing depth\".</span></div>",
+        "ta": "<div class=\"exq\"><span>\"திரவத்துல ஆழம் கூட அமுக்கம் கூடும்\" என்பத காட்ட ஒரு எளிய சோதனைய விவரி.</span></div>"
+       },
+       "answer": {
+        "en": "Take a plastic bottle about 25 cm high. Make equally spaced holes from top to bottom, fill it with water and hold it above the ground. The water from the <b>lower</b> holes leaves with a higher speed and travels farther than from the upper holes. Water leaves faster where the pressure is higher, so the pressure increases with depth.",
+        "ta": "சுமார் 25 cm உயர பிளாஸ்டிக் போத்தல எடு. மேல இருந்து கீழ வரை சம இடைவெளில ஓட்டைகள் போட்டு, நீர் நிரப்பி தரைக்கு மேல பிடி. <b>கீழ</b> இருக்கற ஓட்டைகள்ல நீர் அதிக வேகத்தோட பாய்ஞ்சு மேல இருக்கற ஓட்டைகள விட தூரம் போகுது. அமுக்கம் அதிகமா இருக்கற இடத்துல நீர் வேகமா வெளிய வரும், அதனால ஆழம் கூட அமுக்கம் கூடும்."
+       }
+      },
+      {
+       "id": "x152-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Describe a simple experiment to find out whether the pressure inside a balloon is less than or greater than the atmospheric pressure.</span></div>",
+        "ta": "<div class=\"exq\"><span>பலூன் உள்ள அமுக்கம் வளிமண்டல அமுக்கத்த விட குறைவா அதிகமான்னு கண்டுபிடிக்க ஒரு எளிய சோதனைய எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "Pour water into a U-tube until both arms are at the same level. Connect the balloon's mouth to one arm (X) and open it. If the water level in X goes <b>down</b> (and rises in the other arm), the pressure in the balloon is <b>greater</b> than the atmospheric pressure. If it goes <b>up</b>, the pressure in the balloon is less.",
+        "ta": "U-குழாயில ரெண்டு பக்கமும் ஒரே மட்டம் வர நீர் ஊத்து. பலூன் வாய ஒரு பக்கத்தோட (X) இணைச்சு திற. X-ல நீர் மட்டம் <b>இறங்கினா</b> (மத்த பக்கம் ஏறினா) பலூன் உள்ள அமுக்கம் வளிமண்டல அமுக்கத்த விட <b>அதிகம்</b>. <b>ஏறினா</b> பலூன் அமுக்கம் குறைவு."
+       }
+      },
+      {
+       "id": "x152-3i",
+       "num": "3(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The atmospheric pressure at sea level is 76 cm Hg. How much is this in pascals?</span></div>",
+        "ta": "<div class=\"exq\"><span>கடல் மட்டத்துல வளிமண்டல அமுக்கம் 76 cm Hg. இது பாஸ்கல்ல எவ்வளவு?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(ρ of mercury = 13 600 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>)</div><div class=\"work\">P = hρg = 0.76 × 13 600 × 10 = <b>103 360 Pa</b></div>",
+        "ta": "<div class=\"work\">(இரசத்தோட ρ = 13 600 kg m<sup>-3</sup>, g = 10 m s<sup>-2</sup>)</div><div class=\"work\">P = hρg = 0.76 × 13 600 × 10 = <b>103 360 Pa</b></div>"
+       }
+      },
+      {
+       "id": "x152-3ii",
+       "num": "3(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What height of water column exerts the same pressure?</span></div>",
+        "ta": "<div class=\"exq\"><span>இதே அமுக்கத்த கொடுக்கற நீர் நிரலோட உயரம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">h × 1000 × 10 = 103 360</div><div class=\"work\">h = 103 360 ÷ 10 000 = <b>10.336 m</b></div>",
+        "ta": "<div class=\"work\">h × 1000 × 10 = 103 360</div><div class=\"work\">h = 103 360 ÷ 10 000 = <b>10.336 m</b></div>"
+       }
+      },
+      {
+       "id": "x152-4i",
+       "num": "4(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write down Archimedes' principle.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஆர்க்கிமிடிஸ் தத்துவத்த எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "When an object is partly or completely submerged in a fluid, the <b>upthrust</b> acting on it is <b>equal to the weight of the fluid displaced</b> by the object.",
+        "ta": "ஒரு பொருள் ஒரு பாய்மத்துல பகுதியாவோ முழுசாவோ மூழ்கியிருக்கறப்ப, அதன்மேல தாக்கும் <b>மேலுதைப்பு</b> அப்பொருள் <b>இடம்பெயர்த்த பாய்மத்தோட நிறைக்கு சமம்</b>."
+       }
+      },
+      {
+       "id": "x152-4iia",
+       "num": "4(ii)(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A piece of metal weighs 20 N in air. Completely immersed in water its apparent weight is 5 N. What is the upthrust exerted on the metal by the water?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு உலோகத் துண்டோட நிறை காத்துல 20 N. நீர்ல முழுசா மூழ்கறப்ப தோற்ற நிறை 5 N. நீர் உலோகத்து மேல கொடுக்கற மேலுதைப்பு என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Upthrust = weight in air − apparent weight in water</div><div class=\"work\">= 20 − 5 = <b>15 N</b></div>",
+        "ta": "<div class=\"work\">மேலுதைப்பு = காத்துல நிறை − நீர்ல தோற்ற நிறை</div><div class=\"work\">= 20 − 5 = <b>15 N</b></div>"
+       }
+      },
+      {
+       "id": "x152-4iib",
+       "num": "4(ii)(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the weight of the water displaced by the piece of metal when it is completely immersed?</span></div>",
+        "ta": "<div class=\"exq\"><span>உலோகம் முழுசா மூழ்கறப்ப அது இடம்பெயர்த்த நீரோட நிறை என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "By Archimedes' principle the weight of the displaced water equals the upthrust: <b>15 N</b>.",
+        "ta": "ஆர்க்கிமிடிஸ் தத்துவப்படி இடம்பெயர்த்த நீரோட நிறை மேலுதைப்புக்கு சமம்: <b>15 N</b>."
+       }
+      }
+     ],
+     "title": {
+      "en": "Applications, atmosphere, upthrust · p.84",
+      "ta": "பயன்பாடுகள், வாயுமண்டலம், மேலுதைப்பு · ப.84"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🏊</div><div class=\"cm-b r\"><i>Raja:</i> <span>When I dive deep my ears hurt. Why?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">💧</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Pressure grows with depth: P = h ρ g. It pushes in from every direction.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚗</div><div class=\"cm-b r\"><i>Raja:</i> <span>How does a small push lift a car?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Pressure passes through the oil. Same pressure on a bigger area gives a bigger force. And upthrust = weight of the fluid displaced!</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🏊</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>ஆழமா முழுகினா என் காது வலிக்குது. ஏன்?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">💧</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>ஆழம் கூட அமுக்கம் கூடும்: P = h ρ g. எல்லாத் திசையிலயும் இருந்து தள்ளும்.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🚗</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>சின்ன தள்ளல் எப்படி காரை தூக்குது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">⚖️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>எண்ணெய் வழியா அமுக்கம் கடத்தப்படுது. பெரிய பரப்பளவுல அதே அமுக்கம் பெரிய விசைய தருது. மேலுதைப்பு = இடம்பெயர்த்த பாய்மத்தோட நிறை!</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Pressure is force on each square metre,<br/>depth and density make it greater.<br/>The oil passes pressure along,<br/>and the weight you displace keeps you afloat all day long!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">அமுக்கம் ஒரு m²-ல விசை,<br/>ஆழம் அடர்த்தி கூடினா அதுவும் கூடும் விசை.<br/>எண்ணெய் அமுக்கத்த கடத்திடும்,<br/>இடம்பெயர்த்த நிறை மேலுதைப்பா நம்மள மிதக்க வெச்சிடும்!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">A wider container has more pressure at the bottom.</td><td class=\"ok\">Pressure depends only on the depth, the density and g (P = hρg), not on the width or shape.</td></tr><tr><td class=\"w\">The straw pulls the juice up.</td><td class=\"ok\">You lower the pressure inside; the atmospheric pressure outside pushes the juice up.</td></tr><tr><td class=\"w\">Heavy objects always sink.</td><td class=\"ok\">It depends on upthrust: an object sinks only if its weight is bigger than the upthrust it can get.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">அகலமான கொள்கலன்ல அடில அமுக்கம் அதிகம்.</td><td class=\"ok\">அமுக்கம் ஆழம், அடர்த்தி, g-யத்தான் பொறுத்தது (P = hρg); அகலம், வடிவம் இல்ல.</td></tr><tr><td class=\"w\">ஸ்ட்ரா ஜூஸ மேல இழுக்குது.</td><td class=\"ok\">நீ உள்ள அமுக்கத்த குறைக்கற; வெளிய இருக்கற வளிமண்டல அமுக்கம் ஜூஸ மேல தள்ளுது.</td></tr><tr><td class=\"w\">கனமான பொருட்கள் எப்பவும் மூழ்கும்.</td><td class=\"ok\">அது மேலுதைப்பப் பொறுத்தது: பொருளோட நிறை அது பெறக்கூடிய மேலுதைப்ப விட அதிகமா இருந்தாதான் மூழ்கும்.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>pressure = force ÷ area; unit pascal, 1 Pa = 1 N m⁻²</li><li>liquid pressure: P = h ρ g (increases with depth, same at the same level, same in all directions)</li><li>pressure is passed through a liquid: hydraulic press, jack, brakes</li><li>atmospheric pressure at sea level = 76 cm Hg ≈ 103 360 Pa</li><li>Archimedes: upthrust = weight of the fluid displaced; floating: weight = upthrust</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>அமுக்கம் = விசை ÷ பரப்பளவு; அலகு பாஸ்கல், 1 Pa = 1 N m⁻²</li><li>திரவ அமுக்கம்: P = h ρ g (ஆழம் கூட கூடும், ஒரே மட்டத்துல சமம், எல்லாத் திசையிலயும் சமம்)</li><li>திரவம் அமுக்கத்த கடத்தும்: நீரியல் அழுத்தி, உயர்த்தி, பிரேக்</li><li>கடல் மட்டத்துல வளிமண்டல அமுக்கம் = 76 cm Hg ≈ 103 360 Pa</li><li>ஆர்க்கிமிடிஸ்: மேலுதைப்பு = இடம்பெயர்த்த பாய்மத்தோட நிறை; மிதக்க: நிறை = மேலுதைப்பு</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "Pressure is produced by liquids and gases as well as by solids.",
+     "ta": "திண்மங்கள் மட்டுமில்ல, திரவங்களும் வாயுக்களும் அமுக்கத்த உண்டாக்குது."
+    },
+    {
+     "en": "The pressure due to a liquid acts in every direction.",
+     "ta": "திரவத்தால உண்டாகும் அமுக்கம் எல்லாத் திசையிலயும் தாக்குது."
+    },
+    {
+     "en": "The pressure due to a liquid increases as the depth (height of the liquid column) increases.",
+     "ta": "ஆழம் (திரவ நிரலோட உயரம்) கூட திரவ அமுக்கம் கூடும்."
+    },
+    {
+     "en": "P = hρg gives the pressure of a liquid column: h = height of the column, ρ = density, g = gravitational acceleration.",
+     "ta": "P = hρg திரவ நிரலோட அமுக்கத்த தரும்: h = நிரலோட உயரம், ρ = திரவத்தோட அடர்த்தி, g = ஈர்ப்பு ஆர்முடுகல்."
+    },
+    {
+     "en": "The air around the Earth is the atmosphere, and the pressure made by it is the atmospheric pressure.",
+     "ta": "பூமிய சுத்தி இருக்கற காத்து வாயுமண்டலம்; அது உண்டாக்கற அமுக்கம் வளிமண்டல அமுக்கம்."
+    },
+    {
+     "en": "At sea level the average atmospheric pressure is 76 cm Hg: the pressure of a mercury column 76 cm high.",
+     "ta": "கடல் மட்டத்துல சராசரி வளிமண்டல அமுக்கம் 76 cm Hg: 76 cm உயர இரச நிரலோட அமுக்கம்."
+    },
+    {
+     "en": "The mercury barometer and the aneroid barometer measure atmospheric pressure.",
+     "ta": "இரச பாரமானியும் அனிரொய்ட் பாரமானியும் வளிமண்டல அமுக்கத்த அளக்குது."
+    },
+    {
+     "en": "An object partly or fully submerged in a liquid feels an upthrust equal to the weight of the liquid it displaces.",
+     "ta": "திரவத்துல பகுதியாவோ முழுசாவோ மூழ்கிய பொருள் மேல, அது இடம்பெயர்த்த திரவத்தோட நிறைக்கு சமமான மேலுதைப்பு தாக்கும்."
+    },
+    {
+     "en": "An object floating on a liquid: the weight of the liquid displaced equals the weight of the object.",
+     "ta": "திரவத்துல மிதக்கற பொருள்: இடம்பெயர்த்த திரவத்தோட நிறை பொருளோட நிறைக்கு சமம்."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Pressure",
+     "ta": "அமுக்கம்"
+    },
+    {
+     "en": "Pascal (Pa)",
+     "ta": "பாஸ்கல்"
+    },
+    {
+     "en": "Hydraulic jack",
+     "ta": "நீரியல் உயர்த்தி"
+    },
+    {
+     "en": "Upthrust",
+     "ta": "மேலுதைப்பு"
+    },
+    {
+     "en": "Atmosphere",
+     "ta": "வாயுமண்டலம்"
+    },
+    {
+     "en": "Mercury barometer",
+     "ta": "இரச பாரமானி"
+    },
+    {
+     "en": "Aneroid barometer",
+     "ta": "அனிரொய்ட் பாரமானி"
+    },
+    {
+     "en": "Density",
+     "ta": "அடர்த்தி"
+    },
+    {
+     "en": "Archimedes' principle",
+     "ta": "ஆர்க்கிமிடிஸ் தத்துவம்"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 9 key points",
+    "ta": "📌 பொழிப்பு — 9 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+   }
+  }
+ ]
+}

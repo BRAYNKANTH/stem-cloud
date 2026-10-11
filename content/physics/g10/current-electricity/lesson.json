@@ -1,0 +1,1096 @@
+{
+ "schema": 2,
+ "id": "physics.g10.current-electricity",
+ "slug": "current-electricity",
+ "subject": "physics",
+ "grade": 10,
+ "number": "19",
+ "title": {
+  "en": "Current Electricity",
+  "ta": "ஓட்ட மின்னியல்",
+  "si": "ධාරා විද්‍යුතය"
+ },
+ "legacy": {
+  "id": "g10c19",
+  "file": "g10-chapter-19-current-electricity.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why do paper bits jump to my comb?",
+    "ta": "என் சீப்புக்கு காகிதத் துண்டுகள் ஏன் தாவுது?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, I rubbed my comb on my hair and now it picks up tiny bits of paper!",
+      "ta": "சிட்டு, சீப்ப தலைமுடில தேய்ச்சேன், இப்போ அது சின்ன காகிதத் துண்டுகள தூக்குது!"
+     },
+     "scene": "💇"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "That is static electricity, Raja. Rubbing moves electrons from one surface to another, and the charges just sit there.",
+      "ta": "அது நிலைமின்னியல் ராஜா. தேய்க்கறப்ப இலத்திரன்கள் ஒரு மேற்பரப்புல இருந்து இன்னொண்ணுக்கு போகும், மின்னேற்றங்கள் அங்கயே இருக்கும்."
+     },
+     "scene": "⚡"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And the bulb at home? Charges are not sitting still there!",
+      "ta": "வீட்டு மின்குமிழ்? அங்க மின்னேற்றங்கள் சும்மா இருக்கலயே!"
+     },
+     "scene": "🔌"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Right! When charges flow through a wire, that is an electric current: current electricity. A cell pushes the electrons round the circuit.",
+      "ta": "சரியா சொன்ன! மின்னேற்றங்கள் கம்பி வழியா ஓடினா அது மின்னோட்டம்: ஓட்ட மின்னியல். மின்கலம் இலத்திரன்கள சுற்றுக்குள்ள தள்ளுது."
+     },
+     "scene": "🔋"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "What makes them flow?",
+      "ta": "அவற்றை ஓட வைக்கறது எது?"
+     },
+     "scene": "🚰"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "A potential difference, like water pressure from a tank. The bigger it is, the bigger the current. And a resistance holds the flow back: V = I R.",
+      "ta": "அழுத்த வித்தியாசம், தொட்டில இருந்து வர்ற நீர் அமுக்கம் மாதிரி. அது பெருசானா மின்னோட்டமும் பெருசு. தடை ஓட்டத்த தடுக்கும்: V = I R."
+     },
+     "scene": "💧"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "So how do we join many resistors?",
+      "ta": "அப்போ நிறைய தடைகள எப்படி இணைக்கறது?"
+     },
+     "scene": "🔗"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "In series they add up, R = R₁ + R₂. In parallel, 1/R = 1/R₁ + 1/R₂. We will try both!",
+      "ta": "தொடரா இணைச்சா கூட்டும், R = R₁ + R₂. சமாந்தரமா இணைச்சா 1/R = 1/R₁ + 1/R₂. ரெண்டையும் செஞ்சு பாக்கலாம்!"
+     },
+     "scene": "🧩"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Charges, current, voltage and resistance! Let's go!",
+      "ta": "மின்னேற்றம், மின்னோட்டம், வோல்ற்றளவு, தடை! வாங்க போகலாம்!"
+     },
+     "scene": "🚀"
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: current electricity →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: ஓட்ட மின்னியல் →"
+   },
+   "quest": {
+    "en": "In this module: explore electric charge, electric current (I = Q/t), potential difference (V), resistance (R), and Ohm's Law (V = IR).",
+    "ta": "இந்த பாடத்தில்: மின்னேற்றம், மின்னோட்டம் (I = Q/t), அழுத்த வேறுபாடு (V), தடை (R) மற்றும் ஓமின் விதியை (V = IR) கற்போம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: how electricity flows",
+     "ta": "முதல்ல இருந்து: மின்சாரம் எப்படி ஓடுது"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "Think of water in a pipe",
+      "ta": "குழாய்ல தண்ணி மாதிரி நினை"
+     },
+     "body": {
+      "en": "<p>Electric current is a flow of tiny charges in a wire, like water flowing in a pipe.</p><div aria-hidden=\"true\" class=\"bs-pic\">🚰 ➜ ➜ ➜</div>",
+      "ta": "<p>மின்னோட்டம் கம்பில சின்ன மின்னூட்டங்கள் ஓடறது, குழாய்ல தண்ணி ஓடற மாதிரி.</p><div aria-hidden=\"true\" class=\"bs-pic\">🚰 ➜ ➜ ➜</div>"
+     },
+     "icon": "💧"
+    },
+    {
+     "title": {
+      "en": "The battery is the pump",
+      "ta": "பேட்டரி ஒரு பம்ப்"
+     },
+     "body": {
+      "en": "<p>A battery pushes the charges around, like a pump pushes water.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔋 ➜ 💡</div>",
+      "ta": "<p>தண்ணிய பம்ப் தள்ளற மாதிரி பேட்டரி மின்னூட்டங்கள தள்ளுது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔋 ➜ 💡</div>"
+     },
+     "icon": "🔋"
+    },
+    {
+     "title": {
+      "en": "A circuit is a loop",
+      "ta": "மின்சுற்று ஒரு வட்டம்"
+     },
+     "body": {
+      "en": "<p>The path must make a full loop. A switch opens or closes the loop.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔋─💡─🔘─🔋</div>",
+      "ta": "<p>பாதை முழு வட்டமா இருக்கணும். ஸ்விட்ச் அந்த வட்டத்த திறக்கும் அல்லது மூடும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔋─💡─🔘─🔋</div>"
+     },
+     "icon": "🔄"
+    },
+    {
+     "title": {
+      "en": "Some things let it flow",
+      "ta": "சிலது ஓட விடும்"
+     },
+     "body": {
+      "en": "<p>Metals like copper let current flow. Plastic and rubber do not.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ✅   🧴 ❌</div>",
+      "ta": "<p>தாமிரம் மாதிரி உலோகங்கள் மின்சாரத்த ஓட விடும். பிளாஸ்டிக், ரப்பர் விடாது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🔩 ✅   🧴 ❌</div>"
+     },
+     "icon": "🧲"
+    }
+   ],
+   "hook": {
+    "en": "Press a switch and the light comes on instantly. What is travelling through the wire?",
+    "ta": "ஸ்விட்ச் போட்டா விளக்கு உடனே எரியுது. கம்பில என்ன பயணிக்குது?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Look at a torch: find the battery, the switch and the bulb. Can you trace the loop?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>டார்ச் லைட்ட பாரு: பேட்டரி, ஸ்விட்ச், பல்பு கண்டுபிடி. வட்டத்த காட்ட முடியுமா?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's measure current, voltage and resistance.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப மின்னோட்டம், மின்னழுத்தம், தடைய அளக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: charges, current and resistance",
+     "ta": "பாரு: மின்னேற்றம், மின்னோட்டம், தடை"
+    },
+    "sub": {
+     "en": "Raja charges a comb, then electrons flow round a circuit, then resistors dim a bulb",
+     "ta": "ராஜா சீப்புக்கு மின்னேற்றம் கொடுக்கறான், அப்புறம் சுற்றுல இலத்திரன்கள் ஓடுது, தடையிகள் குமிழ மங்க வைக்குது"
+    }
+   },
+   "animation": {
+    "file": "g10-chapter-19-current-electricity.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "19.1 Static electricity and current electricity",
+      "ta": "19.1 நிலைமின்னியலும் ஓட்ட மின்னியலும்"
+     },
+     "body": {
+      "en": "<p>Electricity is a very important form of energy. Bulbs, irons and fans all work with it. It has two forms: <b>static electricity</b>, charges that sit on the surface of insulators and do not flow, and <b>current electricity</b>, where charges flow.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🧪 Try it: static charges</div><ul><li>Rub a drinking straw with a piece of cotton cloth and bring it near tiny bits of paper: the bits are attracted. A straw that was not rubbed attracts nothing.</li><li>A plastic rod, pen or comb rubbed on your hair attracts tiny bits of paper or rigifoam too.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"An atom: a nucleus of protons and neutrons with electrons around it\" role=\"img\" viewbox=\"0 0 520 205\"><circle cx=\"150\" cy=\"100\" r=\"52\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-faint)\"></circle><circle cx=\"150\" cy=\"100\" r=\"90\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-faint)\"></circle><circle cx=\"150\" cy=\"100\" r=\"24\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"105\">nucleus</text><circle cx=\"138\" cy=\"92\" r=\"7\" stroke-width=\"1.5\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><text font-size=\"11\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"138\" y=\"96\">+</text><circle cx=\"160\" cy=\"106\" r=\"7\" stroke-width=\"1.5\" style=\"fill:var(--panel-2);stroke:var(--text)\"></circle><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"160\" y=\"110\">n</text><circle cx=\"202\" cy=\"100\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"202\" y=\"104\">−</text><circle cx=\"98\" cy=\"100\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"98\" y=\"104\">−</text><circle cx=\"150\" cy=\"10\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"150\" y=\"14\">−</text><circle cx=\"214\" cy=\"142\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"214\" y=\"146\">−</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"330\" y=\"70\">● protons (+) in the nucleus</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"100\">● neutrons (no charge)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"330\" y=\"130\">● electrons (−) orbit outside</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"start\" x=\"330\" y=\"175\">only electrons are easily removed</text></svg><div class=\"figcap\">Figure 19.3: the particles of an atom.</div></div>\n<p>All materials are made of atoms. An atom has <b>protons</b> (positive), <b>neutrons</b> (no charge) and <b>electrons</b> (negative). Protons and neutrons are in the centre, the <b>nucleus</b>; electrons move around it. Only electrons can be removed easily.</p>\n<ul><li>If rubbing <b>removes</b> electrons from the surface, the surface becomes <b>positively (+)</b> charged.</li><li>If the surface <b>receives</b> electrons from the cloth, it becomes <b>negatively (−)</b> charged.</li><li>Charges that stay still on an object are <b>electrostatic charges</b>. When they start to move, they make an <b>electric current</b>.</li></ul>\n<p>In Activity 19.1 a PVC rod is charged by rubbing it with polythene and touched to a neon bulb whose other terminal is earthed. The stored charges flow out through the bulb and it lights up for a moment. Charges flowing like this are an <b>electric current</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">Electric current</div><div class=\"ltext\">A current of electric charges flowing through a conductor is an electric current.</div></div>",
+      "ta": "<p>மின்சாரம் ஒரு முக்கியமான சக்தி வடிவம். மின்குமிழ், இஸ்திரி பெட்டி, மின்விசிறி எல்லாம் இதால ஓடுது. இதுக்கு ரெண்டு வடிவங்கள்: <b>நிலைமின்னியல்</b> (காவலிகளோட மேற்பரப்புல ஓடாம இருக்கற மின்னேற்றங்கள்), <b>ஓட்ட மின்னியல்</b> (மின்னேற்றங்கள் ஓடுவது).</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🧪 செஞ்சு பாரு: நிலை மின்னேற்றம்</div><ul><li>ஒரு ஸ்ட்ராவ பருத்தித் துணியால தேய்ச்சு சின்ன காகிதத் துண்டுகள் பக்கத்துல கொண்டு போ: துண்டுகள் கவரப்படும். தேய்க்காத ஸ்ட்ரா எதையும் கவராது.</li><li>முடில தேய்ச்ச பிளாஸ்டிக் கம்பி, பேனா, சீப்பும் சின்ன காகிதம் அல்லது தெர்மகோல் துண்டுகள கவரும்.</li></ul></div>\n<div class=\"fig\"><svg aria-label=\"An atom: a nucleus of protons and neutrons with electrons around it\" role=\"img\" viewbox=\"0 0 520 205\"><circle cx=\"150\" cy=\"100\" r=\"52\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-faint)\"></circle><circle cx=\"150\" cy=\"100\" r=\"90\" stroke-width=\"1.5\" style=\"fill:none;stroke:var(--text-faint)\"></circle><circle cx=\"150\" cy=\"100\" r=\"24\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"105\">nucleus</text><circle cx=\"138\" cy=\"92\" r=\"7\" stroke-width=\"1.5\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><text font-size=\"11\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"138\" y=\"96\">+</text><circle cx=\"160\" cy=\"106\" r=\"7\" stroke-width=\"1.5\" style=\"fill:var(--panel-2);stroke:var(--text)\"></circle><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"160\" y=\"110\">n</text><circle cx=\"202\" cy=\"100\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"202\" y=\"104\">−</text><circle cx=\"98\" cy=\"100\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"98\" y=\"104\">−</text><circle cx=\"150\" cy=\"10\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"150\" y=\"14\">−</text><circle cx=\"214\" cy=\"142\" r=\"8\" stroke-width=\"1.5\" style=\"fill:var(--accent);stroke:var(--text)\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"214\" y=\"146\">−</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"330\" y=\"70\">● protons (+) in the nucleus</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"330\" y=\"100\">● neutrons (no charge)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"330\" y=\"130\">● electrons (−) orbit outside</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"start\" x=\"330\" y=\"175\">only electrons are easily removed</text></svg><div class=\"figcap\">உரு 19.3: அணுவோட துணிக்கைகள்.</div></div>\n<p>எல்லாப் பொருட்களும் அணுக்களால் ஆனவை. அணுவுல <b>புரோத்தன்கள்</b> (நேர்), <b>நியூத்திரன்கள்</b> (மின்னேற்றம் இல்ல), <b>இலத்திரன்கள்</b> (மறை) இருக்கு. புரோத்தன், நியூத்திரன் நடுவுல இருக்கற <b>கருவுல</b>; இலத்திரன்கள் அதச் சுத்தி இயங்குது. இலத்திரன்கள மட்டும்தான் சுலபமா அகற்றலாம்.</p>\n<ul><li>தேய்க்கறப்ப மேற்பரப்புல இருந்து இலத்திரன்கள் <b>அகன்றா</b> மேற்பரப்பு <b>நேர் (+)</b> மின்னேற்றம் பெறும்.</li><li>துணில இருந்து இலத்திரன்கள <b>பெற்றா</b> மேற்பரப்பு <b>மறை (−)</b> மின்னேற்றம் பெறும்.</li><li>பொருள் மேல நிலையா இருக்கற மின்னேற்றங்கள் <b>நிலைமின்னேற்றங்கள்</b>. அவை நகர ஆரம்பிச்சா <b>மின்னோட்டம்</b> உண்டாகும்.</li></ul>\n<p>செயற்பாடு 19.1-ல PVC கம்பிய பாலிதீனால தேய்ச்சு மின்னேற்றம் கொடுத்து, மறு முனை நிலத்தோட இணைச்ச நியோன் குமிழுல தொடறோம். சேமிச்ச மின்னேற்றங்கள் குமிழ் வழியா ஓடி அது ஒரு கணம் ஒளிருது. இப்படி ஓடும் மின்னேற்றங்கள் <b>மின்னோட்டம்</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">மின்னோட்டம்</div><div class=\"ltext\">கடத்தி வழியா ஓடும் மின்னேற்றங்களின் ஓட்டம் மின்னோட்டம் எனப்படும்.</div></div>"
+     },
+     "section": "19.1"
+    },
+    {
+     "title": {
+      "en": "19.2 Electricity flowing through conductors",
+      "ta": "19.2 கடத்திகள் வழியா மின்னோட்டம்"
+     },
+     "body": {
+      "en": "<p>Materials that let a current of electrons pass easily are <b>conductors</b>. All metals (copper, aluminium, iron) are conductors. The electrons in the outermost shell of a metal atom come loose easily and move at random between the atoms. These are the <b>free electrons</b>, and they are why electricity flows easily through metals.</p>\n<div class=\"fig\"><svg aria-label=\"Free electrons moving randomly between the metal ions\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"150\" opacity=\"0.7\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"460\" x=\"30\" y=\"20\"></rect><circle cx=\"80\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"55\">+</text><circle cx=\"80\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"100\">+</text><circle cx=\"80\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"145\">+</text><circle cx=\"170\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"55\">+</text><circle cx=\"170\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"100\">+</text><circle cx=\"170\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"145\">+</text><circle cx=\"260\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"55\">+</text><circle cx=\"260\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"100\">+</text><circle cx=\"260\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"145\">+</text><circle cx=\"350\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"55\">+</text><circle cx=\"350\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"100\">+</text><circle cx=\"350\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"145\">+</text><circle cx=\"440\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"55\">+</text><circle cx=\"440\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"100\">+</text><circle cx=\"440\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"145\">+</text><circle cx=\"120\" cy=\"70\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"210\" cy=\"50\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"300\" cy=\"95\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"390\" cy=\"70\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"160\" cy=\"125\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"250\" cy=\"140\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"350\" cy=\"130\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"440\" cy=\"110\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"80\" cy=\"95\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"192\">metal ions (+) and free electrons (small dots) moving at random</text></svg><div class=\"figcap\">Figures 19.5 and 19.6: free electrons in a metal.</div></div>\n<p>The negative terminal of a cell repels electrons; the positive terminal attracts them. Join the two terminals with a conductor and the free electrons all start to drift from the negative terminal to the positive terminal.</p>\n<div class=\"fig\"><svg aria-label=\"A cell and a bulb: the conventional current goes from + to −, the electrons the other way\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"130\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"360\" x=\"80\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"238\" y=\"20\">+</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"284\" y=\"20\">−</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"154\"></rect><circle cx=\"260\" cy=\"170\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"158.1\" y2=\"181.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"181.9\" y2=\"158.1\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"80\" x2=\"80.0\" y1=\"82\" y2=\"115.0\"></line><polygon points=\"80,128 86.8,115.0 73.2,115.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"440\" x2=\"440.0\" y1=\"128\" y2=\"95.0\"></line><polygon points=\"440,82 433.2,95.0 446.8,95.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"100\" y=\"76\">conventional current</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"100\" y=\"92\">(+ to −)</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"300\" x2=\"357.0\" y1=\"66\" y2=\"66.0\"></line><polygon points=\"370,66 357.0,59.9 357.0,72.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"120\" x2=\"177.0\" y1=\"66\" y2=\"66.0\"></line><polygon points=\"190,66 177.0,59.9 177.0,72.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">electron flow (− to +)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"118\">is the opposite way</text></svg><div class=\"figcap\">Figures 19.8 and 19.9: the conventional current goes from + to −; the electrons go from − to +.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">➡️ Two directions to remember</div><ul><li>The <b>electrons</b> really flow from the negative to the positive terminal.</li><li>By convention the <b>electric current</b> is said to flow the opposite way: from the positive to the negative terminal.</li></ul></div>\n<p>The SI unit of current is the <b>ampere (A)</b>, measured with an <b>ammeter</b>. The ammeter must be connected so that the whole current passes through it, that is, <b>in series</b>.</p>\n<div class=\"fig\"><svg aria-label=\"An ammeter connected in series so all the current passes through it\" role=\"img\" viewbox=\"0 0 520 215\"><rect height=\"130\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"380\" x=\"70\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"60\" x=\"110\" y=\"154\"></rect><circle cx=\"140\" cy=\"170\" r=\"16\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"140\" y=\"176\">A</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"60\" x=\"330\" y=\"154\"></rect><circle cx=\"360\" cy=\"170\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"348.1\" x2=\"371.9\" y1=\"158.1\" y2=\"181.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"348.1\" x2=\"371.9\" y1=\"181.9\" y2=\"158.1\"></line><rect height=\"26\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"22\" x=\"60\" y=\"90\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"82\" y1=\"100\" y2=\"90\"></line><circle cx=\"60\" cy=\"102\" r=\"3\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"82\" cy=\"90\" r=\"3\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"40\" y=\"82\">switch</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"140\" y=\"204\">ammeter in series</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"360\" y=\"204\">bulb</text></svg><div class=\"figcap\">Figure 19.11: connecting an ammeter to a circuit.</div></div>",
+      "ta": "<p>இலத்திரன்களோட ஓட்டத்த சுலபமா அனுமதிக்கற பொருட்கள் <b>கடத்திகள்</b>. எல்லா உலோகங்களும் (செம்பு, அலுமினியம், இரும்பு) கடத்திகள். உலோக அணுவோட வெளிப்புற ஓட்டுல இருக்கற இலத்திரன்கள் சுலபமா விடுபட்டு அணுக்களுக்கு இடையில கண்டபடி இயங்கும். இவைதான் <b>சுயாதீன இலத்திரன்கள்</b>; இதனாலதான் உலோகங்கள் வழியா மின்சாரம் சுலபமா ஓடுது.</p>\n<div class=\"fig\"><svg aria-label=\"Free electrons moving randomly between the metal ions\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"150\" opacity=\"0.7\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"460\" x=\"30\" y=\"20\"></rect><circle cx=\"80\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"55\">+</text><circle cx=\"80\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"100\">+</text><circle cx=\"80\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"80\" y=\"145\">+</text><circle cx=\"170\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"55\">+</text><circle cx=\"170\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"100\">+</text><circle cx=\"170\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"145\">+</text><circle cx=\"260\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"55\">+</text><circle cx=\"260\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"100\">+</text><circle cx=\"260\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"145\">+</text><circle cx=\"350\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"55\">+</text><circle cx=\"350\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"100\">+</text><circle cx=\"350\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"145\">+</text><circle cx=\"440\" cy=\"50\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"55\">+</text><circle cx=\"440\" cy=\"95\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"100\">+</text><circle cx=\"440\" cy=\"140\" r=\"17\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"440\" y=\"145\">+</text><circle cx=\"120\" cy=\"70\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"210\" cy=\"50\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"300\" cy=\"95\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"390\" cy=\"70\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"160\" cy=\"125\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"250\" cy=\"140\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"350\" cy=\"130\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"440\" cy=\"110\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"80\" cy=\"95\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"192\">metal ions (+) and free electrons (small dots) moving at random</text></svg><div class=\"figcap\">உரு 19.5, 19.6: உலோகத்துல சுயாதீன இலத்திரன்கள்.</div></div>\n<p>மின்கலத்தோட மறை முனை இலத்திரன்கள தள்ளுது; நேர் முனை கவருது. ரெண்டு முனைகளையும் கடத்தியால இணைச்சா சுயாதீன இலத்திரன்கள் எல்லாம் மறை முனையில இருந்து நேர் முனை நோக்கி நகர ஆரம்பிக்கும்.</p>\n<div class=\"fig\"><svg aria-label=\"A cell and a bulb: the conventional current goes from + to −, the electrons the other way\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"130\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"360\" x=\"80\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"238\" y=\"20\">+</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"284\" y=\"20\">−</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"154\"></rect><circle cx=\"260\" cy=\"170\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"158.1\" y2=\"181.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"181.9\" y2=\"158.1\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"80\" x2=\"80.0\" y1=\"82\" y2=\"115.0\"></line><polygon points=\"80,128 86.8,115.0 73.2,115.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"440\" x2=\"440.0\" y1=\"128\" y2=\"95.0\"></line><polygon points=\"440,82 433.2,95.0 446.8,95.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"100\" y=\"76\">conventional current</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"100\" y=\"92\">(+ to −)</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"300\" x2=\"357.0\" y1=\"66\" y2=\"66.0\"></line><polygon points=\"370,66 357.0,59.9 357.0,72.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"120\" x2=\"177.0\" y1=\"66\" y2=\"66.0\"></line><polygon points=\"190,66 177.0,59.9 177.0,72.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">electron flow (− to +)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"118\">is the opposite way</text></svg><div class=\"figcap\">உரு 19.8, 19.9: வழக்கமான மின்னோட்டம் + இல் இருந்து −க்கு; இலத்திரன்கள் − இல் இருந்து +க்கு.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">➡️ நினைவுல வெச்சுக்க வேண்டிய ரெண்டு திசைகள்</div><ul><li><b>இலத்திரன்கள்</b> உண்மையில மறை முனையில இருந்து நேர் முனைக்கு ஓடுது.</li><li>வழக்கப்படி <b>மின்னோட்டம்</b> எதிர்த் திசைல ஓடுதுன்னு சொல்றோம்: நேர் முனையில இருந்து மறை முனைக்கு.</li></ul></div>\n<p>மின்னோட்டத்தோட SI அலகு <b>அம்பியர் (A)</b>; <b>அம்பியர்மானியால</b> அளப்போம். முழு மின்னோட்டமும் அதன் வழியா போற மாதிரி, அதாவது <b>தொடரா</b> இணைக்கணும்.</p>\n<div class=\"fig\"><svg aria-label=\"An ammeter connected in series so all the current passes through it\" role=\"img\" viewbox=\"0 0 520 215\"><rect height=\"130\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"380\" x=\"70\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"60\" x=\"110\" y=\"154\"></rect><circle cx=\"140\" cy=\"170\" r=\"16\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"140\" y=\"176\">A</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"60\" x=\"330\" y=\"154\"></rect><circle cx=\"360\" cy=\"170\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"348.1\" x2=\"371.9\" y1=\"158.1\" y2=\"181.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"348.1\" x2=\"371.9\" y1=\"181.9\" y2=\"158.1\"></line><rect height=\"26\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"22\" x=\"60\" y=\"90\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"60\" x2=\"82\" y1=\"100\" y2=\"90\"></line><circle cx=\"60\" cy=\"102\" r=\"3\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><circle cx=\"82\" cy=\"90\" r=\"3\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"40\" y=\"82\">switch</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"140\" y=\"204\">ammeter in series</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"360\" y=\"204\">bulb</text></svg><div class=\"figcap\">உரு 19.11: சுற்றுல அம்பியர்மானிய இணைக்கறது.</div></div>"
+     },
+     "section": "19.2"
+    },
+    {
+     "title": {
+      "en": "19.3 Potential difference and electromotive force",
+      "ta": "19.3 அழுத்த வித்தியாசமும் மின்னியக்க விசையும்"
+     },
+     "body": {
+      "en": "<p>Water runs faster from a tank placed higher, because the pressure difference between the tank and the tap is bigger. The current in a circuit is like this water flow: the source of electricity acts like the tank.</p>\n<div class=\"fig\"><svg aria-label=\"Water flow from a tank compared with an electric current\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"70\" opacity=\"0.45\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"90\" x=\"30\" y=\"20\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"75\" y=\"60\">tank</text><path d=\"M60 90 V140 H230\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"24\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"34\" x=\"230\" y=\"128\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"247\" y=\"170\">tap</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"120\" x2=\"187.0\" y1=\"124\" y2=\"124.0\"></line><polygon points=\"200,124 187.0,117.9 187.0,130.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"112\">water flow</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"120\" y=\"196\">higher tank, bigger pressure difference, faster flow</text><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"190\" x=\"300\" y=\"30\"></rect><rect height=\"26\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"40\" x=\"374\" y=\"18\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"389\" x2=\"389\" y1=\"15\" y2=\"45\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"399\" x2=\"399\" y1=\"21\" y2=\"39\"></line><rect height=\"28\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"40\" x=\"374\" y=\"136\"></rect><circle cx=\"394\" cy=\"150\" r=\"14\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"384.2\" x2=\"403.8\" y1=\"140.2\" y2=\"159.8\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"384.2\" x2=\"403.8\" y1=\"159.8\" y2=\"140.2\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"395\" y=\"100\">cell: electric pressure</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"395\" y=\"118\">(potential difference)</text></svg><div class=\"figcap\">The water-tank picture of a circuit.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Potential difference and EMF</div><div class=\"ltext\">The electric \"pressure difference\" is the <b>potential difference</b>, measured in <b>volts (V)</b>. The force with which the negative terminal of the source pushes electrons into the outside circuit is the <b>electromotive force (EMF)</b>.</div></div>\n<p>The EMF of a cell equals the potential difference across its terminals when <b>no current is drawn</b>. When a current is drawn it also passes through the cell, which has its own resistance, so some voltage is lost inside; subtract it from the EMF to get the potential difference given to the outside circuit.</p>\n<p>Because it is measured in volts, the potential difference is also called the <b>voltage</b>. It is measured with a <b>voltmeter</b>, whose two terminals are connected <b>across</b> the two points, that is, <b>in parallel</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A voltmeter connected across the bulb\" role=\"img\" viewbox=\"0 0 520 228\"><rect height=\"140\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"380\" x=\"70\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"164\"></rect><circle cx=\"260\" cy=\"180\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"168.1\" y2=\"191.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"191.9\" y2=\"168.1\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"200\" y1=\"180\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"320\" x2=\"320\" y1=\"180\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"236\" y1=\"118\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"284\" x2=\"320\" y1=\"118\" y2=\"118\"></line><circle cx=\"260\" cy=\"118\" r=\"16\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"124\">V</text><circle cx=\"200\" cy=\"180\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"320\" cy=\"180\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">voltmeter across the bulb (in parallel)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"218\">bulb</text></svg><div class=\"figcap\">Figure 19.13: connecting a voltmeter across a bulb.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔬 Activity 19.2 in one picture</div><ul><li>Connection 1: both <b>positive</b> terminals go to the bulb: no potential difference, no current, bulb off.</li><li>Connection 2: both <b>negative</b> terminals go to the bulb: again none, bulb off.</li><li>Connection 3: one <b>positive</b> and one <b>negative</b> terminal: there is a potential difference, a current flows and the bulb lights.</li></ul></div>\n<p>So for a current to flow through a conductor, a <b>potential difference</b> must exist across it.</p>",
+      "ta": "<p>உயரமா வெச்ச தொட்டில இருந்து நீர் வேகமா ஓடும், ஏன்னா தொட்டிக்கும் குழாய்க்கும் இடையில அமுக்க வித்தியாசம் அதிகம். சுற்றுல மின்னோட்டம் இந்த நீர் ஓட்டம் மாதிரி: மின்சார மூலம் தொட்டி மாதிரி வேலை செய்யுது.</p>\n<div class=\"fig\"><svg aria-label=\"Water flow from a tank compared with an electric current\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"70\" opacity=\"0.45\" rx=\"6\" stroke-width=\"2.5\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"90\" x=\"30\" y=\"20\"></rect><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"75\" y=\"60\">tank</text><path d=\"M60 90 V140 H230\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"24\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"34\" x=\"230\" y=\"128\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"247\" y=\"170\">tap</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"120\" x2=\"187.0\" y1=\"124\" y2=\"124.0\"></line><polygon points=\"200,124 187.0,117.9 187.0,130.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"112\">water flow</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"120\" y=\"196\">higher tank, bigger pressure difference, faster flow</text><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"190\" x=\"300\" y=\"30\"></rect><rect height=\"26\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"40\" x=\"374\" y=\"18\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"389\" x2=\"389\" y1=\"15\" y2=\"45\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"399\" x2=\"399\" y1=\"21\" y2=\"39\"></line><rect height=\"28\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"40\" x=\"374\" y=\"136\"></rect><circle cx=\"394\" cy=\"150\" r=\"14\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"384.2\" x2=\"403.8\" y1=\"140.2\" y2=\"159.8\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"384.2\" x2=\"403.8\" y1=\"159.8\" y2=\"140.2\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"395\" y=\"100\">cell: electric pressure</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"395\" y=\"118\">(potential difference)</text></svg><div class=\"figcap\">சுற்றோட நீர்த் தொட்டி ஒப்புமை.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">அழுத்த வித்தியாசமும் மின்னியக்க விசையும்</div><div class=\"ltext\">இந்த மின் \"அமுக்க வித்தியாசம்\" <b>அழுத்த வித்தியாசம்</b>, அலகு <b>வோல்ட் (V)</b>. மின் மூலத்தோட மறை முனை இலத்திரன்கள வெளிச்சுற்றுக்குள்ள தள்ளும் விசை <b>மின்னியக்க விசை (EMF)</b>.</div></div>\n<p>மின்னோட்டம் எடுக்காதப்ப மின்கலத்தோட முனைகளுக்கு இடையில இருக்கற அழுத்த வித்தியாசமே அதோட <b>மின்னியக்க விசை</b>. மின்னோட்டம் எடுத்தா அது மின்கலத்துக்குள்ளயும் போகும்; மின்கலத்துக்கும் தடை இருக்கு, அதனால கொஞ்சம் வோல்ற்றளவு உள்ளயே இழக்கும். அத EMF-ல இருந்து கழிச்சா வெளிச்சுற்றுக்கு கிடைக்கற அழுத்த வித்தியாசம் கிடைக்கும்.</p>\n<p>வோல்ட்ல அளக்கறதால அழுத்த வித்தியாசம் <b>வோல்ற்றளவு</b> எனவும் சொல்லப்படும். <b>வோல்ற்றுமானியால</b> அளப்போம்; அதோட ரெண்டு முனைகளையும் அந்த ரெண்டு புள்ளிகளுக்கு <b>குறுக்கா</b>, அதாவது <b>சமாந்தரமா</b> இணைக்கணும்.</p>\n<div class=\"fig\"><svg aria-label=\"A voltmeter connected across the bulb\" role=\"img\" viewbox=\"0 0 520 228\"><rect height=\"140\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"380\" x=\"70\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"56\" x=\"232\" y=\"164\"></rect><circle cx=\"260\" cy=\"180\" r=\"17\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"168.1\" y2=\"191.9\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248.1\" x2=\"271.9\" y1=\"191.9\" y2=\"168.1\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"200\" y1=\"180\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"320\" x2=\"320\" y1=\"180\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"200\" x2=\"236\" y1=\"118\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--accent)\" x1=\"284\" x2=\"320\" y1=\"118\" y2=\"118\"></line><circle cx=\"260\" cy=\"118\" r=\"16\" stroke-width=\"2.5\" style=\"fill:var(--panel);stroke:var(--text)\"></circle><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"124\">V</text><circle cx=\"200\" cy=\"180\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><circle cx=\"320\" cy=\"180\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">voltmeter across the bulb (in parallel)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"218\">bulb</text></svg><div class=\"figcap\">உரு 19.13: குமிழுக்கு குறுக்கா வோல்ற்றுமானிய இணைக்கறது.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">🔬 செயற்பாடு 19.2 ஒரே படத்துல</div><ul><li>இணைப்பு 1: ரெண்டு <b>நேர்</b> முனைகளும் குமிழுக்கு: அழுத்த வித்தியாசம் இல்ல, மின்னோட்டம் இல்ல, குமிழ் எரியாது.</li><li>இணைப்பு 2: ரெண்டு <b>மறை</b> முனைகளும் குமிழுக்கு: மறுபடியும் இல்ல, குமிழ் எரியாது.</li><li>இணைப்பு 3: ஒரு <b>நேர்</b>, ஒரு <b>மறை</b> முனை: அழுத்த வித்தியாசம் உண்டு, மின்னோட்டம் ஓடி குமிழ் எரியும்.</li></ul></div>\n<p>அதனால கடத்தி வழியா மின்னோட்டம் ஓட அதுக்கு குறுக்கா ஒரு <b>அழுத்த வித்தியாசம்</b> இருக்கணும்.</p>"
+     },
+     "section": "19.3"
+    },
+    {
+     "title": {
+      "en": "19.4 Ohm's law",
+      "ta": "19.4 ஓமின் விதி"
+     },
+     "body": {
+      "en": "<p>When a potential difference is put across a conductor, a current flows. In Activity 19.3 a nichrome coil is connected to two dry cells, a rheostat, an ammeter and a voltmeter. The rheostat changes the current, and you record five pairs of readings. The switch is closed only briefly, so that the coil does not heat up and the temperature stays constant.</p>\n<div class=\"fig\"><svg aria-label=\"Graph of voltage against current for a conductor at constant temperature\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"70\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"440\" y1=\"190\" y2=\"190\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"70.0\" y1=\"32\" y2=\"24.8\"></line><polygon points=\"70,14 63.9,24.8 76.1,24.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"430\" x2=\"437.2\" y1=\"190\" y2=\"190.0\"></line><polygon points=\"448,190 437.2,183.9 437.2,196.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"52\" y=\"24\">V (V)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"448\" y=\"212\">I (A)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"60\" y=\"206\">O</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--accent)\" x1=\"70\" x2=\"400\" y1=\"190\" y2=\"40\"></line><circle cx=\"144\" cy=\"152.5\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"218\" cy=\"115.0\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"292\" cy=\"77.5\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"366\" cy=\"40.0\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"300\" y=\"110\">a straight line through O:</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"300\" y=\"130\">V ÷ I is constant</text></svg><div class=\"figcap\">Figure 19.18: V against I is a straight line through the origin.</div></div>\n<p>For each reading divide V by I. If the temperature was kept constant, the ratio V/I is always the same number. This was discovered by the German scientist <b>Georg Simon Ohm</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">Ohm's law</div><div class=\"ltext\">When the temperature of a conductor stays constant, the current I through it is directly proportional to the potential difference V across it: I ∝ V, so V ÷ I = constant. This constant is the <b>resistance</b> R of the conductor.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">Ohm's law</div><div class=\"fmath\"><b>V = I R</b>    R = V ÷ I    I = V ÷ R</div><div class=\"fnote\">V in volts (V), I in amperes (A), R in ohms (Ω)</div></div>\n<p>The unit of resistance is the <b>ohm (Ω)</b>: a conductor has a resistance of 1 Ω if a current of 1 A flows when 1 V is across it. Resistance is measured with an ohm meter.</p>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">A current of 1.5 A flows through a bulb of resistance 6 Ω. Find the potential difference across the bulb.</div><div class=\"work\">V = I R = 1.5 × 6 = <b>9 V</b></div></div>",
+      "ta": "<p>ஒரு கடத்திக்கு குறுக்கா அழுத்த வித்தியாசம் கொடுத்தா மின்னோட்டம் ஓடும். செயற்பாடு 19.3-ல நிக்ரோம் சுருள், ரெண்டு உலர் மின்கலங்கள், ஒரு ரியோஸ்தாத்து, அம்பியர்மானி, வோல்ற்றுமானி இணைக்கிறோம். ரியோஸ்தாத்து மின்னோட்டத்த மாத்தும், நீ ஐந்து சோடி வாசிப்புகள் குறிக்கற. சுருள் சூடாகி வெப்பநிலை மாறாம இருக்க சுவிட்சை கொஞ்ச நேரம் மட்டும் மூடுவோம்.</p>\n<div class=\"fig\"><svg aria-label=\"Graph of voltage against current for a conductor at constant temperature\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"70\" y1=\"190\" y2=\"20\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"440\" y1=\"190\" y2=\"190\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"70.0\" y1=\"32\" y2=\"24.8\"></line><polygon points=\"70,14 63.9,24.8 76.1,24.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"430\" x2=\"437.2\" y1=\"190\" y2=\"190.0\"></line><polygon points=\"448,190 437.2,183.9 437.2,196.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"52\" y=\"24\">V (V)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"448\" y=\"212\">I (A)</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"60\" y=\"206\">O</text><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--accent)\" x1=\"70\" x2=\"400\" y1=\"190\" y2=\"40\"></line><circle cx=\"144\" cy=\"152.5\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"218\" cy=\"115.0\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"292\" cy=\"77.5\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"366\" cy=\"40.0\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"300\" y=\"110\">a straight line through O:</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"start\" x=\"300\" y=\"130\">V ÷ I is constant</text></svg><div class=\"figcap\">உரு 19.18: V எதிர் I மூலப்புள்ளி வழியா போகும் நேர்கோடு.</div></div>\n<p>ஒவ்வொரு வாசிப்புக்கும் V-ய I-ஆல வகு. வெப்பநிலை மாறாம இருந்தா V/I எப்பவும் ஒரே எண்ணா இருக்கும். இத கண்டுபிடிச்சவர் ஜெர்மன் விஞ்ஞானி <b>ஜார்ஜ் சைமன் ஓம்</b>.</p>\n<div class=\"lawbox\"><div class=\"llabel\">ஓமின் விதி</div><div class=\"ltext\">கடத்தியோட வெப்பநிலை மாறாம இருக்கறப்ப, அதுக்கூடாக ஓடும் மின்னோட்டம் I அதுக்கு குறுக்கா இருக்கற அழுத்த வித்தியாசம் V-க்கு நேர்விகிதசமன்: I ∝ V, அதனால V ÷ I = மாறிலி. இந்த மாறிலியே கடத்தியோட <b>தடை</b> R.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">ஓமின் விதி</div><div class=\"fmath\"><b>V = I R</b>    R = V ÷ I    I = V ÷ R</div><div class=\"fnote\">V வோல்ட் (V), I அம்பியர் (A), R ஓம் (Ω)</div></div>\n<p>தடையோட அலகு <b>ஓம் (Ω)</b>: 1 V குறுக்கா இருக்கறப்ப 1 A மின்னோட்டம் ஓடினா கடத்தியோட தடை 1 Ω. தடைய ஓம்மானியால அளப்போம்.</p>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">6 Ω தடை உள்ள குமிழ் வழியா 1.5 A மின்னோட்டம் ஓடுது. குமிழுக்கு குறுக்கா அழுத்த வித்தியாசம்?</div><div class=\"work\">V = I R = 1.5 × 6 = <b>9 V</b></div></div>"
+     },
+     "section": "19.4"
+    },
+    {
+     "title": {
+      "en": "19.5 What changes the resistance of a conductor?",
+      "ta": "19.5 கடத்தியோட தடைய மாத்தறது எது?"
+     },
+     "body": {
+      "en": "<p>The resistance of a piece of conductor depends on three things: its <b>cross-sectional area</b>, its <b>length</b> and the <b>material</b> it is made of. In Activity 19.4 the same cells push current through seven wires, and the ammeter readings differ because the resistances differ.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">📏 The three rules</div><ul><li><b>Thicker</b> wire (bigger cross-sectional area): resistance <b>decreases</b>.</li><li><b>Longer</b> wire: resistance <b>increases</b>.</li><li>Same length and area but a <b>different metal</b>: different currents for the same voltage, because of a property of the material called <b>resistivity</b>.</li></ul></div>",
+      "ta": "<p>ஒரு கடத்தித் துண்டோட தடை மூணு விஷயங்கள பொறுத்தது: அதோட <b>குறுக்குவெட்டுப் பரப்பளவு</b>, <b>நீளம்</b>, அது எந்த <b>பொருளால</b> ஆனது. செயற்பாடு 19.4-ல ஒரே மின்கலங்கள் ஏழு கம்பிகள் வழியா மின்னோட்டத்த தள்ளுது; தடை வேறுபடறதால அம்பியர்மானி வாசிப்புகள் வேறுபடுது.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">📏 மூணு விதிகள்</div><ul><li><b>தடிமனான</b> கம்பி (பெரிய குறுக்குவெட்டுப் பரப்பு): தடை <b>குறையும்</b>.</li><li><b>நீளமான</b> கம்பி: தடை <b>கூடும்</b>.</li><li>அதே நீளம், பரப்பளவு ஆனா <b>வேற உலோகம்</b>: அதே வோல்ற்றளவுக்கு வெவ்வேறு மின்னோட்டம், ஏன்னா பொருளோட <b>தடைத்திறன் (resistivity)</b> என்ற இயல்பால.</li></ul></div>"
+     },
+     "section": "19.5"
+    },
+    {
+     "title": {
+      "en": "19.6 Resistors",
+      "ta": "19.6 தடையிகள்"
+     },
+     "body": {
+      "en": "<p>A tap controls the flow of water in a pipe by putting an obstacle in the way. In a circuit, raising the resistance lowers the current. Components made to give a chosen resistance are called <b>resistors</b>. In Activity 19.5 you connect a 5 Ω, 10 Ω or 20 Ω resistor in the torch bulb circuit: the larger the resistor, the dimmer the bulb, so the current falls as the resistance rises.</p>\n<ul><li><b>Fixed resistors:</b> a thin film of carbon on an insulator, or a coil of a high-resistance material such as nichrome. Their value cannot be changed (for example 10 Ω, 100 Ω, 1.2 kΩ).</li><li><b>Variable resistors:</b> the value can be changed by hand or with a screw: pre-adjustment resistors, rheostats, volume controls. Used in radio volume controls, to adjust circuits and to vary currents in experiments.</li><li><b>Light dependent resistors (LDR):</b> made of chemicals such as cadmium sulphide. In the dark the resistance is high; in light it is low. Used in circuits that must react to the amount of light.</li></ul>\n<div class=\"fig\"><svg aria-label=\"A resistor with brown, black, red and silver bands: 1000 ohm, 10 per cent\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"44\" opacity=\"0.45\" rx=\"12\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"320\" x=\"100\" y=\"80\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"40\" x2=\"100\" y1=\"102\" y2=\"102\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"420\" x2=\"480\" y1=\"102\" y2=\"102\"></line><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#8b5a2b;stroke:none\" width=\"18\" x=\"140\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"149\" y=\"62\">1st digit</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"149\" y=\"150\">brown 1</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#222;stroke:none\" width=\"18\" x=\"190\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"199\" y=\"62\">2nd digit</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"199\" y=\"150\">black 0</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#d32f2f;stroke:none\" width=\"18\" x=\"240\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"249\" y=\"62\">10ⁿ</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"249\" y=\"150\">red 2</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#c0c0c0;stroke:none\" width=\"18\" x=\"350\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"359\" y=\"62\">tolerance</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"359\" y=\"150\">silver ±10%</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"190\">10 × 10² = 1000 Ω, ±10%</text></svg><div class=\"figcap\">Figure 19.25: the colour bands of a resistor.</div></div>\n<p>The value of a fixed resistor is often shown by <b>colour bands</b>. With four bands, the first two give the digits, the third gives the power of ten to multiply by, and the fourth (set a little apart) gives the <b>tolerance</b>. Gold and silver as the third band mean 10<sup>-1</sup> and 10<sup>-2</sup>.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Colour</th><th>Number</th><th>Colour</th><th>Number</th></tr><tr><td>Black</td><td class=\"num\">0</td><td>Green</td><td class=\"num\">5</td></tr><tr><td>Brown</td><td class=\"num\">1</td><td>Blue</td><td class=\"num\">6</td></tr><tr><td>Red</td><td class=\"num\">2</td><td>Purple</td><td class=\"num\">7</td></tr><tr><td>Orange</td><td class=\"num\">3</td><td>Grey</td><td class=\"num\">8</td></tr><tr><td>Yellow</td><td class=\"num\">4</td><td>White</td><td class=\"num\">9</td></tr><tr><td>Gold</td><td class=\"num\">−1 (×0.1)</td><td>Silver</td><td class=\"num\">−2 (×0.01)</td></tr></table></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Fourth band</th><th>Tolerance</th></tr><tr><td>Brown</td><td class=\"num\">± 1 %</td></tr><tr><td>Red</td><td class=\"num\">± 2 %</td></tr><tr><td>Gold</td><td class=\"num\">± 5 %</td></tr><tr><td>Silver</td><td class=\"num\">± 10 %</td></tr><tr><td>No fourth band</td><td class=\"num\">± 20 %</td></tr></table></div>\n<div class=\"worked\"><div class=\"wt\">Example</div><div class=\"work\">A resistor has bands brown, black, red, silver. (i) Its value? (ii) Its tolerance? (iii) The range its true value can have?</div><div class=\"work\">(i) brown = 1, black = 0, red = 2: value = 10 × 10<sup>2</sup> = <b>1000 Ω</b></div><div class=\"work\">(ii) silver: tolerance = <b>± 10 %</b></div><div class=\"work\">(iii) variation = 1000 × 10 ÷ 100 = 100 Ω. Range = (1000 − 100) to (1000 + 100) = <b>900 Ω to 1100 Ω</b></div></div>",
+      "ta": "<p>குழாய்ல நீர் ஓட்டத்த குழாய் தடுக்கறது மாதிரி, சுற்றுல தடைய கூட்டினா மின்னோட்டம் குறையும். தேவையான தடைய தர உருவாக்கப்பட்ட பாகங்கள் <b>தடையிகள்</b>. செயற்பாடு 19.5-ல டார்ச் குமிழ் சுற்றுல 5 Ω, 10 Ω, 20 Ω தடையிகள இணைக்கற: தடை பெருசானா குமிழ் மங்கும், அதனால தடை கூடினா மின்னோட்டம் குறையும்.</p>\n<ul><li><b>நிலையான தடையிகள்:</b> காவலி மேல கார்பன் மெல்லிய படலம், அல்லது நிக்ரோம் போன்ற அதிகத் தடை உள்ள பொருளோட சுருள். இவற்றோட பெறுமானத்த மாத்த முடியாது (உதா: 10 Ω, 100 Ω, 1.2 kΩ).</li><li><b>மாறும் தடையிகள்:</b> கையால அல்லது திருகாணியால பெறுமானத்த மாத்தலாம்: முன்னமைப்புத் தடை, ரியோஸ்தாத்து, ஒலியளவுக் கட்டுப்பாடு. ரேடியோ ஒலியளவு, சுற்றுகள சரி பண்ண, பரிசோதனைகள்ல மின்னோட்டத்த மாத்த பயன்படுது.</li><li><b>ஒளி சார் தடையிகள் (LDR):</b> கட்மியம் சல்பைட் போன்ற இரசாயனங்களால செய்யப்படுது. இருட்டுல தடை அதிகம்; வெளிச்சத்துல குறையும். ஒளியளவுக்கு ஏத்தமாதிரி இயங்க வேண்டிய சுற்றுகள்ல பயன்படுது.</li></ul>\n<div class=\"fig\"><svg aria-label=\"A resistor with brown, black, red and silver bands: 1000 ohm, 10 per cent\" role=\"img\" viewbox=\"0 0 520 205\"><rect height=\"44\" opacity=\"0.45\" rx=\"12\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"320\" x=\"100\" y=\"80\"></rect><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"40\" x2=\"100\" y1=\"102\" y2=\"102\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"420\" x2=\"480\" y1=\"102\" y2=\"102\"></line><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#8b5a2b;stroke:none\" width=\"18\" x=\"140\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"149\" y=\"62\">1st digit</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"149\" y=\"150\">brown 1</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#222;stroke:none\" width=\"18\" x=\"190\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"199\" y=\"62\">2nd digit</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"199\" y=\"150\">black 0</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#d32f2f;stroke:none\" width=\"18\" x=\"240\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"249\" y=\"62\">10ⁿ</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"249\" y=\"150\">red 2</text><rect height=\"44\" rx=\"0\" stroke-width=\"0\" style=\"fill:#c0c0c0;stroke:none\" width=\"18\" x=\"350\" y=\"80\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"359\" y=\"62\">tolerance</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"359\" y=\"150\">silver ±10%</text><text font-size=\"17\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"190\">10 × 10² = 1000 Ω, ±10%</text></svg><div class=\"figcap\">உரு 19.25: தடையியோட நிறப் பட்டைகள்.</div></div>\n<p>நிலையான தடையியோட பெறுமானம் பெரும்பாலும் <b>நிறப் பட்டைகளால</b> காட்டப்படும். நாலு பட்டை இருந்தா முதல் ரெண்டு இலக்கங்கள், மூணாவது எந்த 10-ன் வலுவால பெருக்கணும்னு, நாலாவது (கொஞ்சம் தள்ளி) <b>சகிப்பளவு (tolerance)</b> காட்டும். மூணாவது பட்டை தங்கம், வெள்ளின்னா 10<sup>-1</sup>, 10<sup>-2</sup>.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>நிறம்</th><th>எண்</th><th>நிறம்</th><th>எண்</th></tr><tr><td>கறுப்பு</td><td class=\"num\">0</td><td>பச்சை</td><td class=\"num\">5</td></tr><tr><td>பழுப்பு</td><td class=\"num\">1</td><td>நீலம்</td><td class=\"num\">6</td></tr><tr><td>சிவப்பு</td><td class=\"num\">2</td><td>ஊதா</td><td class=\"num\">7</td></tr><tr><td>செம்மஞ்சள்</td><td class=\"num\">3</td><td>சாம்பல்</td><td class=\"num\">8</td></tr><tr><td>மஞ்சள்</td><td class=\"num\">4</td><td>வெள்ளை</td><td class=\"num\">9</td></tr><tr><td>தங்கம்</td><td class=\"num\">−1 (×0.1)</td><td>வெள்ளி</td><td class=\"num\">−2 (×0.01)</td></tr></table></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>நாலாவது பட்டை</th><th>சகிப்பளவு</th></tr><tr><td>பழுப்பு</td><td class=\"num\">± 1 %</td></tr><tr><td>சிவப்பு</td><td class=\"num\">± 2 %</td></tr><tr><td>தங்கம்</td><td class=\"num\">± 5 %</td></tr><tr><td>வெள்ளி</td><td class=\"num\">± 10 %</td></tr><tr><td>நாலாவது பட்டை இல்ல</td><td class=\"num\">± 20 %</td></tr></table></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம்</div><div class=\"work\">ஒரு தடையியோட பட்டைகள் பழுப்பு, கறுப்பு, சிவப்பு, வெள்ளி. (i) பெறுமானம்? (ii) சகிப்பளவு? (iii) உண்மைப் பெறுமானத்தோட வீச்சு?</div><div class=\"work\">(i) brown = 1, black = 0, red = 2: value = 10 × 10<sup>2</sup> = <b>1000 Ω</b></div><div class=\"work\">(ii) silver: tolerance = <b>± 10 %</b></div><div class=\"work\">(iii) மாற்றம் = 1000 × 10 ÷ 100 = 100 Ω. வீச்சு = (1000 − 100) முதல் (1000 + 100) = <b>900 Ω முதல் 1100 Ω வரை</b></div></div>"
+     },
+     "section": "19.6"
+    },
+    {
+     "title": {
+      "en": "19.7 Combining resistors: series and parallel",
+      "ta": "19.7 தடையிகள இணைக்கறது: தொடர், சமாந்தரம்"
+     },
+     "body": {
+      "en": "<p>If you cannot find a resistor of the value you need, you can join several. There are two basic ways: <b>series</b> and <b>parallel</b>.</p>\n<div class=\"fig\"><svg aria-label=\"Three resistors in series\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"420\" x=\"50\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"84\" y=\"144\"></rect><path d=\"M88 160 L94.4 152 L107.2 168 L120.0 152 L132.8 168 L145.6 152 L152 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"198\">R₁</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"204\" y=\"144\"></rect><path d=\"M208 160 L214.4 152 L227.2 168 L240.0 152 L252.8 168 L265.6 152 L272 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"240\" y=\"198\">R₂</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"324\" y=\"144\"></rect><path d=\"M328 160 L334.4 152 L347.2 168 L360.0 152 L372.8 168 L385.6 152 L392 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"360\" y=\"198\">R₃</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"50\" x2=\"50.0\" y1=\"90\" y2=\"99.0\"></line><polygon points=\"50,112 56.1,99.0 43.9,99.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"28\" y=\"104\">I</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">same current through all</text><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"120\">R = R₁ + R₂ + R₃</text></svg><div class=\"figcap\">Figure 19.29: resistors in series. The same current I flows through each.</div></div>\n<p>In <b>series</b> the same current I flows through every resistor. The potential differences across them are V₁ = I R₁, V₂ = I R₂, V₃ = I R₃ and they add up to the supply voltage: V = I R = I R₁ + I R₂ + I R₃.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Equivalent resistance, series</div><div class=\"fmath\"><b>R = R₁ + R₂ + R₃</b></div><div class=\"fnote\">R is the single resistance that could replace all the resistors</div></div>\n<div class=\"worked\"><div class=\"wt\">Example (series)</div><div class=\"work\">A 10 Ω and a 2 Ω resistor in series are connected to a 6 V supply. Find the equivalent resistance and the current.</div><div class=\"work\">R = 10 + 2 = <b>12 Ω</b>. I = V ÷ R = 6 ÷ 12 = <b>0.5 A</b></div></div>\n<div class=\"fig\"><svg aria-label=\"Three resistors in parallel\" role=\"img\" viewbox=\"0 0 520 218\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"130\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"390\" x2=\"450\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"130\" y1=\"40\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"390\" x2=\"390\" y1=\"40\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"40\" y2=\"40\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"40\" y2=\"40\"></line><path d=\"M175 40 L185.6 32 L206.9 48 L228.1 32 L249.4 48 L270.6 32 L291.9 48 L313.1 32 L334.4 48 L345 40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"26\">R₁</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"52\" y2=\"52.0\"></line><polygon points=\"168,52 155.0,46.2 155.0,57.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"68\">I₁</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"105\" y2=\"105\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"105\" y2=\"105\"></line><path d=\"M175 105 L185.6 97 L206.9 113 L228.1 97 L249.4 113 L270.6 97 L291.9 113 L313.1 97 L334.4 113 L345 105\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"91\">R₂</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"117\" y2=\"117.0\"></line><polygon points=\"168,117 155.0,111.2 155.0,122.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"133\">I₂</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"170\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"170\" y2=\"170\"></line><path d=\"M175 170 L185.6 162 L206.9 178 L228.1 162 L249.4 178 L270.6 162 L291.9 178 L313.1 162 L334.4 178 L345 170\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"156\">R₃</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"182\" y2=\"182.0\"></line><polygon points=\"168,182 155.0,176.2 155.0,187.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"198\">I₃</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"70\" x2=\"95.0\" y1=\"94\" y2=\"94.0\"></line><polygon points=\"108,94 95.0,87.5 95.0,100.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"90\" y=\"80\">I</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"205\">I = I₁ + I₂ + I₃    1/R = 1/R₁ + 1/R₂ + 1/R₃</text></svg><div class=\"figcap\">Figure 19.30: resistors in parallel. The total current divides among them.</div></div>\n<p>In <b>parallel</b> the total current divides among the resistors: I = I₁ + I₂ + I₃. Each resistor has the same potential difference V across it, so V/R = V/R₁ + V/R₂ + V/R₃, which gives the rule below.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Equivalent resistance, parallel</div><div class=\"fmath\"><b>1/R = 1/R₁ + 1/R₂ + 1/R₃</b></div><div class=\"fnote\">The reciprocal of the equivalent resistance is the sum of the reciprocals</div></div>\n<div class=\"worked\"><div class=\"wt\">Example (parallel)</div><div class=\"work\">A 12 Ω and a 6 Ω resistor are connected in parallel to a 6 V supply. Find (i) the equivalent resistance, (ii) the total current, (iii) the current in each resistor.</div><div class=\"work\">(i) 1/R = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4, so R = <b>4 Ω</b></div><div class=\"work\">(ii) I = V ÷ R = 6 ÷ 4 = <b>1.5 A</b></div><div class=\"work\">(iii) 12 Ω: I = 6 ÷ 12 = <b>0.5 A</b>. 6 Ω: I = 6 ÷ 6 = <b>1 A</b>. (0.5 + 1 = 1.5 A)</div></div>",
+      "ta": "<p>தேவையான பெறுமானம் உள்ள தடையி கிடைக்கலன்னா பல தடையிகள இணைக்கலாம். ரெண்டு அடிப்படை வழிகள்: <b>தொடர்</b>, <b>சமாந்தரம்</b>.</p>\n<div class=\"fig\"><svg aria-label=\"Three resistors in series\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"420\" x=\"50\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"255\" x2=\"255\" y1=\"25\" y2=\"55\"></line><line stroke-linecap=\"round\" stroke-width=\"5\" style=\"stroke:var(--text)\" x1=\"265\" x2=\"265\" y1=\"31\" y2=\"49\"></line><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"84\" y=\"144\"></rect><path d=\"M88 160 L94.4 152 L107.2 168 L120.0 152 L132.8 168 L145.6 152 L152 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"198\">R₁</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"204\" y=\"144\"></rect><path d=\"M208 160 L214.4 152 L227.2 168 L240.0 152 L252.8 168 L265.6 152 L272 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"240\" y=\"198\">R₂</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"72\" x=\"324\" y=\"144\"></rect><path d=\"M328 160 L334.4 152 L347.2 168 L360.0 152 L372.8 168 L385.6 152 L392 160\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"360\" y=\"198\">R₃</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"50\" x2=\"50.0\" y1=\"90\" y2=\"99.0\"></line><polygon points=\"50,112 56.1,99.0 43.9,99.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"28\" y=\"104\">I</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"100\">same current through all</text><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"120\">R = R₁ + R₂ + R₃</text></svg><div class=\"figcap\">உரு 19.29: தொடரா தடையிகள். ஒவ்வொண்ணு வழியாவும் ஒரே மின்னோட்டம் I.</div></div>\n<p><b>தொடரா</b> இணைச்சா ஒவ்வொரு தடையி வழியாவும் ஒரே மின்னோட்டம் I போகும். அவற்றுக்கு குறுக்கா அழுத்த வித்தியாசங்கள் V₁ = I R₁, V₂ = I R₂, V₃ = I R₃, அவை கூடி மூலத்தோட வோல்ற்றளவுக்கு சமம்: V = I R = I R₁ + I R₂ + I R₃.</p>\n<div class=\"formula-box\"><div class=\"flabel\">சமவலுத் தடை, தொடர்</div><div class=\"fmath\"><b>R = R₁ + R₂ + R₃</b></div><div class=\"fnote\">R என்பது எல்லா தடையிகளுக்கும் பதிலா வைக்கக்கூடிய ஒற்றைத் தடை</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் (தொடர்)</div><div class=\"work\">10 Ω, 2 Ω தடையிகள் தொடரா 6 V மூலத்தோட இணைக்கப்பட்டிருக்கு. சமவலுத் தடையையும் மின்னோட்டத்தையும் காணு.</div><div class=\"work\">R = 10 + 2 = <b>12 Ω</b>. I = V ÷ R = 6 ÷ 12 = <b>0.5 A</b></div></div>\n<div class=\"fig\"><svg aria-label=\"Three resistors in parallel\" role=\"img\" viewbox=\"0 0 520 218\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"70\" x2=\"130\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"390\" x2=\"450\" y1=\"100\" y2=\"100\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"130\" y1=\"40\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"390\" x2=\"390\" y1=\"40\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"40\" y2=\"40\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"40\" y2=\"40\"></line><path d=\"M175 40 L185.6 32 L206.9 48 L228.1 32 L249.4 48 L270.6 32 L291.9 48 L313.1 32 L334.4 48 L345 40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"26\">R₁</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"52\" y2=\"52.0\"></line><polygon points=\"168,52 155.0,46.2 155.0,57.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"68\">I₁</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"105\" y2=\"105\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"105\" y2=\"105\"></line><path d=\"M175 105 L185.6 97 L206.9 113 L228.1 97 L249.4 113 L270.6 97 L291.9 113 L313.1 97 L334.4 113 L345 105\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"91\">R₂</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"117\" y2=\"117.0\"></line><polygon points=\"168,117 155.0,111.2 155.0,122.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"133\">I₂</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"130\" x2=\"175\" y1=\"170\" y2=\"170\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"345\" x2=\"390\" y1=\"170\" y2=\"170\"></line><path d=\"M175 170 L185.6 162 L206.9 178 L228.1 162 L249.4 178 L270.6 162 L291.9 178 L313.1 162 L334.4 178 L345 170\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"156\">R₃</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"140\" x2=\"155.0\" y1=\"182\" y2=\"182.0\"></line><polygon points=\"168,182 155.0,176.2 155.0,187.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"155\" y=\"198\">I₃</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--danger)\" x1=\"70\" x2=\"95.0\" y1=\"94\" y2=\"94.0\"></line><polygon points=\"108,94 95.0,87.5 95.0,100.5\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"90\" y=\"80\">I</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"205\">I = I₁ + I₂ + I₃    1/R = 1/R₁ + 1/R₂ + 1/R₃</text></svg><div class=\"figcap\">உரு 19.30: சமாந்தரமா தடையிகள். மொத்த மின்னோட்டம் அவற்றிடையே பிரியுது.</div></div>\n<p><b>சமாந்தரமா</b> இணைச்சா மொத்த மின்னோட்டம் தடையிகளுக்கு இடையில பிரியும்: I = I₁ + I₂ + I₃. ஒவ்வொரு தடையிக்கும் குறுக்கா ஒரே அழுத்த வித்தியாசம் V, அதனால V/R = V/R₁ + V/R₂ + V/R₃; இதுல இருந்து கீழ உள்ள விதி வரும்.</p>\n<div class=\"formula-box\"><div class=\"flabel\">சமவலுத் தடை, சமாந்தரம்</div><div class=\"fmath\"><b>1/R = 1/R₁ + 1/R₂ + 1/R₃</b></div><div class=\"fnote\">சமவலுத் தடையோட நிகர்மாறு, நிகர்மாறுகளோட கூட்டுத்தொகை</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் (சமாந்தரம்)</div><div class=\"work\">12 Ω, 6 Ω தடையிகள் சமாந்தரமா 6 V மூலத்தோட இணைக்கப்பட்டிருக்கு. (i) சமவலுத் தடை, (ii) மொத்த மின்னோட்டம், (iii) ஒவ்வொரு தடையி வழியா மின்னோட்டம் காணு.</div><div class=\"work\">(i) 1/R = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4, so R = <b>4 Ω</b></div><div class=\"work\">(ii) I = V ÷ R = 6 ÷ 4 = <b>1.5 A</b></div><div class=\"work\">(iii) 12 Ω: I = 6 ÷ 12 = <b>0.5 A</b>. 6 Ω: I = 6 ÷ 6 = <b>1 A</b>. (0.5 + 1 = 1.5 A)</div></div>"
+     },
+     "section": "19.7"
+    },
+    {
+     "title": {
+      "en": "19.8 Extra: electric shock and safety",
+      "ta": "19.8 கூடுதலாக: மின்னதிர்ச்சியும் பாதுகாப்பும்"
+     },
+     "body": {
+      "en": "<p>An electric shock happens when your body becomes part of a path along which electrons can flow. A complete circuit and a potential difference are both needed. With only one contact point, or two points at the same voltage, there is no danger.</p>\n<div class=\"fig\"><svg aria-label=\"A bird sits on a high voltage wire without being shocked\" role=\"img\" viewbox=\"0 0 520 170\"><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"30\" x2=\"490\" y1=\"80\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text-faint)\" x1=\"30\" x2=\"490\" y1=\"120\" y2=\"120\"></line><circle cx=\"250\" cy=\"60\" r=\"14\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"262\" cy=\"50\" r=\"8\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><path d=\"M232 66 l-26 12\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248\" x2=\"248\" y1=\"72\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"258\" x2=\"258\" y1=\"72\" y2=\"80\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"30\">bird on a live wire</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"250\" y=\"150\">both feet touch the same wire: the same voltage, so no current through the bird</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"112\">live wire</text></svg><div class=\"figcap\">Figure 19.32: a bird on a high-voltage line gets no shock.</div></div>\n<p>People are different from birds: they usually stand on the ground. One side of a power system is deliberately connected to earth, so a person touching a single live wire connects two points of the circuit: the wire and the earth.</p>\n<p>\"It is current that kills\" is largely true, but a current needs a voltage to push it. The current through the body is I = V ÷ R: the higher the voltage, the larger the current, and the larger the body's resistance, the smaller the current. Body resistance is not fixed: it changes from person to person and with how the skin touches (hand to hand, hand to foot and so on). That is why HIGH VOLTAGE signs are put up.</p>",
+      "ta": "<p>உன் உடம்பு இலத்திரன்கள் ஓடக்கூடிய பாதையின் பகுதியா ஆனா மின்னதிர்ச்சி வரும். முழுமையான சுற்றும் அழுத்த வித்தியாசமும் ரெண்டும் வேணும். ஒரே ஒரு தொடு புள்ளி இருந்தா, அல்லது ரெண்டு புள்ளிகளுக்கும் ஒரே வோல்ற்றளவு இருந்தா ஆபத்து இல்ல.</p>\n<div class=\"fig\"><svg aria-label=\"A bird sits on a high voltage wire without being shocked\" role=\"img\" viewbox=\"0 0 520 170\"><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text)\" x1=\"30\" x2=\"490\" y1=\"80\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--text-faint)\" x1=\"30\" x2=\"490\" y1=\"120\" y2=\"120\"></line><circle cx=\"250\" cy=\"60\" r=\"14\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><circle cx=\"262\" cy=\"50\" r=\"8\" stroke-width=\"2\" style=\"fill:var(--accent-2);stroke:var(--text)\"></circle><path d=\"M232 66 l-26 12\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:none;stroke:var(--text)\"></path><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"248\" x2=\"248\" y1=\"72\" y2=\"80\"></line><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"258\" x2=\"258\" y1=\"72\" y2=\"80\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"250\" y=\"30\">bird on a live wire</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"250\" y=\"150\">both feet touch the same wire: the same voltage, so no current through the bird</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"120\" y=\"112\">live wire</text></svg><div class=\"figcap\">உரு 19.32: உயர் மின்னழுத்தக் கம்பில இருக்கற பறவைக்கு அதிர்ச்சி இல்ல.</div></div>\n<p>மனிதர்கள் பறவைகள் மாதிரி இல்ல: பொதுவா தரைல நிக்கறாங்க. மின்தொகுதியோட ஒரு பக்கம் வேணும்னே நிலத்தோட இணைக்கப்பட்டிருக்கு, அதனால ஒரே ஒரு உயிருள்ள கம்பிய தொடற நபர் சுற்றோட ரெண்டு புள்ளிகள இணைக்கறாரு: கம்பி, நிலம்.</p>\n<p>\"கொல்லறது மின்னோட்டம்தான்\" என்பது பெரும்பாலும் சரி, ஆனா மின்னோட்டத்த தள்ள வோல்ற்றளவு வேணும். உடம்பு வழியா மின்னோட்டம் I = V ÷ R: வோல்ற்றளவு கூடினா மின்னோட்டம் கூடும், உடம்போட தடை கூடினா மின்னோட்டம் குறையும். உடம்பு தடை நிலையானது இல்ல: ஆளுக்கு ஆள், தோல் எப்படி தொடுதுன்னு (கை-கை, கை-கால்) மாறும். அதனாலதான் \"உயர் மின்னழுத்தம் ஆபத்து\" பலகைகள் வெக்கறாங்க.</p>"
+     },
+     "section": "19.8"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you observed electrons flowing in circuits. Below are Ohm's Law, circuit diagrams, and resistance calculations!",
+    "ta": "பகுதி 1-ல் மின்சுற்று பாய்வை பார்த்தோம். அதற்கான ஓமின் விதி, மின்சுற்று வரைபடங்கள், தடை கணித்தல்களை இங்கே கற்போம்!"
+   }
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook activities: try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"s\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Demonstration: static charge on a straw and a comb</h3>\n<span class=\"act-ref\">Textbook · Figures 19.1–19.2, p.140</span>\n<p>See that rubbing gives an object the power to attract light things.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A drinking straw, a plastic rod, pen or comb</li><li>A piece of cotton cloth, your hair</li><li>Tiny bits of paper or rigifoam</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Rub the straw well with the cotton cloth and bring it close to the bits of paper.</li><li>Bring an unrubbed straw close to the bits too.</li><li>Rub a plastic rod, pen or comb on your hair and try again.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Only rubbed objects attract the bits. Rubbing moves electrons from one surface to the other, so the surfaces get static electric charges.</div></details>\n<button class=\"btn act-done\" data-act=\"s\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"19.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 19.1: lighting a neon bulb with static charges</h3>\n<span class=\"act-ref\">Textbook · Activity 19.1, p.142</span>\n<p>Show that moving static charges make an electric current.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A piece of PVC tube, a piece of polythene</li><li>A neon bulb, conducting wires, a stand</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Connect wires to the neon bulb and connect one terminal of the bulb to the earth.</li><li>Charge the PVC rod by rubbing it with polythene.</li><li>Touch the free terminal of the bulb with the charged rod. Repeat several times and watch the bulb.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The neon bulb flashes each time. The stored charges flow out through the wires and the bulb; charges flowing like this are an electric current.</div></details>\n<button class=\"btn act-done\" data-act=\"19.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"19.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 19.2: a potential difference is needed</h3>\n<span class=\"act-ref\">Textbook · Activity 19.2, p.148–149</span>\n<p>Find out what must exist across a bulb for a current to flow.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Two dry cells, a bulb, conducting wires</li><li>A voltmeter and an ammeter</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Connection 1: join the two positive terminals to the two ends of the bulb. Connection 2: join the two negative terminals. Connection 3: join one positive and one negative terminal.</li><li>The voltmeter measures the voltage across the bulb; the ammeter measures the current through it.</li><li>Record the current, the potential difference and whether the bulb lights, for each connection.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Only connection 3 gives a potential difference across the bulb, so only there a current flows and the bulb lights. A current flows through a conductor only if a potential difference exists across it.</div></details>\n<button class=\"btn act-done\" data-act=\"19.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"19.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 19.3: current and potential difference (Ohm)</h3>\n<span class=\"act-ref\">Textbook · Activity 19.3, p.150–151</span>\n<p>Find the relationship between the current through a conductor and the voltage across it.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A nichrome wire coil, a rheostat, a switch</li><li>Two dry cells, a voltmeter, an ammeter, connecting wires</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Connect the circuit: voltmeter across the coil, ammeter in series.</li><li>Close the switch, quickly read the meters and switch off (so the coil does not heat up).</li><li>Change the rheostat and repeat for at least five sets. Work out V ÷ I each time.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">V ÷ I is the same every time (as long as the temperature is constant). This constant is the resistance, and the law is V = I R (Ohm's law).</div></details>\n<button class=\"btn act-done\" data-act=\"19.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"19.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 19.4: what changes the resistance?</h3>\n<span class=\"act-ref\">Textbook · Activity 19.4, p.153–154</span>\n<p>Compare wires of different area, material and length.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Three 1 m nichrome wires of different thickness, a thin copper wire, thin iron wires of two lengths</li><li>Two dry cells, an ammeter, a switch, a wooden board</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Connect the circuit and touch terminal X to the end of each wire in turn.</li><li>Record the ammeter reading for each of the seven wires.</li><li>Compare wires 1, 2, 3 (area); wires 3, 4, 5 (material); wires 5, 6, 7 (length).</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">A thicker wire gives a larger current (smaller resistance); a longer wire gives a smaller current (larger resistance); different metals give different currents. So resistance depends on area, length and material.</div></details>\n<button class=\"btn act-done\" data-act=\"19.4\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"19.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 19.5: how a resistor controls the current</h3>\n<span class=\"act-ref\">Textbook · Activity 19.5, p.155</span>\n<p>See what a larger resistance does to the brightness of a bulb.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A small torch bulb, a switch, an ammeter, two dry cells</li><li>Resistors of 5 Ω, 10 Ω and 20 Ω</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Connect the circuit with a gap between A and B.</li><li>Connect the 5 Ω resistor between A and B and watch the bulb.</li><li>Replace it with 10 Ω and then 20 Ω, noting the brightness each time.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The bulb gets dimmer as the resistor value rises. The current through a circuit decreases when the resistance increases.</div></details>\n<button class=\"btn act-done\" data-act=\"19.5\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"s\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செய்து காட்டுதல்: ஸ்ட்ரா, சீப்புல நிலை மின்னேற்றம்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · உரு 19.1–19.2, ப.140</span>\n<p>தேய்க்கறது பொருளுக்கு லேசான பொருட்கள கவரும் ஆற்றல தருதுன்னு பாரு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு ஸ்ட்ரா, பிளாஸ்டிக் கம்பி, பேனா அல்லது சீப்பு</li><li>ஒரு பருத்தித் துணி, உன் முடி</li><li>சின்ன காகிதம் அல்லது தெர்மகோல் துண்டுகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஸ்ட்ராவ பருத்தித் துணியால நல்லா தேய்ச்சு காகிதத் துண்டுகள் பக்கத்துல கொண்டு போ.</li><li>தேய்க்காத ஸ்ட்ராவையும் துண்டுகள் பக்கத்துல கொண்டு போ.</li><li>பிளாஸ்டிக் கம்பி, பேனா, சீப்ப முடில தேய்ச்சு மறுபடி முயற்சி பண்ணு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">தேய்ச்ச பொருட்கள் மட்டும்தான் துண்டுகள கவருது. தேய்க்கறது இலத்திரன்கள ஒரு மேற்பரப்புல இருந்து மற்றதுக்கு நகர்த்தும், அதனால மேற்பரப்புகள் நிலை மின்னேற்றம் பெறும்.</div></details>\n<button class=\"btn act-done\" data-act=\"s\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"19.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 19.1: நிலை மின்னேற்றத்தால நியோன் குமிழ எரிக்கறது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 19.1, ப.142</span>\n<p>நகரும் நிலை மின்னேற்றங்கள் மின்னோட்டத்த உண்டாக்கும்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு PVC குழாய்த் துண்டு, ஒரு பாலிதீன் துண்டு</li><li>நியோன் குமிழ், கடத்தும் கம்பிகள், ஒரு தாங்கி</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>நியோன் குமிழுக்கு கம்பிகள இணைச்சு குமிழோட ஒரு முனைய நிலத்தோட இணை.</li><li>PVC கம்பிய பாலிதீனால தேய்ச்சு மின்னேற்றம் கொடு.</li><li>குமிழோட மற்ற முனைய மின்னேற்றம் பெற்ற கம்பியால தொடு. பல தடவை செய்து குமிழ பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ஒவ்வொரு தடவையும் நியோன் குமிழ் மின்னுது. சேமிச்ச மின்னேற்றங்கள் கம்பிகள், குமிழ் வழியா வெளிய ஓடுது; இப்படி ஓடும் மின்னேற்றங்கள் மின்னோட்டம்.</div></details>\n<button class=\"btn act-done\" data-act=\"19.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"19.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 19.2: அழுத்த வித்தியாசம் வேணும்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 19.2, ப.148–149</span>\n<p>மின்னோட்டம் ஓட குமிழுக்கு குறுக்கா என்ன இருக்கணும்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ரெண்டு உலர் மின்கலங்கள், ஒரு குமிழ், கம்பிகள்</li><li>ஒரு வோல்ற்றுமானி, ஒரு அம்பியர்மானி</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>இணைப்பு 1: ரெண்டு நேர் முனைகள குமிழோட ரெண்டு முனைகளோட இணை. இணைப்பு 2: ரெண்டு மறை முனைகள இணை. இணைப்பு 3: ஒரு நேர், ஒரு மறை முனைய இணை.</li><li>வோல்ற்றுமானி குமிழுக்கு குறுக்கா வோல்ற்றளவ அளக்கும்; அம்பியர்மானி அது வழியா மின்னோட்டத்த அளக்கும்.</li><li>ஒவ்வொரு இணைப்புக்கும் மின்னோட்டம், அழுத்த வித்தியாசம், குமிழ் எரியுதான்னு குறி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">இணைப்பு 3 மட்டும்தான் குமிழுக்கு குறுக்கா அழுத்த வித்தியாசம் தருது, அதனால அங்க மட்டும்தான் மின்னோட்டம் ஓடி குமிழ் எரியும். கடத்திக்கு குறுக்கா அழுத்த வித்தியாசம் இருந்தா மட்டும்தான் மின்னோட்டம் ஓடும்.</div></details>\n<button class=\"btn act-done\" data-act=\"19.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"19.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 19.3: மின்னோட்டமும் அழுத்த வித்தியாசமும் (ஓம்)</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 19.3, ப.150–151</span>\n<p>கடத்தி வழியா மின்னோட்டத்துக்கும் அதுக்கு குறுக்கா வோல்ற்றளவுக்கும் உள்ள தொடர்ப கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>நிக்ரோம் கம்பிச் சுருள், ரியோஸ்தாத்து, சுவிட்ச்</li><li>ரெண்டு உலர் மின்கலங்கள், வோல்ற்றுமானி, அம்பியர்மானி, கம்பிகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>சுற்ற இணை: வோல்ற்றுமானி சுருளுக்கு குறுக்கா, அம்பியர்மானி தொடரா.</li><li>சுவிட்சை மூடி, வேகமா வாசிப்புகள படிச்சு அணைச்சுடு (சுருள் சூடாகாம இருக்க).</li><li>ரியோஸ்தாத்த மாத்தி குறைந்தது ஐந்து தொகுதிகளுக்கு திரும்பச் செய். ஒவ்வொரு தடவையும் V ÷ I காணு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">V ÷ I ஒவ்வொரு தடவையும் ஒண்ணுதான் (வெப்பநிலை மாறாத வரை). இந்த மாறிலிதான் தடை; விதி V = I R (ஓமின் விதி).</div></details>\n<button class=\"btn act-done\" data-act=\"19.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"19.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 19.4: தடைய மாத்தறது எது?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 19.4, ப.153–154</span>\n<p>வெவ்வேறு பரப்பளவு, பொருள், நீளம் உள்ள கம்பிகள ஒப்பிடு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>1 m நீள மூணு நிக்ரோம் கம்பிகள் (வெவ்வேறு தடிமன்), ஒரு மெல்லிய செம்புக் கம்பி, ரெண்டு நீளங்கள்ல மெல்லிய இரும்புக் கம்பிகள்</li><li>ரெண்டு உலர் மின்கலங்கள், அம்பியர்மானி, சுவிட்ச், மரப்பலகை</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>சுற்ற இணைச்சு X முனைய ஒவ்வொரு கம்பியோட முனையிலும் மாறி மாறி தொடு.</li><li>ஏழு கம்பிகளுக்கும் அம்பியர்மானி வாசிப்ப குறி.</li><li>1, 2, 3 கம்பிகள (பரப்பளவு); 3, 4, 5 (பொருள்); 5, 6, 7 (நீளம்) ஒப்பிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">தடிமனான கம்பி அதிக மின்னோட்டம் தரும் (குறைந்த தடை); நீளமான கம்பி குறைவான மின்னோட்டம் (அதிக தடை); வேற உலோகங்கள் வேறு மின்னோட்டம். அதனால தடை பரப்பளவு, நீளம், பொருளைப் பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"19.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"19.5\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 19.5: தடையி மின்னோட்டத்த கட்டுப்படுத்தறது</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 19.5, ப.155</span>\n<p>பெரிய தடை குமிழோட ஒளிர்வ என்ன செய்யுதுன்னு பாரு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு சின்ன டார்ச் குமிழ், சுவிட்ச், அம்பியர்மானி, ரெண்டு உலர் மின்கலங்கள்</li><li>5 Ω, 10 Ω, 20 Ω தடையிகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>A, B-க்கு இடையில இடைவெளி விட்டு சுற்ற இணை.</li><li>5 Ω தடையிய A, B-க்கு இடையில இணைச்சு குமிழ பாரு.</li><li>அத 10 Ω, அப்புறம் 20 Ω-ஆ மாத்தி ஒவ்வொரு தடவையும் ஒளிர்வ குறி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">தடையியோட பெறுமானம் கூட குமிழ் மங்குது. தடை கூடினா சுற்று வழியா மின்னோட்டம் குறையும்.</div></details>\n<button class=\"btn act-done\" data-act=\"19.5\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Ohm's Law Lab",
+     "ta": "ஓமின் விதி லேப்"
+    },
+    "sub": {
+     "en": "Change the voltage and the resistance, and watch I = V ÷ R",
+     "ta": "வோல்ற்றளவையும் தடையையும் மாத்தி I = V ÷ R-ஐ பாரு"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-19-current-electricity.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "challenge",
+   "kind": "challenge",
+   "heading": {
+    "title": {
+     "en": "🎮 Circuit Challenge",
+     "ta": "🎮 சுற்று சவால்"
+    },
+    "sub": {
+     "en": "Work out each answer in your head, then set the slider and check",
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-19-current-electricity.html",
+    "hash": "challenge"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Check how much you understood before the deeper walkthroughs",
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "When a surface loses electrons during rubbing, it becomes…",
+      "ta": "தேய்க்கறப்ப மேற்பரப்பு இலத்திரன்கள இழந்தா அது…"
+     },
+     "options": [
+      {
+       "en": "positively charged",
+       "ta": "நேர் மின்னேற்றம் பெறும்"
+      },
+      {
+       "en": "negatively charged",
+       "ta": "மறை மின்னேற்றம் பெறும்"
+      },
+      {
+       "en": "neutral",
+       "ta": "நடுநிலை ஆகும்"
+      },
+      {
+       "en": "a conductor",
+       "ta": "கடத்தி ஆகும்"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Removing negative electrons leaves the surface positive.",
+      "ta": "மறை இலத்திரன்கள அகற்றினா மேற்பரப்பு நேராகும்."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "Which way does the conventional electric current flow outside the cell?",
+      "ta": "கலத்துக்கு வெளிய வழக்கமான மின்னோட்டம் எந்தத் திசைல ஓடும்?"
+     },
+     "options": [
+      {
+       "en": "From the negative to the positive terminal",
+       "ta": "மறை முனையில இருந்து நேர் முனைக்கு"
+      },
+      {
+       "en": "From the positive to the negative terminal",
+       "ta": "நேர் முனையில இருந்து மறை முனைக்கு"
+      },
+      {
+       "en": "It does not have a direction",
+       "ta": "திசையே இல்ல"
+      },
+      {
+       "en": "Both ways at once",
+       "ta": "ரெண்டு பக்கமும் ஒரே நேரம்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "By convention the current is from + to −, opposite to the electron flow.",
+      "ta": "வழக்கப்படி மின்னோட்டம் + இல் இருந்து −க்கு, இலத்திரன் ஓட்டத்துக்கு எதிரா."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "How is an ammeter connected?",
+      "ta": "அம்பியர்மானி எப்படி இணைக்கப்படும்?"
+     },
+     "options": [
+      {
+       "en": "In series, so all the current passes through it",
+       "ta": "தொடரா, முழு மின்னோட்டமும் அது வழியா போக"
+      },
+      {
+       "en": "In parallel across the bulb",
+       "ta": "குமிழுக்கு குறுக்கா சமாந்தரமா"
+      },
+      {
+       "en": "Across the cell only",
+       "ta": "கலத்துக்கு குறுக்கா மட்டும்"
+      },
+      {
+       "en": "Anywhere, it does not matter",
+       "ta": "எங்கயும், பரவாயில்ல"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "The ammeter measures the current that passes through it.",
+      "ta": "அம்பியர்மானி அது வழியா போற மின்னோட்டத்த அளக்கும்."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "A bulb of resistance 6 Ω carries 1.5 A. What is the potential difference across it?",
+      "ta": "6 Ω தடை உள்ள குமிழ் 1.5 A கொண்டு போகுது. அதுக்கு குறுக்கா அழுத்த வித்தியாசம்?"
+     },
+     "options": [
+      {
+       "en": "4 V",
+       "ta": "4 V"
+      },
+      {
+       "en": "7.5 V",
+       "ta": "7.5 V"
+      },
+      {
+       "en": "9 V",
+       "ta": "9 V"
+      },
+      {
+       "en": "0.25 V",
+       "ta": "0.25 V"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "V = I R = 1.5 × 6 = 9 V.",
+      "ta": "V = I R = 1.5 × 6 = 9 V."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "A resistor has bands orange, orange, yellow, gold. What is its value?",
+      "ta": "ஒரு தடையியோட பட்டைகள் செம்மஞ்சள், செம்மஞ்சள், மஞ்சள், தங்கம். பெறுமானம்?"
+     },
+     "options": [
+      {
+       "en": "33 Ω",
+       "ta": "33 Ω"
+      },
+      {
+       "en": "330 Ω",
+       "ta": "330 Ω"
+      },
+      {
+       "en": "3300 Ω",
+       "ta": "3300 Ω"
+      },
+      {
+       "en": "330 000 Ω",
+       "ta": "330 000 Ω"
+      }
+     ],
+     "answer": 3,
+     "explain": {
+      "en": "33 × 10⁴ = 330 000 Ω (330 kΩ), tolerance ± 5 %.",
+      "ta": "33 × 10⁴ = 330 000 Ω (330 kΩ), சகிப்பளவு ± 5 %."
+     }
+    },
+    {
+     "id": "q6",
+     "prompt": {
+      "en": "Which of these makes the resistance of a wire smaller?",
+      "ta": "இவற்றுல எது கம்பியோட தடைய குறைக்கும்?"
+     },
+     "options": [
+      {
+       "en": "A longer wire",
+       "ta": "நீளமான கம்பி"
+      },
+      {
+       "en": "A thinner wire",
+       "ta": "மெல்லிய கம்பி"
+      },
+      {
+       "en": "A thicker wire",
+       "ta": "தடிமனான கம்பி"
+      },
+      {
+       "en": "A wire of a different colour",
+       "ta": "வேற நிறக் கம்பி"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "A larger cross-sectional area gives a smaller resistance.",
+      "ta": "பெரிய குறுக்குவெட்டுப் பரப்பு தடைய குறைக்கும்."
+     }
+    },
+    {
+     "id": "q7",
+     "prompt": {
+      "en": "A 10 Ω and a 2 Ω resistor are in series. What is the equivalent resistance?",
+      "ta": "10 Ω, 2 Ω தடையிகள் தொடரா இருக்கு. சமவலுத் தடை?"
+     },
+     "options": [
+      {
+       "en": "12 Ω",
+       "ta": "12 Ω"
+      },
+      {
+       "en": "8 Ω",
+       "ta": "8 Ω"
+      },
+      {
+       "en": "1.67 Ω",
+       "ta": "1.67 Ω"
+      },
+      {
+       "en": "20 Ω",
+       "ta": "20 Ω"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "In series the resistances add: 10 + 2 = 12 Ω.",
+      "ta": "தொடர்ல தடைகள் கூடும்: 10 + 2 = 12 Ω."
+     }
+    },
+    {
+     "id": "q8",
+     "prompt": {
+      "en": "A 12 Ω and a 6 Ω resistor are in parallel. What is the equivalent resistance?",
+      "ta": "12 Ω, 6 Ω தடையிகள் சமாந்தரமா இருக்கு. சமவலுத் தடை?"
+     },
+     "options": [
+      {
+       "en": "18 Ω",
+       "ta": "18 Ω"
+      },
+      {
+       "en": "9 Ω",
+       "ta": "9 Ω"
+      },
+      {
+       "en": "4 Ω",
+       "ta": "4 Ω"
+      },
+      {
+       "en": "2 Ω",
+       "ta": "2 Ω"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "1/R = 1/12 + 1/6 = 3/12 = 1/4, so R = 4 Ω.",
+      "ta": "1/R = 1/12 + 1/6 = 3/12 = 1/4, அதனால R = 4 Ω."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Circuit Sort",
+     "ta": "🧩 சுற்று சார்ட்"
+    },
+    "sub": {
+     "en": "Two short rounds: match the terms, then sort the series and parallel facts",
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் தொடர், சமாந்தர உண்மைகள வரிசைப்படுத்து"
+    }
+   },
+   "legacy": {
+    "file": "g10-chapter-19-current-electricity.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Examples",
+     "ta": "படிப்படியா உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step solutions to the textbook examples",
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">A current of 1.5 A flows through a bulb which has a resistance of 6 Ω. Find the potential difference across the bulb.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Use Ohm's law, V = I R.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>V = 1.5 × 6.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>9 V</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">6 Ω தடை உள்ள குமிழ் வழியா 1.5 A மின்னோட்டம் ஓடுது. குமிழுக்கு குறுக்கா அழுத்த வித்தியாசம்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஓமின் விதி V = I R பயன்படுத்து.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>V = 1.5 × 6.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>9 V</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.19, p.152",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 19, ப.152"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">A resistor has colour bands brown, black, red and silver. (i) Find its resistance. (ii) What is its tolerance? (iii) What is the range of its true value?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) Brown = 1 and black = 0 are the digits (10). Red = 2 is the power of ten, so the value is 10 × 10² = 1000 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) The silver band means a tolerance of ± 10 %.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) Variation = 1000 × 10 ÷ 100 = 100 Ω, so the range is (1000 − 100) Ω to (1000 + 100) Ω.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (i) <b>1000 Ω</b>, (ii) <b>± 10 %</b>, (iii) <b>900 Ω to 1100 Ω</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு தடையியோட நிறப் பட்டைகள் பழுப்பு, கறுப்பு, சிவப்பு, வெள்ளி. (i) தடை? (ii) சகிப்பளவு? (iii) உண்மைப் பெறுமானத்தோட வீச்சு?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) பழுப்பு = 1, கறுப்பு = 0 இலக்கங்கள் (10). சிவப்பு = 2 பத்தோட வலு, அதனால பெறுமானம் 10 × 10² = 1000 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) வெள்ளிப் பட்டை சகிப்பளவு ± 10 %.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) மாற்றம் = 1000 × 10 ÷ 100 = 100 Ω, அதனால வீச்சு (1000 − 100) Ω முதல் (1000 + 100) Ω வரை.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) <b>1000 Ω</b>, (ii) <b>± 10 %</b>, (iii) <b>900 Ω முதல் 1100 Ω வரை</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.19, p.158–159",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 19, ப.158–159"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A 10 Ω and a 2 Ω resistor are connected in series to a 6 V power supply. (i) Find the equivalent resistance. (ii) Find the current in the circuit.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) In series R = R₁ + R₂ = 10 + 2 = 12 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) Use V = I R: I = V ÷ R = 6 ÷ 12.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (i) <b>12 Ω</b>, (ii) <b>0.5 A</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">10 Ω, 2 Ω தடையிகள் தொடரா 6 V மூலத்தோட இணைக்கப்பட்டிருக்கு. (i) சமவலுத் தடை? (ii) சுற்றுல மின்னோட்டம்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) தொடர்ல R = R₁ + R₂ = 10 + 2 = 12 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) V = I R பயன்படுத்து: I = V ÷ R = 6 ÷ 12.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) <b>12 Ω</b>, (ii) <b>0.5 A</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.19, p.162",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 19, ப.162"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">A 12 Ω and a 6 Ω resistor are connected in parallel to a 6 V supply. (i) Equivalent resistance? (ii) Current in the circuit? (iii) Current in each resistor?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) 1/R = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4, so R = 4 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) I = V ÷ R = 6 ÷ 4 = 1.5 A.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) Each resistor has the full 6 V across it. 12 Ω: I = 6 ÷ 12 = 0.5 A. 6 Ω: I = 6 ÷ 6 = 1 A.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> (i) <b>4 Ω</b>, (ii) <b>1.5 A</b>, (iii) <b>0.5 A</b> and <b>1 A</b>. Check: 0.5 + 1 = 1.5 A, the total.\n      </div>",
+      "ta": "<div class=\"qtext\">12 Ω, 6 Ω தடையிகள் சமாந்தரமா 6 V மூலத்தோட இணைக்கப்பட்டிருக்கு. (i) சமவலுத் தடை? (ii) சுற்றுல மின்னோட்டம்? (iii) ஒவ்வொரு தடையி வழியா மின்னோட்டம்?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) 1/R = 1/12 + 1/6 = 1/12 + 2/12 = 3/12 = 1/4, அதனால R = 4 Ω.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) I = V ÷ R = 6 ÷ 4 = 1.5 A.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) ஒவ்வொரு தடையிக்கும் குறுக்கா முழு 6 V. 12 Ω: I = 6 ÷ 12 = 0.5 A. 6 Ω: I = 6 ÷ 6 = 1 A.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> (i) <b>4 Ω</b>, (ii) <b>1.5 A</b>, (iii) <b>0.5 A</b>, <b>1 A</b>. சரிபார்: 0.5 + 1 = 1.5 A, மொத்தம்.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.19, p.163–165",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 19, ப.163–165"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 19.1",
+      "ta": "பயிற்சி 19.1"
+     },
+     "items": [
+      {
+       "id": "x191-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Mark by arrow heads the currents flowing in the two circuits in the figure (a cell with a bulb, and a cell with two bulbs in parallel).</span></div>",
+        "ta": "<div class=\"exq\"><span>உருவுல உள்ள ரெண்டு சுற்றுகள்ல மின்னோட்டத்த அம்புக்குறியால குறி (மின்கலமும் ஒரு குமிழும்; மின்கலமும் சமாந்தரமா ரெண்டு குமிழும்).</span></div>"
+       },
+       "answer": {
+        "en": "The conventional current leaves the <b>positive</b> terminal of the cell (the longer thin plate), goes round the circuit through the bulb(s) and returns to the <b>negative</b> terminal (the shorter thick plate). In the first circuit draw arrowheads along one single loop; in the second, the current splits at the junction, goes through the two bulbs side by side and joins again before reaching the negative terminal.",
+        "ta": "வழக்கமான மின்னோட்டம் மின்கலத்தோட <b>நேர்</b> முனையில (நீளமான மெல்லிய தகடு) இருந்து புறப்பட்டு, குமிழ்(கள்) வழியா சுத்தி <b>மறை</b> முனைக்கு (குட்டையான தடித்த தகடு) வந்து சேரும். முதல் சுற்றுல ஒரே வளையத்துல அம்புக்குறிகள் போடு; ரெண்டாவதுல மின்னோட்டம் சந்தில பிரிஞ்சு ரெண்டு குமிழ்கள் வழியா பக்கம் பக்கமா போய், மறை முனை அடையறதுக்கு முன் திரும்ப சேரும்."
+       }
+      }
+     ],
+     "title": {
+      "en": "Direction of current · p.146",
+      "ta": "மின்னோட்டத்தோட திசை · ப.146"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 19.2",
+      "ta": "பயிற்சி 19.2"
+     },
+     "items": [
+      {
+       "id": "x192-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>When a bulb is connected to a 12 V power supply, a current of 0.5 A flows. What is the resistance of the filament of the bulb at that instant?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குமிழ 12 V மூலத்தோட இணைச்சா 0.5 A மின்னோட்டம் ஓடுது. அந்த நேரத்துல குமிழ் இழையோட தடை என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">R = V ÷ I = 12 ÷ 0.5 = <b>24 Ω</b></div>",
+        "ta": "<div class=\"work\">R = V ÷ I = 12 ÷ 0.5 = <b>24 Ω</b></div>"
+       }
+      },
+      {
+       "id": "x192-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A nichrome wire coil has a resistance of 10 Ω. When it is connected to a power supply, a current of 0.6 A flows. What is the potential difference between the terminals of the power supply?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு நிக்ரோம் கம்பிச் சுருளோட தடை 10 Ω. அத ஒரு மூலத்தோட இணைச்சா 0.6 A மின்னோட்டம் ஓடுது. மூலத்தோட முனைகளுக்கு இடையில அழுத்த வித்தியாசம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">V = I R = 0.6 × 10 = <b>6 V</b></div>",
+        "ta": "<div class=\"work\">V = I R = 0.6 × 10 = <b>6 V</b></div>"
+       }
+      },
+      {
+       "id": "x192-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The resistance of a nichrome wire coil is 6 Ω. When it is connected to a 3 V power supply, what current flows through it?</span></div>",
+        "ta": "<div class=\"exq\"><span>நிக்ரோம் கம்பிச் சுருளோட தடை 6 Ω. அத 3 V மூலத்தோட இணைச்சா அது வழியா எவ்வளவு மின்னோட்டம் ஓடும்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">I = V ÷ R = 3 ÷ 6 = <b>0.5 A</b></div>",
+        "ta": "<div class=\"work\">I = V ÷ R = 3 ÷ 6 = <b>0.5 A</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Ohm's law · p.152",
+      "ta": "ஓமின் விதி · ப.152"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 19.3",
+      "ta": "பயிற்சி 19.3"
+     },
+     "items": [
+      {
+       "id": "x193-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A resistor is marked with orange, orange, yellow and gold bands. Find the value of the resistor.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு தடையியில செம்மஞ்சள், செம்மஞ்சள், மஞ்சள், தங்கம் பட்டைகள் இருக்கு. தடையியோட பெறுமானத்த காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">orange = 3, orange = 3, yellow = 4</div><div class=\"work\">value = 33 × 10<sup>4</sup> = <b>330 000 Ω</b> (330 kΩ)</div>",
+        "ta": "<div class=\"work\">செம்மஞ்சள் = 3, செம்மஞ்சள் = 3, மஞ்சள் = 4</div><div class=\"work\">பெறுமானம் = 33 × 10<sup>4</sup> = <b>330 000 Ω</b> (330 kΩ)</div>"
+       }
+      },
+      {
+       "id": "x193-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is its tolerance?</span></div>",
+        "ta": "<div class=\"exq\"><span>அதன் சகிப்பளவு என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "Gold band: tolerance = <b>± 5 %</b>.",
+        "ta": "தங்கப் பட்டை: சகிப்பளவு = <b>± 5 %</b>."
+       }
+      },
+      {
+       "id": "x193-1iii",
+       "num": "1(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the range of values the resistor could have.</span></div>",
+        "ta": "<div class=\"exq\"><span>தடையி கொண்டிருக்கக்கூடிய பெறுமான வீச்சைக் காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">variation = 330 000 × 5 ÷ 100 = 16 500 Ω</div><div class=\"work\">range = (330 000 − 16 500) to (330 000 + 16 500) = <b>313 500 Ω to 346 500 Ω</b></div>",
+        "ta": "<div class=\"work\">மாற்றம் = 330 000 × 5 ÷ 100 = 16 500 Ω</div><div class=\"work\">வீச்சு = (330 000 − 16 500) முதல் (330 000 + 16 500) = <b>313 500 Ω முதல் 346 500 Ω வரை</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Resistor colour code · p.159",
+      "ta": "தடையி நிறக் குறியீடு · ப.159"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 19.4",
+      "ta": "பயிற்சி 19.4"
+     },
+     "items": [
+      {
+       "id": "x194-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Ruvan needs resistors of 3 Ω and 40 Ω but he can only find resistors of 20 Ω and 9 Ω. Briefly explain how he could make a combination of resistors of 3 Ω.</span></div>",
+        "ta": "<div class=\"exq\"><span>ருவனுக்கு 3 Ω, 40 Ω தடையிகள் வேணும், ஆனா 20 Ω, 9 Ω தடையிகள் மட்டும்தான் கிடைக்குது. 3 Ω தடையிய எப்படி உருவாக்கலாம்னு சுருக்கமா விளக்கு.</span></div>"
+       },
+       "answer": {
+        "en": "Join <b>three 9 Ω resistors in parallel</b>:<div class=\"work\">1/R = 1/9 + 1/9 + 1/9 = 3/9 = 1/3</div><div class=\"work\">R = <b>3 Ω</b></div>",
+        "ta": "<b>மூணு 9 Ω தடையிகள சமாந்தரமா</b> இணை:<div class=\"work\">1/R = 1/9 + 1/9 + 1/9 = 3/9 = 1/3</div><div class=\"work\">R = <b>3 Ω</b></div>"
+       }
+      },
+      {
+       "id": "x194-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Give a figure using symbols showing how to make a combination of resistors of 40 Ω.</span></div>",
+        "ta": "<div class=\"exq\"><span>சின்னங்களால 40 Ω தடைய உருவாக்கும் முறைய ஒரு உருவா வரை.</span></div>"
+       },
+       "answer": {
+        "en": "Join <b>two 20 Ω resistors in series</b>: R = 20 + 20 = <b>40 Ω</b>.<br/><span style=\"font-family:var(--mono,monospace);font-size:1.1em\">——[ 20 Ω ]——[ 20 Ω ]——</span>",
+        "ta": "<b>ரெண்டு 20 Ω தடையிகள தொடரா</b> இணை: R = 20 + 20 = <b>40 Ω</b>.<br/><span style=\"font-family:var(--mono,monospace);font-size:1.1em\">——[ 20 Ω ]——[ 20 Ω ]——</span>"
+       }
+      },
+      {
+       "id": "x194-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>In the circuit, bulb B₁ (20 Ω) is in series with the parallel pair B₂ (6 Ω) and B₃ (12 Ω), across 12 V. What is the equivalent resistance between Q and R?</span></div>",
+        "ta": "<div class=\"exq\"><span>சுற்றுல B₁ குமிழ் (20 Ω) சமாந்தர சோடி B₂ (6 Ω), B₃ (12 Ω) உடன் தொடரா, 12 V குறுக்கா இருக்கு. Q, R-க்கு இடையில சமவலுத் தடை?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">1/R = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4</div><div class=\"work\">R<sub>QR</sub> = <b>4 Ω</b></div>",
+        "ta": "<div class=\"work\">1/R = 1/6 + 1/12 = 2/12 + 1/12 = 3/12 = 1/4</div><div class=\"work\">R<sub>QR</sub> = <b>4 Ω</b></div>"
+       }
+      },
+      {
+       "id": "x194-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the equivalent resistance between P and R.</span></div>",
+        "ta": "<div class=\"exq\"><span>P, R-க்கு இடையில சமவலுத் தடைய காணு.</span></div>"
+       },
+       "answer": {
+        "en": "B₁ is in series with the 4 Ω part:<div class=\"work\">R<sub>PR</sub> = 20 + 4 = <b>24 Ω</b></div>",
+        "ta": "B₁ 4 Ω பகுதியோட தொடரா இருக்கு:<div class=\"work\">R<sub>PR</sub> = 20 + 4 = <b>24 Ω</b></div>"
+       }
+      },
+      {
+       "id": "x194-2iii",
+       "num": "2(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Which ammeter shows the total current passing through the circuit?</span></div>",
+        "ta": "<div class=\"exq\"><span>எந்த அம்பியர்மானி சுற்று வழியா மொத்த மின்னோட்டத்த காட்டும்?</span></div>"
+       },
+       "answer": {
+        "en": "<b>A₃</b>: all the current passes through it, before it divides at the parallel part (A₁ and A₂ show only the currents in B₂ and B₃).",
+        "ta": "<b>A₃</b>: சமாந்தரப் பகுதில பிரியறதுக்கு முன் மொத்த மின்னோட்டமும் இதன் வழியா போகுது (A₁, A₂ B₂, B₃ வழியா மின்னோட்டங்கள மட்டும் காட்டும்)."
+       }
+      },
+      {
+       "id": "x194-2iv",
+       "num": "2(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the total current passing through the circuit.</span></div>",
+        "ta": "<div class=\"exq\"><span>சுற்று வழியா மொத்த மின்னோட்டத்த காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">I = V ÷ R = 12 ÷ 24 = <b>0.5 A</b></div>",
+        "ta": "<div class=\"work\">I = V ÷ R = 12 ÷ 24 = <b>0.5 A</b></div>"
+       }
+      },
+      {
+       "id": "x194-2v",
+       "num": "2(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the potential difference between P and Q?</span></div>",
+        "ta": "<div class=\"exq\"><span>P, Q-க்கு இடையில அழுத்த வித்தியாசம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">V<sub>PQ</sub> = I R = 0.5 × 20 = <b>10 V</b></div>",
+        "ta": "<div class=\"work\">V<sub>PQ</sub> = I R = 0.5 × 20 = <b>10 V</b></div>"
+       }
+      },
+      {
+       "id": "x194-2vi",
+       "num": "2(vi)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Find the potential difference between Q and R.</span></div>",
+        "ta": "<div class=\"exq\"><span>Q, R-க்கு இடையில அழுத்த வித்தியாசத்த காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">V<sub>QR</sub> = I R = 0.5 × 4 = <b>2 V</b></div>Check: 10 + 2 = 12 V, the supply voltage.",
+        "ta": "<div class=\"work\">V<sub>QR</sub> = I R = 0.5 × 4 = <b>2 V</b></div>சரிபார்: 10 + 2 = 12 V, மூல வோல்ற்றளவு."
+       }
+      },
+      {
+       "id": "x194-2vii",
+       "num": "2(vii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the current passing through the bulb B₁?</span></div>",
+        "ta": "<div class=\"exq\"><span>குமிழ் B₁ வழியா மின்னோட்டம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "B₁ is in series with everything else, so it carries the total current: <b>0.5 A</b>.",
+        "ta": "B₁ மத்த எல்லாத்தோடவும் தொடரா இருக்கு, அதனால மொத்த மின்னோட்டத்த கொண்டு போகும்: <b>0.5 A</b>."
+       }
+      },
+      {
+       "id": "x194-2viii",
+       "num": "2(viii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>If the bulb B₂ burns out, find the current passing through the circuit.</span></div>",
+        "ta": "<div class=\"exq\"><span>குமிழ் B₂ எரிஞ்சு போனா சுற்று வழியா மின்னோட்டத்த காணு.</span></div>"
+       },
+       "answer": {
+        "en": "Then only B₃ remains in that part: B₁ and B₃ are in series.<div class=\"work\">R = 20 + 12 = 32 Ω</div><div class=\"work\">I = 12 ÷ 32 = <b>0.375 A</b> (about 0.38 A)</div>",
+        "ta": "அப்போ அந்த பகுதில B₃ மட்டும்தான் இருக்கும்: B₁, B₃ தொடர்.<div class=\"work\">R = 20 + 12 = 32 Ω</div><div class=\"work\">I = 12 ÷ 32 = <b>0.375 A</b> (சுமார் 0.38 A)</div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Combining resistors · p.165",
+      "ta": "தடையிகள இணைத்தல் · ப.165"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">💇</div><div class=\"cm-b r\"><i>Raja:</i> <span>My comb picks up paper after I rub it. Is that the same electricity as in a bulb?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Static charges sit still. When charges flow round a circuit, that is a current: V = I R.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🔗</div><div class=\"cm-b r\"><i>Raja:</i> <span>What if I join two resistors?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🧩</div><div class=\"cm-b c\"><i>Chittu:</i> <span>In series they add up. In parallel, 1/R = 1/R₁ + 1/R₂, and the equivalent is smaller than either.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">💇</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>தேய்ச்ச பிறகு என் சீப்பு காகிதத்த எடுக்குது. இது குமிழுல உள்ள மின்சாரம்தானா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>நிலை மின்னேற்றங்கள் அசையாம இருக்கும். சுற்றுல ஓடினா அது மின்னோட்டம்: V = I R.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🔗</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>ரெண்டு தடையிகள இணைச்சா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🧩</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>தொடர்ல கூடும். சமாந்தரத்துல 1/R = 1/R₁ + 1/R₂, சமவலுத் தடை ரெண்டுலயும் சின்னது.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Volts push, amps flow, ohms say no,<br/>V equals I times R, that's how we know.<br/>Series, add them one by one,<br/>parallel, reciprocals: that's how it's done!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">வோல்ட் தள்ளும், அம்பியர் ஓடும், ஓம் தடுக்கும்,<br/>V = I × R, இதுதான் விதி நடக்கும்.<br/>தொடர்ல ஒவ்வொண்ணா கூட்டு,<br/>சமாந்தரத்துல நிகர்மாறு போட்டு!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">The ammeter goes across the bulb like the voltmeter.</td><td class=\"ok\">The ammeter goes in series (all the current through it); the voltmeter goes across the two points.</td></tr><tr><td class=\"w\">The current flows from the negative to the positive terminal.</td><td class=\"ok\">The electrons do, but the conventional current is drawn from + to −.</td></tr><tr><td class=\"w\">Two resistors in parallel give a bigger resistance.</td><td class=\"ok\">In parallel the equivalent resistance is smaller than the smallest resistor (12 Ω and 6 Ω give 4 Ω).</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">அம்பியர்மானி வோல்ற்றுமானி மாதிரி குமிழுக்கு குறுக்கா போகும்.</td><td class=\"ok\">அம்பியர்மானி தொடரா போகும் (முழு மின்னோட்டமும் அது வழியா); வோல்ற்றுமானி ரெண்டு புள்ளிகளுக்கும் குறுக்கா போகும்.</td></tr><tr><td class=\"w\">மின்னோட்டம் மறை முனையில இருந்து நேர் முனைக்கு ஓடும்.</td><td class=\"ok\">இலத்திரன்கள் அப்படி ஓடும், ஆனா வழக்கமான மின்னோட்டம் + இல் இருந்து −க்கு வரையப்படும்.</td></tr><tr><td class=\"w\">ரெண்டு தடையிகள் சமாந்தரமா இருந்தா தடை பெருசாகும்.</td><td class=\"ok\">சமாந்தரத்துல சமவலுத் தடை மிகச் சின்ன தடையிய விடவும் சின்னது (12 Ω, 6 Ω தருவது 4 Ω).</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>electric current = flow of charges (A); conventional current + to −, electrons − to +</li><li>potential difference (V) pushes the current; voltmeter across, ammeter in series</li><li>Ohm's law: V = I R (constant temperature); unit of R is the ohm Ω</li><li>resistance: bigger for a longer or thinner wire; depends on the material</li><li>series R = R₁ + R₂ + R₃; parallel 1/R = 1/R₁ + 1/R₂ + 1/R₃</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>மின்னோட்டம் = மின்னேற்ற ஓட்டம் (A); வழக்கமான மின்னோட்டம் + இல் இருந்து −; இலத்திரன்கள் − இல் இருந்து +</li><li>அழுத்த வித்தியாசம் (V) மின்னோட்டத்த தள்ளும்; வோல்ற்றுமானி குறுக்கா, அம்பியர்மானி தொடரா</li><li>ஓமின் விதி: V = I R (மாறாத வெப்பநிலை); R-ன் அலகு ஓம் Ω</li><li>தடை: நீளமான அல்லது மெல்லிய கம்பிக்கு அதிகம்; பொருளையும் பொறுத்தது</li><li>தொடர் R = R₁ + R₂ + R₃; சமாந்தரம் 1/R = 1/R₁ + 1/R₂ + 1/R₃</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "By rubbing certain materials on one another, electrons are exchanged between them.",
+     "ta": "சில பொருட்கள ஒண்ணோட ஒண்ணு தேய்க்கறப்ப அவற்றுக்கு இடையில இலத்திரன்கள் பரிமாறப்படுது."
+    },
+    {
+     "en": "An electric current is a flow of electric charges.",
+     "ta": "மின்னோட்டம் என்பது மின்னேற்றங்களோட ஓட்டம்."
+    },
+    {
+     "en": "The direction of the conventional current is from the positive terminal to the negative terminal.",
+     "ta": "வழக்கமான மின்னோட்டத்தோட திசை நேர் முனையில இருந்து மறை முனைக்கு."
+    },
+    {
+     "en": "The potential difference between the terminals of a cell when no current passes through it is the electromotive force of the cell.",
+     "ta": "மின்னோட்டம் ஓடாதப்ப மின்கலத்தோட முனைகளுக்கு இடையில இருக்கற அழுத்த வித்தியாசம் அதோட மின்னியக்க விசை."
+    },
+    {
+     "en": "Ohm's law: at constant temperature the current through a conductor is proportional to the potential difference across it (V = I R).",
+     "ta": "ஓமின் விதி: மாறாத வெப்பநிலைல கடத்தி வழியா மின்னோட்டம் அதுக்கு குறுக்கா அழுத்த வித்தியாசத்துக்கு விகிதசமன் (V = I R)."
+    },
+    {
+     "en": "The property that obstructs the current is the electrical resistance. It depends on the cross-sectional area, the length and the material.",
+     "ta": "மின்னோட்டத்த தடுக்கற இயல்பு மின் தடை. அது குறுக்குவெட்டுப் பரப்பு, நீளம், பொருள இவற்றைப் பொறுத்தது."
+    },
+    {
+     "en": "Resistors are joined in two main ways: series and parallel.",
+     "ta": "தடையிகள் ரெண்டு முக்கிய வழிகள்ல இணைக்கப்படுது: தொடர், சமாந்தரம்."
+    },
+    {
+     "en": "Series: R = R₁ + R₂ + R₃. Parallel: 1/R = 1/R₁ + 1/R₂ + 1/R₃.",
+     "ta": "தொடர்: R = R₁ + R₂ + R₃. சமாந்தரம்: 1/R = 1/R₁ + 1/R₂ + 1/R₃."
+    },
+    {
+     "en": "A single resistance equal to the total resistance of a group of resistors is the equivalent resistance.",
+     "ta": "ஒரு தடையித் தொகுதியோட மொத்தத் தடைக்கு சமமான ஒற்றைத் தடை சமவலுத் தடை."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Static electricity",
+     "ta": "நிலைமின்னியல்"
+    },
+    {
+     "en": "Current electricity",
+     "ta": "ஓட்ட மின்னியல்"
+    },
+    {
+     "en": "Electric current",
+     "ta": "மின்னோட்டம்"
+    },
+    {
+     "en": "Resistance",
+     "ta": "தடை"
+    },
+    {
+     "en": "Voltmeter",
+     "ta": "வோல்ற்றுமானி"
+    },
+    {
+     "en": "Ammeter",
+     "ta": "அம்பியர்மானி"
+    },
+    {
+     "en": "Potential difference",
+     "ta": "அழுத்த வித்தியாசம்"
+    },
+    {
+     "en": "Electromotive force",
+     "ta": "மின்னியக்க விசை"
+    },
+    {
+     "en": "Equivalent resistance",
+     "ta": "சமவலுத் தடை"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 9 key points",
+    "ta": "📌 பொழிப்பு — 9 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+   }
+  }
+ ]
+}

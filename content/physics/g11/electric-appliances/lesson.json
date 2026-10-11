@@ -1,0 +1,1081 @@
+{
+ "schema": 2,
+ "id": "physics.g11.electric-appliances",
+ "slug": "electric-appliances",
+ "subject": "physics",
+ "grade": 11,
+ "number": "10",
+ "title": {
+  "en": "Power and Energy of Electric Appliances",
+  "ta": "மின் உபகரணங்களோட வலுவும் சக்தியும்",
+  "si": "විදුලි උපකරණවල ජවය හා ශක්තිය"
+ },
+ "legacy": {
+  "id": "g11c10",
+  "file": "g11-chapter-10-electric-appliances.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Why does a 2000 W oven need so much current?",
+    "ta": "2000 W அடுப்புக்கு ஏன் இவ்வளவு மின்னோட்டம் வேணும்?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, my bulb says 12 V, 2 A. What does that tell me?",
+      "ta": "சிட்டு, என் குமிழ்ல 12 V, 2 A-ன்னு போட்டிருக்கு. இது எனக்கு என்ன சொல்லுது?"
+     },
+     "scene": "💡"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Multiply them! Power P = V I = 12 × 2 = 24 W. That is how fast it uses energy.",
+      "ta": "பெருக்கு! வலு P = V I = 12 × 2 = 24 W. அது எவ்வளவு வேகமா சக்திய பயன்படுத்துதுன்னு அர்த்தம்."
+     },
+     "scene": "⚡"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And what does the electricity bill count?",
+      "ta": "மின் கட்டணத்துல என்ன கணக்கிடறாங்க?"
+     },
+     "scene": "🧾"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Energy: E = P t, in kilowatt hours. 1 kW h = 3 600 000 J. The meter counts the units.",
+      "ta": "சக்தி: E = P t, கிலோவாட் மணில. 1 kW h = 3 600 000 J. மீற்றர் அலகுகள எண்ணுது."
+     },
+     "scene": "📟"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "My mum says the main switch has a trip switch too. What is that for?",
+      "ta": "அம்மா பிரதான சுவிட்ச்ல ட்ரிப் சுவிட்சும் இருக்குன்னு சொல்றாங்க. அது எதுக்கு?"
+     },
+     "scene": "🏠"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "The RCCB cuts the power when current leaks, to protect people. MCBs and fuses stop overloads, to protect the wires.",
+      "ta": "RCCB மின் கசிவு ஏற்பட்டா மின்சாரத்த துண்டிச்சு மனிதர்கள காக்கும். MCB, உருகிகள் அதிக மின்னோட்டத்த தடுத்து கம்பிகள காக்கும்."
+     },
+     "scene": "🛡️"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Why are all the bulbs and plugs in a house connected in parallel?",
+      "ta": "வீட்டுல எல்லா குமிழ்களும் குதைகளும் ஏன் சமாந்தரமா இணைக்கப்படுது?"
+     },
+     "scene": "🔌"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "So each gets the full 230 V and can be switched on and off on its own. Let us explore.",
+      "ta": "அப்போதான் ஒவ்வொண்ணுக்கும் முழு 230 V கிடைக்கும், தனித்தனியா அணைக்கவும் ஏத்தவும் முடியும். ஆராயலாம்."
+     },
+     "scene": "✅"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Power, energy and safety! Let's go!",
+      "ta": "வலு, சக்தி, பாதுகாப்பு! வாங்க போகலாம்!"
+     },
+     "scene": "🚀"
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: power, energy and the home circuit →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: வலு, சக்தி, வீட்டு மின்சுற்று →"
+   },
+   "quest": {
+    "en": "In this module: learn how household electrical appliances convert energy, calculate electrical power (P = VI), energy consumed (E = Pt), and understand electrical safety and billing.",
+    "ta": "இந்த பாடத்தில்: வீட்டு மின்சாதனங்கள் ஆற்றலை எவ்வாறு மாற்றுகின்றன, மின்வலு (P = VI), நுகரப்படும் மின்சக்தி (E = Pt), மற்றும் மின் கட்டணம் கணிப்பதை கற்போம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: electricity at home",
+     "ta": "முதல்ல இருந்து: வீட்டுல மின்சாரம்"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "The plug brings power",
+      "ta": "ப்ளக் மின்சாரத்த கொண்டு வரும்"
+     },
+     "body": {
+      "en": "<p>Electricity comes from the wall socket through wires into the appliance.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧱🔌 ➜ 🍳</div>",
+      "ta": "<p>சுவர் சாக்கெட்ல இருந்து கம்பி வழியா மின்சாரம் கருவிக்கு வருது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🧱🔌 ➜ 🍳</div>"
+     },
+     "icon": "🔌"
+    },
+    {
+     "title": {
+      "en": "Some appliances make heat",
+      "ta": "சில கருவிகள் வெப்பம் தரும்"
+     },
+     "body": {
+      "en": "<p>A kettle or an iron has a wire that gets hot when current flows through it.</p><div aria-hidden=\"true\" class=\"bs-pic\">♨️ ⚡</div>",
+      "ta": "<p>கெட்டில், இஸ்திரிப்பெட்டில மின்சாரம் போகும்போது சூடாகற கம்பி இருக்கு.</p><div aria-hidden=\"true\" class=\"bs-pic\">♨️ ⚡</div>"
+     },
+     "icon": "🔥"
+    },
+    {
+     "title": {
+      "en": "Some make things move",
+      "ta": "சில கருவிகள் சுத்தும்"
+     },
+     "body": {
+      "en": "<p>A fan has a motor. Electricity makes the motor spin the blades.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚡ ➜ 🌀</div>",
+      "ta": "<p>ஃபேன்ல மோட்டார் இருக்கு. மின்சாரம் அத சுத்த வைக்குது.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚡ ➜ 🌀</div>"
+     },
+     "icon": "🌀"
+    },
+    {
+     "title": {
+      "en": "Safety comes first",
+      "ta": "பாதுகாப்பு முதல்ல"
+     },
+     "body": {
+      "en": "<p>A fuse breaks the circuit if too much current flows, helping stop wires overheating. It does not make sockets safe to touch. Ask an adult for appliance activities; never touch plugs with wet hands.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚠️ 🖐️💧 ❌</div>",
+      "ta": "<p>அதிக மின்னோட்டம் பாய்ந்தால் உருகி சுற்றைத் துண்டித்து கம்பி அதிகம் சூடாவதைத் தடுக்க உதவும். அது மின் துளைகளைத் தொடப் பாதுகாப்பாக்காது. உபகரணச் செயல்களுக்கு பெரியவரின் உதவி கேள்; ஈரக் கைகளால் பிளக்கைத் தொடாதே.</p><div aria-hidden=\"true\" class=\"bs-pic\">⚠️ 🖐️💧 ❌</div>"
+     },
+     "icon": "🛡️"
+    }
+   ],
+   "hook": {
+    "en": "A kettle heats, a fan spins and a bulb glows. All three use the same electricity. How?",
+    "ta": "கெட்டில் சூடாகுது, ஃபேன் சுத்துது, பல்பு எரியுது. மூணுக்கும் ஒரே மின்சாரம். எப்படி?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>With a grown-up, look at the labels on 3 appliances. Can you find the power in watts (W)?</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>பெரியவங்க கூட 3 கருவிகளோட லேபிள பாரு. வாட் (W) ல வலு எழுதியிருக்கா?</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's learn how power, wiring and safety really work.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப வலு, வயரிங், பாதுகாப்பு எப்படி வேலை செய்யுதுன்னு பார்க்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: power, energy and the house circuit",
+     "ta": "பாரு: வலு, சக்தி, வீட்டுச் சுற்று"
+    },
+    "sub": {
+     "en": "Appliances change energy, P = V I lights a bulb, and the safety switches trip",
+     "ta": "உபகரணங்கள் சக்திய மாத்துது, P = V I குமிழ ஏத்துது, பாதுகாப்பு சுவிட்சுகள் துண்டிக்குது"
+    }
+   },
+   "animation": {
+    "file": "g11-chapter-10-electric-appliances.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "10.0 Energy conversions in appliances",
+      "ta": "10.0 உபகரணங்கள்ல சக்தி மாற்றங்கள்"
+     },
+     "body": {
+      "en": "<p>We use electric energy by converting it into the form we need. An <b>electric appliance</b> is a device that does this: an electric heater, oven and induction cooker give <b>heat</b>; a motor gives <b>kinetic energy</b>; a fluorescent lamp gives <b>light</b>; a radio gives <b>sound</b>; a television gives light and sound.</p>\n<div class=\"fig\"><svg aria-label=\"Energy conversions in some electric appliances\" role=\"img\" viewbox=\"0 0 520 200\"><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"28\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"70\" y=\"72\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"70\" x2=\"70.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"70,38 76.1,27.2 63.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"70\" x2=\"70.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"70,134 76.5,121.0 63.5,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"70\" y=\"152\">light + heat</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"148\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"72\">fan motor</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"190\" x2=\"190.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"190,38 196.1,27.2 183.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"190\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"190\" x2=\"190.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"190,134 196.4,121.0 183.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"190\" y=\"152\">kinetic energy</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"268\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"310\" y=\"72\">heater</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"310\" x2=\"310.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"310,38 316.1,27.2 303.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"310\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"310\" x2=\"310.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"310,134 316.4,121.0 303.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"310\" y=\"152\">heat</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"388\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"430\" y=\"72\">radio</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"430\" x2=\"430.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"430,38 436.1,27.2 423.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"430\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"430\" x2=\"430.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"430,134 436.4,121.0 423.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"430\" y=\"152\">sound</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"188\">electric energy converted into other forms in each appliance</text></svg><div class=\"figcap\">Figure 10.1: the main energy conversions in some appliances.</div></div>\n<p>In some appliances there is a second conversion: a filament bulb first turns electric energy into heat, and the hot filament then gives light; a fluorescent lamp makes ultraviolet radiation first, which is then turned into visible light.</p>",
+      "ta": "<p>மின் சக்திய தேவையான வடிவத்துக்கு மாத்தி பயன்படுத்தறோம். இதை செய்யற கருவி <b>மின் உபகரணம்</b>: மின் வெப்பமாக்கி, அடுப்பு, தூண்டற் சமைகலன் <b>வெப்பம்</b>; மோட்டார் <b>இயக்க சக்தி</b>; ஒளிரும் குழாய் <b>ஒளி</b>; ரேடியோ <b>ஒலி</b>; தொலைக்காட்சி ஒளி, ஒலி தரும்.</p>\n<div class=\"fig\"><svg aria-label=\"Energy conversions in some electric appliances\" role=\"img\" viewbox=\"0 0 520 200\"><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"28\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"70\" y=\"72\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"70\" x2=\"70.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"70,38 76.1,27.2 63.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"70\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"70\" x2=\"70.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"70,134 76.5,121.0 63.5,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"70\" y=\"152\">light + heat</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"148\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"190\" y=\"72\">fan motor</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"190\" x2=\"190.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"190,38 196.1,27.2 183.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"190\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"190\" x2=\"190.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"190,134 196.4,121.0 183.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"190\" y=\"152\">kinetic energy</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"268\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"310\" y=\"72\">heater</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"310\" x2=\"310.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"310,38 316.1,27.2 303.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"310\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"310\" x2=\"310.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"310,134 316.4,121.0 303.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"310\" y=\"152\">heat</text><rect height=\"54\" rx=\"10\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"84\" x=\"388\" y=\"40\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"430\" y=\"72\">radio</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"430\" x2=\"430.0\" y1=\"20\" y2=\"27.2\"></line><polygon points=\"430,38 436.1,27.2 423.9,27.2\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"430\" y=\"14\">electric</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"430\" x2=\"430.0\" y1=\"96\" y2=\"121.0\"></line><polygon points=\"430,134 436.4,121.0 423.6,121.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"430\" y=\"152\">sound</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"188\">electric energy converted into other forms in each appliance</text></svg><div class=\"figcap\">உரு 10.1: சில உபகரணங்கள்ல முக்கிய சக்தி மாற்றங்கள்.</div></div>\n<p>சில உபகரணங்கள்ல ரெண்டாவது மாற்றமும் உண்டு: இழைக் குமிழ் முதல்ல மின் சக்திய வெப்பமா மாத்தும், சூடான இழை ஒளி தரும்; ஒளிரும் குழாய் முதல்ல கழியூதாக் கதிர்ப்ப உண்டாக்கும், அது அப்புறம் தெரிகின்ற ஒளியா மாறும்.</p>"
+     },
+     "section": "10.0"
+    },
+    {
+     "title": {
+      "en": "10.1 Power of an appliance: P = V I",
+      "ta": "10.1 உபகரணத்தோட வலு: P = V I"
+     },
+     "body": {
+      "en": "<p>Power is the energy used in a unit time. For an appliance working with a voltage V and drawing a current I, the power is the product of the two. With V in volts and I in amperes, P comes out in <b>watts (W)</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A bulb on 12 volts drawing 2 amperes has a power of 24 watts\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"250\" x2=\"250\" y1=\"26\" y2=\"56\"></line><line stroke-linecap=\"round\" stroke-width=\"6\" style=\"stroke:var(--text)\" x1=\"268\" x2=\"268\" y1=\"34\" y2=\"48\"></line><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"228\" y=\"20\">+</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"290\" y=\"20\">−</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"100\" x=\"210\" y=\"144\"></rect><circle cx=\"260\" cy=\"160\" r=\"18\" stroke-width=\"3\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"165\">⚡</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"100\" y=\"96\">V = 12 V</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"100\" y=\"118\">I = 2 A</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"380\" y=\"100\">P = V I</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"380\" y=\"126\">= 24 W</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"198\">power = voltage × current</text></svg><div class=\"figcap\">Figure 10.2: an appliance with voltage V and current I.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">Electric power</div><div class=\"fmath\"><b>P = V I</b></div><div class=\"fnote\">P in watts (W), V in volts (V), I in amperes (A)</div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">A filament bulb on 12 V draws 2 A. What is its power?</div><div class=\"work\">P = V I = 12 × 2 = <b>24 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">An electric oven of power 2000 W works on a 230 V supply. What current does it draw?</div><div class=\"work\">2000 = 230 × I, so I = 2000 ÷ 230 = <b>8.69 A</b></div></div>\n<p>In the heating coil of an oven all the electric energy becomes heat. In some other appliances part of the energy becomes heat because of the internal resistance, and the rest changes into the useful form (light, motion, sound).</p>",
+      "ta": "<p>வலு என்பது ஓரலகு நேரத்துல பயன்படுத்தற சக்தி. V வோல்ற்றளவுல இயங்கி I மின்னோட்டத்த எடுக்கும் உபகரணத்தோட வலு ரெண்டோட பெருக்கம். V வோல்ட்லயும் I அம்பியர்லயும் இருந்தா P <b>வாட் (W)</b>-ல வரும்.</p>\n<div class=\"fig\"><svg aria-label=\"A bulb on 12 volts drawing 2 amperes has a power of 24 watts\" role=\"img\" viewbox=\"0 0 520 210\"><rect height=\"120\" rx=\"0\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\" width=\"400\" x=\"60\" y=\"40\"></rect><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"48\" x=\"236\" y=\"24\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"250\" x2=\"250\" y1=\"26\" y2=\"56\"></line><line stroke-linecap=\"round\" stroke-width=\"6\" style=\"stroke:var(--text)\" x1=\"268\" x2=\"268\" y1=\"34\" y2=\"48\"></line><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"228\" y=\"20\">+</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"290\" y=\"20\">−</text><rect height=\"32\" rx=\"0\" stroke-width=\"2\" style=\"fill:var(--bg);stroke:none\" width=\"100\" x=\"210\" y=\"144\"></rect><circle cx=\"260\" cy=\"160\" r=\"18\" stroke-width=\"3\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"260\" y=\"165\">⚡</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"100\" y=\"96\">V = 12 V</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"100\" y=\"118\">I = 2 A</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"380\" y=\"100\">P = V I</text><text font-size=\"20\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"380\" y=\"126\">= 24 W</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"198\">power = voltage × current</text></svg><div class=\"figcap\">உரு 10.2: V வோல்ற்றளவும் I மின்னோட்டமும் உள்ள உபகரணம்.</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">மின் வலு</div><div class=\"fmath\"><b>P = V I</b></div><div class=\"fnote\">P வாட் (W), V வோல்ட் (V), I அம்பியர் (A)</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">12 V-ல இயங்கும் இழைக் குமிழ் 2 A எடுக்குது. அதோட வலு?</div><div class=\"work\">P = V I = 12 × 2 = <b>24 W</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">2000 W மின் அடுப்பு 230 V மூலத்துல இயங்குது. அது எடுக்கும் மின்னோட்டம்?</div><div class=\"work\">2000 = 230 × I, so I = 2000 ÷ 230 = <b>8.69 A</b></div></div>\n<p>அடுப்போட வெப்பச் சுருள்ல எல்லா மின் சக்தியும் வெப்பமாகும். வேற சில உபகரணங்கள்ல உள் தடையால ஒரு பகுதி வெப்பமாகி, மீதி பயனுள்ள வடிவமா (ஒளி, இயக்கம், ஒலி) மாறும்.</p>"
+     },
+     "section": "10.1"
+    },
+    {
+     "title": {
+      "en": "10.2 Electric energy used: E = P t",
+      "ta": "10.2 பயன்படுத்திய மின் சக்தி: E = P t"
+     },
+     "body": {
+      "en": "<p>The energy used by an appliance depends on how long it works. If it uses P in each second, the energy used in a time t is P t.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Electric energy</div><div class=\"fmath\"><b>E = P t = V I t</b></div><div class=\"fnote\">P in W, t in s, E in joules (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">Example 1</div><div class=\"work\">A car head lamp of 50 W is used for 1½ hours. Find the energy used.</div><div class=\"work\">E = P t = 50 × 1.5 × 60 × 60 = <b>270 000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">Example 2</div><div class=\"work\">A 6 V bicycle bulb draws 0.6 A. How much energy does it use in five minutes?</div><div class=\"work\">E = V I t = 6 × 0.6 × 5 × 60 = <b>1080 J</b></div></div>",
+      "ta": "<p>உபகரணம் எவ்வளவு நேரம் இயங்குதுன்னு பொறுத்து சக்தி பயன்படும். ஒவ்வொரு வினாடியும் P பயன்படுத்தினா t நேரத்துல பயன்படும் சக்தி P t.</p>\n<div class=\"formula-box\"><div class=\"flabel\">மின் சக்தி</div><div class=\"fmath\"><b>E = P t = V I t</b></div><div class=\"fnote\">P: W, t: s, E: ஜூல் (J)</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 1</div><div class=\"work\">50 W கார் தலை விளக்கு 1½ மணி நேரம் பயன்படுத்தப்படுது. பயன்படுத்திய சக்தி?</div><div class=\"work\">E = P t = 50 × 1.5 × 60 × 60 = <b>270 000 J</b></div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம் 2</div><div class=\"work\">6 V சைக்கிள் குமிழ் 0.6 A எடுக்குது. ஐந்து நிமிஷத்துல பயன்படுத்தற சக்தி?</div><div class=\"work\">E = V I t = 6 × 0.6 × 5 × 60 = <b>1080 J</b></div></div>"
+     },
+     "section": "10.2"
+    },
+    {
+     "title": {
+      "en": "10.3 Efficiency and saving energy",
+      "ta": "10.3 திறனும் சக்தி சேமிப்பும்"
+     },
+     "body": {
+      "en": "<p>The same job can be done by different appliances. A more <b>efficient</b> one wastes less energy as heat. If 40 % of the energy supplied is lost as heat, only 60 % is useful: the efficiency is 60 %.</p>\n<div class=\"fig\"><svg aria-label=\"An appliance that wastes 40 per cent of the energy as heat has an efficiency of 60 per cent\" role=\"img\" viewbox=\"0 0 470 150\"><rect height=\"40\" rx=\"6\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"400\" x=\"30\" y=\"40\"></rect><rect height=\"40\" opacity=\"0.8\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--good);stroke:none\" width=\"240\" x=\"30\" y=\"40\"></rect><rect height=\"40\" opacity=\"0.7\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"160\" x=\"270\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"150\" y=\"66\">useful: 60 %</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"350\" y=\"66\">lost as heat: 40 %</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"230\" y=\"110\">efficiency = useful energy ÷ energy supplied = 60 %</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"230\" y=\"136\">LED 6 to 8 W · CFL 11 to 13 W · fluorescent 22 W · filament 60 W (same light)</text></svg><div class=\"figcap\">Efficiency and bulbs that give the same light.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Light source</th><th>Power</th><th>Life time</th></tr><tr><td>Filament bulb</td><td class=\"num\">60 W</td><td class=\"num\">1200 h</td></tr><tr><td>Fluorescent tube</td><td class=\"num\">22 W</td><td class=\"num\">3000 h</td></tr><tr><td>CFL bulb</td><td class=\"num\">11 to 13 W</td><td class=\"num\">8000 h</td></tr><tr><td>LED light</td><td class=\"num\">6 to 8 W</td><td class=\"num\">50 000 h</td></tr></table></div>\n<ul><li>LED bulbs are the best (lowest power, longest life), but their higher first cost limits their use in Sri Lanka.</li><li><b>Cooking and heating:</b> old coil cookers are least efficient. An <b>immersion heater</b> is very efficient for water (all its heat goes into the water). Hot-plate rice cookers lose less heat. <b>Microwave ovens</b> heat inside the food. <b>Induction cookers</b> use a changing magnetic field to heat only the bottom of the pan.</li><li>LCD (LED) televisions use less power than old cathode ray tube TVs; table fans are more efficient than ceiling fans for cooling a room.</li><li>Iron all the week's clothes at once, switch off unwanted lights and use CFL or LED bulbs.</li></ul>",
+      "ta": "<p>ஒரே வேலைய வேற வேற உபகரணங்களால செய்யலாம். <b>திறன்</b> அதிகமானது குறைவான சக்திய வெப்பமா வீணாக்கும். வழங்கப்பட்ட சக்தில 40 % வெப்பமா வீணாச்சுன்னா 60 % தான் பயனுள்ளது: திறன் 60 %.</p>\n<div class=\"fig\"><svg aria-label=\"An appliance that wastes 40 per cent of the energy as heat has an efficiency of 60 per cent\" role=\"img\" viewbox=\"0 0 470 150\"><rect height=\"40\" rx=\"6\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"400\" x=\"30\" y=\"40\"></rect><rect height=\"40\" opacity=\"0.8\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--good);stroke:none\" width=\"240\" x=\"30\" y=\"40\"></rect><rect height=\"40\" opacity=\"0.7\" rx=\"6\" stroke-width=\"0\" style=\"fill:var(--danger);stroke:none\" width=\"160\" x=\"270\" y=\"40\"></rect><text font-size=\"15\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"150\" y=\"66\">useful: 60 %</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"350\" y=\"66\">lost as heat: 40 %</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"230\" y=\"110\">efficiency = useful energy ÷ energy supplied = 60 %</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"230\" y=\"136\">LED 6 to 8 W · CFL 11 to 13 W · fluorescent 22 W · filament 60 W (same light)</text></svg><div class=\"figcap\">திறனும் ஒரே ஒளி தரும் குமிழ்களும்.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>ஒளி மூலம்</th><th>வலு</th><th>ஆயுள்</th></tr><tr><td>இழைக் குமிழ்</td><td class=\"num\">60 W</td><td class=\"num\">1200 h</td></tr><tr><td>ஒளிரும் குழாய்</td><td class=\"num\">22 W</td><td class=\"num\">3000 h</td></tr><tr><td>CFL குமிழ்</td><td class=\"num\">11 to 13 W</td><td class=\"num\">8000 h</td></tr><tr><td>LED விளக்கு</td><td class=\"num\">6 to 8 W</td><td class=\"num\">50 000 h</td></tr></table></div>\n<ul><li>LED குமிழ்கள் சிறந்தவை (குறைந்த வலு, நீண்ட ஆயுள்), ஆனா அதிக ஆரம்பச் செலவால இலங்கைல குறைவா பயன்படுது.</li><li><b>சமையல், வெப்பமாக்கல்:</b> பழைய சுருள் அடுப்புகள் திறன் மிகக் குறைவு. நீருக்கு <b>அமிழ்ப்பு வெப்பமாக்கி</b> மிகத் திறன் (எல்லா வெப்பமும் நீருக்கு போகும்). வெப்பத் தட்டு சோறு சமைக்கற கருவிகள்ல வெப்ப இழப்பு குறைவு. <b>நுணுக்கலைக் கணலி</b> உணவுக்குள்ளயே வெப்பத்த உண்டாக்கும். <b>தூண்டற் சமைகலன்</b> மாறும் காந்தப்புலத்தால பாத்திரத்தோட அடிப்பாகத்த மட்டும் சூடாக்கும்.</li><li>LCD (LED) தொலைக்காட்சிகள் பழைய கதோட்டுக் கதிர்க் குழாய் தொலைக்காட்சிகள விட குறைவான வலு பயன்படுத்தும்; அறைய குளிர்விக்க மேசை விசிறி கூரை விசிறிய விட திறன்.</li><li>வாரத்தோட எல்லா துணிகளையும் ஒரே தடவையில இஸ்திரி போடு, தேவையில்லாத விளக்குகள அணை, CFL அல்லது LED குமிழ்கள் பயன்படுத்து.</li></ul>"
+     },
+     "section": "10.3"
+    },
+    {
+     "title": {
+      "en": "10.4 The home electric circuit",
+      "ta": "10.4 வீட்டு மின்சுற்று"
+     },
+     "body": {
+      "en": "<p>Power stations raise the voltage to 132 kV or 220 kV with step-up transformers for the national grid; sub-stations lower it to 33 kV or 11 kV and finally to <b>230 V</b>, an <b>alternating current of 50 Hz</b>, for houses. The service cable has two wires, the <b>live</b> wire and the <b>neutral</b> wire.</p>\n<div class=\"fig\"><svg aria-label=\"The path of electricity into a house: from the supply cable to the circuits\" role=\"img\" viewbox=\"0 0 540 200\"><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"8\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"47\" y=\"44\">Supply</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"47\" y=\"58\">cable</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"47\" y=\"90\">live + neutral</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"86\" x2=\"89.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"94,48 89.2,42.2 89.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"78\" x=\"94\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"133\" y=\"44\">Overload</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"133\" y=\"58\">circuit breaker</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"133\" y=\"90\">40 A, live only</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"172\" x2=\"175.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"180,48 175.2,42.2 175.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"180\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"219\" y=\"44\">Electricity</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"219\" y=\"58\">meter</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"219\" y=\"90\">kW h</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"258\" x2=\"261.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"266,48 261.2,42.2 261.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"266\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"305\" y=\"44\">Isolator</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"305\" y=\"58\"></text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"305\" y=\"90\">30 A, both wires</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"344\" x2=\"347.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"352,48 347.2,42.2 347.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"78\" x=\"352\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"391\" y=\"44\">RCCB</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"391\" y=\"58\">(trip switch)</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"391\" y=\"90\">leak, 30 A</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"430\" x2=\"433.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"438,48 433.2,42.2 433.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"438\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"477\" y=\"44\">Distribution</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"477\" y=\"58\">box</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"477\" y=\"90\">MCBs</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"467\" x2=\"467\" y1=\"76\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"100\" x2=\"467\" y1=\"118\" y2=\"118\"></line><rect height=\"44\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"120\" x=\"110\" y=\"118\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"138\">lighting circuit</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"170\" y=\"154\">6 A MCB: bulbs</text><rect height=\"44\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"120\" x=\"250\" y=\"118\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"310\" y=\"138\">plug circuit</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"310\" y=\"154\">13 A MCB: sockets</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"188\">live wire passes through every protective device; the earth wire goes to the sockets</text></svg><div class=\"figcap\">Figures 10.3 and 10.4: electricity entering a house, and the consumer unit.</div></div>\n<ul><li><b>Overload circuit breaker</b> (older houses: <b>service fuse</b>): about 40 A, on the live wire only. If a larger current passes, it disconnects the house. The fuse wire (lead and tin alloy) melts. It belongs to the electricity provider.</li><li><b>Electricity meter:</b> counts the energy in <b>kilowatt hours (kW h)</b> for billing. It also belongs to the provider.</li><li><b>Isolator</b> (older: main switch with a 30 A fuse): a dual-pole switch that disconnects <b>both</b> live and neutral wires, used for repairs. Everything after the isolator belongs to the consumer.</li><li><b>RCCB (trip switch):</b> protects people from electric shock. It cuts the supply automatically when current leaks to the metal casing of an appliance or to earth (about 35 mA), or when more than 30 A flows. It works by electromagnetic induction. Press its test button every few days. It is switched on by raising the lever.</li><li><b>Distribution box:</b> sends electricity to <b>lighting circuits</b> (6 A MCB: bulbs and 6 A plugs) and <b>plug circuits</b> (13 A MCB: kitchen heaters, ovens). An <b>MCB</b> (older: fuses of 5 A and 15 A) trips when the circuit current is too large, so only that circuit goes off. MCBs and fuses protect against short circuits and overheated cables only, <b>not</b> against shock. They are always connected on the live wire.</li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">🔴 Why one wire is \"live\"</div><ul><li>One of the two supply wires is earthed near the transformer: this neutral wire is at about 0 V. The other wire is at 230 V compared with the earth.</li><li>A person on the ground touching the live wire has 230 V across the body: 50 mA is a major shock and 100 mA can kill. That is why it is called the \"live\" wire.</li><li>This is needed for the RCCB to work: if the live wire touches earth anywhere in the house, the RCCB detects the large current and cuts the supply.</li></ul></div>\n<ul><li><b>Switches</b> turn bulbs on and off one at a time. <b>Plug sockets</b> have live, neutral and earth connections; the larger pin of a three-pin plug is connected to the metal body of the appliance and, through the socket, to the earth wire, so a leak trips the RCCB. Appliances with an insulating plastic cover can use two-pin plugs (no earth).</li><li><b>Wires:</b> copper. 1 mm² single cable for 5 to 6 A; seven-strand 1.5 mm² cable for 13 or 15 A plug circuits. Colours: <b>brown</b> live, <b>blue</b> neutral, <b>green</b> earth (older: red live, black neutral).</li></ul>\n<div class=\"fig\"><svg aria-label=\"Bulbs and sockets connected in parallel between the live and neutral wires\" role=\"img\" viewbox=\"0 0 520 205\"><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"480\" y1=\"40\" y2=\"40\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--accent)\" x1=\"40\" x2=\"480\" y1=\"170\" y2=\"170\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"26\" y=\"46\">L</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"26\" y=\"176\">N</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"40\" y2=\"90\"></line><circle cx=\"110\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"110\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"102\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"132\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"110\" y=\"196\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"230\" x2=\"230\" y1=\"40\" y2=\"90\"></line><circle cx=\"230\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"230\" x2=\"230\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"230\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"222\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"252\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"230\" y=\"196\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"350\" x2=\"350\" y1=\"40\" y2=\"90\"></line><circle cx=\"350\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"350\" x2=\"350\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"342\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"372\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"196\">socket</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"22\">each bulb and socket in parallel, switch on the live wire</text></svg><div class=\"figcap\">Figure 10.5: every bulb and socket is in parallel; switches are on the live wire.</div></div>\n<p>Each bulb and plug is connected <b>in parallel</b>. All switches are on the <b>live</b> wire, so touching a bulb holder with the switch off gives no shock. Plug circuits are sometimes <b>ring circuits</b>: each socket gets current through two wires, so thinner cable can be used.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🛟 If the power goes off</div><ul><li>Turn the <b>overload circuit breaker OFF</b> first, then raise the lever of the RCCB or MCB that tripped, then turn the overload breaker ON. If it trips again, call an electrician.</li></ul></div>\n<ul><li>Use only 6 A and 13 A fuses. Do not overload a socket with many appliances through a multi-plug. Put only proper plugs into a socket, never bare wires.</li><li>Wear rubber slippers or stand on a rubber mat when ironing; use a mat in front of a fridge.</li><li>Switch off the overload circuit breaker or main switch before changing a bulb in a bathroom. Unplug appliances when not in use.</li><li>In strong lightning unplug radios and TVs and avoid unnecessary appliances (the RCCB does not protect against lightning).</li><li>Never use electrical devices with a wet body or touch switches with wet hands. Do not switch on appliances during a power cut. In a fire, switch off the overload circuit breaker. Repairs and extensions only by a trained electrician.</li></ul>",
+      "ta": "<p>மின் நிலையங்கள் தேசிய மின் வழங்கலுக்கு ஏற்ற மின்னழுத்தத்த 132 kV அல்லது 220 kV-ஆ உயர்த்தும் மின்மாற்றிகளால உயர்த்தும்; துணை நிலையங்கள் 33 kV அல்லது 11 kV-ஆ குறைச்சு கடைசில வீடுகளுக்கு <b>230 V</b>, <b>50 Hz மாறுதிசை மின்னோட்டமா</b> தருது. வழங்கு கேபிள்ல ரெண்டு கம்பிகள்: <b>உயிர்</b> கம்பி, <b>நொதுமல்</b> கம்பி.</p>\n<div class=\"fig\"><svg aria-label=\"The path of electricity into a house: from the supply cable to the circuits\" role=\"img\" viewbox=\"0 0 540 200\"><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"8\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"47\" y=\"44\">Supply</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"47\" y=\"58\">cable</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"47\" y=\"90\">live + neutral</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"86\" x2=\"89.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"94,48 89.2,42.2 89.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"78\" x=\"94\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"133\" y=\"44\">Overload</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"133\" y=\"58\">circuit breaker</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"133\" y=\"90\">40 A, live only</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"172\" x2=\"175.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"180,48 175.2,42.2 175.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"180\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"219\" y=\"44\">Electricity</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"219\" y=\"58\">meter</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"219\" y=\"90\">kW h</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"258\" x2=\"261.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"266,48 261.2,42.2 261.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"266\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"305\" y=\"44\">Isolator</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"305\" y=\"58\"></text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"305\" y=\"90\">30 A, both wires</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"344\" x2=\"347.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"352,48 347.2,42.2 347.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\" width=\"78\" x=\"352\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"391\" y=\"44\">RCCB</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"391\" y=\"58\">(trip switch)</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"391\" y=\"90\">leak, 30 A</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--danger)\" x1=\"430\" x2=\"433.2\" y1=\"48\" y2=\"48.0\"></line><polygon points=\"438,48 433.2,42.2 433.2,53.8\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><rect height=\"56\" rx=\"8\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"78\" x=\"438\" y=\"20\"></rect><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"477\" y=\"44\">Distribution</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"477\" y=\"58\">box</text><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"477\" y=\"90\">MCBs</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"467\" x2=\"467\" y1=\"76\" y2=\"118\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"100\" x2=\"467\" y1=\"118\" y2=\"118\"></line><rect height=\"44\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2\" style=\"fill:#4fb7ee;stroke:var(--text)\" width=\"120\" x=\"110\" y=\"118\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"170\" y=\"138\">lighting circuit</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"170\" y=\"154\">6 A MCB: bulbs</text><rect height=\"44\" opacity=\"0.35\" rx=\"6\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\" width=\"120\" x=\"250\" y=\"118\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"310\" y=\"138\">plug circuit</text><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"310\" y=\"154\">13 A MCB: sockets</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"188\">live wire passes through every protective device; the earth wire goes to the sockets</text></svg><div class=\"figcap\">உரு 10.3, 10.4: வீட்டுக்குள்ள மின்சாரம் நுழையறது, நுகர்வோர் அலகு.</div></div>\n<ul><li><b>பளு சுற்றுடைப்பான்</b> (பழைய வீடுகள்ல <b>சேவை உருகி</b>): சுமார் 40 A, உயிர் கம்பில மட்டும். இதவிட அதிக மின்னோட்டம் போனா வீட்டுக்கு மின்சாரம் துண்டிக்கும். உருகி கம்பி (ஈயம், வெள்ளீய உலோகக் கலவை) உருகும். இது மின் வழங்கல் நிறுவனத்துக்கு சொந்தம்.</li><li><b>மின் மீற்றர்:</b> கட்டணத்துக்காக சக்திய <b>கிலோவாட் மணில (kW h)</b> எண்ணும். இதுவும் நிறுவனத்துக்கு சொந்தம்.</li><li><b>பிரதான ஆளி (Isolator)</b> (பழையது: 30 A உருகி உள்ள பிரதான சுவிட்ச்): உயிர், நொதுமல் <b>ரெண்டையும்</b> துண்டிக்கற இரட்டை முனை சுவிட்ச், பழுது பாக்க பயன்படும். பிரதான ஆளிக்கு பிறகு உள்ள எல்லாம் நுகர்வோருக்கு சொந்தம்.</li><li><b>RCCB (ட்ரிப் சுவிட்ச்):</b> மின்னதிர்ச்சில இருந்து மனிதர்கள காக்கும். உபகரணத்தோட உலோக உறைக்கு அல்லது நிலத்துக்கு மின் கசிவு (சுமார் 35 mA) அல்லது 30 A-க்கு மேல மின்னோட்டம் போனா தானா மின்சாரத்த துண்டிக்கும். மின்காந்தத் தூண்டலால வேலை செய்யும். சில நாளுக்கு ஒரு தடவை சோதனைப் பொத்தானை அழுத்தி பாரு. நெம்புகோலை மேல தூக்கினா ஆன் ஆகும்.</li><li><b>பரப்பற் பெட்டி:</b> மின்சாரத்த <b>ஒளி சுற்றுகளுக்கு</b> (6 A MCB: குமிழ்கள், 6 A குதைகள்) <b>குதைச் சுற்றுகளுக்கு</b> (13 A MCB: சமையலறை வெப்பமாக்கிகள், அடுப்புகள்) பிரிக்கும். சுற்றுல மின்னோட்டம் ரொம்ப அதிகமானா <b>MCB</b> (பழையது: 5 A, 15 A உருகிகள்) தானா துண்டிக்கும், அந்த சுற்று மட்டும்தான் அணையும். MCB, உருகிகள் குறுக்குச் சுற்று, அதிக வெப்பமான கேபிளுக்கு எதிரா மட்டும்தான் காக்கும், மின்னதிர்ச்சிக்கு <b>இல்ல</b>. அவை எப்பவும் உயிர் கம்பில இணைக்கப்படும்.</li></ul>\n<div class=\"callout tip\"><div class=\"ctitle\">🔴 ஏன் ஒரு கம்பி \"உயிர்\"</div><ul><li>ரெண்டு கம்பிகள்ல ஒண்ணு மின்மாற்றி கிட்ட நிலத்தோட இணைக்கப்பட்டிருக்கு: இந்த நொதுமல் கம்பி சுமார் 0 V. மற்றது நிலத்தோட ஒப்பிட்டா 230 V.</li><li>தரைல நிக்கறவர் உயிர் கம்பிய தொட்டா உடம்புக்கு குறுக்கா 230 V: 50 mA பெரிய அதிர்ச்சி, 100 mA உயிர கொல்லலாம். அதனாலதான் அது \"உயிர்\" கம்பி.</li><li>RCCB வேலை செய்ய இது தேவை: வீட்டுல எங்கயாவது உயிர் கம்பி நிலத்தோட தொட்டா RCCB பெரிய மின்னோட்டத்த கண்டுபிடிச்சு மின்சாரத்த துண்டிக்கும்.</li></ul></div>\n<ul><li><b>சுவிட்சுகள்</b> குமிழ்கள தனித்தனியா ஏத்தி அணைக்கும். <b>குதைகள்ல</b> உயிர், நொதுமல், நிலக் கம்பி இணைப்புகள் உண்டு; மூணு முள் செருகியோட பெரிய முள் உபகரணத்தோட உலோக உடலோடயும், குதை வழியா நிலக் கம்பியோடயும் இணையும், அதனால கசிவு RCCB-ய துண்டிக்கும். மின் கசிவு இல்லாத பிளாஸ்டிக் உறை உள்ள உபகரணங்களுக்கு ரெண்டு முள் செருகி (நிலம் இல்ல) போதும்.</li><li><b>கம்பிகள்:</b> செம்பு. 5–6 A-க்கு 1 mm² ஒற்றைக் கம்பி; 13 அல்லது 15 A குதைச் சுற்றுகளுக்கு ஏழு இழை 1.5 mm² கேபிள். நிறங்கள்: <b>பழுப்பு</b> உயிர், <b>நீலம்</b> நொதுமல், <b>பச்சை</b> நிலம் (பழையது: சிவப்பு உயிர், கருப்பு நொதுமல்).</li></ul>\n<div class=\"fig\"><svg aria-label=\"Bulbs and sockets connected in parallel between the live and neutral wires\" role=\"img\" viewbox=\"0 0 520 205\"><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--danger)\" x1=\"40\" x2=\"480\" y1=\"40\" y2=\"40\"></line><line stroke-linecap=\"round\" stroke-width=\"4\" style=\"stroke:var(--accent)\" x1=\"40\" x2=\"480\" y1=\"170\" y2=\"170\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"26\" y=\"46\">L</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"26\" y=\"176\">N</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"40\" y2=\"90\"></line><circle cx=\"110\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"110\" x2=\"110\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"110\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"102\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"132\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"110\" y=\"196\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"230\" x2=\"230\" y1=\"40\" y2=\"90\"></line><circle cx=\"230\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"230\" x2=\"230\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"230\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"222\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"252\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"230\" y=\"196\">bulb</text><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"350\" x2=\"350\" y1=\"40\" y2=\"90\"></line><circle cx=\"350\" cy=\"108\" r=\"16\" stroke-width=\"2.5\" style=\"fill:#e0b13a;stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"2.5\" style=\"stroke:var(--text)\" x1=\"350\" x2=\"350\" y1=\"124\" y2=\"170\"></line><text font-size=\"1\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"148\"></text><rect height=\"16\" rx=\"3\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"16\" x=\"342\" y=\"56\"></rect><text font-size=\"10\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"start\" x=\"372\" y=\"68\">switch</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"196\">socket</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"22\">each bulb and socket in parallel, switch on the live wire</text></svg><div class=\"figcap\">உரு 10.5: ஒவ்வொரு குமிழும் குதையும் சமாந்தரம்; சுவிட்சுகள் உயிர் கம்பில.</div></div>\n<p>ஒவ்வொரு குமிழும் செருகியும் <b>சமாந்தரமா</b> இணைக்கப்படும். எல்லா சுவிட்சுகளும் <b>உயிர்</b> கம்பில இருக்கும், அதனால சுவிட்ச் அணைச்சிருந்தா குமிழ் பிடிய தொட்டாலும் அதிர்ச்சி இல்ல. குதைச் சுற்றுகள் சில நேரம் <b>வளையச் சுற்றுகளா</b> இருக்கும்: ஒவ்வொரு குதைக்கும் ரெண்டு கம்பிகள் வழியா மின்னோட்டம் வருது, அதனால மெல்லிய கேபிள் போதும்.</p>\n<div class=\"callout tip\"><div class=\"ctitle\">🛟 மின்சாரம் துண்டிச்சா</div><ul><li>முதல்ல <b>பளு சுற்றுடைப்பான ஆஃப்</b> பண்ணு, அப்புறம் துண்டிச்ச RCCB அல்லது MCB-யோட நெம்புகோலை மேல தூக்கு, அப்புறம் பளு சுற்றுடைப்பான ஆன் பண்ணு. திரும்ப துண்டிச்சா மின் பணியாளரை கூப்பிடு.</li></ul></div>\n<ul><li>6 A, 13 A உருகிகள மட்டும் பயன்படுத்து. பல உபகரணங்கள ஒரு குதைல பல்குதை வழியா இணைச்சு அதிக சுமை போடாத. சரியான செருகிகள மட்டும் குதைல போடு, வெறும் கம்பிகள போடாத.</li><li>இஸ்திரி போடறப்ப ரப்பர் செருப்பு அல்லது ரப்பர் விரிப்பு பயன்படுத்து; குளிர்சாதனப் பெட்டி முன்னாடி விரிப்பு போடு.</li><li>குளியலறைல குமிழ மாத்தறதுக்கு முன் பளு சுற்றுடைப்பான் அல்லது பிரதான சுவிட்சை அணை. பயன்படுத்தாதப்ப செருகிகள கழட்டு.</li><li>பலத்த இடி மின்னல்ல ரேடியோ, தொலைக்காட்சிய கழட்டு, தேவையில்லாத உபகரணங்கள பயன்படுத்தாத (RCCB இடியில இருந்து காக்காது).</li><li>ஈரமான உடம்போட மின் கருவிகள பயன்படுத்தாத, ஈரக் கையால சுவிட்ச தொடாத. மின் தடை நேரம் உபகரணங்கள ஆன் பண்ணாத. தீ பிடிச்சா பளு சுற்றுடைப்பான அணை. பழுது, நீட்டிப்புகள பயிற்சி பெற்ற மின் பணியாளர் மட்டும்தான் செய்யணும்.</li></ul>"
+     },
+     "section": "10.4"
+    },
+    {
+     "title": {
+      "en": "10.5 The kilowatt hour",
+      "ta": "10.5 கிலோவாட் மணி"
+     },
+     "body": {
+      "en": "<p>The joule is small, so electricity bills use the <b>kilowatt hour (kW h)</b>, also called a <b>unit</b>: the energy used in one hour by an appliance of power 1 kW. The meter counts it.</p>\n<div class=\"formula-box\"><div class=\"flabel\">Commercial unit</div><div class=\"fmath\"><b>1 kW h = 1000 W × 3600 s = 3 600 000 J = 3.6 × 10<sup>6</sup> J</b></div><div class=\"fnote\">number of kW h = (watts ÷ 1000) × number of hours</div></div>\n<div class=\"worked\"><div class=\"wt\">Example</div><div class=\"work\">Four 100 W bulbs are used for 3 hours and five 60 W bulbs for 4 hours each day. How many units in a month (30 days)?</div><div class=\"work\">Per day: 100 × 4 × 3 + 60 × 5 × 4 = 1200 + 1200 = 2400 W h. Per month: 2400 × 30 ÷ 1000 = <b>72 kW h</b></div></div>",
+      "ta": "<p>ஜூல் சின்னது, அதனால மின் கட்டணம் <b>கிலோவாட் மணி (kW h)</b>-ல, <b>அலகு</b> எனவும் சொல்லப்படும்: 1 kW வலு உள்ள உபகரணம் ஒரு மணி நேரத்துல பயன்படுத்தற சக்தி. மீற்றர் இத எண்ணும்.</p>\n<div class=\"formula-box\"><div class=\"flabel\">வணிக அலகு</div><div class=\"fmath\"><b>1 kW h = 1000 W × 3600 s = 3 600 000 J = 3.6 × 10<sup>6</sup> J</b></div><div class=\"fnote\">kW h எண்ணிக்கை = (வாட் ÷ 1000) × மணிகளோட எண்ணிக்கை</div></div>\n<div class=\"worked\"><div class=\"wt\">உதாரணம்</div><div class=\"work\">தினமும் நாலு 100 W குமிழ்கள் 3 மணி, ஐந்து 60 W குமிழ்கள் 4 மணி பயன்படுத்தப்படுது. ஒரு மாசத்துல (30 நாள்) எத்தனை அலகுகள்?</div><div class=\"work\">Per day: 100 × 4 × 3 + 60 × 5 × 4 = 1200 + 1200 = 2400 W h. Per month: 2400 × 30 ÷ 1000 = <b>72 kW h</b></div></div>"
+     },
+     "section": "10.5"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you saw home appliances consuming power. Below are the power formulas (P = VI), kWh unit calculations, and safety rules!",
+    "ta": "பகுதி 1-ல் மின்சாதனங்களின் செயல்பாட்டை பார்த்தோம். அதற்கான மின்வலு சூத்திரங்கள் (P = VI), மின் கட்டணக் கணித்தல்களை இங்கே கற்போம்!"
+   }
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook activities: try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"10.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Assignment 10.1: power of your household appliances</h3>\n<span class=\"act-ref\">Textbook · Assignment 10.1, p.36</span>\n<p>Make a list of the electric devices at home with their power.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>Your home appliances, their labels or instruction sheets</li><li>A notebook; an adult to help</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Find the specification label on each appliance (bulb, fan, TV, iron, rice cooker, water heater).</li><li>Write the power (in watts) next to each one.</li><li>Estimate the hours each is used per day and work out the energy in kW h.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Heating appliances (iron, water heater, oven) have the largest power, so they use the most energy per hour. Energy in kW h = (watts ÷ 1000) × hours.</div></details>\n<button class=\"btn act-done\" data-act=\"10.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"r\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Check: do all your safety devices work?</h3>\n<span class=\"act-ref\">Textbook · Section 10.4.3, p.45–46</span>\n<p>Practise the safety routine (with an adult).</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>The consumer unit of your house</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Find the overload breaker, isolator, RCCB and the MCBs. Note which MCB is 6 A and which is 13 A.</li><li>Press the RCCB test button: the lever should drop and the power go off. Then restore the power in the correct order.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The order is: overload breaker OFF, raise the RCCB or MCB lever, overload breaker ON. If it trips again, call an electrician.</div></details>\n<button class=\"btn act-done\" data-act=\"r\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"10.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>ஒப்படைப்பு 10.1: உன் வீட்டு உபகரணங்களோட வலு</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · ஒப்படைப்பு 10.1, ப.36</span>\n<p>வீட்டுல இருக்கற மின் கருவிகளோட வலுவோட ஒரு பட்டியல் தயாரி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>வீட்டு உபகரணங்கள், அவற்றோட லேபிள்கள் அல்லது வழிகாட்டிப் பத்திரங்கள்</li><li>ஒரு குறிப்பேடு; உதவ ஒரு பெரியவர்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஒவ்வொரு உபகரணத்துலயும் (குமிழ், விசிறி, TV, இஸ்திரி பெட்டி, சோறு சமைக்கற கருவி, நீர் வெப்பமாக்கி) விவரக் குறிப்பு லேபிளை கண்டுபிடி.</li><li>ஒவ்வொண்ணு பக்கத்துலயும் வலுவ (வாட்ல) எழுது.</li><li>தினமும் எத்தனை மணி பயன்படுத்தறோம்னு மதிப்பிட்டு kW h-ல சக்திய கணக்கிடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">வெப்பமாக்கும் உபகரணங்களுக்கு (இஸ்திரி பெட்டி, நீர் வெப்பமாக்கி, அடுப்பு) வலு மிக அதிகம், அதனால ஒரு மணிக்கு அதிக சக்தி பயன்படுது. kW h-ல சக்தி = (வாட் ÷ 1000) × மணிகள்.</div></details>\n<button class=\"btn act-done\" data-act=\"10.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"r\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>சோதனை: உன் பாதுகாப்பு சாதனங்கள் எல்லாம் வேலை செய்யுதா?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · பிரிவு 10.4.3, ப.45–46</span>\n<p>பாதுகாப்பு நடைமுறைய (ஒரு பெரியவரோட) பயிற்சி பண்ணு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>உன் வீட்டோட நுகர்வோர் அலகு</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>பளு சுற்றுடைப்பான், பிரதான ஆளி, RCCB, MCB-கள கண்டுபிடி. எது 6 A, எது 13 A-ன்னு குறி.</li><li>RCCB சோதனைப் பொத்தானை அழுத்து: நெம்புகோல் இறங்கி மின்சாரம் போகணும். சரியான வரிசைல மின்சாரத்த திரும்ப கொடு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">வரிசை: பளு சுற்றுடைப்பான் OFF, RCCB அல்லது MCB நெம்புகோல மேல தூக்கு, பளு சுற்றுடைப்பான் ON. திரும்ப துண்டிச்சா மின் பணியாளரை கூப்பிடு.</div></details>\n<button class=\"btn act-done\" data-act=\"r\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Electricity Bill Lab",
+     "ta": "மின் கட்டண லேப்"
+    },
+    "sub": {
+     "en": "Choose an appliance power and the hours of use, and watch the units on the meter",
+     "ta": "உபகரண வலுவையும் பயன்படுத்தும் மணிகளையும் தேர்ந்தெடுத்து மீற்றர்ல அலகுகள பாரு"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-10-electric-appliances.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "challenge",
+   "kind": "challenge",
+   "heading": {
+    "title": {
+     "en": "🎮 Power Challenge",
+     "ta": "🎮 வலு சவால்"
+    },
+    "sub": {
+     "en": "Work out each answer in your head, then set the slider and check",
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-10-electric-appliances.html",
+    "hash": "challenge"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Check how much you understood before the deeper walkthroughs",
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "A bulb works on 12 V and draws 2 A. What is its power?",
+      "ta": "12 V-ல இயங்கும் ஒரு குமிழ் 2 A எடுக்குது. அதோட வலு?"
+     },
+     "options": [
+      {
+       "en": "6 W",
+       "ta": "6 W"
+      },
+      {
+       "en": "14 W",
+       "ta": "14 W"
+      },
+      {
+       "en": "24 W",
+       "ta": "24 W"
+      },
+      {
+       "en": "0.17 W",
+       "ta": "0.17 W"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "P = V I = 12 × 2 = 24 W.",
+      "ta": "P = V I = 12 × 2 = 24 W."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "A 2000 W oven works on 230 V. What current does it draw?",
+      "ta": "2000 W அடுப்பு 230 V-ல இயங்குது. அது எடுக்கும் மின்னோட்டம்?"
+     },
+     "options": [
+      {
+       "en": "0.115 A",
+       "ta": "0.115 A"
+      },
+      {
+       "en": "8.69 A",
+       "ta": "8.69 A"
+      },
+      {
+       "en": "460 A",
+       "ta": "460 A"
+      },
+      {
+       "en": "2230 A",
+       "ta": "2230 A"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "I = P ÷ V = 2000 ÷ 230 = 8.69 A.",
+      "ta": "I = P ÷ V = 2000 ÷ 230 = 8.69 A."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "Which formula gives the electric energy used?",
+      "ta": "பயன்படுத்திய மின் சக்திய தரும் சூத்திரம் எது?"
+     },
+     "options": [
+      {
+       "en": "E = P ÷ t",
+       "ta": "E = P ÷ t"
+      },
+      {
+       "en": "E = P t",
+       "ta": "E = P t"
+      },
+      {
+       "en": "E = V ÷ I",
+       "ta": "E = V ÷ I"
+      },
+      {
+       "en": "E = I ÷ t",
+       "ta": "E = I ÷ t"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "E = P t = V I t.",
+      "ta": "E = P t = V I t."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "How many joules are there in 1 kW h?",
+      "ta": "1 kW h-ல எத்தனை ஜூல்?"
+     },
+     "options": [
+      {
+       "en": "1000 J",
+       "ta": "1000 J"
+      },
+      {
+       "en": "3600 J",
+       "ta": "3600 J"
+      },
+      {
+       "en": "3.6 × 10⁶ J",
+       "ta": "3.6 × 10⁶ J"
+      },
+      {
+       "en": "3.6 × 10⁹ J",
+       "ta": "3.6 × 10⁹ J"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "1 kW h = 1000 W × 3600 s = 3 600 000 J.",
+      "ta": "1 kW h = 1000 W × 3600 s = 3 600 000 J."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "Which device protects people from electric shock?",
+      "ta": "எந்த சாதனம் மனிதர்கள மின்னதிர்ச்சில இருந்து காக்கும்?"
+     },
+     "options": [
+      {
+       "en": "A fuse",
+       "ta": "உருகி"
+      },
+      {
+       "en": "An MCB",
+       "ta": "MCB"
+      },
+      {
+       "en": "An RCCB (trip switch)",
+       "ta": "RCCB (ட்ரிப் சுவிட்ச்)"
+      },
+      {
+       "en": "The electricity meter",
+       "ta": "மின் மீற்றர்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "The RCCB cuts the supply when current leaks. Fuses and MCBs protect the wires only.",
+      "ta": "மின் கசிவு ஏற்பட்டா RCCB மின்சாரத்த துண்டிக்கும். உருகிகள், MCB கம்பிகள மட்டும் காக்கும்."
+     }
+    },
+    {
+     "id": "q6",
+     "prompt": {
+      "en": "Which lamp has the lowest power for the same light?",
+      "ta": "ஒரே ஒளிக்கு எந்த விளக்கு குறைந்த வலு?"
+     },
+     "options": [
+      {
+       "en": "Filament bulb 60 W",
+       "ta": "இழைக் குமிழ் 60 W"
+      },
+      {
+       "en": "Fluorescent tube 22 W",
+       "ta": "ஒளிரும் குழாய் 22 W"
+      },
+      {
+       "en": "CFL 11 to 13 W",
+       "ta": "CFL 11–13 W"
+      },
+      {
+       "en": "LED 6 to 8 W",
+       "ta": "LED 6–8 W"
+      }
+     ],
+     "answer": 3,
+     "explain": {
+      "en": "LED lights use 6 to 8 W and last 50 000 h.",
+      "ta": "LED விளக்குகள் 6–8 W-தான், 50 000 h நீடிக்கும்."
+     }
+    },
+    {
+     "id": "q7",
+     "prompt": {
+      "en": "The bulbs and sockets in a house are connected…",
+      "ta": "வீட்டுல குமிழ்களும் குதைகளும் இணைக்கப்படுறது…"
+     },
+     "options": [
+      {
+       "en": "in series",
+       "ta": "தொடரா"
+      },
+      {
+       "en": "in parallel",
+       "ta": "சமாந்தரமா"
+      },
+      {
+       "en": "in a single loop with the meter",
+       "ta": "மீற்றரோட ஒரே வளையத்துல"
+      },
+      {
+       "en": "to the earth wire only",
+       "ta": "நிலக் கம்பிக்கு மட்டும்"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "In parallel each gets 230 V and works independently.",
+      "ta": "சமாந்தரமா இருந்தா ஒவ்வொண்ணுக்கும் 230 V, தனித்தனியா வேலை செய்யும்."
+     }
+    },
+    {
+     "id": "q8",
+     "prompt": {
+      "en": "A 40 W bulb is used for 5 hours. How many units (kW h) is that?",
+      "ta": "40 W குமிழ் 5 மணி நேரம் பயன்படுத்தப்படுது. அது எத்தனை அலகுகள் (kW h)?"
+     },
+     "options": [
+      {
+       "en": "0.2",
+       "ta": "0.2"
+      },
+      {
+       "en": "2",
+       "ta": "2"
+      },
+      {
+       "en": "200",
+       "ta": "200"
+      },
+      {
+       "en": "8",
+       "ta": "8"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "40 W × 5 h = 200 W h = 0.2 kW h.",
+      "ta": "40 W × 5 h = 200 W h = 0.2 kW h."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Safety Sort",
+     "ta": "🧩 பாதுகாப்பு சார்ட்"
+    },
+    "sub": {
+     "en": "Two short rounds: match the terms, then sort the protection",
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் பாதுகாப்ப வரிசைப்படுத்து"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-10-electric-appliances.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Examples",
+     "ta": "படிப்படியா உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step solutions to the textbook examples",
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">A filament bulb on 12 V draws 2 A. What is its power?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>P = V I.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>P = 12 × 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>24 W</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">12 V-ல இயங்கும் இழைக் குமிழ் 2 A எடுக்குது. அதோட வலு?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>P = V I.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>P = 12 × 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>24 W</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.10, p.33",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 10, ப.33"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">An electric oven of 2000 W works on a 230 V supply. Find the current it draws.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>P = V I, so I = P ÷ V.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>I = 2000 ÷ 230 = 8.69.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>8.69 A</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">2000 W மின் அடுப்பு 230 V மூலத்துல இயங்குது. அது எடுக்கும் மின்னோட்டத்த காணு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>P = V I, அதனால I = P ÷ V.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>I = 2000 ÷ 230 = 8.69.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>8.69 A</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.10, p.33",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 10, ப.33"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A car head lamp has a power of 50 W. Find the energy used when it works for 1½ hours.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>E = P t, with t in seconds: 1.5 h = 1.5 × 60 × 60 s = 5400 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>E = 50 × 5400.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>270 000 J</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">கார் தலை விளக்கோட வலு 50 W. அது 1½ மணி நேரம் இயங்கும்போது பயன்படுத்தற சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>E = P t, t வினாடில: 1.5 h = 1.5 × 60 × 60 s = 5400 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>E = 50 × 5400.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>270 000 J</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.10, p.34",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 10, ப.34"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">A 6 V bicycle bulb draws 0.6 A. How much electric energy is used when it is lit for five minutes?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>E = V I t with t = 5 × 60 = 300 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>E = 6 × 0.6 × 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>1080 J</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">6 V சைக்கிள் குமிழ் 0.6 A எடுக்குது. ஐந்து நிமிஷம் எரியும்போது பயன்படுத்தற மின் சக்தி?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>E = V I t, t = 5 × 60 = 300 s.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>E = 6 × 0.6 × 300.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>1080 J</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.10, p.35",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 10, ப.35"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">Four 100 W bulbs are used for 3 hours and five 60 W bulbs for 4 hours daily. Find the electricity used in a month of 30 days.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>One day: 100 × 4 × 3 = 1200 W h and 60 × 5 × 4 = 1200 W h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Total per day = 2400 W h. For 30 days: 2400 × 30 = 72 000 W h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Divide by 1000 to get kW h.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>72 kW h</b> (72 units).\n      </div>",
+      "ta": "<div class=\"qtext\">தினமும் நாலு 100 W குமிழ்கள் 3 மணி, ஐந்து 60 W குமிழ்கள் 4 மணி பயன்படுத்தப்படுது. 30 நாள் மாசத்துல மின் பயன்பாடு?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஒரு நாள்: 100 × 4 × 3 = 1200 W h, 60 × 5 × 4 = 1200 W h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>நாளைக்கு மொத்தம் = 2400 W h. 30 நாளுக்கு: 2400 × 30 = 72 000 W h.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>kW h பெற 1000-ஆல வகு.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>72 kW h</b> (72 அலகுகள்).</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.10, p.47",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 10, ப.47"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 10.1",
+      "ta": "பயிற்சி 10.1"
+     },
+     "items": [
+      {
+       "id": "x101-1a",
+       "num": "1(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The power of an electric water pump is 750 W. Calculate the current drawn by the motor on a 230 V supply.</span></div>",
+        "ta": "<div class=\"exq\"><span>மின் நீர் பம்ப்போட வலு 750 W. 230 V மூலத்துல மோட்டார் எடுக்கும் மின்னோட்டத்த கணக்கிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">P = V I, so I = P ÷ V = 750 ÷ 230 = <b>3.26 A</b></div>",
+        "ta": "<div class=\"work\">P = V I, அதனால I = P ÷ V = 750 ÷ 230 = <b>3.26 A</b></div>"
+       }
+      },
+      {
+       "id": "x101-1b",
+       "num": "1(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>State one type of energy, other than kinetic energy, generated when the motor works.</span></div>",
+        "ta": "<div class=\"exq\"><span>மோட்டார் இயங்கும்போது இயக்க சக்தியத் தவிர வேற ஒரு சக்தி வடிவத்த குறிப்பிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<b>Heat</b> (also sound), because of the resistance of the coil.",
+        "ta": "சுருள் தடையால <b>வெப்பம்</b> (ஒலியும்)."
+       }
+      },
+      {
+       "id": "x101-2a",
+       "num": "2(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A flash light bulb is marked 2.5 V and 0.3 A. What is its power?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஃபிளாஷ் லைட் குமிழ்ல 2.5 V, 0.3 A-ன்னு குறிச்சிருக்கு. அதோட வலு?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">P = V I = 2.5 × 0.3 = <b>0.75 W</b></div>",
+        "ta": "<div class=\"work\">P = V I = 2.5 × 0.3 = <b>0.75 W</b></div>"
+       }
+      },
+      {
+       "id": "x101-2b",
+       "num": "2(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>If the efficiency of emitting light is 42 %, what happens to the remaining 58 %?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒளி வெளிவிடும் திறன் 42 % என்றா மீதி 58 %-க்கு என்ன ஆகுது?</span></div>"
+       },
+       "answer": {
+        "en": "It is <b>lost as heat</b> (the filament and the bulb become hot).",
+        "ta": "அது <b>வெப்பமா வீணாகுது</b> (இழையும் குமிழும் சூடாகுது)."
+       }
+      },
+      {
+       "id": "x101-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Two head lamps of 50 W each and two rear lamps of 10 W each are lit for ½ h. Calculate the electrical energy spent.</span></div>",
+        "ta": "<div class=\"exq\"><span>தலா 50 W ரெண்டு தலை விளக்குகளும் தலா 10 W ரெண்டு பின் விளக்குகளும் ½ h எரியுது. செலவான மின் சக்திய கணக்கிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Total power = 2 × 50 + 2 × 10 = 120 W; t = ½ h = 1800 s</div><div class=\"work\">E = P t = 120 × 1800 = <b>216 000 J</b> (= 0.06 kW h)</div>",
+        "ta": "<div class=\"work\">மொத்த வலு = 2 × 50 + 2 × 10 = 120 W; t = ½ h = 1800 s</div><div class=\"work\">E = P t = 120 × 1800 = <b>216 000 J</b> (= 0.06 kW h)</div>"
+       }
+      },
+      {
+       "id": "x101-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The current through a motor cycle bulb on a 12 V battery is 2 A. How much electrical energy is spent if it flows for 15 minutes?</span></div>",
+        "ta": "<div class=\"exq\"><span>12 V மின்கலத்தோட மோட்டார் சைக்கிள் குமிழ் வழியா 2 A ஓடுது. 15 நிமிஷம் ஓடினா எவ்வளவு மின் சக்தி செலவாகும்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">t = 15 × 60 = 900 s</div><div class=\"work\">E = V I t = 12 × 2 × 900 = <b>21 600 J</b></div>",
+        "ta": "<div class=\"work\">t = 15 × 60 = 900 s</div><div class=\"work\">E = V I t = 12 × 2 × 900 = <b>21 600 J</b></div>"
+       }
+      },
+      {
+       "id": "x101-5a",
+       "num": "5(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Name two instruments used in a domestic circuit for the protection of residents.</span></div>",
+        "ta": "<div class=\"exq\"><span>வசிப்பவர்களோட பாதுகாப்புக்கு வீட்டுச் சுற்றுல பயன்படும் ரெண்டு கருவிகளோட பேர் சொல்லு.</span></div>"
+       },
+       "answer": {
+        "en": "The <b>RCCB (trip switch)</b> and the <b>MCB (or fuse)</b>.",
+        "ta": "<b>RCCB (ட்ரிப் சுவிட்ச்)</b>, <b>MCB (அல்லது உருகி)</b>."
+       }
+      },
+      {
+       "id": "x101-5b",
+       "num": "5(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Mention the type of protection provided by each.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒவ்வொண்ணும் தரும் பாதுகாப்பு வகைய சொல்லு.</span></div>"
+       },
+       "answer": {
+        "en": "The <b>RCCB</b> protects people from <b>electric shock</b>: it cuts the supply when current leaks to earth (and when more than 30 A flows). The <b>MCB or fuse</b> protects the circuit from <b>too large a current</b> (overload or short circuit), preventing overheated cables and fire; it does not protect people.",
+        "ta": "<b>RCCB</b> மனிதர்கள <b>மின்னதிர்ச்சில</b> இருந்து காக்கும்: நிலத்துக்கு மின் கசிவு (30 A-க்கு மேல மின்னோட்டம்) ஏற்பட்டா மின்சாரத்த துண்டிக்கும். <b>MCB அல்லது உருகி</b> சுற்றை <b>அதிக மின்னோட்டத்துல</b> (அதிக சுமை, குறுக்குச் சுற்று) இருந்து காக்கும், கேபிள் அதிகமா சூடாகி தீ பிடிக்கறத தடுக்கும்; மனிதர்கள காக்காது."
+       }
+      },
+      {
+       "id": "x101-5c",
+       "num": "5(c)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Explain what is to be done to protect electric equipment in a house when lightning occurs.</span></div>",
+        "ta": "<div class=\"exq\"><span>இடி மின்னல் வரும்போது வீட்டு மின் கருவிகள காக்க என்ன செய்யணும்னு விளக்கு.</span></div>"
+       },
+       "answer": {
+        "en": "Unplug radios and television sets from the sockets and avoid using unessential electrical appliances. (The RCCB does not protect the house circuit from lightning.)",
+        "ta": "ரேடியோ, தொலைக்காட்சிய குதைல இருந்து கழட்டு, தேவையில்லாத மின் கருவிகள பயன்படுத்தாத. (இடியில இருந்து RCCB வீட்டுச் சுற்றை காக்காது.)"
+       }
+      },
+      {
+       "id": "x101-6a",
+       "num": "6(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the unit of electrical energy used to make electricity bills?</span></div>",
+        "ta": "<div class=\"exq\"><span>மின் கட்டணம் போட பயன்படும் மின் சக்தியோட அலகு எது?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>kilowatt hour (kW h)</b>, called a <b>unit</b>.",
+        "ta": "<b>கிலோவாட் மணி (kW h)</b>, <b>அலகு</b> எனப்படும்."
+       }
+      },
+      {
+       "id": "x101-6b",
+       "num": "6(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Calculate the energy in joules equal to one commercial unit.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு வணிக அலகுக்கு சமமான சக்திய ஜூல்ல கணக்கிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">1 kW h = 1000 W × 3600 s = <b>3 600 000 J</b> (3.6 × 10<sup>6</sup> J)</div>",
+        "ta": "<div class=\"work\">1 kW h = 1000 W × 3600 s = <b>3 600 000 J</b> (3.6 × 10<sup>6</sup> J)</div>"
+       }
+      },
+      {
+       "id": "x101-6c",
+       "num": "6(c)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The first 60 units cost Rs. 7.50 each and the next 30 units Rs. 10.00 each. Find the bill for a house using 75 units in a month.</span></div>",
+        "ta": "<div class=\"exq\"><span>முதல் 60 அலகுகள் ஒவ்வொண்ணும் ரூ. 7.50, அடுத்த 30 அலகுகள் ஒவ்வொண்ணும் ரூ. 10.00. ஒரு மாசத்துல 75 அலகுகள் பயன்படுத்தற வீட்டோட கட்டணம்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">First 60 units: 60 × 7.50 = Rs. 450.00</div><div class=\"work\">Next 15 units: 15 × 10.00 = Rs. 150.00</div><div class=\"work\">Bill = 450 + 150 = <b>Rs. 600.00</b></div>",
+        "ta": "<div class=\"work\">முதல் 60 அலகுகள்: 60 × 7.50 = ரூ. 450.00</div><div class=\"work\">அடுத்த 15 அலகுகள்: 15 × 10.00 = ரூ. 150.00</div><div class=\"work\">கட்டணம் = 450 + 150 = <b>ரூ. 600.00</b></div>"
+       }
+      },
+      {
+       "id": "x101-7a",
+       "num": "7(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A 1500 W water heater is used ½ h daily; three 40 W bulbs for 3 h daily; two 60 W bulbs for 2 h daily. Calculate the units used in one day.</span></div>",
+        "ta": "<div class=\"exq\"><span>1500 W நீர் வெப்பமாக்கி தினமும் ½ h; மூணு 40 W குமிழ்கள் தினமும் 3 h; ரெண்டு 60 W குமிழ்கள் தினமும் 2 h. ஒரு நாள்ல பயன்படுத்தற அலகுகளை கணக்கிடு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Heater: 1.5 kW × 0.5 h = 0.75 kW h</div><div class=\"work\">Three 40 W bulbs: 120 W × 3 h = 360 W h = 0.36 kW h</div><div class=\"work\">Two 60 W bulbs: 120 W × 2 h = 240 W h = 0.24 kW h</div><div class=\"work\">Total = 0.75 + 0.36 + 0.24 = <b>1.35 units</b></div>",
+        "ta": "<div class=\"work\">வெப்பமாக்கி: 1.5 kW × 0.5 h = 0.75 kW h</div><div class=\"work\">மூணு 40 W குமிழ்கள்: 120 W × 3 h = 360 W h = 0.36 kW h</div><div class=\"work\">ரெண்டு 60 W குமிழ்கள்: 120 W × 2 h = 240 W h = 0.24 kW h</div><div class=\"work\">மொத்தம் = 0.75 + 0.36 + 0.24 = <b>1.35 அலகுகள்</b></div>"
+       }
+      },
+      {
+       "id": "x101-7b",
+       "num": "7(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Using the rates in 6(c), what is the monthly bill?</span></div>",
+        "ta": "<div class=\"exq\"><span>6(c)-ல உள்ள கட்டணங்கள பயன்படுத்தி மாதாந்த கட்டணம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Units in 30 days = 1.35 × 30 = 40.5 units (all within the first 60 units)</div><div class=\"work\">Bill = 40.5 × 7.50 = <b>Rs. 303.75</b></div>",
+        "ta": "<div class=\"work\">30 நாளுக்கு அலகுகள் = 1.35 × 30 = 40.5 அலகுகள் (எல்லாம் முதல் 60 அலகுக்குள்ள)</div><div class=\"work\">கட்டணம் = 40.5 × 7.50 = <b>ரூ. 303.75</b></div>"
+       }
+      },
+      {
+       "id": "x101-8a",
+       "num": "8(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A hot plate or an immersion heater can heat water. Which is more efficient?</span></div>",
+        "ta": "<div class=\"exq\"><span>வெப்பத் தட்டு அல்லது அமிழ்ப்பு வெப்பமாக்கியால நீரை சூடாக்கலாம். எது அதிக திறன்?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>immersion heater</b>.",
+        "ta": "<b>அமிழ்ப்பு வெப்பமாக்கி</b>."
+       }
+      },
+      {
+       "id": "x101-8b",
+       "num": "8(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Give the reason.</span></div>",
+        "ta": "<div class=\"exq\"><span>காரணம் தா.</span></div>"
+       },
+       "answer": {
+        "en": "All the heat produced by an immersion heater goes straight into the water. A hot plate also heats the vessel and the air around it, so some heat is lost.",
+        "ta": "அமிழ்ப்பு வெப்பமாக்கி உண்டாக்கற எல்லா வெப்பமும் நேரா நீருக்கு போகுது. வெப்பத் தட்டு பாத்திரத்தையும் சுத்தி இருக்கற காற்றையும் சூடாக்குது, அதனால கொஞ்சம் வெப்பம் வீணாகுது."
+       }
+      },
+      {
+       "id": "x101-8c",
+       "num": "8(c)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Why are three-pin plugs used instead of two-pin plugs for immersion heaters?</span></div>",
+        "ta": "<div class=\"exq\"><span>அமிழ்ப்பு வெப்பமாக்கிகளுக்கு ரெண்டு முள் செருகிக்கு பதிலா மூணு முள் செருகி ஏன் பயன்படுத்தறோம்?</span></div>"
+       },
+       "answer": {
+        "en": "The third (earth) pin connects the metal body of the heater to the earth wire. If a current leaks to the metal casing, it flows to earth and the RCCB trips, so the user does not get an electric shock.",
+        "ta": "மூணாவது (நில) முள் வெப்பமாக்கியோட உலோக உடலை நிலக் கம்பியோட இணைக்கும். உலோக உறைக்கு மின் கசிவு ஏற்பட்டா அது நிலத்துக்கு போய் RCCB துண்டிக்கும், அதனால பயனாளருக்கு மின்னதிர்ச்சி வராது."
+       }
+      },
+      {
+       "id": "x101-8d",
+       "num": "8(d)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>When an appliance was switched on, the circuit was disconnected. Give two reasons.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு உபகரணத்த ஆன் பண்ணினப்ப மின் சுற்று துண்டிச்சிடுச்சு. இது நடக்கறதுக்கு ரெண்டு காரணங்கள் சொல்லு.</span></div>"
+       },
+       "answer": {
+        "en": "(1) The appliance drew too large a current (overload or a short circuit), so the <b>MCB or fuse</b> tripped. (2) A current leaked through the appliance to earth, so the <b>RCCB</b> tripped.",
+        "ta": "(1) உபகரணம் அதிக மின்னோட்டம் (அதிக சுமை அல்லது குறுக்குச் சுற்று) எடுத்ததால <b>MCB அல்லது உருகி</b> துண்டிச்சது. (2) உபகரணம் வழியா நிலத்துக்கு மின் கசிவு ஏற்பட்டதால <b>RCCB</b> துண்டிச்சது."
+       }
+      }
+     ],
+     "title": {
+      "en": "Power, energy and the house circuit · p.48–49",
+      "ta": "வலு, சக்தி, வீட்டுச் சுற்று · ப.48–49"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">💡</div><div class=\"cm-b r\"><i>Raja:</i> <span>My bulb says 12 V and 2 A. How much power is that?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>Chittu:</i> <span>P = V I = 24 W. Energy E = P t, and the bill counts kilowatt hours: 1 kW h = 3.6 × 10⁶ J.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏠</div><div class=\"cm-b r\"><i>Raja:</i> <span>And how is my house kept safe?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🛡️</div><div class=\"cm-b c\"><i>Chittu:</i> <span>The RCCB protects people from leaks, MCBs and fuses protect the wires from overload, and everything is in parallel with the switch on the live wire.</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">💡</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>என் குமிழ்ல 12 V, 2 A. அது எவ்வளவு வலு?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>P = V I = 24 W. சக்தி E = P t, கட்டணம் கிலோவாட் மணிய கணக்கிடும்: 1 kW h = 3.6 × 10⁶ J.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🏠</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>என் வீடு எப்படி பாதுகாப்பா இருக்கு?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🛡️</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>RCCB கசிவுல இருந்து மனிதர்கள காக்கும், MCB, உருகிகள் கம்பிகள அதிக சுமையில இருந்து காக்கும், எல்லாம் சமாந்தரம், சுவிட்ச் உயிர் கம்பில.</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Volts times amps give watts of power,<br/>watts times hours: units at the hour.<br/>RCCB saves you from shock,<br/>MCB guards the wire and the lock!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">வோல்ட் × அம்பியர் வாட் வலு,<br/>வாட் × மணி அலகு நிலவு.<br/>RCCB அதிர்ச்சிய தடுக்கும்,<br/>MCB கம்பிய காக்கும் உடனடியா!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">A fuse or MCB protects you from electric shock.</td><td class=\"ok\">They only stop too large a current in the wires; the RCCB protects people.</td></tr><tr><td class=\"w\">A bigger bulb power means a lower electricity bill.</td><td class=\"ok\">More watts means more energy per hour, so a higher bill; LEDs give the same light with fewer watts.</td></tr><tr><td class=\"w\">Switches can be put on the neutral wire.</td><td class=\"ok\">Switches (and fuses, MCBs) go on the live wire so that an \"off\" appliance is not live.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">உருகி அல்லது MCB மின்னதிர்ச்சில இருந்து காக்கும்.</td><td class=\"ok\">அவை கம்பிகள்ல அதிக மின்னோட்டத்த மட்டும் தடுக்கும்; RCCB தான் மனிதர்கள காக்கும்.</td></tr><tr><td class=\"w\">அதிக வலு குமிழ் என்றா குறைவான கட்டணம்.</td><td class=\"ok\">அதிக வாட் என்றா ஒரு மணிக்கு அதிக சக்தி, அதிக கட்டணம்; LED குறைவான வாட்ல அதே ஒளிய தரும்.</td></tr><tr><td class=\"w\">சுவிட்சுகள நொதுமல் கம்பில வைக்கலாம்.</td><td class=\"ok\">சுவிட்சுகள் (உருகிகள், MCB) உயிர் கம்பில இருக்கணும், அப்போதான் அணைச்ச உபகரணம் உயிரில்லாம இருக்கும்.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>P = V I (W); E = P t = V I t (J)</li><li>1 kW h = 3.6 × 10⁶ J; units = (watts ÷ 1000) × hours</li><li>efficiency: LED and CFL bulbs, immersion heaters save energy</li><li>house circuit: overload breaker, meter, isolator, RCCB, distribution box, MCBs</li><li>RCCB protects people; MCB or fuse protects the circuit; parallel wiring, switches on the live wire</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>P = V I (W); E = P t = V I t (J)</li><li>1 kW h = 3.6 × 10⁶ J; அலகுகள் = (வாட் ÷ 1000) × மணிகள்</li><li>திறன்: LED, CFL குமிழ்கள், அமிழ்ப்பு வெப்பமாக்கிகள் சக்தி சேமிக்கும்</li><li>வீட்டுச் சுற்று: பளு சுற்றுடைப்பான், மீற்றர், பிரதான ஆளி, RCCB, பரப்பற் பெட்டி, MCB-கள்</li><li>RCCB மனிதர்கள காக்கும்; MCB அல்லது உருகி சுற்றை காக்கும்; சமாந்தர இணைப்பு, சுவிட்சுகள் உயிர் கம்பில</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "The power of an electric appliance is the electric energy used per unit time.",
+     "ta": "மின் உபகரணத்தோட வலு என்பது ஓரலகு நேரத்துல பயன்படுத்தற மின் சக்தி."
+    },
+    {
+     "en": "Power P = V I (watts); energy E = P t = V I t (joules).",
+     "ta": "வலு P = V I (வாட்); சக்தி E = P t = V I t (ஜூல்)."
+    },
+    {
+     "en": "The domestic meter measures energy in kilowatt hours; 1 kW h = 3 600 000 J.",
+     "ta": "வீட்டு மீற்றர் சக்திய கிலோவாட் மணில அளக்கும்; 1 kW h = 3 600 000 J."
+    },
+    {
+     "en": "Efficient appliances (LED, CFL, immersion heaters, induction cookers) save energy.",
+     "ta": "திறனான உபகரணங்கள் (LED, CFL, அமிழ்ப்பு வெப்பமாக்கி, தூண்டற் சமைகலன்) சக்திய சேமிக்கும்."
+    },
+    {
+     "en": "House supply: 230 V, 50 Hz alternating current, through a live and a neutral wire.",
+     "ta": "வீட்டு வழங்கல்: 230 V, 50 Hz மாறுதிசை மின்னோட்டம், உயிர், நொதுமல் கம்பிகள் வழியா."
+    },
+    {
+     "en": "The RCCB protects people from shock; MCBs and fuses protect the circuits from large currents.",
+     "ta": "RCCB மனிதர்கள மின்னதிர்ச்சில இருந்து காக்கும்; MCB, உருகிகள் சுற்றுகள அதிக மின்னோட்டத்துல இருந்து காக்கும்."
+    },
+    {
+     "en": "Bulbs and sockets are in parallel; switches, fuses and MCBs are on the live wire.",
+     "ta": "குமிழ்கள், குதைகள் சமாந்தரம்; சுவிட்சுகள், உருகிகள், MCB உயிர் கம்பில."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Power",
+     "ta": "வலு"
+    },
+    {
+     "en": "Efficiency",
+     "ta": "திறன்"
+    },
+    {
+     "en": "Hot plate",
+     "ta": "வெப்பத் தட்டு"
+    },
+    {
+     "en": "Immersion heater",
+     "ta": "அமிழ்ப்பு வெப்பமாக்கி"
+    },
+    {
+     "en": "Microwave oven",
+     "ta": "நுணுக்கலைக் கணலி"
+    },
+    {
+     "en": "Induction cooker",
+     "ta": "தூண்டற் சமைகலன்"
+    },
+    {
+     "en": "Live",
+     "ta": "உயிர்"
+    },
+    {
+     "en": "Neutral",
+     "ta": "நொதுமல்"
+    },
+    {
+     "en": "Fuse",
+     "ta": "உருகி"
+    },
+    {
+     "en": "Residual current circuit breaker",
+     "ta": "இடறு ஆளி / எச்சமான மின் சுற்றுடைப்பான் (RCCB)"
+    },
+    {
+     "en": "Distribution box",
+     "ta": "பரப்பற் பெட்டி"
+    },
+    {
+     "en": "Miniature circuit breaker",
+     "ta": "சிறு சுற்றுடைப்பான் (MCB)"
+    },
+    {
+     "en": "Plug socket",
+     "ta": "குதை"
+    },
+    {
+     "en": "Plug",
+     "ta": "செருகி"
+    },
+    {
+     "en": "Overload circuit breaker",
+     "ta": "பளு சுற்றுடைப்பான்"
+    },
+    {
+     "en": "Isolator",
+     "ta": "பிரதான ஆளி"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 7 key points",
+    "ta": "📌 பொழிப்பு — 7 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+   }
+  }
+ ]
+}

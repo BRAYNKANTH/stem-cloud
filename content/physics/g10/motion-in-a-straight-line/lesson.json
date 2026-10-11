@@ -1,0 +1,1001 @@
+{
+ "schema": 2,
+ "id": "physics.g10.motion-in-a-straight-line",
+ "slug": "motion-in-a-straight-line",
+ "subject": "physics",
+ "grade": 10,
+ "number": "2",
+ "title": {
+  "en": "Motion in a Straight Line",
+  "ta": "நேர்க்கோட்டு இயக்கம்",
+  "si": "සරල රේඛීය චලිතය"
+ },
+ "legacy": {
+  "id": "u2",
+  "file": "unit-02-motion-in-a-straight-line.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "Who walked farther?",
+    "ta": "யாரு அதிக தூரம் நடந்தாங்க?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, let's race to school! I'll take the long road: 100 m down the lane, 400 m along the main road, then 300 m to the gate!",
+      "ta": "சிட்டு, ஸ்கூலுக்கு ரேஸ் போகலாமா! நான் நீளமான ரோட்டுல போறேன்: சந்துல 100 m, மெயின் ரோட்டுல 400 m, அப்புறம் கேட் வரைக்கும் 300 m!"
+     },
+     "scene": "🏫🐒",
+     "audio": {
+      "ta": "u2/line00.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "I'm a sparrow, Raja. I'll fly straight from home to school.",
+      "ta": "நான் குருவி ராஜா. வீட்டுல இருந்து ஸ்கூலுக்கு நேரா பறந்து வருவேன்."
+     },
+     "scene": "🐦💨",
+     "audio": {
+      "ta": "u2/line01.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Ha ha! I walk 800 m and you only 500 m. I'm the stronger one!",
+      "ta": "ஹா ஹா! நான் 800 m நடக்கறேன், நீ வெறும் 500 m தான். நான்தான் ஸ்ட்ராங்!"
+     },
+     "scene": "💪😄",
+     "audio": {
+      "ta": "u2/line02.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "You're right, your DISTANCE is 800 m. But from home to school, both of us end up 500 m from where we started, in the same direction. That is the DISPLACEMENT.",
+      "ta": "ஆமா, உன் தூரம் 800 m. ஆனா வீட்டுல இருந்து ஸ்கூலுக்கு, ரெண்டு பேருமே ஆரம்ப இடத்துல இருந்து ஒரே திசையில 500 m தூரத்துலதான் வந்து நிக்கறோம். அதுதான் இடப்பெயர்ச்சி."
+     },
+     "scene": "📏",
+     "audio": {
+      "ta": "u2/line03.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Same displacement, different distance? Whoa!",
+      "ta": "ஒரே இடப்பெயர்ச்சி, வேற வேற தூரமா? அட!"
+     },
+     "scene": "😮",
+     "audio": {
+      "ta": "u2/line04.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "And if you took 400 s: speed = 800 ÷ 400 = 2 m/s, but velocity = 500 ÷ 400 = 1.25 m/s.",
+      "ta": "நீ 400 s எடுத்தா: கதி = 800 ÷ 400 = 2 m/s, ஆனா வேகம் (திசைவேகம்) = 500 ÷ 400 = 1.25 m/s."
+     },
+     "scene": "⏱️",
+     "audio": {
+      "ta": "u2/line05.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "So distance, displacement, speed, velocity... and graphs and acceleration too?",
+      "ta": "அப்போ தூரம், இடப்பெயர்ச்சி, கதி, வேகம்... அப்புறம் வரைபுகளும் ஆர்முடுகலும் கூட வருமா?"
+     },
+     "scene": "📈",
+     "audio": {
+      "ta": "u2/line06.mp3"
+     }
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Yes! One easy step at a time, with lots of examples.",
+      "ta": "ஆமா! ஒவ்வொரு படியா, நிறைய உதாரணத்தோட."
+     },
+     "scene": "🪜",
+     "audio": {
+      "ta": "u2/line07.mp3"
+     }
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Then what are we waiting for? Let's go now!",
+      "ta": "அப்போ என்ன காத்திருக்கோம்? வாங்க இப்போ போகலாம்!"
+     },
+     "scene": "🚀",
+     "audio": {
+      "ta": "u2/line08.mp3"
+     }
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: distance, speed, acceleration →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: தூரம், கதி, ஆர்முடுகல் →"
+   },
+   "quest": {
+    "en": "In this module: investigate how objects travel along a line, understand distance vs displacement, speed vs velocity, and learn how acceleration is represented on motion graphs.",
+    "ta": "இந்த பாடத்தில்: ஒரு நேர்கோட்டில் பொருட்களின் இயக்கம், தூரம் மற்றும் இடப்பெயர்ச்சி, கதி மற்றும் வேகம், ஆர்முடுகல் வரைபடங்களை ஆராய்வோம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: how do things move?",
+     "ta": "முதல்ல இருந்து: பொருட்கள் எப்படி நகரும்?"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "Moving means changing place",
+      "ta": "நகரறது என்றால் இடம் மாறுறது"
+     },
+     "body": {
+      "en": "<p>At home you are in one place. At school you are in another. Your place changed, so you moved.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏠 ➜ ➜ ➜ 🏫</div>",
+      "ta": "<p>வீட்டில ஒரு இடத்துல இருக்கே. ஸ்கூல்ல வேற இடத்துல. இடம் மாறிச்சு, அதான் நகர்ந்திருக்கே.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏠 ➜ ➜ ➜ 🏫</div>"
+     },
+     "icon": "🚶"
+    },
+    {
+     "title": {
+      "en": "Distance: how much road",
+      "ta": "தூரம்: எவ்வளவு பாதை"
+     },
+     "body": {
+      "en": "<p>Distance is how long the path was. We count it in metres (m) or kilometres (km).</p><div aria-hidden=\"true\" class=\"bs-pic\">🏠 ───── 500 m ───── 🏫</div>",
+      "ta": "<p>நடந்த பாதை எவ்வளவு நீளம்னு சொல்றதுதான் தூரம். மீட்டர் (m), கிலோமீட்டர் (km) ல அளப்போம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🏠 ───── 500 m ───── 🏫</div>"
+     },
+     "icon": "📏"
+    },
+    {
+     "title": {
+      "en": "Time: how long it took",
+      "ta": "நேரம்: எவ்வளவு நேரம் ஆச்சு"
+     },
+     "body": {
+      "en": "<p>We count time in seconds (s) or minutes. A bike takes less time than walking.</p><div aria-hidden=\"true\" class=\"bs-pic\">🚶 10 min   🚲 3 min</div>",
+      "ta": "<p>நேரத்த வினாடி (s), நிமிஷத்துல எண்ணுவோம். நடக்கறத விட சைக்கிள்ல குறைவான நேரம்தான்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🚶 10 min   🚲 3 min</div>"
+     },
+     "icon": "⏱️"
+    },
+    {
+     "title": {
+      "en": "Speed: how fast",
+      "ta": "வேகம்: எவ்வளவு வேகமா"
+     },
+     "body": {
+      "en": "<p>Speed is how much distance you cover in one second. More distance in the same time means faster.</p><div aria-hidden=\"true\" class=\"bs-pic\">🐢 slow    🐇 fast</div>",
+      "ta": "<p>ஒரு வினாடில எவ்வளவு தூரம் போறோம்ங்கறதுதான் வேகம். அதே நேரத்துல அதிக தூரம் போனா வேகம் அதிகம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🐢 slow    🐇 fast</div>"
+     },
+     "icon": "💨"
+    },
+    {
+     "title": {
+      "en": "Direction matters too",
+      "ta": "திசையும் முக்கியம்"
+     },
+     "body": {
+      "en": "<p>Going 5 m east is not the same as 5 m west. Speed with a direction is called velocity.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬅️ west   east ➡️</div>",
+      "ta": "<p>கிழக்கே 5 m போறதும் மேற்கே 5 m போறதும் ஒண்ணு இல்ல. திசையோட சேர்ந்த வேகத்த திசைவேகம்னு சொல்வோம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">⬅️ west   east ➡️</div>"
+     },
+     "icon": "🧭"
+    }
+   ],
+   "hook": {
+    "en": "You walk from home to school. How do we say how far you went, and how fast?",
+    "ta": "நீ வீட்டில இருந்து ஸ்கூலுக்கு நடக்கிறே. எவ்வளவு தூரம், எவ்வளவு வேகம்னு எப்படி சொல்றது?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Walk 10 steps and count the seconds. Then walk the same 10 steps faster.</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>10 அடி நடந்து வினாடி எண்ணு. அப்புறம் அதே 10 அடிய வேகமா நடந்து பாரு.</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now you know the idea. Next we measure it exactly.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>ஐடியா புரிஞ்சுது. இனி அத சரியா அளக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: distance vs displacement",
+     "ta": "பாரு: தூரம் vs இடப்பெயர்ச்சி"
+    },
+    "sub": {
+     "en": "Press play and follow Raja along the path",
+     "ta": "Play அழுத்தி ராஜாவோட வழிய பின்தொடரு"
+    }
+   },
+   "animation": {
+    "file": "unit-02-motion-in-a-straight-line.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு ஸ்டோனையும் தொட்டு ஒவ்வொரு தலைப்பா தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "2.1 Distance vs. Displacement",
+      "ta": "2.1 தூரமா? இடப்பெயர்ச்சியா? — கன்பியூஷன் தீர்க்கலாம் வா!"
+     },
+     "body": {
+      "en": "<p>When you travel from one place to another, you might take a longer or shorter route — a winding road,\n        a shortcut, whatever. The total length of the path you actually walked is your <b>distance</b>. But no\n        matter which route you took, you end up a certain straight-line distance from where you started, in a\n        certain direction — that's your <b>displacement</b>.</p>\n<p>Distance only tells you \"how much ground was covered.\" Displacement tells you \"where you ended up,\n        relative to where you started, and in which direction.\" That's why distance is a\n        <b>scalar</b> (magnitude only) and displacement is a <b>vector</b> (magnitude + direction).</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Definitions</div>\n<div class=\"fmath\">Scalar = magnitude only  ·  Vector = magnitude + direction</div>\n<div class=\"fnote\">Scalars: distance, speed, time, mass  |  Vectors: displacement, velocity, acceleration, weight</div>\n</div>\n<p>Try it below — same start and end points (A → B), three different paths from the textbook's example.\n        The distance changes with the path, but the displacement never does.</p>",
+      "ta": "<p>பாரு, நீ உன் வீட்டுல இருந்து ஸ்கூலுக்குப் போறப்போ, ஒரே வழியில மட்டும் போக முடியாது இல்லையா? சின்ன சந்து, பெரிய ரோடு, சுத்தி வளைச்சு போற வழி — எல்லாமே இருக்கும். நீ நடந்த மொத்த வழியோட நீளம்தான் <b>தூரம்</b> (Distance). ஆனா, எந்த வழியில போனாலும், கடைசியில ஸ்கூலுக்குத்தான் வந்து சேர போற இல்லையா? உன் வீடு இருந்து ஸ்கூல் வரைக்கும் நேரா ஒரு கோடு இழுச்சா, அந்த நேர்க்கோட்டு தூரமும், அது எந்த திசையில இருக்குதுங்குறதும் சேர்ந்ததுதான் <b>இடப்பெயர்ச்சி</b> (Displacement).</p>\n<p>ஒரு வரியில சொல்லனும்னா: தூரம் — ‘எவ்வளவு நடந்தே’ அப்படீங்குறத சொல்லும். இடப்பெயர்ச்சி — ‘எங்க இருந்து எங்க வந்து சேர்ந்தே, எந்த திசையில’ அப்படீங்குறத சொல்லும். அதனால, தூரத்துக்கு திசை தேவையில்ல (இது ஒரு <b>அளவெண் அளவு</b> / Scalar), இடப்பெயர்ச்சிக்கு திசை கண்டிப்பா வேணும் (இது ஒரு <b>திசையுள்ள அளவு</b> / Vector). உதாரணமா, ஒரு பையன் வீட்டுல இருந்து ஸ்கூலுக்கு 100m + 400m + 200m ன்னு மொத்தம் 700m நடந்து போறான். ஆனா நேரா கோடு இழுச்சு பாத்தா, வெறும் 500m தூரம்தான் இருக்கு! அதனால அவன் நடந்த <b>தூரம்</b> 700m, ஆனா அவனோட <b>இடப்பெயர்ச்சி</b> வெறும் 500m (அந்த நேர்க்கோட்டு திசையில).</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">வரையறைகள்</div>\n<div class=\"fmath\">அளவெண் அளவு (Scalar) = அளவு மட்டும்  ·  திசையுள்ள அளவு (Vector) = அளவு + திசை</div>\n<div class=\"fnote\">அளவெண் அளவுகள்: தூரம், வேகம், நேரம், நிறை  |  திசையுள்ள அளவுகள்: இடப்பெயர்ச்சி, திசைவேகம், முடுக்கம், எடை</div>\n</div>\n<p>கீழ இருக்குற பட்டன்களை அழுத்திப் பாரு — A இருந்து B க்கு போக மூணு வெவ்வேறு வழி இருக்கு (பாடப்புத்தகத்துல இருந்து எடுத்தது!). வழி மாறினா தூரம் மாறும், ஆனா இடப்பெயர்ச்சி மட்டும் ஒரே மாதிரியே இருக்கும் — பாத்துக்கோ!</p>"
+     },
+     "section": "2.1"
+    },
+    {
+     "title": {
+      "en": "2.2 – 2.3 Speed vs. Velocity",
+      "ta": "2.2 – 2.3 வேகமா? திசைவேகமா?"
+     },
+     "body": {
+      "en": "<p>Speed is simply how fast distance is being covered — distance travelled per unit time. It doesn't\n        care about direction, so it's a scalar. If an object covers equal distances in equal time intervals, it\n        is moving at a <b>uniform (constant) speed</b>. If not, we describe its <b>mean (average) speed</b> over\n        the whole journey.</p>\n<p>Velocity is the same idea, but for displacement instead of distance — the rate of change of\n        displacement. Because displacement has a direction, velocity is a vector. A body moving at constant\n        velocity keeps both its speed <i>and</i> its direction unchanged.</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">Speed (scalar)</div>\n<div class=\"fmath\">speed = distance ÷ time</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">Velocity (vector)</div>\n<div class=\"fmath\">velocity = displacement ÷ time</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">Mean / average speed</div>\n<div class=\"fmath\">= total distance ÷ total time</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">Displacement (uniform velocity)</div>\n<div class=\"fmath\">displacement = velocity × time</div>\n</div>\n</div>",
+      "ta": "<p>ரோட்டுல வண்டி ஓட்டுறப்போ ‘ஸ்பீட்’ அதிகமா இருந்தா ஆக்சிடென்ட் ஆகும்னு நமக்கு தெரியும் இல்லையா? அதுதான் <b>வேகம்</b> (Speed) — நேரத்துக்குள்ள எவ்வளவு தூரம் கடந்தேன்னு சொல்றது. இதுக்கு திசை தேவையில்ல, அதனால இதுவும் ஒரு அளவெண் அளவுதான். ஒரே மாதிரி நேரவெளியில ஒரே மாதிரி தூரம் ஓடினா, அது <b>சீரான வேகம்</b> (Uniform Speed). இல்லைனா, முழு பயணத்துக்கும் சராசரி எடுத்து <b>சராசரி வேகம்</b> (Mean/Average Speed) சொல்றோம்.</p>\n<p>இதே ஐடியாதான் <b>திசைவேகம்</b>க்கும் (Velocity) — ஆனா தூரத்துக்கு பதிலா இடப்பெயர்ச்சி வெச்சு கணக்கு போடுறோம். இடப்பெயர்ச்சிக்கு திசை இருக்குற காரணத்தால, திசைவேகமும் ஒரு திசையுள்ள அளவுதான். ஒரு பொருள் சீரான திசைவேகத்துல போனா, அதோட வேகமும் திசையும் — ரெண்டுமே மாறாம இருக்கும்.</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">வேகம் (அளவெண் அளவு)</div>\n<div class=\"fmath\">வேகம் = தூரம் ÷ நேரம்</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">திசைவேகம் (திசையுள்ள அளவு)</div>\n<div class=\"fmath\">திசைவேகம் = இடப்பெயர்ச்சி ÷ நேரம்</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">சராசரி வேகம்</div>\n<div class=\"fmath\">= மொத்த தூரம் ÷ மொத்த நேரம்</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">இடப்பெயர்ச்சி (சீரான திசைவேகம்)</div>\n<div class=\"fmath\">இடப்பெயர்ச்சி = திசைவேகம் × நேரம்</div>\n</div>\n</div>"
+     },
+     "section": "2.2–2.3"
+    },
+    {
+     "title": {
+      "en": "2.4 Acceleration",
+      "ta": "2.4 முடுக்கம் — வேகம் மாறுற வேகம்!"
+     },
+     "body": {
+      "en": "<p>Real journeys rarely stay at one constant velocity — vehicles speed up, slow down, and change direction.\n        <b>Acceleration</b> measures how quickly velocity itself is changing: the change in velocity per unit\n        time.</p>\n<p>If velocity increases, acceleration is positive. If velocity decreases, acceleration is\n        <b>negative</b> — this is called <b>deceleration</b>. A body whose velocity changes by the same amount\n        every second has a <b>uniform acceleration</b>.</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">Acceleration</div>\n<div class=\"fmath\">a = (final v − initial v) ÷ time</div>\n<div class=\"fnote\">Unit: m s<sup>-2</sup>. A negative result means the body is decelerating.</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">Displacement (uniform acceleration)</div>\n<div class=\"fmath\">s = mean velocity × time</div>\n<div class=\"fnote\">mean velocity = (initial v + final v) ÷ 2</div>\n</div>\n</div>",
+      "ta": "<p>நிஜ வாழ்க்கையில வண்டி எப்பவுமே ஒரே வேகத்துல ஓடாது இல்லையா — சில நேரம் வேகமா, சில நேரம் மெதுவா போகும். இந்த திசைவேகம் மாறுற வேகத்துக்குதான் <b>முடுக்கம்</b> (Acceleration) சொல்றோம் — நேரத்துக்குள்ள திசைவேகம் எவ்வளவு மாறுச்சு அப்படீங்குறதுதான்.</p>\n<p>திசைவேகம் கூடுனா முடுக்கம் ‘+’ (பாசிட்டிவ்). திசைவேகம் குறைஞ்சா முடுக்கம் <b>‘−’ (நெகட்டிவ்)</b> — இதுக்குதான் <b>எதிர்முடுக்கம்</b> (Deceleration) சொல்றோம். ஒவ்வொரு விநாடியும் ஒரே அளவு திசைவேகம் மாறினா, அது <b>சீரான முடுக்கம்</b>.</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">முடுக்கம்</div>\n<div class=\"fmath\">a = (இறுதி v − ஆரம்ப v) ÷ நேரம்</div>\n<div class=\"fnote\">அலகு: m s⁻². பதில் நெகட்டிவா வந்தா, பொருள் மெதுவாகுதுன்னு அர்த்தம்.</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">இடப்பெயர்ச்சி (சீரான முடுக்கம்)</div>\n<div class=\"fmath\">s = சராசரி திசைவேகம் × நேரம்</div>\n<div class=\"fnote\">சராசரி திசைவேகம் = (ஆரம்ப v + இறுதி v) ÷ 2</div>\n</div>\n</div>"
+     },
+     "section": "2.4"
+    },
+    {
+     "title": {
+      "en": "2.5 – 2.6 Reading Motion Graphs",
+      "ta": "2.5 – 2.6 கிராஃப் படிக்கிறது எப்படி?"
+     },
+     "body": {
+      "en": "<p>A <b>displacement–time graph</b> plots position against time. If the line is straight, velocity is\n        uniform; if it curves, velocity is changing. Either way, the <b>gradient (slope)</b> of the graph at any\n        point gives the velocity at that instant.</p>\n<p>A <b>velocity–time graph</b> plots velocity against time. Its <b>gradient</b> gives the acceleration.\n        A flat, horizontal line means constant velocity (zero acceleration). Even more useful: the\n        <b>area enclosed between the line and the time-axis</b> gives the displacement — this works whether the\n        motion is uniform (a rectangle), uniformly accelerating (a triangle or trapezium), or a mix of phases\n        (add up the area of each phase).</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">s–t graph</div>\n<div class=\"fmath\">gradient = velocity</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">v–t graph</div>\n<div class=\"fmath\">gradient = acceleration</div>\n</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">v–t graph — the big one</div>\n<div class=\"fmath\">area under the line = displacement</div>\n</div>",
+      "ta": "<p><b>இடப்பெயர்ச்சி–நேரம் கிராஃப்</b> (s-t graph) ஒரு பொருள் நேரத்துக்கேத்த எப்படி இடம் மாத்திண்டு இருக்குன்னு காட்டும். கோடு நேரா இருந்தா திசைவேகம் சீரா இருக்குதுன்னு அர்த்தம்; கோடு வளைஞ்சா திசைவேகம் மாறிண்டு இருக்குதுன்னு அர்த்தம். இந்த கிராஃபோட <b>சாய்வு</b> (gradient) எடுத்தா, அதுதான் திசைவேகம்.</p>\n<p><b>திசைவேகம்–நேரம் கிராஃப்</b> (v-t graph) திசைவேகத்தை நேரத்துக்கேத்த காட்டும். இதோட சாய்வு எடுத்தா, அது முடுக்கம். இன்னும் ஒரு சூப்பர் டிரிக் — இந்த கோட்டுக்கும் நேர அச்சுக்கும் நடுவுல இருக்குற <b>ஏரியா</b> (பரப்பளவு) எடுத்தா, அதுதான் இடப்பெயர்ச்சி! இது ஒரு செவ்வகமா இருந்தாலும் (சீரான வேகம்), முக்கோணமா இருந்தாலும் (சீரான முடுக்கம்), பல பாகமா இருந்தாலும் (ஒவ்வொரு பாகத்தையும் தனித்தனியா கணக்கு போட்டு கூட்டு) — இது எப்பவும் வொர்க் ஆகும்!</p>\n<div class=\"formula-grid\">\n<div class=\"formula-box\">\n<div class=\"flabel\">s–t கிராஃப்</div>\n<div class=\"fmath\">சாய்வு = திசைவேகம்</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">v–t கிராஃப்</div>\n<div class=\"fmath\">சாய்வு = முடுக்கம்</div>\n</div>\n</div>\n<div class=\"formula-box\">\n<div class=\"flabel\">v–t கிராஃப் — இதுதான் இம்பார்ட்டன்ட்!</div>\n<div class=\"fmath\">கோட்டுக்கு கீழ இருக்குற ஏரியா = இடப்பெயர்ச்சி</div>\n</div>"
+     },
+     "section": "2.5–2.6"
+    },
+    {
+     "title": {
+      "en": "2.7 Gravitational Acceleration (Free Fall)",
+      "ta": "2.7 பூமியோட ஈர்ப்பு முடுக்கம் — கீழே விழுறப்போ என்ன ஆகுது?"
+     },
+     "body": {
+      "en": "<p>Every falling object speeds up as it falls, because the Earth's gravity accelerates it downward. This\n        is the <b>gravitational acceleration</b>, symbol <b>g</b>. Near sea level, <b>g ≈ 9.8 m s<sup>-2</sup></b>\n        (often rounded to 10 m s<sup>-2</sup> for easier calculation) — meaning a freely falling object gains\n        about 9.8 m s<sup>-1</sup> of downward velocity every second.</p>\n<p>Throw something straight up instead, and gravity works against its motion: its upward velocity\n        <i>decreases</i> by about 9.8 m s<sup>-1</sup> every second, i.e. the acceleration is\n        <b>−9.8 m s<sup>-2</sup></b> (taking \"upward\" as positive), until it momentarily stops at its highest\n        point.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">Gravitational acceleration</div>\n<div class=\"fmath\">g ≈ 9.8 m s<sup>-2</sup> (down)  ·  −9.8 m s<sup>-2</sup> for a body moving upward</div>\n</div>",
+      "ta": "<p>ஒரு பொருள்ள மேலே இருந்து விட்டா, கீழே விழுறப்போ அதோட வேகம் மெல்ல மெல்ல கூடிண்டே போகும் இல்லையா — இதுக்கு காரணம் பூமியோட ஈர்ப்புசக்தி. இந்த முடுக்கத்துக்கு <b>g</b> அப்படீங்குறோம். சமுத்திர மட்டத்துல <b>g ≈ 9.8 m s⁻²</b> (கணக்கு போட சுலபமா 10 m s⁻² அப்படீன்னு எடுத்துக்குவோம்) — அதாவது, ஒவ்வொரு விநாடியும் கீழே விழுற பொருளோட வேகம் 9.8 m s⁻¹ கூடிண்டே போகும்.</p>\n<p>அதே பொருள்ள மேல வீசி எறிஞ்சா, ஈர்ப்புசக்தி அதுக்கு எதிரா வேலை செய்யும் — மேல போற வேகம் ஒவ்வொரு விநாடியும் 9.8 m s⁻¹ குறையும். ‘மேல’ அப்படீங்குறதை பாசிட்டிவ் திசையா எடுத்துக்கிட்டா, முடுக்கம் <b>−9.8 m s⁻²</b> — பொருள் மேல உச்சிக்கு போய் ஒரு நொடி நின்னு, திரும்பி கீழே வர ஆரம்பிக்கும் வரைக்கும்.</p>\n<div class=\"formula-box\">\n<div class=\"flabel\">ஈர்ப்பு முடுக்கம்</div>\n<div class=\"fmath\">g ≈ 9.8 m s⁻² (கீழ)  ·  −9.8 m s⁻² (மேல போற பொருளுக்கு)</div>\n</div>"
+     },
+     "section": "2.7"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you saw the motion demonstration. Below are the core definitions, displacement-velocity equations, and motion graph rules!",
+    "ta": "பகுதி 1-ல் இயக்கக் காட்சிகளை பார்த்தோம். அதற்கான அதிகாரப்பூர்வ வரைவிலக்கணங்கள், சமன்பாடுகள், வரைபடக் கொள்கைகளை இங்கே கற்போம்!"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ Common mistakes</div>\n<ul>\n<li><b>Distance ≠ Displacement.</b> Distance is the total path length walked (always positive, no\n          direction). Displacement is the straight-line change in position (can be zero, or \"negative\" relative\n          to a chosen direction). Don't use them interchangeably in an answer.</li>\n<li><b>Dropping the negative sign.</b> A negative acceleration doesn't mean \"no acceleration\" — it means\n          the object is decelerating. Keep the sign through your working, then state the deceleration as a\n          positive magnitude at the end if asked for one.</li>\n<li><b>Mixing up gradient and area.</b> On a displacement–time graph, the <i>gradient</i> gives velocity.\n          On a velocity–time graph, the <i>area</i> gives displacement (its gradient gives acceleration instead).\n          Confusing the two is one of the most common exam errors.</li>\n<li><b>Treating a multi-stage journey as one stage.</b> When a body speeds up, then moves at constant\n          velocity, then slows down, calculate the displacement of <i>each phase separately</i> and add them —\n          never apply one formula across the whole journey.</li>\n<li><b>Missing units.</b> Always write m, m s<sup>-1</sup>, or m s<sup>-2</sup> as appropriate — O/L\n          markers deduct marks for a correct number with no (or wrong) unit.</li>\n</ul>\n</div>",
+     "ta": "<div class=\"callout\">\n<div class=\"ctitle\">⚠️ இதுல தப்பு பண்ணாதீங்க!</div>\n<ul>\n<li><b>தூரம் ≠ இடப்பெயர்ச்சி!</b> தூரம்னா நடந்த மொத்த வழி (எப்பவும் பாசிட்டிவ், திசை தேவையில்ல). இடப்பெயர்ச்சின்னா ஆரம்பம்-முடிவுக்கு நடுவுல நேர்க்கோட்டு தூரம் (திசையும் வேணும்). ரெண்டையும் மாத்தி மாத்தி எழுதாதீங்க — எக்ஸாமுல மார்க் கட் ஆகும்!</li>\n<li><b>நெகட்டிவ் சைனை விட்டுடாதீங்க!</b> முடுக்கம் நெகட்டிவா வந்தா, ‘முடுக்கம் இல்ல’ அப்படீன்னு அர்த்தமில்ல — பொருள் மெதுவாகுதுன்னு அர்த்தம். கணக்குல சைன் வெச்சே போடுங்க; கடைசில ‘எதிர்முடுக்கம் எவ்வளவு’்னு கேட்டா மட்டும் பாசிட்டிவ் நம்பரா சொல்லுங்க.</li>\n<li><b>சாய்வையும் ஏரியாவையும் மாத்தி குழப்பாதீங்க!</b> s-t கிராஃபுல சாய்வு = திசைவேகம். v-t கிராஃபுல ஏரியா = இடப்பெயர்ச்சி (சாய்வு = முடுக்கம்). இது எக்ஸாமுல எல்லாரும் பண்றத் தப்பு நம்பர் 1!</li>\n<li><b>பல பாகம் இருக்குற பயணத்த ஒரே பாகமா நினைக்காதீங்க!</b> பொருள் முதல்ல வேகமெடுத்து, அப்புறம் சீரா போய், அப்புறம் மெதுவாகுதுன்னா — ஒவ்வொரு பாகத்தையும் தனித்தனியா கணக்கு போட்டு, கடைசியில கூட்டுங்க. ஒரே ஃபார்முலா முழு பயணத்துக்கும் போடாதீங்க.</li>\n<li><b>அலகு (unit) எழுதத் தவறாதீங்க!</b> m, m s⁻¹, m s⁻² சரியா எழுதுங்க — சரியான நம்பர் இருந்தாலும் அலகு இல்லைனா மார்க் போயிடும்!</li>\n</ul>\n</div>"
+    }
+   ]
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Motion Lab",
+     "ta": "மோஷன் லேப்"
+    },
+    "sub": {
+     "en": "Set an initial velocity and acceleration — watch the body, and both graphs, respond live",
+     "ta": "ஆரம்ப வேகமும், முடுக்கமும் மாத்தி பாரு — பொருளும், ரெண்டு கிராஃபும் லைவா மாறுறத பாத்துக்கோ!"
+    }
+   },
+   "legacy": {
+    "file": "unit-02-motion-in-a-straight-line.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "holdgame",
+   "kind": "holdgame",
+   "heading": {
+    "title": {
+     "en": "🎮 Motion Maths Challenge",
+     "ta": "🎮 இயக்கக் கணக்கு சவால்"
+    },
+    "sub": {
+     "en": "Each level, work out the answer in your head and set the slider — the car rolls to the finish line when you are right!",
+     "ta": "ஒவ்வொரு லெவலிலும் மனசுலயே கணக்கு போட்டு ஸ்லைடரை வை — சரியா இருந்தா கார் ஃபினிஷ் லைனுக்கு போகும்!"
+    }
+   },
+   "legacy": {
+    "file": "unit-02-motion-in-a-straight-line.html",
+    "hash": "holdgame"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Quick check before the harder practice questions",
+     "ta": "கஷ்டமான கேள்விக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு பாரு!"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "A hiker walks 300 m along a winding forest trail and ends up 120 m in a straight line from the start. What is the hiker's displacement?",
+      "ta": "ஒரு பையன் காட்டு வழியா 300 m நடந்து, கடைசில ஆரம்ப இடத்துல இருந்து நேர்க்கோட்டுல 120 m தூரத்துல வந்து நிக்குறான். அவனோட இடப்பெயர்ச்சி என்ன?"
+     },
+     "options": [
+      {
+       "en": "300 m",
+       "ta": "300 m"
+      },
+      {
+       "en": "120 m, in the direction from start to end point",
+       "ta": "120 m, ஆரம்ப இடத்துல இருந்து முடிவு இடத்துக்குப் போற திசையில"
+      },
+      {
+       "en": "420 m",
+       "ta": "420 m"
+      },
+      {
+       "en": "It cannot be determined from this information",
+       "ta": "இதுல இருந்து சொல்ல முடியாது"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Displacement is the straight-line distance from the start point to the end point, with direction — 120 m in that direction. The 300 m is the distance travelled (a scalar).",
+      "ta": "இடப்பெயர்ச்சின்னா ஆரம்ப இடத்துல இருந்து முடிவு இடத்துக்கு நேர்க்கோட்டு தூரம், திசையோட சேர்த்து — அதுதான் 120 m அந்த திசையில. 300 m அவன் நடந்த தூரம் (அளவெண் அளவு)."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "Which of these physical quantities is a vector?",
+      "ta": "இதுல எது திசையுள்ள அளவு (vector)?"
+     },
+     "options": [
+      {
+       "en": "Distance",
+       "ta": "தூரம்"
+      },
+      {
+       "en": "Speed",
+       "ta": "வேகம்"
+      },
+      {
+       "en": "Time",
+       "ta": "நேரம்"
+      },
+      {
+       "en": "Velocity",
+       "ta": "திசைவேகம்"
+      }
+     ],
+     "answer": 3,
+     "explain": {
+      "en": "A vector needs both magnitude and direction. Velocity is displacement ÷ time, and displacement has a direction — so velocity is a vector. The other three are scalars.",
+      "ta": "திசையுள்ள அளவுக்கு அளவும் திசையும் ரெண்டும் வேணும். திசைவேகம் = இடப்பெயர்ச்சி ÷ நேரம், இடப்பெயர்ச்சிக்கு திசை இருக்கு — அதனால திசைவேகம் திசையுள்ள அளவு. மத்த மூணும் அளவெண் அளவுகள்."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "A car covers 150 km in 3 hours at a steady rate. What is its speed?",
+      "ta": "ஒரு கார் 3 மணி நேரத்துல 150 km சீரா ஓடுது. அதோட வேகம் என்ன?"
+     },
+     "options": [
+      {
+       "en": "30 km/h",
+       "ta": "30 km/h"
+      },
+      {
+       "en": "50 km/h",
+       "ta": "50 km/h"
+      },
+      {
+       "en": "450 km/h",
+       "ta": "450 km/h"
+      },
+      {
+       "en": "100 km/h",
+       "ta": "100 km/h"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "speed = distance ÷ time = 150 km ÷ 3 h = 50 km/h.",
+      "ta": "வேகம் = தூரம் ÷ நேரம் = 150 km ÷ 3 h = 50 km/h."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "A cyclist's velocity drops from 12 m s⁻¹ to 4 m s⁻¹ in 4 s, moving in the same direction throughout. What is the cyclist's acceleration?",
+      "ta": "ஒரு சைக்கிள்காரனோட திசைவேகம் 12 m s⁻¹ இருந்து 4 m s⁻¹ ஆக 4 விநாடியில குறையுது, ஒரே திசையில போறப்போ. அவனோட முடுக்கம் என்ன?"
+     },
+     "options": [
+      {
+       "en": "+2 m s⁻²",
+       "ta": "+2 m s⁻²"
+      },
+      {
+       "en": "−2 m s⁻²",
+       "ta": "−2 m s⁻²"
+      },
+      {
+       "en": "+8 m s⁻²",
+       "ta": "+8 m s⁻²"
+      },
+      {
+       "en": "−8 m s⁻²",
+       "ta": "−8 m s⁻²"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "a = (final v − initial v) ÷ time = (4 − 12) ÷ 4 = −2 m s⁻². The negative sign shows the cyclist is decelerating at 2 m s⁻².",
+      "ta": "a = (இறுதி v − ஆரம்ப v) ÷ நேரம் = (4−12) ÷ 4 = −2 m s⁻². நெகட்டிவ் சைன் அவன் மெதுவாகுறான்னு காட்டுது — 2 m s⁻² எதிர்முடுக்கம்."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "On a velocity–time graph, what does the area enclosed between the line and the time-axis represent?",
+      "ta": "v-t கிராஃபுல, கோட்டுக்கும் நேர அச்சுக்கும் நடுவுல இருக்குற ஏரியா என்ன சொல்லும்?"
+     },
+     "options": [
+      {
+       "en": "Acceleration",
+       "ta": "முடுக்கம்"
+      },
+      {
+       "en": "Average speed",
+       "ta": "சராசரி வேகம்"
+      },
+      {
+       "en": "Displacement",
+       "ta": "இடப்பெயர்ச்சி"
+      },
+      {
+       "en": "Distance, always",
+       "ta": "எப்பவுமே தூரம் மட்டும்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "The area under a velocity–time graph gives the displacement of the body over that time interval — this is one of the most useful facts for solving multi-stage motion problems.",
+      "ta": "v-t கிராஃபுல ஏரியா = இடப்பெயர்ச்சி. பல பாகம் இருக்குற கேள்விகள்ல இது ரொம்ப உபயோகமா இருக்கும்."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Scalar or Vector?",
+     "ta": "🧩 அளவெண்ணா? திசையுள்ளதா?"
+    },
+    "sub": {
+     "en": "Two quick rounds — match each idea, then sort the quantities into Scalar and Vector!",
+     "ta": "ரெண்டு சின்ன சுற்றுகள் — கருத்துகளை இணை, அப்புறம் அளவுகளை அளவெண் / திசையுள்ளது னு வரிசைப்படுத்து!"
+    }
+   },
+   "legacy": {
+    "file": "unit-02-motion-in-a-straight-line.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Textbook Examples",
+     "ta": "பாட புத்தக உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Tap through each step — mark values shown as in an examiner's scheme",
+     "ta": "ஒவ்வொரு படியையும் தொட்டுப் பாரு — மார்க் ஸ்கீம் மாதிரி மதிப்பெண்ணும் காட்டியிருக்கேன்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">\n        A child rides a bicycle on a straight path. Her displacement from the starting point, measured every\n        1 s, is given below.\n      </div>\n<div class=\"qdiagram\">\n<table class=\"qtable\">\n<tr><th>t (s)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>\n<tr><th>s (m)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>4</td><td>0</td></tr>\n</table>\n<svg id=\"q1Svg\" style=\"margin-top:10px;min-width:420px;\" viewbox=\"0 0 560 180\" width=\"100%\"></svg>\n</div>\n<div class=\"qtext\">\n        (i) What kind of motion occurred during the first 4 s?  (ii) Find the rate of change of displacement\n        during the first 4 s.  (iii) Give one word for this rate of change.  (iv) Describe the motion\n        from 4 s to 8 s.  (v) Describe the motion from 8 s to 10 s.  (vi) Find the velocity during the\n        last 2 s.\n      </div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) From t = 0 to 4 s, displacement rises steadily by 2 m every second (0 → 2 → 4 → 6 → 8 m).</p>\n<div class=\"work\">The child moved forward 8 m at a uniform (constant) velocity.</div>\n<div class=\"note\"><b>Mark for:</b> spotting that equal displacement occurs in equal time intervals — the definition of uniform velocity.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) Rate of change of displacement = velocity = (final s − initial s) ÷ time</p>\n<div class=\"work\">= (8 − 0) m ÷ 4 s = 2 m s<sup>-1</sup></div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting the unit m s<sup>-1</sup>, or using the wrong time interval.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) The rate of change of displacement is called <b>velocity</b>.</p>\n<div class=\"note\"><b>Mark for:</b> correct terminology — not \"speed.\"</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 4 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iv) From 4 s to 8 s, displacement stays fixed at 8 m — it does not change.</p>\n<div class=\"work\">The child was not moving (at rest) during this interval.</div>\n<div class=\"note\"><b>Where marks are lost:</b> saying \"moving at constant velocity\" — a flat line means zero velocity, not constant nonzero velocity.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 5 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(v) From 8 s to 10 s, displacement falls from 8 m back to 0 m.</p>\n<div class=\"work\">The child travelled back in the opposite direction, arriving back at the starting point at t = 10 s.</div>\n<div class=\"note\"><b>Mark for:</b> noting the direction reversed, not just that displacement \"decreased.\"</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 6 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(vi) Velocity during the last 2 s = (final s − initial s) ÷ time = (0 − 8) m ÷ 2 s</p>\n<div class=\"work\">= −4 m s<sup>-1</sup></div>\n<div class=\"note\"><b>Where marks are lost:</b> dropping the minus sign — it's what tells you the motion is in the opposite direction.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answers:</b> (i) uniform velocity forward  (ii) 2 m s<sup>-1</sup>  (iii) velocity\n         (iv) at rest  (v) moved back to the start  (vi) −4 m s<sup>-1</sup>, i.e. 4 m s<sup>-1</sup>\n        in the opposite direction.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு பொண்ணு சைக்கிள் ஓட்டிண்டு நேர்க்கோட்டுல போறா. ஒவ்வொரு 1 விநாடிக்கும், ஆரம்ப இடத்துல இருந்து அவளோட இடப்பெயர்ச்சி கீழே கொடுத்திருக்கு.</div>\n<div class=\"qdiagram\">\n<table class=\"qtable\">\n<tr><th>t (s)</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>\n<tr><th>s (m)</th><td>0</td><td>2</td><td>4</td><td>6</td><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td><td>4</td><td>0</td></tr>\n</table>\n<svg id=\"q1Svg\" style=\"margin-top:10px;min-width:420px;\" viewbox=\"0 0 560 180\" width=\"100%\"></svg>\n</div>\n<div class=\"qtext\">(i) முதல் 4 விநாடியில என்ன மாதிரி இயக்கம் நடந்துச்சு?  (ii) முதல் 4 விநாடியில இடப்பெயர்ச்சி மாறுற வேகம் என்ன?  (iii) இந்த மாறுற வேகத்துக்கு ஒரு வார்த்தையில பேரு என்ன?  (iv) 4s முதல் 8s வரைக்கும் என்ன நடந்துச்சு?  (v) 8s முதல் 10s வரைக்கும் என்ன நடந்துச்சு?  (vi) கடைசி 2 விநாடியில திசைவேகம் என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) t=0 இருந்து 4s வரைக்கும், இடப்பெயர்ச்சி ஒவ்வொரு விநாடியும் சரியா 2m ஏறுது (0→2→4→6→8 m).</p>\n<div class=\"work\">பொண்ணு 8m முன்னாடி சீரான (constant) திசைவேகத்துல போனா.</div>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> சம நேரவெளியில சம இடப்பெயர்ச்சி வருதுன்னு கண்டுபிடிச்சதுக்கு — அதுதான் சீரான திசைவேகத்தோட வரையறை.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) இடப்பெயர்ச்சி மாறுற வேகம் = திசைவேகம் = (இறுதி s − ஆரம்ப s) ÷ நேரம்</p>\n<div class=\"work\">= (8 − 0) m ÷ 4 s = 2 m s<sup>-1</sup></div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> அலகு m s⁻¹ எழுதத் தவறுறது, அல்லது தப்பான நேரவெளி வெச்சு கணக்கு போடுறது.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) இடப்பெயர்ச்சி மாறுற வேகத்துக்கு <b>திசைவேகம்</b> (Velocity) அப்படீங்குறோம்.</p>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> சரியான வார்த்த — ‘வேகம்’் (speed) அப்படீன்னு சொல்லிடாதீங்க.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 4 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iv) 4s முதல் 8s வரைக்கும், இடப்பெயர்ச்சி 8m ஆகவே இருக்கு — மாறவே இல்ல.</p>\n<div class=\"work\">இந்த நேரவெளியில பொண்ணு அசையாம நின்னிட்டா (rest).</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> ‘சீரான வேகத்துல போச்சு’் அப்படீன்னு சொல்லிடாதீங்க — கோடு ஃப்ளாட்டா இருந்தா திசைவேகம் zero, சீரான வேகம் இல்ல.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 5 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(v) 8s முதல் 10s வரைக்கும், இடப்பெயர்ச்சி 8m இருந்து 0m ஆகக் குறையுது.</p>\n<div class=\"work\">பொண்ணு எதிர் திசையில திரும்பி போய், t = 10 s ல ஆரம்ப இடத்துக்கே வந்துடுறா.</div>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> திசை மாறிச்சுன்னு சொல்றதுக்கு — வெறும் ‘இடப்பெயர்ச்சி குறைஞ்சுது’் அப்படீன்னு மட்டும் சொல்லிடாதீங்க.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 6 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(vi) கடைசி 2s திசைவேகம் = (இறுதி s − ஆரம்ப s) ÷ நேரம் = (0 − 8) m ÷ 2 s</p>\n<div class=\"work\">= −4 m s<sup>-1</sup></div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> மைனஸ் சைன் விட்டுடுறது — அதுதான் திசை திரும்பிச்சுன்னு காட்டுது.</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்கள்:</b> (i) சீரான திசைவேகத்துல முன்னாடி  (ii) 2 m s⁻¹  (iii) திசைவேகம்  (iv) அசையாம நின்னது  (v) ஆரம்ப இடத்துக்கே திரும்பிப் போச்சு  (vi) −4 m s⁻¹, அதாவது 4 m s⁻¹ எதிர் திசையில.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.30–31",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 30–31"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">\n        A body starting from rest accelerates for 4 s and reaches a velocity of 12 m s<sup>-1</sup>. It then\n        moves at a constant 12 m s<sup>-1</sup> for 4 s, and finally decelerates to rest over the last 2 s.\n        <br/>(i) Find the acceleration during the first 4 s. (ii) Find the deceleration during the last 2 s.\n        (iii) Find the total displacement over the 10 s.\n      </div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) Acceleration = (final v − initial v) ÷ time = (12 − 0) m s<sup>-1</sup> ÷ 4 s</p>\n<div class=\"work\">= 3 m s<sup>-2</sup></div>\n<div class=\"note\"><b>Marks for:</b> the correct formula (1) and correct substitution with unit (1).</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) Acceleration during the last 2 s = (0 − 12) m s<sup>-1</sup> ÷ 2 s = −6 m s<sup>-2</sup></p>\n<div class=\"work\">Deceleration = 6 m s<sup>-2</sup></div>\n<div class=\"note\"><b>Where marks are lost:</b> giving −6 as the final answer to \"find the deceleration\" — deceleration is usually reported as a positive magnitude.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement in first 4 s = mean velocity × time = (0 + 12)/2 × 4</p>\n<div class=\"work\">= 24 m</div>\n<div class=\"note\"><b>Marks for:</b> using mean velocity for the accelerating phase, not final velocity alone.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 4 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement in next 4 s (constant velocity) = velocity × time = 12 × 4</p>\n<div class=\"work\">= 48 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 5 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement in last 2 s = mean velocity × time = (12 + 0)/2 × 2</p>\n<div class=\"work\">= 12 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 6 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) Total displacement = 24 + 48 + 12</p>\n<div class=\"work\">= 84 m</div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting one of the three phases, or using 10 s with a single average-velocity formula (only valid for a single uniform-acceleration phase).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answers:</b> acceleration = 3 m s<sup>-2</sup>, deceleration = 6 m s<sup>-2</sup>,\n        total displacement = <b>84 m</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு பொருள் நிலைகுத்தி நின்னு இருந்து, 4 விநாடி முடுக்கம் எடுத்து 12 m s⁻¹ வேகத்துக்குப் போகுது. அப்புறம் 4 விநாடி அதே 12 m s⁻¹-ல சீரா போகுது. கடைசியா 2 விநாடியில எதிர்முடுக்கம் எடுத்து நின்னுடுது.<br/>(i) முதல் 4s முடுக்கம் என்ன? (ii) கடைசி 2s எதிர்முடுக்கம் என்ன? (iii) 10 விநாடிக்கும் மொத்த இடப்பெயர்ச்சி என்ன?</div>\n<div class=\"qdiagram\">\n<svg id=\"q2Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) முடுக்கம் = (இறுதி v − ஆரம்ப v) ÷ நேரம் = (12 − 0) m s⁻¹ ÷ 4 s</p>\n<div class=\"work\">= 3 m s<sup>-2</sup></div>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> சரியான ஃபார்முலா (1 மார்க்) + சரியான மாற்று + அலகு (1 மார்க்).</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) கடைசி 2s முடுக்கம் = (0 − 12) m s⁻¹ ÷ 2 s = −6 m s⁻²</p>\n<div class=\"work\">எதிர்முடுக்கம் = 6 m s⁻²</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> ‘எதிர்முடுக்கம் எவ்வளவு’்னு கேட்டா −6 அப்படீன்னே பதில் சொல்லிடாதீங்க — எதிர்முடுக்கம் எப்பவும் பாசிட்டிவ் நம்பரா சொல்லனும்.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முதல் 4s இடப்பெயர்ச்சி = சராசரி திசைவேகம் × நேரம் = (0+12)/2 × 4</p>\n<div class=\"work\">= 24 m</div>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> முடுக்கம் எடுக்குற பாகத்துக்கு சராசரி திசைவேகம் உபயோகிக்கணும், இறுதி வேகம் மட்டும் வெச்சு கணக்கு போடக்கூடாது.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 4 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>அடுத்த 4s இடப்பெயர்ச்சி (சீரான திசைவேகம்) = திசைவேகம் × நேரம் = 12 × 4</p>\n<div class=\"work\">= 48 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 5 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கடைசி 2s இடப்பெயர்ச்சி = சராசரி திசைவேகம் × நேரம் = (12+0)/2 × 2</p>\n<div class=\"work\">= 12 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 6 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) மொத்த இடப்பெயர்ச்சி = 24 + 48 + 12</p>\n<div class=\"work\">= 84 m</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> மூணு பாகத்துல ஒண்ணை மறந்துடுறது, அல்லது 10s முழுசுக்கும் ஒரே சராசரி வேக ஃபார்முலா போடுறது (இது ஒரு சீரான முடுக்க பாகத்துக்கு மட்டும்தான் செல்லும்).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்கள்:</b> முடுக்கம் = 3 m s⁻², எதிர்முடுக்கம் = 6 m s⁻², மொத்த இடப்பெயர்ச்சி = <b>84 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.34–35",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 34–35"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">\n        An object starts from rest and reaches 15 m s<sup>-1</sup> after 6 s of uniform acceleration. It then\n        travels at that velocity for 6 s, before decelerating to rest over the final 3 s.\n        <br/>(ii) Acceleration during the first 6 s. (iii) Displacement during the first 6 s. (iv) Displacement\n        at uniform velocity. (v) Deceleration during the last 3 s. (vi) Displacement during the last 3 s.\n        (vii) Total displacement over the whole motion.\n      </div>\n<div class=\"qdiagram\">\n<svg id=\"q3Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Acceleration (0 → A) = gradient of OA = (15 − 0) m s<sup>-1</sup> ÷ 6 s</p>\n<div class=\"work\">= 2.5 m s<sup>-2</sup></div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement under OA = area of triangle = ½ × 15 × 6</p>\n<div class=\"work\">= 45 m</div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting the ½ — this segment is a triangle, not a rectangle.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement under AB (uniform velocity) = 15 × 6</p>\n<div class=\"work\">= 90 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 4 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Acceleration (B → C) = (0 − 15) m s<sup>-1</sup> ÷ 3 s = −5 m s<sup>-2</sup></p>\n<div class=\"work\">Deceleration = 5 m s<sup>-2</sup></div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 5 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Displacement under BC = ½ × 15 × 3</p>\n<div class=\"work\">= 22.5 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 6 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Total displacement = area of trapezium OABC = 45 + 90 + 22.5</p>\n<div class=\"work\">= 157.5 m</div>\n<div class=\"note\"><b>Mark for:</b> stating the total as the sum of the three phase-areas (equivalent to the trapezium-area formula the textbook uses).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answers:</b> acceleration = 2.5 m s<sup>-2</sup>, deceleration = 5 m s<sup>-2</sup>,\n        total displacement = <b>157.5 m</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு பொருள் நிலைகுத்தி நின்னு இருந்து, 6 விநாடி சீரான முடுக்கம் எடுத்து 15 m s⁻¹ வேகத்துக்குப் போகுது. அப்புறம் அதே வேகத்துல 6 விநாடி போகுது. கடைசியா 3 விநாடியில எதிர்முடுக்கம் எடுத்து நின்னுடுது.<br/>(ii) முதல் 6s முடுக்கம். (iii) முதல் 6s இடப்பெயர்ச்சி. (iv) சீரான வேகத்துல போற இடப்பெயர்ச்சி. (v) கடைசி 3s எதிர்முடுக்கம். (vi) கடைசி 3s இடப்பெயர்ச்சி. (vii) முழு பயணத்துக்கும் மொத்த இடப்பெயர்ச்சி.</div>\n<div class=\"qdiagram\">\n<svg id=\"q3Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முடுக்கம் (O → A) = OA-வோட சாய்வு = (15 − 0) m s⁻¹ ÷ 6 s</p>\n<div class=\"work\">= 2.5 m s<sup>-2</sup></div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>OA-க்கு கீழ இருக்குற இடப்பெயர்ச்சி = முக்கோண ஏரியா = ½ × 15 × 6</p>\n<div class=\"work\">= 45 m</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> ½ ஐ மறந்துடுறது — இது முக்கோணம், செவ்வகம் இல்ல!</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>AB-க்கு கீழ இருக்குற இடப்பெயர்ச்சி (சீரான வேகம்) = 15 × 6</p>\n<div class=\"work\">= 90 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 4 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>முடுக்கம் (B → C) = (0 − 15) m s⁻¹ ÷ 3 s = −5 m s⁻²</p>\n<div class=\"work\">எதிர்முடுக்கம் = 5 m s⁻²</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 5 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>BC-க்கு கீழ இருக்குற இடப்பெயர்ச்சி = ½ × 15 × 3</p>\n<div class=\"work\">= 22.5 m</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 6 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மொத்த இடப்பெயர்ச்சி = OABC ட்ரெப்பீசியத்தோட ஏரியா = 45 + 90 + 22.5</p>\n<div class=\"work\">= 157.5 m</div>\n<div class=\"note\"><b>மார்க் கிடைக்க:</b> மொத்த ஏரியாவை மூணு பாகமா பிரிச்சு கூட்டி சொல்றது (பாடப்புத்தகத்துல இருக்குற ட்ரெப்பீசிய ஃபார்முலாவுக்கு இதே சமம்).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்கள்:</b> முடுக்கம் = 2.5 m s⁻², எதிர்முடுக்கம் = 5 m s⁻², மொத்த இடப்பெயர்ச்சி = <b>157.5 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.42–43",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 42–43"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">\n        An object is projected vertically upward at 30 m s<sup>-1</sup>. Taking g = 10 m s<sup>-2</sup> for\n        convenience: (i) tabulate velocity against time until it reaches maximum height, (ii) sketch the\n        velocity–time graph, (iii) find the maximum height reached.\n      </div>\n<div class=\"qdiagram\">\n<svg id=\"q4Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(i) Velocity falls by g = 10 m s<sup>-1</sup> every second (taking \"upward\" as positive):</p>\n<table class=\"qtable\" style=\"margin-top:6px;\">\n<tr><th>t (s)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>\n<tr><th>v (m s<sup>-1</sup>)</th><td>30</td><td>20</td><td>10</td><td>0</td></tr>\n</table>\n<div class=\"note\"><b>Where marks are lost:</b> adding 10 instead of subtracting — gravity opposes upward motion, so velocity decreases.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2 <span class=\"marks\">1 mark</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) The graph is a straight line from (0, 30) down to (3, 0) — a constant (uniform) deceleration.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 3 <span class=\"marks\">2 marks</span></span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) Maximum height = area under the graph = ½ × base × height = ½ × 3 s × 30 m s<sup>-1</sup></p>\n<div class=\"work\">= 45 m</div>\n<div class=\"note\"><b>Where marks are lost:</b> forgetting the ½ (it's a triangle, not the full rectangle 3 × 30).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> Maximum height reached = <b>45 m</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">ஒரு பொருள்ள 30 m s⁻¹ வேகத்துல நேரா மேல வீசி எறியுறாங்க. g = 10 m s⁻² அப்படீன்னு எடுத்துக்கோங்க: (i) அது உச்ச உயரத்துக்குப் போற வரைக்கும் திசைவேகம்–நேரம் அட்டவணை போடு, (ii) கிராஃப் வரை, (iii) உச்ச உயரம் என்னன்னு கண்டுபிடி.</div>\n<div class=\"qdiagram\">\n<svg id=\"q4Svg\" style=\"min-width:420px;\" viewbox=\"0 0 560 200\" width=\"100%\"></svg>\n</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(i) ‘மேல’் அப்படீங்குறதை பாசிட்டிவ் திசையா எடுத்துக்கிட்டா, ஒவ்வொரு விநாடியும் திசைவேகம் g = 10 m s⁻¹ குறையும்:</p>\n<table class=\"qtable\" style=\"margin-top:6px;\">\n<tr><th>t (s)</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>\n<tr><th>v (m s<sup>-1</sup>)</th><td>30</td><td>20</td><td>10</td><td>0</td></tr>\n</table>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> கழிக்கிறதுக்கு பதிலா கூட்டிடுறது — மேல போற பொருளுக்கு எதிரா ஈர்ப்புசக்தி வேலை செய்யுது, அதனால திசைவேகம் குறையும்.</div>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2 <span class=\"marks\">1 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(ii) இந்த கிராஃப் (0, 30) இருந்து (3, 0) வரைக்கும் ஒரு நேர்க்கோடு — சீரான எதிர்முடுக்கம்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 3 <span class=\"marks\">2 மதிப்பெண்</span></span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>(iii) உச்ச உயரம் = கிராஃபுக்கு கீழ இருக்குற ஏரியா = ½ × அடி × உயரம் = ½ × 3s × 30 m s⁻¹</p>\n<div class=\"work\">= 45 m</div>\n<div class=\"note\"><b>மார்க் போகும் இடம்:</b> ½ ஐ மறந்துடுறது (இது முக்கோணம், 3×30 முழு செவ்வகம் இல்ல).</div>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி பதில பாரு!</button>\n<div class=\"final-answer hidden\"><b>இறுதி பதில்:</b> எட்டுற உச்ச உயரம் = <b>45 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.46–47",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 46–47"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">An object starts from rest and reaches a velocity of 12 m s⁻¹ in 6 s with uniform acceleration. What is its displacement in that time?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">Uniform acceleration means we can use the mean velocity: mean velocity = (0 + 12) ÷ 2 = 6 m s⁻¹.</div></div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">displacement = mean velocity × time = 6 m s⁻¹ × 6 s = 36 m.</div></div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\"><b>Final answer:</b> The displacement is <b>36 m</b>.</div>",
+      "ta": "<div class=\"qtext\">ஓய்விலிருந்து இயக்கத்த ஆரம்பிக்கும் ஒரு பொருள் 6 செக்கனுக்கு சீரான ஆர்முடுகலுக்கு உட்பட்டு 12 m s⁻¹ வேகத்த பெறுது. அந்நேரத்துல அதோட இடப்பெயர்ச்சி என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">சீரான ஆர்முடுகல்னா சராசரி வேகத்த உபயோகிக்கலாம்: சராசரி வேகம் = (0 + 12) ÷ 2 = 6 m s⁻¹.</div></div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">இடப்பெயர்ச்சி = சராசரி வேகம் × நேரம் = 6 m s⁻¹ × 6 s = 36 m.</div></div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> இடப்பெயர்ச்சி <b>36 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.36",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 36"
+     }
+    },
+    {
+     "id": "w6",
+     "body": {
+      "en": "<div class=\"qtext\">An object moving at 8 m s⁻¹ is brought to rest in 4 s by a uniform deceleration. Draw the velocity–time graph and find the displacement in the 4 s.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">The graph is a straight line from (0 s, 8 m s⁻¹) down to (4 s, 0). The area under it is a triangle.</div></div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">displacement = area = ½ × 4 s × 8 m s⁻¹ = (8 ÷ 2) × 4 = 16 m.</div></div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\"><b>Final answer:</b> The displacement is <b>16 m</b>.</div>",
+      "ta": "<div class=\"qtext\">வேகம் 8 m s⁻¹ உடன் இயங்கிட்டிருந்த ஒரு பொருள் சீரான அமர்முடுகலால 4 செக்கன்ல ஓய்வுக்கு வருது. வேக–நேர வரைபு வரைஞ்சு, 4 செக்கன்ல இடப்பெயர்ச்சிய காண்.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">வரைபு (0 s, 8 m s⁻¹)-ல இருந்து (4 s, 0) வரை கீழ்நோக்கி நேர்கோடு. அதுக்கு கீழ உள்ள பரப்பு ஒரு முக்கோணம்.</div></div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\"><div class=\"work\">இடப்பெயர்ச்சி = பரப்பளவு = ½ × 4 s × 8 m s⁻¹ = (8 ÷ 2) × 4 = 16 m.</div></div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> இடப்பெயர்ச்சி <b>16 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Worked Example · Unit 2, p.43",
+      "ta": "பாட புத்தக உதாரணம் · பாடம் 2, ப. 43"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்துல உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொண்ணுக்கும் தீர்வோட"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 2.1",
+      "ta": "பயிற்சி 2.1"
+     },
+     "items": [
+      {
+       "id": "x21-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A child starts at A, walks 40 m east to B, then 30 m north to C (a right angle at B, AC = 50 m). What is (a) the distance the child travelled, (b) the child's displacement?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பிள்ளை A-ல இருந்து கிழக்கு நோக்கி 40 m போய் B-ய அடைஞ்சு, அதுக்கு பிறகு வடக்கு நோக்கி 30 m போய் C-ய அடையுது. (a) பிள்ளை போன தூரம் என்ன? (b) இடப்பெயர்ச்சி என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(a) distance = 40 m + 30 m = <b>70 m</b></div><div class=\"work\">(b) displacement = AC = √(40² + 30²) = <b>50 m</b>, in the direction from A to C (about 37° north of east)</div>",
+        "ta": "<div class=\"work\">(a) தூரம் = 40 m + 30 m = <b>70 m</b></div><div class=\"work\">(b) இடப்பெயர்ச்சி = AC = √(40² + 30²) = <b>50 m</b>, A-ல இருந்து C-ய நோக்கின திசையில (கிழக்கிலிருந்து வடக்கே சுமார் 37°)</div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Distance and displacement · p.29",
+      "ta": "தூரமும் இடப்பெயர்ச்சியும் · ப. 29"
+     }
+    },
+    {
+     "chip": {
+      "en": "Exercise 2.2",
+      "ta": "பயிற்சி 2.2"
+     },
+     "items": [
+      {
+       "id": "x22-1",
+       "num": "1",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The velocity of an object changes uniformly from 0 to 12 m s⁻¹ in 6 s. Find its acceleration.</span></div>",
+        "ta": "<div class=\"exq\"><span>6 செக்கன்ல ஒரு பொருளோட வேகம் 0-ல இருந்து 12 m s⁻¹ ஆ சீரா மாறுது. அதோட ஆர்முடுகல் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = (12 − 0) ÷ 6 = <b>2 m s⁻²</b></div>",
+        "ta": "<div class=\"work\">a = (12 − 0) ÷ 6 = <b>2 m s⁻²</b></div>"
+       }
+      },
+      {
+       "id": "x22-2",
+       "num": "2",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The velocity of an object changes from 16 m s⁻¹ to 4 m s⁻¹ in 4 s. Find its deceleration.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருளோட வேகம் 4 செக்கன்ல 16 m s⁻¹-ல இருந்து 4 m s⁻¹ ஆ மாறுது. அமர்முடுகலை கணி.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = (4 − 16) ÷ 4 = −3 m s⁻²</div><div class=\"work\">deceleration = <b>3 m s⁻²</b></div>",
+        "ta": "<div class=\"work\">a = (4 − 16) ÷ 4 = −3 m s⁻²</div><div class=\"work\">அமர்முடுகல் = <b>3 m s⁻²</b></div>"
+       }
+      },
+      {
+       "id": "x22-3",
+       "num": "3",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object starts from rest and moves with a uniform acceleration of 0.5 m s⁻² for 10 s. Find its velocity at the end of the 10 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஓய்விலிருந்து இயக்கத்த ஆரம்பிக்கும் ஒரு பொருள் 0.5 m s⁻² ஆர்முடுகலுடன் 10 s இயங்கும். 10 s இறுதியில வேகம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">v = 0 + 0.5 × 10 = <b>5 m s⁻¹</b></div>",
+        "ta": "<div class=\"work\">v = 0 + 0.5 × 10 = <b>5 m s⁻¹</b></div>"
+       }
+      },
+      {
+       "id": "x22-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>At a certain moment an object has a velocity of 2 m s⁻¹. After 4 s of uniform acceleration its velocity is 6 m s⁻¹. Find the acceleration over these 4 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு குறிப்பிட்ட கணத்துல ஒரு பொருளோட வேகம் 2 m s⁻¹. சீரான ஆர்முடுகலால 4 s-ல அது 6 m s⁻¹ ஆகுது. அந்த 4 s-ல ஆர்முடுகல் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = (6 − 2) ÷ 4 = <b>1 m s⁻²</b></div>",
+        "ta": "<div class=\"work\">a = (6 − 2) ÷ 4 = <b>1 m s⁻²</b></div>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Acceleration · p.38",
+      "ta": "ஆர்முடுகல் · ப. 38"
+     }
+    },
+    {
+     "chip": {
+      "en": "Chapter Exercise",
+      "ta": "அத்தியாய பயிற்சி"
+     },
+     "items": [
+      {
+       "id": "xc-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Explain the difference between distance and displacement.</span></div>",
+        "ta": "<div class=\"exq\"><span>தூரத்துக்கும் இடப்பெயர்ச்சிக்கும் உள்ள வேறுபாட்ட விளக்குக.</span></div>"
+       },
+       "answer": {
+        "en": "<div>Distance is the total length of the path travelled; it has magnitude only (a scalar). Displacement is the straight-line distance from the start to the end <b>with direction</b> (a vector).</div>",
+        "ta": "<div>தூரம் = நடந்த மொத்த பாதையோட நீளம்; பருமன் மட்டும் (அளவெண் அளவு). இடப்பெயர்ச்சி = ஆரம்பத்துல இருந்து முடிவு வரை நேர்கோட்டு தூரம், <b>திசையோட</b> (காவிக் கணியம்).</div>"
+       }
+      },
+      {
+       "id": "xc-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A child walks from A to B (15 m) and then from B to C (20 m), at a right angle at B. (a) Find the total distance. (b) Find the displacement. (c) If the walk from A through B to C takes 5 s, find (i) the speed and (ii) the velocity.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பிள்ளை A-ல இருந்து B வரை 15 m, B-ல இருந்து C வரை 20 m (B-ல செங்கோணம்) போறா. (a) மொத்த தூரம்? (b) இடப்பெயர்ச்சி? (c) A–B–C பயணத்துக்கு 5 s எடுத்தா (i) கதி, (ii) வேகம் (திசைவேகம்) என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(a) distance = 15 + 20 = <b>35 m</b></div><div class=\"work\">(b) displacement AC = √(15² + 20²) = <b>25 m</b>, in the direction from A to C</div><div class=\"work\">(c)(i) speed = 35 ÷ 5 = <b>7 m s⁻¹</b></div><div class=\"work\">(c)(ii) velocity = 25 ÷ 5 = <b>5 m s⁻¹</b>, in the direction A to C</div>",
+        "ta": "<div class=\"work\">(a) தூரம் = 15 + 20 = <b>35 m</b></div><div class=\"work\">(b) இடப்பெயர்ச்சி AC = √(15² + 20²) = <b>25 m</b>, A-ல இருந்து C-க்கு உள்ள திசையில</div><div class=\"work\">(c)(i) கதி = 35 ÷ 5 = <b>7 m s⁻¹</b></div><div class=\"work\">(c)(ii) வேகம் (திசைவேகம்) = 25 ÷ 5 = <b>5 m s⁻¹</b>, A-ல இருந்து C திசையில</div>"
+       }
+      },
+      {
+       "id": "xc-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Briefly explain the difference between vector quantities and scalar quantities.</span></div>",
+        "ta": "<div class=\"exq\"><span>காவிக் கணியங்களுக்கும் எண்ணிக் கணியங்களுக்கும் இடையிலான வேறுபாட்ட சுருக்கமா விளக்குக.</span></div>"
+       },
+       "answer": {
+        "en": "<div>A scalar quantity has magnitude only. A vector quantity has both magnitude <b>and direction</b>.</div>",
+        "ta": "<div>எண்ணிக் கணியத்துக்கு (scalar) பருமன் மட்டும். காவிக் கணியத்துக்கு (vector) பருமனும் <b>திசையும்</b> உண்டு.</div>"
+       }
+      },
+      {
+       "id": "xc-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Classify the following as vector and scalar quantities. (The list of quantities did not appear on the PDF page; the usual ones from this lesson are used here.)</span></div>",
+        "ta": "<div class=\"exq\"><span>பின்வருவனவற்ற காவிக் கணியங்களாகவும் எண்ணிக் கணியங்களாகவும் பாகுபடுத்துக. (PDF பக்கத்துல கணியங்களோட பட்டியல் இல்ல; இந்த பாடத்துல உள்ள வழக்கமான கணியங்கள் இங்க எடுக்கப்பட்டிருக்கு.)</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">Scalars: distance, speed, time, mass</div><div class=\"work\">Vectors: displacement, velocity, acceleration, weight</div>",
+        "ta": "<div class=\"work\">எண்ணிக் கணியங்கள்: தூரம், கதி, நேரம், திணிவு</div><div class=\"work\">காவிக் கணியங்கள்: இடப்பெயர்ச்சி, வேகம் (திசைவேகம்), ஆர்முடுகல், நிறை</div>"
+       }
+      },
+      {
+       "id": "xc-2iii",
+       "num": "2(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The displacement–time graph of an object moving along a straight path rises from 0 to 10 m in 4 s, stays at 10 m from 4 s to 6 s, then falls to 0 at 8 s. (a) How far does the object go in its initial direction? (b) In what time? (c) Find its speed in that time. (d) What can you say about the motion from 4 s to 6 s? (e) What about 6 s to 8 s?</span></div>",
+        "ta": "<div class=\"exq\"><span>நேர்கோட்டுப் பாதையில இயங்கும் பொருளோட இடப்பெயர்ச்சி–நேர வரைபு: 4 s-ல 0-ல இருந்து 10 m ஆகுது; 4 s–6 s வரை 10 m-லயே இருக்கு; 8 s-ல மறுபடி 0 ஆகுது. (a) ஆரம்ப திசையில எவ்வளவு தூரம் போச்சு? (b) எவ்வளவு நேரத்துல? (c) அந்நேரத்து வேகம்? (d) 4 s–6 s-ல இயக்கம் பத்தி என்ன சொல்லலாம்? (e) 6 s–8 s-ல?</span></div>"
+       },
+       "answer": {
+        "en": "<svg aria-label=\"s (m) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">6</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">8</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">5</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">10</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">s (m)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(a) <b>10 m</b></div><div class=\"work\">(b) <b>4 s</b></div><div class=\"work\">(c) speed = 10 ÷ 4 = <b>2.5 m s⁻¹</b></div><div class=\"work\">(d) the object is <b>at rest</b>: displacement does not change</div><div class=\"work\">(e) it moves <b>back towards the start</b>, velocity = (0 − 10) ÷ 2 = −5 m s⁻¹ (5 m s⁻¹ in the opposite direction), and is back at the start at 8 s</div>",
+        "ta": "<svg aria-label=\"s (m) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">6</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">8</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">5</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">10</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">s (m)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(a) <b>10 m</b></div><div class=\"work\">(b) <b>4 s</b></div><div class=\"work\">(c) வேகம் = 10 ÷ 4 = <b>2.5 m s⁻¹</b></div><div class=\"work\">(d) பொருள் <b>ஓய்வுல</b> இருக்கு: இடப்பெயர்ச்சி மாறல</div><div class=\"work\">(e) <b>ஆரம்ப இடத்த நோக்கி திரும்பி</b> வருது; வேகம் = (0 − 10) ÷ 2 = −5 m s⁻¹ (எதிர் திசையில 5 m s⁻¹); 8 s-ல ஆரம்ப இடத்துல இருக்கு</div>"
+       }
+      },
+      {
+       "id": "xc-3i",
+       "num": "3(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The velocity of an object changes from 10 m s⁻¹ to 25 m s⁻¹ in 5 s. What is its acceleration?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருளோட வேகம் 5 s-ல 10 m s⁻¹-ல இருந்து 25 m s⁻¹ ஆ மாறுது. அதோட ஆர்முடுகல்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">a = (25 − 10) ÷ 5 = <b>3 m s⁻²</b></div>",
+        "ta": "<div class=\"work\">a = (25 − 10) ÷ 5 = <b>3 m s⁻²</b></div>"
+       }
+      },
+      {
+       "id": "xc-3ii",
+       "num": "3(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Draw the velocity–time graph of this motion and find the distance travelled in the 5 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>இந்த இயக்கத்துக்கு வேக–நேர வரைபு வரைஞ்சு, அந்த 5 s-ல இயங்கிய தூரத்த காண்.</span></div>"
+       },
+       "answer": {
+        "en": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"90.8\" y=\"172.0\">1</text><text text-anchor=\"middle\" x=\"139.6\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"188.4\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"237.2\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">5</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"103.8\">10</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"100.8\" y2=\"100.8\"></line><text text-anchor=\"end\" x=\"38\" y=\"44.6\">20</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"41.6\" y2=\"41.6\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">25</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,100.8 286.0,12.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">distance = area of the trapezium = ½ × (10 + 25) × 5 = <b>87.5 m</b></div>",
+        "ta": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"90.8\" y=\"172.0\">1</text><text text-anchor=\"middle\" x=\"139.6\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"188.4\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"237.2\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">5</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"103.8\">10</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"100.8\" y2=\"100.8\"></line><text text-anchor=\"end\" x=\"38\" y=\"44.6\">20</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"41.6\" y2=\"41.6\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">25</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,100.8 286.0,12.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">தூரம் = சரிவகத்தின் பரப்பளவு = ½ × (10 + 25) × 5 = <b>87.5 m</b></div>"
+       }
+      },
+      {
+       "id": "xc-3iii",
+       "num": "3(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The velocity–time graph of an object rises uniformly from 0 to 6 m s⁻¹ in 6 s, stays at 6 m s⁻¹ until 12 s, then falls to 0 at 15 s. Find (a) the acceleration in the first 6 s, (b) the displacement in the first 6 s, (c) the distance travelled at the steady speed, (d) the deceleration in the last 3 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரு பொருளோட வேக–நேர வரைபு: 6 s-ல 0-ல இருந்து 6 m s⁻¹ ஆ சீரா ஏறுது; 12 s வரை 6 m s⁻¹-ல இருக்கு; 15 s-ல 0 ஆகுது. காண்: (a) முதல் 6 s-ல ஆர்முடுகல் (b) முதல் 6 s-ல இடப்பெயர்ச்சி (c) சீரான வேகத்துல இயங்கிய தூரம் (d) கடைசி 3 s-ல அமர்முடுகல்.</span></div>"
+       },
+       "answer": {
+        "en": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"90.8\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"139.6\" y=\"172.0\">6</text><text text-anchor=\"middle\" x=\"188.4\" y=\"172.0\">9</text><text text-anchor=\"middle\" x=\"237.2\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">15</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">3</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">6</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 139.6,12.0 237.2,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(a) a = 6 ÷ 6 = <b>1 m s⁻²</b></div><div class=\"work\">(b) ½ × 6 × 6 = <b>18 m</b></div><div class=\"work\">(c) 6 m s⁻¹ × 6 s = <b>36 m</b></div><div class=\"work\">(d) a = (0 − 6) ÷ 3 = −2 m s⁻²; deceleration = <b>2 m s⁻²</b></div>",
+        "ta": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"90.8\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"139.6\" y=\"172.0\">6</text><text text-anchor=\"middle\" x=\"188.4\" y=\"172.0\">9</text><text text-anchor=\"middle\" x=\"237.2\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">15</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">3</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">6</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 139.6,12.0 237.2,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(a) a = 6 ÷ 6 = <b>1 m s⁻²</b></div><div class=\"work\">(b) ½ × 6 × 6 = <b>18 m</b></div><div class=\"work\">(c) 6 m s⁻¹ × 6 s = <b>36 m</b></div><div class=\"work\">(d) a = (0 − 6) ÷ 3 = −2 m s⁻²; அமர்முடுகல் = <b>2 m s⁻²</b></div>"
+       }
+      },
+      {
+       "id": "xc-4",
+       "num": "4",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object starts from rest and, with uniform acceleration, reaches 12 m s⁻¹ in 8 s. It then moves at 12 m s⁻¹ for 4 more seconds, and finally comes to rest in 4 s under a uniform deceleration. (i) Draw the velocity–time graph. (ii) Find the acceleration in the first 8 s. (iii) Find the distance moved in the first 8 s. (iv) Find the distance moved at the steady velocity. (v) Find the deceleration between 12 s and 16 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஓய்விலிருந்து இயக்கத்த ஆரம்பிக்கும் ஒரு பொருள் சீரான ஆர்முடுகலுடன் 8 s-ல 12 m s⁻¹ வேகத்த பெறுது. அதுக்கு பிறகு 12 m s⁻¹-ல மேலும் 4 s இயங்கி, கடைசியில சீரான அமர்முடுகலால 4 s-ல ஓய்வுக்கு வருது. (i) வேக–நேர வரைபு வரை. (ii) முதல் 8 s ஆர்முடுகல். (iii) முதல் 8 s-ல இயங்கிய தூரம். (iv) சீரான வேகத்துல இயங்கிய தூரம். (v) 12 s–16 s வரை அமர்முடுகல்.</span></div>"
+       },
+       "answer": {
+        "en": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">8</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">16</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">6</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">12</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(ii) a = 12 ÷ 8 = <b>1.5 m s⁻²</b></div><div class=\"work\">(iii) ½ × 8 × 12 = <b>48 m</b></div><div class=\"work\">(iv) 12 × 4 = <b>48 m</b></div><div class=\"work\">(v) (0 − 12) ÷ 4 = −3 m s⁻²; deceleration = <b>3 m s⁻²</b></div>",
+        "ta": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">8</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">16</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">6</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">12</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(ii) a = 12 ÷ 8 = <b>1.5 m s⁻²</b></div><div class=\"work\">(iii) ½ × 8 × 12 = <b>48 m</b></div><div class=\"work\">(iv) 12 × 4 = <b>48 m</b></div><div class=\"work\">(v) (0 − 12) ÷ 4 = −3 m s⁻²; அமர்முடுகல் = <b>3 m s⁻²</b></div>"
+       }
+      },
+      {
+       "id": "xc-5",
+       "num": "5",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object starts from rest and reaches 16 m s⁻¹ in 8 s. It then moves at that velocity for 4 more seconds, and comes to rest in a final 4 s under uniform deceleration. (i) Draw the velocity–time graph. (ii) Find the acceleration in the first 8 s. (iii) Find the distance moved in those 8 s. (iv) Find the distance moved at 16 m s⁻¹. (v) Find the deceleration in the last 4 s. (vi) Find the distance moved in those 4 s.</span></div>",
+        "ta": "<div class=\"exq\"><span>ஓய்விலிருந்து இயங்க ஆரம்பிச்ச பொருளோட வேகம் 8 s-ல 16 m s⁻¹ ஆகுது. அதே வேகத்துல மேலும் 4 s சீரா செல்லும்; கடைசியில சீரான அமர்முடுகலால 4 s-ல ஓய்வுக்கு வருது. (i) வேக–நேர வரைபு (ii) முதல் 8 s ஆர்முடுகல் (iii) அந்த 8 s தூரம் (iv) 16 m s⁻¹ வேகத்துல இயங்கிய தூரம் (v) கடைசி 4 s அமர்முடுகல் (vi) அந்த 4 s-ல இயங்கிய தூரம்.</span></div>"
+       },
+       "answer": {
+        "en": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">8</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">16</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">8</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">16</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(ii) a = 16 ÷ 8 = <b>2 m s⁻²</b></div><div class=\"work\">(iii) ½ × 8 × 16 = <b>64 m</b></div><div class=\"work\">(iv) 16 × 4 = <b>64 m</b></div><div class=\"work\">(v) (0 − 16) ÷ 4 = −4 m s⁻²; deceleration = <b>4 m s⁻²</b></div><div class=\"work\">(vi) ½ × 4 × 16 = <b>32 m</b></div>",
+        "ta": "<svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"103.0\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">8</text><text text-anchor=\"middle\" x=\"225.0\" y=\"172.0\">12</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">16</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"89.0\">8</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"15.0\">16</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,160.0 164.0,12.0 225.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg><div class=\"work\">(ii) a = 16 ÷ 8 = <b>2 m s⁻²</b></div><div class=\"work\">(iii) ½ × 8 × 16 = <b>64 m</b></div><div class=\"work\">(iv) 16 × 4 = <b>64 m</b></div><div class=\"work\">(v) (0 − 16) ÷ 4 = −4 m s⁻²; அமர்முடுகல் = <b>4 m s⁻²</b></div><div class=\"work\">(vi) ½ × 4 × 16 = <b>32 m</b></div>"
+       }
+      },
+      {
+       "id": "xc-6i",
+       "num": "6(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object falls from a height and takes 4 s to reach the ground (g = 10 m s⁻²). (a) What is its speed on reaching the ground? (b) Find the height it fell.</span></div>",
+        "ta": "<div class=\"exq\"><span>உயரமான இடத்துல இருந்து விழும் பொருள் நிலத்த அடைய 4 s எடுக்குது (g = 10 m s⁻²). (a) நிலத்த அடையும்போது வேகம்? (b) விழுந்த உயரம்?</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(a) v = g t = 10 × 4 = <b>40 m s⁻¹</b></div><div class=\"work\">(b) height = mean velocity × time = ((0 + 40) ÷ 2) × 4 = <b>80 m</b></div>",
+        "ta": "<div class=\"work\">(a) v = g t = 10 × 4 = <b>40 m s⁻¹</b></div><div class=\"work\">(b) உயரம் = சராசரி வேகம் × நேரம் = ((0 + 40) ÷ 2) × 4 = <b>80 m</b></div>"
+       }
+      },
+      {
+       "id": "xc-6ii",
+       "num": "6(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>An object is thrown straight up with an initial velocity of 30 m s⁻¹ (g = 10 m s⁻²). (a) Find the time to reach the highest point. (b) Find the maximum height. (c) Draw the velocity–time graph from the throw until it returns to the starting point.</span></div>",
+        "ta": "<div class=\"exq\"><span>30 m s⁻¹ ஆரம்ப வேகத்துடன் ஒரு பொருள் நிலைக்குத்தா மேல் நோக்கி எறியப்படுது (g = 10 m s⁻²). (a) உச்ச உயரத்த அடைய ஆகும் நேரம்? (b) உச்ச உயரம்? (c) எறிஞ்ச இடத்துக்கு திரும்ப வரும் வரைக்கும் வேக–நேர வரைபு வரை.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">(a) t = 30 ÷ 10 = <b>3 s</b></div><div class=\"work\">(b) h = ((30 + 0) ÷ 2) × 3 = <b>45 m</b></div><div class=\"work\">(c) a straight line from (0 s, 30 m s⁻¹) through (3 s, 0) to (6 s, −30 m s⁻¹):</div><svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"82.7\" y=\"172.0\">1</text><text text-anchor=\"middle\" x=\"123.3\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"204.7\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"245.3\" y=\"172.0\">5</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">6</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">-30</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"89.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"15.0\">30</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg>",
+        "ta": "<div class=\"work\">(a) t = 30 ÷ 10 = <b>3 s</b></div><div class=\"work\">(b) h = ((30 + 0) ÷ 2) × 3 = <b>45 m</b></div><div class=\"work\">(c) (0 s, 30 m s⁻¹) இருந்து (3 s, 0) வழியா (6 s, −30 m s⁻¹) வரை ஒரு நேர்கோடு:</div><svg aria-label=\"v (m s⁻¹) graph\" class=\"gsvg\" role=\"img\" viewbox=\"0 0 300 190\" width=\"300\"><line class=\"ax\" x1=\"42\" x2=\"42\" y1=\"12\" y2=\"160\"></line><line class=\"ax\" x1=\"42\" x2=\"286\" y1=\"86.0\" y2=\"86.0\"></line><text text-anchor=\"middle\" x=\"42.0\" y=\"172.0\">0</text><text text-anchor=\"middle\" x=\"82.7\" y=\"172.0\">1</text><text text-anchor=\"middle\" x=\"123.3\" y=\"172.0\">2</text><text text-anchor=\"middle\" x=\"164.0\" y=\"172.0\">3</text><text text-anchor=\"middle\" x=\"204.7\" y=\"172.0\">4</text><text text-anchor=\"middle\" x=\"245.3\" y=\"172.0\">5</text><text text-anchor=\"middle\" x=\"286.0\" y=\"172.0\">6</text><text text-anchor=\"end\" x=\"38\" y=\"163.0\">-30</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"160.0\" y2=\"160.0\"></line><text text-anchor=\"end\" x=\"38\" y=\"89.0\">0</text><text text-anchor=\"end\" x=\"38\" y=\"15.0\">30</text><line class=\"gd\" x1=\"42\" x2=\"286\" y1=\"12.0\" y2=\"12.0\"></line><polyline class=\"ln\" points=\"42.0,12.0 286.0,160.0\"></polyline><text text-anchor=\"start\" x=\"46\" y=\"9\">v (m s⁻¹)</text><text text-anchor=\"end\" x=\"286\" y=\"186\">t (s)</text></svg>"
+       }
+      }
+     ],
+     "title": {
+      "en": "Unit 2 · p.50–52",
+      "ta": "பாடம் 2 · ப. 50–52"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🏃</div><div class=\"cm-b r\"><i>Raja:</i> <span>I walked 800 m, so my displacement is 800 m!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>Chittu:</i> <span>No! Displacement is the straight line from start to end, with a direction. Yours is 500 m.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">📈</div><div class=\"cm-b r\"><i>Raja:</i> <span>On a speed–time graph, the slope is... the speed?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔺</div><div class=\"cm-b c\"><i>Chittu:</i> <span>The slope is the acceleration. The AREA under the line is the displacement!</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🏃</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>நான் 800 m நடந்தேன், அதனால என் இடப்பெயர்ச்சியும் 800 m!</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">📏</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>இல்ல! இடப்பெயர்ச்சி = ஆரம்பத்துல இருந்து முடிவு வரை நேர்கோடு, திசையோட. உனக்கு 500 m.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">📈</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>வேக–நேர வரைபுல சாய்வு... வேகமா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🔺</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>சாய்வு = முடுக்கம். கோட்டுக்கு கீழ உள்ள ஏரியா = இடப்பெயர்ச்சி!</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Distance is the road you walk,<br/>displacement is the straight-line talk.<br/>Slope of v–t gives acceleration,<br/>the area gives the displacement!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">நடந்த வழி — தூரம்,<br/>நேர்கோடு + திசை — இடப்பெயர்ச்சி.<br/>v–t சாய்வு — முடுக்கம்,<br/>v–t ஏரியா — இடப்பெயர்ச்சி!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">Distance and displacement are the same thing.</td><td class=\"ok\">Distance is the whole path (no direction). Displacement is the straight line from start to end, with direction.</td></tr><tr><td class=\"w\">A negative acceleration means there is no acceleration.</td><td class=\"ok\">It means the body is slowing down (deceleration). Keep the minus sign in your working.</td></tr><tr><td class=\"w\">Slope and area on a graph mean the same.</td><td class=\"ok\">s–t slope = velocity. v–t slope = acceleration. v–t area = displacement.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">தூரமும் இடப்பெயர்ச்சியும் ஒண்ணுதான்.</td><td class=\"ok\">தூரம் முழு வழி (திசை இல்ல). இடப்பெயர்ச்சி ஆரம்பம்–முடிவு நேர்கோடு, திசையோட.</td></tr><tr><td class=\"w\">மறை முடுக்கம்னா முடுக்கமே இல்ல.</td><td class=\"ok\">அது பொருள் மெதுவாகுதுன்னு அர்த்தம் (அமர்முடுகல்). கணக்குல மைனஸ் சைன் வெச்சே போடு.</td></tr><tr><td class=\"w\">வரைபுல சாய்வும் ஏரியாவும் ஒண்ணுதான்.</td><td class=\"ok\">s–t சாய்வு = வேகம். v–t சாய்வு = முடுக்கம். v–t ஏரியா = இடப்பெயர்ச்சி.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>speed = distance ÷ time; velocity = displacement ÷ time</li><li>acceleration a = (v − u) ÷ t, unit m/s²</li><li>uniform acceleration: displacement s = mean velocity × time</li><li>area under a v–t graph = displacement</li><li>free fall: g ≈ 10 m/s² downward; −10 m/s² for something going up</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>கதி = தூரம் ÷ நேரம்; வேகம் = இடப்பெயர்ச்சி ÷ நேரம்</li><li>முடுக்கம் a = (v − u) ÷ t, அலகு m/s²</li><li>சீரான முடுக்கம்: s = சராசரி வேகம் × நேரம்</li><li>v–t வரைபுக்கு கீழ உள்ள ஏரியா = இடப்பெயர்ச்சி</li><li>தானா விழறது: g ≈ 10 m/s² கீழ்நோக்கி; மேல போற பொருளுக்கு −10 m/s²</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "The distance moved by a moving object is given by the total length of its path.",
+     "ta": "இயங்கும் பொருள் இயங்கிய தூரம், மொத்த பாதையோட நீளத்தால காட்டப்படும்."
+    },
+    {
+     "en": "The quantity that fixes the change in position of a moving object is its displacement: it needs the straight-line distance between the start and the end, and the direction. Displacement is a vector; distance has only magnitude and is a scalar.",
+     "ta": "ஒரு இயங்கும் பொருளோட நிலைமாற்றத்த நிச்சயப்படுத்தும் கணியம் இடப்பெயர்ச்சி: ஆரம்பம்–முடிவுக்கு நடுவுல நேர்கோட்டு தூரமும் திசையும் வேணும். இடப்பெயர்ச்சி காவிக் கணியம்; தூரத்துக்கு பருமன் மட்டும், அது எண்ணிக் கணியம்."
+    },
+    {
+     "en": "Speed is the distance moved in unit time; it is a scalar.",
+     "ta": "கதி = ஒரு அலகு நேரத்துல இயங்கிய தூரம்; அது எண்ணிக் கணியம்."
+    },
+    {
+     "en": "Velocity is the rate of change of displacement. Since it has direction as well as magnitude, it is a vector. velocity = displacement ÷ time.",
+     "ta": "வேகம் (திசைவேகம்) = இடப்பெயர்ச்சி மாறும் வீதம். பருமனோட திசையும் இருப்பதால் அது காவிக் கணியம். வேகம் = இடப்பெயர்ச்சி ÷ நேரம்."
+    },
+    {
+     "en": "Acceleration is the rate of change of velocity. The displacement equals the area enclosed between the velocity–time graph and the time axis.",
+     "ta": "ஆர்முடுகல் = வேகம் மாறும் வீதம். இடப்பெயர்ச்சி, வேக–நேர வரைபுக்கும் நேர அச்சுக்கும் இடையில உள்ள பரப்பளவுக்கு சமம்."
+    },
+    {
+     "en": "A negative acceleration is a retardation (deceleration).",
+     "ta": "மறை ஆர்முடுகல் என்பது அமர்முடுகல்."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Distance",
+     "ta": "தூரம்"
+    },
+    {
+     "en": "Displacement",
+     "ta": "இடப்பெயர்ச்சி"
+    },
+    {
+     "en": "Object",
+     "ta": "பொருள்"
+    },
+    {
+     "en": "Vector quantity",
+     "ta": "காவிக் கணியம்"
+    },
+    {
+     "en": "Scalar quantity",
+     "ta": "எண்ணிக் கணியம்"
+    },
+    {
+     "en": "Speed",
+     "ta": "கதி"
+    },
+    {
+     "en": "Velocity",
+     "ta": "வேகம்"
+    },
+    {
+     "en": "Acceleration",
+     "ta": "ஆர்முடுகல்"
+    },
+    {
+     "en": "Retardation / Deceleration",
+     "ta": "அமர்முடுகல்"
+    },
+    {
+     "en": "Acceleration due to gravity",
+     "ta": "புவியீர்ப்பினாலான ஆர்முடுகல்"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 6 key points",
+    "ta": "📌 பொழிப்பு — 6 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (Tamil – English)"
+   }
+  }
+ ]
+}

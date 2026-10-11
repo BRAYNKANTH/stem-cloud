@@ -1,0 +1,1221 @@
+{
+ "schema": 2,
+ "id": "physics.g11.waves",
+ "slug": "waves",
+ "subject": "physics",
+ "grade": 11,
+ "number": "4",
+ "title": {
+  "en": "Waves and their Applications",
+  "ta": "அலைகளும் அவற்றின் பயன்பாடுகளும்",
+  "si": "තරංග සහ ඒවායේ යෙදීම්"
+ },
+ "legacy": {
+  "id": "g11c04",
+  "file": "g11-chapter-04-waves.html"
+ },
+ "steps": [
+  {
+   "type": "story",
+   "id": "story",
+   "title": {
+    "en": "How does a pebble tell the whole pond?",
+    "ta": "ஒரு கூழாங்கல் முழு குளத்துக்கும் எப்படி சொல்லுது?"
+   },
+   "lines": [
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Chittu, I dropped a pebble in the pond and ripples spread all over. Did the water travel?",
+      "ta": "சிட்டு, குளத்துல கூழாங்கல் போட்டேன், அலைகள் எல்லா பக்கமும் பரவுது. நீர் பயணம் பண்ணுதா?"
+     },
+     "scene": "🪨"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "No, Raja! A wave carries energy, not the water. Each bit of water only moves up and down.",
+      "ta": "இல்ல ராஜா! அலை சக்திய கொண்டு போகுது, நீர கொண்டு போகல. ஒவ்வொரு நீர்த் துணிக்கையும் மேல கீழ மட்டும்தான் அசையும்."
+     },
+     "scene": "🌊"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "But the Sun's light reaches us through empty space. What kind of wave is that?",
+      "ta": "ஆனா சூரிய ஒளி வெற்று வெளி வழியா நம்ம கிட்ட வருதே. அது என்ன வகை அலை?"
+     },
+     "scene": "📻"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "An electromagnetic wave. It needs no medium and travels at 3 × 10⁸ m s⁻¹. Radio, light, X-rays are all family.",
+      "ta": "மின்காந்த அலை. அதுக்கு ஊடகம் வேணாம், 3 × 10⁸ m s⁻¹ வேகத்துல போகும். ரேடியோ, ஒளி, X-கதிர் எல்லாம் ஒரே குடும்பம்."
+     },
+     "scene": "☀️"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Then why do I hear thunder after I see the lightning?",
+      "ta": "அப்போ மின்னலை பாத்த பிறகுதான் இடி ஏன் கேக்குது?"
+     },
+     "scene": "⚡"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Sound is a mechanical wave, only about 330 m s⁻¹. Light is a million times faster, so it reaches you first.",
+      "ta": "ஒலி ஒரு பொறிமுறை அலை, சுமார் 330 m s⁻¹ தான். ஒளி பத்து இலட்சம் மடங்கு வேகம், அதனால முதல்ல வந்திடுது."
+     },
+     "scene": "🔊"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "And how can I tell a violin from a piano, playing the same note?",
+      "ta": "ஒரே சுரத்த வாசிச்சாலும் வயலினையும் பியானோவையும் எப்படி பிரிச்சு அறியறேன்?"
+     },
+     "scene": "🎻"
+    },
+    {
+     "speaker": "chittu",
+     "text": {
+      "en": "Pitch, loudness and quality! Frequency, amplitude and the shape of the wave. Let's explore them all.",
+      "ta": "சுருதி, உரப்பு, ஒலியின் பண்பு! மீடிறன், வீச்சம், அலை வடிவம். எல்லாத்தையும் பாக்கலாம்."
+     },
+     "scene": "🎶"
+    },
+    {
+     "speaker": "raja",
+     "text": {
+      "en": "Waves everywhere! Let's go!",
+      "ta": "எங்கும் அலைகள்! வாங்க போகலாம்!"
+     },
+     "scene": "🚀"
+    }
+   ],
+   "cta": {
+    "en": "Start the lesson: waves, light and sound →",
+    "ta": "பாடத்த ஆரம்பிக்கலாம்: அலைகள், ஒளி, ஒலி →"
+   },
+   "quest": {
+    "en": "In this module: discover transverse and longitudinal waves, wave properties (amplitude, frequency, wavelength), and the wave speed equation (v = fλ).",
+    "ta": "இந்த பாடத்தில்: குறுக்கலை மற்றும் நெட்டாங்கு அலைகள், அலையின் பண்புகள் (வீச்சம், மீடிறன், அலைநீளம்), மற்றும் அலை வேகச் சமன்பாட்டை (v = fλ) கற்போம்."
+   }
+  },
+  {
+   "type": "basics",
+   "id": "basics",
+   "heading": {
+    "title": {
+     "en": "Start from zero: what is a wave?",
+     "ta": "முதல்ல இருந்து: அலை என்றால் என்ன?"
+    },
+    "sub": {
+     "en": "No big words yet. Let us start easy.",
+     "ta": "பெரிய வார்த்தைகள் எதுவும் வேணாம். சுலபமா ஆரம்பிக்கலாம்."
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "A wave carries energy, not water",
+      "ta": "அலை சக்திய கொண்டு போகும், தண்ணிய இல்ல"
+     },
+     "body": {
+      "en": "<p>The leaf only bobs up and down. The wave moves on, carrying energy.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍃 ↕️   🌊 ➜ ➜</div>",
+      "ta": "<p>இலை மேல கீழ மட்டும்தான் ஆடும். அலை சக்திய கொண்டு முன்னே போகும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🍃 ↕️   🌊 ➜ ➜</div>"
+     },
+     "icon": "🍃"
+    },
+    {
+     "title": {
+      "en": "Shake a rope",
+      "ta": "கயிற ஆட்டு"
+     },
+     "body": {
+      "en": "<p>Flick one end of a rope. A bump runs along the rope to the other end.</p><div aria-hidden=\"true\" class=\"bs-pic\">🙋 ∿∿∿∿∿ 🧍</div>",
+      "ta": "<p>கயிறோட ஒரு முனைய ஆட்டு. ஒரு அலை மறு முனை வரை ஓடும்.</p><div aria-hidden=\"true\" class=\"bs-pic\">🙋 ∿∿∿∿∿ 🧍</div>"
+     },
+     "icon": "🪢"
+    },
+    {
+     "title": {
+      "en": "Sound is a wave too",
+      "ta": "ஒலியும் ஒரு அலை"
+     },
+     "body": {
+      "en": "<p>A drum shakes the air, and the shaking travels to your ear.</p><div aria-hidden=\"true\" class=\"bs-pic\">🥁 ))) 👂</div>",
+      "ta": "<p>டிரம் காத்த அதிர வைக்குது, அந்த அதிர்வு உன் காதுக்கு வருது.</p><div aria-hidden=\"true\" class=\"bs-pic\">🥁 ))) 👂</div>"
+     },
+     "icon": "🔊"
+    },
+    {
+     "title": {
+      "en": "How we describe waves",
+      "ta": "அலைய எப்படி விவரிக்கறது"
+     },
+     "body": {
+      "en": "<p>We can ask: how long is one wave, and how many waves pass each second?</p><div aria-hidden=\"true\" class=\"bs-pic\">∿ length   ∿∿∿ per second</div>",
+      "ta": "<p>ஒரு அலை எவ்வளவு நீளம், ஒரு வினாடில எத்தனை அலை போகுதுன்னு கேட்கலாம்.</p><div aria-hidden=\"true\" class=\"bs-pic\">∿ length   ∿∿∿ per second</div>"
+     },
+     "icon": "📏"
+    }
+   ],
+   "hook": {
+    "en": "A leaf floats on a pond. When a wave comes, does the leaf travel with it?",
+    "ta": "குளத்துல ஒரு இலை மிதக்குது. அலை வந்தா இலையும் அலையோட போகுமா?"
+   },
+   "extra": [
+    {
+     "en": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>Drop a pebble in a basin of water and watch the rings spread.</p></div>",
+     "ta": "<div class=\"bs-home\"><span aria-hidden=\"true\">🏠</span><p>தண்ணி பேசின்ல ஒரு சின்ன கல்ல போடு. வளையங்கள் பரவறத பாரு.</p></div>"
+    },
+    {
+     "en": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>Now let's learn the names and rules of waves.</p></div>",
+     "ta": "<div class=\"bs-bridge\"><span aria-hidden=\"true\">🌉</span><p>இப்ப அலைகளோட பேர்களையும் விதிகளையும் கத்துக்கலாம்.</p></div>"
+    }
+   ]
+  },
+  {
+   "type": "watch",
+   "id": "watch",
+   "heading": {
+    "title": {
+     "en": "Watch it happen: waves, energy and sound",
+     "ta": "பாரு: அலைகள், சக்தி, ஒலி"
+    },
+    "sub": {
+     "en": "Ripples carry energy, transverse and longitudinal waves, and lightning before thunder",
+     "ta": "அலைகள் சக்திய கடத்துது, குறுக்கலை, நெட்டாங்கு அலை, இடிக்கு முன்னாடி மின்னல்"
+    }
+   },
+   "animation": {
+    "file": "g11-chapter-04-waves.html",
+    "hash": "watch"
+   }
+  },
+  {
+   "type": "notes",
+   "id": "notes",
+   "heading": {
+    "title": {
+     "en": "Notes",
+     "ta": "குறிப்புகள்"
+    },
+    "sub": {
+     "en": "Tap a stepping stone to explore each topic",
+     "ta": "ஒவ்வொரு தலைப்பையும் ஸ்டோனை தொட்டு தெரிஞ்சுக்கோ"
+    }
+   },
+   "cards": [
+    {
+     "title": {
+      "en": "4.0 What is a wave?",
+      "ta": "4.0 அலை என்றால் என்ன?"
+     },
+     "body": {
+      "en": "<p>Drop a pebble on still water: a disturbance spreads out in circles. Shake one end of a rope up and down: a disturbance runs along the rope. A disturbance that travels through a medium or through space is a <b>wave</b>.</p>\n<div class=\"fig\"><svg aria-label=\"Ripples spreading from a pebble; a floating ball only moves up and down\" role=\"img\" viewbox=\"0 0 520 215\"><circle cx=\"150\" cy=\"105\" r=\"18\" stroke-width=\"2.5\" style=\"opacity:1;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"42\" stroke-width=\"2.5\" style=\"opacity:0.8;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"68\" stroke-width=\"2.5\" style=\"opacity:0.6;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"96\" stroke-width=\"2.5\" style=\"opacity:0.45;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"130\">pebble</text><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"236\" y=\"94\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"254\" y=\"86\">floating ball</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"125\" y2=\"98.0\"></line><polygon points=\"300,85 293.9,98.0 306.1,98.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"85\" y2=\"112.0\"></line><polygon points=\"300,125 306.1,112.0 293.9,112.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"310\" y=\"108\">moves up and down</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"200\">the ripples spread out, the ball only bobs</text></svg><div class=\"figcap\">Figures 4.1 and 4.2: ripples spread, but a floating ball only moves up and down.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Waves carry energy</div><div class=\"ltext\">A wave carries energy from one point to another without carrying the material of the medium with it.</div></div>\n<p>The ball bobs up and down, so energy reached it through the water wave, but the water particles do not travel along with the wave.</p>\n<ul><li>Waves can travel through a <b>medium</b>: water, a rope, air (sound), liquids and solids.</li><li>Some waves need <b>no medium</b>: light and heat from the Sun reach the Earth across empty space as <b>electromagnetic waves</b>. Radio waves are electromagnetic waves too.</li></ul>",
+      "ta": "<p>அமைதியான நீர்ல ஒரு கூழாங்கல் போடு: ஒரு குழப்பம் வட்டங்களா பரவுது. கயிற்றோட ஒரு முனைய மேல கீழ ஆட்டு: குழப்பம் கயிறு வழியா ஓடுது. ஒரு ஊடகம் வழியா அல்லது வெளி வழியா பயணிக்கும் குழப்பம் <b>அலை</b>.</p>\n<div class=\"fig\"><svg aria-label=\"Ripples spreading from a pebble; a floating ball only moves up and down\" role=\"img\" viewbox=\"0 0 520 215\"><circle cx=\"150\" cy=\"105\" r=\"18\" stroke-width=\"2.5\" style=\"opacity:1;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"42\" stroke-width=\"2.5\" style=\"opacity:0.8;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"68\" stroke-width=\"2.5\" style=\"opacity:0.6;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"96\" stroke-width=\"2.5\" style=\"opacity:0.45;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"130\">pebble</text><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"236\" y=\"94\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"254\" y=\"86\">floating ball</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"125\" y2=\"98.0\"></line><polygon points=\"300,85 293.9,98.0 306.1,98.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"85\" y2=\"112.0\"></line><polygon points=\"300,125 306.1,112.0 293.9,112.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"310\" y=\"108\">moves up and down</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"200\">the ripples spread out, the ball only bobs</text></svg><div class=\"figcap\">உரு 4.1, 4.2: அலைகள் பரவுது, ஆனா மிதக்கற பந்து மேல கீழ மட்டும்தான் அசையுது.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">அலைகள் சக்திய கடத்தும்</div><div class=\"ltext\">அலை ஊடகத்தோட பொருட்கள கொண்டு போகாம சக்திய ஒரு புள்ளியில இருந்து இன்னொண்ணுக்கு கடத்தும்.</div></div>\n<p>பந்து மேல கீழ ஆடுது, அதனால அலை வழியா சக்தி அதுக்கு வந்து சேர்ந்திருக்கு; ஆனா நீர்த் துணிக்கைகள் அலையோட சேர்ந்து பயணிக்கல.</p>\n<ul><li>அலைகள் <b>ஊடகம்</b> வழியா பயணிக்கலாம்: நீர், கயிறு, காற்று (ஒலி), திரவங்கள், திண்மங்கள்.</li><li>சில அலைகளுக்கு <b>ஊடகம் வேணாம்</b>: சூரியனோட ஒளியும் வெப்பமும் வெற்று வெளி வழியா <b>மின்காந்த அலைகளா</b> பூமிக்கு வருது. ரேடியோ அலைகளும் மின்காந்த அலைகள்தான்.</li></ul>"
+     },
+     "section": "4.0"
+    },
+    {
+     "title": {
+      "en": "4.1 Mechanical waves: transverse and longitudinal",
+      "ta": "4.1 பொறிமுறை அலைகள்: குறுக்கலைகள், நெட்டாங்கு அலைகள்"
+     },
+     "body": {
+      "en": "<p>Waves that need a <b>material medium</b> are <b>mechanical waves</b>: water waves, sound in air, and the waves on a plucked guitar string. A slinky (a steel coil) lets us study them. Shake a slinky sideways on a table, and a wave runs along it.</p>\n<div class=\"fig\"><svg aria-label=\"A transverse wave: the particles move up and down, the wave moves along\" role=\"img\" viewbox=\"0 0 540 200\"><path d=\"M40 100.0 L44 95.9 L48 91.8 L52 87.9 L56 84.1 L60 80.5 L64 77.2 L68 74.2 L72 71.5 L76 69.2 L80 67.3 L84 65.8 L88 64.7 L92 64.1 L96 64.0 L100 64.4 L104 65.2 L108 66.5 L112 68.2 L116 70.3 L120 72.8 L124 75.7 L128 78.8 L132 82.3 L136 86.0 L140 89.9 L144 93.9 L148 97.9 L152 102.1 L156 106.1 L160 110.1 L164 114.0 L168 117.7 L172 121.2 L176 124.3 L180 127.2 L184 129.7 L188 131.8 L192 133.5 L196 134.8 L200 135.6 L204 136.0 L208 135.9 L212 135.3 L216 134.2 L220 132.7 L224 130.8 L228 128.5 L232 125.8 L236 122.8 L240 119.5 L244 115.9 L248 112.1 L252 108.2 L256 104.1 L260 100.0 L264 95.9 L268 91.8 L272 87.9 L276 84.1 L280 80.5 L284 77.2 L288 74.2 L292 71.5 L296 69.2 L300 67.3 L304 65.8 L308 64.7 L312 64.1 L316 64.0 L320 64.4 L324 65.2 L328 66.5 L332 68.2 L336 70.3 L340 72.8 L344 75.7 L348 78.8 L352 82.3 L356 86.0 L360 89.9 L364 93.9 L368 97.9 L372 102.1 L376 106.1 L380 110.1 L384 114.0 L388 117.7 L392 121.2 L396 124.3 L400 127.2 L404 129.7 L408 131.8 L412 133.5 L416 134.8 L420 135.6 L424 136.0 L428 135.9 L432 135.3 L436 134.2 L440 132.7 L444 130.8 L448 128.5 L452 125.8 L456 122.8 L460 119.5 L464 115.9 L468 112.1 L472 108.2 L476 104.1 L480 100.0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><circle cx=\"95\" cy=\"64.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"205\" cy=\"136.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"315\" cy=\"64.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"425\" cy=\"136.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"40\" x2=\"467.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"480,160 467.0,153.6 467.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"260\" y=\"182\">direction of wave propagation</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"520\" x2=\"520.0\" y1=\"120\" y2=\"83.0\"></line><polygon points=\"520,70 513.9,83.0 526.1,83.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"520\" x2=\"520.0\" y1=\"70\" y2=\"107.0\"></line><polygon points=\"520,120 526.1,107.0 513.9,107.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"505\" y=\"98\">particle</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"505\" y=\"114\">motion</text></svg><div class=\"figcap\">Transverse wave: the particles move up and down while the wave moves along.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Transverse waves</div><div class=\"ltext\">The particles of the medium move <b>perpendicular</b> to the direction in which the wave travels. Example: water waves, waves on a string.</div></div>\n<p>In a transverse wave the particles that have moved furthest <b>up</b> are at the <b>crests</b> (A, B in Figure 4.7) and those furthest <b>down</b> are at the <b>troughs</b> (C, D).</p>\n<div class=\"fig\"><svg aria-label=\"A longitudinal wave in a slinky: compressions and rarefactions\" role=\"img\" viewbox=\"0 0 540 200\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"40.0\" x2=\"40.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"58.3\" x2=\"58.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"74.6\" x2=\"74.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"87.6\" x2=\"87.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"97.3\" x2=\"97.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"105.0\" x2=\"105.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"112.7\" x2=\"112.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"122.4\" x2=\"122.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"135.4\" x2=\"135.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"151.7\" x2=\"151.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"170.0\" x2=\"170.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"188.3\" x2=\"188.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"204.6\" x2=\"204.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"217.6\" x2=\"217.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"227.3\" x2=\"227.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"235.0\" x2=\"235.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"242.7\" x2=\"242.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"252.4\" x2=\"252.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"265.4\" x2=\"265.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"281.7\" x2=\"281.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"300.0\" x2=\"300.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"318.3\" x2=\"318.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"334.6\" x2=\"334.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"347.6\" x2=\"347.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"357.3\" x2=\"357.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"365.0\" x2=\"365.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"372.7\" x2=\"372.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"382.4\" x2=\"382.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"395.4\" x2=\"395.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"411.7\" x2=\"411.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"430.0\" x2=\"430.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"448.3\" x2=\"448.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"464.6\" x2=\"464.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"477.6\" x2=\"477.6\" y1=\"60\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"110\" y=\"52\">compression</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"240\" y=\"52\">rarefaction</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"370\" y=\"52\">compression</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"40\" x2=\"467.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"480,160 467.0,153.6 467.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"260\" y=\"184\">direction of wave propagation</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"22\">particles move back and forth, parallel to the wave</text></svg><div class=\"figcap\">Figure 4.9: a longitudinal wave in a slinky.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">Longitudinal waves</div><div class=\"ltext\">The particles of the medium oscillate <b>parallel</b> to the direction in which the wave travels. Push the free end of the slinky forward: the coils bunch up (a <b>compression</b>). Pull it back: the coils spread out (a <b>rarefaction</b>). Example: sound waves in air.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th></th><th>Transverse waves</th><th>Longitudinal waves</th></tr><tr><td>Particle motion</td><td>perpendicular to the wave</td><td>parallel to the wave</td></tr><tr><td>Travel along</td><td>surfaces of solids and liquids, strings, wires</td><td>solids, liquids and gases</td></tr><tr><td>Example</td><td>water waves</td><td>sound waves</td></tr></table></div>",
+      "ta": "<p><b>பருப்பொருள் ஊடகம்</b> தேவைப்படும் அலைகள் <b>பொறிமுறை அலைகள்</b>: நீர் அலைகள், காற்றுல ஒலி, மீட்டின கிட்டார் நாணுல அலைகள். ஸ்லிங்கி (எஃகு சுருள்) மூலமா இவற்றைப் படிக்கலாம். ஸ்லிங்கிய மேசைல பக்கவாட்டுல ஆட்டினா அலை அது வழியா ஓடும்.</p>\n<div class=\"fig\"><svg aria-label=\"A transverse wave: the particles move up and down, the wave moves along\" role=\"img\" viewbox=\"0 0 540 200\"><path d=\"M40 100.0 L44 95.9 L48 91.8 L52 87.9 L56 84.1 L60 80.5 L64 77.2 L68 74.2 L72 71.5 L76 69.2 L80 67.3 L84 65.8 L88 64.7 L92 64.1 L96 64.0 L100 64.4 L104 65.2 L108 66.5 L112 68.2 L116 70.3 L120 72.8 L124 75.7 L128 78.8 L132 82.3 L136 86.0 L140 89.9 L144 93.9 L148 97.9 L152 102.1 L156 106.1 L160 110.1 L164 114.0 L168 117.7 L172 121.2 L176 124.3 L180 127.2 L184 129.7 L188 131.8 L192 133.5 L196 134.8 L200 135.6 L204 136.0 L208 135.9 L212 135.3 L216 134.2 L220 132.7 L224 130.8 L228 128.5 L232 125.8 L236 122.8 L240 119.5 L244 115.9 L248 112.1 L252 108.2 L256 104.1 L260 100.0 L264 95.9 L268 91.8 L272 87.9 L276 84.1 L280 80.5 L284 77.2 L288 74.2 L292 71.5 L296 69.2 L300 67.3 L304 65.8 L308 64.7 L312 64.1 L316 64.0 L320 64.4 L324 65.2 L328 66.5 L332 68.2 L336 70.3 L340 72.8 L344 75.7 L348 78.8 L352 82.3 L356 86.0 L360 89.9 L364 93.9 L368 97.9 L372 102.1 L376 106.1 L380 110.1 L384 114.0 L388 117.7 L392 121.2 L396 124.3 L400 127.2 L404 129.7 L408 131.8 L412 133.5 L416 134.8 L420 135.6 L424 136.0 L428 135.9 L432 135.3 L436 134.2 L440 132.7 L444 130.8 L448 128.5 L452 125.8 L456 122.8 L460 119.5 L464 115.9 L468 112.1 L472 108.2 L476 104.1 L480 100.0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><circle cx=\"95\" cy=\"64.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"205\" cy=\"136.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"315\" cy=\"64.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><circle cx=\"425\" cy=\"136.0\" r=\"7\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:var(--text)\"></circle><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"40\" x2=\"467.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"480,160 467.0,153.6 467.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"260\" y=\"182\">direction of wave propagation</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"520\" x2=\"520.0\" y1=\"120\" y2=\"83.0\"></line><polygon points=\"520,70 513.9,83.0 526.1,83.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"520\" x2=\"520.0\" y1=\"70\" y2=\"107.0\"></line><polygon points=\"520,120 526.1,107.0 513.9,107.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"505\" y=\"98\">particle</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"505\" y=\"114\">motion</text></svg><div class=\"figcap\">குறுக்கலை: துணிக்கைகள் மேல கீழ அசையுது, அலை முன்னோக்கி போகுது.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">குறுக்கலைகள்</div><div class=\"ltext\">ஊடகத் துணிக்கைகள் அலை பயணிக்கும் திசைக்கு <b>செங்குத்தா</b> அசையும். உதா: நீர் அலைகள், நாணுல அலைகள்.</div></div>\n<p>குறுக்கலைல மிக அதிகமா <b>மேல</b> போன துணிக்கைகள் <b>முகடுகள்ல</b> (உரு 4.7-ல A, B), மிக அதிகமா <b>கீழ</b> போனவை <b>அகடுகள்ல</b> (C, D).</p>\n<div class=\"fig\"><svg aria-label=\"A longitudinal wave in a slinky: compressions and rarefactions\" role=\"img\" viewbox=\"0 0 540 200\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"40.0\" x2=\"40.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"58.3\" x2=\"58.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"74.6\" x2=\"74.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"87.6\" x2=\"87.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"97.3\" x2=\"97.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"105.0\" x2=\"105.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"112.7\" x2=\"112.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"122.4\" x2=\"122.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"135.4\" x2=\"135.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"151.7\" x2=\"151.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"170.0\" x2=\"170.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"188.3\" x2=\"188.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"204.6\" x2=\"204.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"217.6\" x2=\"217.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"227.3\" x2=\"227.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"235.0\" x2=\"235.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"242.7\" x2=\"242.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"252.4\" x2=\"252.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"265.4\" x2=\"265.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"281.7\" x2=\"281.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"300.0\" x2=\"300.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"318.3\" x2=\"318.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"334.6\" x2=\"334.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"347.6\" x2=\"347.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"357.3\" x2=\"357.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"365.0\" x2=\"365.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"372.7\" x2=\"372.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"382.4\" x2=\"382.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"395.4\" x2=\"395.4\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"411.7\" x2=\"411.7\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"430.0\" x2=\"430.0\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"448.3\" x2=\"448.3\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"464.6\" x2=\"464.6\" y1=\"60\" y2=\"130\"></line><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"477.6\" x2=\"477.6\" y1=\"60\" y2=\"130\"></line><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"110\" y=\"52\">compression</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"240\" y=\"52\">rarefaction</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"370\" y=\"52\">compression</text><line stroke-linecap=\"round\" stroke-width=\"3.5\" style=\"stroke:var(--good)\" x1=\"40\" x2=\"467.0\" y1=\"160\" y2=\"160.0\"></line><polygon points=\"480,160 467.0,153.6 467.0,166.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"260\" y=\"184\">direction of wave propagation</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"22\">particles move back and forth, parallel to the wave</text></svg><div class=\"figcap\">உரு 4.9: ஸ்லிங்கில நெட்டாங்கு அலை.</div></div>\n<div class=\"lawbox\"><div class=\"llabel\">நெட்டாங்கு அலைகள்</div><div class=\"ltext\">ஊடகத் துணிக்கைகள் அலை பயணிக்கும் திசைக்கு <b>சமாந்தரமா</b> அலையும். ஸ்லிங்கியோட சுதந்திர முனைய முன்னுக்கு தள்ளினா சுருள்கள் நெருங்கும் (<b>அமுக்கம்</b>); பின்னுக்கு இழுத்தா விலகும் (<b>ஐதாக்கம்</b>). உதா: காற்றுல ஒலி அலைகள்.</div></div>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th></th><th>குறுக்கலைகள்</th><th>நெட்டாங்கு அலைகள்</th></tr><tr><td>துணிக்கை அசைவு</td><td>அலைக்கு செங்குத்து</td><td>அலைக்கு சமாந்தரம்</td></tr><tr><td>எதன் வழியா</td><td>திண்ம, திரவ மேற்பரப்புகள், நாண், கம்பிகள்</td><td>திண்மம், திரவம், வாயு</td></tr><tr><td>உதாரணம்</td><td>நீர் அலைகள்</td><td>ஒலி அலைகள்</td></tr></table></div>"
+     },
+     "section": "4.1"
+    },
+    {
+     "title": {
+      "en": "4.2 Describing a wave: amplitude, wavelength, period, frequency, speed",
+      "ta": "4.2 அலைய விவரிக்கறது: வீச்சம், அலைநீளம், அலைவுகாலம், மீடிறன், கதி"
+     },
+     "body": {
+      "en": "<p>We study the simplest waves, <b>sinusoidal</b> waves. A particle in the wave goes from zero displacement to a maximum, back through zero, to a maximum in the other direction and back to zero. That is <b>one oscillation</b> (or vibration).</p>\n<div class=\"fig\"><svg aria-label=\"A wave drawn with its crest, trough, amplitude and wavelength\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-dasharray=\"5 5\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"470\" y1=\"105\" y2=\"105\"></line><path d=\"M60 105.0 L64 97.9 L68 91.0 L72 84.3 L76 77.9 L80 72.0 L84 66.6 L88 61.8 L92 57.8 L96 54.6 L100 52.2 L104 50.6 L108 50.0 L112 50.3 L116 51.5 L120 53.6 L124 56.5 L128 60.2 L132 64.7 L136 69.9 L140 75.6 L144 81.8 L148 88.4 L152 95.3 L156 102.3 L160 109.4 L164 116.4 L168 123.3 L172 129.8 L176 135.9 L180 141.5 L184 146.5 L188 150.8 L192 154.3 L196 157.0 L200 158.9 L204 159.9 L208 159.9 L212 159.1 L216 157.3 L220 154.7 L224 151.2 L228 147.0 L232 142.1 L236 136.6 L240 130.6 L244 124.1 L248 117.3 L252 110.3 L256 103.2 L260 96.2 L264 89.3 L268 82.6 L272 76.4 L276 70.6 L280 65.3 L284 60.8 L288 56.9 L292 53.9 L296 51.7 L300 50.4 L304 50.0 L308 50.5 L312 51.9 L316 54.2 L320 57.4 L324 61.3 L328 66.0 L332 71.3 L336 77.1 L340 83.4 L344 90.1 L348 97.1 L352 104.1 L356 111.2 L360 118.2 L364 124.9 L368 131.3 L372 137.3 L376 142.8 L380 147.6 L384 151.7 L388 155.1 L392 157.6 L396 159.2 L400 160.0 L404 159.8 L408 158.7 L412 156.7 L416 153.9 L420 150.3 L424 145.9 L428 140.8 L432 135.1 L436 129.0 L440 122.4 L444 115.6 L448 108.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"40\" x2=\"40\" y1=\"105\" y2=\"50\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"35\" x2=\"45\" y1=\"105\" y2=\"105\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"35\" x2=\"45\" y1=\"50\" y2=\"50\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"32\" y=\"82.5\">amplitude</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"157\" x2=\"352\" y1=\"205\" y2=\"205\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"157\" x2=\"157\" y1=\"200\" y2=\"210\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"352\" x2=\"352\" y1=\"200\" y2=\"210\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"254.5\" y=\"198\">λ  wavelength</text><circle cx=\"108.75\" cy=\"50\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"303.75\" cy=\"50\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"206.25\" cy=\"160\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></circle><circle cx=\"401.25\" cy=\"160\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"109\" y=\"36\">crest</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"304\" y=\"36\">crest</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"206\" y=\"182\">trough</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"401\" y=\"182\">trough</text></svg><div class=\"figcap\">Figures 4.10 and 4.11: crest, trough, amplitude and wavelength.</div></div>\n<ul><li><b>Amplitude:</b> the maximum displacement of the particles taking part in the wave.</li><li><b>Wavelength (λ):</b> the distance between a particle and the closest particle in the same state of motion, for example between two consecutive crests or troughs.</li><li><b>Period (T):</b> the time a particle takes for one complete oscillation; also the time the wave takes to travel one wavelength.</li><li><b>Frequency (f):</b> the number of oscillations a particle makes in one second. Unit: <b>hertz (Hz)</b>, one oscillation per second.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">Frequency and period</div><div class=\"fmath\"><b>f = 1 ÷ T</b></div><div class=\"fnote\">f in hertz (Hz), T in seconds (s)</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">Wave speed</div><div class=\"fmath\"><b>v = f λ</b>   (v = λ ÷ T)</div><div class=\"fnote\">v in m s<sup>-1</sup>, f in Hz, λ in m</div></div>\n<p>A wave moves one wavelength λ in one period T, so its speed is v = λ ÷ T. Because f = 1 ÷ T, this is v = f × λ.</p>",
+      "ta": "<p>நாம எளிமையான <b>சைன் வடிவ</b> அலைகள படிக்கறோம். அலைல இருக்கற ஒரு துணிக்கை பூச்சிய இடப்பெயர்ச்சில இருந்து உச்சத்துக்கு போய், பூச்சியம் வழியா மறு திசைல உச்சம் போய் திரும்ப பூச்சியத்துக்கு வரும். இது <b>ஒரு அலைவு</b>.</p>\n<div class=\"fig\"><svg aria-label=\"A wave drawn with its crest, trough, amplitude and wavelength\" role=\"img\" viewbox=\"0 0 520 225\"><line stroke-dasharray=\"5 5\" stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"470\" y1=\"105\" y2=\"105\"></line><path d=\"M60 105.0 L64 97.9 L68 91.0 L72 84.3 L76 77.9 L80 72.0 L84 66.6 L88 61.8 L92 57.8 L96 54.6 L100 52.2 L104 50.6 L108 50.0 L112 50.3 L116 51.5 L120 53.6 L124 56.5 L128 60.2 L132 64.7 L136 69.9 L140 75.6 L144 81.8 L148 88.4 L152 95.3 L156 102.3 L160 109.4 L164 116.4 L168 123.3 L172 129.8 L176 135.9 L180 141.5 L184 146.5 L188 150.8 L192 154.3 L196 157.0 L200 158.9 L204 159.9 L208 159.9 L212 159.1 L216 157.3 L220 154.7 L224 151.2 L228 147.0 L232 142.1 L236 136.6 L240 130.6 L244 124.1 L248 117.3 L252 110.3 L256 103.2 L260 96.2 L264 89.3 L268 82.6 L272 76.4 L276 70.6 L280 65.3 L284 60.8 L288 56.9 L292 53.9 L296 51.7 L300 50.4 L304 50.0 L308 50.5 L312 51.9 L316 54.2 L320 57.4 L324 61.3 L328 66.0 L332 71.3 L336 77.1 L340 83.4 L344 90.1 L348 97.1 L352 104.1 L356 111.2 L360 118.2 L364 124.9 L368 131.3 L372 137.3 L376 142.8 L380 147.6 L384 151.7 L388 155.1 L392 157.6 L396 159.2 L400 160.0 L404 159.8 L408 158.7 L412 156.7 L416 153.9 L420 150.3 L424 145.9 L428 140.8 L432 135.1 L436 129.0 L440 122.4 L444 115.6 L448 108.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"4\" style=\"fill:none;stroke:var(--accent)\"></path><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"40\" x2=\"40\" y1=\"105\" y2=\"50\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"35\" x2=\"45\" y1=\"105\" y2=\"105\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"35\" x2=\"45\" y1=\"50\" y2=\"50\"></line><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"32\" y=\"82.5\">amplitude</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"157\" x2=\"352\" y1=\"205\" y2=\"205\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"157\" x2=\"157\" y1=\"200\" y2=\"210\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--danger)\" x1=\"352\" x2=\"352\" y1=\"200\" y2=\"210\"></line><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"254.5\" y=\"198\">λ  wavelength</text><circle cx=\"108.75\" cy=\"50\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"303.75\" cy=\"50\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></circle><circle cx=\"206.25\" cy=\"160\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></circle><circle cx=\"401.25\" cy=\"160\" r=\"6\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></circle><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"109\" y=\"36\">crest</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"304\" y=\"36\">crest</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"206\" y=\"182\">trough</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"401\" y=\"182\">trough</text></svg><div class=\"figcap\">உரு 4.10, 4.11: முகடு, அகடு, வீச்சம், அலைநீளம்.</div></div>\n<ul><li><b>வீச்சம்:</b> அலைல பங்கு கொள்ளும் துணிக்கைகளோட அதிகபட்ச இடப்பெயர்ச்சி.</li><li><b>அலைநீளம் (λ):</b> ஒரு துணிக்கைக்கும் அதே இயக்க நிலைல இருக்கற அடுத்த துணிக்கைக்கும் உள்ள தூரம், உதா: அடுத்தடுத்த ரெண்டு முகடுகள் அல்லது அகடுகளுக்கு இடையில.</li><li><b>ஆவர்த்தன காலம் (T):</b> ஒரு துணிக்கை ஒரு முழு அலைவு செய்ய எடுக்கும் நேரம்; அலை ஒரு அலைநீளம் பயணிக்க எடுக்கும் நேரமும் இதுவே.</li><li><b>மீடிறன் (f):</b> ஒரு துணிக்கை ஒரு வினாடில செய்யும் அலைவுகளோட எண்ணிக்கை. அலகு: <b>ஹேட்ஸ் (Hz)</b>, வினாடிக்கு ஒரு அலைவு.</li></ul>\n<div class=\"formula-box\"><div class=\"flabel\">மீடிறனும் ஆவர்த்தன காலமும்</div><div class=\"fmath\"><b>f = 1 ÷ T</b></div><div class=\"fnote\">f ஹேட்ஸ் (Hz), T வினாடி (s)</div></div>\n<div class=\"formula-box\"><div class=\"flabel\">அலையோட கதி</div><div class=\"fmath\"><b>v = f λ</b>   (v = λ ÷ T)</div><div class=\"fnote\">v: m s<sup>-1</sup>, f: Hz, λ: m</div></div>\n<p>அலை ஒரு ஆவர்த்தன காலம் T-ல ஒரு அலைநீளம் λ பயணிக்குது, அதனால கதி v = λ ÷ T. f = 1 ÷ T என்பதால இது v = f × λ.</p>"
+     },
+     "section": "4.2"
+    },
+    {
+     "title": {
+      "en": "4.3 Electromagnetic waves and the spectrum",
+      "ta": "4.3 மின்காந்த அலைகளும் திருசியமும்"
+     },
+     "body": {
+      "en": "<p>Electromagnetic waves need no material medium. They are made of an <b>electric field</b> and a <b>magnetic field</b> that oscillate at right angles to each other, and the wave travels at right angles to both. So they are <b>transverse</b> waves.</p>\n<div class=\"fig\"><svg aria-label=\"An electromagnetic wave: electric and magnetic fields at right angles\" role=\"img\" viewbox=\"0 0 520 215\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"40\" x2=\"467.0\" y1=\"130\" y2=\"130.0\"></line><polygon points=\"480,130 467.0,123.9 467.0,136.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"470\" y=\"152\">direction of the wave</text><path d=\"M60 130.0 L64 121.8 L68 113.8 L72 106.0 L76 98.7 L80 91.9 L84 85.8 L88 80.5 L92 76.0 L96 72.4 L100 69.9 L104 68.4 L108 68.0 L112 68.7 L116 70.4 L120 73.2 L124 77.0 L128 81.7 L132 87.3 L136 93.6 L140 100.5 L144 107.9 L148 115.8 L152 123.9 L156 132.0 L160 140.2 L164 148.2 L168 155.8 L172 163.0 L176 169.7 L180 175.6 L184 180.8 L188 185.0 L192 188.3 L196 190.6 L200 191.8 L204 191.9 L208 191.0 L212 189.0 L216 185.9 L220 181.9 L224 177.0 L228 171.2 L232 164.8 L236 157.7 L240 150.1 L244 142.2 L248 134.1 L252 125.9 L256 117.8 L260 109.9 L264 102.3 L268 95.2 L272 88.8 L276 83.0 L280 78.1 L284 74.1 L288 71.0 L292 69.0 L296 68.1 L300 68.2 L304 69.4 L308 71.7 L312 75.0 L316 79.2 L320 84.4 L324 90.3 L328 97.0 L332 104.2 L336 111.8 L340 119.8 L344 128.0 L348 136.1 L352 144.2 L356 152.1 L360 159.5 L364 166.4 L368 172.7 L372 178.3 L376 183.0 L380 186.8 L384 189.6 L388 191.3 L392 192.0 L396 191.6 L400 190.1 L404 187.6 L408 184.0 L412 179.5 L416 174.2 L420 168.1 L424 161.3 L428 154.0 L432 146.2 L436 138.2 L440 130.0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--danger)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"446\" y=\"66\">electric field (up and down)</text><path d=\"M60 130.0 L64 127.1 L68 124.2 L72 121.5 L76 118.9 L80 116.5 L84 114.3 L88 112.4 L92 110.8 L96 109.6 L100 108.7 L104 108.1 L108 108.0 L112 108.2 L116 108.9 L120 109.9 L124 111.2 L128 112.9 L132 114.8 L136 117.1 L140 119.5 L144 122.2 L148 125.0 L152 127.8 L156 130.7 L160 133.6 L164 136.5 L168 139.2 L172 141.7 L176 144.1 L180 146.2 L184 148.0 L188 149.5 L192 150.7 L196 151.5 L200 151.9 L204 152.0 L208 151.6 L212 150.9 L216 149.8 L220 148.4 L224 146.7 L228 144.6 L232 142.3 L236 139.8 L240 137.1 L244 134.3 L248 131.5 L252 128.5 L256 125.7 L260 122.9 L264 120.2 L268 117.7 L272 115.4 L276 113.3 L280 111.6 L284 110.2 L288 109.1 L292 108.4 L296 108.0 L300 108.1 L304 108.5 L308 109.3 L312 110.5 L316 112.0 L320 113.8 L324 115.9 L328 118.3 L332 120.8 L336 123.5 L340 126.4 L344 129.3 L348 132.2 L352 135.0 L356 137.8 L360 140.5 L364 142.9 L368 145.2 L372 147.1 L376 148.8 L380 150.1 L384 151.1 L388 151.8 L392 152.0 L396 151.9 L400 151.3 L404 150.4 L408 149.2 L412 147.6 L416 145.7 L420 143.5 L424 141.1 L428 138.5 L432 135.8 L436 132.9 L440 130.0\" stroke-dasharray=\"6 4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"460\" y=\"196\">magnetic field (in and out of the page)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"22\">the two fields and the direction of travel are at 90° to each other</text></svg><div class=\"figcap\">Figure 4.12: the electric and magnetic fields of an electromagnetic wave.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">✅ Characteristics of electromagnetic waves</div><ul><li>They are not affected by external electric or magnetic fields.</li><li>They need no material medium.</li><li>In a vacuum they all travel at 3 × 10<sup>8</sup> m s<sup>-1</sup> (more exactly 2.988 × 10<sup>8</sup>).</li></ul></div>\n<div class=\"formula-box\"><div class=\"flabel\">Speed of an electromagnetic wave</div><div class=\"fmath\"><b>c = f λ</b></div><div class=\"fnote\">c = 3 × 10<sup>8</sup> m s<sup>-1</sup> in a vacuum</div></div>\n<div class=\"fig\"><svg aria-label=\"The electromagnetic spectrum from radio waves to gamma rays\" role=\"img\" viewbox=\"0 0 520 212\"><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#6a5acd;stroke:none\" width=\"70\" x=\"10\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"45.0\" y=\"99\">Radio</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"45.0\" y=\"144\">&lt; 3×10⁹</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#2e8b57;stroke:none\" width=\"74\" x=\"80\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"117.0\" y=\"99\">Micro</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"117.0\" y=\"144\">3×10⁹–3×10¹²</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#cc3b3b;stroke:none\" width=\"92\" x=\"154\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"200.0\" y=\"99\">Infra-red</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"200.0\" y=\"144\">3×10¹²–4.28×10¹⁴</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#e8a317;stroke:none\" width=\"76\" x=\"246\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"284.0\" y=\"99\">Visible</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"284.0\" y=\"144\">4.28–7.69×10¹⁴</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#8a2be2;stroke:none\" width=\"100\" x=\"322\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"372.0\" y=\"99\">Ultra-violet</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"372.0\" y=\"144\">7.69×10¹⁴–3×10¹⁷</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#2a7de1;stroke:none\" width=\"80\" x=\"422\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"462.0\" y=\"99\">X rays</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"462.0\" y=\"144\">3×10¹⁷–3×10¹⁹</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#222;stroke:none\" width=\"68\" x=\"502\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"536.0\" y=\"99\">Gamma</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"536.0\" y=\"144\">&gt; 3×10¹⁹</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"20\" x2=\"487.0\" y1=\"40\" y2=\"40.0\"></line><polygon points=\"500,40 487.0,33.9 487.0,46.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"28\">frequency (Hz) increases →</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent-3)\" x1=\"500\" x2=\"33.0\" y1=\"175\" y2=\"175.0\"></line><polygon points=\"20,175 33.0,181.1 33.0,168.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent-3);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"260\" y=\"198\">← wavelength increases</text></svg><div class=\"figcap\">Figure 4.13: the electromagnetic spectrum (frequencies in Hz).</div></div>\n<p>The different frequency ranges behave differently; together they are the <b>electromagnetic spectrum</b>.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Wave</th><th>Frequency range (Hz)</th></tr><tr><td>Gamma rays</td><td class=\"num\">&gt; 3 × 10<sup>19</sup></td></tr><tr><td>X rays</td><td class=\"num\">3 × 10<sup>17</sup> – 3 × 10<sup>19</sup></td></tr><tr><td>Ultraviolet</td><td class=\"num\">7.69 × 10<sup>14</sup> – 3 × 10<sup>17</sup></td></tr><tr><td>Visible light</td><td class=\"num\">4.28 × 10<sup>14</sup> – 7.69 × 10<sup>14</sup></td></tr><tr><td>Infrared</td><td class=\"num\">3 × 10<sup>12</sup> – 4.28 × 10<sup>14</sup></td></tr><tr><td>Microwaves</td><td class=\"num\">3 × 10<sup>9</sup> – 3 × 10<sup>12</sup></td></tr><tr><td>Radio waves</td><td class=\"num\">&lt; 3 × 10<sup>9</sup></td></tr></table></div>\n<ul><li><b>Visible light</b>: 4.28 × 10<sup>14</sup> to 7.69 × 10<sup>14</sup> Hz (wavelengths 690 nm to 400 nm). Violet has the shortest wavelength; then indigo, blue, … up to red: the seven colours of the rainbow.</li><li><b>Gamma rays</b>: from radioactive elements; extremely high energy; pass through steel and concrete; destroy living cells, so they treat cancer and sterilise food utensils and surgical instruments.</li><li><b>X rays</b>: made by fast electrons hitting a metal target. They pass easily through soft tissue but are absorbed by bones, so they photograph the inside of the body, and are used to check baggage and cargo. Too much exposure can cause cancer.</li><li><b>Ultraviolet</b>: \"above violet\"; bees can see it. Sunlight has a little; it makes vitamin D, but too much causes cataract and skin cancer. Used to kill germs in hospitals and to check hidden marks on banknotes.</li><li><b>Infrared</b> (\"heat rays\"): from hot bodies, felt as warmth; heat photographs, TV remote controls, phone and computer cameras, physiotherapy.</li><li><b>Microwaves</b>: radar, mobile phones and microwave ovens. Water and fat in food absorb them and heat up; a magnetron makes them.</li><li><b>Radio waves</b>: the longest wavelengths and lowest frequencies; long-distance communication. Information is added by changing the amplitude or the frequency of the wave; antennas send and receive them.</li></ul>",
+      "ta": "<p>மின்காந்த அலைகளுக்கு பருப்பொருள் ஊடகம் வேணாம். அவை ஒண்ணுக்கொண்ணு செங்குத்தா அலையும் <b>மின்புலம்</b>, <b>காந்தப்புலம்</b> ஆகியவற்றால ஆனவை, அலை ரெண்டுக்கும் செங்குத்தா பயணிக்கும். அதனால இவை <b>குறுக்கலைகள்</b>.</p>\n<div class=\"fig\"><svg aria-label=\"An electromagnetic wave: electric and magnetic fields at right angles\" role=\"img\" viewbox=\"0 0 520 215\"><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--text)\" x1=\"40\" x2=\"467.0\" y1=\"130\" y2=\"130.0\"></line><polygon points=\"480,130 467.0,123.9 467.0,136.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"470\" y=\"152\">direction of the wave</text><path d=\"M60 130.0 L64 121.8 L68 113.8 L72 106.0 L76 98.7 L80 91.9 L84 85.8 L88 80.5 L92 76.0 L96 72.4 L100 69.9 L104 68.4 L108 68.0 L112 68.7 L116 70.4 L120 73.2 L124 77.0 L128 81.7 L132 87.3 L136 93.6 L140 100.5 L144 107.9 L148 115.8 L152 123.9 L156 132.0 L160 140.2 L164 148.2 L168 155.8 L172 163.0 L176 169.7 L180 175.6 L184 180.8 L188 185.0 L192 188.3 L196 190.6 L200 191.8 L204 191.9 L208 191.0 L212 189.0 L216 185.9 L220 181.9 L224 177.0 L228 171.2 L232 164.8 L236 157.7 L240 150.1 L244 142.2 L248 134.1 L252 125.9 L256 117.8 L260 109.9 L264 102.3 L268 95.2 L272 88.8 L276 83.0 L280 78.1 L284 74.1 L288 71.0 L292 69.0 L296 68.1 L300 68.2 L304 69.4 L308 71.7 L312 75.0 L316 79.2 L320 84.4 L324 90.3 L328 97.0 L332 104.2 L336 111.8 L340 119.8 L344 128.0 L348 136.1 L352 144.2 L356 152.1 L360 159.5 L364 166.4 L368 172.7 L372 178.3 L376 183.0 L380 186.8 L384 189.6 L388 191.3 L392 192.0 L396 191.6 L400 190.1 L404 187.6 L408 184.0 L412 179.5 L416 174.2 L420 168.1 L424 161.3 L428 154.0 L432 146.2 L436 138.2 L440 130.0\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--danger)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"446\" y=\"66\">electric field (up and down)</text><path d=\"M60 130.0 L64 127.1 L68 124.2 L72 121.5 L76 118.9 L80 116.5 L84 114.3 L88 112.4 L92 110.8 L96 109.6 L100 108.7 L104 108.1 L108 108.0 L112 108.2 L116 108.9 L120 109.9 L124 111.2 L128 112.9 L132 114.8 L136 117.1 L140 119.5 L144 122.2 L148 125.0 L152 127.8 L156 130.7 L160 133.6 L164 136.5 L168 139.2 L172 141.7 L176 144.1 L180 146.2 L184 148.0 L188 149.5 L192 150.7 L196 151.5 L200 151.9 L204 152.0 L208 151.6 L212 150.9 L216 149.8 L220 148.4 L224 146.7 L228 144.6 L232 142.3 L236 139.8 L240 137.1 L244 134.3 L248 131.5 L252 128.5 L256 125.7 L260 122.9 L264 120.2 L268 117.7 L272 115.4 L276 113.3 L280 111.6 L284 110.2 L288 109.1 L292 108.4 L296 108.0 L300 108.1 L304 108.5 L308 109.3 L312 110.5 L316 112.0 L320 113.8 L324 115.9 L328 118.3 L332 120.8 L336 123.5 L340 126.4 L344 129.3 L348 132.2 L352 135.0 L356 137.8 L360 140.5 L364 142.9 L368 145.2 L372 147.1 L376 148.8 L380 150.1 L384 151.1 L388 151.8 L392 152.0 L396 151.9 L400 151.3 L404 150.4 L408 149.2 L412 147.6 L416 145.7 L420 143.5 L424 141.1 L428 138.5 L432 135.8 L436 132.9 L440 130.0\" stroke-dasharray=\"6 4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"end\" x=\"460\" y=\"196\">magnetic field (in and out of the page)</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"260\" y=\"22\">the two fields and the direction of travel are at 90° to each other</text></svg><div class=\"figcap\">உரு 4.12: மின்காந்த அலையோட மின்புலமும் காந்தப்புலமும்.</div></div>\n<div class=\"callout tip\"><div class=\"ctitle\">✅ மின்காந்த அலைகளோட இயல்புகள்</div><ul><li>வெளி மின்புலங்களோ காந்தப்புலங்களோ இவற்ற பாதிக்காது.</li><li>பருப்பொருள் ஊடகம் வேணாம்.</li><li>வெற்றிடத்துல எல்லாம் 3 × 10<sup>8</sup> m s<sup>-1</sup> வேகத்துல பயணிக்கும் (சரியா 2.988 × 10<sup>8</sup>).</li></ul></div>\n<div class=\"formula-box\"><div class=\"flabel\">மின்காந்த அலையோட கதி</div><div class=\"fmath\"><b>c = f λ</b></div><div class=\"fnote\">வெற்றிடத்துல c = 3 × 10<sup>8</sup> m s<sup>-1</sup></div></div>\n<div class=\"fig\"><svg aria-label=\"The electromagnetic spectrum from radio waves to gamma rays\" role=\"img\" viewbox=\"0 0 520 212\"><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#6a5acd;stroke:none\" width=\"70\" x=\"10\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"45.0\" y=\"99\">Radio</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"45.0\" y=\"144\">&lt; 3×10⁹</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#2e8b57;stroke:none\" width=\"74\" x=\"80\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"117.0\" y=\"99\">Micro</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"117.0\" y=\"144\">3×10⁹–3×10¹²</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#cc3b3b;stroke:none\" width=\"92\" x=\"154\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"200.0\" y=\"99\">Infra-red</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"200.0\" y=\"144\">3×10¹²–4.28×10¹⁴</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#e8a317;stroke:none\" width=\"76\" x=\"246\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"284.0\" y=\"99\">Visible</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"284.0\" y=\"144\">4.28–7.69×10¹⁴</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#8a2be2;stroke:none\" width=\"100\" x=\"322\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"372.0\" y=\"99\">Ultra-violet</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"372.0\" y=\"144\">7.69×10¹⁴–3×10¹⁷</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#2a7de1;stroke:none\" width=\"80\" x=\"422\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"462.0\" y=\"99\">X rays</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"462.0\" y=\"144\">3×10¹⁷–3×10¹⁹</text><rect height=\"52\" rx=\"0\" stroke-width=\"0\" style=\"fill:#222;stroke:none\" width=\"68\" x=\"502\" y=\"70\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:#ffffff\" text-anchor=\"middle\" x=\"536.0\" y=\"99\">Gamma</text><text font-size=\"9\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"536.0\" y=\"144\">&gt; 3×10¹⁹</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent)\" x1=\"20\" x2=\"487.0\" y1=\"40\" y2=\"40.0\"></line><polygon points=\"500,40 487.0,33.9 487.0,46.1\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"28\">frequency (Hz) increases →</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--accent-3)\" x1=\"500\" x2=\"33.0\" y1=\"175\" y2=\"175.0\"></line><polygon points=\"20,175 33.0,181.1 33.0,168.9\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--accent-3);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"middle\" x=\"260\" y=\"198\">← wavelength increases</text></svg><div class=\"figcap\">உரு 4.13: மின்காந்தத் திருசியம் (மீடிறன் Hz-ல).</div></div>\n<p>வெவ்வேறு மீடிறன் வீச்சுகள் வேறுவிதமா நடக்கும்; எல்லாம் சேர்ந்து <b>மின்காந்தத் திருசியம்</b>.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>அலை</th><th>மீடிறன் வீச்சு (Hz)</th></tr><tr><td>காமாக் கதிர்கள்</td><td class=\"num\">&gt; 3 × 10<sup>19</sup></td></tr><tr><td>X கதிர்கள்</td><td class=\"num\">3 × 10<sup>17</sup> – 3 × 10<sup>19</sup></td></tr><tr><td>கழியூதாக் கதிர்ப்பு</td><td class=\"num\">7.69 × 10<sup>14</sup> – 3 × 10<sup>17</sup></td></tr><tr><td>தெரிகின்ற ஒளி</td><td class=\"num\">4.28 × 10<sup>14</sup> – 7.69 × 10<sup>14</sup></td></tr><tr><td>செங்கீழ்க் கதிர்ப்பு</td><td class=\"num\">3 × 10<sup>12</sup> – 4.28 × 10<sup>14</sup></td></tr><tr><td>நுணுக்கலைகள்</td><td class=\"num\">3 × 10<sup>9</sup> – 3 × 10<sup>12</sup></td></tr><tr><td>வானொலி அலைகள்</td><td class=\"num\">&lt; 3 × 10<sup>9</sup></td></tr></table></div>\n<ul><li><b>தெரிகின்ற ஒளி</b>: 4.28 × 10<sup>14</sup> முதல் 7.69 × 10<sup>14</sup> Hz (அலைநீளம் 690 nm முதல் 400 nm). ஊதாவுக்கு அலைநீளம் மிகக் குறைவு; அப்புறம் இண்டிகோ, நீலம், … சிவப்பு வரை: வானவில்லோட ஏழு நிறங்கள்.</li><li><b>காமாக் கதிர்கள்</b>: கதிரியக்க மூலகங்கள்ல இருந்து; மிக அதிக சக்தி; எஃகு, காங்கிரீட்டையும் ஊடுருவும்; உயிர்க் கலங்கள அழிக்கும், அதனால புற்றுநோய் சிகிச்சைக்கும் உணவுப் பாத்திரங்கள், அறுவைக் கருவிகள தூய்மையாக்கவும் பயன்படுது.</li><li><b>X கதிர்கள்</b>: வேகமான இலத்திரன்கள் உலோக இலக்கை மோதி உண்டாகுது. மென்மையான இழையங்கள் வழியா சுலபமா போகும், எலும்புகள்ல உறிஞ்சப்படும், அதனால உடம்போட உட்புறத்த படம் எடுக்கவும், பைகள், சரக்குகள சோதிக்கவும் பயன்படுது. அதிகமா வெளிப்பட்டா புற்றுநோய் வரலாம்.</li><li><b>கழியூதாக் கதிர்ப்பு</b>: \"ஊதாவுக்கு மேல\"; தேனீக்கள் இதை பாக்கும். சூரிய ஒளில கொஞ்சம் இருக்கு; வைட்டமின் D உண்டாக்கும், ஆனா அதிகமானா கண்புரை, தோல் புற்றுநோய் வரும். மருத்துவமனைகள்ல கிருமிகள அழிக்கவும் நோட்டுகள்ல மறைந்த குறிகள சோதிக்கவும் பயன்படுது.</li><li><b>செங்கீழ்க் கதிர்ப்பு</b> (\"வெப்பக் கதிர்\"): சூடான பொருட்கள்ல இருந்து வரும், வெப்பமா உணரப்படும்; வெப்பப் புகைப்படங்கள், டிவி ரிமோட், போன் கணினி கமெராக்கள், இயன் மருத்துவம்.</li><li><b>நுணுக்கலைகள்</b>: ரேடார், கைபேசி, மைக்ரோவேவ் அடுப்பு. உணவுல இருக்கற நீரும் கொழுப்பும் இவற்ற உறிஞ்சி சூடாகும்; மக்னட்ரான் இவற்ற உண்டாக்கும்.</li><li><b>வானொலி அலைகள்</b>: மிக நீண்ட அலைநீளம், மிகக் குறைந்த மீடிறன்; தூரத் தொடர்புக்கு. அலையோட வீச்சம் அல்லது மீடிறன மாத்தி தகவல் ஏற்றப்படும்; அன்டெனாக்கள் அனுப்பி, பெறும்.</li></ul>"
+     },
+     "section": "4.3"
+    },
+    {
+     "title": {
+      "en": "4.4 Sound: how it travels",
+      "ta": "4.4 ஒலி: எப்படி பயணிக்குது"
+     },
+     "body": {
+      "en": "<p>All sounds are made by <b>vibrating objects</b>: a bee's wings, a cricket rubbing its wings, our vocal cords. The type of energy that gives the sensation of hearing is <b>acoustic energy</b>.</p>\n<p>A loud-speaker membrane moves to the right and pushes air molecules together: a <b>compression</b>. It moves left and leaves a <b>rarefaction</b>. These compressions and rarefactions travel forward at the same speed; each air molecule only moves back and forth about its place. So sound is a <b>longitudinal</b> wave.</p>\n<div class=\"fig\"><svg aria-label=\"An electric bell in a bell jar connected to a vacuum pump\" role=\"img\" viewbox=\"0 0 520 235\"><path d=\"M170 190 V60 Q170 28 215 28 Q260 28 260 60 V190\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\"></path><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"130\" x=\"150\" y=\"190\"></rect><rect height=\"40\" opacity=\"0.5\" rx=\"3\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"38\" x=\"196\" y=\"150\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"215\" y=\"176\">bell</text><path d=\"M260 195 H340 V120 H380\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"40\" rx=\"6\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"70\" x=\"380\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"415\" y=\"125\">pump</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"215\" y=\"110\">bell jar</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"215\" y=\"220\">the sound fades as the air is pumped out</text><path d=\"M120 200 H150\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"110\" y=\"190\">to supply</text></svg><div class=\"figcap\">Figure 4.26: sound needs a medium.</div></div>\n<p>Ring an electric bell inside a bell jar and pump the air out: the sound gets fainter and finally disappears. So sound cannot travel through a vacuum: it is a <b>mechanical wave</b> and needs a medium (unlike light).</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Medium</th><th>Speed of sound</th></tr><tr><td>Dry air at 0 °C</td><td class=\"num\">≈ 330 m s<sup>-1</sup></td></tr><tr><td>Dry air at 30 °C</td><td class=\"num\">≈ 350 m s<sup>-1</sup></td></tr><tr><td>Water</td><td class=\"num\">≈ 1400 m s<sup>-1</sup></td></tr><tr><td>Steel</td><td class=\"num\">≈ 5000 m s<sup>-1</sup></td></tr></table></div>\n<p>Sound goes faster in warmer air, faster in water than in air (about four times), and fastest in solids. Light is far quicker (3 × 10<sup>8</sup> m s<sup>-1</sup>), which is why you see lightning before you hear the thunder.</p>",
+      "ta": "<p>எல்லா ஒலிகளும் <b>அதிரும் பொருட்களால</b> உண்டாகுது: தேனீயோட இறக்கைகள், சில்வண்டு இறக்கைகள தேய்க்கறது, நம்ம குரல் நாண்கள். கேள்விய உணர வைக்கும் சக்தி வகை <b>ஒலிச் சக்தி</b>.</p>\n<p>ஒலிபெருக்கி மென்சவ்வு வலப்பக்கம் நகர்ந்து காற்று மூலக்கூறுகள ஒண்ணா தள்ளுது: <b>அமுக்கம்</b>. இடப்பக்கம் நகர்ந்து <b>ஐதாக்கத்த</b> விடுது. இந்த அமுக்கங்களும் ஐதாக்கங்களும் ஒரே கதில முன்னாடி போகும்; ஒவ்வொரு காற்று மூலக்கூறும் தன் இடத்த சுத்தி முன்னும் பின்னும் மட்டும் அசையும். அதனால ஒலி ஒரு <b>நெட்டாங்கு</b> அலை.</p>\n<div class=\"fig\"><svg aria-label=\"An electric bell in a bell jar connected to a vacuum pump\" role=\"img\" viewbox=\"0 0 520 235\"><path d=\"M170 190 V60 Q170 28 215 28 Q260 28 260 60 V190\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:rgba(150,200,240,.25);stroke:var(--text)\"></path><rect height=\"12\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"130\" x=\"150\" y=\"190\"></rect><rect height=\"40\" opacity=\"0.5\" rx=\"3\" stroke-width=\"2.5\" style=\"fill:var(--accent-2);stroke:var(--text)\" width=\"38\" x=\"196\" y=\"150\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"215\" y=\"176\">bell</text><path d=\"M260 195 H340 V120 H380\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"5\" style=\"fill:none;stroke:var(--text)\"></path><rect height=\"40\" rx=\"6\" stroke-width=\"2\" style=\"fill:var(--panel-2);stroke:var(--text)\" width=\"70\" x=\"380\" y=\"100\"></rect><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"415\" y=\"125\">pump</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"215\" y=\"110\">bell jar</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"215\" y=\"220\">the sound fades as the air is pumped out</text><path d=\"M120 200 H150\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--text)\"></path><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"110\" y=\"190\">to supply</text></svg><div class=\"figcap\">உரு 4.26: ஒலிக்கு ஊடகம் வேணும்.</div></div>\n<p>மணி ஜாடிக்குள்ள மின்மணிய ஒலிக்க விட்டு காத்த வெளியேத்தினா ஒலி மெல்ல மங்கி கடைசில மறையுது. அதனால ஒலி வெற்றிடத்துல பயணிக்காது: அது ஒரு <b>பொறிமுறை அலை</b>, ஊடகம் வேணும் (ஒளி மாதிரி இல்ல).</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>ஊடகம்</th><th>ஒலியோட கதி</th></tr><tr><td>0 °C வறண்ட காற்று</td><td class=\"num\">≈ 330 m s<sup>-1</sup></td></tr><tr><td>30 °C வறண்ட காற்று</td><td class=\"num\">≈ 350 m s<sup>-1</sup></td></tr><tr><td>நீர்</td><td class=\"num\">≈ 1400 m s<sup>-1</sup></td></tr><tr><td>எஃகு</td><td class=\"num\">≈ 5000 m s<sup>-1</sup></td></tr></table></div>\n<p>ஒலி சூடான காற்றுல வேகம் கூட; நீர்ல காற்றவிட (சுமார் நாலு மடங்கு) வேகம்; திண்மத்துல மிக வேகம். ஒளி இதவிட ரொம்ப வேகம் (3 × 10<sup>8</sup> m s<sup>-1</sup>), அதனாலதான் மின்னல பாத்த பிறகு இடி கேக்குது.</p>"
+     },
+     "section": "4.4"
+    },
+    {
+     "title": {
+      "en": "4.5 Pitch, loudness and quality",
+      "ta": "4.5 சுருதி, உரப்பு, ஒலியின் பண்பு"
+     },
+     "body": {
+      "en": "<p>Three <b>characteristics of sound</b> let us tell sounds apart: <b>pitch</b>, <b>loudness</b> and <b>quality</b>. Each is a sensation in the ear linked to a property of the wave.</p>\n<div class=\"fig\"><svg aria-label=\"Waveforms: pitch depends on the frequency, loudness on the amplitude\" role=\"img\" viewbox=\"0 0 520 255\"><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"130\" y=\"22\">higher pitch</text><path d=\"M30 70.0 L34 53.5 L38 43.4 L42 43.4 L46 53.5 L50 70.0 L54 86.5 L58 96.6 L62 96.6 L66 86.5 L70 70.0 L74 53.5 L78 43.4 L82 43.4 L86 53.5 L90 70.0 L94 86.5 L98 96.6 L102 96.6 L106 86.5 L110 70.0 L114 53.5 L118 43.4 L122 43.4 L126 53.5 L130 70.0 L134 86.5 L138 96.6 L142 96.6 L146 86.5 L150 70.0 L154 53.5 L158 43.4 L162 43.4 L166 53.5 L170 70.0 L174 86.5 L178 96.6 L182 96.6 L186 86.5 L190 70.0 L194 53.5 L198 43.4 L202 43.4 L206 53.5 L210 70.0 L214 86.5 L218 96.6 L222 96.6 L226 86.5 L230 70.0 L234 53.5 L238 43.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"390\" y=\"22\">lower pitch</text><path d=\"M280 70.0 L284 63.4 L288 57.1 L292 51.6 L296 47.1 L300 43.9 L304 42.3 L308 42.2 L312 43.6 L316 46.6 L320 51.0 L324 56.4 L328 62.6 L332 69.2 L336 75.8 L340 82.1 L344 87.8 L348 92.4 L352 95.7 L356 97.6 L360 97.9 L364 96.6 L368 93.8 L372 89.7 L376 84.4 L380 78.3 L384 71.7 L388 65.0 L392 58.6 L396 52.9 L400 48.1 L404 44.6 L408 42.5 L412 42.0 L416 43.1 L420 45.8 L424 49.8 L428 54.9 L432 61.0 L436 67.5 L440 74.2 L444 80.6 L448 86.5 L452 91.4 L456 95.0 L460 97.3 L464 98.0 L468 97.1 L472 94.7 L476 90.8 L480 85.8 L484 79.8 L488 73.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"130\" y=\"118\">higher frequency, shorter period</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"390\" y=\"118\">lower frequency, longer period</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"130\" y=\"148\">louder</text><path d=\"M30 195.0 L34 182.4 L38 171.3 L42 163.3 L46 159.3 L50 159.9 L54 165.0 L58 173.8 L62 185.4 L66 198.2 L70 210.6 L74 221.0 L78 228.1 L82 231.0 L86 229.2 L90 223.1 L94 213.5 L98 201.4 L102 188.6 L106 176.5 L110 166.9 L114 160.8 L118 159.0 L122 161.9 L126 169.0 L130 179.4 L134 191.8 L138 204.6 L142 216.2 L146 225.0 L150 230.1 L154 230.7 L158 226.7 L162 218.7 L166 207.6 L170 195.0 L174 182.4 L178 171.3 L182 163.3 L186 159.3 L190 159.9 L194 165.0 L198 173.8 L202 185.4 L206 198.2 L210 210.6 L214 221.0 L218 228.1 L222 231.0 L226 229.2 L230 223.1 L234 213.5 L238 201.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--danger)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"390\" y=\"148\">softer</text><path d=\"M280 195.0 L284 190.8 L288 187.1 L292 184.4 L296 183.1 L300 183.3 L304 185.0 L308 187.9 L312 191.8 L316 196.1 L320 200.2 L324 203.7 L328 206.0 L332 207.0 L336 206.4 L340 204.4 L344 201.2 L348 197.1 L352 192.9 L356 188.8 L360 185.6 L364 183.6 L368 183.0 L372 184.0 L376 186.3 L380 189.8 L384 193.9 L388 198.2 L392 202.1 L396 205.0 L400 206.7 L404 206.9 L408 205.6 L412 202.9 L416 199.2 L420 195.0 L424 190.8 L428 187.1 L432 184.4 L436 183.1 L440 183.3 L444 185.0 L448 187.9 L452 191.8 L456 196.1 L460 200.2 L464 203.7 L468 206.0 L472 207.0 L476 206.4 L480 204.4 L484 201.2 L488 197.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--good)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"130\" y=\"245\">large amplitude</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"390\" y=\"245\">small amplitude</text></svg><div class=\"figcap\">Figures 4.30 and 4.31: waveforms on an oscilloscope.</div></div>\n<ul><li><b>Pitch</b> depends on the <b>frequency</b>. Clamp a hacksaw blade and twang it: lengthen the free end and the frequency and pitch fall. Middle C is 256 Hz and higher C is 512 Hz, twice the pitch.</li><li><b>Loudness</b> depends on the energy the wave carries to the ear, which depends on the <b>amplitude</b>. Pluck a string harder: more work, larger amplitude, louder sound.</li><li><b>Quality</b> depends on the <b>shape of the waveform</b>. A tuning fork, a violin and a piano playing the same note with the same loudness still sound different, because their waveforms differ.</li></ul>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Characteristic</th><th>Depends on</th></tr><tr><td>Pitch</td><td>frequency</td></tr><tr><td>Loudness</td><td>amplitude</td></tr><tr><td>Quality</td><td>shape of the waveform</td></tr></table></div>\n<p>A regular repeating waveform sounds pleasant (music). An irregular waveform with no repeating pattern is <b>noise</b>.</p>",
+      "ta": "<p>ஒலிகள பிரிச்சு அறிய உதவும் மூணு <b>ஒலிப் பண்புகள்</b>: <b>சுருதி</b>, <b>உரப்பு</b>, <b>ஒலியின் பண்பு (quality)</b>. ஒவ்வொண்ணும் அலையோட ஒரு இயல்போட தொடர்புள்ள காதுல ஏற்படும் உணர்வு.</p>\n<div class=\"fig\"><svg aria-label=\"Waveforms: pitch depends on the frequency, loudness on the amplitude\" role=\"img\" viewbox=\"0 0 520 255\"><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"130\" y=\"22\">higher pitch</text><path d=\"M30 70.0 L34 53.5 L38 43.4 L42 43.4 L46 53.5 L50 70.0 L54 86.5 L58 96.6 L62 96.6 L66 86.5 L70 70.0 L74 53.5 L78 43.4 L82 43.4 L86 53.5 L90 70.0 L94 86.5 L98 96.6 L102 96.6 L106 86.5 L110 70.0 L114 53.5 L118 43.4 L122 43.4 L126 53.5 L130 70.0 L134 86.5 L138 96.6 L142 96.6 L146 86.5 L150 70.0 L154 53.5 L158 43.4 L162 43.4 L166 53.5 L170 70.0 L174 86.5 L178 96.6 L182 96.6 L186 86.5 L190 70.0 L194 53.5 L198 43.4 L202 43.4 L206 53.5 L210 70.0 L214 86.5 L218 96.6 L222 96.6 L226 86.5 L230 70.0 L234 53.5 L238 43.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"390\" y=\"22\">lower pitch</text><path d=\"M280 70.0 L284 63.4 L288 57.1 L292 51.6 L296 47.1 L300 43.9 L304 42.3 L308 42.2 L312 43.6 L316 46.6 L320 51.0 L324 56.4 L328 62.6 L332 69.2 L336 75.8 L340 82.1 L344 87.8 L348 92.4 L352 95.7 L356 97.6 L360 97.9 L364 96.6 L368 93.8 L372 89.7 L376 84.4 L380 78.3 L384 71.7 L388 65.0 L392 58.6 L396 52.9 L400 48.1 L404 44.6 L408 42.5 L412 42.0 L416 43.1 L420 45.8 L424 49.8 L428 54.9 L432 61.0 L436 67.5 L440 74.2 L444 80.6 L448 86.5 L452 91.4 L456 95.0 L460 97.3 L464 98.0 L468 97.1 L472 94.7 L476 90.8 L480 85.8 L484 79.8 L488 73.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"130\" y=\"118\">higher frequency, shorter period</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"390\" y=\"118\">lower frequency, longer period</text><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"middle\" x=\"130\" y=\"148\">louder</text><path d=\"M30 195.0 L34 182.4 L38 171.3 L42 163.3 L46 159.3 L50 159.9 L54 165.0 L58 173.8 L62 185.4 L66 198.2 L70 210.6 L74 221.0 L78 228.1 L82 231.0 L86 229.2 L90 223.1 L94 213.5 L98 201.4 L102 188.6 L106 176.5 L110 166.9 L114 160.8 L118 159.0 L122 161.9 L126 169.0 L130 179.4 L134 191.8 L138 204.6 L142 216.2 L146 225.0 L150 230.1 L154 230.7 L158 226.7 L162 218.7 L166 207.6 L170 195.0 L174 182.4 L178 171.3 L182 163.3 L186 159.3 L190 159.9 L194 165.0 L198 173.8 L202 185.4 L206 198.2 L210 210.6 L214 221.0 L218 228.1 L222 231.0 L226 229.2 L230 223.1 L234 213.5 L238 201.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--danger)\"></path><text font-size=\"14\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"middle\" x=\"390\" y=\"148\">softer</text><path d=\"M280 195.0 L284 190.8 L288 187.1 L292 184.4 L296 183.1 L300 183.3 L304 185.0 L308 187.9 L312 191.8 L316 196.1 L320 200.2 L324 203.7 L328 206.0 L332 207.0 L336 206.4 L340 204.4 L344 201.2 L348 197.1 L352 192.9 L356 188.8 L360 185.6 L364 183.6 L368 183.0 L372 184.0 L376 186.3 L380 189.8 L384 193.9 L388 198.2 L392 202.1 L396 205.0 L400 206.7 L404 206.9 L408 205.6 L412 202.9 L416 199.2 L420 195.0 L424 190.8 L428 187.1 L432 184.4 L436 183.1 L440 183.3 L444 185.0 L448 187.9 L452 191.8 L456 196.1 L460 200.2 L464 203.7 L468 206.0 L472 207.0 L476 206.4 L480 204.4 L484 201.2 L488 197.1\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--good)\"></path><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"130\" y=\"245\">large amplitude</text><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"390\" y=\"245\">small amplitude</text></svg><div class=\"figcap\">உரு 4.30, 4.31: ஊசலாடு காட்டில அலை வடிவங்கள்.</div></div>\n<ul><li><b>சுருதி</b> <b>மீடிறன</b> பொறுத்தது. ஹாக்சா பிளேடை இறுக்கி அதிர வெச்சு: தொங்கற நீளத்த கூட்டினா மீடிறனும் சுருதியும் குறையும். நடு C 256 Hz, உயர் C 512 Hz, அதாவது ரெண்டு மடங்கு சுருதி.</li><li><b>உரப்பு</b> அலை காதுக்கு கொண்டு வரும் சக்தியப் பொறுத்தது, அது <b>வீச்சத்தப்</b> பொறுத்தது. நாண இன்னும் பலமா மீட்டினா அதிக வேலை, பெரிய வீச்சம், அதிக உரப்பு.</li><li><b>ஒலியின் பண்பு</b> <b>அலை வடிவத்த</b> பொறுத்தது. சுரமிடுக்கி, வயலின், பியானோ ஒரே சுரத்த ஒரே உரப்புல வாசிச்சாலும் வேறுபடும், ஏன்னா அவற்றோட அலை வடிவங்கள் வேறு.</li></ul>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>பண்பு</th><th>எதப் பொறுத்தது</th></tr><tr><td>சுருதி</td><td>மீடிறன்</td></tr><tr><td>உரப்பு</td><td>வீச்சம்</td></tr><tr><td>ஒலியின் பண்பு</td><td>அலை வடிவம்</td></tr></table></div>\n<p>ஒழுங்கா திரும்ப வர்ற அலை வடிவம் இனிமையா இருக்கும் (இசை). திரும்ப வராத ஒழுங்கற்ற அலை வடிவம் <b>இரைச்சல்</b>.</p>"
+     },
+     "section": "4.5"
+    },
+    {
+     "title": {
+      "en": "4.6 Hearing range and ultrasound",
+      "ta": "4.6 கேள்தகு வீச்சும் கழியொலியும்"
+     },
+     "body": {
+      "en": "<p>The human ear hears frequencies from <b>20 Hz to 20 000 Hz</b>: the <b>hearing range</b>. Below 20 Hz is <b>infrasound</b>; above 20 000 Hz is <b>ultrasound</b>. The upper limit falls with age. Elephants hear infrasound; dogs hear up to about 40 000 Hz; rabbits, dolphins and bats hear ultrasound.</p>\n<p>Bats send out ultrasound and judge the position of obstacles from the echo. Dolphins use it to find small fish, to avoid sharks and to talk to each other.</p>\n<div class=\"fig\"><svg aria-label=\"A ship measures the depth of the sea with an ultrasound pulse and its echo\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"120\" opacity=\"0.3\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"520\" x=\"0\" y=\"60\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"0\" x2=\"520\" y1=\"60\" y2=\"60\"></line><path d=\"M0 185 Q130 170 260 188 T520 180 V215 H0 Z\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\"></path><path d=\"M210 60 L330 60 L318 40 L222 40 Z\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"270\" y=\"33\">ship</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"262\" x2=\"251.5\" y1=\"66\" y2=\"157.1\"></line><polygon points=\"250,170 257.5,157.8 245.4,156.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"290\" x2=\"300.5\" y1=\"172\" y2=\"78.9\"></line><polygon points=\"302,66 294.5,78.2 306.6,79.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"180\" y=\"120\">pulse</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"370\" y=\"120\">echo</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"120\" y=\"205\">sea bottom</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"450\" x2=\"450\" y1=\"60\" y2=\"182\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"445\" x2=\"455\" y1=\"60\" y2=\"60\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"445\" x2=\"455\" y1=\"182\" y2=\"182\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"442\" y=\"126.0\">d</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"232\">d = speed × time ÷ 2</text></svg><div class=\"figcap\">Figure 4.36: finding the depth of the sea with SONAR.</div></div>\n<ul><li><b>SONAR</b> (Sound Navigation and Ranging): a ship sends an ultrasound pulse down; the depth comes from the time the echo takes to return: distance = speed × time ÷ 2.</li><li><b>Medical scans</b>: the heart (size, pulse, blood pumped), the womb and the baby; <b>lithotripsy</b> breaks bladder stones.</li><li><b>Flaw detection</b>: ultrasound in a solid does not pass an air gap, so cracks in aircraft parts show up. Also spectacles for blind people and soldering metals.</li></ul>\n<div class=\"worked\"><div class=\"wt\">Example</div><div class=\"work\">An ultrasound pulse sent from a ship returns after 4 s. The speed of sound in sea water is 1500 m s<sup>-1</sup>. How deep is the sea?</div><div class=\"work\">Distance there and back = 1500 × 4 = 6000 m. Depth = 6000 ÷ 2 = <b>3000 m</b></div></div>",
+      "ta": "<p>மனித காது <b>20 Hz முதல் 20 000 Hz</b> வரையான மீடிறன்கள கேக்கும்: இது <b>கேள்தகு வீச்சு</b>. 20 Hz-க்கு கீழ <b>கீழொலி</b>; 20 000 Hz-க்கு மேல <b>கழியொலி</b>. வயசு ஆக ஆக மேல் எல்லை குறையும். யானைகள் கீழொலிய கேக்கும்; நாய்கள் சுமார் 40 000 Hz வரை; முயல், டால்பின், வவ்வால் கழியொலிய கேக்கும்.</p>\n<p>வவ்வால்கள் கழியொலிய அனுப்பி எதிரொலில தடைகளோட இடத்த கணிக்குது. டால்பின்கள் சின்ன மீன்கள கண்டுபிடிக்க, சுறாக்கள தவிர்க்க, ஒண்ணோட ஒண்ணு பேசவும் பயன்படுத்துது.</p>\n<div class=\"fig\"><svg aria-label=\"A ship measures the depth of the sea with an ultrasound pulse and its echo\" role=\"img\" viewbox=\"0 0 520 245\"><rect height=\"120\" opacity=\"0.3\" rx=\"0\" stroke-width=\"0\" style=\"fill:#4fb7ee;stroke:none\" width=\"520\" x=\"0\" y=\"60\"></rect><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:#4fb7ee\" x1=\"0\" x2=\"520\" y1=\"60\" y2=\"60\"></line><path d=\"M0 185 Q130 170 260 188 T520 180 V215 H0 Z\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:#e0b13a;stroke:var(--text)\"></path><path d=\"M210 60 L330 60 L318 40 L222 40 Z\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.5\" style=\"fill:var(--panel-2);stroke:var(--text)\"></path><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"270\" y=\"33\">ship</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"262\" x2=\"251.5\" y1=\"66\" y2=\"157.1\"></line><polygon points=\"250,170 257.5,157.8 245.4,156.4\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--good)\" x1=\"290\" x2=\"300.5\" y1=\"172\" y2=\"78.9\"></line><polygon points=\"302,66 294.5,78.2 306.6,79.6\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--good);stroke:none\"></polygon><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"end\" x=\"180\" y=\"120\">pulse</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--good)\" text-anchor=\"start\" x=\"370\" y=\"120\">echo</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"120\" y=\"205\">sea bottom</text><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"450\" x2=\"450\" y1=\"60\" y2=\"182\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"445\" x2=\"455\" y1=\"60\" y2=\"60\"></line><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--accent-3)\" x1=\"445\" x2=\"455\" y1=\"182\" y2=\"182\"></line><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent-3)\" text-anchor=\"end\" x=\"442\" y=\"126.0\">d</text><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"260\" y=\"232\">d = speed × time ÷ 2</text></svg><div class=\"figcap\">உரு 4.36: SONAR மூலம் கடலோட ஆழத்த காணுதல்.</div></div>\n<ul><li><b>SONAR</b>: கப்பல் கழியொலித் துடிப்ப கீழ அனுப்புது; எதிரொலி திரும்ப வர ஆகும் நேரத்துல இருந்து ஆழம் கிடைக்கும்: தூரம் = கதி × நேரம் ÷ 2.</li><li><b>மருத்துவ ஸ்கேன்:</b> இதயம் (அளவு, நாடித்துடிப்பு, பம்ப் ஆகும் இரத்தம்), கருப்பை, குழந்தை; <b>லித்தோட்ரிப்சி</b> சிறுநீர்ப்பை கற்கள உடைக்கும்.</li><li><b>குறை கண்டுபிடிப்பு</b>: திண்மத்துல போற கழியொலி காற்று இடைவெளிய கடக்காது, அதனால விமான பாகங்கள்ல விரிசல் தெரியும். பார்வையற்றோருக்கான கண்ணாடி, உலோகங்கள இணைக்கவும் பயன்படுது.</li></ul>\n<div class=\"worked\"><div class=\"wt\">உதாரணம்</div><div class=\"work\">கப்பலில இருந்து அனுப்பின கழியொலித் துடிப்பு 4 s-ல திரும்பி வருது. கடல் நீர்ல ஒலியோட கதி 1500 m s<sup>-1</sup>. கடல் எவ்வளவு ஆழம்?</div><div class=\"work\">Distance there and back = 1500 × 4 = 6000 m. Depth = 6000 ÷ 2 = <b>3000 m</b></div></div>"
+     },
+     "section": "4.6"
+    },
+    {
+     "title": {
+      "en": "4.7 Musical instruments",
+      "ta": "4.7 இசைக் கருவிகள்"
+     },
+     "body": {
+      "en": "<p>A musical instrument is built to make <b>periodic vibrations</b>, a repeating waveform. There are three main types.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>Type</th><th>How the sound is made</th><th>Examples</th><th>The pitch depends on</th></tr><tr><td>String</td><td>vibrating stretched string</td><td>violin, sitar, guitar, banjo, cello</td><td>length, tension and mass per unit length of the string</td></tr><tr><td>Percussion</td><td>vibrating stretched membrane, metal rod or plate; it has to be tapped</td><td>tabla, rabana, dawula, udekki, thammattama, xylophone, thalampata, bell</td><td>area and tension of the membrane or plate</td></tr><tr><td>Wind</td><td>vibrating air column</td><td>flute, saxophone, trumpet, clarinet</td><td>length of the air column</td></tr></table></div>",
+      "ta": "<p>இசைக் கருவி <b>காலமுறை அதிர்வுகள</b> (திரும்ப வரும் அலை வடிவம்) உண்டாக்கற மாதிரி செய்யப்படுது. மூணு முக்கிய வகைகள்.</p>\n<div class=\"dtab-wrap\"><table class=\"dtab\"><tr><th>வகை</th><th>ஒலி எப்படி உண்டாகுது</th><th>உதாரணங்கள்</th><th>சுருதி எதப் பொறுத்தது</th></tr><tr><td>நரம்பு</td><td>அதிரும் இறுக்கமான நாண்</td><td>வயலின், சிதார், கிட்டார், பாஞ்சோ, செல்லோ</td><td>நாணோட நீளம், இழுவிசை, ஓரலகு நீளத்தோட திணிவு</td></tr><tr><td>தாள</td><td>அதிரும் இறுக்கமான சவ்வு, உலோகக் கம்பி அல்லது தகடு; தட்ட வேணும்</td><td>தபலா, ரபான், தவுல், உடுக்கி, தம்மட்டம, சைலோபோன், தாளம்பட்ட, மணி</td><td>சவ்வு அல்லது தகட்டோட பரப்பளவும் இழுவிசையும்</td></tr><tr><td>காற்று</td><td>அதிரும் காற்று நிரல்</td><td>புல்லாங்குழல், சாக்சபோன், டிரம்பட், கிளாரினெட்</td><td>காற்று நிரலோட நீளம்</td></tr></table></div>"
+     },
+     "section": "4.7"
+    }
+   ],
+   "intro": {
+    "en": "In Sector 1, you watched wave propagation and vibrations. Below are the official wave equations (v = fλ), diagrams, and sound calculations!",
+    "ta": "பகுதி 1-ல் அலை இயக்கத்தை பார்த்தோம். அதற்கான அலைச் சமன்பாடுகள் (v = fλ), அலை வரைபடங்கள், ஒலி கணித்தல்களை இங்கே கற்போம்!"
+   }
+  },
+  {
+   "type": "activities",
+   "id": "activities",
+   "heading": {
+    "title": {
+     "en": "Hands-on Activities",
+     "ta": "செஞ்சு பாரு — செயற்பாடுகள்"
+    },
+    "sub": {
+     "en": "The textbook activities: try them at home or in class",
+     "ta": "பாடப்புத்தகத்துல உள்ள செயற்பாடுகள் — வீட்டுலயோ வகுப்புலயோ செஞ்சு பாரு"
+    }
+   },
+   "body": {
+    "en": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 No apparatus?</div>\n<ul><li>Don't worry: you can see the same ideas in the <a href=\"#lab\">lab</a> below. But doing it for real makes it stick even better!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"4.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 4.1: a wave in a slinky</h3>\n<span class=\"act-ref\">Textbook · Activity 4.1, p.74</span>\n<p>See a wave travel along a slinky.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A slinky</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Place the slinky on a table.</li><li>Hold one end and shake it to the left and right in the plane of the table.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">A wave runs along the slinky. It needs a medium (the slinky), so it is a mechanical wave.</div></details>\n<button class=\"btn act-done\" data-act=\"4.1\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"4.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 4.2: transverse waves</h3>\n<span class=\"act-ref\">Textbook · Activity 4.2, p.75</span>\n<p>Find how the particles move in a transverse wave.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A slinky, a few pieces of ribbon</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Tie ribbons at several places on the slinky.</li><li>Shake the slinky left and right as in Activity 4.1.</li><li>Watch how each ribbon moves compared with the direction of the wave.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The ribbons move sideways while the wave travels along the slinky, at right angles. This is a transverse wave.</div></details>\n<button class=\"btn act-done\" data-act=\"4.2\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"4.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 4.3: longitudinal waves</h3>\n<span class=\"act-ref\">Textbook · Activity 4.3, p.77</span>\n<p>Find how the particles move in a longitudinal wave.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A slinky, a ribbon</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Fix one end of the slinky on a table and tie a ribbon to one coil.</li><li>Push the free end forward and pull it back, repeatedly.</li><li>Watch the coils and the ribbon.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">Pushing forward bunches the coils (compression); pulling back spreads them (rarefaction). The coils move back and forth along the direction of the wave: a longitudinal wave.</div></details>\n<button class=\"btn act-done\" data-act=\"4.3\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"4.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Activity 4.4: what decides the pitch?</h3>\n<span class=\"act-ref\">Textbook · Activity 4.4, p.90</span>\n<p>Find how the length of a vibrating blade changes the pitch.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>A hacksaw blade, two blocks of wood</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Clamp the blade between the wooden blocks so about 10 cm sticks out.</li><li>Make it vibrate and listen.</li><li>Increase the free length in steps of 5 cm and listen each time.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">As the free length grows, the frequency falls and the sound gets lower: the pitch depends on the frequency.</div></details>\n<button class=\"btn act-done\" data-act=\"4.4\">✅ I tried it! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"b\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>Demonstration: a bell in a vacuum</h3>\n<span class=\"act-ref\">Textbook · Figure 4.26, p.89–90</span>\n<p>Show that sound needs a medium.</p>\n<div class=\"act-box\"><b>🧰 You need</b><ul><li>An electric bell inside a bell jar, a power supply and switch outside</li><li>A vacuum pump</li></ul></div>\n<div class=\"act-box\"><b>📝 Steps</b><ol><li>Ring the bell inside the jar.</li><li>Switch on the vacuum pump to remove the air.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 What should you find? (tap)</summary><div class=\"act-res\">The sound gets fainter and finally stops when the jar is a vacuum: sound cannot travel through a vacuum.</div></details>\n<button class=\"btn act-done\" data-act=\"b\">✅ I tried it! (+10 XP)</button>\n</div>",
+    "ta": "<div class=\"callout tip\">\n<div class=\"ctitle\">💡 உபகரணங்கள் இல்லையா?</div>\n<ul><li>கவலை வேணாம் — கீழ இருக்கற <a href=\"#lab\">லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!</li></ul>\n</div>\n<div class=\"card c1 act\" data-act=\"4.1\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 4.1: ஸ்லிங்கில அலை</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 4.1, ப.74</span>\n<p>ஸ்லிங்கி வழியா அலை பயணிக்கறத பாரு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு ஸ்லிங்கி</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஸ்லிங்கிய மேசை மேல வை.</li><li>ஒரு முனைய பிடிச்சு மேசைத் தளத்துல இடது வலதா ஆட்டு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ஸ்லிங்கி வழியா அலை ஓடுது. அதுக்கு ஊடகம் (ஸ்லிங்கி) வேணும், அதனால அது பொறிமுறை அலை.</div></details>\n<button class=\"btn act-done\" data-act=\"4.1\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c2 act\" data-act=\"4.2\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 4.2: குறுக்கலைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 4.2, ப.75</span>\n<p>குறுக்கலைல துணிக்கைகள் எப்படி அசையுதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு ஸ்லிங்கி, சில ரிப்பன் துண்டுகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஸ்லிங்கில பல இடங்கள்ல ரிப்பன்கள கட்டு.</li><li>செயற்பாடு 4.1 மாதிரி இடது வலதா ஆட்டு.</li><li>அலையோட திசையோட ஒப்பிட்டு ஒவ்வொரு ரிப்பனும் எப்படி அசையுதுன்னு பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ரிப்பன்கள் பக்கவாட்டுல அசையுது, அலை ஸ்லிங்கி வழியா செங்குத்தா பயணிக்குது. இது குறுக்கலை.</div></details>\n<button class=\"btn act-done\" data-act=\"4.2\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c3 act\" data-act=\"4.3\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 4.3: நெட்டாங்கு அலைகள்</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 4.3, ப.77</span>\n<p>நெட்டாங்கு அலைல துணிக்கைகள் எப்படி அசையுதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு ஸ்லிங்கி, ஒரு ரிப்பன்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஸ்லிங்கியோட ஒரு முனைய மேசைல நிலையா வெச்சு ஒரு சுருள்ல ரிப்பன் கட்டு.</li><li>சுதந்திர முனைய முன்னுக்கு தள்ளி பின்னுக்கு இழு, திரும்பத் திரும்ப.</li><li>சுருள்களையும் ரிப்பனையும் பாரு.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">முன்னுக்கு தள்ளினா சுருள்கள் நெருங்கும் (அமுக்கம்); பின்னுக்கு இழுத்தா விலகும் (ஐதாக்கம்). சுருள்கள் அலையோட திசைலயே முன் பின்னா அசையுது: நெட்டாங்கு அலை.</div></details>\n<button class=\"btn act-done\" data-act=\"4.3\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c4 act\" data-act=\"4.4\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செயற்பாடு 4.4: சுருதிய தீர்மானிக்கறது எது?</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · செயற்பாடு 4.4, ப.90</span>\n<p>அதிரும் பிளேடோட நீளம் சுருதிய எப்படி மாத்துதுன்னு கண்டுபிடி.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>ஒரு ஹாக்சா பிளேடு, ரெண்டு மரக்கட்டைகள்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>பிளேடை மரக்கட்டைகளுக்கு இடையில இறுக்கி சுமார் 10 cm வெளிய நிக்கற மாதிரி வை.</li><li>அதிர வெச்சு கவனி.</li><li>தொங்கற நீளத்த 5 cm படிகள்ல கூட்டி ஒவ்வொரு தடவையும் கவனி.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">தொங்கற நீளம் கூட மீடிறன் குறையுது, ஒலி தாழ்வா ஆகுது: சுருதி மீடிறன பொறுத்தது.</div></details>\n<button class=\"btn act-done\" data-act=\"4.4\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>\n<div class=\"card c1 act\" data-act=\"b\">\n<div class=\"icon-badge\"><svg fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"1.8\" viewbox=\"0 0 24 24\"><path d=\"M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3\"></path></svg></div>\n<h3>செய்து காட்டுதல்: வெற்றிடத்துல மணி</h3>\n<span class=\"act-ref\">பாடப்புத்தகம் · உரு 4.26, ப.89–90</span>\n<p>ஒலிக்கு ஊடகம் வேணும்னு காட்டு.</p>\n<div class=\"act-box\"><b>🧰 தேவையானவை</b><ul><li>மணி ஜாடிக்குள்ள மின்மணி, வெளிய மின் மூலமும் சுவிட்சும்</li><li>ஒரு வெற்றிடப் பம்ப்</li></ul></div>\n<div class=\"act-box\"><b>📝 செய்முறை</b><ol><li>ஜாடிக்குள்ள மணிய ஒலிக்க விடு.</li><li>காற்ற அகற்ற வெற்றிடப் பம்ப ஓட வை.</li></ol></div>\n<details class=\"act-reveal\"><summary>💡 என்ன கண்டுபிடிக்கணும்? (தொட்டு பாரு)</summary><div class=\"act-res\">ஜாடி வெற்றிடமானதும் ஒலி மங்கி கடைசில நின்னுடும்: ஒலி வெற்றிடத்துல பயணிக்காது.</div></details>\n<button class=\"btn act-done\" data-act=\"b\">✅ நான் செஞ்சு பாத்தேன்! (+10 XP)</button>\n</div>"
+   }
+  },
+  {
+   "type": "lab",
+   "id": "lab",
+   "heading": {
+    "title": {
+     "en": "Interactive Wave Lab",
+     "ta": "அலை லேப்"
+    },
+    "sub": {
+     "en": "Change the amplitude, frequency and wavelength, and watch v = f λ",
+     "ta": "வீச்சம், மீடிறன், அலைநீளத்த மாத்தி v = f λ-ஐ பாரு"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-04-waves.html",
+    "hash": "lab"
+   }
+  },
+  {
+   "type": "game",
+   "id": "challenge",
+   "kind": "challenge",
+   "heading": {
+    "title": {
+     "en": "🎮 Wave Challenge",
+     "ta": "🎮 அலை சவால்"
+    },
+    "sub": {
+     "en": "Work out each answer in your head, then set the slider and check",
+     "ta": "ஒவ்வொரு பதிலையும் மனசுக்குள்ள கணக்கு போடு, அப்புறம் ஸ்லைடர செட் பண்ணி சரிபார்"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-04-waves.html",
+    "hash": "challenge"
+   }
+  },
+  {
+   "type": "quiz",
+   "id": "quiz",
+   "heading": {
+    "title": {
+     "en": "Self-Check Quiz",
+     "ta": "சுயபரிசோதனை குயிஸ்"
+    },
+    "sub": {
+     "en": "Check how much you understood before the deeper walkthroughs",
+     "ta": "விளக்கங்களுக்கு போறதுக்கு முன்னாடி, எவ்வளவு புரிஞ்சுக்கிட்டேன்னு சோதிச்சுக்க"
+    }
+   },
+   "questions": [
+    {
+     "id": "q1",
+     "prompt": {
+      "en": "What does a wave carry from one place to another?",
+      "ta": "அலை ஒரு இடத்துல இருந்து இன்னொரு இடத்துக்கு எதக் கொண்டு போகுது?"
+     },
+     "options": [
+      {
+       "en": "Energy",
+       "ta": "சக்தி"
+      },
+      {
+       "en": "The medium itself",
+       "ta": "ஊடகம் தானே"
+      },
+      {
+       "en": "Both energy and matter",
+       "ta": "சக்தி, பருப்பொருள் ரெண்டும்"
+      },
+      {
+       "en": "Nothing",
+       "ta": "எதுவும் இல்ல"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "A wave transfers energy without moving the medium along.",
+      "ta": "அலை ஊடகத்த நகர்த்தாம சக்திய கடத்தும்."
+     }
+    },
+    {
+     "id": "q2",
+     "prompt": {
+      "en": "In a transverse wave the particles move…",
+      "ta": "குறுக்கலைல துணிக்கைகள் அசைவது…"
+     },
+     "options": [
+      {
+       "en": "perpendicular to the wave direction",
+       "ta": "அலை திசைக்கு செங்குத்தா"
+      },
+      {
+       "en": "parallel to the wave direction",
+       "ta": "அலை திசைக்கு சமாந்தரமா"
+      },
+      {
+       "en": "in circles only",
+       "ta": "வட்டத்துல மட்டும்"
+      },
+      {
+       "en": "they do not move",
+       "ta": "அசையாது"
+      }
+     ],
+     "answer": 0,
+     "explain": {
+      "en": "Transverse: perpendicular. Longitudinal: parallel.",
+      "ta": "குறுக்கலை: செங்குத்து. நெட்டாங்கு: சமாந்தரம்."
+     }
+    },
+    {
+     "id": "q3",
+     "prompt": {
+      "en": "Which of these is a longitudinal wave?",
+      "ta": "இவற்றுல நெட்டாங்கு அலை எது?"
+     },
+     "options": [
+      {
+       "en": "Water waves",
+       "ta": "நீர் அலைகள்"
+      },
+      {
+       "en": "Waves on a guitar string",
+       "ta": "கிட்டார் நாணுல அலைகள்"
+      },
+      {
+       "en": "Sound in air",
+       "ta": "காற்றுல ஒலி"
+      },
+      {
+       "en": "Light",
+       "ta": "ஒளி"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Sound in air has compressions and rarefactions along the direction of travel.",
+      "ta": "காற்றுல ஒலிக்கு பயண திசைலயே அமுக்கங்களும் ஐதாக்கங்களும் இருக்கும்."
+     }
+    },
+    {
+     "id": "q4",
+     "prompt": {
+      "en": "A particle makes 50 oscillations in 5 s. What is the frequency?",
+      "ta": "ஒரு துணிக்கை 5 s-ல 50 அலைவுகள் செய்யுது. மீடிறன்?"
+     },
+     "options": [
+      {
+       "en": "0.1 Hz",
+       "ta": "0.1 Hz"
+      },
+      {
+       "en": "10 Hz",
+       "ta": "10 Hz"
+      },
+      {
+       "en": "250 Hz",
+       "ta": "250 Hz"
+      },
+      {
+       "en": "55 Hz",
+       "ta": "55 Hz"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "f = 50 ÷ 5 = 10 Hz.",
+      "ta": "f = 50 ÷ 5 = 10 Hz."
+     }
+    },
+    {
+     "id": "q5",
+     "prompt": {
+      "en": "A wave has frequency 50 Hz and wavelength 2 m. What is its speed?",
+      "ta": "ஒரு அலைக்கு மீடிறன் 50 Hz, அலைநீளம் 2 m. அதன் கதி?"
+     },
+     "options": [
+      {
+       "en": "25 m s⁻¹",
+       "ta": "25 m s⁻¹"
+      },
+      {
+       "en": "52 m s⁻¹",
+       "ta": "52 m s⁻¹"
+      },
+      {
+       "en": "100 m s⁻¹",
+       "ta": "100 m s⁻¹"
+      },
+      {
+       "en": "0.04 m s⁻¹",
+       "ta": "0.04 m s⁻¹"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "v = f λ = 50 × 2 = 100 m s⁻¹.",
+      "ta": "v = f λ = 50 × 2 = 100 m s⁻¹."
+     }
+    },
+    {
+     "id": "q6",
+     "prompt": {
+      "en": "Which wave does NOT need a material medium?",
+      "ta": "எந்த அலைக்கு பருப்பொருள் ஊடகம் வேணாம்?"
+     },
+     "options": [
+      {
+       "en": "Sound",
+       "ta": "ஒலி"
+      },
+      {
+       "en": "Water waves",
+       "ta": "நீர் அலைகள்"
+      },
+      {
+       "en": "Radio waves",
+       "ta": "வானொலி அலைகள்"
+      },
+      {
+       "en": "Waves on a rope",
+       "ta": "கயிற்றுல அலைகள்"
+      }
+     ],
+     "answer": 2,
+     "explain": {
+      "en": "Radio waves are electromagnetic waves and travel in a vacuum.",
+      "ta": "வானொலி அலைகள் மின்காந்த அலைகள், வெற்றிடத்துலயும் போகும்."
+     }
+    },
+    {
+     "id": "q7",
+     "prompt": {
+      "en": "Which sound characteristic depends on the amplitude?",
+      "ta": "எந்த ஒலிப் பண்பு வீச்சத்தப் பொறுத்தது?"
+     },
+     "options": [
+      {
+       "en": "Pitch",
+       "ta": "சுருதி"
+      },
+      {
+       "en": "Loudness",
+       "ta": "உரப்பு"
+      },
+      {
+       "en": "Quality",
+       "ta": "ஒலியின் பண்பு"
+      },
+      {
+       "en": "Speed",
+       "ta": "கதி"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Larger amplitude carries more energy: a louder sound.",
+      "ta": "பெரிய வீச்சம் அதிக சக்தி: அதிக உரப்பு."
+     }
+    },
+    {
+     "id": "q8",
+     "prompt": {
+      "en": "The human hearing range is…",
+      "ta": "மனித கேள்தகு வீச்சு…"
+     },
+     "options": [
+      {
+       "en": "2 Hz to 2000 Hz",
+       "ta": "2 Hz முதல் 2000 Hz வரை"
+      },
+      {
+       "en": "20 Hz to 20 000 Hz",
+       "ta": "20 Hz முதல் 20 000 Hz வரை"
+      },
+      {
+       "en": "200 Hz to 200 000 Hz",
+       "ta": "200 Hz முதல் 200 000 Hz வரை"
+      },
+      {
+       "en": "0 Hz to 100 Hz",
+       "ta": "0 Hz முதல் 100 Hz வரை"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Below 20 Hz is infrasound and above 20 000 Hz is ultrasound.",
+      "ta": "20 Hz-க்கு கீழ கீழொலி, 20 000 Hz-க்கு மேல கழியொலி."
+     }
+    },
+    {
+     "id": "q9",
+     "prompt": {
+      "en": "A ship's ultrasound pulse returns after 4 s. Sound travels at 1500 m s⁻¹ in sea water. How deep is the sea?",
+      "ta": "கப்பலோட கழியொலித் துடிப்பு 4 s-ல திரும்புது. கடல் நீர்ல ஒலி 1500 m s⁻¹. கடல் எவ்வளவு ஆழம்?"
+     },
+     "options": [
+      {
+       "en": "6000 m",
+       "ta": "6000 m"
+      },
+      {
+       "en": "3000 m",
+       "ta": "3000 m"
+      },
+      {
+       "en": "375 m",
+       "ta": "375 m"
+      },
+      {
+       "en": "1500 m",
+       "ta": "1500 m"
+      }
+     ],
+     "answer": 1,
+     "explain": {
+      "en": "Distance there and back is 1500 × 4 = 6000 m, so the depth is half: 3000 m.",
+      "ta": "போய் வர தூரம் 1500 × 4 = 6000 m, ஆழம் அதில பாதி: 3000 m."
+     }
+    }
+   ]
+  },
+  {
+   "type": "sort",
+   "id": "sort",
+   "heading": {
+    "title": {
+     "en": "🧩 Wave Sort",
+     "ta": "🧩 அலை சார்ட்"
+    },
+    "sub": {
+     "en": "Two short rounds: match the terms, then sort the facts",
+     "ta": "ரெண்டு சின்ன சுற்றுகள்: வார்த்தைகள இணை, அப்புறம் உண்மைகள வரிசைப்படுத்து"
+    }
+   },
+   "legacy": {
+    "file": "g11-chapter-04-waves.html",
+    "hash": "sortgame"
+   }
+  },
+  {
+   "type": "worked",
+   "id": "worked",
+   "heading": {
+    "title": {
+     "en": "Worked Examples",
+     "ta": "படிப்படியா உதாரணங்கள்"
+    },
+    "sub": {
+     "en": "Step-by-step solutions to the textbook examples",
+     "ta": "பாடப்புத்தக உதாரணங்களுக்கு படிப்படியான விளக்கம்"
+    }
+   },
+   "examples": [
+    {
+     "id": "w1",
+     "body": {
+      "en": "<div class=\"qtext\">A particle in a wave takes 0.02 s for one oscillation. What is the frequency?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>Frequency is the reciprocal of the period: f = 1 ÷ T.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>f = 1 ÷ 0.02 = 50.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>50 Hz</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">அலைல ஒரு துணிக்கை ஒரு அலைவுக்கு 0.02 s எடுக்குது. மீடிறன் என்ன?</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>மீடிறன் ஆவர்த்தன காலத்தோட நிகர்மாறு: f = 1 ÷ T.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>f = 1 ÷ 0.02 = 50.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>50 Hz</b>.</div>"
+     },
+     "tag": {
+      "en": "Practice example · from the textbook formula f = 1 ÷ T",
+      "ta": "பயிற்சி உதாரணம் · பாடப்புத்தக சூத்திரம் f = 1 ÷ T"
+     }
+    },
+    {
+     "id": "w2",
+     "body": {
+      "en": "<div class=\"qtext\">A wave on a string has a frequency of 5 Hz and a wavelength of 0.4 m. Find its speed.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>v = f λ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>v = 5 × 0.4 = 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>2 m s⁻¹</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">நாணுல ஒரு அலைக்கு மீடிறன் 5 Hz, அலைநீளம் 0.4 m. அதன் கதிய காணு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>v = f λ.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>v = 5 × 0.4 = 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>2 m s⁻¹</b>.</div>"
+     },
+     "tag": {
+      "en": "Practice example · from the textbook formula v = f λ",
+      "ta": "பயிற்சி உதாரணம் · பாடப்புத்தக சூத்திரம் v = f λ"
+     }
+    },
+    {
+     "id": "w3",
+     "body": {
+      "en": "<div class=\"qtext\">A radio station broadcasts at 100 MHz (1 × 10⁸ Hz). Taking c = 3 × 10⁸ m s⁻¹, find the wavelength.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>c = f λ, so λ = c ÷ f.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>λ = 3 × 10⁸ ÷ 1 × 10⁸ = 3.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>3 m</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">வானொலி நிலையம் 100 MHz (1 × 10⁸ Hz)-ல ஒலிபரப்புது. c = 3 × 10⁸ m s⁻¹ எடுத்து அலைநீளத்த காணு.</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>c = f λ, அதனால λ = c ÷ f.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>λ = 3 × 10⁸ ÷ 1 × 10⁸ = 3.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>3 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Practice example · from c = f λ",
+      "ta": "பயிற்சி உதாரணம் · c = f λ"
+     }
+    },
+    {
+     "id": "w4",
+     "body": {
+      "en": "<div class=\"qtext\">The time taken by ultrasound waves sent by a ship to return to the detector after reflection from the sea bottom is 4 s. Find the distance between the ship and the sea bottom. (speed of sound in sea water = 1500 m s⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The sound travels down and back: distance = 1500 × 4 = 6000 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The sea depth is only the one-way distance, half of that: 6000 ÷ 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> <b>3000 m</b>.\n      </div>",
+      "ta": "<div class=\"qtext\">கப்பல் அனுப்பின கழியொலி கடலடில பட்டு கண்டுபிடிப்பான திரும்பி வர 4 s ஆகுது. கப்பலுக்கும் கடலடிக்கும் இடையிலான தூரம்? (கடல் நீர்ல ஒலியோட கதி = 1500 m s⁻¹)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஒலி கீழ போய் திரும்ப வருது: தூரம் = 1500 × 4 = 6000 m.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>கடல் ஆழம் ஒரு வழித் தூரம் மட்டும், அதில பாதி: 6000 ÷ 2.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> <b>3000 m</b>.</div>"
+     },
+     "tag": {
+      "en": "Textbook example · Ch.4, p.97",
+      "ta": "பாடப்புத்தக உதாரணம் · பாடம் 4, ப.97"
+     }
+    },
+    {
+     "id": "w5",
+     "body": {
+      "en": "<div class=\"qtext\">You hear the thunder 3 s after seeing the lightning. Taking the speed of sound as 330 m s⁻¹, how far away did the lightning strike? (The light takes almost no time.)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 1</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>The light arrives almost at once, so the 3 s is the time for the sound to travel.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>Step 2</span><span>tap to reveal</span></button>\n<div class=\"step-content hidden\">\n<p>distance = speed × time = 330 × 3 = 990 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">Show final answer</button>\n<div class=\"final-answer hidden\">\n<b>Final answer:</b> about <b>990 m</b> (nearly 1 km).\n      </div>",
+      "ta": "<div class=\"qtext\">மின்னல பாத்த 3 s-க்கு பிறகு இடி கேக்குது. ஒலியோட கதி 330 m s⁻¹ எடுத்தா மின்னல் எவ்வளவு தூரத்துல தாக்கிச்சு? (ஒளிக்கு கிட்டத்தட்ட நேரம் ஆகாது.)</div>\n<div class=\"steps\" data-qcard=\"\">\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 1</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>ஒளி கிட்டத்தட்ட உடனே வந்திடும், அதனால 3 s ஒலி பயணிக்க ஆன நேரம்.</p>\n</div>\n</div>\n<div class=\"step\">\n<button class=\"step-toggle\"><span>படி 2</span><span>தொடு, பாரு!</span></button>\n<div class=\"step-content hidden\">\n<p>தூரம் = கதி × நேரம் = 330 × 3 = 990 m.</p>\n</div>\n</div>\n</div>\n<button class=\"btn final-toggle hidden\">இறுதி விடையைப் பாரு</button>\n<div class=\"final-answer hidden\"><b>இறுதி விடை:</b> சுமார் <b>990 m</b> (கிட்டத்தட்ட 1 km).</div>"
+     },
+     "tag": {
+      "en": "Practice example · thunder and lightning (Exercise 4.1 Q6iii)",
+      "ta": "பயிற்சி உதாரணம் · இடியும் மின்னலும் (பயிற்சி 4.1 வினா 6iii)"
+     }
+    }
+   ]
+  },
+  {
+   "type": "exercises",
+   "id": "exercises",
+   "heading": {
+    "title": {
+     "en": "Practice Exercises",
+     "ta": "பயிற்சி வினாக்கள்"
+    },
+    "sub": {
+     "en": "Every practice question from the textbook, each with a worked solution",
+     "ta": "பாடப்புத்தகத்தில் உள்ள எல்லா பயிற்சி வினாக்களும் — ஒவ்வொன்றுக்கும் முழு தீர்வு"
+    }
+   },
+   "groups": [
+    {
+     "chip": {
+      "en": "Exercise 4.1",
+      "ta": "பயிற்சி 4.1"
+     },
+     "items": [
+      {
+       "id": "x41-1i",
+       "num": "1(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>A group of children studied the water waves spreading in a still pond when stones were thrown in. What happens to the energy of the waves?</span></div>",
+        "ta": "<div class=\"exq\"><span>அமைதியான குளத்துல கல் எறிஞ்சு பரவும் நீர் அலைகள குழந்தைகள் படிச்சாங்க. அலைகளோட சக்திக்கு என்ன ஆகுது?</span></div>"
+       },
+       "answer": {
+        "en": "The energy given by the stone is <b>carried outwards by the wave</b> from the point where the stone fell to other places on the water surface.",
+        "ta": "கல் கொடுத்த சக்தி கல் விழுந்த இடத்துல இருந்து நீர் மேற்பரப்புல மத்த இடங்களுக்கு <b>அலையால கடத்தப்படுது</b>."
+       }
+      },
+      {
+       "id": "x41-1ii",
+       "num": "1(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>You place a paper boat on the water and disturb the water a small distance away. What change do you see in the boat? What does it show?</span></div>",
+        "ta": "<div class=\"exq\"><span>நீர் மேல ஒரு காகிதப் படகு வெச்சு கொஞ்சம் தள்ளி நீர குழப்பற. படகுல என்ன மாற்றம் தெரியும்? அது எதக் காட்டுது?</span></div>"
+       },
+       "answer": {
+        "en": "The boat <b>moves up and down</b> on the spot but does not travel away with the wave. This shows that the wave <b>transfers energy</b> to the boat, while the water itself does not move along with the wave.",
+        "ta": "படகு இருக்கற இடத்துலயே <b>மேல கீழ அசையும்</b>, அலையோட சேர்ந்து போகாது. அலை படகுக்கு <b>சக்திய கடத்துது</b>, நீர் அலையோட பயணிக்கறதில்லன்னு இது காட்டுது."
+       }
+      },
+      {
+       "id": "x41-1iii",
+       "num": "1(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Sketch a diagram to show what happens to the water surface.</span></div>",
+        "ta": "<div class=\"exq\"><span>நீர் மேற்பரப்புல என்ன நடக்குதுன்னு காட்டும் ஒரு படம் வரை.</span></div>"
+       },
+       "answer": {
+        "en": "Concentric circles spread out from the point where the stone fell, and the boat only bobs:<div class=\"work\"><svg aria-label=\"Ripples spreading from a pebble; a floating ball only moves up and down\" role=\"img\" viewbox=\"0 0 520 215\"><circle cx=\"150\" cy=\"105\" r=\"18\" stroke-width=\"2.5\" style=\"opacity:1;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"42\" stroke-width=\"2.5\" style=\"opacity:0.8;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"68\" stroke-width=\"2.5\" style=\"opacity:0.6;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"96\" stroke-width=\"2.5\" style=\"opacity:0.45;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"130\">pebble</text><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"236\" y=\"94\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"254\" y=\"86\">floating ball</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"125\" y2=\"98.0\"></line><polygon points=\"300,85 293.9,98.0 306.1,98.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"85\" y2=\"112.0\"></line><polygon points=\"300,125 306.1,112.0 293.9,112.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"310\" y=\"108\">moves up and down</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"200\">the ripples spread out, the ball only bobs</text></svg></div>",
+        "ta": "கல் விழுந்த இடத்துல இருந்து வட்ட வளையங்கள் பரவுது, படகு மட்டும் மேல கீழ ஆடுது:<div class=\"work\"><svg aria-label=\"Ripples spreading from a pebble; a floating ball only moves up and down\" role=\"img\" viewbox=\"0 0 520 215\"><circle cx=\"150\" cy=\"105\" r=\"18\" stroke-width=\"2.5\" style=\"opacity:1;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"42\" stroke-width=\"2.5\" style=\"opacity:0.8;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"68\" stroke-width=\"2.5\" style=\"opacity:0.6;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"96\" stroke-width=\"2.5\" style=\"opacity:0.45;fill:none;stroke:var(--accent)\"></circle><circle cx=\"150\" cy=\"105\" r=\"5\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"150\" y=\"130\">pebble</text><rect height=\"14\" rx=\"4\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"36\" x=\"236\" y=\"94\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"middle\" x=\"254\" y=\"86\">floating ball</text><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"125\" y2=\"98.0\"></line><polygon points=\"300,85 293.9,98.0 306.1,98.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><line stroke-linecap=\"round\" stroke-width=\"3\" style=\"stroke:var(--danger)\" x1=\"300\" x2=\"300.0\" y1=\"85\" y2=\"112.0\"></line><polygon points=\"300,125 306.1,112.0 293.9,112.0\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:var(--danger);stroke:none\"></polygon><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--danger)\" text-anchor=\"start\" x=\"310\" y=\"108\">moves up and down</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"150\" y=\"200\">the ripples spread out, the ball only bobs</text></svg></div>"
+       }
+      },
+      {
+       "id": "x41-1iv",
+       "num": "1(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Which type of mechanical wave do water waves belong to?</span></div>",
+        "ta": "<div class=\"exq\"><span>நீர் அலைகள் எந்த வகை பொறிமுறை அலை?</span></div>"
+       },
+       "answer": {
+        "en": "<b>Transverse waves</b>: the water particles move up and down, perpendicular to the direction in which the wave spreads.",
+        "ta": "<b>குறுக்கலைகள்</b>: நீர்த் துணிக்கைகள் அலை பரவும் திசைக்கு செங்குத்தா மேல கீழ அசையுது."
+       }
+      },
+      {
+       "id": "x41-1v",
+       "num": "1(v)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>In what way do these waves differ from sound waves travelling in air?</span></div>",
+        "ta": "<div class=\"exq\"><span>இந்த அலைகள் காற்றுல பயணிக்கும் ஒலி அலைகளிலிருந்து எப்படி வேறுபடுது?</span></div>"
+       },
+       "answer": {
+        "en": "Sound waves in air are <b>longitudinal</b>: the air particles move back and forth <b>along</b> the direction of travel, forming compressions and rarefactions. Water waves are transverse.",
+        "ta": "காற்றுல ஒலி அலைகள் <b>நெட்டாங்கு</b>: காற்றுத் துணிக்கைகள் பயண திசைலயே முன் பின்னா அசைஞ்சு அமுக்கங்கள், ஐதாக்கங்கள உண்டாக்கும். நீர் அலைகள் குறுக்கலைகள்."
+       }
+      },
+      {
+       "id": "x41-2i",
+       "num": "2(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The end B of the metal blade AB is clamped to a table, and the blade is made to vibrate by a force on end A. Sketch one vibration. Use C and D for the maximum displacements.</span></div>",
+        "ta": "<div class=\"exq\"><span>AB உலோகப் பிளேடோட B முனை மேசைல இறுக்கப்பட்டிருக்கு; A முனை மேல விசை கொடுத்து அதிர வைக்கிறோம். ஒரு அலைவ வரை. C, D ஆல அதிகபட்ச இடப்பெயர்ச்சிகள குறி.</span></div>"
+       },
+       "answer": {
+        "en": "One vibration: A moves to C (maximum one side), back through the rest position A, to D (maximum other side) and back to A.<div class=\"work\"><svg aria-label=\"A clamped metal blade vibrating between C and D\" role=\"img\" viewbox=\"0 0 440 160\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"100\" x=\"300\" y=\"78\"></rect><rect height=\"50\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"40\" x=\"380\" y=\"60\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"400\" y=\"128\">B (clamped)</text><path d=\"M300 85 L100 85\" stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"95\" y=\"76\">rest</text><path d=\"M300 85 Q200 50 100 40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><path d=\"M300 85 Q200 120 100 130\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--danger)\"></path><circle cx=\"100\" cy=\"40\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"36\">C</text><circle cx=\"100\" cy=\"130\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"146\">D</text><circle cx=\"100\" cy=\"85\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"90\">A</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"220\" y=\"20\">one vibration: A → C → A → D → A</text></svg></div>",
+        "ta": "ஒரு அலைவு: A, C (ஒரு பக்க அதிகபட்சம்) வரை போய், ஓய்வு நிலை A வழியா D (மறு பக்க அதிகபட்சம்) போய், திரும்ப A-க்கு வருது.<div class=\"work\"><svg aria-label=\"A clamped metal blade vibrating between C and D\" role=\"img\" viewbox=\"0 0 440 160\"><rect height=\"14\" rx=\"3\" stroke-width=\"2\" style=\"fill:#8b97a6;stroke:var(--text)\" width=\"100\" x=\"300\" y=\"78\"></rect><rect height=\"50\" rx=\"3\" stroke-width=\"2\" style=\"fill:#b9824a;stroke:var(--text)\" width=\"40\" x=\"380\" y=\"60\"></rect><text font-size=\"12\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"400\" y=\"128\">B (clamped)</text><path d=\"M300 85 L100 85\" stroke-dasharray=\"5 4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" style=\"fill:none;stroke:var(--text-faint)\"></path><text font-size=\"11\" font-weight=\"700\" style=\"fill:var(--text-dim)\" text-anchor=\"end\" x=\"95\" y=\"76\">rest</text><path d=\"M300 85 Q200 50 100 40\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--accent)\"></path><path d=\"M300 85 Q200 120 100 130\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" style=\"fill:none;stroke:var(--danger)\"></path><circle cx=\"100\" cy=\"40\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"36\">C</text><circle cx=\"100\" cy=\"130\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"146\">D</text><circle cx=\"100\" cy=\"85\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"15\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"end\" x=\"88\" y=\"90\">A</text><text font-size=\"13\" font-weight=\"700\" style=\"fill:var(--accent)\" text-anchor=\"middle\" x=\"220\" y=\"20\">one vibration: A → C → A → D → A</text></svg></div>"
+       }
+      },
+      {
+       "id": "x41-2ii",
+       "num": "2(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Describe what is meant by the amplitude using the points A, C and D.</span></div>",
+        "ta": "<div class=\"exq\"><span>A, C, D புள்ளிகள பயன்படுத்தி வீச்சம் என்றால் என்னன்னு விவரி.</span></div>"
+       },
+       "answer": {
+        "en": "The amplitude is the maximum displacement of the blade from its rest position: the distance from the rest position <b>A to C</b> (or <b>A to D</b>, which is the same).",
+        "ta": "வீச்சம் என்பது பிளேடு ஓய்வு நிலையில இருந்து அடையும் அதிகபட்ச இடப்பெயர்ச்சி: ஓய்வு நிலை <b>A-ல இருந்து C</b> (அல்லது <b>A-ல இருந்து D</b>, அதே தூரம்) வரையான தூரம்."
+       }
+      },
+      {
+       "id": "x41-2iii",
+       "num": "2(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>If 50 vibrations take place in 5 seconds, find the frequency of the vibrations of the blade.</span></div>",
+        "ta": "<div class=\"exq\"><span>5 வினாடில 50 அதிர்வுகள் நடந்தா பிளேடோட அதிர்வு மீடிறன காணு.</span></div>"
+       },
+       "answer": {
+        "en": "<div class=\"work\">f = number of vibrations ÷ time = 50 ÷ 5 = <b>10 Hz</b></div>",
+        "ta": "<div class=\"work\">f = அதிர்வுகளோட எண்ணிக்கை ÷ நேரம் = 50 ÷ 5 = <b>10 Hz</b></div>"
+       }
+      },
+      {
+       "id": "x41-2iv",
+       "num": "2(iv)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The vibrations give rise to compressions and rarefactions in air. The distance between two consecutive compressions equals which physical quantity of the sound wave?</span></div>",
+        "ta": "<div class=\"exq\"><span>அதிர்வுகள் காற்றுல அமுக்கங்கள், ஐதாக்கங்கள உண்டாக்கும். அடுத்தடுத்த ரெண்டு அமுக்கங்களுக்கு இடையிலான தூரம் ஒலி அலையோட எந்த பௌதிக அளவுக்கு சமம்?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>wavelength</b> of the sound wave.",
+        "ta": "ஒலி அலையோட <b>அலைநீளம்</b>."
+       }
+      },
+      {
+       "id": "x41-2va",
+       "num": "2(v)(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Which sound characteristic depends on the frequency?</span></div>",
+        "ta": "<div class=\"exq\"><span>மீடிறன பொறுத்த ஒலிப் பண்பு எது?</span></div>"
+       },
+       "answer": {
+        "en": "<b>Pitch</b>.",
+        "ta": "<b>சுருதி</b>."
+       }
+      },
+      {
+       "id": "x41-2vb",
+       "num": "2(v)(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Which sound characteristic depends on the amplitude?</span></div>",
+        "ta": "<div class=\"exq\"><span>வீச்சத்தப் பொறுத்த ஒலிப் பண்பு எது?</span></div>"
+       },
+       "answer": {
+        "en": "<b>Loudness</b>.",
+        "ta": "<b>உரப்பு</b>."
+       }
+      },
+      {
+       "id": "x41-2vc",
+       "num": "2(v)(c)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The same note played on several instruments can be told apart. Which characteristic is this?</span></div>",
+        "ta": "<div class=\"exq\"><span>ஒரே சுரம் பல கருவிகள்ல வாசிக்கப்பட்டாலும் ஒண்ணொண்ண பிரிச்சு அறியலாம். இது எந்தப் பண்பு?</span></div>"
+       },
+       "answer": {
+        "en": "The <b>quality</b> of the sound (the shape of the waveform).",
+        "ta": "ஒலியோட <b>பண்பு (quality)</b> (அலை வடிவம்)."
+       }
+      },
+      {
+       "id": "x41-3i",
+       "num": "3(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Electromagnetic waves do not need a medium. Write three characteristics of electromagnetic waves.</span></div>",
+        "ta": "<div class=\"exq\"><span>மின்காந்த அலைகளுக்கு ஊடகம் வேணாம். மின்காந்த அலைகளோட மூணு இயல்புகள எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "(1) They are not affected by external electric or magnetic fields. (2) They need no material medium. (3) They travel at 3 × 10<sup>8</sup> m s<sup>-1</sup> in a vacuum. (Also: they are transverse waves.)",
+        "ta": "(1) வெளி மின்புலங்கள், காந்தப்புலங்களால பாதிக்கப்படாது. (2) பருப்பொருள் ஊடகம் வேணாம். (3) வெற்றிடத்துல 3 × 10<sup>8</sup> m s<sup>-1</sup> வேகத்துல பயணிக்கும். (மேலும்: அவை குறுக்கலைகள்.)"
+       }
+      },
+      {
+       "id": "x41-3iia",
+       "num": "3(ii)(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the angle between the electric field and the magnetic field of an electromagnetic wave?</span></div>",
+        "ta": "<div class=\"exq\"><span>மின்காந்த அலையோட மின்புலத்துக்கும் காந்தப்புலத்துக்கும் இடையிலான கோணம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<b>90°</b>: the fields oscillate perpendicular to each other.",
+        "ta": "<b>90°</b>: புலங்கள் ஒண்ணுக்கொண்ணு செங்குத்தா அலையும்."
+       }
+      },
+      {
+       "id": "x41-3iib",
+       "num": "3(ii)(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>What is the angle between these two fields and the direction of propagation?</span></div>",
+        "ta": "<div class=\"exq\"><span>இந்த ரெண்டு புலங்களுக்கும் பரவல் திசைக்கும் இடையிலான கோணம் என்ன?</span></div>"
+       },
+       "answer": {
+        "en": "<b>90°</b>: the wave travels perpendicular to both fields.",
+        "ta": "<b>90°</b>: அலை ரெண்டு புலங்களுக்கும் செங்குத்தா பயணிக்கும்."
+       }
+      },
+      {
+       "id": "x41-4a",
+       "num": "4(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The figure shows a segment of a string with a transverse wave. The distance between points D and E equals which physical quantity?</span></div>",
+        "ta": "<div class=\"exq\"><span>உருவுல நாணோட ஒரு பகுதில குறுக்கலை போகுது. D, E புள்ளிகளுக்கு இடையிலான தூரம் எந்த பௌதிக அளவுக்கு சமம்?</span></div>"
+       },
+       "answer": {
+        "en": "D and E are two consecutive crests: the distance is the <b>wavelength</b> (λ).<div class=\"work\"><svg aria-label=\"A transverse wave on a string with points A, B, C, D and E\" role=\"img\" viewbox=\"0 0 520 150\"><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"420\" y1=\"100\" y2=\"100\"></line><path d=\"M100 100.0 L104 95.0 L108 90.1 L112 85.3 L116 80.7 L120 76.5 L124 72.6 L128 69.2 L132 66.2 L136 63.8 L140 62.0 L144 60.7 L148 60.1 L152 60.1 L156 60.7 L160 62.0 L164 63.8 L168 66.2 L172 69.2 L176 72.6 L180 76.5 L184 80.7 L188 85.3 L192 90.1 L196 95.0 L200 100.0 L204 105.0 L208 109.9 L212 114.7 L216 119.3 L220 123.5 L224 127.4 L228 130.8 L232 133.8 L236 136.2 L240 138.0 L244 139.3 L248 139.9 L252 139.9 L256 139.3 L260 138.0 L264 136.2 L268 133.8 L272 130.8 L276 127.4 L280 123.5 L284 119.3 L288 114.7 L292 109.9 L296 105.0 L300 100.0 L304 95.0 L308 90.1 L312 85.3 L316 80.7 L320 76.5 L324 72.6 L328 69.2 L332 66.2 L336 63.8 L340 62.0 L344 60.7 L348 60.1 L352 60.1 L356 60.7 L360 62.0 L364 63.8 L368 66.2 L372 69.2 L376 72.6 L380 76.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent)\"></path><circle cx=\"100\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"88\" y=\"122\">A</text><circle cx=\"150\" cy=\"60\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"50\">D</text><circle cx=\"200\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"200\" y=\"122\">B</text><circle cx=\"300\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"300\" y=\"122\">C</text><circle cx=\"350\" cy=\"60\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"50\">E</text></svg></div>",
+        "ta": "D, E அடுத்தடுத்த ரெண்டு முகடுகள்: அந்தத் தூரம் <b>அலைநீளம்</b> (λ).<div class=\"work\"><svg aria-label=\"A transverse wave on a string with points A, B, C, D and E\" role=\"img\" viewbox=\"0 0 520 150\"><line stroke-linecap=\"round\" stroke-width=\"1.5\" style=\"stroke:var(--text-faint)\" x1=\"60\" x2=\"420\" y1=\"100\" y2=\"100\"></line><path d=\"M100 100.0 L104 95.0 L108 90.1 L112 85.3 L116 80.7 L120 76.5 L124 72.6 L128 69.2 L132 66.2 L136 63.8 L140 62.0 L144 60.7 L148 60.1 L152 60.1 L156 60.7 L160 62.0 L164 63.8 L168 66.2 L172 69.2 L176 72.6 L180 76.5 L184 80.7 L188 85.3 L192 90.1 L196 95.0 L200 100.0 L204 105.0 L208 109.9 L212 114.7 L216 119.3 L220 123.5 L224 127.4 L228 130.8 L232 133.8 L236 136.2 L240 138.0 L244 139.3 L248 139.9 L252 139.9 L256 139.3 L260 138.0 L264 136.2 L268 133.8 L272 130.8 L276 127.4 L280 123.5 L284 119.3 L288 114.7 L292 109.9 L296 105.0 L300 100.0 L304 95.0 L308 90.1 L312 85.3 L316 80.7 L320 76.5 L324 72.6 L328 69.2 L332 66.2 L336 63.8 L340 62.0 L344 60.7 L348 60.1 L352 60.1 L356 60.7 L360 62.0 L364 63.8 L368 66.2 L372 69.2 L376 72.6 L380 76.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3.5\" style=\"fill:none;stroke:var(--accent)\"></path><circle cx=\"100\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"88\" y=\"122\">A</text><circle cx=\"150\" cy=\"60\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"150\" y=\"50\">D</text><circle cx=\"200\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"200\" y=\"122\">B</text><circle cx=\"300\" cy=\"100\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"300\" y=\"122\">C</text><circle cx=\"350\" cy=\"60\" r=\"4\" stroke-width=\"2\" style=\"fill:var(--text);stroke:none\"></circle><text font-size=\"16\" font-weight=\"700\" style=\"fill:var(--text)\" text-anchor=\"middle\" x=\"350\" y=\"50\">E</text></svg></div>"
+       }
+      },
+      {
+       "id": "x41-4b",
+       "num": "4(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>The same distance is shown by the distance between two other points. Which letters?</span></div>",
+        "ta": "<div class=\"exq\"><span>அதே தூரத்த வேற ரெண்டு புள்ளிகளுக்கு இடையிலான தூரமும் காட்டுது. எந்த எழுத்துகள்?</span></div>"
+       },
+       "answer": {
+        "en": "<b>A and C</b>: they are in the same state of motion, one full wave apart (up to the crest D, down through B, the trough, and back to the axis at C).",
+        "ta": "<b>A, C</b>: அவை ஒரே இயக்க நிலைல, ஒரு முழு அலை இடைவெளில இருக்கு (முகடு D வரை மேல, B வழியா அகடு வரை கீழ, C-ல அச்சுக்கு திரும்ப)."
+       }
+      },
+      {
+       "id": "x41-5i",
+       "num": "5(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Name (a) two string instruments, (b) two percussion instruments, (c) two wind instruments you expect in the school music room.</span></div>",
+        "ta": "<div class=\"exq\"><span>பள்ளி இசை அறைல நீ எதிர்பார்க்கும் (a) ரெண்டு நரம்புக் கருவிகள், (b) ரெண்டு தாளக் கருவிகள், (c) ரெண்டு காற்றுக் கருவிகளோட பேர்கள எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "(a) violin, guitar (or sitar, banjo, cello). (b) tabla, rabana (or dawula, udekki, thammattama, xylophone, bell). (c) flute, trumpet (or saxophone, clarinet).",
+        "ta": "(a) வயலின், கிட்டார் (அல்லது சிதார், பாஞ்சோ, செல்லோ). (b) தபலா, ரபான் (அல்லது தவுல், உடுக்கி, தம்மட்டம, சைலோபோன், மணி). (c) புல்லாங்குழல், டிரம்பட் (அல்லது சாக்சபோன், கிளாரினெட்)."
+       }
+      },
+      {
+       "id": "x41-5iia",
+       "num": "5(ii)(a)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write two factors on which the frequency of the sound from a string instrument depends.</span></div>",
+        "ta": "<div class=\"exq\"><span>நரம்புக் கருவியோட ஒலியோட மீடிறன் தங்கியிருக்கும் ரெண்டு காரணிகள எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "Any two of: the <b>length</b> of the vibrating string, the <b>tension</b> of the string, the <b>mass of a unit length</b> of the string.",
+        "ta": "இவற்றுல ஏதேனும் ரெண்டு: அதிரும் நாணோட <b>நீளம்</b>, நாணோட <b>இழுவிசை</b>, நாணோட <b>ஓரலகு நீளத்தோட திணிவு</b>."
+       }
+      },
+      {
+       "id": "x41-5iib",
+       "num": "5(ii)(b)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write two factors on which the frequency of the sound from a wind instrument depends.</span></div>",
+        "ta": "<div class=\"exq\"><span>காற்றுக் கருவியோட ஒலியோட மீடிறன் தங்கியிருக்கும் ரெண்டு காரணிகள எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "The <b>length of the air column</b> (changed on a flute by opening or closing holes). The textbook gives only this one factor; a second factor, which this chapter does not state, is the speed of sound in the air in the instrument (it changes with the temperature).",
+        "ta": "<b>காற்று நிரலோட நீளம்</b> (புல்லாங்குழல்ல துளைகள திறந்து மூடி மாத்தலாம்). பாடப்புத்தகம் இந்த ஒரு காரணிய மட்டும்தான் தருது; இந்த அத்தியாயத்துல சொல்லாத ரெண்டாவது காரணி கருவிக்குள்ள காற்றுல ஒலியோட கதி (வெப்பநிலையோட மாறும்)."
+       }
+      },
+      {
+       "id": "x41-5iic",
+       "num": "5(ii)(c)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Write two factors on which the frequency of the sound from a percussion instrument depends.</span></div>",
+        "ta": "<div class=\"exq\"><span>தாளக் கருவியோட ஒலியோட மீடிறன் தங்கியிருக்கும் ரெண்டு காரணிகள எழுது.</span></div>"
+       },
+       "answer": {
+        "en": "The <b>area</b> and the <b>tension</b> of the vibrating membrane or metal plate.",
+        "ta": "அதிரும் சவ்வு அல்லது உலோகத் தகட்டோட <b>பரப்பளவு</b>, <b>இழுவிசை</b>."
+       }
+      },
+      {
+       "id": "x41-6i",
+       "num": "6(i)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Explain scientifically: when a ringing bell is held by hand, it stops ringing.</span></div>",
+        "ta": "<div class=\"exq\"><span>விஞ்ஞான ரீதியா விளக்கு: ஒலிக்கற மணிய கையால பிடிச்சா அது ஒலிக்கறத நிறுத்துது.</span></div>"
+       },
+       "answer": {
+        "en": "A bell sounds because its metal <b>vibrates</b>. Holding it stops the vibrations (the hand takes the energy), so no sound waves are made in the air and the sound stops.",
+        "ta": "மணியோட உலோகம் <b>அதிர்வதாலதான்</b> ஒலி வருது. பிடிச்சா அதிர்வுகள் நின்னுடும் (கை சக்திய எடுத்துக்கும்), அதனால காற்றுல ஒலி அலைகள் உண்டாகாது, ஒலி நின்னுடும்."
+       }
+      },
+      {
+       "id": "x41-6ii",
+       "num": "6(ii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Explain scientifically: the pitch of a flute changes when the holes are opened one by one.</span></div>",
+        "ta": "<div class=\"exq\"><span>விஞ்ஞான ரீதியா விளக்கு: புல்லாங்குழல்ல துளைகள ஒண்ணொண்ணா திறக்கறப்ப சுருதி மாறுது.</span></div>"
+       },
+       "answer": {
+        "en": "The pitch of a wind instrument depends on the <b>length of the air column</b>. Opening holes one by one shortens the vibrating air column, so the frequency rises and the pitch becomes <b>higher</b> than when all holes are closed.",
+        "ta": "காற்றுக் கருவியோட சுருதி <b>காற்று நிரலோட நீளத்த</b> பொறுத்தது. துளைகள ஒண்ணொண்ணா திறந்தா அதிரும் காற்று நிரல் குட்டையாகி மீடிறன் கூடி, எல்லா துளைகளும் மூடியிருக்கறத விட சுருதி <b>உயரும்</b>."
+       }
+      },
+      {
+       "id": "x41-6iii",
+       "num": "6(iii)",
+       "prompt": {
+        "en": "<div class=\"exq\"><span>Explain scientifically: lightning and thunder happen together but we see the light before we hear the thunder.</span></div>",
+        "ta": "<div class=\"exq\"><span>விஞ்ஞான ரீதியா விளக்கு: மின்னலும் இடியும் ஒரே நேரத்துல நடந்தாலும் ஒளிய பாத்த பிறகுதான் இடிய கேக்கறோம்.</span></div>"
+       },
+       "answer": {
+        "en": "Light travels at 3 × 10<sup>8</sup> m s<sup>-1</sup>, so it reaches the eyes almost instantly, but sound travels only about 330 m s<sup>-1</sup>, so it takes a longer time to reach the ears.",
+        "ta": "ஒளி 3 × 10<sup>8</sup> m s<sup>-1</sup> வேகத்துல போகுது, அதனால கிட்டத்தட்ட உடனே கண்ண வந்தடையும்; ஒலி சுமார் 330 m s<sup>-1</sup> தான், அதனால காதுக்கு வர அதிக நேரம் ஆகும்."
+       }
+      }
+     ],
+     "title": {
+      "en": "Waves and sound · p.101–102",
+      "ta": "அலைகளும் ஒலியும் · ப.101–102"
+     }
+    }
+   ]
+  },
+  {
+   "type": "recap",
+   "id": "recap",
+   "heading": {
+    "title": {
+     "en": "Fun Recap",
+     "ta": "ஜாலி ரிகேப்"
+    },
+    "sub": {
+     "en": "Raja and Chittu go over the whole lesson once more, the fun way",
+     "ta": "ராஜா சிட்டுகூட சேர்ந்து இந்த பாடத்த ஒரே பார்வையில மறுபடி பாரு"
+    }
+   },
+   "cards": [
+    {
+     "en": "<h3>📖 Raja's comic</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🌊</div><div class=\"cm-b r\"><i>Raja:</i> <span>The ripples reach the ball. Did the water come to it?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>Chittu:</i> <span>No! A wave carries energy, not matter. Transverse: across. Longitudinal: along. v = f λ.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎻</div><div class=\"cm-b r\"><i>Raja:</i> <span>How do I tell a violin from a piano?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🎶</div><div class=\"cm-b c\"><i>Chittu:</i> <span>Pitch is frequency, loudness is amplitude, and quality is the waveform shape!</span></div></div>\n</div>",
+     "ta": "<h3>📖 ராஜாவோட காமிக்</h3>\n<div class=\"cm-grid\">\n<div class=\"cm-panel\"><span class=\"no\">1</span><div class=\"sc\">🌊</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>அலைகள் பந்த அடையுது. நீரும் அதுகிட்ட வந்ததா?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">2</span><div class=\"sc\">⚡</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>இல்ல! அலை சக்திய கடத்தும், பருப்பொருள இல்ல. குறுக்கலை: குறுக்கா. நெட்டாங்கு: நீளவாக்குல. v = f λ.</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">3</span><div class=\"sc\">🎻</div><div class=\"cm-b r\"><i>ராஜா:</i> <span>வயலினையும் பியானோவையும் எப்படி பிரிச்சு அறியறது?</span></div></div>\n<div class=\"cm-panel\"><span class=\"no\">4</span><div class=\"sc\">🎶</div><div class=\"cm-b c\"><i>சிட்டு:</i> <span>சுருதி மீடிறன், உரப்பு வீச்சம், ஒலியின் பண்பு அலை வடிவம்!</span></div></div>\n</div>"
+    },
+    {
+     "en": "<h3>🎵 Memory song</h3>\n<div class=\"cm-rhyme\">Waves carry energy, not the stuff they pass,<br/>crest to crest is one λ, alas!<br/>Speed is f times λ, remember that rule,<br/>pitch, loudness, quality: sound's toolkit, cool!</div>",
+     "ta": "<h3>🎵 ஞாபக பாட்டு</h3>\n<div class=\"cm-rhyme\">அலைகள் சக்திய கொண்டு போகும், பொருள இல்ல,<br/>முகடு முகடு தூரம் λ, சந்தேகம் இல்ல.<br/>கதி = f × λ, இத மறக்காத,<br/>சுருதி, உரப்பு, பண்பு: ஒலியோட மூணு!</div>"
+    },
+    {
+     "en": "<h3>🙈 Raja's mistakes ↔ 🐦 Chittu's fixes</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 Raja says (wrong)</th><th>🐦 Chittu says (right)</th></tr><tr><td class=\"w\">The water travels along with the wave.</td><td class=\"ok\">The water only moves up and down; the wave carries energy, not the water.</td></tr><tr><td class=\"w\">Sound can travel through a vacuum like light.</td><td class=\"ok\">Sound is a mechanical wave and needs a medium; light needs none.</td></tr><tr><td class=\"w\">A louder sound has a higher frequency.</td><td class=\"ok\">Loudness depends on the amplitude; the frequency decides the pitch.</td></tr></table></div>",
+     "ta": "<h3>🙈 ராஜாவோட தப்புகள் ↔ 🐦 சிட்டுவோட சரிகள்</h3>\n<div class=\"gloss-wrap\"><table class=\"cm-table\"><tr><th>🐒 ராஜா சொல்றது (தப்பு)</th><th>🐦 சிட்டு சொல்றது (சரி)</th></tr><tr><td class=\"w\">நீர் அலையோட சேர்ந்து பயணிக்குது.</td><td class=\"ok\">நீர் மேல கீழ மட்டும்தான் அசையும்; அலை சக்திய கொண்டு போகும், நீர இல்ல.</td></tr><tr><td class=\"w\">ஒலி ஒளி மாதிரி வெற்றிடத்துலயும் போகும்.</td><td class=\"ok\">ஒலி பொறிமுறை அலை, ஊடகம் வேணும்; ஒளிக்கு தேவையில்ல.</td></tr><tr><td class=\"w\">அதிக உரப்புள்ள ஒலிக்கு அதிக மீடிறன்.</td><td class=\"ok\">உரப்பு வீச்சத்தப் பொறுத்தது; மீடிறன் சுருதிய தீர்மானிக்கும்.</td></tr></table></div>"
+    },
+    {
+     "en": "<h3>⭐ Must-know cheat sheet</h3>\n<ul class=\"cm-must\"><li>transverse: particles ⟂ wave; longitudinal: particles ∥ wave</li><li>f = 1 ÷ T and v = f λ; EM waves: c = 3 × 10⁸ m s⁻¹</li><li>electromagnetic spectrum: radio, micro, infrared, visible, ultraviolet, X, gamma</li><li>sound: pitch (f), loudness (amplitude), quality (waveform)</li><li>hearing range 20 Hz to 20 000 Hz; SONAR depth = speed × time ÷ 2</li></ul>",
+     "ta": "<h3>⭐ கண்டிப்பா தெரியணும்</h3>\n<ul class=\"cm-must\"><li>குறுக்கலை: துணிக்கை ⟂ அலை; நெட்டாங்கு: துணிக்கை ∥ அலை</li><li>f = 1 ÷ T, v = f λ; மின்காந்த அலைகள்: c = 3 × 10⁸ m s⁻¹</li><li>மின்காந்தத் திருசியம்: வானொலி, நுணுக்கலை, செங்கீழ், ஒளி, கழியூதா, X, காமா</li><li>ஒலி: சுருதி (f), உரப்பு (வீச்சம்), பண்பு (அலை வடிவம்)</li><li>கேள்தகு வீச்சு 20 Hz–20 000 Hz; SONAR ஆழம் = கதி × நேரம் ÷ 2</li></ul>"
+    }
+   ]
+  },
+  {
+   "type": "summary",
+   "id": "summary",
+   "heading": {
+    "title": {
+     "en": "Chapter Summary & Key Terms",
+     "ta": "பாடச் சுருக்கம் & கலைச்சொற்கள்"
+    },
+    "sub": {
+     "en": "One last read before the exam!",
+     "ta": "எக்ஸாமுக்கு முன்னாடி கடைசியா ஒருமுறை இத படி!"
+    }
+   },
+   "points": [
+    {
+     "en": "A wave is a disturbance travelling in a medium or in space.",
+     "ta": "அலை என்பது ஊடகத்துல அல்லது வெளில பயணிக்கும் ஒரு குழப்பம்."
+    },
+    {
+     "en": "Waves that need a material medium are mechanical waves.",
+     "ta": "பருப்பொருள் ஊடகம் தேவைப்படும் அலைகள் பொறிமுறை அலைகள்."
+    },
+    {
+     "en": "In transverse waves the particles move perpendicular to the direction of the wave; in longitudinal waves they move parallel to it.",
+     "ta": "குறுக்கலைல துணிக்கைகள் அலை திசைக்கு செங்குத்தா அசையும்; நெட்டாங்கு அலைல சமாந்தரமா அசையும்."
+    },
+    {
+     "en": "Amplitude, wavelength, period and frequency describe a wave; f = 1 ÷ T and v = f λ.",
+     "ta": "வீச்சம், அலைநீளம், ஆவர்த்தன காலம், மீடிறன் அலையை விவரிக்கும்; f = 1 ÷ T, v = f λ."
+    },
+    {
+     "en": "Electromagnetic waves need no medium; they travel at 3 × 10⁸ m s⁻¹ in a vacuum and are transverse.",
+     "ta": "மின்காந்த அலைகளுக்கு ஊடகம் வேணாம்; வெற்றிடத்துல 3 × 10⁸ m s⁻¹ வேகம், அவை குறுக்கலைகள்."
+    },
+    {
+     "en": "Sound waves are longitudinal mechanical waves and need a medium.",
+     "ta": "ஒலி அலைகள் நெட்டாங்கு பொறிமுறை அலைகள், ஊடகம் வேணும்."
+    },
+    {
+     "en": "Pitch depends on frequency, loudness on amplitude, quality on the waveform.",
+     "ta": "சுருதி மீடிறனையும், உரப்பு வீச்சத்தையும், ஒலியின் பண்பு அலை வடிவத்தையும் பொறுத்தது."
+    },
+    {
+     "en": "The human hearing range is 20 Hz to 20 000 Hz; below is infrasound, above is ultrasound.",
+     "ta": "மனித கேள்தகு வீச்சு 20 Hz முதல் 20 000 Hz; கீழ கீழொலி, மேல கழியொலி."
+    },
+    {
+     "en": "Musical instruments are string, percussion or wind instruments; regular periods sound pleasant, irregular ones are noise.",
+     "ta": "இசைக் கருவிகள் நரம்பு, தாளம், காற்று வகை; ஒழுங்கான ஆவர்த்தனம் இனிமை, ஒழுங்கற்றது இரைச்சல்."
+    }
+   ],
+   "glossary": [
+    {
+     "en": "Mechanical waves",
+     "ta": "பொறிமுறை அலைகள்"
+    },
+    {
+     "en": "Transverse waves",
+     "ta": "குறுக்கலைகள்"
+    },
+    {
+     "en": "Longitudinal waves",
+     "ta": "நெட்டாங்கு அலைகள்"
+    },
+    {
+     "en": "Period",
+     "ta": "ஆவர்த்தன காலம்"
+    },
+    {
+     "en": "Frequency",
+     "ta": "மீடிறன்"
+    },
+    {
+     "en": "Electromagnetic waves",
+     "ta": "மின்காந்த அலைகள்"
+    },
+    {
+     "en": "Electromagnetic spectrum",
+     "ta": "மின்காந்தத் திருசியம்"
+    },
+    {
+     "en": "Ultraviolet radiation",
+     "ta": "கழியூதாக் கதிர்ப்பு"
+    },
+    {
+     "en": "Infrared radiation",
+     "ta": "செங்கீழ்க் கதிர்ப்பு"
+    },
+    {
+     "en": "Microwaves",
+     "ta": "நுணுக்கலைகள்"
+    },
+    {
+     "en": "Sound waves",
+     "ta": "ஒலி அலைகள்"
+    },
+    {
+     "en": "Hearing range",
+     "ta": "கேள்தகு வீச்சு"
+    },
+    {
+     "en": "Infrasound",
+     "ta": "கீழொலி"
+    },
+    {
+     "en": "Ultrasound",
+     "ta": "கழியொலி"
+    },
+    {
+     "en": "Pitch",
+     "ta": "சுருதி"
+    },
+    {
+     "en": "Quality of sound",
+     "ta": "ஒலியின் பண்பு"
+    },
+    {
+     "en": "Loudness",
+     "ta": "உரப்பு"
+    },
+    {
+     "en": "Amplitude",
+     "ta": "வீச்சம்"
+    }
+   ],
+   "points_title": {
+    "en": "📌 Summary — 9 key points",
+    "ta": "📌 பொழிப்பு — 9 முக்கிய புள்ளிகள்"
+   },
+   "glossary_title": {
+    "en": "📖 Key terms (Tamil – English)",
+    "ta": "📖 கலைச்சொற்கள் (தமிழ் – English)"
+   }
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+---
+// One topic of a lesson, step by step: Understand (the summary at a glance and the lesson's notes card), Watch (its
+// scene of the animation), Explore (a story or the lab) and Practice (the lesson's own questions). Only the steps the
+// topic has content for are shown; nothing is filled in. Login-only like the lesson.
+import LessonShell from '../../../../../../../../layouts/LessonShell.astro';
+import T from '../../../../../../../../components/lesson/T.astro';
+import PracticeList from '../../../../../../../../components/lesson/PracticeList.astro';
+import LegacyFrame from '../../../../../../../../islands/LegacyFrame';
+import TopicStory from '../../../../../../../../islands/TopicStory';
+import { LESSONS } from '../../../../../../../../lib/lessons';
+import { UI } from '../../../../../../../../lib/lesson-ui';
+import { TOPIC_STEPS, TOPIC_UI, notesCard, practice, stepInfos, stepsOf, topicUrl, topicsUrl } from '../../../../../../../../lib/topics';
+import type { Lesson, Topic } from '../../../../../../../../lib/content-types';
+
+export function getStaticPaths() {
+  return LESSONS.flatMap((lesson) => (lesson.topics ?? []).map((topic) => ({
+    params: { subject: lesson.subject, grade: 'g' + lesson.grade, chapter: lesson.slug, topic: topic.id }, props: { lesson, topic },
+  })));
+}
+
+const { lesson, topic: t } = Astro.props as { lesson: Lesson; topic: Topic };
+const steps = stepsOf(t);
+const card = notesCard(lesson, t);
+const all = lesson.topics ?? [];
+const next = all[all.findIndex((x) => x.id === t.id) + 1];
+const heading = (id: keyof typeof TOPIC_STEPS) => TOPIC_STEPS[id];
+---
+<LessonShell pageTitle={`${t.title.en} · ${lesson.title.en} · STEM Cloud`} description={t.blurb.en}
+             title={t.title} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(steps, TOPIC_STEPS)}>
+  {steps.map((id) => (
+    <section class="lstep" id={id} data-type={id} aria-labelledby={`${id}-h`}>
+      <header class="lstep-head">
+        <span class="kind">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={heading(id).icon} /></svg>
+          <T t={heading(id).label} />
+        </span>
+        <h2 id={`${id}-h`}><T t={id === 'understand' ? t.title : id === 'watch' ? t.watch!.title : id === 'explore' ? t.explore!.title : heading(id).what} /></h2>
+        {id === 'understand' && <p class="sub"><b><T t={TOPIC_UI.youWill} />:</b> <T t={t.learn} /></p>}
+      </header>
+
+      {id === 'understand' && (
+        <>
+          {t.glance && (
+            <div class="card tp-glance">
+              <h3><T t={TOPIC_UI.atGlance} /></h3>
+              {(t.glance.definitions ?? []).length > 0 && (
+                <dl class="tp-defs">{(t.glance.definitions ?? []).map((d) => <><dt><T t={d.term} /></dt><dd><T t={d.meaning} /></dd></>)}</dl>
+              )}
+              {t.glance.unit && <p><b><T t={TOPIC_UI.unit} />:</b> <T t={t.glance.unit} /></p>}
+              {t.glance.table && (
+                <div class="dtab-wrap">
+                  <table class="dtab">
+                    <thead><tr>{t.glance.table.head.map((h) => <th scope="col"><T t={h} /></th>)}</tr></thead>
+                    <tbody>{t.glance.table.rows.map((r) => <tr>{r.map((c, k) => k === 0 ? <th scope="row"><T t={c} /></th> : <td><T t={c} /></td>)}</tr>)}</tbody>
+                  </table>
+                </div>
+              )}
+              {t.glance.misconception && <div class="callout"><div class="ctitle"><T t={TOPIC_UI.mistake} /></div><p><T t={t.glance.misconception} /></p></div>}
+            </div>
+          )}
+          {card && (
+            <article class="card">
+              <h3>{card.section && <span class="secno">{card.section}</span>} <T t={TOPIC_UI.notes} /></h3>
+              <T t={card.body} rich />
+            </article>
+          )}
+        </>
+      )}
+
+      {id === 'watch' && t.watch && (
+        <LegacyFrame client:visible file={t.watch.animation.file} hash={t.watch.animation.hash} title={t.watch.title}
+                     query={`seg=${t.watch.from}-${t.watch.to}&dur=${t.watch.duration}`} />
+      )}
+
+      {id === 'explore' && t.explore?.type === 'story' && (
+        <>
+          <TopicStory client:idle scenario={t.explore.scenario} steps={t.explore.steps} wrap={t.explore.wrap} />
+          <div class="nojs">
+            <p class="tp-scenario"><T t={t.explore.scenario} /></p>
+            <ol class="quiz">
+              {t.explore.steps.map((q) => (
+                <li class="card qz">
+                  <p class="qz-q"><T t={q.ask} /></p>
+                  <details class="qz-ans"><summary><T t={UI.showAnswer} /></summary>
+                    <p><b><T t={q.options[q.correct]} /></b></p><p class="explain"><T t={q.why} /></p></details>
+                </li>
+              ))}
+            </ol>
+            {t.explore.wrap && <div class="card tp-wrap"><T t={t.explore.wrap} /></div>}
+          </div>
+        </>
+      )}
+      {id === 'explore' && t.explore?.type === 'lab' && (
+        <LegacyFrame client:visible file={t.explore.legacy.file} hash={t.explore.legacy.hash} title={t.explore.title} />
+      )}
+
+      {id === 'practice' && <PracticeList items={practice(lesson, t.practice ?? [])} stepId="practice" />}
+    </section>
+  ))}
+  {next && (
+    <a slot="links" class="btn btn-sm" href={topicUrl(lesson, next)}><T t={{ en: 'Next topic →', si: 'ඊළඟ මාතෘකාව →' }} /></a>
+  )}
+</LessonShell>

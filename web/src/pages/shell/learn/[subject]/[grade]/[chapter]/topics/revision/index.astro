@@ -1,0 +1,39 @@
+---
+// The chapter revision of the topic view: the lesson's summary, mixed exercises that join several topics, and the whole
+// quiz with its score. Login-only like the lesson.
+import LessonShell from '../../../../../../../../layouts/LessonShell.astro';
+import T from '../../../../../../../../components/lesson/T.astro';
+import PracticeList from '../../../../../../../../components/lesson/PracticeList.astro';
+import { LESSONS } from '../../../../../../../../lib/lessons';
+import { REVISION_PARTS, TOPIC_UI, practice, stepInfos, topicsUrl } from '../../../../../../../../lib/topics';
+import type { Lesson } from '../../../../../../../../lib/content-types';
+
+export function getStaticPaths() {
+  return LESSONS.filter((l) => l.revision)
+    .map((lesson) => ({ params: { subject: lesson.subject, grade: 'g' + lesson.grade, chapter: lesson.slug }, props: { lesson } }));
+}
+
+const { lesson } = Astro.props as { lesson: Lesson };
+const rev = lesson.revision!;
+const summary = lesson.steps.find((s) => s.type === 'summary');
+const parts = (['summary', 'mixed', 'quiz'] as const).filter((p) => (p === 'summary' ? !!summary : (rev[p] ?? []).length > 0));
+---
+<LessonShell pageTitle={`${lesson.title.en}: revision · STEM Cloud`} description={`${lesson.title.en}: chapter revision.`}
+             title={TOPIC_UI.revision} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(parts, REVISION_PARTS)}>
+  {parts.map((id) => (
+    <section class="lstep" id={id} data-type={id} aria-labelledby={`${id}-h`}>
+      <header class="lstep-head">
+        <span class="kind"><T t={REVISION_PARTS[id].label} /></span>
+        <h2 id={`${id}-h`}><T t={REVISION_PARTS[id].what} /></h2>
+      </header>
+      {id === 'summary' && summary && summary.type === 'summary' && (
+        <>
+          <ul class="points">{summary.points.map((p) => <li><T t={p} rich /></li>)}</ul>
+          {(summary.extra ?? []).map((x) => <T t={x} rich class="extra" />)}
+        </>
+      )}
+      {id === 'mixed' && <PracticeList items={practice(lesson, rev.mixed ?? [])} stepId="mixed" />}
+      {id === 'quiz' && <PracticeList items={practice(lesson, rev.quiz ?? [])} stepId="quiz" scored />}
+    </section>
+  ))}
+</LessonShell>

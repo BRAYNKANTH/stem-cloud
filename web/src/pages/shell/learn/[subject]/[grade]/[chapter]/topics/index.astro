@@ -1,0 +1,54 @@
+---
+// The topic view of a lesson: its topics in order, each with the learning steps it has, and the chapter revision.
+// Login-only like the lesson (moved out of the published files after the build; stemcloud/routers/lessons.py).
+import LessonShell from '../../../../../../../layouts/LessonShell.astro';
+import T from '../../../../../../../components/lesson/T.astro';
+import { LESSONS, lessonUrl } from '../../../../../../../lib/lessons';
+import { UI, chapterLine } from '../../../../../../../lib/lesson-ui';
+import { REVISION_ID, REVISION_PARTS, TOPIC_STEPS, TOPIC_UI, stepsOf, topicUrl, topicsUrl } from '../../../../../../../lib/topics';
+import type { Lesson } from '../../../../../../../lib/content-types';
+
+export function getStaticPaths() {
+  return LESSONS.filter((l) => (l.topics?.length ?? 0) > 0)
+    .map((lesson) => ({ params: { subject: lesson.subject, grade: 'g' + lesson.grade, chapter: lesson.slug }, props: { lesson } }));
+}
+
+const { lesson } = Astro.props as { lesson: Lesson };
+const topics = lesson.topics ?? [];
+---
+<LessonShell pageTitle={`${lesson.title.en}: topics · STEM Cloud`} description={`${lesson.title.en}, topic by topic.`}
+             title={lesson.title} sub={chapterLine(lesson)} back={{ href: lessonUrl(lesson), label: TOPIC_UI.lesson }}>
+  <a slot="links" class="btn btn-sm" href={lessonUrl(lesson)}><T t={TOPIC_UI.lesson} /></a>
+  <h1 class="tp-h"><T t={TOPIC_UI.topics} /></h1>
+  <ol class="tp-list">
+    {topics.map((t, i) => (
+      <li>
+        <a class="card tp-item" href={topicUrl(lesson, t)}>
+          <span class="tp-n" aria-hidden="true">{t.section ?? i + 1}</span>
+          <span class="tp-body">
+            <b><T t={t.title} /></b>
+            <span class="tp-blurb"><T t={t.blurb} /></span>
+            <span class="tp-steps">
+              {stepsOf(t).map((s) => (
+                <span class="tp-chip">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={TOPIC_STEPS[s].icon} /></svg>
+                  <T t={TOPIC_STEPS[s].label} />
+                </span>
+              ))}
+            </span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+  {lesson.revision && (
+    <a class="card tp-item tp-rev" href={topicsUrl(lesson) + REVISION_ID + '/'}>
+      <span class="tp-n" aria-hidden="true">✓</span>
+      <span class="tp-body">
+        <b><T t={TOPIC_UI.revision} /></b>
+        <span class="tp-blurb">{Object.values(REVISION_PARTS).map((p, k) => <>{k > 0 && ' · '}<T t={p.label} /></>)}</span>
+      </span>
+    </a>
+  )}
+  <p class="tp-foot"><a href="/lessons/index.html"><T t={UI.allLessons} /></a></p>
+</LessonShell>

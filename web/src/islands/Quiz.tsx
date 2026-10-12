@@ -31,7 +31,7 @@ const CROSS = 'M6 6l12 12M18 6L6 18';
  * The explanation stays in the card for review once the sheet is closed. Without JavaScript the page shows the answers
  * behind "Show answer" instead.
  */
-export default function Quiz({ stepId, questions }: { stepId: string; questions: Question[] }) {
+export default function Quiz({ stepId, questions, compact = false }: { stepId: string; questions: Question[]; compact?: boolean }) {
   const lang = useStore($lang);
   const step = useStore($step);
   const ids = useStore($ids);
@@ -97,15 +97,17 @@ export default function Quiz({ stepId, questions }: { stepId: string; questions:
   const right = q !== null && picked[sheet!] === q.answer;
   return (
     <div class="qz">
-      <div class="quiz-score" ref={scoreBox} tabIndex={-1}>
-        {L(W.score)} <b>{score}</b> / <span>{questions.length}</span>
-      </div>
+      {!compact && (
+        <div class="quiz-score" ref={scoreBox} tabIndex={-1}>
+          {L(W.score)} <b>{score}</b> / <span>{questions.length}</span>
+        </div>
+      )}
       {questions.map((item, qi) => {
         const p = picked[qi];
         const done = p !== null;
         return (
           <div class={'qz-card' + (sheet === qi ? ' qz-in-sheet' : '')} id={item.id} key={item.id} tabIndex={-1} ref={(el) => { cards.current[qi] = el; }}>
-            <div class="qz-q">{qi + 1}. {L(item.prompt)}</div>
+            <div class="qz-q">{compact ? '' : `${qi + 1}. `}{L(item.prompt)}</div>
             <div class="qz-opts">
               {item.options.map((o, oi) => (
                 <button type="button" key={oi} disabled={done} onClick={() => answer(qi, oi)}
@@ -130,7 +132,7 @@ export default function Quiz({ stepId, questions }: { stepId: string; questions:
             {!right && <p class="qs-ans">{L(W.answerIs)}<strong>{L(q.options[q.answer]!)}</strong></p>}
             {q.explain && <div class="qs-why">{L(q.explain)}</div>}
           </div>
-          <button type="button" class="qs-go" ref={go} onClick={() => close(true)}>{L(sheet === questions.length - 1 ? W.myScore : W.next)}</button>
+          <button type="button" class="qs-go" ref={go} onClick={() => close(true)}>{L(sheet === questions.length - 1 && !compact ? W.myScore : W.next)}</button>
         </section>
       )}
     </div>

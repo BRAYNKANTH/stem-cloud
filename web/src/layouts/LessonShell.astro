@@ -1,0 +1,72 @@
+---
+// The frame of a lesson page and of the topic pages: the header (back, title, theme), the step bar (LessonPlayer) when
+// the page has steps, the language switch, read-aloud, and the lesson content's styles and script. The page's steps
+// go in the default slot as <section class="lstep" id="...">; one is shown at a time once the player has started.
+import AppLayout from './AppLayout.astro';
+import T from '../components/lesson/T.astro';
+import LessonPlayer from '../islands/LessonPlayer';
+import StepEnd from '../islands/StepEnd';
+import VoiceControls from '../islands/VoiceControls';
+import LangSwitch from '../islands/LangSwitch';
+import ThemeToggle from '../islands/ThemeToggle';
+import type { StepInfo, Tri } from '../lib/lesson-ui';
+import '../styles/lesson-content.css';
+import '../styles/lesson.css';
+
+interface Props {
+  pageTitle: string;
+  description: string;
+  title: Tri;
+  sub: Tri;
+  back: { href: string; label: Tri };
+  /** The page's steps, for the step bar; none for a page that is one list (the topic overview). */
+  steps?: StepInfo[];
+}
+const { pageTitle, description, title, sub, back, steps } = Astro.props;
+---
+<AppLayout title={pageTitle} description={description} noindex>
+  <header class="lhead" slot="header">
+    {steps && (
+      /* Before first paint: one step at a time unless the student chose the whole lesson on one page, and the step in
+         the URL (#quiz) is the one shown, so nothing jumps when the player starts. */
+      <script is:inline>
+        try { if (localStorage.getItem('stem_view') !== 'scroll') document.documentElement.setAttribute('data-player', ''); } catch (e) { document.documentElement.setAttribute('data-player', ''); }
+      </script>
+    )}
+    <div class="wrap narrow lhead-in">
+      <a class="lh-back" href={back.href}>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
+        <span class="visually-hidden"><T t={back.label} /></span>
+      </a>
+      <div class="lh-title">
+        <b><T t={title} /></b>
+        <small><T t={sub} /></small>
+      </div>
+      <ThemeToggle client:idle />
+    </div>
+    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} /></div>}
+  </header>
+
+  <div class="wrap narrow lesson" id="lesson-top">
+    <div class="lang"><slot name="links" /><LangSwitch client:idle /></div>
+    <div class="lc">
+      <slot />
+      <VoiceControls client:idle />
+    </div>
+    {steps && (
+      <script is:inline>
+        (function () {
+          var d = document.documentElement;
+          if (!d.hasAttribute('data-player')) return;
+          var h = decodeURIComponent(location.hash.slice(1)), el = h && document.getElementById(h);
+          var sec = el && el.closest ? el.closest('section.lstep') : null;
+          (sec || document.querySelector('section.lstep')).classList.add('on');
+        })();
+      </script>
+    )}
+    {steps && <StepEnd client:load steps={steps} />}
+  </div>
+  <script>
+    import '../scripts/lesson-content';
+  </script>
+</AppLayout>

@@ -293,7 +293,14 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - The format refuses ids that the lesson doesn't have, and scenes outside the animation. Topic ids are tracked as stable ids (`<lesson>/topic:<id>`).
   - The extractor fills topics in from a chapter's topic map (`tools/topics/<lesson file>.spec.json`, the `build_topics.py` input). Only Motion has one: 5 topics and a revision set.
   - The topic map's own text is English written for the pilot. It lowers Motion's Tamil coverage to 76% and Sinhala to 65% until it is translated and reviewed.
-- **Next (5.4b):** the topic pages built from this.
+- **Milestone 5.4b (2026-10-12): the topic pages.**
+  - `/learn/<subject>/g<grade>/<chapter>/topics/` lists a lesson's topics, each with the steps it has. `topics/<topic>/` is one topic, and `topics/revision/` is the chapter revision.
+  - A topic page shows Understand (the summary at a glance and the lesson's notes card), Watch (its scene of the animation), Explore (a story, one question at a time, or the lab) and Practice (the lesson's own questions and exercises).
+  - Steps a topic has no content for are left out, not shown as "coming soon".
+  - Same frame as the lesson pages (`layouts/LessonShell.astro`): the step bar and map, language switch, read-aloud, and login-only behind the Python route. The lesson page links to its topics ("Learn by topic").
+  - Like the lesson pages, the topic pages keep no progress until progress v2 (Phase 6). Their step labels are English only, as on the current topic pages.
+  - `public/static/topics.js` and `/topics/<slug>` stay until the cut-over (Phase 9), when old addresses are redirected.
+  - The browser test covers every topic page (phone and desktop) and the topic flow on Motion.
 
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
 - Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.

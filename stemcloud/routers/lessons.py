@@ -32,24 +32,43 @@ def legacy_page(subject: str, grade: str, chapter: str) -> str | None:
     return None
 
 
+def learn(req: Request, subject: str, grade: str, chapter: str, *topic: str):
+    """A page built from content/ (web/src/pages/shell/learn/): the lesson, or its topic view (topics/, topics/<topic>/).
+    Signed-in students only, like the current lessons. The build moves these pages out of the published files
+    (web/scripts/private.mjs) into web/dist-private/learn/, which is bundled with the function only, so the CDN has no
+    copy to serve; vercel.json also sends the build's own path (/shell/learn/*) here. Without a build (local runs), the
+    chapter's current lesson page."""
+    if not (SLUG_RE.match(subject) and GRADE_RE.match(grade) and SLUG_RE.match(chapter) and all(SLUG_RE.match(t) for t in topic)):
+        raise HTTPException(404, 'Not found.')
+    rel = '/'.join((subject, grade, chapter) + topic)
+    if not current_user(req):
+        return RedirectResponse('/login?next=' + quote('/learn/%s/' % rel, safe='/'), status_code=302)
+    built = WEB_LEARN.joinpath(*rel.split('/'), 'index.html')
+    if built.is_file():
+        return FileResponse(built, media_type='text/html')
+    if not WEB_LEARN.is_dir():
+        old = legacy_page(subject, grade, chapter)
+        if old:
+            return RedirectResponse(old, status_code=302)
+    raise HTTPException(404, 'Not found.')
+
+
 @router.get('/learn/{subject}/{grade}/{chapter}')
 @router.get('/learn/{subject}/{grade}/{chapter}/')
 def learn_page(subject: str, grade: str, chapter: str, req: Request):
-    """A lesson built from content/ (web/src/pages/shell/learn/): signed-in students only, like the current lessons.
-    The build moves these pages out of the published files (web/scripts/private.mjs) into web/dist-private/learn/, which
-    is bundled with the function only, so the CDN has no copy to serve; vercel.json also sends the build's own path
-    (/shell/learn/*) here. Without a build (local runs), the chapter's current lesson page."""
-    if not (SLUG_RE.match(subject) and GRADE_RE.match(grade) and SLUG_RE.match(chapter)):
-        raise HTTPException(404, 'Not found.')
-    if not current_user(req):
-        return RedirectResponse('/login?next=' + quote('/learn/%s/%s/%s/' % (subject, grade, chapter), safe='/'), status_code=302)
-    built = WEB_LEARN / subject / grade / chapter / 'index.html'
-    if built.is_file():
-        return FileResponse(built, media_type='text/html')
-    old = legacy_page(subject, grade, chapter)
-    if old:
-        return RedirectResponse(old, status_code=302)
-    raise HTTPException(404, 'Not found.')
+    return learn(req, subject, grade, chapter)
+
+
+@router.get('/learn/{subject}/{grade}/{chapter}/topics')
+@router.get('/learn/{subject}/{grade}/{chapter}/topics/')
+def learn_topics(subject: str, grade: str, chapter: str, req: Request):
+    return learn(req, subject, grade, chapter, 'topics')
+
+
+@router.get('/learn/{subject}/{grade}/{chapter}/topics/{topic}')
+@router.get('/learn/{subject}/{grade}/{chapter}/topics/{topic}/')
+def learn_topic(subject: str, grade: str, chapter: str, topic: str, req: Request):
+    return learn(req, subject, grade, chapter, 'topics', topic)
 
 
 @router.get('/shell/learn/{rest:path}')

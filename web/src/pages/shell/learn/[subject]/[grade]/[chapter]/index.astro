@@ -3,19 +3,13 @@
 // web/scripts/private.mjs moves these pages out of the published files into web/dist-private/learn/, and the Python
 // route /learn/<subject>/g<grade>/<chapter>/ serves them after checking the sign-in (stemcloud/routers/lessons.py).
 // Every step is plain HTML in all three languages; the player shows one step at a time once its script has loaded.
-import AppLayout from '../../../../../../layouts/AppLayout.astro';
+import LessonShell from '../../../../../../layouts/LessonShell.astro';
 import Step from '../../../../../../components/lesson/Step.astro';
 import T from '../../../../../../components/lesson/T.astro';
-import LessonPlayer from '../../../../../../islands/LessonPlayer';
-import StepEnd from '../../../../../../islands/StepEnd';
-import VoiceControls from '../../../../../../islands/VoiceControls';
-import LangSwitch from '../../../../../../islands/LangSwitch';
-import ThemeToggle from '../../../../../../islands/ThemeToggle';
 import { LESSONS } from '../../../../../../lib/lessons';
 import { FINISH_ID, FLAG_ICON, UI, chapterLine, stepInfo } from '../../../../../../lib/lesson-ui';
+import { TOPIC_UI, topicsUrl } from '../../../../../../lib/topics';
 import type { Lesson } from '../../../../../../lib/content-types';
-import '../../../../../../styles/lesson-content.css';
-import '../../../../../../styles/lesson.css';
 
 export function getStaticPaths() {
   return LESSONS.map((lesson) => ({ params: { subject: lesson.subject, grade: 'g' + lesson.grade, chapter: lesson.slug }, props: { lesson } }));
@@ -24,52 +18,15 @@ export function getStaticPaths() {
 const { lesson } = Astro.props as { lesson: Lesson };
 const steps = [...stepInfo(lesson), { id: FINISH_ID, label: UI.finish, phase: 'p4' as const, icon: FLAG_ICON }];
 ---
-<AppLayout title={`${lesson.title.en} · STEM Cloud`} description={`GCE O/L Physics, Grade ${lesson.grade}: ${lesson.title.en}.`} noindex>
-  <header class="lhead" slot="header">
-    {/* Before first paint: one step at a time unless the student chose the whole lesson on one page, and the step in the
-        URL (#quiz) is the one shown, so nothing jumps when the player starts. */}
-    <script is:inline>
-      try { if (localStorage.getItem('stem_view') !== 'scroll') document.documentElement.setAttribute('data-player', ''); } catch (e) { document.documentElement.setAttribute('data-player', ''); }
-    </script>
-    <div class="wrap narrow lhead-in">
-      <a class="lh-back" href="/lessons/index.html">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6" /></svg>
-        <span class="visually-hidden"><T t={UI.contents} /></span>
-      </a>
-      <div class="lh-title">
-        <b><T t={lesson.title} /></b>
-        <small><T t={chapterLine(lesson)} /></small>
-      </div>
-      <ThemeToggle client:idle />
+<LessonShell pageTitle={`${lesson.title.en} · STEM Cloud`} description={`GCE O/L Physics, Grade ${lesson.grade}: ${lesson.title.en}.`}
+             title={lesson.title} sub={chapterLine(lesson)} back={{ href: '/lessons/index.html', label: UI.contents }} steps={steps}>
+  {(lesson.topics?.length ?? 0) > 0 && <a slot="links" class="btn btn-sm by-topic" href={topicsUrl(lesson)}><T t={TOPIC_UI.byTopic} /></a>}
+  {lesson.steps.map((s) => <Step step={s} />)}
+  <section class="lstep finish" id={FINISH_ID} aria-labelledby="finish-h">
+    <div class="card">
+      <h2 id="finish-h"><span aria-hidden="true">🏁</span> <T t={UI.finished} /></h2>
+      <p><T t={UI.proud} /></p>
+      <a class="btn primary" href="/lessons/index.html"><T t={UI.allLessons} /></a>
     </div>
-    <div class="wrap narrow"><LessonPlayer client:load steps={steps} /></div>
-  </header>
-
-  <div class="wrap narrow lesson" id="lesson-top">
-    <div class="lang"><LangSwitch client:idle /></div>
-    <div class="lc">
-      {lesson.steps.map((s) => <Step step={s} />)}
-      <section class="lstep finish" id={FINISH_ID} aria-labelledby="finish-h">
-        <div class="card">
-          <h2 id="finish-h"><span aria-hidden="true">🏁</span> <T t={UI.finished} /></h2>
-          <p><T t={UI.proud} /></p>
-          <a class="btn primary" href="/lessons/index.html"><T t={UI.allLessons} /></a>
-        </div>
-      </section>
-      <VoiceControls client:idle />
-    </div>
-    <script is:inline>
-      (function () {
-        var d = document.documentElement;
-        if (!d.hasAttribute('data-player')) return;
-        var h = decodeURIComponent(location.hash.slice(1)), el = h && document.getElementById(h);
-        var sec = el && el.closest ? el.closest('section.lstep') : null;
-        (sec || document.querySelector('section.lstep')).classList.add('on');
-      })();
-    </script>
-    <StepEnd client:load steps={steps} />
-  </div>
-  <script>
-    import '../../../../../../scripts/lesson-content';
-  </script>
-</AppLayout>
+  </section>
+</LessonShell>

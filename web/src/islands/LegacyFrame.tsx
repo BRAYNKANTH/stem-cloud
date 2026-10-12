@@ -10,11 +10,11 @@ import { UI, pick, type Tri } from '../lib/lesson-ui';
  * Loaded only when it is on screen (client:visible). The lesson page reads the language when it loads, so the frame is
  * reloaded when the language changes.
  */
-export default function LegacyFrame({ file, hash, title }: { file: string; hash: string; title: Tri }) {
+export default function LegacyFrame({ file, hash, title, query = '' }: { file: string; hash: string; title: Tri; query?: string }) {
   const lang = useStore($lang);
   const frame = useRef<HTMLIFrameElement>(null);
   const [h, setH] = useState(560);
-  const src = `/lessons/${file}?embed=1#${hash}`;
+  const src = `/lessons/${file}?embed=1${query ? '&' + query : ''}#${hash}`;      // query: e.g. seg=0-11&dur=30, one scene of the animation
 
   useEffect(() => {
     const onMsg = (e: MessageEvent) => {

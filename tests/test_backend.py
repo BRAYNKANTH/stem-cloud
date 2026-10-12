@@ -271,6 +271,10 @@ class LearnRoute(unittest.TestCase):
         page = cls.shell / 'physics' / 'g10' / 'motion-in-a-straight-line'
         page.mkdir(parents=True, exist_ok=True)
         (page / 'index.html').write_text('<!doctype html><title>Astro lesson</title>', encoding='utf-8')
+        topic = page / 'topics' / 'acceleration'
+        topic.mkdir(parents=True, exist_ok=True)
+        (page / 'topics' / 'index.html').write_text('<!doctype html><title>Astro topics</title>', encoding='utf-8')
+        (topic / 'index.html').write_text('<!doctype html><title>Astro topic</title>', encoding='utf-8')
         cls.signed_in = TestClient(app)          # the first account on a fresh database may sign itself up
         r = cls.signed_in.post('/api/signup', headers=H, json={'username': 'learn_one', 'password': 'learn-password-1'})
         assert r.status_code == 200, r.text
@@ -311,6 +315,18 @@ class LearnRoute(unittest.TestCase):
         r = self.signed_in.get('/lessons/chapter-05-friction.html')
         self.assertEqual(r.status_code, 200)
         self.assertNotIn('stem-try-new', r.text)
+
+    def test_topic_pages_are_login_only_too(self):
+        with patch.object(lessons, 'WEB_LEARN', self.shell):
+            for url, text in ((self.URL + 'topics/', 'Astro topics'), (self.URL + 'topics/acceleration/', 'Astro topic')):
+                r = TestClient(app).get(url, follow_redirects=False)
+                self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=' + url))
+                r = self.signed_in.get(url.rstrip('/'), follow_redirects=False)
+                self.assertEqual(r.status_code, 200, url)
+                self.assertIn(text, r.text)
+                self.assertEqual(r.headers['cache-control'], 'no-store')
+            self.assertEqual(self.signed_in.get(self.URL + 'topics/no-such-topic/', follow_redirects=False).status_code, 404)
+            self.assertEqual(self.signed_in.get(self.URL + 'topics/Bad_Topic/', follow_redirects=False).status_code, 404)
 
     def test_the_build_path_goes_through_the_check(self):
         r = TestClient(app).get('/shell/learn/physics/g10/motion-in-a-straight-line/', follow_redirects=False)

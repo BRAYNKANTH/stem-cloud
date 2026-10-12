@@ -14,6 +14,8 @@ export type Id1 = string;
  * Chapter or unit number as printed in the textbook, e.g. "5" or "2".
  */
 export type ChapterNumber = string;
+export type Mixed = string[];
+export type Quiz = string[];
 export type Schema = 2;
 export type Slug = string;
 /**
@@ -166,17 +168,66 @@ export type Id15 = string;
 export type Points = [Rich, ...Rich[]];
 export type Type10 = 'summary';
 export type Subject = 'physics' | 'chemistry' | 'biology' | 'mathematics' | 'science';
+export type Explore = (ExploreStory | ExploreLab) | null;
+/**
+ * @minItems 1
+ */
+export type Steps1 = [StoryQuestion, ...StoryQuestion[]];
+export type Correct = number;
+/**
+ * @minItems 2
+ * @maxItems 6
+ */
+export type Options1 =
+  | [Text, Text]
+  | [Text, Text, Text]
+  | [Text, Text, Text, Text]
+  | [Text, Text, Text, Text, Text]
+  | [Text, Text, Text, Text, Text, Text];
+export type Type11 = 'story';
+export type Type12 = 'lab';
+export type Definitions = Definition[];
+/**
+ * @minItems 2
+ */
+export type Head = [Text, Text, ...Text[]];
+/**
+ * @minItems 1
+ */
+export type Rows = [Text[], ...Text[][]];
+export type Id16 = string;
+/**
+ * Index of the lesson's notes card this topic explains.
+ */
+export type NotesCard = number;
+/**
+ * Quiz question and exercise ids of this lesson, in the order to practise them.
+ */
+export type Practice = string[];
+/**
+ * Textbook section number, e.g. "2.1".
+ */
+export type Section1 = string | null;
+export type Duration = number;
+export type From = number;
+export type To = number;
+/**
+ * The topic view; empty until the chapter has a topic map (tools/topics/).
+ */
+export type Topics = Topic[];
 
 export interface Lesson {
   grade: Grade;
   id: Id;
   legacy?: LegacyRef | null;
   number: ChapterNumber;
+  revision?: Revision | null;
   schema: Schema;
   slug: Slug;
   steps: Steps;
   subject: Subject;
   title: Text;
+  topics?: Topics;
 }
 /**
  * This interface was referenced by `Lesson`'s JSON-Schema
@@ -185,6 +236,16 @@ export interface Lesson {
 export interface LegacyRef {
   file: LessonFile;
   id: Id1;
+}
+/**
+ * After the topics: mixed exercises and the whole quiz, by id.
+ *
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "Revision".
+ */
+export interface Revision {
+  mixed?: Mixed;
+  quiz?: Quiz;
 }
 /**
  * This interface was referenced by `Lesson`'s JSON-Schema
@@ -421,4 +482,99 @@ export interface GlossaryTerm {
   meaning?: Text | null;
   si?: Si2;
   ta?: Ta2;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "Topic".
+ */
+export interface Topic {
+  blurb: Text;
+  explore?: Explore;
+  glance?: Glance | null;
+  id: Id16;
+  learn: Text1;
+  notes_card: NotesCard;
+  practice?: Practice;
+  section?: Section1;
+  title: Text;
+  watch?: TopicWatch | null;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "ExploreStory".
+ */
+export interface ExploreStory {
+  scenario: Text;
+  steps: Steps1;
+  title: Text;
+  type: Type11;
+  wrap?: Text | null;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "StoryQuestion".
+ */
+export interface StoryQuestion {
+  ask: Text;
+  correct: Correct;
+  options: Options1;
+  why: Text;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "ExploreLab".
+ */
+export interface ExploreLab {
+  legacy: Legacy;
+  title: Text;
+  type: Type12;
+}
+/**
+ * Understand at a glance: definitions, the unit, a comparison table, a common misconception.
+ *
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "Glance".
+ */
+export interface Glance {
+  definitions?: Definitions;
+  misconception?: Text | null;
+  table?: GlanceTable | null;
+  unit?: Text | null;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "Definition".
+ */
+export interface Definition {
+  meaning: Text;
+  term: Text;
+}
+/**
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "GlanceTable".
+ */
+export interface GlanceTable {
+  head: Head;
+  rows: Rows;
+}
+/**
+ * Plain text in each language the lesson has.
+ */
+export interface Text1 {
+  en: En;
+  si?: Si;
+  ta?: Ta;
+}
+/**
+ * A scene of the lesson's animation: seconds from..to of the whole animation (duration seconds long).
+ *
+ * This interface was referenced by `Lesson`'s JSON-Schema
+ * via the `definition` "TopicWatch".
+ */
+export interface TopicWatch {
+  animation: Legacy;
+  duration: Duration;
+  from: From;
+  title: Text;
+  to: To;
 }

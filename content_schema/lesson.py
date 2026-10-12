@@ -217,6 +217,79 @@ class SummaryStep(_Strict):
     extra: list[Rich] = Field(default=[], description='Any further summary cards, kept as they are.')
 
 
+# ----------------------------------------------------------------------------------------------- topics
+# The topic view: the same lesson, organised by concept (Understand / Watch / Explore / Practice). A topic points at the
+# lesson's own content (a notes card, an animation scene, quiz questions and exercises by id). The short "glance"
+# summaries and the explore stories were written for the topic pilot and still need a teacher's review.
+class Definition(_Strict):
+    term: Text
+    meaning: Text
+
+
+class GlanceTable(_Strict):
+    head: list[Text] = Field(min_length=2)
+    rows: list[list[Text]] = Field(min_length=1)
+
+
+class Glance(_Strict):
+    """Understand at a glance: definitions, the unit, a comparison table, a common misconception."""
+    definitions: list[Definition] = []
+    unit: Optional[Text] = None
+    table: Optional[GlanceTable] = None
+    misconception: Optional[Text] = None
+
+
+class TopicWatch(_Strict):
+    """A scene of the lesson's animation: seconds from..to of the whole animation (duration seconds long)."""
+    title: Text
+    animation: Legacy
+    start: int = Field(ge=0, alias='from')
+    end: int = Field(gt=0, alias='to')
+    duration: int = Field(gt=0)
+
+    model_config = ConfigDict(extra='forbid', populate_by_name=True)
+
+
+class StoryQuestion(_Strict):
+    ask: Text
+    options: list[Text] = Field(min_length=2, max_length=6)
+    correct: int = Field(ge=0)
+    why: Text
+
+
+class ExploreStory(_Strict):
+    type: Literal['story']
+    title: Text
+    scenario: Text
+    steps: list[StoryQuestion] = Field(min_length=1)
+    wrap: Optional[Text] = None
+
+
+class ExploreLab(_Strict):
+    type: Literal['lab']
+    title: Text
+    legacy: Legacy
+
+
+class Topic(_Strict):
+    id: ID
+    title: Text
+    blurb: Text
+    learn: Text = Field(description='What the student will be able to do.')
+    section: Optional[str] = Field(default=None, description='Textbook section number, e.g. "2.1".')
+    notes_card: int = Field(ge=0, description="Index of the lesson's notes card this topic explains.")
+    glance: Optional[Glance] = None
+    watch: Optional[TopicWatch] = None
+    explore: Optional[Annotated[Union[ExploreStory, ExploreLab], Field(discriminator='type')]] = None
+    practice: list[ID] = Field(default=[], description='Quiz question and exercise ids of this lesson, in the order to practise them.')
+
+
+class Revision(_Strict):
+    """After the topics: mixed exercises and the whole quiz, by id."""
+    mixed: list[ID] = []
+    quiz: list[ID] = []
+
+
 Step = Annotated[Union[StoryStep, BasicsStep, WatchStep, NotesStep, ActivitiesStep, InteractiveStep, QuizStep, WorkedStep,
                        ExercisesStep, RecapStep, SummaryStep], Field(discriminator='type')]
 
@@ -237,6 +310,8 @@ class Lesson(_Strict):
     title: Text
     legacy: Optional[LegacyRef] = None
     steps: list[Step] = Field(min_length=1)
+    topics: list[Topic] = Field(default=[], description='The topic view; empty until the chapter has a topic map (tools/topics/).')
+    revision: Optional[Revision] = None
 
     model_config = ConfigDict(extra='forbid', populate_by_name=True)
 
@@ -255,4 +330,27 @@ class Lesson(_Strict):
         dup = sorted({q for q in qids if qids.count(q) > 1})
         if dup:
             raise ValueError('question / exercise / example ids used twice: %s' % ', '.join(dup))
+        # topics point at this lesson's own content
+        practisable = {q.id for s in self.steps if isinstance(s, QuizStep) for q in s.questions} | \
+                      {e.id for s in self.steps if isinstance(s, ExercisesStep) for g in s.groups for e in g.items}
+        notes = [s for s in self.steps if isinstance(s, NotesStep)]
+        tids = [t.id for t in self.topics]
+        if len(set(tids)) != len(tids):
+            raise ValueError('topic ids used twice: %s' % ', '.join(sorted({t for t in tids if tids.count(t) > 1})))
+        for t in self.topics:
+            missing = [i for i in t.practice if i not in practisable]
+            if missing:
+                raise ValueError('topic %r practises ids that are not quiz questions or exercises of this lesson: %s' % (t.id, ', '.join(missing)))
+            if not notes or t.notes_card >= len(notes[0].cards):
+                raise ValueError('topic %r: notes card %d does not exist' % (t.id, t.notes_card))
+            if t.watch and not (t.watch.start < t.watch.end <= t.watch.duration):
+                raise ValueError('topic %r: the scene must run from..to inside the animation' % t.id)
+            if isinstance(t.explore, ExploreStory):
+                for q in t.explore.steps:
+                    if q.correct >= len(q.options):
+                        raise ValueError('topic %r: a story answer is not one of its options' % t.id)
+        if self.revision:
+            missing = [i for i in self.revision.mixed + self.revision.quiz if i not in practisable]
+            if missing:
+                raise ValueError('revision ids that are not quiz questions or exercises of this lesson: %s' % ', '.join(missing))
         return self

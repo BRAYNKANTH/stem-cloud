@@ -288,6 +288,13 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - The browser test checks reading, highlighting, the controls, units said as words, Tamil, stopping on a new step, and Listen on the story.
 - **Next:** the topic view (5.4), and more chapters behind the "Try the new lesson" link once a teacher has looked at Motion. XP and badges come with progress v2 (Phase 6).
 
+- **Milestone 5.4a (2026-10-12): topics in the lesson format.**
+  - `Topic` and `Revision` in `content_schema/lesson.py`. A topic points at the lesson's own content: a notes card, an animation scene (seconds from..to), quiz questions and exercises by id. It adds its own short summary ("glance") and an explore story or lab.
+  - The format refuses ids that the lesson doesn't have, and scenes outside the animation. Topic ids are tracked as stable ids (`<lesson>/topic:<id>`).
+  - The extractor fills topics in from a chapter's topic map (`tools/topics/<lesson file>.spec.json`, the `build_topics.py` input). Only Motion has one: 5 topics and a revision set.
+  - The topic map's own text is English written for the pilot. It lowers Motion's Tamil coverage to 76% and Sinhala to 65% until it is translated and reviewed.
+- **Next (5.4b):** the topic pages built from this.
+
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
 - Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.
 - The v1 endpoints also write v2 rows. Run `tools/migrate_progress_v2.py` on a **Neon branch copy** of production first and check that every student's XP, badges, stars and finished flags match. Then run it on production.

@@ -39,8 +39,41 @@ def _baseline(c):
         c.execute("ALTER TABLE sessions ADD COLUMN device_name TEXT DEFAULT ''")
 
 
+def _progress_v2(c):
+    """Progress v2 (docs/migration-plan-astro.md, section 3.5): typed tables that only move forward, fed by idempotent
+    events (stemcloud/progress_v2.py). The v1 key/value table stays until the cut-over."""
+    _int = 'BIGINT' if PG else 'INTEGER'
+    ref = '%s NOT NULL REFERENCES users(id) ON DELETE CASCADE' % _int
+    for stmt in [
+        # every event a device sent, so a repeated one (same event_id) is ignored
+        'CREATE TABLE IF NOT EXISTS progress_events(user_id %s, event_id TEXT NOT NULL, kind TEXT NOT NULL, received_at %s NOT NULL, '
+        'PRIMARY KEY(user_id, event_id))' % (ref, _int),
+        'CREATE TABLE IF NOT EXISTS step_progress(user_id %s, lesson_id TEXT NOT NULL, step_id TEXT NOT NULL, opened_at %s, done_at %s, '
+        'PRIMARY KEY(user_id, lesson_id, step_id))' % (ref, _int, _int),
+        # first_at: the earliest answer seen, so "right at the first try" does not depend on the order events arrive in
+        'CREATE TABLE IF NOT EXISTS question_attempts(user_id %s, question_id TEXT NOT NULL, attempts INTEGER NOT NULL, '
+        'ever_correct INTEGER NOT NULL, first_try_correct INTEGER NOT NULL, first_at %s NOT NULL, last_at %s NOT NULL, '
+        'PRIMARY KEY(user_id, question_id))' % (ref, _int, _int),
+        'CREATE TABLE IF NOT EXISTS game_scores(user_id %s, game_id TEXT NOT NULL, level INTEGER NOT NULL, best_stars INTEGER NOT NULL, '
+        'PRIMARY KEY(user_id, game_id, level))' % ref,
+        'CREATE TABLE IF NOT EXISTS xp_events(user_id %s, event_id TEXT NOT NULL, source TEXT NOT NULL, amount INTEGER NOT NULL, '
+        'created_at %s NOT NULL, PRIMARY KEY(user_id, event_id))' % (ref, _int),
+        'CREATE TABLE IF NOT EXISTS badges(user_id %s, badge_id TEXT NOT NULL, earned_at %s NOT NULL, PRIMARY KEY(user_id, badge_id))' % (ref, _int),
+        'CREATE TABLE IF NOT EXISTS activity_days(user_id %s, day TEXT NOT NULL, PRIMARY KEY(user_id, day))' % ref,
+        'CREATE TABLE IF NOT EXISTS user_prefs(user_id %s PRIMARY KEY, lang TEXT, theme TEXT, motion TEXT, reading_mode TEXT, updated_at %s NOT NULL)' % (ref, _int),
+        'CREATE INDEX IF NOT EXISTS idx_step_progress_lesson ON step_progress(user_id, lesson_id)',
+    ]:
+        c.execute(stmt)
+    # the XP total, kept with the user so the home page and admin stay fast (the sum of xp_events)
+    if PG:
+        c.execute('ALTER TABLE users ADD COLUMN IF NOT EXISTS xp_total BIGINT NOT NULL DEFAULT 0')
+    elif 'xp_total' not in [r['name'] for r in c.execute('PRAGMA table_info(users)').fetchall()]:
+        c.execute('ALTER TABLE users ADD COLUMN xp_total INTEGER NOT NULL DEFAULT 0')
+
+
 MIGRATIONS = [
     (1, 'baseline', _baseline),
+    (2, 'progress v2', _progress_v2),
 ]
 
 

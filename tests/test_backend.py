@@ -52,6 +52,7 @@ class Migrations(unittest.TestCase):
             tables = {r['name'] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'").fetchall()}
         self.assertEqual(versions, [v for v, _, _ in migrations.MIGRATIONS])
         self.assertTrue({'users', 'sessions', 'progress', 'ratelimit', 'past_attempts', 'past_bookmarks', 'schema_migrations'} <= tables)
+        self.assertTrue({'progress_events', 'step_progress', 'question_attempts', 'game_scores', 'xp_events', 'badges', 'activity_days', 'user_prefs'} <= tables)
 
     def test_existing_production_style_database_is_upgraded_in_place(self):
         path = os.path.join(TMP, 'm-old.db')
@@ -63,13 +64,14 @@ class Migrations(unittest.TestCase):
         raw.commit(); raw.close()
         self.use_db(path)
         with dbmod.db() as con:
-            self.assertEqual(migrations.applied(con.raw), [1])
+            self.assertEqual(migrations.applied(con.raw), [1, 2])
+            self.assertEqual(con.execute('SELECT xp_total FROM users').fetchone()['xp_total'], 0)      # progress v2's XP total, empty until migrated
             cols = [r['name'] for r in con.execute('PRAGMA table_info(sessions)').fetchall()]
             self.assertIn('device_name', cols)
             self.assertEqual(con.execute("SELECT v FROM progress WHERE k='scx_xp_total'").fetchone()['v'], '120')
         migrations._ready = False          # a second cold start applies nothing again
         with dbmod.db() as con:
-            self.assertEqual(migrations.applied(con.raw), [1])
+            self.assertEqual(migrations.applied(con.raw), [1, 2])
 
 
 class GateCookie(unittest.TestCase):
@@ -331,6 +333,27 @@ class LearnRoute(unittest.TestCase):
     def test_the_build_path_goes_through_the_check(self):
         r = TestClient(app).get('/shell/learn/physics/g10/motion-in-a-straight-line/', follow_redirects=False)
         self.assertEqual((r.status_code, r.headers['location']), (302, self.URL))
+
+
+class ProgressV2Deletion(unittest.TestCase):
+    """Deleting an account removes its v2 progress too (child privacy: nothing is kept)."""
+
+    def test_account_delete_removes_v2_rows(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'v2-delete.db')
+        migrations._ready = False
+        c = TestClient(app)
+        self.assertEqual(c.post('/api/signup', headers=H, json={'username': 'del_me', 'password': 'delete-me-123'}).status_code, 200)
+        t = int(time.time()) - 60
+        ev = [{'id': 'del-%04d' % i, 'type': k, 'at': t, **x} for i, (k, x) in enumerate([
+            ('step_done', {'lesson': 'physics.g10.friction', 'step': 'notes'}), ('answer', {'question': 'physics.g10.friction/q1', 'correct': True}),
+            ('xp', {'source': 'q1', 'amount': 5}), ('badge', {'badge': 'b1'}), ('day', {'day': '2026-10-12'}), ('prefs', {'lang': 'ta'}),
+            ('game', {'game': 'physics.g10.friction/pushit', 'level': 1, 'stars': 3})])]
+        self.assertEqual(c.post('/api/v2/events', headers=H, json={'events': ev}).json()['applied'], 7)
+        r = c.post('/api/account/delete', headers=H, json={'password': 'delete-me-123'})
+        self.assertEqual(r.status_code, 200, r.text)
+        with dbmod.db() as con:
+            for table in ('progress_events', 'step_progress', 'question_attempts', 'game_scores', 'xp_events', 'badges', 'activity_days', 'user_prefs'):
+                self.assertEqual(con.execute('SELECT COUNT(*) AS n FROM %s' % table).fetchone()['n'], 0, table)
 
 
 class HealthMedia(unittest.TestCase):

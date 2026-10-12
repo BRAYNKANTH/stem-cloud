@@ -108,6 +108,61 @@ def scenario(mode):
     s, _, raw, _ = b.call('GET', '/lessons/index.html')
     check("other user's page has no foreign progress", '120' not in raw.split('window.SCX_USER')[0][:3000], '')
 
+    # ---------------------------------------------------------------- progress v2: idempotent events, forward only
+    L = 'physics.g10.motion-in-a-straight-line'
+    t0 = int(time.time()) - 3600
+    ev = lambda i, kind, at, **k: dict(id='ev-%s-%04d' % (mode, i), type=kind, at=at, **k)
+    batch = [ev(1, 'step_open', t0, lesson=L, step='story'),
+             ev(2, 'step_done', t0 + 60, lesson=L, step='story'),
+             ev(3, 'answer', t0 + 100, question=L + '/q1', correct=False),
+             ev(4, 'answer', t0 + 110, question=L + '/q1', correct=True),
+             ev(5, 'xp', t0 + 110, source=L + '/q1', amount=10),
+             ev(6, 'game', t0 + 120, game=L + '/holdgame', level=1, stars=2),
+             ev(7, 'badge', t0 + 130, badge='u2-quiz-ace'),
+             ev(8, 'day', t0, day='2026-10-12'),
+             ev(9, 'prefs', t0, lang='ta', theme='dark')]
+    s, _, _, _ = anon.call('POST', '/api/v2/events', {'events': batch})
+    check('v2: events need login', s == 401, s)
+    s, _, _, _ = a.call('POST', '/api/v2/events', {'events': batch}, csrf=False)
+    check('v2: events need the CSRF header', s == 403, s)
+    s, j, _, _ = a.call('POST', '/api/v2/events', {'events': batch})
+    check('v2: a batch is applied', s == 200 and j['applied'] == 9 and not j['duplicate'] and not j['refused'], (s, j))
+    s, j, _, _ = a.call('POST', '/api/v2/events', {'events': batch})
+    check('v2: replaying the same batch changes nothing', s == 200 and j['applied'] == 0 and len(j['duplicate']) == 9, j)
+    # a second device, offline for a while: older and newer events, some already sent by the first device
+    late = [ev(20, 'step_open', t0 - 600, lesson=L, step='story'),            # opened earlier on the other phone
+            ev(21, 'answer', t0 - 500, question=L + '/q1', correct=True),       # its first answer, earlier and right
+            ev(22, 'game', t0 + 200, game=L + '/holdgame', level=1, stars=1),   # a worse score later
+            ev(23, 'step_open', t0 + 300, lesson=L, step='notes'),
+            ev(24, 'prefs', t0 - 900, lang='si'),                               # an older preference
+            ev(5, 'xp', t0 + 110, source=L + '/q1', amount=10)]                 # already counted
+    s, j, _, _ = b.call('POST', '/api/v2/events', {'events': [ev(30, 'xp', t0, source='x', amount=5)]})
+    check('v2: another student has their own events', s == 200 and j['applied'] == 1, j)
+    s, j, _, _ = a.call('POST', '/api/v2/events', {'events': late})
+    check('v2: the other device: new events applied, the repeated one ignored', j['applied'] == 5 and j['duplicate'] == ['ev-%s-0005' % mode], j)
+    s, j, _, _ = a.call('GET', '/api/v2/progress?lesson=' + L)
+    st, q = j['steps'], j['questions'][L + '/q1']
+    check('v2: a step keeps its earliest opening and stays done', st['story'] == {'opened': t0 - 600, 'done': t0 + 60} and st['notes']['done'] is None, st)
+    check('v2: attempts add up; "first try" comes from the earliest answer, whatever the order', q == {'attempts': 3, 'correct': True, 'first_try': True}, q)
+    check('v2: best stars are kept', j['games'] == {L + '/holdgame': {'1': 2}}, j['games'])
+    s, j, _, _ = a.call('GET', '/api/v2/progress/summary')
+    check('v2: XP counted once per event', j['xp'] == 10, j)
+    check('v2: badges, days, lessons and the newest preferences', j['badges'] == ['u2-quiz-ace'] and j['days'] == ['2026-10-12']
+          and j['lessons'] == {L: {'opened': 2, 'done': 1}} and j['prefs'] == {'lang': 'ta', 'theme': 'dark'}, j)
+    s, j, _, _ = b.call('GET', '/api/v2/progress/summary')
+    check("v2: another student's summary is their own", j['xp'] == 5 and j['lessons'] == {} and j['badges'] == [], j)
+    bad = [{'id': 'x'}, ev(40, 'xp', t0, source='a', amount=10 ** 6), ev(41, 'teleport', t0), ev(42, 'answer', t0, question='Bad Id!', correct=True),
+           ev(43, 'day', t0, day='2026-13-40'), ev(44, 'prefs', t0, lang='fr'), ev(45, 'step_done', 100, lesson=L, step='story'), 'not an event']
+    s, j, _, _ = a.call('POST', '/api/v2/events', {'events': bad})
+    check('v2: bad events are refused, each with a reason', s == 200 and j['applied'] == 0 and len(j['refused']) >= 7, j)
+    s, j, _, _ = a.call('POST', '/api/v2/events', {'events': [ev(50, 'step_open', int(time.time()) + 10 ** 6, lesson=L, step='quiz')]})
+    s, j, _, _ = a.call('GET', '/api/v2/progress?lesson=' + L)
+    check('v2: a time in the future (a fast clock) is clamped to now', j['steps']['quiz']['opened'] <= int(time.time()) + 1, j['steps'].get('quiz'))
+    s, _, _, _ = a.call('POST', '/api/v2/events', {'events': [ev(60 + i, 'day', t0, day='2026-10-12') for i in range(201)]})
+    check('v2: a batch is limited in size', s == 400, s)
+    s, _, _, _ = a.call('GET', '/api/v2/progress?lesson=../../etc')
+    check('v2: a bad lesson id is refused', s == 400, s)
+
     s, _, _, _ = b.call('GET', '/admin')
     check('student blocked from /admin', s == 403, s)
     s, _, _, _ = b.call('GET', '/api/admin/users')

@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 
 from .config import ON_VERCEL, STATIC, WEB_DIST
 from .media import MediaStaticFiles
-from .routers import account, admin, auth, lessons, pages, past_papers, progress
+from .routers import account, admin, auth, lessons, pages, past_papers, progress, progress_v2
 
 app = FastAPI(title='STEM Cloud', docs_url=None, redoc_url=None, openapi_url=None)
 
@@ -20,7 +20,7 @@ async def headers(request: Request, call_next):
         resp.headers['Cache-Control'] = 'no-store'
     return resp
 
-for module in (auth, progress, past_papers, account, admin, pages, lessons):
+for module in (auth, progress, progress_v2, past_papers, account, admin, pages, lessons):
     app.include_router(module.router)
 
 app.mount('/static', MediaStaticFiles(directory=str(STATIC)), name='static')

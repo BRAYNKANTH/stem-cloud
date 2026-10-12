@@ -70,9 +70,9 @@ APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js
 # the new lesson pages show parts of these pages in frames). New wording, English only until a reviewer gives Tamil and
 # Sinhala (docs/owner-tasks.md).
 TRY_NEW_JS = ('<script>(function(){try{if(/[?&]embed=1/.test(location.search)||window.parent!==window)return;'
-              'var p=document.getElementById("fw_path");if(!p)return;var a=document.createElement("a");'
+              'var p=document.getElementById("fw_path")||document.getElementById("pp-status");if(!p)return;var a=document.createElement("a");'
               'a.className="stem-try-new";a.href=%s;a.lang="en";'
-              'a.innerHTML="<b>Try the new lesson</b><span>The same lesson in the new STEM Cloud. You can come back here any time.</span>";'
+              'a.innerHTML=p.id==="pp-status"?"<b>Try the new past papers</b><span>The same questions in the new STEM Cloud, with your drafts and attempts. You can come back here any time.</span>":"<b>Try the new lesson</b><span>The same lesson in the new STEM Cloud. You can come back here any time.</span>";'
               'p.parentNode.insertBefore(a,p)}catch(e){}})()</script>'
               '<style>.stem-try-new{display:flex;flex-direction:column;gap:2px;margin:12px 0 16px;padding:14px 18px;border-radius:20px;'
               'background:var(--sc-blue-lt,#E3E6FF);color:var(--text,#16183D);text-decoration:none;box-shadow:0 3px 0 var(--border,#DDE1F5);min-height:44px}'

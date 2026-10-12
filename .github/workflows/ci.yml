@@ -42,6 +42,8 @@ jobs:
         run: python tools/lesson_css.py --check
       - name: Progress v1 -> v2 map is current with the lesson content
         run: python tools/legacy_map.py --check
+      - name: Past papers styles are current with the current page
+        run: python tools/past_papers_css.py --check
 
   web:
     name: Web app (type check, build, JS budget)

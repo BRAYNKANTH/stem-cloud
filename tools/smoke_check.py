@@ -55,6 +55,7 @@ CHECKS = [
     ('/learn/physics/g10/motion-in-a-straight-line/', 302, None, ('location', '/login?next=/learn/physics/g10/motion-in-a-straight-line/')),
     # the build's own copy of a lesson is never served straight from the CDN: a redirect (Vercel's or the function's) to the checked route
     ('/shell/learn/physics/g10/motion-in-a-straight-line/', None, None, ('location', '/learn/physics/g10/motion-in-a-straight-line')),
+    ('/past-papers/', 302, None, ('location', '/login?next=/past-papers/')),
     ('/account', 302, None, ('location', '/login?next=/account')),    # personal pages stay behind login
     ('/admin', 302, None, ('location', '/login?next=/admin')),
     ('/api/me', 401, None, None),

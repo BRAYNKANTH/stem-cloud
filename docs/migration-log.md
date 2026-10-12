@@ -2,7 +2,7 @@
 
 What has been done so far in the move to **Astro + Preact islands + FastAPI**: the blockers we hit and how each was handled, and the decisions made or changed along the way.
 
-- **Covers:** 2026-10-10 to 2026-10-12, Phases 0–4 and milestones 5.1–5.3.
+- **Covers:** 2026-10-10 to 2026-10-12, Phases 0–7.
 - **Companion documents:** the plan is in [migration-plan-astro.md](migration-plan-astro.md); steps only the site owner can do are in [owner-tasks.md](owner-tasks.md).
 
 ## 1. Where things stand
@@ -14,12 +14,14 @@ What has been done so far in the move to **Astro + Preact islands + FastAPI**: t
 | 2 Astro foundation, deploy, public pages | ✅ done, except milestone 2.4 (on hold) | faster home, about, privacy and terms pages; a phone menu |
 | 3 Login, account, admin | ✅ done, except the course home (moved to Phase 5/6) | new login, account and admin pages; same wording |
 | 4 Lesson format + extraction | ✅ done | nothing yet; all 15 chapters exist as JSON, ready for Phase 5 |
-| 5 New lesson pages | in progress: 5.1 (page and player), 5.2 (story, quiz, exercises) and 5.3 (read-aloud) done | a "Try the new lesson" link on Motion; the current lessons stay the default |
-| 6 Progress v2 · 7 Past papers · 8 Labs · 9 Cut-over · 10 App stores · 11 Second subject | not started | |
+| 5 New lesson pages | ✅ built (5.1–5.4); waiting for a teacher's review before more chapters get the link | a "Try the new lesson" link on Motion; the current lessons stay the default |
+| 6 Progress v2 | ✅ built (6.1–6.3); the one-off migration of older progress is an owner task | the new pages keep progress and XP; nothing changes on the current pages |
+| 7 Past papers | ✅ built (7.1–7.2) | a "Try the new past papers" link on the current page |
+| 8 Labs · 9 Cut-over · 10 App stores · 11 Second subject | not started | |
 
 **Live in production** (checked by the smoke test after every deploy):
-- **Served by Astro:** `/`, `/home`, `/about`, `/privacy`, `/terms`, `/login`, and `/account`, `/admin` and the new lessons (`/learn/...`) once signed in.
-- **Unchanged:** lessons, the course home, past papers and the API.
+- **Served by Astro:** `/`, `/home`, `/about`, `/privacy`, `/terms`, `/login`, and, once signed in, `/account`, `/admin`, the new lessons and topic pages (`/learn/...`) and the new past papers (`/past-papers/`).
+- **Unchanged and still the default:** the current lessons, the course home and the current past papers page.
 
 **Measured improvement:** this is the same local Lighthouse test as the Phase 0 baseline (mobile, slow 4G).
 
@@ -52,6 +54,18 @@ Every Astro page loads 1.6–18.5 KB of JavaScript, against a budget of 60 KB.
 | #18 | 4.1 Lesson format, generated types, content checker | |
 | #19 | 4.2 All 15 chapters extracted (English + Tamil) | |
 | #20 | 4.3 Sinhala, checked against `si.js` | |
+| #21 | This log (Phases 0–4) | |
+| #22 | 5.1 Lesson pages from `content/`, the lesson player | |
+| #23 | 5.2 Story, quiz, exercises; "Try the new lesson" on Motion | |
+| #24 | Fix: keep the login-only lesson pages out of the published files | found by the production smoke check |
+| #25 | 5.3 Read-aloud | |
+| #26 | 5.4a Topics in the lesson format | |
+| #27 | 5.4b Topic pages | |
+| #28 | 6.1 Progress v2 tables and events API | |
+| #29 | 6.2 v1 → v2 dual-write and the migration tool | |
+| #30 | 6.3 The new pages keep progress (offline outbox) | |
+| #31 | 7.1 Past papers on the new pages | |
+| #32 | 7.2 Past paper banks are content | |
 
 **The working routine (from #6 on):**
 1. Claude opens a PR.
@@ -157,7 +171,10 @@ Nothing is merged with failing checks.
   - `content/` matches the lesson pages and nothing is lost (`tools/extract_lesson.py --all --check`);
   - format, links, stable ids and catalog (`tools/validate_content.py`).
 - Web app: generated types are current, TypeScript check, build, and the 60 KB JavaScript budget per page.
-- **After every production deploy:** the smoke check of public pages, the API, static files, and the login redirects on `/lessons`, `/account` and `/admin`.
+- Generated files are current: the content styles (`tools/lesson_css.py`), the past papers styles (`tools/past_papers_css.py`) and the v1 → v2 map (`tools/legacy_map.py`).
+- Past paper banks (`tools/validate_past_papers.py`, `tests/test_past_paper_content.py`).
+- **The new pages in a real browser** (`tests/test_lesson_pages.py`, 150 checks): every lesson and topic page at 375 px and on a desktop, the player, story, quiz, read-aloud, topic view, progress (including offline) and past papers.
+- **After every production deploy:** the smoke check of public pages, the API, static files, and the login redirects on `/lessons`, `/learn`, `/past-papers`, `/account` and `/admin`, including that the build's own copies of login-only pages are never served.
 
 ## 7. What is waiting on the site owner
 These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the next phase:
@@ -174,7 +191,7 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - filling the Sinhala gaps (79–96% coverage per chapter);
 - reviewing the extracted lessons once Phase 5 shows them.
 
-## 8. Phase 5 so far
+## 8. Phases 5–7
 **5.1, the lesson page and player** (2026-10-12):
 - All 15 chapters at `/learn/<subject>/g<grade>/<chapter>/`, built from `content/`. Python checks the sign-in, then serves the build. The CDN copy under `/shell/learn/` is redirected to that check.
 - The lesson player: one step at a time, Back / Next, lesson map, `#step` links, browser Back, "whole lesson on one page".
@@ -204,3 +221,22 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - **Found on the way:** after 5.1 and 5.2 shipped, the lesson pages could be read without signing in at the CDN address ending in `/` (see §4). Fixed in #24 by keeping them out of the published files.
 
 **Next:** progress v2 (Phase 6). Phase 5 is complete once a teacher has checked Motion and more chapters get the "Try the new lesson" link.
+
+**5.4, the topic view:** topics in the lesson format, filled in by the extractor from the topic map (only Motion has one), and the topic pages built from them. Login-only, like the lessons.
+
+**Phase 6, progress v2:**
+- **6.1:** the v2 tables and an events API that only moves forward. A repeated event is ignored, and events can arrive in any order or from two devices. Tested on SQLite and Postgres.
+- **6.2:** every save from the current pages also writes v2 (dual-write, inside a savepoint), and `tools/migrate_progress_v2.py` converts older progress and checks it.
+- **6.3:** the new pages send events through an outbox on the device, so progress made offline is sent later. One-time XP rewards have fixed ids, so a reload can't count them twice.
+- **Waiting on the owner:** running the migration on a Neon branch copy, then on production.
+
+**Phase 7, past papers:**
+- **7.1:** the past papers page on the new pages, with the same device storage and API as today. Students can switch between the two pages.
+- **7.2:** the question banks moved to `content/`, with a validator in CI. 9 banks, 155 questions.
+
+**Found on the way:**
+- **The new lesson pages could be read without signing in** at their CDN address ending in `/`. The production smoke check caught it, and #24 fixed it. Only lesson text was exposed.
+- **The CI browser test failed now and then.** Checks read the page before it had updated, and one quiz key listener started late. The checks now retry, and the listener starts at once.
+- **Vercel preview deploys have failed twice without a reason** (#30, #32). Both succeeded when re-run. Owner task: look at the failed deploys in Vercel.
+
+**Next:** Phase 8, the labs, one chapter at a time, starting with Motion's. Phase 9 (the cut-over) needs the owner first: the progress migration and a teacher's review.

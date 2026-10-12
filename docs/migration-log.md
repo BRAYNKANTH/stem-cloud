@@ -198,4 +198,9 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - The Listen button reads the step with the phone's voice, highlighting each block, with the reading controls of today's pages.
 - **Decision:** it reads the text the step shows. That is the content in the student's language, since the other languages are hidden, so nothing is shipped twice.
 
-**Next (5.4):** the topic view.
+**5.4, the topic view** (2026-10-12):
+- 5.4a: topics in the lesson format; the extractor fills them in from the topic map. Only Motion has one: 5 topics.
+- 5.4b: the topic pages (topic list; Understand, Watch, Explore and Practice; revision), built like the lesson pages and login-only.
+- **Found on the way:** after 5.1 and 5.2 shipped, the lesson pages could be read without signing in at the CDN address ending in `/` (see §4). Fixed in #24 by keeping them out of the published files.
+
+**Next:** progress v2 (Phase 6). Phase 5 is complete once a teacher has checked Motion and more chapters get the "Try the new lesson" link.

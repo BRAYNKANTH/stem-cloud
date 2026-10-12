@@ -1,0 +1,49 @@
+---
+// A list of the lesson's own quiz questions and exercises, in the given order (topic practice, chapter revision).
+// Quiz questions are the Quiz island (with its answer sheet; without JavaScript their answers are behind "Show answer");
+// exercises have their answer behind "Show answer", as in the lesson's exercises step.
+import Quiz from '../../islands/Quiz';
+import T from './T.astro';
+import { UI } from '../../lib/lesson-ui';
+import { runs, type Practice } from '../../lib/topics';
+
+interface Props {
+  items: Practice[];
+  stepId: string;
+  /** The whole chapter quiz: with the score line and numbers. */
+  scored?: boolean;
+}
+const { items, stepId, scored = false } = Astro.props;
+const LETTERS = 'ABCDEF';
+---
+<div class="practice">
+  {runs(items).map((run) => run[0]!.kind === 'quiz' ? (
+    <>
+      <Quiz client:idle stepId={stepId} compact={!scored} questions={run.map((p) => (p as Extract<Practice, { kind: 'quiz' }>).q)} />
+      <ol class="quiz nojs">
+        {run.map((p) => { const q = (p as Extract<Practice, { kind: 'quiz' }>).q; return (
+          <li class="card qz" id={`${stepId}-${q.id}`}>
+            <p class="qz-q"><T t={q.prompt} /></p>
+            <ol class="qz-opts">{q.options.map((o, k) => <li><b aria-hidden="true">{LETTERS[k]}</b> <T t={o} /></li>)}</ol>
+            <details class="qz-ans">
+              <summary><span class="when-closed"><T t={UI.showAnswer} /></span><span class="when-open"><T t={UI.hideAnswer} /></span></summary>
+              <p><b>{LETTERS[q.answer]}</b> <T t={q.options[q.answer]} /></p>
+              {q.explain && <p class="explain"><T t={q.explain} /></p>}
+            </details>
+          </li>
+        ); })}
+      </ol>
+    </>
+  ) : run.map((p) => { const { x, chip } = p as Extract<Practice, { kind: 'exercise' }>; return (
+    <article class="card ex" id={`${stepId}-${x.id}`}>
+      <p class="ex-src"><T t={chip} /> · {x.num}</p>
+      <div class="ex-q"><T t={x.prompt} rich /></div>
+      {x.answer && (
+        <details class="ex-ans">
+          <summary><span class="when-closed"><T t={UI.showAnswer} /></span><span class="when-open"><T t={UI.hideAnswer} /></span></summary>
+          <T t={x.answer} rich />
+        </details>
+      )}
+    </article>
+  ); }))}
+</div>

@@ -141,3 +141,30 @@ html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
 
 /* buttons in the content and islands use the page type (the old font-family rules are left out) */
 .lc button { font-family: inherit; }
+
+/* ------------------------------------------------------------------ the topic view (pages/shell/learn/.../topics) */
+.lesson .lang { gap: 8px; flex-wrap: wrap; align-items: center; }
+.tp-h { font-size: 1.6rem; margin: 4px 0 14px; }
+.tp-list { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 12px; }
+.tp-item { display: flex; gap: 14px; align-items: flex-start; text-decoration: none; color: var(--sc-ink); }
+.tp-item:hover { box-shadow: 0 3px 0 var(--sc-blue); }
+.tp-n { flex: 0 0 auto; min-width: 44px; height: 44px; padding: 0 8px; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center;
+        background: var(--sc-blue-lt); color: var(--sc-blue); font-weight: 800; }
+.tp-body { display: grid; gap: 4px; min-width: 0; }
+.tp-body b { font-family: var(--font-head); font-size: 1.15rem; }
+.tp-blurb { color: var(--sc-ink-2); }
+.tp-steps { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.tp-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 999px; background: var(--sc-panel-2); font-size: .8rem; font-weight: 700; }
+.tp-rev .tp-n { background: var(--sc-leaf-lt); color: var(--sc-leaf); }
+.tp-foot { margin-top: 20px; }
+.tp-foot a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.tp-glance { margin-bottom: 16px; }
+.tp-defs { margin: 0 0 12px; }
+.tp-defs dt { font-weight: 800; margin-top: 8px; }
+.tp-defs dd { margin: 2px 0 0; color: var(--sc-ink-2); }
+.tp-scenario { font-weight: 700; }
+.tp-story { display: grid; gap: 12px; }
+.tp-next { margin-top: 12px; }
+.tp-wrap { background: var(--sc-leaf-lt); }
+.practice { display: grid; gap: 12px; }
+.practice .ex-src { margin: 0 0 6px; color: var(--sc-ink-2); font-size: .85rem; font-weight: 800; }

@@ -20,6 +20,13 @@ H = {'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud'}
 CATALOG = json.load(open(os.path.join(ROOT, 'content', 'catalog.json'), encoding='utf-8'))['lessons']
 URLS = ['/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']) for l in CATALOG]
 MOTION = '/learn/physics/g10/motion-in-a-straight-line/'
+# the topic view: lessons that have topics (content/.../lesson.json "topics"), their overview, topic and revision pages
+TOPIC_URLS = []
+for l in CATALOG:
+    data = json.load(open(os.path.join(ROOT, l['path']), encoding='utf-8'))
+    if data.get('topics'):
+        base = '/learn/%s/g%d/%s/topics/' % (l['subject'], l['grade'], l['slug'])
+        TOPIC_URLS += [base] + [base + t['id'] + '/' for t in data['topics']] + ([base + 'revision/'] if data.get('revision') else [])
 fails = []
 
 
@@ -143,6 +150,12 @@ def run():
                     problems = pg.evaluate(LAYOUT, phone)
                     check('%s %s: no sideways scroll%s, all languages' % (label, name, ', 44 px controls' if phone else ''), not problems, problems[:6])
                     pg.close()
+                for url in TOPIC_URLS:
+                    pg, errs = open_page(ctx, url)
+                    name = '/'.join(url.split('/')[4:-1])
+                    problems = pg.evaluate(LAYOUT, phone)
+                    check('%s %s: no script errors, no sideways scroll%s' % (label, name, ', 44 px controls' if phone else ''), not errs and not problems, (errs + problems)[:6])
+                    pg.close()
                 ctx.close()
 
             # ------------------------------------------------------------ Motion: the player
@@ -235,6 +248,42 @@ def run():
             check('the last line offers the next step', lambda: pg.locator('.so-cta.show a').is_visible())
             pg.click('.so-cta a')
             check('...and it opens it', lambda: on() == 'basics', lambda: on())
+            # ------------------------------------------------------------ Motion: the topic view
+            pg.goto(BASE + MOTION)
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('the lesson links to its topics', lambda: pg.locator('a.by-topic').get_attribute('href') == MOTION + 'topics/')
+            pg.click('a.by-topic')
+            pg.wait_for_url('**/topics/')
+            check('the topic overview lists the topics and the revision', lambda: pg.locator('.tp-list > li').count() == 5 and pg.locator('a.tp-rev').count() == 1)
+            pg.click('.tp-list > li >> nth=0 >> a')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            ids = pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)')
+            check('a topic page has the steps it has content for', ids == ['understand', 'watch', 'explore', 'practice'], ids)
+            check('...one at a time, Understand first, with the summary and the notes card', lambda: on() == 'understand' and pg.locator('#understand .tp-glance').is_visible() and pg.locator('#understand .card').count() >= 2)
+            pg.click('.lbar .lb-btn.primary')
+            check('Watch plays its scene of the animation', lambda: 'seg=0-11&dur=30#watch' in (pg.locator('#watch iframe').get_attribute('src') or ''), lambda: pg.locator('#watch iframe').get_attribute('src'))
+            pg.click('.lbar .lb-btn.primary')
+            story = pg.locator('#explore .tp-story')
+            story.locator('.qz-opt').nth(1).click()
+            check('Explore: an answer shows whether it is right and why', lambda: story.locator('.qz-explain.show').count() == 1 and story.locator('.qz-opt.correct').count() == 1)
+            story.locator('.tp-next').click()
+            story.locator('.qz-card').nth(1).locator('.qz-opt').nth(2).click()
+            check('...then the next question, and the wrap-up at the end', lambda: story.locator('.qz-card').count() == 2 and pg.locator('#explore .tp-story .tp-wrap').is_visible())
+            pg.click('.lbar .lb-btn.primary')
+            check('Practice: the lesson questions and exercises of the topic, in order', lambda: pg.locator('#practice .ex').count() == 4 and pg.locator('#practice .qz .qz-card').count() == 1)
+            check('...a practice question has no score line', lambda: pg.locator('#practice .quiz-score').count() == 0)
+            pg.locator('#practice .qz .qz-opt').first.click()
+            check('...and opens the answer sheet', lambda: pg.locator('#stem-qsheet').count() == 1)
+            pg.keyboard.press('Escape')
+            pg.goto(BASE + MOTION + 'topics/speed-velocity/')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            ids = pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)')
+            check('a topic without a video or story leaves those steps out', ids == ['understand', 'practice'], ids)
+            pg.goto(BASE + MOTION + 'topics/revision/#quiz')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('the revision has the summary, mixed practice and the scored chapter quiz', lambda: pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)') == ['summary', 'mixed', 'quiz']
+                  and on() == 'quiz' and pg.locator('#quiz .quiz-score').is_visible())
+
             # ------------------------------------------------------------ Motion: read-aloud
             pg.goto(BASE + MOTION + '#notes')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")

@@ -26,7 +26,7 @@ const next = all[all.findIndex((x) => x.id === t.id) + 1];
 const heading = (id: keyof typeof TOPIC_STEPS) => TOPIC_STEPS[id];
 ---
 <LessonShell pageTitle={`${t.title.en} · ${lesson.title.en} · STEM Cloud`} description={t.blurb.en}
-             title={t.title} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(steps, TOPIC_STEPS)}>
+             title={t.title} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(steps, TOPIC_STEPS)} lesson={lesson.id} prefix={`topic:${t.id}:`}>
   {steps.map((id) => (
     <section class="lstep" id={id} data-type={id} aria-labelledby={`${id}-h`}>
       <header class="lstep-head">

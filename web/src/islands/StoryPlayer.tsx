@@ -5,6 +5,7 @@ import { $lang, type Lang } from '../stores/prefs';
 import { $ids, $step, go } from '../stores/lesson';
 import { UI, pick, type Tri } from '../lib/lesson-ui';
 import { hasTTS, missingVoice, play, silence, speak, toast } from '../lib/speech';
+import { reward } from '../stores/progress';
 
 export interface Line {
   speaker: 'raja' | 'chittu';
@@ -132,6 +133,7 @@ export default function StoryPlayer({ stepId, lines, cta, raja, chittu }: {
   }, [step]);
 
   const show = (i: number, dir: 1 | -1) => {
+    if (i === lines.length - 1) void reward('story', 5);       // the story read to its end: 5 XP once, as on the current pages
     now.current = { idx: i, typing: !calm() };
     setIdx(i);
     setShown(calm() ? -1 : 0);

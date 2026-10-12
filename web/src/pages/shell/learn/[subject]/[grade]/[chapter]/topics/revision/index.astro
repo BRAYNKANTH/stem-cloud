@@ -19,7 +19,7 @@ const summary = lesson.steps.find((s) => s.type === 'summary');
 const parts = (['summary', 'mixed', 'quiz'] as const).filter((p) => (p === 'summary' ? !!summary : (rev[p] ?? []).length > 0));
 ---
 <LessonShell pageTitle={`${lesson.title.en}: revision · STEM Cloud`} description={`${lesson.title.en}: chapter revision.`}
-             title={TOPIC_UI.revision} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(parts, REVISION_PARTS)}>
+             title={TOPIC_UI.revision} sub={lesson.title} back={{ href: topicsUrl(lesson), label: TOPIC_UI.topics }} steps={stepInfos(parts, REVISION_PARTS)} lesson={lesson.id} prefix="revision:">
   {parts.map((id) => (
     <section class="lstep" id={id} data-type={id} aria-labelledby={`${id}-h`}>
       <header class="lstep-head">

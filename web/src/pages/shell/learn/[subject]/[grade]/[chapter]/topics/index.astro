@@ -17,7 +17,7 @@ const { lesson } = Astro.props as { lesson: Lesson };
 const topics = lesson.topics ?? [];
 ---
 <LessonShell pageTitle={`${lesson.title.en}: topics · STEM Cloud`} description={`${lesson.title.en}, topic by topic.`}
-             title={lesson.title} sub={chapterLine(lesson)} back={{ href: lessonUrl(lesson), label: TOPIC_UI.lesson }}>
+             title={lesson.title} sub={chapterLine(lesson)} back={{ href: lessonUrl(lesson), label: TOPIC_UI.lesson }} lesson={lesson.id}>
   <a slot="links" class="btn btn-sm" href={lessonUrl(lesson)}><T t={TOPIC_UI.lesson} /></a>
   <h1 class="tp-h"><T t={TOPIC_UI.topics} /></h1>
   <ol class="tp-list">

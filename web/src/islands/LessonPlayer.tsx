@@ -5,6 +5,7 @@ import { $ids, $step, go, show, stepFromHash, setWholePage, wholePage } from '..
 import { PHASES, UI, pick, type StepInfo } from '../lib/lesson-ui';
 import { $reading, stop as stopReading, toggle as toggleReading } from '../stores/reader';
 import { hasTTS } from '../lib/speech';
+import { $lesson, onceId, randomId, record, reward, start as startProgress } from '../stores/progress';
 
 const BACK = 'M15 6l-6 6 6 6';
 const NEXT = 'M5 12h14M13 6l6 6-6 6';
@@ -27,11 +28,16 @@ function Svg({ d }: { d: string }) {
  * The lesson player (public/static/player.js on the current pages): one step at a time, a bar under the header with
  * Back / the step you are on / Next, and a lesson map with every step one tap away. "Whole lesson on one page"
  * (stem_view = scroll, the current app's setting) shows every step instead. Without JavaScript every step is shown.
+ * Progress v2 (stores/progress.ts): a step shown is opened, a step moved on from is done (as the current pages tick
+ * their path), the finish is worth 20 XP once, and the map ticks the steps done. On a topic page the step ids are
+ * "topic:<topic>:<step>" (prefix), as the v1 -> v2 migration names them.
  */
-export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
+export default function LessonPlayer({ steps, lesson, prefix = '' }: { steps: StepInfo[]; lesson: string; prefix?: string }) {
   const lang = useStore($lang);
   const cur = useStore($step);
   const reading = useStore($reading);
+  const progress = useStore($lesson);
+  const prev = useRef(-1);
   const [scroll, setScroll] = useState(false);
   const [tts, setTts] = useState(false);
   const dlg = useRef<HTMLDialogElement>(null);
@@ -40,6 +46,7 @@ export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
 
   useEffect(() => {
     loadPrefs();
+    void startProgress(lesson);
     $ids.set(ids);
     setScroll(wholePage());
     setTts(hasTTS());
@@ -53,8 +60,25 @@ export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
     };
   }, []);
 
-  // a new step stops reading the old one
-  useEffect(() => stopReading(), [cur]);
+  // a new step stops reading the old one; it is opened, and the one moved on from is done
+  useEffect(() => {
+    stopReading();
+    if (cur < 0) return;
+    const sid = prefix + ids[cur]!;
+    void record({ id: onceId('open:' + lesson + '/' + sid), type: 'step_open', lesson, step: sid });
+    if (prev.current >= 0 && cur > prev.current) {
+      const done = prefix + ids[prev.current]!;
+      void record({ id: onceId('done:' + lesson + '/' + done), type: 'step_done', lesson, step: done });
+    }
+    if (ids[cur] === 'finish' && !prefix) {
+      void record({ id: onceId('done:' + lesson + '/finish'), type: 'step_done', lesson, step: 'finish' });
+      void reward('finish', 20);
+    }
+    prev.current = cur;
+  }, [cur]);
+  // the language is a preference that follows the student to other devices
+  useEffect(() => $lang.listen((l) => void record({ id: randomId(), type: 'prefs', lang: l })), []);
+  const isDone = (id: string) => !!progress.steps[prefix + id]?.done;
   const listen = () => {
     if (!scroll && steps[Math.max(0, cur)]?.id === 'story') window.dispatchEvent(new Event(STORY_VOICE_EVENT));
     else toggleReading();
@@ -118,9 +142,10 @@ export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
                 <ol>
                   {list.map(({ s, k }) => (
                     <li key={s.id}>
-                      <button type="button" class="lm-step" aria-current={!scroll && k === i ? 'step' : undefined} onClick={() => open(k)}>
+                      <button type="button" class={'lm-step' + (isDone(s.id) ? ' done' : '')} aria-current={!scroll && k === i ? 'step' : undefined} onClick={() => open(k)}>
                         <Svg d={s.icon} />
                         <span>{L(s.label)}</span>
+                        {isDone(s.id) && <span class="lm-tick" aria-label={L(UI.done)}>✓</span>}
                       </button>
                     </li>
                   ))}

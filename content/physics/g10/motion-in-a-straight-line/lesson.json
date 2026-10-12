@@ -1135,5 +1135,327 @@
     "si": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)"
    }
   }
- ]
+ ],
+ "topics": [
+  {
+   "id": "distance-displacement",
+   "title": {
+    "en": "Distance and displacement",
+    "ta": "தூரம் & இடப்பெயர்ச்சி",
+    "si": "දුර සහ විස්ථාපනය"
+   },
+   "blurb": {
+    "en": "How far you travelled versus how far you ended up from where you started."
+   },
+   "learn": {
+    "en": "Tell distance and displacement apart, and say which one is a scalar and which is a vector."
+   },
+   "section": "2.1",
+   "notes_card": 0,
+   "glance": {
+    "definitions": [
+     {
+      "term": {
+       "en": "Distance",
+       "si": "දුර"
+      },
+      "meaning": {
+       "en": "The total length of the path travelled. It has size only, so it is a scalar."
+      }
+     },
+     {
+      "term": {
+       "en": "Displacement",
+       "si": "විස්ථාපනය"
+      },
+      "meaning": {
+       "en": "The straight-line distance from the start to the finish, in a stated direction. It has size and direction, so it is a vector."
+      }
+     }
+    ],
+    "unit": {
+     "en": "Both are measured in metres (m) in the SI system."
+    },
+    "table": {
+     "head": [
+      {
+       "en": " "
+      },
+      {
+       "en": "Distance",
+       "si": "දුර"
+      },
+      {
+       "en": "Displacement",
+       "si": "විස්ථාපනය"
+      }
+     ],
+     "rows": [
+      [
+       {
+        "en": "What it measures"
+       },
+       {
+        "en": "Length of the whole path"
+       },
+       {
+        "en": "Straight-line change in position, start to finish"
+       }
+      ],
+      [
+       {
+        "en": "Scalar or vector"
+       },
+       {
+        "en": "Scalar (size only)"
+       },
+       {
+        "en": "Vector (size and direction)"
+       }
+      ],
+      [
+       {
+        "en": "Depends on the path taken?"
+       },
+       {
+        "en": "Yes"
+       },
+       {
+        "en": "No, only on the start and the finish"
+       }
+      ],
+      [
+       {
+        "en": "Can it be zero after moving?"
+       },
+       {
+        "en": "No"
+       },
+       {
+        "en": "Yes, if you end where you started"
+       }
+      ]
+     ]
+    },
+    "misconception": {
+     "en": "Displacement is not just another word for distance. A trip that ends where it began has a distance greater than zero but a displacement of zero."
+    }
+   },
+   "watch": {
+    "title": {
+     "en": "Distance vs displacement: Raja and Chittu race to school"
+    },
+    "animation": {
+     "file": "unit-02-motion-in-a-straight-line.html",
+     "hash": "watch"
+    },
+    "from": 0,
+    "to": 11,
+    "duration": 30
+   },
+   "explore": {
+    "type": "story",
+    "title": {
+     "en": "A walk to the shop"
+    },
+    "scenario": {
+     "en": "A student walks 300 m in a straight line from home to the shop, buys a notebook, and walks the same 300 m straight back home."
+    },
+    "steps": [
+     {
+      "ask": {
+       "en": "How far did the student travel in total?"
+      },
+      "options": [
+       {
+        "en": "300 m"
+       },
+       {
+        "en": "600 m"
+       },
+       {
+        "en": "0 m"
+       }
+      ],
+      "correct": 1,
+      "why": {
+       "en": "Distance adds up every metre of the path: 300 m to the shop plus 300 m back is 600 m."
+      }
+     },
+     {
+      "ask": {
+       "en": "Compare the finish with the start. What is the student's displacement?"
+      },
+      "options": [
+       {
+        "en": "300 m towards the shop"
+       },
+       {
+        "en": "600 m"
+       },
+       {
+        "en": "0 m"
+       }
+      ],
+      "correct": 2,
+      "why": {
+       "en": "The student finished at home, exactly where the walk began. The change in position is zero, so the displacement is 0 m."
+      }
+     }
+    ],
+    "wrap": {
+     "en": "The student moved the whole time, yet the displacement is zero. Distance counts the path and always grows as you move; displacement only compares where you end with where you began. That is why distance is a scalar and displacement is a vector."
+    }
+   },
+   "practice": [
+    "xc-1i",
+    "q1",
+    "xc-2i",
+    "xc-2ii",
+    "x21-1"
+   ]
+  },
+  {
+   "id": "speed-velocity",
+   "title": {
+    "en": "Speed and velocity",
+    "ta": "கதி & வேகம்"
+   },
+   "blurb": {
+    "en": "How quickly something covers distance, and how velocity adds direction."
+   },
+   "learn": {
+    "en": "Calculate speed and velocity, and explain why speed is a scalar while velocity is a vector."
+   },
+   "section": "2.2–2.3",
+   "notes_card": 1,
+   "practice": [
+    "q2",
+    "q3"
+   ]
+  },
+  {
+   "id": "acceleration",
+   "title": {
+    "en": "Acceleration",
+    "ta": "ஆர்முடுகல் & அமர்முடுகல்",
+    "si": "ත්වරණය"
+   },
+   "blurb": {
+    "en": "How quickly velocity changes, including slowing down."
+   },
+   "learn": {
+    "en": "Calculate acceleration from a change in velocity, and recognise deceleration."
+   },
+   "section": "2.4",
+   "notes_card": 2,
+   "watch": {
+    "title": {
+     "en": "Velocity and acceleration: Raja speeds up on a straight road"
+    },
+    "animation": {
+     "file": "unit-02-motion-in-a-straight-line.html",
+     "hash": "watch"
+    },
+    "from": 11,
+    "to": 20,
+    "duration": 30
+   },
+   "explore": {
+    "type": "lab",
+    "title": {
+     "en": "Motion lab: change the starting speed and the acceleration"
+    },
+    "legacy": {
+     "file": "unit-02-motion-in-a-straight-line.html",
+     "hash": "lab"
+    }
+   },
+   "practice": [
+    "q4",
+    "x22-1",
+    "x22-2",
+    "x22-3",
+    "x22-4",
+    "xc-3i"
+   ]
+  },
+  {
+   "id": "motion-graphs",
+   "title": {
+    "en": "Motion graphs",
+    "ta": "இயக்க வரைபடங்கள்",
+    "si": "චලිත ප්‍රස්තාර"
+   },
+   "blurb": {
+    "en": "Reading position-time and velocity-time graphs: gradient and area."
+   },
+   "learn": {
+    "en": "Use the gradient and the area of motion graphs to find velocity, acceleration and displacement."
+   },
+   "section": "2.5–2.6",
+   "notes_card": 3,
+   "explore": {
+    "type": "lab",
+    "title": {
+     "en": "Motion lab: watch the car and both graphs change together"
+    },
+    "legacy": {
+     "file": "unit-02-motion-in-a-straight-line.html",
+     "hash": "lab"
+    }
+   },
+   "practice": [
+    "q5",
+    "xc-2iii",
+    "xc-3iii",
+    "xc-3ii"
+   ]
+  },
+  {
+   "id": "free-fall",
+   "title": {
+    "en": "Gravitational acceleration and free fall",
+    "ta": "புவியீர்ப்பு & தானாக வீழ்ச்சி"
+   },
+   "blurb": {
+    "en": "Why falling objects speed up, and by how much."
+   },
+   "learn": {
+    "en": "Use g to describe how the velocity of a falling or thrown object changes."
+   },
+   "section": "2.7",
+   "notes_card": 4,
+   "watch": {
+    "title": {
+     "en": "Gravitational free fall: a coconut drops"
+    },
+    "animation": {
+     "file": "unit-02-motion-in-a-straight-line.html",
+     "hash": "watch"
+    },
+    "from": 20,
+    "to": 30,
+    "duration": 30
+   },
+   "practice": [
+    "xc-6i",
+    "xc-6ii"
+   ]
+  }
+ ],
+ "revision": {
+  "mixed": [
+   "xc-1ii",
+   "xc-4",
+   "xc-5"
+  ],
+  "quiz": [
+   "q1",
+   "q2",
+   "q3",
+   "q4",
+   "q5"
+  ]
+ }
 }

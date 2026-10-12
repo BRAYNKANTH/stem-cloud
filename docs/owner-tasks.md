@@ -50,6 +50,7 @@ Some school and office web filters block `stemcloud.site` as a **newly registere
   - The full-screen diagram's title and hint ("Diagram", "drag to look around, pinch to zoom") have Tamil but no Sinhala, as on the current pages.
   - Read-aloud (5.3), as on the current pages: "Pause reading", "Nothing to read here.", "No other voice found on this phone." and "Voice:" have Tamil but no Sinhala; the reading controls' button names (Previous, Pause, Next, Speed, Change voice, Stop) are English only.
   - Check the Sinhala for the game step's label: the current pages say "Challenge" (Tamil சவால்) but have no Sinhala for it, so the new page uses ක්‍රීඩාව ("Game").
+- [ ] **Topic text for Motion** (5.4a): the topic summaries, definitions, comparison tables and explore stories in `tools/topics/unit-02-motion-in-a-straight-line.spec.json` were written in English for the pilot. A teacher should review them, and they need Tamil and Sinhala. The topic titles already have both.
 - [ ] **Look at the new Motion lesson page** when you can: `/learn/physics/g10/motion-in-a-straight-line/` (sign in first), or the "Try the new lesson" link on the current Motion page once 5.2 is deployed. Compare it with the current page, especially the notes, worked examples, story and quiz. When it is right, say which chapters get the link next.
 
 ## Done

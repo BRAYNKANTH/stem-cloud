@@ -12,7 +12,10 @@ Nothing in the lesson page is changed. What is extracted:
   no event handlers, no scripts);
 - the lab, the game, the sort game and the animation as links to the lesson page section (they are rebuilt later);
 - drawings the page's script draws into an empty <svg> when it loads, from tools/drawn_figures.json (captured once in a
-  browser by tools/drawn_figures.py).
+  browser by tools/drawn_figures.py);
+- the topic view, where the chapter has a topic map (tools/topics/<lesson file>.spec.json): each topic points at a notes
+  card, an animation scene, quiz questions and exercises by id. The topic map's own text (summaries, stories) is English
+  written for the pilot and still needs a teacher's review.
 Anything it cannot carry over is listed under "NOT CARRIED OVER", never guessed. Sinhala is added by milestone 4.3.
 """
 import copy, json, re, subprocess, sys
@@ -29,6 +32,7 @@ PAGES = ROOT / 'site' / 'lessons'
 AUDIO = ROOT / 'public' / 'static' / 'audio' / 'story'
 CONTENT = ROOT / 'content'
 DRAWN = json.loads((ROOT / 'tools' / 'drawn_figures.json').read_text(encoding='utf-8'))
+TOPIC_MAPS = ROOT / 'tools' / 'topics'
 GAMES = {'challenge', 'holdgame', 'pushit', 'tugofwar', 'balancegame'}
 SKIP_SECTIONS = {'fw_path', 'fw_finish'}          # the lesson's own start and finish screens (app chrome, not content)
 NL, CR = chr(10), chr(13)
@@ -448,7 +452,68 @@ def extract(file: str, meta: dict) -> tuple[dict, list]:
             steps.append(summary(sec, report))
         else:
             report.append('section #%s: unknown kind; left out' % sid)
+    spec_file = TOPIC_MAPS / (file[:-len('.html')] + '.spec.json')
+    if spec_file.is_file():
+        add_topics(lesson, json.loads(spec_file.read_text(encoding='utf-8')), soup, report)
     return lesson, report
+
+
+def spec_id(i) -> str:
+    """An id in a topic map: 'm1' / 0 (quiz question, by position) or 'xc_1i' (exercise) -> the lesson's id."""
+    if isinstance(i, int):
+        return 'q%d' % (i + 1)
+    if re.fullmatch(r'm\d+', i):
+        return 'q' + i[1:]
+    return i.replace('_', '-')
+
+
+def add_topics(lesson: dict, spec: dict, soup, report: list):
+    """The chapter's topic map (the tools/build_topics.py input) as lesson topics, pointing at the lesson's own content."""
+    file = lesson['legacy']['file']
+    pills = soup.select('.sns-pill')
+    notes = next(s for s in lesson['steps'] if s['type'] == 'notes')
+    words = lambda t: tri(t) if isinstance(t, str) else t
+    for t in spec['topics']:
+        pill = pills[t['taFromPill']].select('span')[1] if 'taFromPill' in t else None
+        title = {'en': t['title']['en']}
+        if pill is not None and pill.get('data-ta'):
+            title['ta'] = pill['data-ta']
+        si = SI.text(pill.get_text(' ', strip=True)) if (SI and pill is not None) else None
+        if si:
+            title['si'] = si
+        topic = {'id': t['id'], 'title': title, 'blurb': words(t['blurb']), 'learn': words(t['learn'])}
+        card = notes['cards'][t['card']]
+        if card.get('section'):
+            topic['section'] = card['section']
+        topic['notes_card'] = t['card']
+        g = (t.get('authored') or {}).get('glance')
+        if g:
+            glance = {'definitions': [{'term': words(a), 'meaning': words(b)} for a, b in g.get('definitions', [])]}
+            if g.get('unit'):
+                glance['unit'] = words(g['unit'])
+            if g.get('table'):
+                glance['table'] = {'head': [words(h or ' ') for h in g['table']['head']], 'rows': [[words(c) for c in r] for r in g['table']['rows']]}
+            if g.get('misconception'):
+                glance['misconception'] = words(g['misconception'])
+            topic['glance'] = glance
+        if t.get('watch'):
+            seg = spec['watchSegments'][t['watch']]
+            topic['watch'] = {'title': words(seg['title']), 'animation': {'file': file, 'hash': 'watch'},
+                              'from': seg['from'], 'to': seg['to'], 'duration': spec['animationSeconds']}
+        ex = t.get('explore') or {}
+        if 'story' in ex:
+            st = ex['story']
+            topic['explore'] = {'type': 'story', 'title': words(st['title']), 'scenario': words(st['scenario']),
+                                'steps': [{'ask': words(q['ask']), 'options': [words(o) for o in q['options']], 'correct': q['correct'], 'why': words(q['why'])} for q in st['steps']]}
+            if st.get('wrap'):
+                topic['explore']['wrap'] = words(st['wrap'])
+        elif 'lab' in ex:
+            topic['explore'] = {'type': 'lab', 'title': words(ex['lab']['title']), 'legacy': {'file': file, 'hash': ex['lab']['hash']}}
+        topic['practice'] = [spec_id(i) for i in t['practice']['order']]
+        lesson['topics'] = lesson.get('topics', []) + [topic]
+    rev = spec.get('revision')
+    if rev:
+        lesson['revision'] = {'mixed': [spec_id(i) for i in rev.get('mixedEx', [])], 'quiz': [spec_id(i) for i in rev.get('quizMcq', [])]}
 
 
 def carried_over(file: str, lesson: dict) -> dict:

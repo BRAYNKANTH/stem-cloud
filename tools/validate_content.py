@@ -43,8 +43,8 @@ def walk(node):
 
 
 def all_ids(lesson: Lesson) -> list[str]:
-    """Ids progress can refer to: the lesson, its steps, and its questions, exercises and examples."""
-    out = [lesson.id]
+    """Ids progress can refer to: the lesson, its steps, its questions, exercises and examples, and its topics."""
+    out = [lesson.id] + ['%s/topic:%s' % (lesson.id, t.id) for t in lesson.topics]
     for s in lesson.steps:
         out.append('%s/%s' % (lesson.id, s.id))
         for n in walk(s):

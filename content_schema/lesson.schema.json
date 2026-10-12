@@ -127,6 +127,23 @@
       "title": "Card",
       "type": "object"
     },
+    "Definition": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "$ref": "#/$defs/Text"
+        },
+        "term": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "term",
+        "meaning"
+      ],
+      "title": "Definition",
+      "type": "object"
+    },
     "Exercise": {
       "additionalProperties": false,
       "properties": {
@@ -229,6 +246,151 @@
         "groups"
       ],
       "title": "ExercisesStep",
+      "type": "object"
+    },
+    "ExploreLab": {
+      "additionalProperties": false,
+      "properties": {
+        "legacy": {
+          "$ref": "#/$defs/Legacy"
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        },
+        "type": {
+          "const": "lab",
+          "title": "Type",
+          "type": "string"
+        }
+      },
+      "required": [
+        "type",
+        "title",
+        "legacy"
+      ],
+      "title": "ExploreLab",
+      "type": "object"
+    },
+    "ExploreStory": {
+      "additionalProperties": false,
+      "properties": {
+        "scenario": {
+          "$ref": "#/$defs/Text"
+        },
+        "steps": {
+          "items": {
+            "$ref": "#/$defs/StoryQuestion"
+          },
+          "minItems": 1,
+          "title": "Steps",
+          "type": "array"
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        },
+        "type": {
+          "const": "story",
+          "title": "Type",
+          "type": "string"
+        },
+        "wrap": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "type",
+        "title",
+        "scenario",
+        "steps"
+      ],
+      "title": "ExploreStory",
+      "type": "object"
+    },
+    "Glance": {
+      "additionalProperties": false,
+      "description": "Understand at a glance: definitions, the unit, a comparison table, a common misconception.",
+      "properties": {
+        "definitions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Definition"
+          },
+          "title": "Definitions",
+          "type": "array"
+        },
+        "misconception": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "table": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/GlanceTable"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Text"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "Glance",
+      "type": "object"
+    },
+    "GlanceTable": {
+      "additionalProperties": false,
+      "properties": {
+        "head": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "minItems": 2,
+          "title": "Head",
+          "type": "array"
+        },
+        "rows": {
+          "items": {
+            "items": {
+              "$ref": "#/$defs/Text"
+            },
+            "type": "array"
+          },
+          "minItems": 1,
+          "title": "Rows",
+          "type": "array"
+        }
+      },
+      "required": [
+        "head",
+        "rows"
+      ],
+      "title": "GlanceTable",
       "type": "object"
     },
     "GlossaryTerm": {
@@ -569,6 +731,34 @@
       "title": "RecapStep",
       "type": "object"
     },
+    "Revision": {
+      "additionalProperties": false,
+      "description": "After the topics: mixed exercises and the whole quiz, by id.",
+      "properties": {
+        "mixed": {
+          "default": [],
+          "items": {
+            "maxLength": 120,
+            "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "title": "Mixed",
+          "type": "array"
+        },
+        "quiz": {
+          "default": [],
+          "items": {
+            "maxLength": 120,
+            "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "title": "Quiz",
+          "type": "array"
+        }
+      },
+      "title": "Revision",
+      "type": "object"
+    },
     "Rich": {
       "additionalProperties": false,
       "description": "A safe subset of HTML in each language the lesson has (see check_html).",
@@ -665,6 +855,39 @@
         "text"
       ],
       "title": "StoryLine",
+      "type": "object"
+    },
+    "StoryQuestion": {
+      "additionalProperties": false,
+      "properties": {
+        "ask": {
+          "$ref": "#/$defs/Text"
+        },
+        "correct": {
+          "minimum": 0,
+          "title": "Correct",
+          "type": "integer"
+        },
+        "options": {
+          "items": {
+            "$ref": "#/$defs/Text"
+          },
+          "maxItems": 6,
+          "minItems": 2,
+          "title": "Options",
+          "type": "array"
+        },
+        "why": {
+          "$ref": "#/$defs/Text"
+        }
+      },
+      "required": [
+        "ask",
+        "options",
+        "correct",
+        "why"
+      ],
+      "title": "StoryQuestion",
       "type": "object"
     },
     "StoryStep": {
@@ -838,6 +1061,150 @@
       "title": "Text",
       "type": "object"
     },
+    "Topic": {
+      "additionalProperties": false,
+      "properties": {
+        "blurb": {
+          "$ref": "#/$defs/Text"
+        },
+        "explore": {
+          "anyOf": [
+            {
+              "discriminator": {
+                "mapping": {
+                  "lab": "#/$defs/ExploreLab",
+                  "story": "#/$defs/ExploreStory"
+                },
+                "propertyName": "type"
+              },
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/ExploreStory"
+                },
+                {
+                  "$ref": "#/$defs/ExploreLab"
+                }
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Explore"
+        },
+        "glance": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Glance"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "id": {
+          "maxLength": 120,
+          "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+          "title": "Id",
+          "type": "string"
+        },
+        "learn": {
+          "$ref": "#/$defs/Text",
+          "description": "What the student will be able to do."
+        },
+        "notes_card": {
+          "description": "Index of the lesson's notes card this topic explains.",
+          "minimum": 0,
+          "title": "Notes Card",
+          "type": "integer"
+        },
+        "practice": {
+          "default": [],
+          "description": "Quiz question and exercise ids of this lesson, in the order to practise them.",
+          "items": {
+            "maxLength": 120,
+            "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "title": "Practice",
+          "type": "array"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textbook section number, e.g. \"2.1\".",
+          "title": "Section"
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        },
+        "watch": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TopicWatch"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "blurb",
+        "learn",
+        "notes_card"
+      ],
+      "title": "Topic",
+      "type": "object"
+    },
+    "TopicWatch": {
+      "additionalProperties": false,
+      "description": "A scene of the lesson's animation: seconds from..to of the whole animation (duration seconds long).",
+      "properties": {
+        "animation": {
+          "$ref": "#/$defs/Legacy"
+        },
+        "duration": {
+          "exclusiveMinimum": 0,
+          "title": "Duration",
+          "type": "integer"
+        },
+        "from": {
+          "minimum": 0,
+          "title": "From",
+          "type": "integer"
+        },
+        "title": {
+          "$ref": "#/$defs/Text"
+        },
+        "to": {
+          "exclusiveMinimum": 0,
+          "title": "To",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "title",
+        "animation",
+        "from",
+        "to",
+        "duration"
+      ],
+      "title": "TopicWatch",
+      "type": "object"
+    },
     "WatchStep": {
       "additionalProperties": false,
       "properties": {
@@ -979,6 +1346,17 @@
       "title": "ChapterNumber",
       "type": "string"
     },
+    "revision": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Revision"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
     "schema": {
       "const": 2,
       "title": "Schema",
@@ -1062,6 +1440,15 @@
     },
     "title": {
       "$ref": "#/$defs/Text"
+    },
+    "topics": {
+      "default": [],
+      "description": "The topic view; empty until the chapter has a topic map (tools/topics/).",
+      "items": {
+        "$ref": "#/$defs/Topic"
+      },
+      "title": "Topics",
+      "type": "array"
     }
   },
   "required": [

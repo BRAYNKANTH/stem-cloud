@@ -81,5 +81,39 @@ class Format(unittest.TestCase):
         self.assertLess(cov['si'], 100)
 
 
+TOPIC = {'id': 'what-is-friction', 'title': {'en': 'What friction is'}, 'blurb': {'en': 'A force that opposes motion.'},
+         'learn': {'en': 'Say what friction does.'}, 'section': '5.1', 'notes_card': 0,
+         'glance': {'definitions': [{'term': {'en': 'Friction'}, 'meaning': {'en': 'A force that opposes sliding.'}}]},
+         'watch': {'title': {'en': 'A book slides'}, 'animation': {'file': 'chapter-05-friction.html', 'hash': 'watch'}, 'from': 0, 'to': 10, 'duration': 30},
+         'explore': {'type': 'story', 'title': {'en': 'A push'}, 'scenario': {'en': 'You push a book.'},
+                     'steps': [{'ask': {'en': 'Does it stop?'}, 'options': [{'en': 'Yes'}, {'en': 'No'}], 'correct': 0, 'why': {'en': 'Friction.'}}]},
+         'practice': ['q1']}
+
+
+class Topics(unittest.TestCase):
+    """The topic view points at the lesson's own content."""
+
+    def with_topic(self, **changes):
+        t = copy.deepcopy(TOPIC)
+        t.update(changes)
+        return lesson(topics=[t], revision={'mixed': [], 'quiz': ['q1']})
+
+    def test_a_good_topic_passes_and_its_id_is_tracked(self):
+        l = Lesson.model_validate(self.with_topic())
+        self.assertEqual(l.topics[0].watch.start, 0)
+        self.assertIn('physics.g10.friction/topic:what-is-friction', validate_content.all_ids(l))
+
+    def test_topics_refuse_content_the_lesson_does_not_have(self):
+        for bad in (dict(practice=['q9']), dict(notes_card=3),
+                    dict(watch={**TOPIC['watch'], 'from': 20, 'to': 10}),
+                    dict(explore={**TOPIC['explore'], 'steps': [{**TOPIC['explore']['steps'][0], 'correct': 2}]})):
+            with self.assertRaises(ValidationError, msg=str(bad)):
+                Lesson.model_validate(self.with_topic(**bad))
+        with self.assertRaises(ValidationError):
+            Lesson.model_validate(lesson(topics=[TOPIC, TOPIC]))                       # the same topic id twice
+        with self.assertRaises(ValidationError):
+            Lesson.model_validate(lesson(revision={'mixed': ['xc-9'], 'quiz': []}))   # not an exercise of this lesson
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -24,6 +24,24 @@ fails = []
 
 
 def check(name, cond, extra=''):
+    """cond and extra may be functions: then cond is tried again until it holds or 4 s have passed, because the page
+    updates a moment after a click or key press (and slower on CI machines)."""
+    if callable(cond):
+        until = time.time() + 4
+        while True:
+            try:
+                ok = bool(cond())
+            except Exception:
+                ok = False
+            if ok or time.time() > until:
+                break
+            time.sleep(0.05)
+        cond = ok
+    if callable(extra):
+        try:
+            extra = extra()
+        except Exception as e:
+            extra = e
     print(('PASS ' if cond else 'FAIL ') + name + (('  ' + str(extra)) if not cond else ''))
     if not cond:
         fails.append(name)
@@ -131,17 +149,17 @@ def run():
             ctx = context(viewport={'width': 375, 'height': 812}, is_mobile=True, has_touch=True)
             pg, errs = open_page(ctx, MOTION)
             on = lambda: pg.evaluate("document.querySelector('section.lstep.on').id")
-            check('opens on the first step', on() == 'story', on())
+            check('opens on the first step', lambda: on() == 'story', lambda: on())
             pg.click('.lbar .lb-btn.primary')
-            check('Next shows the next step and records it in the URL', on() == 'basics' and pg.url.endswith('#basics'), pg.url)
+            check('Next shows the next step and records it in the URL', lambda: on() == 'basics' and pg.url.endswith('#basics'), lambda: pg.url)
             pg.go_back()
             pg.wait_for_function("document.querySelector('section.lstep.on').id === 'story'")
-            check("the browser's Back button steps back", on() == 'story')
+            check("the browser's Back button steps back", lambda: on() == 'story')
             pg.goto(BASE + MOTION + '#worked')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
-            check('a #step link opens that step', on() == 'worked', on())
+            check('a #step link opens that step', lambda: on() == 'worked', lambda: on())
             pg.click('button[lang=ta]')
-            check('switching language keeps the step', on() == 'worked' and pg.evaluate('document.documentElement.lang') == 'ta')
+            check('switching language keeps the step', lambda: on() == 'worked' and pg.evaluate('document.documentElement.lang') == 'ta')
             pg.click('button[lang=en]')
 
             # worked example: marking steps one at a time, then the final answer
@@ -152,22 +170,22 @@ def run():
             for i in range(n):
                 copy.locator('.step-toggle:visible').first.click()
             final = card.locator('[data-l~="en"] .final-toggle')
-            check('all marking steps revealed, then "Show final answer"', final.is_visible() and copy.locator('.step-content:visible').count() == n)
+            check('all marking steps revealed, then "Show final answer"', lambda: final.is_visible() and copy.locator('.step-content:visible').count() == n)
             final.click()
-            check('the final answer shows', card.locator('[data-l~="en"] .final-answer').is_visible())
+            check('the final answer shows', lambda: card.locator('[data-l~="en"] .final-answer').is_visible())
 
             # the lesson map, and the whole lesson on one page
             pg.click('.lbar .lb-mid')
             pg.click('dialog.lmap .lm-step:has-text("Quiz")')
-            check('the lesson map opens a step', on() == 'quiz')
+            check('the lesson map opens a step', lambda: on() == 'quiz')
             pg.click('.lbar .lb-mid')
             pg.click('dialog.lmap .btn.full')
             shown = pg.eval_on_selector_all('section.lstep', 'els => els.filter(e => e.offsetParent).length')
-            check('"Whole lesson on one page" shows every step', shown == 13, shown)
+            check('"Whole lesson on one page" shows every step', lambda: shown == 13, lambda: shown)
             pg.click('.lbar .lb-mid')
             pg.click('dialog.lmap .btn.full')
             shown = pg.eval_on_selector_all('section.lstep', 'els => els.filter(e => e.offsetParent).length')
-            check('and back to one step at a time', shown == 1, shown)
+            check('and back to one step at a time', lambda: shown == 1, lambda: shown)
 
             # ------------------------------------------------------------ Motion: the quiz and its answer sheet
             pg.goto(BASE + MOTION + '#quiz')
@@ -176,48 +194,48 @@ def run():
             cards = pg.locator('.qz .qz-card')
             cards.nth(0).locator('.qz-opt').nth(answers[0]).click()
             sheet = pg.locator('#stem-qsheet')
-            check('a right answer: "Correct!"', sheet.get_attribute('class') == 'ok' and 'Correct!' in sheet.inner_text())
+            check('a right answer: "Correct!"', lambda: sheet.get_attribute('class') == 'ok' and 'Correct!' in sheet.inner_text())
             pg.click('.qs-go')
-            check('"Next question" closes the sheet and moves on', sheet.count() == 0 and pg.evaluate("document.activeElement.className") == 'qz-opt')
+            check('"Next question" closes the sheet and moves on', lambda: sheet.count() == 0 and pg.evaluate("document.activeElement.className") == 'qz-opt')
             cards.nth(1).locator('.qz-opt').nth((answers[1] + 1) % 4).click()
-            check('a wrong answer: "Not quite" with the right answer', sheet.get_attribute('class') == 'no' and 'The answer is' in sheet.inner_text())
-            check('the options lock and show the right one', cards.nth(1).locator('.qz-opt:disabled').count() == 4 and cards.nth(1).locator('.qz-opt.correct').count() == 1)
+            check('a wrong answer: "Not quite" with the right answer', lambda: sheet.get_attribute('class') == 'no' and 'The answer is' in sheet.inner_text())
+            check('the options lock and show the right one', lambda: cards.nth(1).locator('.qz-opt:disabled').count() == 4 and cards.nth(1).locator('.qz-opt.correct').count() == 1)
             pg.keyboard.press('Escape')
-            check('Escape closes the sheet', sheet.count() == 0)
+            check('Escape closes the sheet', lambda: sheet.count() == 0)
             for i in range(2, cards.count()):
                 cards.nth(i).locator('.qz-opt').nth(answers[i]).click()
                 if i == cards.count() - 1:
-                    check('the last question says "See my score"', 'See my score' in pg.inner_text('.qs-go'))
+                    check('the last question says "See my score"', lambda: 'See my score' in pg.inner_text('.qs-go'))
                 pg.click('.qs-go')
-            check('the score counts the right answers', pg.inner_text('.qz .quiz-score').split() == ['Score:', '%d' % (cards.count() - 1), '/', '%d' % cards.count()], pg.inner_text('.qz .quiz-score'))
+            check('the score counts the right answers', lambda: pg.inner_text('.qz .quiz-score').split() == ['Score:', '%d' % (cards.count() - 1), '/', '%d' % cards.count()], lambda: pg.inner_text('.qz .quiz-score'))
 
             # ------------------------------------------------------------ Motion: the story
             pg.goto(BASE + MOTION + '#story')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             label = lambda: pg.inner_text('.so-line-label')
             pg.click('.so-ctrls .btn.primary')
-            check('"Next line" goes on', label().endswith('2 / 9'), label())
+            check('"Next line" goes on', lambda: label().endswith('2 / 9'), lambda: label())
             pg.keyboard.press('ArrowRight')
             pg.keyboard.press('ArrowRight')
-            check('arrow keys always go on, as a swipe does (a tap only finishes the typing)', label().endswith('4 / 9'), label())
+            check('arrow keys always go on, as a swipe does (a tap only finishes the typing)', lambda: label().endswith('4 / 9'), lambda: label())
             pg.keyboard.press('ArrowLeft')
-            check('arrow left goes back', label().endswith('3 / 9'), label())
+            check('arrow left goes back', lambda: label().endswith('3 / 9'), lambda: label())
             pg.click('.so-ctrls .btn.primary')
             pg.click('.so-bubble')
-            check('a tap on the bubble first finishes the line being typed', label().endswith('4 / 9') and not pg.locator('.so-caret').count(), label())
+            check('a tap on the bubble first finishes the line being typed', lambda: label().endswith('4 / 9') and not pg.locator('.so-caret').count(), lambda: label())
             pg.click('.so-voice')
             pg.click('.so-voice')                         # off -> recorded -> phone voice
             pg.click('.so-ctrls .btn.primary')
             pg.wait_for_timeout(300)
             spoken = pg.evaluate('window.__spoken')
-            check('the phone voice says the line', len(spoken) > 0, spoken[-1:])
+            check('the phone voice says the line', lambda: len(spoken) > 0, lambda: spoken[-1:])
             for _ in range(10):
                 pg.keyboard.press('ArrowRight')
                 pg.keyboard.press('ArrowRight')
-            check('the last line offers the next step', pg.locator('.so-cta.show a').is_visible())
+            check('the last line offers the next step', lambda: pg.locator('.so-cta.show a').is_visible())
             pg.click('.so-cta a')
-            check('...and it opens it', on() == 'basics', on())
-            check('no script errors on Motion', not errs, errs)
+            check('...and it opens it', lambda: on() == 'basics', lambda: on())
+            check('no script errors on Motion', lambda: not errs, lambda: errs)
             ctx.close()
 
             # ------------------------------------------------------------ Motion without JavaScript
@@ -225,10 +243,10 @@ def run():
             pg = ctx.new_page()
             pg.goto(BASE + MOTION)
             shown = pg.eval_on_selector_all('section.lstep', 'els => els.filter(e => e.offsetParent).length')
-            check('without JavaScript every step is on the page', shown == 13, shown)
+            check('without JavaScript every step is on the page', lambda: shown == 13, lambda: shown)
             check('...the story as bubbles and the quiz answers behind "Show answer"',
-                  pg.locator('.story.nojs').is_visible() and pg.locator('.quiz.nojs details').count() == 5 and not pg.locator('.so-player').is_visible())
-            check('...and the worked examples fully shown', pg.locator('#worked .final-answer').first.is_visible())
+                  lambda: pg.locator('.story.nojs').is_visible() and pg.locator('.quiz.nojs details').count() == 5 and not pg.locator('.so-player').is_visible())
+            check('...and the worked examples fully shown', lambda: pg.locator('#worked .final-answer').first.is_visible())
             ctx.close()
             browser.close()
     finally:

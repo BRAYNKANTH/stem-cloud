@@ -5,7 +5,8 @@
 // example shows its marking steps one at a time, then "Show final answer". Each language has its own copy of an example
 // (components/lesson/T.astro), so what is revealed is kept per example and applied to every copy, and switching
 // language keeps the student's place. Without JavaScript everything is shown (styles/lesson.css).
-// The activities' "I tried it! (+XP)" buttons wait for progress v2 (Phase 6) and stay hidden until then.
+// The activities' "I tried it! (+XP)" buttons stay hidden: the activities have no ids to keep progress under yet.
+import { reward } from '../stores/progress';
 
 const shown = new Map<string, number>();      // example id -> marking steps revealed (steps + 1 = final answer shown too)
 
@@ -34,6 +35,9 @@ function setUp(): void {
     const n = shown.get(id) ?? 0;
     shown.set(id, n + 1);
     apply(card, n + 1);
+    // the final answer of a worked example: 15 XP once (progress v2), as on the current pages
+    const steps = card.querySelector('[data-qcard]')?.querySelectorAll(':scope > .step').length ?? 0;
+    if (n + 1 > steps) void reward('worked:' + id, 15);
   });
 }
 

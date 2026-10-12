@@ -332,6 +332,21 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
     - it exits 1 on any difference.
   - **Still to do (owner):** run it on a Neon branch copy of production, then on production (`docs/owner-tasks.md`).
 
+- **Milestone 6.3 (2026-10-12): the new pages keep progress.**
+  - **`web/src/stores/progress.ts`:** events wait in an outbox on the device (IndexedDB, with memory as a fallback) and are shown at once. They go to `POST /api/v2/events` every 1.5 s while there is something to send, when the page is hidden (`keepalive`), and when the device comes back online.
+  - **What counts:**
+    - a step shown is opened, and a step moved on from is done, as the current pages tick their path;
+    - every quiz answer is an attempt;
+    - the first right answer to a question is worth 10 XP;
+    - finishing the story is 5 XP, a worked example's final answer 15 XP, and the lesson's finish 20 XP;
+    - a full quiz earns `<lesson>:quiz-ace`;
+    - the day is an activity day, and a language change is a preference.
+  - **One-time rewards have fixed event ids,** so a reload, a replay or a second device cannot count them twice.
+  - **Topic pages** keep progress as `topic:<topic>:<step>`, the same names the v1 migration uses.
+  - **On a shared phone,** events another student left in the outbox are dropped.
+  - **On screen:** the XP total in the header with a "+10" when a reward comes in, and ticks in the lesson map.
+  - **The browser test** checks that events reach the server, rewards count once across a reload, and offline events wait in the outbox and are sent when the browser is back online.
+
 ### Phase 7: Past papers (≈1–2 weeks)
 - Port `past-papers.js` to a `PastPapers` island: year and lesson filters, practice and exam mode, drafts, bookmarks, attempts sync.
 - Year JSON moves to `content/past-papers/physics/<year>.json` and is validated by the same CI. Images come from R2.

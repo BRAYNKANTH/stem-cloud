@@ -3,6 +3,7 @@ import { useStore } from '@nanostores/preact';
 import { $lang } from '../stores/prefs';
 import { $ids, $step } from '../stores/lesson';
 import { pick, type Tri } from '../lib/lesson-ui';
+import { currentLesson, onceId, randomId, record, reward } from '../stores/progress';
 
 export interface Question {
   id: string;
@@ -60,8 +61,15 @@ export default function Quiz({ stepId, questions, compact = false }: { stepId: s
 
   const answer = (qi: number, oi: number) => {
     if (picked[qi] !== null) return;
-    setPicked(picked.map((p, i) => (i === qi ? oi : p)));
+    const next = picked.map((p, i) => (i === qi ? oi : p));
+    setPicked(next);
     setSheet(qi);
+    // progress v2: every answer is an attempt; the first right answer to a question is worth 10 XP, once (as on the
+    // current pages); a whole quiz right is the lesson's "quiz ace" badge
+    const q = questions[qi]!, lesson = currentLesson(), right = oi === q.answer;
+    void record({ id: randomId(), type: 'answer', question: `${lesson}/${q.id}`, correct: right });
+    if (right) void reward('q:' + q.id, 10);
+    if (!compact && next.every((p, i) => p === questions[i]!.answer)) void record({ id: onceId('badge:' + lesson + ':quiz-ace'), type: 'badge', badge: lesson + ':quiz-ace' });
   };
 
   // the sheet: focus its button and keep the answered options in sight above it

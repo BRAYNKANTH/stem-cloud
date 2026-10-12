@@ -338,6 +338,35 @@ def run():
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             pg.click('.lbar .lb-listen')
             check('on the story, Listen switches the story voices', lambda: pg.evaluate("localStorage.getItem('stem_story_mode')") == 'rec' and pg.locator('#stem-vp').count() == 0)
+            # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
+            L = 'physics.g10.motion-in-a-straight-line'
+            server = lambda: pg.evaluate("fetch('/api/v2/progress?lesson=%s').then(r => r.json())" % L)
+            summary = lambda: pg.evaluate("fetch('/api/v2/progress/summary').then(r => r.json())")
+            outbox = lambda: pg.evaluate("new Promise(r => { const o = indexedDB.open('stem-progress', 1); o.onsuccess = () => { const q = o.result.transaction('outbox').objectStore('outbox').count(); q.onsuccess = () => r(q.result); }; o.onerror = () => r(-1); })")
+            pg.goto(BASE + MOTION + '#quiz')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('progress: the steps opened and the answers given reach the server', lambda: server()['questions'].get(L + '/q1', {}).get('attempts', 0) >= 1
+                  and 'quiz' in server()['steps'] and 'story' in server()['steps'], lambda: server())
+            check('progress: the steps moved on from are done', lambda: (server()['steps'].get('story') or {}).get('done') is not None, lambda: server()['steps'])
+            xp = summary()['xp']
+            check('progress: right answers, the story and a worked example earned XP', xp >= 10 + 5 + 15, xp)
+            check('progress: the header shows the XP', lambda: pg.locator('.xp-chip b').inner_text() == str(xp), lambda: pg.locator('.xp-chip').inner_text())
+            right = [int(i) for i in pg.eval_on_selector_all('.quiz.nojs .qz-ans > p:first-of-type b', "bs => bs.map(b => 'ABCDEF'.indexOf(b.textContent))")]
+            pg.locator('.qz .qz-card').nth(0).locator('.qz-opt').nth(right[0]).click()       # the same question right again, after a reload
+            pg.keyboard.press('Escape')
+            check('progress: a reward counts once (a reload cannot earn it again)', lambda: outbox() == 0 and summary()['xp'] == xp, lambda: (outbox(), summary()['xp'], xp))
+            attempts = server()['questions'][L + '/q2']['attempts']
+            ctx.set_offline(True)
+            pg.locator('.qz .qz-card').nth(1).locator('.qz-opt').nth(right[1]).click()
+            pg.keyboard.press('Escape')
+            check('progress: offline, the answer waits in the outbox on the device', lambda: outbox() >= 1, lambda: outbox())
+            ctx.set_offline(False)
+            pg.evaluate("window.dispatchEvent(new Event('online'))")
+            check('progress: back online, the outbox is sent', lambda: outbox() == 0 and server()['questions'][L + '/q2']['attempts'] == attempts + 1, lambda: (outbox(), server()['questions'][L + '/q2']))
+            pg.click('.lbar .lb-mid')
+            check('progress: the lesson map ticks the steps done', lambda: pg.locator('dialog.lmap .lm-step.done').count() >= 1)
+            pg.keyboard.press('Escape')
+
             check('no script errors on Motion', lambda: not errs, lambda: errs)
             ctx.close()
 

@@ -9,6 +9,7 @@ import StepEnd from '../islands/StepEnd';
 import VoiceControls from '../islands/VoiceControls';
 import LangSwitch from '../islands/LangSwitch';
 import ThemeToggle from '../islands/ThemeToggle';
+import XpChip from '../islands/XpChip';
 import type { StepInfo, Tri } from '../lib/lesson-ui';
 import '../styles/lesson-content.css';
 import '../styles/lesson.css';
@@ -21,8 +22,11 @@ interface Props {
   back: { href: string; label: Tri };
   /** The page's steps, for the step bar; none for a page that is one list (the topic overview). */
   steps?: StepInfo[];
+  /** The lesson's id, for progress v2; prefix: the step ids' prefix on topic pages ("topic:<topic>:"). */
+  lesson: string;
+  prefix?: string;
 }
-const { pageTitle, description, title, sub, back, steps } = Astro.props;
+const { pageTitle, description, title, sub, back, steps, lesson, prefix = '' } = Astro.props;
 ---
 <AppLayout title={pageTitle} description={description} noindex>
   <header class="lhead" slot="header">
@@ -42,9 +46,10 @@ const { pageTitle, description, title, sub, back, steps } = Astro.props;
         <b><T t={title} /></b>
         <small><T t={sub} /></small>
       </div>
+      <XpChip client:idle />
       <ThemeToggle client:idle />
     </div>
-    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} /></div>}
+    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} /></div>}
   </header>
 
   <div class="wrap narrow lesson" id="lesson-top">

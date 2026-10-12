@@ -1,0 +1,141 @@
+---
+// One step of a lesson as static HTML (no JavaScript needed to read it). The interactive parts are islands: labs, games,
+// the sort game and the animation are the current lesson page in a frame until they are rebuilt (LegacyFrame).
+// The quiz, the story player, the exercises' full-screen figures and read-aloud are later milestones of Phase 5; until
+// then the quiz shows its answers behind "Show answer" and the story is a list of bubbles.
+import type { Lesson } from '../../lib/content-types';
+import { KINDS, UI } from '../../lib/lesson-ui';
+import LegacyFrame from '../../islands/LegacyFrame';
+import T from './T.astro';
+
+interface Props {
+  step: Lesson['steps'][number];
+}
+const { step: s } = Astro.props;
+const kind = KINDS[s.type];
+const heading = 'heading' in s ? s.heading : { title: s.title, sub: null };
+const LETTERS = 'ABCDEF';
+const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meaning);
+---
+<section class="lstep" id={s.id} data-type={s.type} aria-labelledby={`${s.id}-h`}>
+  <header class="lstep-head">
+    <span class="kind">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={kind.icon} /></svg>
+      <T t={kind.label} />
+    </span>
+    <h2 id={`${s.id}-h`}><T t={heading.title} /></h2>
+    {heading.sub && <p class="sub"><T t={heading.sub} /></p>}
+  </header>
+
+  {s.type === 'story' && (
+    <>
+      {s.quest && <T t={s.quest} rich class="quest" />}
+      <ol class="story">
+        {s.lines.map((line) => (
+          <li class:list={['bubble', line.speaker]}>
+            {line.scene && <span class="scene" aria-hidden="true">{line.scene}</span>}
+            <b class="who"><T t={UI[line.speaker]} /></b>
+            <p><T t={line.text} /></p>
+          </li>
+        ))}
+      </ol>
+      {s.cta && <p class="cta"><T t={s.cta} /></p>}
+    </>
+  )}
+
+  {(s.type === 'basics' || s.type === 'notes') && (
+    <>
+      {s.type === 'basics' && s.hook && <T t={s.hook} rich class="intro" />}
+      {s.type === 'notes' && s.intro && <T t={s.intro} rich class="intro" />}
+      <div class="cards">
+        {s.cards.map((c) => (
+          <article class="card">
+            <h3>
+              {c.icon && <span class="cicon" aria-hidden="true">{c.icon}</span>}
+              {c.section && <span class="secno">{c.section}</span>}
+              <T t={c.title} />
+            </h3>
+            <T t={c.body} rich />
+          </article>
+        ))}
+      </div>
+      {(s.extra ?? []).map((x) => <T t={x} rich class="extra" />)}
+    </>
+  )}
+
+  {s.type === 'activities' && <T t={s.body} rich />}
+
+  {s.type === 'watch' && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
+  {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
+
+  {s.type === 'quiz' && (
+    <ol class="quiz">
+      {s.questions.map((q) => (
+        <li class="card qz" id={q.id}>
+          <p class="qz-q"><T t={q.prompt} /></p>
+          <ol class="qz-opts">
+            {q.options.map((o, k) => <li><b aria-hidden="true">{LETTERS[k]}</b> <T t={o} /></li>)}
+          </ol>
+          <details class="qz-ans">
+            <summary><T t={UI.showAnswer} /></summary>
+            <p><b>{LETTERS[q.answer]}</b> <T t={q.options[q.answer]} /></p>
+            {q.explain && <p class="explain"><T t={q.explain} /></p>}
+          </details>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {s.type === 'worked' && (
+    <div class="examples">
+      {s.examples.map((e) => (
+        <article class="card qcard" id={e.id} data-ex={e.id}>
+          {e.tag && <p class="tag"><T t={e.tag} /></p>}
+          <T t={e.body} rich />
+        </article>
+      ))}
+    </div>
+  )}
+
+  {s.type === 'exercises' && s.groups.map((g) => (
+    <section class="exgroup">
+      <h3><span class="chip"><T t={g.chip} /></span> {g.title && <T t={g.title} />}</h3>
+      {g.items.map((x) => (
+        <article class="card ex" id={x.id}>
+          <div class="ex-q"><span class="exnum">{x.num}</span><T t={x.prompt} rich /></div>
+          {x.answer && (
+            <details class="ex-ans">
+              <summary><T t={UI.showAnswer} /></summary>
+              <T t={x.answer} rich />
+            </details>
+          )}
+        </article>
+      ))}
+    </section>
+  ))}
+
+  {s.type === 'recap' && <div class="cards">{s.cards.map((c) => <article class="card"><T t={c} rich /></article>)}</div>}
+
+  {s.type === 'summary' && (
+    <>
+      {s.points_title && <h3><T t={s.points_title} /></h3>}
+      <ul class="points">{s.points.map((p) => <li><T t={p} rich /></li>)}</ul>
+      {(s.glossary ?? []).length > 0 && (
+        <>
+          {s.glossary_title && <h3><T t={s.glossary_title} /></h3>}
+          <div class="gloss-wrap">
+            <table class="gloss">
+              <thead><tr><th scope="col"><T t={UI.terms} /></th><th scope="col" lang="ta">தமிழ்</th><th scope="col" lang="si">සිංහල</th>{meanings && <th scope="col"><T t={UI.meanings} /></th>}</tr></thead>
+              <tbody>
+                {(s.glossary ?? []).map((g) => (
+                  <tr><th scope="row" lang="en">{g.en}</th><td lang="ta">{g.ta}</td><td lang="si">{g.si}</td>{meanings && <td>{g.meaning && <T t={g.meaning} />}</td>}</tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+      {(s.extra ?? []).map((x) => <T t={x} rich class="extra" />)}
+    </>
+  )}
+</section>

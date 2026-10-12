@@ -1,0 +1,20 @@
+---
+// Text in every language the lesson has. All languages are in the HTML and styles/lesson.css shows the page's language
+// (<html lang>), so switching language needs no reload and keeps the student's place. rich: the lesson's checked, safe
+// HTML (content_schema/lesson.py check_html), as blocks.
+import { parts } from '../../lib/lessons';
+import type { Tri } from '../../lib/lesson-ui';
+
+interface Props {
+  t: Tri | null | undefined;
+  rich?: boolean;
+  class?: string;
+}
+const { t, rich = false, class: cls } = Astro.props;
+const list = t ? parts(t) : [];
+---
+{list.map((p) =>
+  rich
+    ? <div class:list={['tr', cls]} lang={p.lang} data-l={p.shownFor} data-fb={p.fallback ? '' : undefined} set:html={p.value} />
+    : <span class:list={['tr', cls]} lang={p.lang} data-l={p.shownFor}>{p.value}</span>
+)}

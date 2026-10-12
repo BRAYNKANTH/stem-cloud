@@ -12,10 +12,9 @@ Never paste secrets into a chat or a commit. Put them straight into the service'
 - [ ] **Keep the R2 upload token only in `.env.r2.local`.** It's needed again only when new media is uploaded. You can delete it in Cloudflare and create a new one when needed.
 
 ## Vercel
-- [ ] **Lesson gate secret (unblocks milestone 2.4).**
+- [ ] **Optional: lesson gate secret (milestone 2.4).** No longer needed for the new lesson pages: since milestone 5.1 the Python route checks the sign-in before serving `/learn/*`. Only add it if lessons should later be served straight from the CDN.
   - Add `GATE_SECRET` for Production and Preview: a long random value, for example from `python -c "import secrets; print(secrets.token_urlsafe(48))"`.
-  - Then tell Claude, who will add the edge middleware that protects `/learn/*`.
-  - Not urgent: those lesson pages only arrive in Phase 5.
+  - Then tell Claude, who will add the edge middleware.
 - [ ] **Give previews their own database.**
   - Today, Preview deployments use the production database, so a preview can change real data.
   - In the Neon integration (Vercel → Storage → the Neon database → Settings), turn on **a database branch per preview deployment**.
@@ -46,6 +45,9 @@ Some school and office web filters block `stemcloud.site` as a **newly registere
 - [ ] **Read the Terms page** (`/terms`). It was written from how the app works and says the owner should check it.
 - [ ] **Sinhala gaps in the lessons** (79–96% per chapter today). `python tools/validate_content.py` shows the coverage per chapter. The missing parts are text the Sinhala dictionaries in `public/static/si/` don't have yet; a translator adds entries there and the extractor picks them up. Students see the same gaps today (that text stays English).
 - [ ] **New interface labels** (Understand, Watch, Explore, Practice, buttons and messages in the topic view) need Tamil and Sinhala wording from a reviewer.
+  - The new lesson page (5.1) adds three, English only for now (in `web/src/lib/lesson-ui.ts`): "One step at a time", "Whole lesson on one page", "Open it in the full lesson". Its chapter line "Grade 10 · Chapter 2" has Sinhala but no Tamil.
+  - Check the Sinhala for the game step's label: the current pages say "Challenge" (Tamil சவால்) but have no Sinhala for it, so the new page uses ක්‍රීඩාව ("Game").
+- [ ] **Look at the new Motion lesson page** when you can: `/learn/physics/g10/motion-in-a-straight-line/` (sign in first). It is not linked anywhere yet. Compare it with the current page, especially the notes, worked examples and summary.
 
 ## Done
 - 2026-10-10: R2 bucket, tokens, CORS, and Vercel R2 variables (Phase 1b). Production serves lesson media from R2.

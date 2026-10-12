@@ -2,7 +2,7 @@
 
 What has been done so far in the move to **Astro + Preact islands + FastAPI**: the blockers we hit and how each was handled, and the decisions made or changed along the way.
 
-- **Covers:** 2026-10-10 to 2026-10-11, Phases 0–4.
+- **Covers:** 2026-10-10 to 2026-10-12, Phases 0–4 and milestone 5.1.
 - **Companion documents:** the plan is in [migration-plan-astro.md](migration-plan-astro.md); steps only the site owner can do are in [owner-tasks.md](owner-tasks.md).
 
 ## 1. Where things stand
@@ -14,11 +14,11 @@ What has been done so far in the move to **Astro + Preact islands + FastAPI**: t
 | 2 Astro foundation, deploy, public pages | ✅ done, except milestone 2.4 (on hold) | faster home, about, privacy and terms pages; a phone menu |
 | 3 Login, account, admin | ✅ done, except the course home (moved to Phase 5/6) | new login, account and admin pages; same wording |
 | 4 Lesson format + extraction | ✅ done | nothing yet; all 15 chapters exist as JSON, ready for Phase 5 |
-| 5 New lesson pages | next | |
+| 5 New lesson pages | in progress: 5.1 done (the lesson page and player) | nothing yet; the new pages are not linked anywhere |
 | 6 Progress v2 · 7 Past papers · 8 Labs · 9 Cut-over · 10 App stores · 11 Second subject | not started | |
 
 **Live in production** (checked by the smoke test after every deploy):
-- **Served by Astro:** `/`, `/home`, `/about`, `/privacy`, `/terms`, `/login`, and `/account` and `/admin` once signed in.
+- **Served by Astro:** `/`, `/home`, `/about`, `/privacy`, `/terms`, `/login`, and `/account`, `/admin` and the new lessons (`/learn/...`) once signed in.
 - **Unchanged:** lessons, the course home, past papers and the API.
 
 **Measured improvement:** this is the same local Lighthouse test as the Phase 0 baseline (mobile, slow 4G).
@@ -123,10 +123,15 @@ Nothing is merged with failing checks.
 | `/about` and `/home` still showed the old pages in local development | The dev server's pass-through list was updated, and the browser's cached copy was cleared. |
 | The header and content weren't lined up; footer links were 24 px tall; the admin table widened the page on phones | All fixed and re-measured. Every page now has 44 px tap targets and no sideways scroll at 375 px. |
 | Account forms sent the previous field values when filled and submitted at once | Each card is now a form that is read when submitted. |
+| Only Python 3.9 on the working machine (5.1) | A standalone Python 3.12 from `uv`, in a scratch folder. |
+| The new lesson page had no styles when served by the local Python server | Astro's files (`/_astro/`) come from Vercel's CDN in production; the local server now serves them too (local runs only). |
+| "Show final answer" showed before the steps were revealed | The old button style beat the `.hidden` rule; `.hidden` now always wins inside lesson content. |
+| "Tap to reveal" buttons were 40 px tall | 44 px. All 15 chapters, every step, all three languages: no sideways scroll at 375 px. |
 
 ### Extracting the lessons
 | Blocker | Handling |
 |---|---|
+| Six worked-example drawings were empty in `content/` (found in 5.1): the old pages' script draws them when the page loads | Captured once in a browser (`tools/drawn_figures.py`), with colours as theme variables; the extractor fills them in and the validator fails on any empty drawing. |
 | The first extraction lost real content: the "Common mistakes" boxes, the later parts of multi-part exercises, glossary meanings, two summary headings | A self-check now compares every English and Tamil text unit of the page with the JSON, and CI fails if any is lost. Result: **7,294 of 7,294.** |
 | Extracting all chapters took over 10 minutes | BeautifulSoup compares elements by their whole content. Switching to identity checks made a chapter take about 1 second. |
 | One quiz couldn't be read | It used a different array layout. JavaScript literals are now read by matching brackets and evaluating in a Node sandbox. |
@@ -167,9 +172,16 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - filling the Sinhala gaps (79–96% coverage per chapter);
 - reviewing the extracted lessons once Phase 5 shows them.
 
-## 8. Next
-**Phase 5: the new lesson pages,** built from `content/`:
-- They will be served by Python after a login check, as the app pages are.
-- The interactive pieces arrive one by one: the lesson player, story, quiz, worked examples and voice.
-- Labs and games are shown from the old page in a frame until they're ported.
-- The release goes chapter by chapter, starting with Motion behind a "Try the new lesson" link, so the current lessons stay the default.
+## 8. Phase 5 so far
+**5.1, the lesson page and player** (2026-10-12):
+- All 15 chapters at `/learn/<subject>/g<grade>/<chapter>/`, built from `content/`. Python checks the sign-in, then serves the build. The CDN copy under `/shell/learn/` is redirected to that check.
+- The lesson player: one step at a time, Back / Next, lesson map, `#step` links, browser Back, "whole lesson on one page".
+- Labs, games, the sort game and the animation come from the current page in a frame.
+- 19 KB of JavaScript per page.
+
+**Decisions:**
+- All three languages are in the HTML and CSS shows one, so switching is instant and keeps the student's place. Motion is still smaller than today's page: 45 KB gzipped, against 70 KB.
+- The content styles are ported from the old pages by a tool, not redesigned.
+- The edge gate (2.4) is not needed.
+
+**Next (5.2):** the story player, the quiz and the exercises. Then the "Try the new lesson" link on Motion, so students can reach it.

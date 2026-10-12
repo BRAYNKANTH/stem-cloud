@@ -36,8 +36,10 @@ jobs:
         run: python tests/test_sinhala.py
       - name: Lesson content is current with the lesson pages, nothing lost
         run: python tools/extract_lesson.py --all --check
-      - name: Lesson content (format, legacy links, stable ids, catalog)
+      - name: Lesson content (format, legacy links, stable ids, catalog, no empty drawings)
         run: python tools/validate_content.py
+      - name: Lesson content styles are current with the lesson pages
+        run: python tools/lesson_css.py --check
 
   web:
     name: Web app (type check, build, JS budget)

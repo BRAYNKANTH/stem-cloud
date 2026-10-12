@@ -10,7 +10,9 @@ Nothing in the lesson page is changed. What is extracted:
 - the story (const STORY in the page) with the recorded Tamil voices; the self-check quiz (const questions);
 - notes, basics, activities, worked examples, textbook exercises, recap and summary as safe HTML (no ids outside drawings,
   no event handlers, no scripts);
-- the lab, the game, the sort game and the animation as links to the lesson page section (they are rebuilt later).
+- the lab, the game, the sort game and the animation as links to the lesson page section (they are rebuilt later);
+- drawings the page's script draws into an empty <svg> when it loads, from tools/drawn_figures.json (captured once in a
+  browser by tools/drawn_figures.py).
 Anything it cannot carry over is listed under "NOT CARRIED OVER", never guessed. Sinhala is added by milestone 4.3.
 """
 import copy, json, re, subprocess, sys
@@ -26,6 +28,7 @@ from tools.sinhala import Sinhala  # noqa: E402
 PAGES = ROOT / 'site' / 'lessons'
 AUDIO = ROOT / 'public' / 'static' / 'audio' / 'story'
 CONTENT = ROOT / 'content'
+DRAWN = json.loads((ROOT / 'tools' / 'drawn_figures.json').read_text(encoding='utf-8'))
 GAMES = {'challenge', 'holdgame', 'pushit', 'tugofwar', 'balancegame'}
 SKIP_SECTIONS = {'fw_path', 'fw_finish'}          # the lesson's own start and finish screens (app chrome, not content)
 NL, CR = chr(10), chr(13)
@@ -389,10 +392,17 @@ def summary(sec: Tag, report: list) -> dict:
 
 
 # ----------------------------------------------------------------------------------------------- the chapter
+def fill_drawings(file: str, html: str) -> str:
+    """Empty <svg id="..."> elements that the page's script draws into, filled with the captured drawing."""
+    for svg_id, inner_svg in DRAWN.get(file, {}).items():
+        html = re.sub(r'(<svg\b[^>]*\bid="%s"[^>]*>)\s*(</svg>)' % re.escape(svg_id), lambda m: m.group(1) + inner_svg + m.group(2), html)
+    return html
+
+
 def extract(file: str, meta: dict) -> tuple[dict, list]:
     global SI
     SI = Sinhala(file[:-len('.html')])
-    html = (PAGES / file).read_text(encoding='utf-8')
+    html = fill_drawings(file, (PAGES / file).read_text(encoding='utf-8'))
     soup = BeautifulSoup(html, 'html.parser')
     report = []
     slug = slug_of(file)

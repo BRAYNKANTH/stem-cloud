@@ -1,11 +1,12 @@
-"""The current lesson pages and topic pages (login only), served with the student's progress."""
-import re
+"""The lesson pages (login only): the new ones built from content/ (/learn/...), and the current lesson and topic pages,
+served with the student's progress."""
+import json, re
 from urllib.parse import quote
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import LESSONS
+from ..config import LESSONS, ROOT, WEB_SHELL
 from ..db import db
 from ..legacy import render_lesson
 from ..media import media_response
@@ -15,6 +16,46 @@ from ..security import current_user
 router = APIRouter()
 
 SLUG_RE = re.compile(r'^[a-z0-9][a-z0-9-]{0,80}$')
+GRADE_RE = re.compile(r'^g[0-9]{1,2}$')
+CATALOG = ROOT / 'content' / 'catalog.json'
+
+
+def legacy_page(subject: str, grade: str, chapter: str) -> str | None:
+    """The current lesson page of a chapter, from content/catalog.json (local runs without a web build)."""
+    try:
+        catalog = json.loads(CATALOG.read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    for l in catalog.get('lessons', []):
+        if (l['subject'], 'g%d' % l['grade'], l['slug']) == (subject, grade, chapter) and l.get('legacy'):
+            return '/lessons/' + l['legacy']['file']
+    return None
+
+
+@router.get('/learn/{subject}/{grade}/{chapter}')
+@router.get('/learn/{subject}/{grade}/{chapter}/')
+def learn_page(subject: str, grade: str, chapter: str, req: Request):
+    """A lesson built from content/ (web/src/pages/shell/learn/): signed-in students only, like the current lessons.
+    The Astro build is bundled with the function under /shell/ and served from here after the check; vercel.json sends
+    /shell/learn/* here as well, so the CDN never serves a lesson without it. Without a build (local runs), the chapter's
+    current lesson page."""
+    if not (SLUG_RE.match(subject) and GRADE_RE.match(grade) and SLUG_RE.match(chapter)):
+        raise HTTPException(404, 'Not found.')
+    if not current_user(req):
+        return RedirectResponse('/login?next=' + quote('/learn/%s/%s/%s/' % (subject, grade, chapter), safe='/'), status_code=302)
+    built = WEB_SHELL / 'learn' / subject / grade / chapter / 'index.html'
+    if built.is_file():
+        return FileResponse(built, media_type='text/html')
+    old = legacy_page(subject, grade, chapter)
+    if old:
+        return RedirectResponse(old, status_code=302)
+    raise HTTPException(404, 'Not found.')
+
+
+@router.get('/shell/learn/{rest:path}')
+def built_lesson_path(rest: str):
+    """The build's own path of a lesson: always through the sign-in check above."""
+    return RedirectResponse('/learn/' + quote(rest.strip('/'), safe='/') + '/', status_code=302)
 
 @router.get('/topics/{slug}')
 def topics_page(slug: str, req: Request):

@@ -52,6 +52,9 @@ CHECKS = [
     ('/terms', 200, 'Using STEM Cloud', None),
     ('/login', 200, None, None),
     ('/lessons/index.html', 302, None, ('location', '/login')),       # lessons stay behind login
+    ('/learn/physics/g10/motion-in-a-straight-line/', 302, None, ('location', '/login?next=/learn/physics/g10/motion-in-a-straight-line/')),
+    # the build's own copy of a lesson is never served straight from the CDN: a redirect (Vercel's or the function's) to the checked route
+    ('/shell/learn/physics/g10/motion-in-a-straight-line/', None, None, ('location', '/learn/physics/g10/motion-in-a-straight-line')),
     ('/account', 302, None, ('location', '/login?next=/account')),    # personal pages stay behind login
     ('/admin', 302, None, ('location', '/login?next=/admin')),
     ('/api/me', 401, None, None),

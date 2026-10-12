@@ -1,0 +1,132 @@
+/* The lesson page: header, step bar, lesson map, steps. The lesson content's own classes are styles/lesson-content.css. */
+
+/* ------------------------------------------------------------------ languages: every text is in the page in each language
+   (components/lesson/T.astro); data-l lists the page languages a part is shown for. English stands in for a missing one. */
+html:not([lang="ta"]):not([lang="si"]) [data-l]:not([data-l~="en"]),
+html[lang="ta"] [data-l]:not([data-l~="ta"]),
+html[lang="si"] [data-l]:not([data-l~="si"]) { display: none !important; }
+/* a block shown in English because it is not translated yet: a quiet marker, no wording to translate */
+html[lang="ta"] div[data-fb][data-l~="ta"], html[lang="si"] div[data-fb][data-l~="si"] { position: relative; }
+html[lang="ta"] div[data-fb][data-l~="ta"]::before, html[lang="si"] div[data-fb][data-l~="si"]::before {
+  content: 'EN'; float: right; margin: 0 0 4px 8px; padding: 0 6px; border-radius: 6px; border: 1px solid var(--sc-line);
+  color: var(--sc-ink-2); font-size: .7rem; font-weight: 800; line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------ header and step bar */
+.lhead { position: sticky; top: 0; z-index: 50; background: var(--sc-ground); border-bottom: 1px solid var(--sc-line); padding-top: env(safe-area-inset-top); }
+.lhead-in { display: flex; align-items: center; gap: 8px; min-height: 56px; }
+.lh-back { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap); border-radius: var(--r); color: var(--sc-ink); flex: 0 0 auto; }
+.lh-back:hover { background: var(--sc-panel-2); }
+.lh-title { flex: 1 1 auto; min-width: 0; line-height: 1.2; }
+.lh-title b { display: block; font-family: var(--font-head); font-weight: 800; font-size: 1.05rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lh-title small { color: var(--sc-ink-2); font-size: .8rem; font-weight: 700; }
+.lhead .theme-toggle { width: var(--tap); height: var(--tap); border-radius: var(--r); border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink); cursor: pointer; font-size: 1.1rem; flex: 0 0 auto; }
+
+.lbar { display: flex; align-items: center; gap: 8px; padding: 6px 0 10px; }
+.lbar:empty { display: none; }
+.lb-btn { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; flex: 0 0 auto; border-radius: var(--r); border: 2px solid var(--sc-line);
+          background: var(--sc-panel); color: var(--sc-ink); cursor: pointer; box-shadow: 0 3px 0 var(--sc-line); }
+.lb-btn.primary { background: var(--sc-cta); color: var(--sc-cta-ink); border: 0; box-shadow: 0 4px 0 var(--sc-cta-shadow); }
+.lb-btn:disabled { opacity: .4; cursor: default; box-shadow: none; }
+.lb-mid { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-radius: var(--r); border: 2px solid var(--sc-line);
+          background: var(--sc-panel); color: var(--sc-ink); font: inherit; font-weight: 800; cursor: pointer; text-align: left; }
+.lb-mid:hover, .lb-btn:not(:disabled):hover { border-color: var(--sc-blue); }
+.lb-title { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lb-count { color: var(--sc-ink-2); font-size: .85rem; font-variant-numeric: tabular-nums; flex: 0 0 auto; }
+
+/* ------------------------------------------------------------------ lesson map */
+.lmap { width: min(560px, calc(100vw - 2 * var(--gutter))); max-height: calc(100vh - 48px); padding: 0; border: 0; border-radius: var(--r-xl);
+        background: var(--sc-panel); color: var(--sc-ink); box-shadow: 0 6px 0 var(--sc-line); }
+.lmap::backdrop { background: rgba(22, 24, 61, .45); }
+.lm-in { padding: 18px 18px 20px; }
+.lm-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.lm-head h2 { margin: 0; font-size: 1.3rem; }
+.lm-phase h3 { font-size: .95rem; color: var(--sc-ink-2); margin: 14px 0 6px; }
+.lm-phase ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.lm-step { width: 100%; display: flex; align-items: center; gap: 10px; min-height: var(--tap); padding: 6px 12px; border-radius: var(--r); border: 2px solid var(--sc-line);
+           background: var(--sc-panel); color: var(--sc-ink); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.lm-step:hover { border-color: var(--sc-blue); }
+.lm-step[aria-current="step"] { border-color: var(--sc-blue); background: var(--sc-blue-lt); }
+.lmap .btn.full { width: 100%; margin-top: 16px; }
+
+/* ------------------------------------------------------------------ steps: one at a time once the player runs */
+html[data-player] .lstep:not(.on) { display: none; }
+.lesson { padding-top: 12px; padding-bottom: calc(40px + env(safe-area-inset-bottom)); }
+.lesson .lang { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+.lstep { scroll-margin-top: 140px; }
+html:not([data-player]) .lstep + .lstep { margin-top: 40px; padding-top: 24px; border-top: 2px dashed var(--sc-line); }
+.lstep-head { margin-bottom: 16px; }
+.lstep-head .kind { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; background: var(--sc-blue-lt); color: var(--sc-blue);
+                    font-weight: 800; font-size: .8rem; }
+.lstep-head h2 { font-size: 1.6rem; margin: 8px 0 4px; }
+.lstep-head .sub { color: var(--sc-ink-2); margin: 0; }
+.lc .intro, .lc .quest, .lc .extra { margin: 0 0 16px; }
+.lc .cards, .lc .examples { display: grid; gap: 16px; }
+.lc .card { padding: 20px; margin: 0; }
+.lc .card h3 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 1.15rem; }
+.lc .cicon { font-size: 1.3rem; }
+.lc .secno { color: var(--sc-ink-2); font-size: .85rem; font-weight: 800; }
+.lc table { max-width: 100%; }
+.lc .qdiagram, .lc .gloss-wrap, .lc .dtab-wrap { overflow-x: auto; }
+
+/* story (the story player is a later milestone): bubbles in order */
+.story { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 12px; }
+.bubble { background: var(--sc-panel); border-radius: 20px; padding: 12px 16px; box-shadow: 0 3px 0 var(--sc-line); max-width: 92%; }
+.bubble.raja { border-left: 4px solid var(--sc-raja); }
+.bubble.chittu { border-left: 4px solid var(--sc-chittu); justify-self: end; }
+.bubble .scene { float: right; font-size: 1.4rem; margin-left: 8px; }
+.bubble .who { display: block; font-size: .85rem; }
+.bubble.raja .who { color: var(--sc-raja); }
+.bubble.chittu .who { color: var(--sc-chittu); }
+.bubble p { margin: 2px 0 0; }
+.story + .cta, .lc .cta { font-weight: 800; }
+
+/* quiz (the Quiz island is a later milestone): the answer behind "Show answer" */
+.quiz { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.qz-q { font-weight: 800; }
+.qz-opts { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.qz-opts li { padding: 8px 12px; border-radius: var(--r); border: 2px solid var(--sc-line); }
+.qz-opts b { color: var(--sc-blue); margin-right: 4px; }
+.qz-ans summary, .ex-ans summary { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 800; color: var(--sc-blue); cursor: pointer; }
+.qz-ans .explain { color: var(--sc-ink-2); }
+
+/* exercises */
+.exgroup { margin-top: 20px; }
+.exgroup h3 { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 1.1rem; }
+.exgroup .chip { padding: 2px 10px; border-radius: 999px; background: var(--sc-mango-lt); font-size: .85rem; }
+.exgroup .ex + .ex { margin-top: 12px; }
+.ex-q { display: flex; gap: 10px; align-items: flex-start; }
+.ex-q .exnum { flex: 0 0 auto; font-weight: 800; color: var(--sc-raja); min-width: 2.2em; }
+.ex-q > div { flex: 1 1 auto; min-width: 0; }
+.lc .tag { margin: 0 0 8px; color: var(--sc-ink-2); font-weight: 800; font-size: .85rem; }
+
+/* summary */
+.points { margin: 0 0 16px; padding-left: 20px; display: grid; gap: 8px; }
+.gloss { border-collapse: collapse; width: 100%; font-size: .92rem; background: var(--sc-panel); }
+.gloss th, .gloss td { border: 1px solid var(--sc-line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.gloss thead th { background: var(--sc-panel-2); }
+
+/* labs, games and the animation from the current lesson page */
+.lframe iframe { display: block; width: 100%; border: 0; border-radius: var(--r-lg); background: var(--sc-panel); }
+.lframe-alt { margin: 8px 0 0; font-size: .9rem; }
+.lframe-alt a { display: inline-flex; align-items: center; min-height: var(--tap); }
+
+.finish .card { text-align: center; }
+.finish .btn { margin-top: 8px; }
+
+/* Back / Next at the end of a step */
+.lend { display: flex; gap: 10px; justify-content: space-between; flex-wrap: wrap; margin-top: 28px; }
+.lend .btn { min-height: 48px; }
+.lend .btn.primary { margin-left: auto; }
+html:not([data-player]) .lend { display: none; }
+
+/* revealed by scripts/lesson-content.ts; wins over the old pages' .btn display (as their own order did) */
+.lc .hidden, .lc [hidden] { display: none !important; }
+/* without JavaScript nothing is behind a reveal button: the marking steps and answers are shown, the buttons are not */
+html:not(.js) .lc .hidden { display: block !important; }
+html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
+.lc .act-done { display: none !important; }      /* "I tried it! (+XP)": back with progress v2 (Phase 6) */
+
+/* touch targets inside the content: at least 44px (README interface rules) */
+.lc :is(.step-toggle, .final-toggle, .btn) { min-height: var(--tap); }
+.lc details > summary { min-height: var(--tap); display: flex; align-items: center; }

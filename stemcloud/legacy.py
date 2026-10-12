@@ -4,6 +4,7 @@ from pathlib import Path
 
 from fastapi.responses import HTMLResponse
 
+from .config import NEW_LESSONS
 from .security import public
 
 
@@ -65,6 +66,17 @@ APP_TAIL_JS = ('<script src="/static/pwa.js"></script><script src="/static/si.js
                '<script src="/static/voice.js"></script><script src="/static/questions.js"></script><script src="/static/icons.js"></script>'
                '<script src="/static/account.js"></script><script src="/static/past-paper-links.js"></script>'
                '<script src="/static/hub-topics.js"></script><script src="/static/quiz-sheet.js"></script><script src="/static/nav.js"></script>')
+# "Try the new lesson": a link above the lesson path on the pages in NEW_LESSONS (not inside a frame: the topic pages and
+# the new lesson pages show parts of these pages in frames). New wording, English only until a reviewer gives Tamil and
+# Sinhala (docs/owner-tasks.md).
+TRY_NEW_JS = ('<script>(function(){try{if(/[?&]embed=1/.test(location.search)||window.parent!==window)return;'
+              'var p=document.getElementById("fw_path");if(!p)return;var a=document.createElement("a");'
+              'a.className="stem-try-new";a.href=%s;a.lang="en";'
+              'a.innerHTML="<b>Try the new lesson</b><span>The same lesson in the new STEM Cloud. You can come back here any time.</span>";'
+              'p.parentNode.insertBefore(a,p)}catch(e){}})()</script>'
+              '<style>.stem-try-new{display:flex;flex-direction:column;gap:2px;margin:12px 0 16px;padding:14px 18px;border-radius:20px;'
+              'background:var(--sc-blue-lt,#E3E6FF);color:var(--text,#16183D);text-decoration:none;box-shadow:0 3px 0 var(--border,#DDE1F5);min-height:44px}'
+              '.stem-try-new b{color:var(--sc-blue,#3443D9);font-size:1.05rem}.stem-try-new span{font-size:.9rem}</style>')
 VIEWPORT_RE = re.compile(r'<meta\s+name="viewport"[^>]*>', re.I)
 
 _MARK = '<!--STEM-BOOT-->'
@@ -81,6 +93,9 @@ def _template(path: Path) -> str:
         html = html.replace('<head>', '<head>' + _MARK + APP_HEAD, 1) if '<head>' in html else _MARK + html
         html = html.replace('</head>', APP_TAIL_CSS + '</head>', 1)
         html = html.replace('</body>', APP_TAIL_JS + '</body>', 1) if '</body>' in html else html + APP_TAIL_JS
+        if path.name in NEW_LESSONS:
+            try_new = TRY_NEW_JS % json.dumps(NEW_LESSONS[path.name])
+            html = html.replace('</body>', try_new + '</body>', 1) if '</body>' in html else html + try_new
         _tpl.clear(); _tpl[key] = html
     return html
 

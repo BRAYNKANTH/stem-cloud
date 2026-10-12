@@ -268,7 +268,17 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **The sign-in check is a Python route**, as for `/account`: `/learn/...` checks the session, then serves the build from `web/dist/shell/learn/`. `vercel.json` redirects `/shell/learn/*` to `/learn/*`, so the CDN never serves a lesson without the check. Milestone 2.4 (edge gate, `GATE_SECRET`) is not needed for this.
   - **Content styles are ported, not redesigned:** `tools/lesson_css.py` copies the lesson pages' rules for the content's own classes into `web/src/styles/lesson-content.css`, scoped to the content and mapped to the design tokens. CI checks it is current.
   - **Drawings made by a page's script** (4 graphs in Motion, 2 diagrams in Turning Effect) are captured once in a browser by `tools/drawn_figures.py` and filled in by the extractor. The validator now fails on an empty drawing.
-- **Next (5.2):** `StoryPlayer`, `Quiz` + `QuizSheet` and `Exercises`, then the "Try the new lesson" link on Motion. After that: `VoiceReader` (5.3), XP and badges with progress v2 (Phase 6), and the topic view (5.4).
+- **Milestone 5.2 (done 2026-10-12): story, quiz, exercises, and the "Try the new lesson" link.**
+  - `StoryPlayer`: one line at a time, typed out, Raja and Chittu taking turns (their drawings copied unchanged). Swipe, tap the bubble or use the arrow keys; Previous / Next stay. Voices cycle off, recorded Tamil voices (the line's `audio`), then the phone's voice (`stem_story_mode`, as today).
+  - `Quiz` with its answer sheet: an answer locks the question; the sheet says "Correct!" or "Not quite", gives the right answer and the explanation, and goes on to the next question.
+  - Exercises: written-in parts "(i) … (ii) …" as rows, Show / Hide answer, and diagrams and figures open full screen (`public/static/questions.js`, ported).
+  - The speech rules of `voice.js` (voice choice, symbols and units as words, sentence chunks) are in `web/src/lib/speech.ts`, ready for read-aloud.
+  - Without JavaScript the story is a list of bubbles and the quiz shows its answers behind "Show answer".
+  - The story and the quiz use the current pages' class names, so `tools/lesson_css.py` ports their look, dark theme and animations too.
+  - **"Try the new lesson"** on the current Motion page, above the lesson path (`NEW_LESSONS` in `stemcloud/config.py`; not inside frames). The current lessons stay the default.
+  - **Browser test** `tests/test_lesson_pages.py` in CI: every chapter at 375 px and on desktop, every step in all three languages (no sideways scroll, 44 px controls on the phone, no script errors), and on Motion the player, story, quiz, worked examples and the page without JavaScript. 90 checks.
+  - 27.8 KB of JavaScript per lesson page (budget 60 KB).
+- **Next:** `VoiceReader` (5.3: read-aloud of each step from the content, sentence highlighting), then the topic view (5.4) and more chapters behind the link once a teacher has looked at Motion. XP and badges come with progress v2 (Phase 6).
 
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
 - Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.

@@ -132,6 +132,7 @@ Node 22.12 or newer. Set `ASTRO_TELEMETRY_DISABLED=1` to keep Astro from sending
 python tests/test_flow.py            # account/API checks on SQLite and a real embedded Postgres
 python tests/test_pwa.py             # real Edge/Chrome: installability, offline, phone layout (needs: pip install playwright)
 python tests/test_player.py          # real Edge/Chrome: lesson player, story swipe, read-aloud, questions, lab
+python tests/test_lesson_pages.py    # real browser: the new lesson pages (/learn/...), every chapter at 375 px and desktop (needs: cd web && npm run build)
 ```
 
 Covers sign-up, login, CSRF, progress merge rules, lesson gating, path traversal, admin, password change, account deletion and rate-limiting.

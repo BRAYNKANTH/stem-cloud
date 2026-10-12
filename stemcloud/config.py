@@ -27,3 +27,9 @@ MAX_KEYS, MAX_VAL = 400, 20000
 GATE_COOKIE = 'scx_gate'
 GATE_HOURS = 24
 GATE_SECRET = os.environ.get('GATE_SECRET', '')
+
+# Current lesson pages that offer their new version (/learn/..., built from content/) with a "Try the new lesson" link.
+# Chapters are added one by one as their new page is checked (docs/migration-plan-astro.md, Phase 5).
+NEW_LESSONS = {
+    'unit-02-motion-in-a-straight-line.html': '/learn/physics/g10/motion-in-a-straight-line/',
+}

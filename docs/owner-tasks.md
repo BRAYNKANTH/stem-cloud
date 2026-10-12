@@ -46,8 +46,10 @@ Some school and office web filters block `stemcloud.site` as a **newly registere
 - [ ] **Sinhala gaps in the lessons** (79–96% per chapter today). `python tools/validate_content.py` shows the coverage per chapter. The missing parts are text the Sinhala dictionaries in `public/static/si/` don't have yet; a translator adds entries there and the extractor picks them up. Students see the same gaps today (that text stays English).
 - [ ] **New interface labels** (Understand, Watch, Explore, Practice, buttons and messages in the topic view) need Tamil and Sinhala wording from a reviewer.
   - The new lesson page (5.1) adds three, English only for now (in `web/src/lib/lesson-ui.ts`): "One step at a time", "Whole lesson on one page", "Open it in the full lesson". Its chapter line "Grade 10 · Chapter 2" has Sinhala but no Tamil.
+  - The link on the current Motion page (5.2, in `stemcloud/legacy.py`): "Try the new lesson" and "The same lesson in the new STEM Cloud. You can come back here any time."
+  - The full-screen diagram's title and hint ("Diagram", "drag to look around, pinch to zoom") have Tamil but no Sinhala, as on the current pages.
   - Check the Sinhala for the game step's label: the current pages say "Challenge" (Tamil சவால்) but have no Sinhala for it, so the new page uses ක්‍රීඩාව ("Game").
-- [ ] **Look at the new Motion lesson page** when you can: `/learn/physics/g10/motion-in-a-straight-line/` (sign in first). It is not linked anywhere yet. Compare it with the current page, especially the notes, worked examples and summary.
+- [ ] **Look at the new Motion lesson page** when you can: `/learn/physics/g10/motion-in-a-straight-line/` (sign in first), or the "Try the new lesson" link on the current Motion page once 5.2 is deployed. Compare it with the current page, especially the notes, worked examples, story and quiz. When it is right, say which chapters get the link next.
 
 ## Done
 - 2026-10-10: R2 bucket, tokens, CORS, and Vercel R2 variables (Phase 1b). Production serves lesson media from R2.

@@ -69,7 +69,7 @@ html:not([data-player]) .lstep + .lstep { margin-top: 40px; padding-top: 24px; b
 .lc table { max-width: 100%; }
 .lc .qdiagram, .lc .gloss-wrap, .lc .dtab-wrap { overflow-x: auto; }
 
-/* story (the story player is a later milestone): bubbles in order */
+/* story without JavaScript: the bubbles in order (StoryPlayer otherwise) */
 .story { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 12px; }
 .bubble { background: var(--sc-panel); border-radius: 20px; padding: 12px 16px; box-shadow: 0 3px 0 var(--sc-line); max-width: 92%; }
 .bubble.raja { border-left: 4px solid var(--sc-raja); }
@@ -81,7 +81,7 @@ html:not([data-player]) .lstep + .lstep { margin-top: 40px; padding-top: 24px; b
 .bubble p { margin: 2px 0 0; }
 .story + .cta, .lc .cta { font-weight: 800; }
 
-/* quiz (the Quiz island is a later milestone): the answer behind "Show answer" */
+/* quiz without JavaScript: the answer behind "Show answer" (Quiz otherwise) */
 .quiz { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
 .qz-q { font-weight: 800; }
 .qz-opts { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
@@ -122,11 +122,20 @@ html:not([data-player]) .lend { display: none; }
 
 /* revealed by scripts/lesson-content.ts; wins over the old pages' .btn display (as their own order did) */
 .lc .hidden, .lc [hidden] { display: none !important; }
+/* the story and quiz islands with JavaScript, their plain versions without */
+html.js .nojs, html:not(.js) .so-player, html:not(.js) .qz { display: none !important; }
+.lc .so-player { margin-bottom: 8px; }
+.lc .qz .quiz-score { margin-bottom: 14px; font-weight: 800; }
+html.qsheet-open .lesson { padding-bottom: 60vh; }      /* room to see the answered card above the answer sheet */
+details:not([open]) > summary .when-open, details[open] > summary .when-closed { display: none; }
 /* without JavaScript nothing is behind a reveal button: the marking steps and answers are shown, the buttons are not */
 html:not(.js) .lc .hidden { display: block !important; }
 html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
 .lc .act-done { display: none !important; }      /* "I tried it! (+XP)": back with progress v2 (Phase 6) */
 
 /* touch targets inside the content: at least 44px (README interface rules) */
-.lc :is(.step-toggle, .final-toggle, .btn) { min-height: var(--tap); }
+.lc :is(.step-toggle, .final-toggle, .btn, .qz-opt) { min-height: var(--tap); }
 .lc details > summary { min-height: var(--tap); display: flex; align-items: center; }
+
+/* buttons in the content and islands use the page type (the old font-family rules are left out) */
+.lc button { font-family: inherit; }

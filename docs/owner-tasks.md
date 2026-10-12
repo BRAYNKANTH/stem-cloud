@@ -23,6 +23,8 @@ Never paste secrets into a chat or a commit. Put them straight into the service'
   - Add it to GitHub as a repository secret named `VERCEL_AUTOMATION_BYPASS_SECRET`.
   - Claude can then run the smoke check against each pull request's preview, not just production after merging.
 
+- [ ] **Look at two failed preview deploys.** Vercel failed the previews of #30 and #32 without a reason on GitHub (`dpl_81RDPxXUr87M5FLhf3X6VJZNXZNQ`, `dpl_FxwBrXWJZMj5BVbzWfGdWLiottxE`); both worked when re-run. Vercel → Deployments → the failed one → Build Logs. If it repeats, tell Claude what the log says.
+
 ## Neon
 - [ ] **Backup branch now, if it wasn't made in Phase 0.** Neon console → **Branches** → **Create branch** from `main`, named like `backup-2026-10-pre-migration`. It is an instant copy that stays inside Neon.
 - [ ] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed now: milestone 6.2 is ready.

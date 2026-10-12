@@ -21,10 +21,10 @@ OUT = ROOT / 'web' / 'src' / 'styles' / 'lesson-content.css'
 PAGES = sorted(glob.glob(str(ROOT / 'site' / 'lessons' / '*.html')))
 LATER = [ROOT / 'public' / 'static' / n for n in ('theme-bright.css', 'player.css', 'app-layer.css')]
 ISLAND_PREFIXES = ('so-', 'qz-', 'qs-')       # story (StoryPlayer) and quiz (Quiz, the answer sheet)
-ISLAND_IDS = {'stem-qsheet'}
-# the quiz score line, exercise parts in rows, full-screen diagrams and the voice messages (public/static/questions.js, voice.js)
+ISLAND_IDS = {'stem-qsheet', 'stem-vp'}       # the quiz's answer sheet, the read-aloud controls
+# the quiz score line, exercise parts in rows, full-screen diagrams, read-aloud and the voice messages (questions.js, voice.js)
 ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-cap', 'fig-hint', 'zoomable', 'pannable',
-                  'stem-lightbox', 'lb-bar', 'lb-body', 'stem-toast'}
+                  'stem-lightbox', 'lb-bar', 'lb-body', 'stem-toast', 'stem-reading', 'vp-pos'}
 STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet'}   # the islands' state classes, next to one of theirs
 DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 

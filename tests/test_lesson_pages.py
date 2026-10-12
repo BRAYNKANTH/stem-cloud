@@ -7,7 +7,7 @@ Needs the web build (the API serves web/dist-private/learn after the sign-in che
 Playwright's Chromium (python -m playwright install chromium). For every chapter, on a phone (375 px) and a desktop:
 the islands start without errors, and in every step and language nothing scrolls sideways; on the phone every control
 is at least 44 px (links inside sentences excepted). On Motion: the player, the story, the quiz and its answer sheet,
-worked-example reveals, and the page without JavaScript. Speech is replaced by a recording stub.
+worked-example reveals, read-aloud, and the page without JavaScript. Speech is replaced by a recording stub.
 """
 import json, os, subprocess, sys, tempfile, time, urllib.request
 
@@ -53,7 +53,7 @@ STUB = """
 window.__spoken = [];
 Object.defineProperty(window, 'SpeechSynthesisUtterance', { value: function (t) { this.text = t; }, configurable: true, writable: true });
 Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {
-  speak: function (u) { window.__spoken.push(u.text); setTimeout(function () { u.onend && u.onend(); }, 50); },
+  speak: function (u) { window.__spoken.push(u.text); if (!window.__hold) setTimeout(function () { u.onend && u.onend(); }, 50); },   // __hold: a sentence never ends
   cancel: function () {}, pause: function () {}, resume: function () {},
   getVoices: function () { return [{ name: 'Test Tamil', lang: 'ta-IN' }, { name: 'Test English', lang: 'en-IN' }]; }, addEventListener: function () {} } });
 """
@@ -235,6 +235,53 @@ def run():
             check('the last line offers the next step', lambda: pg.locator('.so-cta.show a').is_visible())
             pg.click('.so-cta a')
             check('...and it opens it', lambda: on() == 'basics', lambda: on())
+            # ------------------------------------------------------------ Motion: read-aloud
+            pg.goto(BASE + MOTION + '#notes')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.evaluate('window.__spoken = []; window.__hold = true')
+            pg.click('.lbar .lb-listen')
+            pg.wait_for_timeout(300)
+            spoken = pg.evaluate('window.__spoken')
+            reading = pg.locator('.stem-reading')
+            check('Listen reads the step, the block being read highlighted', lambda: len(spoken) > 0 and reading.count() == 1 and reading.is_visible(), lambda: spoken[:2])
+            check('...from this step only, in the language on screen', lambda: reading.evaluate("e => !!e.closest('#notes') && !e.closest('[data-l]:not([data-l~=\"en\"])')"))
+            check('the reading controls show', lambda: pg.locator('#stem-vp').is_visible())
+            check('symbols and units are said as words', lambda: not any('=' in s or '×' in s for s in spoken), lambda: [s for s in spoken if '=' in s][:1])
+            pos = lambda: pg.inner_text('#stem-vp .vp-pos')
+            first = pos()
+            pg.click('#stem-vp [data-a=next]')
+            pg.wait_for_function("t => document.querySelector('#stem-vp .vp-pos').innerText !== t", arg=first)
+            check('Next reads the next block', lambda: pos() != first and pos().split(' / ')[0] == str(int(first.split(' / ')[0]) + 1), lambda: (first, pos()))
+            pg.click('.lbar .lb-listen')
+            pg.wait_for_function("() => document.querySelector('#stem-vp [data-a=pp]').getAttribute('aria-label') === 'Play'")
+            check('Listen again pauses', lambda: pg.locator('#stem-vp [data-a=pp]').get_attribute('aria-label') == 'Play')
+            pg.click('#stem-vp [data-a=rate]')
+            check('the speed changes and is remembered', lambda: pg.evaluate("localStorage.getItem('stem_rate')") is not None)
+            pg.click('#stem-vp [data-a=stop]')
+            settled = "() => !document.querySelector('#stem-vp') && !document.querySelector('.stem-reading')"
+            pg.wait_for_function(settled, timeout=5000)
+            check('Stop ends reading', lambda: pg.locator('#stem-vp').count() == 0 and pg.locator('.stem-reading').count() == 0)
+            pg.evaluate('window.__hold = false')
+            pg.click('.lbar .lb-listen')
+            pg.wait_for_selector('#stem-vp')
+            pg.wait_for_function(settled, timeout=30000)
+            check('reading goes on block by block to the end of the step, then stops', lambda: pg.locator('.stem-reading').count() == 0)
+            pg.click('button[lang=ta]')
+            pg.evaluate('window.__spoken = []')
+            pg.click('.lbar .lb-listen')
+            pg.wait_for_timeout(300)
+            spoken = pg.evaluate('window.__spoken')
+            check('in Tamil it reads the Tamil text', lambda: any(any('஀' <= c <= '௿' for c in s) for s in spoken), lambda: spoken[:1])
+            pg.click('.lbar .lb-btn.primary')
+            check('a new step stops reading', lambda: pg.locator('#stem-vp').count() == 0)
+            pg.click('button[lang=en]')
+            pg.goto(BASE + MOTION + '#story')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.evaluate("localStorage.setItem('stem_story_mode', 'off')")
+            pg.reload()
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.click('.lbar .lb-listen')
+            check('on the story, Listen switches the story voices', lambda: pg.evaluate("localStorage.getItem('stem_story_mode')") == 'rec' and pg.locator('#stem-vp').count() == 0)
             check('no script errors on Motion', lambda: not errs, lambda: errs)
             ctx.close()
 

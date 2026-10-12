@@ -31,6 +31,8 @@ html[lang="ta"] div[data-fb][data-l~="ta"]::before, html[lang="si"] div[data-fb]
 .lb-mid { flex: 1 1 auto; min-width: 0; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; border-radius: var(--r); border: 2px solid var(--sc-line);
           background: var(--sc-panel); color: var(--sc-ink); font: inherit; font-weight: 800; cursor: pointer; text-align: left; }
 .lb-mid:hover, .lb-btn:not(:disabled):hover { border-color: var(--sc-blue); }
+.lb-listen.on { background: var(--sc-blue); border-color: var(--sc-blue); color: #fff; box-shadow: 0 3px 0 var(--sc-blue-dk); }   /* theme-bright.css .sb-listen.on */
+html:has(#stem-vp) .lesson { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }   /* room above the reading controls */
 .lb-title { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lb-count { color: var(--sc-ink-2); font-size: .85rem; font-variant-numeric: tabular-nums; flex: 0 0 auto; }
 

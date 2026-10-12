@@ -3,10 +3,17 @@ import { useStore } from '@nanostores/preact';
 import { $lang, loadPrefs } from '../stores/prefs';
 import { $ids, $step, go, show, stepFromHash, setWholePage, wholePage } from '../stores/lesson';
 import { PHASES, UI, pick, type StepInfo } from '../lib/lesson-ui';
+import { $reading, stop as stopReading, toggle as toggleReading } from '../stores/reader';
+import { hasTTS } from '../lib/speech';
 
 const BACK = 'M15 6l-6 6 6 6';
 const NEXT = 'M5 12h14M13 6l6 6-6 6';
 const MAP = 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14';
+const SPEAKER = 'M11 5 6 9H3v6h3l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13';
+const PAUSE = 'M7 5v14M17 5v14';
+
+/** The story step's Listen switches the story's voices instead (voice.js), heard by StoryPlayer. */
+export const STORY_VOICE_EVENT = 'stem-story-voice';
 
 function Svg({ d }: { d: string }) {
   return (
@@ -24,14 +31,18 @@ function Svg({ d }: { d: string }) {
 export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
   const lang = useStore($lang);
   const cur = useStore($step);
+  const reading = useStore($reading);
   const [scroll, setScroll] = useState(false);
+  const [tts, setTts] = useState(false);
   const dlg = useRef<HTMLDialogElement>(null);
   const ids = steps.map((s) => s.id);
+  const L = (t: Parameters<typeof pick>[0]) => pick(t, lang);
 
   useEffect(() => {
     loadPrefs();
     $ids.set(ids);
     setScroll(wholePage());
+    setTts(hasTTS());
     const fromUrl = () => go(stepFromHash(ids), false);
     fromUrl();
     window.addEventListener('popstate', fromUrl);
@@ -41,6 +52,15 @@ export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
       window.removeEventListener('hashchange', fromUrl);
     };
   }, []);
+
+  // a new step stops reading the old one
+  useEffect(() => stopReading(), [cur]);
+  const listen = () => {
+    if (!scroll && steps[Math.max(0, cur)]?.id === 'story') window.dispatchEvent(new Event(STORY_VOICE_EVENT));
+    else toggleReading();
+  };
+  const speaking = reading.on && !reading.paused;
+  const listenLabel = speaking ? L(UI.pauseReading) : L(UI.readAloud);
 
   const toggleView = () => {
     const on = document.documentElement.hasAttribute('data-player');      // one step at a time now -> whole lesson
@@ -59,13 +79,17 @@ export default function LessonPlayer({ steps }: { steps: StepInfo[] }) {
 
   const i = Math.max(0, cur);
   const step = steps[i];
-  const L = (t: Parameters<typeof pick>[0]) => pick(t, lang);
   return (
     <>
       <nav class="lbar" aria-label={L(UI.steps)}>
         {!scroll && (
           <button type="button" class="lb-btn" onClick={() => go(i - 1)} disabled={i === 0} aria-label={L(UI.previous)} title={L(UI.previous)}>
             <Svg d={BACK} />
+          </button>
+        )}
+        {tts && (
+          <button type="button" class={'lb-btn lb-listen' + (reading.on ? ' on' : '')} onClick={listen} aria-label={listenLabel} title={listenLabel}>
+            <Svg d={speaking ? PAUSE : SPEAKER} />
           </button>
         )}
         <button type="button" class="lb-mid" aria-haspopup="dialog" onClick={() => dlg.current?.showModal()}>

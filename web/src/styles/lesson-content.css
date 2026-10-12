@@ -229,6 +229,11 @@
 .lc .so-voice { position:relative;margin-left:auto;min-height:36px;padding:4px 12px;border-radius:99px;border:1px solid var(--border);background:var(--panel-2,var(--panel));color:var(--text);font-weight:700;font-size:.8rem;cursor:pointer }
 .lc .so-voice::after { content:'';position:absolute;inset:-5px }
 .lc .so-voice.on { border-color:var(--accent);background:color-mix(in srgb,var(--accent) 16%,transparent) }
+.lc #stem-vp { position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom));z-index:75;display:flex;align-items:center;gap:2px;padding:6px 10px;border-radius:99px;background:var(--panel);color:var(--text);border:1px solid var(--border);box-shadow:0 12px 30px -10px rgba(0,0,0,.5);max-width:calc(100vw - 20px) }
+.lc #stem-vp button { min-width:44px;height:44px;border-radius:50%;border:0;background:none;color:var(--text);font-size:1.1rem;font-weight:700;cursor:pointer;padding:0 }
+.lc #stem-vp [data-a="rate"] { font-size:.85rem;min-width:52px;border-radius:99px;background:var(--panel-2,var(--bg)) }
+.lc .vp-pos { font-size:.75rem;color:var(--text-faint);padding:0 6px;font-variant-numeric:tabular-nums }
+.lc .stem-reading { background:color-mix(in srgb,var(--accent) 20%,transparent)!important;box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 20%,transparent);border-radius:6px }
 .lc .stem-toast { position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translate(-50%,20px);opacity:0;z-index:130;max-width:min(92vw,420px);padding:12px 16px;border-radius:14px;background:#10192b;color:#fff;font-size:.9rem;line-height:1.4;box-shadow:0 12px 30px rgba(0,0,0,.45);transition:opacity .25s,transform .25s }
 .lc .stem-toast.show { opacity:1;transform:translate(-50%,0) }
 .lc .qlead { display:block }

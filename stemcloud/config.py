@@ -15,6 +15,8 @@ WEB_SHELL = WEB_DIST / 'shell'
 # function has them and serves them after the sign-in check (routers/lessons.py).
 WEB_LEARN = ROOT / 'web' / 'dist-private' / 'learn'
 WEB_PAPERS = ROOT / 'web' / 'dist-private' / 'past-papers' / 'index.html'
+# past paper question banks (content/, validated by tools/validate_past_papers.py); their scans and PDFs stay under LESSONS
+PAST_PAPERS = ROOT / 'content' / 'past-papers' / 'physics'
 ON_VERCEL = bool(os.environ.get('VERCEL'))
 ADMIN_USERS = {u.strip().lower() for u in os.environ.get('ADMIN_USERS', '').split(',') if u.strip()}      # no built-in admin names: admins are made with tools/manage_admin.py or by an admin
 TRUST_PROXY = ON_VERCEL or os.environ.get('TRUST_PROXY') == '1'

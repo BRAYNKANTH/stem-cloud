@@ -10,6 +10,7 @@ import fitz
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT/'site'/'lessons'/'past-papers'
+BANKS = ROOT / 'content' / 'past-papers' / 'physics'      # the question banks and their catalog (images and PDFs stay in OUT)
 
 def main():
     parser=argparse.ArgumentParser()
@@ -39,7 +40,7 @@ def main():
                 for number,(page,x0,y0,x1,y1) in panels.items():
                     doc[page-1].get_pixmap(matrix=fitz.Matrix(2,2),clip=fitz.Rect(x0/2,y0/2,x1/2,y1/2)).save(dest/f'mcq-{number:02}.jpg',jpg_quality=90)
                 entry.update(bank='/lessons/past-papers/2015.json',scope="physics",mcqCount=14,writtenCount=5)
-            bank_path=OUT/f'{year}.json'
+            bank_path=BANKS/f'{year}.json'
             if year!=2015 and bank_path.exists():
                 bank=json.loads(bank_path.read_text(encoding='utf-8'))
                 if bank.get('scope')=='physics':
@@ -47,7 +48,7 @@ def main():
                     entry.update(status=bank['status'],examLabel=label,bank=f'/lessons/past-papers/{year}.json',scope='physics',mcqCount=sum(q['type']=='mcq' for q in bank['questions']),writtenCount=sum(q['type']=='written' for q in bank['questions']),coverageNote=bank.get('coverageNote'))
             catalog.append(entry)
     OUT.mkdir(parents=True,exist_ok=True)
-    (OUT/'catalog.json').write_text(json.dumps(dict(schemaVersion=1,papers=catalog),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (BANKS/'catalog.json').write_text(json.dumps(dict(schemaVersion=1,papers=catalog),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('Rendered 12 pilot pages; catalogued nine source papers.')
 
 if __name__=='__main__': main()

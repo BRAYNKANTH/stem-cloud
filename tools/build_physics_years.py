@@ -10,6 +10,7 @@ from expanded_physics import DATA, CROPS, ROOT, bi, notes
 import physics_2016_2017, physics_2018_2019, physics_2020_2021, physics_2022_2023
 
 OUT = ROOT/'site/lessons/past-papers'
+BANKS = ROOT / 'content' / 'past-papers' / 'physics'      # the question banks and their catalog (images and PDFs stay in OUT)
 
 def corrections():
     # Crop boundaries reviewed against the rendered source pages.
@@ -87,7 +88,7 @@ def main():
     for mod in [physics_2016_2017,physics_2018_2019,physics_2020_2021,physics_2022_2023]:mod.add()
     corrections()
     lesson_links()
-    catalog=json.loads((OUT/'catalog.json').read_text(encoding='utf-8'))
+    catalog=json.loads((BANKS/'catalog.json').read_text(encoding='utf-8'))
     for year,questions in DATA.items():
         sources=list(args.source_dir.glob(f'gce-ordinary-level-exam-{year}-science-past-papers-*.pdf'));assert len(sources)==1
         source=sources[0];dest=OUT/str(year);dest.mkdir(exist_ok=True)
@@ -114,14 +115,14 @@ def main():
         coverage=bi(missing,missingta)
         if year==2016:coverage=bi('Q8 B(iii)(c) is awaiting review and excluded from practice.','வினா 8 B(iii)(c) மீளாய்வு நிலுவையில் உள்ளது; பயிற்சியில் சேர்க்கப்படவில்லை.')
         bank=dict(schemaVersion=2,scope='physics',year=year,title=bi('O/L Physics '+label,'சா/த பௌதிகவியல் '+label),sourceLanguage='ta',teacherReviewed=False,status='model-answers',editorialNote=note,sourcePdf=f'/lessons/past-papers/{year}/source.pdf',sourceSha256=hashlib.sha256(source.read_bytes()).hexdigest(),coverageNote=coverage,papers=papers,questions=questions)
-        temp=OUT/f'{year}.json.tmp'
+        temp=BANKS/f'{year}.json.tmp'
         temp.write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-        temp.replace(OUT/f'{year}.json')
+        temp.replace(BANKS/f'{year}.json')
         entry=next(e for e in catalog['papers'] if e['year']==year)
         entry.update(status='model-answers',examLabel=label,bank=f'/lessons/past-papers/{year}.json',scope='physics',mcqCount=papers[0]['questionCount'],writtenCount=papers[1]['questionCount'],coverageNote=bank['coverageNote'])
         print(year,entry['mcqCount'],'MCQs',entry['writtenCount'],'written questions')
-    temp=OUT/'catalog.json.tmp'
+    temp=BANKS/'catalog.json.tmp'
     temp.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-    temp.replace(OUT/'catalog.json')
+    temp.replace(BANKS/'catalog.json')
 
 if __name__=='__main__':main()

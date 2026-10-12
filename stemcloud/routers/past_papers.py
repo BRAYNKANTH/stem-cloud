@@ -4,7 +4,7 @@ import json, re, time
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import LESSONS, WEB_PAPERS
+from ..config import PAST_PAPERS, WEB_PAPERS
 from ..db import db
 from ..security import body_json, current_user, need_csrf, need_user
 
@@ -26,7 +26,7 @@ def past_papers_page(req: Request):
 def past_questions():
     questions = {}
     for year in range(2015, 2024):
-        path = LESSONS / 'past-papers' / f'{year}.json'
+        path = PAST_PAPERS / f'{year}.json'
         if not path.exists():
             continue
         bank = json.loads(path.read_text(encoding='utf-8'))
@@ -34,6 +34,20 @@ def past_questions():
             continue
         questions.update({q['id']: q for q in bank['questions'] if q['subjects'] == ['physics']})
     return questions
+
+
+@router.get('/lessons/past-papers/{name}.json')
+def past_paper_bank(name: str, req: Request):
+    """A year's question bank or the catalog, from content/past-papers/physics (the address the pages already use).
+    Signed-in students only, like the rest of /lessons."""
+    if not (name == 'catalog' or (name.isdigit() and len(name) == 4)):
+        raise HTTPException(404, 'Not found.')
+    if not current_user(req):
+        raise HTTPException(401, 'Please log in.')
+    path = PAST_PAPERS / (name + '.json')
+    if not path.is_file():
+        raise HTTPException(404, 'Not found.')
+    return FileResponse(path, media_type='application/json')
 
 
 @router.get('/api/past-papers/state')

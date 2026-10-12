@@ -307,6 +307,20 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - The v1 endpoints also write v2 rows. Run `tools/migrate_progress_v2.py` on a **Neon branch copy** of production first and check that every student's XP, badges, stars and finished flags match. Then run it on production.
 - New lesson pages use only v2. The old pages keep v1, which also writes v2, until cutover.
 - **Done when**: the migration check shows zero differences and the API tests cover replay, out-of-order delivery and merging from two devices.
+- **Milestone 6.1 (done 2026-10-12): the v2 tables and the events API.**
+  - Migration 2 adds `progress_events` (every event id seen, so a replay is ignored), `step_progress`, `question_attempts`, `game_scores`, `xp_events`, `badges`, `activity_days`, `user_prefs` and `users.xp_total`. Every table goes with the account when it is deleted.
+  - `stemcloud/progress_v2.py`, with forward-only rules written as single SQL statements that run unchanged on SQLite and Postgres:
+    - a step keeps its earliest opened and done times;
+    - attempts add up, and "first try" comes from the earliest answer, whatever order events arrive in;
+    - best stars only go up, and a badge keeps the first time it was earned;
+    - XP counts once per event;
+    - preferences take the newest change.
+  - **API:**
+    - `POST /api/v2/events` takes a batch of up to 200 events. It reports which were applied, which were already seen and which were refused, with a reason.
+    - `GET /api/v2/progress?lesson=<id>` and `GET /api/v2/progress/summary` return progress.
+  - Times in the future (a fast clock) are clamped to now.
+  - `tests/test_flow.py` covers replay, out-of-order delivery, two devices, separate students and bad events, on SQLite and Postgres.
+  - **Not yet:** the v1 endpoints don't write v2 yet, nothing has been migrated, and no page sends events. Those are 6.2 and 6.3.
 
 ### Phase 7: Past papers (≈1–2 weeks)
 - Port `past-papers.js` to a `PastPapers` island: year and lesson filters, practice and exam mode, drafts, bookmarks, attempts sync.

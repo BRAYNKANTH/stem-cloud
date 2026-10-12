@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "c5",
-  "file": "chapter-05-friction.html"
+  "file": "chapter-05-friction.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "pushit": "pushit",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "walkthroughs": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_pushit_stars"
  },
  "steps": [
   {

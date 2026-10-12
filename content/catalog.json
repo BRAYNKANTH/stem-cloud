@@ -15,7 +15,22 @@
    "path": "content/physics/g10/motion-in-a-straight-line/lesson.json",
    "legacy": {
     "id": "u2",
-    "file": "unit-02-motion-in-a-straight-line.html"
+    "file": "unit-02-motion-in-a-straight-line.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "lab": "lab",
+     "holdgame": "holdgame",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "practice": "worked",
+     "exercises": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_speed_stars"
    },
    "steps": [
     "story",
@@ -46,7 +61,23 @@
    "path": "content/physics/g10/newtons-laws/lesson.json",
    "legacy": {
     "id": "c4",
-    "file": "chapter-04-newtons-laws.html"
+    "file": "chapter-04-newtons-laws.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "holdgame": "holdgame",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "examples": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_force_stars"
    },
    "steps": [
     "story",
@@ -78,7 +109,23 @@
    "path": "content/physics/g10/friction/lesson.json",
    "legacy": {
     "id": "c5",
-    "file": "chapter-05-friction.html"
+    "file": "chapter-05-friction.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "pushit": "pushit",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_pushit_stars"
    },
    "steps": [
     "story",
@@ -110,7 +157,23 @@
    "path": "content/physics/g10/resultant-force/lesson.json",
    "legacy": {
     "id": "c9",
-    "file": "chapter-09-resultant-force.html"
+    "file": "chapter-09-resultant-force.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "tugofwar": "tugofwar",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "examples": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_tow_stars"
    },
    "steps": [
     "story",
@@ -142,7 +205,23 @@
    "path": "content/physics/g10/turning-effect/lesson.json",
    "legacy": {
     "id": "c11",
-    "file": "chapter-11-turning-effect.html"
+    "file": "chapter-11-turning-effect.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "balancegame": "balancegame",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "examples": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_bal_stars"
    },
    "steps": [
     "story",
@@ -174,7 +253,23 @@
    "path": "content/physics/g10/equilibrium/lesson.json",
    "legacy": {
     "id": "c12",
-    "file": "chapter-12-equilibrium.html"
+    "file": "chapter-12-equilibrium.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "holdgame": "holdgame",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_hold_stars"
    },
    "steps": [
     "story",
@@ -206,7 +301,23 @@
    "path": "content/physics/g10/hydrostatic-pressure/lesson.json",
    "legacy": {
     "id": "g10c15",
-    "file": "g10-chapter-15-hydrostatic-pressure.html"
+    "file": "g10-chapter-15-hydrostatic-pressure.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g10c15_stars"
    },
    "steps": [
     "story",
@@ -238,7 +349,23 @@
    "path": "content/physics/g10/work-energy-power/lesson.json",
    "legacy": {
     "id": "g10c18",
-    "file": "g10-chapter-18-work-energy-power.html"
+    "file": "g10-chapter-18-work-energy-power.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g10c18_stars"
    },
    "steps": [
     "story",
@@ -270,7 +397,23 @@
    "path": "content/physics/g10/current-electricity/lesson.json",
    "legacy": {
     "id": "g10c19",
-    "file": "g10-chapter-19-current-electricity.html"
+    "file": "g10-chapter-19-current-electricity.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g10c19_stars"
    },
    "steps": [
     "story",
@@ -302,7 +445,23 @@
    "path": "content/physics/g11/waves/lesson.json",
    "legacy": {
     "id": "g11c04",
-    "file": "g11-chapter-04-waves.html"
+    "file": "g11-chapter-04-waves.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c04_stars"
    },
    "steps": [
     "story",
@@ -334,7 +493,23 @@
    "path": "content/physics/g11/geometrical-optics/lesson.json",
    "legacy": {
     "id": "g11c05",
-    "file": "g11-chapter-05-geometrical-optics.html"
+    "file": "g11-chapter-05-geometrical-optics.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c05_stars"
    },
    "steps": [
     "story",
@@ -366,7 +541,23 @@
    "path": "content/physics/g11/heat/lesson.json",
    "legacy": {
     "id": "g11c09",
-    "file": "g11-chapter-09-heat.html"
+    "file": "g11-chapter-09-heat.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c09_stars"
    },
    "steps": [
     "story",
@@ -398,7 +589,23 @@
    "path": "content/physics/g11/electric-appliances/lesson.json",
    "legacy": {
     "id": "g11c10",
-    "file": "g11-chapter-10-electric-appliances.html"
+    "file": "g11-chapter-10-electric-appliances.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c10_stars"
    },
    "steps": [
     "story",
@@ -430,7 +637,23 @@
    "path": "content/physics/g11/electronics/lesson.json",
    "legacy": {
     "id": "g11c11",
-    "file": "g11-chapter-11-electronics.html"
+    "file": "g11-chapter-11-electronics.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c11_stars"
    },
    "steps": [
     "story",
@@ -462,7 +685,23 @@
    "path": "content/physics/g11/electromagnetism/lesson.json",
    "legacy": {
     "id": "g11c13",
-    "file": "g11-chapter-13-electromagnetism.html"
+    "file": "g11-chapter-13-electromagnetism.html",
+    "steps": {
+     "story": "story",
+     "basics": "basics",
+     "watch": "watch",
+     "notes": "notes",
+     "activities": "activities",
+     "lab": "lab",
+     "challenge": "challenge",
+     "quiz": "quiz",
+     "sortgame": "sort",
+     "walkthroughs": "worked",
+     "practice": "exercises",
+     "recap": "recap",
+     "summary": "summary"
+    },
+    "stars_key": "scx_g11c13_stars"
    },
    "steps": [
     "story",

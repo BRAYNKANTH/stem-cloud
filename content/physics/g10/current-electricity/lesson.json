@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "g10c19",
-  "file": "g10-chapter-19-current-electricity.html"
+  "file": "g10-chapter-19-current-electricity.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "challenge": "challenge",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "walkthroughs": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_g10c19_stars"
  },
  "steps": [
   {

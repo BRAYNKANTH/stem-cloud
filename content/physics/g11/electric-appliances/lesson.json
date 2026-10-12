@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "g11c10",
-  "file": "g11-chapter-10-electric-appliances.html"
+  "file": "g11-chapter-10-electric-appliances.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "challenge": "challenge",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "walkthroughs": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_g11c10_stars"
  },
  "steps": [
   {

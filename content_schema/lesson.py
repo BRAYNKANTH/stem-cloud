@@ -298,6 +298,8 @@ Step = Annotated[Union[StoryStep, BasicsStep, WatchStep, NotesStep, ActivitiesSt
 class LegacyRef(_Strict):
     id: str = Field(description='The id the current lesson page stores progress under, e.g. "c5".')
     file: str = Field(pattern=r'^[a-z0-9-]+\.html$', title='LessonFile')
+    steps: dict[str, ID] = Field(default={}, description="The page's section id -> this lesson's step id, for its saved path (scx_path_<id>).")
+    stars_key: Optional[str] = Field(default=None, pattern=r'^scx_[a-z0-9_]+_stars$', description="The key the page's game saves its best stars under.")
 
 
 class Lesson(_Strict):

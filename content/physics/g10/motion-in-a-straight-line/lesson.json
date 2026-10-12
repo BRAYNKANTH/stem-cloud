@@ -12,7 +12,22 @@
  },
  "legacy": {
   "id": "u2",
-  "file": "unit-02-motion-in-a-straight-line.html"
+  "file": "unit-02-motion-in-a-straight-line.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "lab": "lab",
+   "holdgame": "holdgame",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "practice": "worked",
+   "exercises": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_speed_stars"
  },
  "steps": [
   {

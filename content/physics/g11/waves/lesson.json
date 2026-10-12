@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "g11c04",
-  "file": "g11-chapter-04-waves.html"
+  "file": "g11-chapter-04-waves.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "challenge": "challenge",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "walkthroughs": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_g11c04_stars"
  },
  "steps": [
   {

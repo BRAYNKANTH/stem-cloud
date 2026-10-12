@@ -321,6 +321,16 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - Times in the future (a fast clock) are clamped to now.
   - `tests/test_flow.py` covers replay, out-of-order delivery, two devices, separate students and bad events, on SQLite and Postgres.
   - **Not yet:** the v1 endpoints don't write v2 yet, nothing has been migrated, and no page sends events. Those are 6.2 and 6.3.
+- **Milestone 6.2 (2026-10-12): dual-write and the v1 migration.**
+  - Each lesson's `legacy` entry now records the page's section id → step id map and the key its game saves stars under. The section id `practice` is the worked examples in unit 2 but the exercises elsewhere.
+  - `tools/legacy_map.py` writes `stemcloud/legacy_map.json` from it (checked in CI), because `content/` is not bundled with the server.
+  - `stemcloud/progress_bridge.py` turns v1 keys into v2 rows: XP total, badges, visit days, path, story and lesson finished, game stars, topic steps and questions, language and theme. Every rule only ever adds.
+  - **Dual-write:** every save to `PUT /api/progress` also writes v2, inside a savepoint, so a failure there never blocks the v1 save.
+  - **`tools/migrate_progress_v2.py`:**
+    - `--run` writes v2 from v1 for every student, one transaction per student;
+    - `--check` rebuilds each student's expected v2 rows from v1 alone and verifies the real rows have at least that;
+    - it exits 1 on any difference.
+  - **Still to do (owner):** run it on a Neon branch copy of production, then on production (`docs/owner-tasks.md`).
 
 ### Phase 7: Past papers (≈1–2 weeks)
 - Port `past-papers.js` to a `PastPapers` island: year and lesson filters, practice and exam mode, drafts, bookmarks, attempts sync.

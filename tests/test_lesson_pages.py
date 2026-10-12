@@ -338,6 +338,22 @@ def run():
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             pg.click('.lbar .lb-listen')
             check('on the story, Listen switches the story voices', lambda: pg.evaluate("localStorage.getItem('stem_story_mode')") == 'rec' and pg.locator('#stem-vp').count() == 0)
+            # ------------------------------------------------------------ Motion: the lab, rebuilt (labs/physics/MotionLab.tsx)
+            pg.goto(BASE + MOTION + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('the lab is the rebuilt one, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('the lab stage draws Raja and Chittu', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_u2_' + i))")
+            pg.locator('#lab .lg-try').nth(2).click()                    # slowing down, then back: u = 10, a = -2
+            ro = lambda k: pg.locator('#lab [data-ro=%s]' % k).inner_text()
+            check('a try sets the sliders and plays', lambda: pg.locator('#uSlider').input_value() == '10' and pg.locator('#aSlider').input_value() == '-2' and float(ro('t').split()[0]) > 0)
+            pg.wait_for_function("document.querySelector('#lab [data-ro=t]').textContent.startsWith('10.0')", timeout=20000)
+            check('the motion: after 10 s, v = -10 m/s, displacement 0, distance 50 m', lambda: (ro('v'), ro('s'), ro('d')) == ('-10.0 m/s', '0.0 m', '50.0 m'), lambda: (ro('v'), ro('s'), ro('d')))
+            check('stopping and turning back complete missions 2 and 3', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [False, True, True],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            check('a mission is kept on this device under the current page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_u2_2')") == '1')
+
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'
             server = lambda: pg.evaluate("fetch('/api/v2/progress?lesson=%s').then(r => r.json())" % L)

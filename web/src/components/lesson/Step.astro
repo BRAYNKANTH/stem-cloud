@@ -1,11 +1,15 @@
 ---
 // One step of a lesson as static HTML (no JavaScript needed to read it). The interactive parts are islands: labs, games,
 // the sort game and the animation are the current lesson page in a frame until they are rebuilt (LegacyFrame).
-// The quiz, the story player, the exercises' full-screen figures and read-aloud are later milestones of Phase 5; until
-// then the quiz shows its answers behind "Show answer" and the story is a list of bubbles.
+// The story and the quiz are islands too (StoryPlayer, Quiz); without JavaScript the page shows the story as a list of
+// bubbles and the quiz with its answers behind "Show answer" instead (styles/lesson.css). The exercises' rows and
+// full-screen figures are scripts/lesson-content.ts.
 import type { Lesson } from '../../lib/content-types';
 import { KINDS, UI } from '../../lib/lesson-ui';
+import { CHITTU, RAJA } from '../../lib/cast';
 import LegacyFrame from '../../islands/LegacyFrame';
+import Quiz from '../../islands/Quiz';
+import StoryPlayer from '../../islands/StoryPlayer';
 import T from './T.astro';
 
 interface Props {
@@ -30,7 +34,11 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
   {s.type === 'story' && (
     <>
       {s.quest && <T t={s.quest} rich class="quest" />}
-      <ol class="story">
+      <StoryPlayer client:idle stepId={s.id} lines={s.lines} cta={s.cta}>
+        <Fragment slot="raja" set:html={RAJA} />
+        <Fragment slot="chittu" set:html={CHITTU} />
+      </StoryPlayer>
+      <ol class="story nojs">
         {s.lines.map((line) => (
           <li class:list={['bubble', line.speaker]}>
             {line.scene && <span class="scene" aria-hidden="true">{line.scene}</span>}
@@ -39,7 +47,7 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
           </li>
         ))}
       </ol>
-      {s.cta && <p class="cta"><T t={s.cta} /></p>}
+      {s.cta && <p class="cta nojs"><T t={s.cta} /></p>}
     </>
   )}
 
@@ -68,8 +76,9 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
   {s.type === 'watch' && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
   {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
 
+  {s.type === 'quiz' && <Quiz client:idle stepId={s.id} questions={s.questions} />}
   {s.type === 'quiz' && (
-    <ol class="quiz">
+    <ol class="quiz nojs">
       {s.questions.map((q) => (
         <li class="card qz" id={q.id}>
           <p class="qz-q"><T t={q.prompt} /></p>
@@ -77,7 +86,7 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
             {q.options.map((o, k) => <li><b aria-hidden="true">{LETTERS[k]}</b> <T t={o} /></li>)}
           </ol>
           <details class="qz-ans">
-            <summary><T t={UI.showAnswer} /></summary>
+            <summary><span class="when-closed"><T t={UI.showAnswer} /></span><span class="when-open"><T t={UI.hideAnswer} /></span></summary>
             <p><b>{LETTERS[q.answer]}</b> <T t={q.options[q.answer]} /></p>
             {q.explain && <p class="explain"><T t={q.explain} /></p>}
           </details>
@@ -105,7 +114,7 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
           <div class="ex-q"><span class="exnum">{x.num}</span><T t={x.prompt} rich /></div>
           {x.answer && (
             <details class="ex-ans">
-              <summary><T t={UI.showAnswer} /></summary>
+              <summary><span class="when-closed"><T t={UI.showAnswer} /></span><span class="when-open"><T t={UI.hideAnswer} /></span></summary>
               <T t={x.answer} rich />
             </details>
           )}

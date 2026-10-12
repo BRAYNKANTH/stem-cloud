@@ -44,7 +44,7 @@ jobs:
   web:
     name: Web app (type check, build, JS budget)
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     defaults:
       run:
         working-directory: web
@@ -74,3 +74,10 @@ jobs:
         run: npm run build
       - name: JavaScript budget (60 KB gzipped per page)
         run: npm run budget
+      - name: Lesson pages in a browser (every chapter at 375 px and desktop; player, story, quiz)
+        working-directory: .
+        timeout-minutes: 8
+        run: |
+          pip install -r requirements-dev.txt
+          python -m playwright install --with-deps chromium
+          python tests/test_lesson_pages.py

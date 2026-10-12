@@ -27,6 +27,7 @@ export const UI = {
   proud: { en: 'Well done! Raja and Chittu are proud of you.', ta: 'சபாஷ்! ராஜாவும் சிட்டுவும் உன்ன நினைச்சு பெருமைப்படறாங்க.', si: 'සුබ පැතුම්! රාජා සහ චිට්ටුට ඔබ ගැන ආඩම්බරයි.' },
   allLessons: { en: 'All lessons', ta: 'எல்லா பாடங்கள்', si: 'සියලුම පාඩම්' },
   showAnswer: { en: 'Show answer', ta: 'பதில் பாரு', si: 'පිළිතුර පෙන්වන්න' },
+  hideAnswer: { en: 'Hide answer', ta: 'பதிலை மறை', si: 'පිළිතුර සඟවන්න' },
   terms: { en: 'Terms', ta: 'வார்த்தைகள்', si: 'පද' },
   meanings: { en: 'Meanings', ta: 'விளக்கங்கள்', si: 'අර්ථ' },
   raja: { en: 'Raja', ta: 'ராஜா', si: 'රාජා' },

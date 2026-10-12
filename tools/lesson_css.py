@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 """Port the styles of the lesson content (notes, worked examples, answers, activities) to the new lesson pages.
 
-The rich text in content/ keeps the class names of the hand-built lesson pages (.exq, .work, .formula-box, .callout, ...).
-Their styles live in each page's own <style> block, with small differences between chapters, plus the bright theme and
-the player's fixes in public/static/. This collects every rule whose selectors only name those content classes, from all
-lesson pages (the first copy of a rule wins, exact duplicates are dropped), then the bright theme's and the player's rules
-for the same classes, scopes them all under .lc (the lesson content on the new pages) and writes
-web/src/styles/lesson-content.css. The old page variables (--text, --panel, ...) are mapped to the design tokens there; font families,
+The rich text in content/ keeps the class names of the hand-built lesson pages (.exq, .work, .formula-box, .callout, ...),
+and the story and quiz islands use the old pages' own class names (.so-*, .qz-*, the answer sheet #stem-qsheet), so they
+look as they do today. Their styles live in each page's own <style> block, with small differences between chapters,
+plus the bright theme, the player's fixes and the app layer in public/static/. This collects every rule whose selectors
+only name those classes, from all lesson pages (the first copy of a rule wins, exact duplicates are dropped), then the
+public/static/ rules for the same classes (with their dark-theme versions), scopes them all under .lc (the lesson on the
+new pages) and writes web/src/styles/lesson-content.css, with the story's and the sheet's animations. The old page variables (--text, --panel, ...) are mapped to the design tokens there; font families,
 the old theme and language rules are left out (the new pages set type from the design tokens).
 
     python tools/lesson_css.py           # write the file
@@ -18,7 +19,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'web' / 'src' / 'styles' / 'lesson-content.css'
 PAGES = sorted(glob.glob(str(ROOT / 'site' / 'lessons' / '*.html')))
-LATER = [ROOT / 'public' / 'static' / 'theme-bright.css', ROOT / 'public' / 'static' / 'player.css']
+LATER = [ROOT / 'public' / 'static' / n for n in ('theme-bright.css', 'player.css', 'app-layer.css')]
+ISLAND_PREFIXES = ('so-', 'qz-', 'qs-')       # story (StoryPlayer) and quiz (Quiz, the answer sheet)
+ISLAND_IDS = {'stem-qsheet'}
+# the quiz score line, exercise parts in rows, full-screen diagrams and the voice messages (public/static/questions.js, voice.js)
+ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-cap', 'fig-hint', 'zoomable', 'pannable',
+                  'stem-lightbox', 'lb-bar', 'lb-body', 'stem-toast'}
+STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet'}   # the islands' state classes, next to one of theirs
+DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 
 
 def content_classes():
@@ -27,6 +35,20 @@ def content_classes():
     for f in glob.glob(str(ROOT / 'content' / '*' / '*' / '*' / 'lesson.json')):
         for m in re.findall(r'class=\\"([^"\\]+)\\"', Path(f).read_text(encoding='utf8')):
             out.update(m.split())
+    return out
+
+
+def keyframes(css):
+    """name -> the whole @keyframes block."""
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    out = {}
+    for m in re.finditer(r'@keyframes\s+([A-Za-z0-9_-]+)\s*\{', css):
+        depth, j = 0, m.end() - 1
+        for j in range(m.end() - 1, len(css)):
+            depth += {'{': 1, '}': -1}.get(css[j], 0)
+            if depth == 0:
+                break
+        out.setdefault(m.group(1), re.sub(r'\s+', ' ', css[m.start():j + 1]))
     return out
 
 
@@ -64,27 +86,43 @@ def rules(css):
 TOKEN = re.compile(r'\.([a-zA-Z0-9_-]+)')
 
 
-def keep(sel, allowed):
-    """The selector scoped under .lc, or None if it names anything but content classes (ids, page parts, html/body)."""
-    s = sel.strip()
-    if not s or '#' in s or re.search(r'html|body|:root|lang-|data-theme', s):      # theme and language rules: the new pages have their own
+def ok_class(c, allowed):
+    return c in allowed or c in ISLAND_CLASSES or c.startswith(ISLAND_PREFIXES)
+
+
+def keep(sel, allowed, dark_ok=False):
+    """The selector scoped under .lc, or None if it names anything but these classes (other ids, page parts, html/body).
+    dark_ok: a dark-theme rule from public/static/ keeps its [data-theme="dark"] in front."""
+    s, dark = sel.strip(), ''
+    m = DARK.match(s)
+    if m and dark_ok:
+        s, dark = s[m.end():], ':root[data-theme="dark"] '
+    if not s or re.search(r'html|body|:root|lang-|data-theme', s):      # theme and language rules: the new pages have their own
         return None
-    names = TOKEN.findall(s)
-    if not names or any(c not in allowed for c in names):
+    ids = re.findall(r'#([A-Za-z0-9_-]+)', s)
+    if any(i not in ISLAND_IDS for i in ids):
         return None
-    return '.lc ' + s
+    names = TOKEN.findall(re.sub(r'#[A-Za-z0-9_-]+', '', s))
+    island = bool(ids) or any(c.startswith(ISLAND_PREFIXES) or c in ISLAND_CLASSES for c in names)
+    if (not names and not ids) or any(not (ok_class(c, allowed) or (island and c in STATES)) for c in names):
+        return None
+    return dark + '.lc ' + s
 
 
 def collect():
     allowed = content_classes()
     seen, out = set(), []
-    sources = [Path(p).read_text(encoding='utf8') for p in PAGES]
-    sources = [''.join(re.findall(r'<style[^>]*>(.*?)</style>', s, re.S)) for s in sources] + [p.read_text(encoding='utf8') for p in LATER]
-    for css in sources:
+    pages = [''.join(re.findall(r'<style[^>]*>(.*?)</style>', Path(p).read_text(encoding='utf8'), re.S)) for p in PAGES]
+    sources = [(css, False) for css in pages] + [(p.read_text(encoding='utf8'), True) for p in LATER]
+    frames = {}
+    for css, later in sources:
+        for name, block in keyframes(css).items():
+            if name.startswith(ISLAND_PREFIXES):
+                frames.setdefault(name, block)
         for media, sel, body in rules(css):
             if 'prefers-color-scheme' in media:     # the old pages followed the system theme; the new ones follow the student's choice
                 continue
-            sels = [keep(x, allowed) for x in sel.split(',')]
+            sels = [keep(x, allowed, dark_ok=later) for x in sel.split(',')]
             sels = [x for x in sels if x]
             if not sels or not body:
                 continue
@@ -95,11 +133,11 @@ def collect():
                 continue
             seen.add(key)
             out.append(key)
-    return out
+    return out, frames
 
 
-HEAD = '''/* Generated by tools/lesson_css.py from the lesson pages' own styles, public/static/theme-bright.css and
-   public/static/player.css. Do not edit: change the generator or the old pages, then run it again.
+HEAD = '''/* Generated by tools/lesson_css.py from the lesson pages' own styles, public/static/theme-bright.css,
+   public/static/player.css and public/static/app-layer.css. Do not edit: change the generator or the old pages, then run it again.
    Scoped to .lc, the lesson content on the new pages. The old page variables are mapped to the design tokens. */
 .lc {
   --bg: var(--sc-ground); --bg-alt: var(--sc-panel-2); --panel: var(--sc-panel); --panel-2: var(--sc-panel-2); --border: var(--sc-line);
@@ -114,8 +152,9 @@ HEAD = '''/* Generated by tools/lesson_css.py from the lesson pages' own styles,
 
 
 def render():
+    found, frames = collect()
     lines, media = [HEAD], None
-    for m, sel, body in collect():
+    for m, sel, body in found:
         if m != media:
             if media:
                 lines.append('}')
@@ -125,6 +164,7 @@ def render():
         lines.append(('  ' if m else '') + sel + ' { ' + body + ' }')
     if media:
         lines.append('}')
+    lines += [frames[k] for k in sorted(frames)]
     return '\n'.join(lines) + '\n'
 
 

@@ -303,6 +303,15 @@ class LearnRoute(unittest.TestCase):
             for url in ('/learn/physics/10/motion-in-a-straight-line/', '/learn/Physics/g10/x/', '/learn/physics/g10/a_b/'):
                 self.assertEqual(client.get(url, follow_redirects=False).status_code, 404, url)
 
+    def test_only_listed_current_lessons_offer_the_new_one(self):
+        r = self.signed_in.get('/lessons/unit-02-motion-in-a-straight-line.html')
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('stem-try-new', r.text)
+        self.assertIn('"/learn/physics/g10/motion-in-a-straight-line/"', r.text)
+        r = self.signed_in.get('/lessons/chapter-05-friction.html')
+        self.assertEqual(r.status_code, 200)
+        self.assertNotIn('stem-try-new', r.text)
+
     def test_the_build_path_goes_through_the_check(self):
         r = TestClient(app).get('/shell/learn/physics/g10/motion-in-a-straight-line/', follow_redirects=False)
         self.assertEqual((r.status_code, r.headers['location']), (302, self.URL))

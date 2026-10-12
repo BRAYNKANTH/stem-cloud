@@ -8,6 +8,7 @@ import Step from '../../../../../../components/lesson/Step.astro';
 import T from '../../../../../../components/lesson/T.astro';
 import LessonPlayer from '../../../../../../islands/LessonPlayer';
 import StepEnd from '../../../../../../islands/StepEnd';
+import VoiceControls from '../../../../../../islands/VoiceControls';
 import LangSwitch from '../../../../../../islands/LangSwitch';
 import ThemeToggle from '../../../../../../islands/ThemeToggle';
 import { LESSONS } from '../../../../../../lib/lessons';
@@ -55,6 +56,7 @@ const steps = [...stepInfo(lesson), { id: FINISH_ID, label: UI.finish, phase: 'p
           <a class="btn primary" href="/lessons/index.html"><T t={UI.allLessons} /></a>
         </div>
       </section>
+      <VoiceControls client:idle />
     </div>
     <script is:inline>
       (function () {

@@ -43,6 +43,23 @@ function store(k: string): string | null {
   }
 }
 
+/** The voices installed on this phone for a language. */
+export function voicesFor(lg: Lang): SpeechSynthesisVoice[] {
+  loadVoices();
+  return voices.filter((v) => vlang(v).startsWith(lg));
+}
+
+/** Remembers the student's choice of voice for a language (voice.js: stem_voice_<lang>). */
+export function setVoice(lg: Lang, name: string): void {
+  try {
+    localStorage.setItem('stem_voice_' + lg, name);
+  } catch {
+    /* private mode */
+  }
+}
+
+export const currentVoice = (lg: Lang): SpeechSynthesisVoice | null => pickVoice(lg, undefined);
+
 function pickVoice(lg: Lang, who: Who): SpeechSynthesisVoice | null {
   const saved = store('stem_voice_' + lg);                    // the voice the student chose
   if (saved) {
@@ -141,8 +158,8 @@ export function silence(): void {
   }
 }
 
-/** Says the text with the phone's voice, sentence by sentence. */
-export function speak(text: string, lg: Lang, who?: Who, done?: () => void): void {
+/** Says the text with the phone's voice, sentence by sentence (at the given speed, else the saved or default one). */
+export function speak(text: string, lg: Lang, who?: Who, done?: () => void, speed?: number): void {
   silence();
   const my = gen;
   const parts = chunks(speakable(text, lg));
@@ -165,7 +182,7 @@ export function speak(text: string, lg: Lang, who?: Who, done?: () => void): voi
       u.voice = v;
       u.lang = v.lang;
     }
-    u.rate = rate(lg);
+    u.rate = speed ?? rate(lg);
     u.pitch = who === 'R' ? 1.12 : who === 'C' ? 1.3 : 1;
     u.onend = next;
     u.onerror = () => {

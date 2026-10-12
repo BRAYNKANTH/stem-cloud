@@ -96,6 +96,13 @@ export default function StoryPlayer({ stepId, lines, cta, raja, chittu }: {
     return () => window.removeEventListener('pagehide', stop);
   }, []);
 
+  // the step bar's Listen button on the story step switches the voices (LessonPlayer STORY_VOICE_EVENT)
+  useEffect(() => {
+    const onListen = () => cycle();
+    window.addEventListener('stem-story-voice', onListen);
+    return () => window.removeEventListener('stem-story-voice', onListen);
+  });
+
   // typing effect (none when animations are off)
   useEffect(() => {
     if (shown < 0 || shown >= full.length) return;

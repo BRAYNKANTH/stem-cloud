@@ -2,7 +2,7 @@
 
 What has been done so far in the move to **Astro + Preact islands + FastAPI**: the blockers we hit and how each was handled, and the decisions made or changed along the way.
 
-- **Covers:** 2026-10-10 to 2026-10-12, Phases 0–4 and milestones 5.1–5.2.
+- **Covers:** 2026-10-10 to 2026-10-12, Phases 0–4 and milestones 5.1–5.3.
 - **Companion documents:** the plan is in [migration-plan-astro.md](migration-plan-astro.md); steps only the site owner can do are in [owner-tasks.md](owner-tasks.md).
 
 ## 1. Where things stand
@@ -14,7 +14,7 @@ What has been done so far in the move to **Astro + Preact islands + FastAPI**: t
 | 2 Astro foundation, deploy, public pages | ✅ done, except milestone 2.4 (on hold) | faster home, about, privacy and terms pages; a phone menu |
 | 3 Login, account, admin | ✅ done, except the course home (moved to Phase 5/6) | new login, account and admin pages; same wording |
 | 4 Lesson format + extraction | ✅ done | nothing yet; all 15 chapters exist as JSON, ready for Phase 5 |
-| 5 New lesson pages | in progress: 5.1 (page and player) and 5.2 (story, quiz, exercises) done | a "Try the new lesson" link on Motion; the current lessons stay the default |
+| 5 New lesson pages | in progress: 5.1 (page and player), 5.2 (story, quiz, exercises) and 5.3 (read-aloud) done | a "Try the new lesson" link on Motion; the current lessons stay the default |
 | 6 Progress v2 · 7 Past papers · 8 Labs · 9 Cut-over · 10 App stores · 11 Second subject | not started | |
 
 **Live in production** (checked by the smoke test after every deploy):
@@ -194,4 +194,8 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 
 **Found on the way:** two key presses or swipes that came before the story re-rendered counted as one; fixed, and tested. Quiz options were 40 px tall; now 44 px.
 
-**Next (5.3):** read-aloud for each step.
+**5.3, read-aloud** (2026-10-12):
+- The Listen button reads the step with the phone's voice, highlighting each block, with the reading controls of today's pages.
+- **Decision:** it reads the text the step shows. That is the content in the student's language, since the other languages are hidden, so nothing is shipped twice.
+
+**Next (5.4):** the topic view.

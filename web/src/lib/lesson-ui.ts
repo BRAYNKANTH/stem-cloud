@@ -30,6 +30,8 @@ export const UI = {
   hideAnswer: { en: 'Hide answer', ta: 'பதிலை மறை', si: 'පිළිතුර සඟවන්න' },
   terms: { en: 'Terms', ta: 'வார்த்தைகள்', si: 'පද' },
   meanings: { en: 'Meanings', ta: 'விளக்கங்கள்', si: 'අර්ථ' },
+  readAloud: { en: 'Read this step aloud', ta: 'இந்த படியை படிச்சுக் காட்டு', si: 'මෙම පියවර හඬ නඟා කියවන්න' },
+  pauseReading: { en: 'Pause reading', ta: 'படிப்பதை நிறுத்து' },
   raja: { en: 'Raja', ta: 'ராஜா', si: 'රාජා' },
   chittu: { en: 'Chittu', ta: 'சிட்டு', si: 'චිට්ටු' },
   // new wording (no current page has it): Tamil and Sinhala need a reviewer (docs/owner-tasks.md)

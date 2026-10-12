@@ -279,7 +279,14 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **"Try the new lesson"** on the current Motion page, above the lesson path (`NEW_LESSONS` in `stemcloud/config.py`; not inside frames). The current lessons stay the default.
   - **Browser test** `tests/test_lesson_pages.py` in CI: every chapter at 375 px and on desktop, every step in all three languages (no sideways scroll, 44 px controls on the phone, no script errors), and on Motion the player, story, quiz, worked examples and the page without JavaScript. 90 checks.
   - 27.8 KB of JavaScript per lesson page (budget 60 KB).
-- **Next:** `VoiceReader` (5.3: read-aloud of each step from the content, sentence highlighting), then the topic view (5.4) and more chapters behind the link once a teacher has looked at Motion. XP and badges come with progress v2 (Phase 6).
+- **Milestone 5.3 (done 2026-10-12): read-aloud.**
+  - A Listen button in the step bar reads the step block by block with the phone's voice, highlighting the block being read. Tapping a block reads on from there.
+  - Reading controls at the bottom (`VoiceControls`, as `#stem-vp` today): previous, pause / play, next, speed (saved as `stem_rate`), change voice (saved per language as `stem_voice_<lang>`), position, stop.
+  - The rules of `voice.js` (symbols and units said as words, sentence chunks, voice choice) are in `web/src/lib/speech.ts` and `web/src/stores/reader.ts`.
+  - Reading stops on a new step, a new language, or when the page is hidden. On the story step, Listen switches the story's voices, as today.
+  - **Decided:** the reader reads what the step shows, not a separate copy of the content data (§5 Phase 5 said "from content data, not the DOM"). Every language is in the page and only the student's is visible, so the visible text is the content data in their language. Reading it there also gives the element to highlight, and nothing has to be shipped twice.
+  - The browser test checks reading, highlighting, the controls, units said as words, Tamil, stopping on a new step, and Listen on the story.
+- **Next:** the topic view (5.4), and more chapters behind the "Try the new lesson" link once a teacher has looked at Motion. XP and badges come with progress v2 (Phase 6).
 
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
 - Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.

@@ -1,7 +1,7 @@
 ---
-// A lesson, built from content/<subject>/g<grade>/<chapter>/lesson.json. Built under /shell/ because the Python route
-// /learn/<subject>/g<grade>/<chapter>/ checks the student is signed in first, then serves this page
-// (stemcloud/routers/lessons.py); vercel.json sends /shell/learn/* there too, so the CDN never serves it without the check.
+// A lesson, built from content/<subject>/g<grade>/<chapter>/lesson.json. Lessons are login-only: after the build,
+// web/scripts/private.mjs moves these pages out of the published files into web/dist-private/learn/, and the Python
+// route /learn/<subject>/g<grade>/<chapter>/ serves them after checking the sign-in (stemcloud/routers/lessons.py).
 // Every step is plain HTML in all three languages; the player shows one step at a time once its script has loaded.
 import AppLayout from '../../../../../../layouts/AppLayout.astro';
 import Step from '../../../../../../components/lesson/Step.astro';

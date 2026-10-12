@@ -415,10 +415,12 @@ def extract(file: str, meta: dict) -> tuple[dict, list]:
               'number': meta['n'], 'title': {k: meta[k] for k in ('en', 'ta', 'si') if meta.get(k)},
               'legacy': {'id': meta['lid'], 'file': file}, 'steps': []}
     steps = lesson['steps']
+    path = {}                                   # the page's section id -> the step it became (the saved path uses section ids)
     for sec in soup.select('section.block[id]'):
         sid = sec['id']
         if sid in SKIP_SECTIONS:
             continue
+        before = len(steps)
         if sid == 'story':
             s = story(sec, html, meta['lid'], report)
             if s:
@@ -452,6 +454,14 @@ def extract(file: str, meta: dict) -> tuple[dict, list]:
             steps.append(summary(sec, report))
         else:
             report.append('section #%s: unknown kind; left out' % sid)
+        if len(steps) > before:
+            path[sid] = steps[-1]['id']
+    lesson['legacy']['steps'] = path
+    stars = sorted(set(re.findall(r"'(scx_[a-z0-9_]+_stars)'", html)))      # the key the page's game keeps its best stars under
+    if len(stars) == 1:
+        lesson['legacy']['stars_key'] = stars[0]
+    elif stars:
+        report.append('more than one stars key (%s); none recorded' % ', '.join(stars))
     spec_file = TOPIC_MAPS / (file[:-len('.html')] + '.spec.json')
     if spec_file.is_file():
         add_topics(lesson, json.loads(spec_file.read_text(encoding='utf-8')), soup, report)

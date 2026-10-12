@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "c4",
-  "file": "chapter-04-newtons-laws.html"
+  "file": "chapter-04-newtons-laws.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "holdgame": "holdgame",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "examples": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_force_stars"
  },
  "steps": [
   {

@@ -356,6 +356,88 @@ class ProgressV2Deletion(unittest.TestCase):
                 self.assertEqual(con.execute('SELECT COUNT(*) AS n FROM %s' % table).fetchone()['n'], 0, table)
 
 
+V1 = {'scx_xp_total': '135', 'scx_badges': '["quiz_ace","u2_examples_master"]', 'scx_visit_dates': '["2026-10-10","2026-10-11"]',
+      'scx_path_u2': '{"story":1,"practice":1,"sortgame":1,"nope":1}', 'scx_story_u2': '1', 'scx_done_c5': '1',
+      'scx_speed_stars': '[3,1,0]', 'scx_pushit_stars': '[2]', 'lessonLang': 'ta', 'scx_position_u2': '{"note":2}',
+      'scx_topics_u2': '{"distance-displacement":{"v":{"understand":1,"watch":1},"d":{"understand":1},"q":{"m1":{"n":2,"ok":1,"f":0},"xc_1i":{"n":1,"ok":1,"f":1}}}}'}
+U2 = 'physics.g10.motion-in-a-straight-line'
+
+
+class ProgressBridge(unittest.TestCase):
+    """v1 -> v2: the dual-write of every v1 save, and the one-off migration with its check."""
+
+    def rows(self, con, uid):
+        q = lambda sql: [tuple(r) for r in con.execute(sql, (uid,)).fetchall()]
+        return {
+            'steps': sorted(q('SELECT lesson_id,step_id,done_at IS NOT NULL FROM step_progress WHERE user_id=?')),
+            'badges': sorted(q('SELECT badge_id FROM badges WHERE user_id=?')),
+            'days': sorted(q('SELECT day FROM activity_days WHERE user_id=?')),
+            'games': sorted(q('SELECT game_id,level,best_stars FROM game_scores WHERE user_id=?')),
+            'questions': sorted(q('SELECT question_id,attempts,ever_correct,first_try_correct FROM question_attempts WHERE user_id=?')),
+            'xp': con.execute('SELECT xp_total FROM users WHERE id=?', (uid,)).fetchone()['xp_total'],
+            'lang': (con.execute('SELECT lang FROM user_prefs WHERE user_id=?', (uid,)).fetchone() or {'lang': None})['lang'],
+        }
+
+    def test_a_v1_save_also_writes_v2(self):
+        dbmod.DB_PATH = os.path.join(TMP, 'bridge-dual.db')
+        migrations._ready = False
+        c = TestClient(app)
+        self.assertEqual(c.post('/api/signup', headers=H, json={'username': 'dual_one', 'password': 'dual-write-123'}).status_code, 200)
+        self.assertEqual(c.put('/api/progress', headers=H, json=V1).status_code, 200)
+        with dbmod.db() as con:
+            uid = con.execute("SELECT id FROM users WHERE username='dual_one'").fetchone()['id']
+            r = self.rows(con, uid)
+        self.assertEqual(r['xp'], 135)
+        self.assertEqual(r['badges'], [('quiz_ace',), ('u2_examples_master',)])
+        self.assertEqual(r['days'], [('2026-10-10',), ('2026-10-11',)])
+        self.assertEqual(r['lang'], 'ta')
+        steps = set(r['steps'])
+        # the page's own section ids, mapped per lesson: in unit 2 "practice" is the worked examples
+        for step in ('story', 'worked', 'sort'):
+            self.assertIn((U2, step, 1), steps)
+        self.assertIn(('physics.g10.friction', 'finish', 1), steps)
+        self.assertIn((U2, 'topic:distance-displacement:understand', 1), steps)
+        self.assertIn((U2, 'topic:distance-displacement:watch', 0), steps)          # opened, not done
+        self.assertNotIn('nope', {s for _, s, _ in steps})
+        self.assertIn((U2 + '/holdgame', 0, 3), r['games'])
+        self.assertIn(('physics.g10.friction/pushit', 0, 2), r['games'])
+        self.assertEqual(r['questions'], [(U2 + '/q1', 2, 1, 0), (U2 + '/xc-1i', 1, 1, 1)])
+        # more v1 XP later: the legacy total follows it; v2 XP from the new pages adds on top, once
+        c.put('/api/progress', headers=H, json={'scx_xp_total': '150'})
+        c.post('/api/v2/events', headers=H, json={'events': [{'id': 'dual-xp-0001', 'type': 'xp', 'at': int(time.time()) - 5, 'source': 'q1', 'amount': 10}]})
+        c.put('/api/progress', headers=H, json={'scx_xp_total': '150'})
+        with dbmod.db() as con:
+            self.assertEqual(self.rows(con, uid)['xp'], 160)
+
+    def test_the_migration_fills_v2_and_checks_it(self):
+        from tools import migrate_progress_v2 as mig
+        dbmod.DB_PATH = os.path.join(TMP, 'bridge-mig.db')
+        migrations._ready = False
+        with dbmod.db() as con:       # progress saved before the dual-write existed: v1 rows only
+            con.execute("INSERT INTO users(username,display_name,pw,role,created_at,last_seen) VALUES('old_one','Old','x','student',1,1)")
+            uid = con.execute("SELECT id FROM users WHERE username='old_one'").fetchone()['id']
+            for k, v in V1.items():
+                con.execute('INSERT INTO progress(user_id,k,v,updated_at) VALUES(?,?,?,?)', (uid, k, v, 1760000000))
+        run = lambda *a: patch.object(sys, 'argv', ['migrate'] + list(a))
+        with run('--check'), self.assertRaises(SystemExit) as e:
+            mig.main()
+        self.assertEqual(e.exception.code, 1)                      # nothing in v2 yet
+        with run('--run'), self.assertRaises(SystemExit) as e:
+            mig.main()
+        self.assertEqual(e.exception.code, 0)
+        with dbmod.db() as con:
+            first = self.rows(con, uid)
+        self.assertEqual(first['xp'], 135)
+        with run('--run'), self.assertRaises(SystemExit) as e:     # a second run changes nothing
+            mig.main()
+        with dbmod.db() as con:
+            self.assertEqual(self.rows(con, uid), first)
+            con.execute('DELETE FROM badges WHERE user_id=?', (uid,))
+        with run('--check'), self.assertRaises(SystemExit) as e:   # and the check notices a gap
+            mig.main()
+        self.assertEqual(e.exception.code, 1)
+
+
 class HealthMedia(unittest.TestCase):
     """/healthz says how media is served, so a deployment can be checked without logging in."""
     R2 = {'R2_MEDIA_ENABLED': '1', 'R2_ACCOUNT_ID': 'a' * 32, 'R2_ACCESS_KEY_ID': 'key-id-value',

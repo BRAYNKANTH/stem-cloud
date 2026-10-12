@@ -11,6 +11,10 @@ export type LessonFile = string;
  */
 export type Id1 = string;
 /**
+ * The key the page's game saves its best stars under.
+ */
+export type StarsKey = string | null;
+/**
  * Chapter or unit number as printed in the textbook, e.g. "5" or "2".
  */
 export type ChapterNumber = string;
@@ -21,7 +25,7 @@ export type Slug = string;
 /**
  * @minItems 1
  */
-export type Steps = [
+export type Steps1 = [
   (
     | StoryStep
     | BasicsStep
@@ -172,7 +176,7 @@ export type Explore = (ExploreStory | ExploreLab) | null;
 /**
  * @minItems 1
  */
-export type Steps1 = [StoryQuestion, ...StoryQuestion[]];
+export type Steps2 = [StoryQuestion, ...StoryQuestion[]];
 export type Correct = number;
 /**
  * @minItems 2
@@ -224,7 +228,7 @@ export interface Lesson {
   revision?: Revision | null;
   schema: Schema;
   slug: Slug;
-  steps: Steps;
+  steps: Steps1;
   subject: Subject;
   title: Text;
   topics?: Topics;
@@ -236,6 +240,14 @@ export interface Lesson {
 export interface LegacyRef {
   file: LessonFile;
   id: Id1;
+  stars_key?: StarsKey;
+  steps?: Steps;
+}
+/**
+ * The page's section id -> this lesson's step id, for its saved path (scx_path_<id>).
+ */
+export interface Steps {
+  [k: string]: string;
 }
 /**
  * After the topics: mixed exercises and the whole quiz, by id.
@@ -505,7 +517,7 @@ export interface Topic {
  */
 export interface ExploreStory {
   scenario: Text;
-  steps: Steps1;
+  steps: Steps2;
   title: Text;
   type: Type11;
   wrap?: Text | null;

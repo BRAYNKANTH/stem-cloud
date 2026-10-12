@@ -550,6 +550,31 @@
           "description": "The id the current lesson page stores progress under, e.g. \"c5\".",
           "title": "Id",
           "type": "string"
+        },
+        "stars_key": {
+          "anyOf": [
+            {
+              "pattern": "^scx_[a-z0-9_]+_stars$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The key the page's game saves its best stars under.",
+          "title": "Stars Key"
+        },
+        "steps": {
+          "additionalProperties": {
+            "maxLength": 120,
+            "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$",
+            "type": "string"
+          },
+          "default": {},
+          "description": "The page's section id -> this lesson's step id, for its saved path (scx_path_<id>).",
+          "title": "Steps",
+          "type": "object"
         }
       },
       "required": [

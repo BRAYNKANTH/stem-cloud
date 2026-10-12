@@ -1,8 +1,12 @@
-"""Lesson progress v1: a key/value bag per student that only ever moves forward."""
-import json, time
+"""Lesson progress v1: a key/value bag per student that only ever moves forward. Every save also writes progress v2
+(stemcloud/progress_bridge.py), so the two stay in step until the cut-over."""
+import json, logging, time
 
 from .config import KEY_RE, MAX_KEYS, MAX_VAL
 from .db import db
+from .progress_bridge import apply_key
+
+log = logging.getLogger('stemcloud.progress')
 
 
 def _json(v, default):
@@ -66,4 +70,18 @@ def save_progress(uid: int, items: dict) -> dict:
                 continue
             have[k] = merged
             con.execute('INSERT INTO progress(user_id,k,v,updated_at) VALUES(?,?,?,?) ON CONFLICT(user_id,k) DO UPDATE SET v=excluded.v, updated_at=excluded.updated_at', (uid, k, merged, now))
+            dual_write(con, uid, k, merged, now)
     return have
+
+
+def dual_write(con, uid: int, key: str, value: str, at: int):
+    """The same change in progress v2. Inside a savepoint: if it fails, the v1 save still goes through (and the one-off
+    migration, tools/migrate_progress_v2.py, can fill the gap later)."""
+    con.execute('SAVEPOINT v2')
+    try:
+        apply_key(con, uid, key, value, at)
+        con.execute('RELEASE SAVEPOINT v2')
+    except Exception:
+        con.execute('ROLLBACK TO SAVEPOINT v2')
+        con.execute('RELEASE SAVEPOINT v2')
+        log.exception('progress v2 dual-write failed for key %s', key)

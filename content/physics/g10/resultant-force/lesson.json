@@ -12,7 +12,23 @@
  },
  "legacy": {
   "id": "c9",
-  "file": "chapter-09-resultant-force.html"
+  "file": "chapter-09-resultant-force.html",
+  "steps": {
+   "story": "story",
+   "basics": "basics",
+   "watch": "watch",
+   "notes": "notes",
+   "activities": "activities",
+   "lab": "lab",
+   "tugofwar": "tugofwar",
+   "quiz": "quiz",
+   "sortgame": "sort",
+   "examples": "worked",
+   "practice": "exercises",
+   "recap": "recap",
+   "summary": "summary"
+  },
+  "stars_key": "scx_tow_stars"
  },
  "steps": [
   {

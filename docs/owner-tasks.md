@@ -25,7 +25,13 @@ Never paste secrets into a chat or a commit. Put them straight into the service'
 
 ## Neon
 - [ ] **Backup branch now, if it wasn't made in Phase 0.** Neon console → **Branches** → **Create branch** from `main`, named like `backup-2026-10-pre-migration`. It is an instant copy that stays inside Neon.
-- [ ] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed before Phase 6, not now.
+- [ ] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed now: milestone 6.2 is ready.
+- [ ] **Migrate saved progress to v2 (milestone 6.2), on a copy first.**
+  1. In Neon, create a branch from `main` (for example `progress-v2-trial`) and copy its connection string.
+  2. In a terminal in this folder, set it for this terminal only, without pasting it into a chat: in PowerShell, `$env:DATABASE_URL = "<the branch's connection string>"`.
+  3. Run `python tools/migrate_progress_v2.py --run`. It should end with "N of N student(s) with v1 progress have everything in v2".
+  4. If it does, run the same against production (the production `DATABASE_URL`), right after making the backup branch above. Running it twice is safe.
+  5. Tell Claude the last line it printed.
 
 ## GitHub (repository owner: BRAYNKANTH)
 - [ ] **Agree a merge routine.** Claude opens pull requests and merges them only when CI passes, then runs the production smoke check. If BRAYNKANTH also merges, follow the order written in each pull request; some pull requests say "merge X first".

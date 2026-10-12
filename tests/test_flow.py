@@ -109,6 +109,8 @@ def scenario(mode):
     check("other user's page has no foreign progress", '120' not in raw.split('window.SCX_USER')[0][:3000], '')
 
     # ---------------------------------------------------------------- progress v2: idempotent events, forward only
+    s, j, _, _ = a.call('GET', '/api/v2/progress/summary')
+    check('v2: the v1 saves above were also written to v2 (dual-write)', s == 200 and j['xp'] == 120 and sorted(j['badges']) == ['concept_master', 'quiz_ace'], j)
     L = 'physics.g10.motion-in-a-straight-line'
     t0 = int(time.time()) - 3600
     ev = lambda i, kind, at, **k: dict(id='ev-%s-%04d' % (mode, i), type=kind, at=at, **k)
@@ -146,9 +148,10 @@ def scenario(mode):
     check('v2: attempts add up; "first try" comes from the earliest answer, whatever the order', q == {'attempts': 3, 'correct': True, 'first_try': True}, q)
     check('v2: best stars are kept', j['games'] == {L + '/holdgame': {'1': 2}}, j['games'])
     s, j, _, _ = a.call('GET', '/api/v2/progress/summary')
-    check('v2: XP counted once per event', j['xp'] == 10, j)
-    check('v2: badges, days, lessons and the newest preferences', j['badges'] == ['u2-quiz-ace'] and j['days'] == ['2026-10-12']
-          and j['lessons'] == {L: {'opened': 2, 'done': 1}} and j['prefs'] == {'lang': 'ta', 'theme': 'dark'}, j)
+    check('v2: XP counted once per event, on top of the v1 total', j['xp'] == 130, j)
+    check('v2: badges, days, lessons and the newest preferences', sorted(j['badges']) == ['concept_master', 'quiz_ace', 'u2-quiz-ace'] and j['days'] == ['2026-10-12']
+          and j['lessons'] == {L: {'opened': 2, 'done': 1}, 'physics.g10.friction': {'opened': 1, 'done': 1}}   # Friction: v1 scx_done_c5, dual-written
+          and j['prefs'] == {'lang': 'ta', 'theme': 'dark'}, j)
     s, j, _, _ = b.call('GET', '/api/v2/progress/summary')
     check("v2: another student's summary is their own", j['xp'] == 5 and j['lessons'] == {} and j['badges'] == [], j)
     bad = [{'id': 'x'}, ev(40, 'xp', t0, source='a', amount=10 ** 6), ev(41, 'teleport', t0), ev(42, 'answer', t0, question='Bad Id!', correct=True),

@@ -75,18 +75,22 @@ export default function Quiz({ stepId, questions, compact = false }: { stepId: s
       const r = opts.getBoundingClientRect(), room = innerHeight - box.offsetHeight - 12;
       if (r.bottom > room) scrollBy({ top: Math.min(r.bottom - room, Math.max(0, r.top - 70)), behavior: 'smooth' });
     }
+    return () => document.documentElement.classList.remove('qsheet-open');
+  }, [sheet]);
+
+  // Escape closes the sheet, listened for from the start so a key pressed as the sheet opens is not missed
+  const open = useRef<number | null>(null);
+  open.current = sheet;
+  useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'Escape') return;
-      const card = cards.current[sheet];
-      close(false);
+      if (e.key !== 'Escape' || open.current === null) return;
+      const card = cards.current[open.current];
+      setSheet(null);
       card?.focus();               // its options are disabled now, so the card itself takes focus
     };
     document.addEventListener('keydown', onKey);
-    return () => {
-      document.documentElement.classList.remove('qsheet-open');
-      document.removeEventListener('keydown', onKey);
-    };
-  }, [sheet]);
+    return () => document.removeEventListener('keydown', onKey);
+  }, []);
 
   // leaving the quiz step closes the sheet
   useEffect(() => {

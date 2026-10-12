@@ -1,0 +1,322 @@
+{
+ "c11": {
+  "game": "balancegame",
+  "lesson": "physics.g10.turning-effect",
+  "stars_key": "scx_bal_stars",
+  "steps": {
+   "activities": "activities",
+   "balancegame": "balancegame",
+   "basics": "basics",
+   "examples": "worked",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "c12": {
+  "game": "holdgame",
+  "lesson": "physics.g10.equilibrium",
+  "stars_key": "scx_hold_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "holdgame": "holdgame",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "c4": {
+  "game": "holdgame",
+  "lesson": "physics.g10.newtons-laws",
+  "stars_key": "scx_force_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "examples": "worked",
+   "holdgame": "holdgame",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "c5": {
+  "game": "pushit",
+  "lesson": "physics.g10.friction",
+  "stars_key": "scx_pushit_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "pushit": "pushit",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "c9": {
+  "game": "tugofwar",
+  "lesson": "physics.g10.resultant-force",
+  "stars_key": "scx_tow_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "examples": "worked",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "tugofwar": "tugofwar",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g10c15": {
+  "game": "challenge",
+  "lesson": "physics.g10.hydrostatic-pressure",
+  "stars_key": "scx_g10c15_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g10c18": {
+  "game": "challenge",
+  "lesson": "physics.g10.work-energy-power",
+  "stars_key": "scx_g10c18_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g10c19": {
+  "game": "challenge",
+  "lesson": "physics.g10.current-electricity",
+  "stars_key": "scx_g10c19_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c04": {
+  "game": "challenge",
+  "lesson": "physics.g11.waves",
+  "stars_key": "scx_g11c04_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c05": {
+  "game": "challenge",
+  "lesson": "physics.g11.geometrical-optics",
+  "stars_key": "scx_g11c05_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c09": {
+  "game": "challenge",
+  "lesson": "physics.g11.heat",
+  "stars_key": "scx_g11c09_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c10": {
+  "game": "challenge",
+  "lesson": "physics.g11.electric-appliances",
+  "stars_key": "scx_g11c10_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c11": {
+  "game": "challenge",
+  "lesson": "physics.g11.electronics",
+  "stars_key": "scx_g11c11_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "g11c13": {
+  "game": "challenge",
+  "lesson": "physics.g11.electromagnetism",
+  "stars_key": "scx_g11c13_stars",
+  "steps": {
+   "activities": "activities",
+   "basics": "basics",
+   "challenge": "challenge",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "exercises",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "walkthroughs": "worked",
+   "watch": "watch"
+  },
+  "topics": []
+ },
+ "u2": {
+  "game": "holdgame",
+  "lesson": "physics.g10.motion-in-a-straight-line",
+  "stars_key": "scx_speed_stars",
+  "steps": {
+   "basics": "basics",
+   "exercises": "exercises",
+   "holdgame": "holdgame",
+   "lab": "lab",
+   "notes": "notes",
+   "practice": "worked",
+   "quiz": "quiz",
+   "recap": "recap",
+   "sortgame": "sort",
+   "story": "story",
+   "summary": "summary",
+   "watch": "watch"
+  },
+  "topics": [
+   "distance-displacement",
+   "speed-velocity",
+   "acceleration",
+   "motion-graphs",
+   "free-fall"
+  ]
+ }
+}

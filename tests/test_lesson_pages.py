@@ -88,6 +88,13 @@ LAYOUT = """(phone) => {
 }"""
 
 
+def set_lang(pg, lang):
+    """The language buttons sit at the top of the content: scroll up first, as a student would (the sticky header and a
+    lab frame can cover them further down)."""
+    pg.evaluate('scrollTo(0, 0)')
+    pg.click('button[lang=%s]' % lang)
+
+
 def run():
     if not os.path.isfile(os.path.join(ROOT, 'web', 'dist-private', 'learn', 'physics', 'g10', 'motion-in-a-straight-line', 'index.html')):
         sys.exit('No web build: run  cd web && npm run build  first.')
@@ -171,9 +178,9 @@ def run():
             pg.goto(BASE + MOTION + '#worked')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             check('a #step link opens that step', lambda: on() == 'worked', lambda: on())
-            pg.click('button[lang=ta]')
+            set_lang(pg, 'ta')
             check('switching language keeps the step', lambda: on() == 'worked' and pg.evaluate('document.documentElement.lang') == 'ta')
-            pg.click('button[lang=en]')
+            set_lang(pg, 'en')
 
             # worked example: marking steps one at a time, then the final answer
             vis = "el => !!el && el.offsetParent !== null"
@@ -315,7 +322,7 @@ def run():
             pg.wait_for_selector('#stem-vp')
             pg.wait_for_function(settled, timeout=30000)
             check('reading goes on block by block to the end of the step, then stops', lambda: pg.locator('.stem-reading').count() == 0)
-            pg.click('button[lang=ta]')
+            set_lang(pg, 'ta')
             pg.evaluate('window.__spoken = []')
             pg.click('.lbar .lb-listen')
             pg.wait_for_timeout(300)
@@ -323,7 +330,7 @@ def run():
             check('in Tamil it reads the Tamil text', lambda: any(any('஀' <= c <= '௿' for c in s) for s in spoken), lambda: spoken[:1])
             pg.click('.lbar .lb-btn.primary')
             check('a new step stops reading', lambda: pg.locator('#stem-vp').count() == 0)
-            pg.click('button[lang=en]')
+            set_lang(pg, 'en')
             pg.goto(BASE + MOTION + '#story')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             pg.evaluate("localStorage.setItem('stem_story_mode', 'off')")

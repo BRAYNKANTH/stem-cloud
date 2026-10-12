@@ -376,6 +376,20 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - Order: the pilot chapter first, then the most-used chapters (taken from `step_progress` data).
 - Each port: Preact component, registry entry, Playwright test, then remove that iframe.
 - Animations last. They can stay as iframes for a long time without hurting students.
+- **Milestone 8.1 (2026-10-12): the cartoon engine and the Motion lab.**
+  - **The engine:** all 15 lesson pages share one cartoon engine (`window.__fwMakeH`: Raja, Chittu, speech bubbles, clouds, arrows…). It's byte-for-byte the same in every page.
+    - `tools/lab_engine.py` lifts it unchanged into `web/src/labs/engine.js`, given the language and a Sinhala lookup instead of the page's globals, and reading its colours from the stage.
+    - CI checks it's current, and that the pages still agree.
+    - It also unlocks the Watch animations later.
+  - **Sinhala at run time:** `web/src/lib/si-lookup.ts` is `si.js`'s lookup (exact, number templates, phrases). Each lab gets only what it needs from the translation memory, looked up at build time.
+  - **`MotionLab`** is the unit 2 lab rebuilt:
+    - the simulation, track and graphs from the same formulas;
+    - the guide with its three tries and the "right now" line;
+    - the stage drawn with the engine, redrawn while on screen, and once per change with animations off.
+  - **Missions** keep the current page's device keys (`scx_lab_u2_<n>`), are worth 5 XP each and 10 for all three (progress v2), and count as doing the lab step.
+  - **`labs/registry.ts`:** a lab step uses its rebuilt lab when there is one, and the frame otherwise.
+  - **Tests:** the browser test checks the lab isn't a frame, the stage draws, a try sets the sliders and plays, the physics after 10 s, the missions, and the device key.
+- **Next:** the other chapters' labs, one by one, then the games and sort games.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.

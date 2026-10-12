@@ -240,3 +240,14 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - **Vercel preview deploys have failed twice without a reason** (#30, #32). Both succeeded when re-run. Owner task: look at the failed deploys in Vercel.
 
 **Next:** Phase 8, the labs, one chapter at a time, starting with Motion's. Phase 9 (the cut-over) needs the owner first: the progress migration and a teacher's review.
+
+## 9. Phase 8, the labs
+
+**8.1, the Motion lab** (2026-10-12):
+- All 15 lesson pages share one cartoon engine (Raja, Chittu, bubbles, arrows), identical in every page. `tools/lab_engine.py` lifts it unchanged into `web/src/labs/engine.js`, and CI checks it stays current.
+- The unit 2 lab is rebuilt as an island: the simulation, track, graphs, the guide's three tries, the missions and the stage. Same formulas and drawing code as today.
+- Sinhala works the way `si.js` does (exact text, number templates, phrases), with only the entries the lab needs sent to the page.
+- Missions keep today's device keys, so a student's ticks carry over. They earn XP through progress v2 (5 each, 10 for all three).
+- Other chapters' lab steps still show the current lab in a frame until they are rebuilt.
+
+**Next:** the other chapters' labs, then the games.

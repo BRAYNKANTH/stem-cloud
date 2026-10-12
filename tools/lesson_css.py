@@ -24,7 +24,11 @@ ISLAND_PREFIXES = ('so-', 'qz-', 'qs-')       # story (StoryPlayer) and quiz (Qu
 ISLAND_IDS = {'stem-qsheet', 'stem-vp'}       # the quiz's answer sheet, the read-aloud controls
 # the quiz score line, exercise parts in rows, full-screen diagrams, read-aloud and the voice messages (questions.js, voice.js)
 ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-cap', 'fig-hint', 'zoomable', 'pannable',
-                  'stem-lightbox', 'lb-bar', 'lb-body', 'stem-toast', 'stem-reading', 'vp-pos'}
+                  'stem-lightbox', 'lb-bar', 'lb-body', 'stem-toast', 'stem-reading', 'vp-pos',
+                  # the labs (web/src/labs/): the lesson pages' lab card, guide, stage and missions, controls, readouts and graphs
+                  'lab-card', 'lg', 'goal', 'look', 'lg-tries', 'lg-try', 'lg-see', 'lg-live', 'ls', 'ls-top', 'ls-hint', 'ls-miss', 'ls-m', 'ck',
+                  'lab-controls', 'control', 'lab-buttons', 'lab-readouts', 'readout', 'ro-label', 'ro-value', 'track-wrap', 'graphs-row',
+                  'graph-box', 'gtitle', 'lab-hint', 'lab-svg'}
 STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet'}   # the islands' state classes, next to one of theirs
 DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 

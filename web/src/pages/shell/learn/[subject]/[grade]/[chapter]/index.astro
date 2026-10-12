@@ -21,7 +21,7 @@ const steps = [...stepInfo(lesson), { id: FINISH_ID, label: UI.finish, phase: 'p
 <LessonShell pageTitle={`${lesson.title.en} · STEM Cloud`} description={`GCE O/L Physics, Grade ${lesson.grade}: ${lesson.title.en}.`}
              title={lesson.title} sub={chapterLine(lesson)} back={{ href: '/lessons/index.html', label: UI.contents }} steps={steps} lesson={lesson.id}>
   {(lesson.topics?.length ?? 0) > 0 && <a slot="links" class="btn btn-sm by-topic" href={topicsUrl(lesson)}><T t={TOPIC_UI.byTopic} /></a>}
-  {lesson.steps.map((s) => <Step step={s} />)}
+  {lesson.steps.map((s) => <Step step={s} lesson={lesson} />)}
   <section class="lstep finish" id={FINISH_ID} aria-labelledby="finish-h">
     <div class="card">
       <h2 id="finish-h"><span aria-hidden="true">🏁</span> <T t={UI.finished} /></h2>

@@ -8,14 +8,23 @@ import type { Lesson } from '../../lib/content-types';
 import { KINDS, UI } from '../../lib/lesson-ui';
 import { CHITTU, RAJA } from '../../lib/cast';
 import LegacyFrame from '../../islands/LegacyFrame';
+import MotionLab from '../../labs/physics/MotionLab';
+import { LABS } from '../../labs/registry';
+import { labSinhala, type SiDict } from '../../lib/si-lookup';
 import Quiz from '../../islands/Quiz';
 import StoryPlayer from '../../islands/StoryPlayer';
 import T from './T.astro';
 
 interface Props {
   step: Lesson['steps'][number];
+  lesson: Lesson;
 }
-const { step: s } = Astro.props;
+const { step: s, lesson } = Astro.props;
+// a lab rebuilt as an island (labs/registry.ts), with the Sinhala of its strings from the lesson's translation memory
+const ported = s.type === 'lab' ? LABS[lesson.id + '/' + s.id] : undefined;
+const DICTS = import.meta.glob<SiDict>('../../../../public/static/si/*.json', { eager: true, import: 'default' });
+const dict = (name: string) => DICTS[`../../../../public/static/si/${name}.json`] ?? {};
+const labSi = ported && lesson.legacy ? labSinhala(ported.strings, dict(lesson.legacy.file.replace(/\.html$/, '')), dict('_ui')) : {};
 const kind = KINDS[s.type];
 const heading = 'heading' in s ? s.heading : { title: s.title, sub: null };
 const LETTERS = 'ABCDEF';
@@ -74,7 +83,8 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
   {s.type === 'activities' && <T t={s.body} rich />}
 
   {s.type === 'watch' && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
-  {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
+  {ported?.island === 'motion' && <MotionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
+  {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && !ported && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
 
   {s.type === 'quiz' && <Quiz client:idle stepId={s.id} questions={s.questions} />}
   {s.type === 'quiz' && (

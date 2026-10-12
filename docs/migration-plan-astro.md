@@ -362,7 +362,15 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **Styles** are ported by `tools/past_papers_css.py`, mapped to the design tokens (light and dark) and checked in CI.
   - **Languages:** English and Tamil, as today. Sinhala shows English until the papers are translated.
   - **Tests:** the browser test covers loading, an MCQ check synced to the account, bookmark, filter, a written attempt with self-check, a reload, paper practice with its score, Tamil, and 375 px.
-- **Next (7.2):** move the year files from `site/lessons/past-papers/` to `content/past-papers/physics/<year>.json`, validated in CI.
+- **Milestone 7.2 (2026-10-12): the question banks are content.**
+  - The nine year banks and their catalog moved from `site/lessons/past-papers/` to `content/past-papers/physics/`. The scans and source PDFs stay where they were, as media (R2).
+  - The builder tools write the JSON there, and the attempts API reads it there.
+  - `/lessons/past-papers/<year>.json` and `catalog.json` are still the addresses the pages use, served from `content/` behind the login.
+  - **`tools/validate_past_papers.py`** (in CI, with `tests/test_past_paper_content.py`) checks:
+    - the catalog against the banks, and unique `ol<year>-` ids;
+    - MCQ options, answer and "why not" explanations, and written parts with prompts and model answers;
+    - English for every text, and that every scan page and figure exists, or is listed as R2 media.
+  - Result: 9 banks, 155 questions, all valid.
 
 ### Phase 8: Port the labs (ongoing, ≈2–4 days per lab)
 - Order: the pilot chapter first, then the most-used chapters (taken from `step_progress` data).

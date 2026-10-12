@@ -1,0 +1,118 @@
+# -*- coding: utf-8 -*-
+"""Check the past paper question banks (content/past-papers/physics/): what the past papers pages and the attempts API
+rely on. CI runs it.
+
+    python tools/validate_past_papers.py
+
+For the catalog and every year's bank:
+- every catalog entry points at a bank that exists, for the same year, scope "physics";
+- question ids are unique across all years and start with "ol<year>-"; numbers and papers (I, II) are set;
+- an MCQ has 2-6 options, its answer is one of them, and there is one "why not" explanation per option;
+- a written question has parts with unique labels, each with a prompt and a model answer;
+- every text a student reads has English (Tamil and Sinhala are optional);
+- the scan pages and figures a question shows exist (or are listed as R2 media in .vercelignore);
+- the papers the bank lists (I, II) exist, with their instructions.
+"""
+import json, re, sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+BANKS = ROOT / 'content' / 'past-papers' / 'physics'
+SCANS = ROOT / 'site' / 'lessons' / 'past-papers'
+
+
+def r2_media() -> set:
+    """Files moved to R2 (listed in .vercelignore between the markers), which may be absent from the repository."""
+    text = (ROOT / '.vercelignore').read_text(encoding='utf-8')
+    block = text.split('# BEGIN VERIFIED R2 MEDIA')[-1].split('# END VERIFIED R2 MEDIA')[0]
+    return {l.strip() for l in block.splitlines() if l.strip()}
+
+
+def has_en(t) -> bool:
+    return isinstance(t, dict) and isinstance(t.get('en'), str) and t['en'].strip() != ''
+
+
+def check_bank(year: int, bank: dict, seen: set, media: set, problems: list):
+    where = '%d.json' % year
+    if bank.get('year') != year or bank.get('scope') != 'physics':
+        problems.append('%s: year %r / scope %r' % (where, bank.get('year'), bank.get('scope')))
+    papers = {p.get('id'): p for p in bank.get('papers', [])}
+    for pid, p in papers.items():
+        if pid not in ('I', 'II') or not has_en(p.get('instructions')):
+            problems.append('%s: paper %r needs id I or II and instructions' % (where, pid))
+
+    def exists(url: str) -> bool:
+        rel = url.lstrip('/').replace('lessons/', 'site/lessons/', 1)
+        return (ROOT / rel).is_file() or rel in media
+
+    for q in bank.get('questions', []):
+        qid = q.get('id', '?')
+        at = '%s %s' % (where, qid)
+        if not re.fullmatch(r'ol%d-[a-z0-9-]+' % year, str(qid)):
+            problems.append('%s: id must start with ol%d-' % (at, year))
+        if qid in seen:
+            problems.append('%s: id used twice' % at)
+        seen.add(qid)
+        if q.get('paper') not in papers or not isinstance(q.get('number'), int):
+            problems.append('%s: paper %r / number %r' % (at, q.get('paper'), q.get('number')))
+        if not has_en(q.get('prompt')):
+            problems.append('%s: prompt needs English' % at)
+        if q.get('type') == 'mcq':
+            opts = q.get('options') or []
+            if not 2 <= len(opts) <= 6 or not all(has_en(o) for o in opts):
+                problems.append('%s: %d options (2-6, each with English)' % (at, len(opts)))
+            if not (isinstance(q.get('correct'), int) and 0 <= q['correct'] < len(opts)):
+                problems.append('%s: the answer %r is not one of its options' % (at, q.get('correct')))
+            if len(q.get('optionExplanations') or []) != len(opts):
+                problems.append('%s: one "why not" explanation per option' % at)
+            if not has_en(q.get('explanation')):
+                problems.append('%s: explanation needs English' % at)
+        elif q.get('type') == 'written':
+            labels = [p.get('label') for p in q.get('parts') or []]
+            if not labels or len(set(labels)) != len(labels) or not all(labels):
+                problems.append('%s: parts need unique labels' % at)
+            for p in q.get('parts') or []:
+                if not (has_en(p.get('prompt')) and has_en(p.get('answer'))):
+                    problems.append('%s part %s: prompt and model answer need English' % (at, p.get('label')))
+        else:
+            problems.append('%s: type %r' % (at, q.get('type')))
+        for n in q.get('pages') or []:
+            url = '/lessons/past-papers/%d/page-%02d.jpg' % (year, n)
+            if not exists(url):
+                problems.append('%s: scan page %d is missing (%s)' % (at, n, url))
+        if q.get('figure') and not exists(q['figure']):
+            problems.append('%s: figure %s is missing' % (at, q['figure']))
+
+
+def main():
+    problems, seen, media = [], set(), r2_media()
+    catalog = json.loads((BANKS / 'catalog.json').read_text(encoding='utf-8'))
+    years = []
+    for p in catalog.get('papers', []):
+        if not p.get('bank'):
+            continue
+        m = re.fullmatch(r'/lessons/past-papers/(\d{4})\.json', p['bank'])
+        if not m or int(m.group(1)) != p.get('year') or not (BANKS / (m.group(1) + '.json')).is_file():
+            problems.append('catalog: %r points at no bank of its year' % p.get('bank'))
+            continue
+        years.append(p['year'])
+    for f in sorted(BANKS.glob('[0-9][0-9][0-9][0-9].json')):
+        if int(f.stem) not in years:
+            problems.append('%s is not in the catalog' % f.name)
+    counts = {}
+    for y in years:
+        bank = json.loads((BANKS / ('%d.json' % y)).read_text(encoding='utf-8'))
+        check_bank(y, bank, seen, media, problems)
+        counts[y] = len(bank.get('questions', []))
+    for y, n in counts.items():
+        print('  %d  %3d questions' % (y, n))
+    if problems:
+        print('\nPROBLEMS')
+        for x in problems[:60]:
+            print('  - ' + x)
+        sys.exit(1)
+    print('all %d banks valid (%d questions)' % (len(counts), sum(counts.values())))
+
+
+if __name__ == '__main__':
+    main()

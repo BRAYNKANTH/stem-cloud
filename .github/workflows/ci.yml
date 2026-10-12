@@ -44,6 +44,10 @@ jobs:
         run: python tools/legacy_map.py --check
       - name: Past papers styles are current with the current page
         run: python tools/past_papers_css.py --check
+      - name: Past paper question banks (content/past-papers)
+        run: |
+          python tools/validate_past_papers.py
+          python tests/test_past_paper_content.py
 
   web:
     name: Web app (type check, build, JS budget)

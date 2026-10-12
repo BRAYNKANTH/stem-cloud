@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'site' / 'lessons' / 'past-papers'
+BANKS = ROOT / 'content' / 'past-papers' / 'physics'      # the question banks and their catalog (images and PDFs stay in OUT)
 KEY = [1,3,2,2,4,1,1,4,3,1,3,4,4,1,4,2,2,3,3,2,3,1,2,1,3,3,1,2,4,2,3,1,2,2,2,3,1,4,4,3]
 SOURCE = 'https://www.doenets.lk/documents/evaluation-reports/ol/2015/english/evol15E_Science.pdf'
 questions = []
@@ -266,6 +267,6 @@ if __name__ == '__main__':
     assert all(q['subjects']==['physics'] for q in questions)
     assert all(p['subject']=='physics' for q in questions for p in q.get('parts',[]))
     OUT.mkdir(parents=True,exist_ok=True)
-    (OUT/'2015.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    (BANKS/'2015.json').write_text(json.dumps(bank,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f'Built {len(questions)} questions and {sum(len(q.get("parts",[])) for q in questions)} written subparts.')
 

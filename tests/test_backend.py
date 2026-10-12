@@ -330,6 +330,15 @@ class LearnRoute(unittest.TestCase):
             self.assertEqual(self.signed_in.get(self.URL + 'topics/no-such-topic/', follow_redirects=False).status_code, 404)
             self.assertEqual(self.signed_in.get(self.URL + 'topics/Bad_Topic/', follow_redirects=False).status_code, 404)
 
+    def test_past_paper_banks_come_from_content_behind_login(self):
+        self.assertEqual(TestClient(app).get('/lessons/past-papers/2015.json').status_code, 401)
+        r = self.signed_in.get('/lessons/past-papers/2015.json')
+        self.assertEqual((r.status_code, r.json()['year']), (200, 2015))
+        self.assertEqual(self.signed_in.get('/lessons/past-papers/catalog.json').json()['schemaVersion'], 1)
+        for bad in ('/lessons/past-papers/1999.json', '/lessons/past-papers/2015x.json'):
+            self.assertEqual(self.signed_in.get(bad).status_code, 404, bad)
+        self.assertEqual(self.signed_in.get('/lessons/past-papers/2015/page-01.jpg').status_code, 200)      # scans stay where they were
+
     def test_the_new_past_papers_page_is_login_only(self):
         built = Path(TMP) / 'private-papers' / 'index.html'
         built.parent.mkdir(parents=True, exist_ok=True)

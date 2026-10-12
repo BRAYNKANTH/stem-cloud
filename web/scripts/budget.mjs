@@ -2,12 +2,13 @@
 // interaction, gzipped, must stay under BUDGET_KB. Counts scripts and island code referenced by the HTML plus their
 // static imports; code loaded later with import() (labs, for example) is not counted here.
 //   npm run build && npm run budget
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { gzipSync } from 'node:zlib';
 
 const BUDGET_KB = Number(process.env.JS_BUDGET_KB ?? 60);
 const dist = resolve(import.meta.dirname, '..', 'dist');
+const privateDist = resolve(import.meta.dirname, '..', 'dist-private');      // the lesson pages (scripts/private.mjs)
 
 const walk = (dir) => readdirSync(dir).flatMap((f) => {
   const p = join(dir, f);
@@ -36,7 +37,8 @@ let failed = false;
 const rows = [];
 // public/static/* is the current app, copied into the build unchanged; it is measured by tools/perf_baseline.py instead.
 const legacy = join(dist, 'static');
-for (const page of walk(dist).filter((f) => f.endsWith('.html') && !f.startsWith(legacy))) {
+const pages = [...walk(dist), ...(existsSync(privateDist) ? walk(privateDist) : [])].filter((f) => f.endsWith('.html') && !f.startsWith(legacy));
+for (const page of pages) {
   const html = readFileSync(page, 'utf8');
   const files = new Set();
   for (const m of html.matchAll(HTML_REF)) withImports(toFile(m[1], page), files);
@@ -45,7 +47,8 @@ for (const page of walk(dist).filter((f) => f.endsWith('.html') && !f.startsWith
   const kb = [...files].reduce((n, f) => n + gzipKb(f), 0) + inline;
   const over = kb > BUDGET_KB;
   failed ||= over;
-  rows.push(`${over ? 'OVER' : 'ok  '}  ${kb.toFixed(1).padStart(6)} KB  ${relative(dist, page).replaceAll('\\', '/')}  (${files.size} files)`);
+  const name = page.startsWith(privateDist) ? 'private/' + relative(privateDist, page) : relative(dist, page);
+  rows.push(`${over ? 'OVER' : 'ok  '}  ${kb.toFixed(1).padStart(6)} KB  ${name.replaceAll('\\', '/')}  (${files.size} files)`);
 }
 console.log(`Initial JS per page, gzipped (budget ${BUDGET_KB} KB):\n` + rows.sort().join('\n'));
 if (!rows.length) {

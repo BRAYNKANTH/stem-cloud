@@ -267,8 +267,8 @@ class LearnRoute(unittest.TestCase):
     def setUpClass(cls):
         dbmod.DB_PATH = os.path.join(TMP, 'learn.db')
         migrations._ready = False
-        cls.shell = Path(TMP) / 'shell-learn'
-        page = cls.shell / 'learn' / 'physics' / 'g10' / 'motion-in-a-straight-line'
+        cls.shell = Path(TMP) / 'private-learn'
+        page = cls.shell / 'physics' / 'g10' / 'motion-in-a-straight-line'
         page.mkdir(parents=True, exist_ok=True)
         (page / 'index.html').write_text('<!doctype html><title>Astro lesson</title>', encoding='utf-8')
         cls.signed_in = TestClient(app)          # the first account on a fresh database may sign itself up
@@ -276,7 +276,7 @@ class LearnRoute(unittest.TestCase):
         assert r.status_code == 200, r.text
 
     def test_visitor_is_sent_to_login_and_back(self):
-        with patch.object(lessons, 'WEB_SHELL', self.shell):
+        with patch.object(lessons, 'WEB_LEARN', self.shell):
             for url in (self.URL, self.URL.rstrip('/')):
                 r = TestClient(app).get(url, follow_redirects=False)
                 self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=' + self.URL))
@@ -284,7 +284,7 @@ class LearnRoute(unittest.TestCase):
 
     def test_student_gets_the_built_lesson_never_stored(self):
         client = self.signed_in
-        with patch.object(lessons, 'WEB_SHELL', self.shell):
+        with patch.object(lessons, 'WEB_LEARN', self.shell):
             r = client.get(self.URL, follow_redirects=False)
         self.assertEqual(r.status_code, 200)
         self.assertIn('Astro lesson', r.text)
@@ -292,14 +292,14 @@ class LearnRoute(unittest.TestCase):
 
     def test_without_a_build_the_current_lesson_page(self):
         client = self.signed_in
-        with patch.object(lessons, 'WEB_SHELL', Path(TMP) / 'no-shell'):
+        with patch.object(lessons, 'WEB_LEARN', Path(TMP) / 'no-shell'):
             r = client.get(self.URL, follow_redirects=False)
             self.assertEqual((r.status_code, r.headers['location']), (302, '/lessons/unit-02-motion-in-a-straight-line.html'))
             self.assertEqual(client.get('/learn/physics/g10/no-such-chapter/', follow_redirects=False).status_code, 404)
 
     def test_bad_paths_are_not_found(self):
         client = self.signed_in
-        with patch.object(lessons, 'WEB_SHELL', self.shell):
+        with patch.object(lessons, 'WEB_LEARN', self.shell):
             for url in ('/learn/physics/10/motion-in-a-straight-line/', '/learn/Physics/g10/x/', '/learn/physics/g10/a_b/'):
                 self.assertEqual(client.get(url, follow_redirects=False).status_code, 404, url)
 

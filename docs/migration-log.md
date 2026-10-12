@@ -109,6 +109,8 @@ Nothing is merged with failing checks.
 | Blocker | Cause | Handling |
 |---|---|---|
 | The R2 upload couldn't connect | A temporary network failure | Retried; the tool skips files already uploaded. |
+| **The new lesson pages could be read without signing in** (after 5.1 and 5.2 shipped, 2026-10-12) | They were published to the CDN under `/shell/learn/`, and the `vercel.json` redirect meant to hide them missed addresses ending in `/`. The production smoke check caught it. | The build now moves the lesson pages out of the published files (`web/scripts/private.mjs` → `web/dist-private/`, bundled with the function only), and the redirect matches every address. Only the lesson text was exposed, no student data. |
+| The CI browser test failed on `main` but passed on its PR and locally | Not known yet: GitHub job logs need a sign-in | The test now reports each failure as a GitHub annotation, which can be read without signing in. |
 | The activation step couldn't read the bucket's CORS settings | The least-privilege upload key can't read bucket settings. | The tool now checks CORS by requesting a file the way a browser does. |
 | The first upload removed the 55 planned public entries from the media manifest | | The tool keeps them on a private-only run. |
 | **A Vercel deploy failed** | The R2 activation wrote 147 paths into `vercel.json` (6,084 characters); Vercel allows 256. | `excludeFiles` dropped (`.vercelignore` already lists the files); tested. |

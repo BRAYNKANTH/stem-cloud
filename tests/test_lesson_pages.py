@@ -3,7 +3,7 @@
 
     cd web && npm run build && cd .. && python tests/test_lesson_pages.py
 
-Needs the web build (the API serves web/dist/shell/learn after the sign-in check) and Playwright with Edge, Chrome or
+Needs the web build (the API serves web/dist-private/learn after the sign-in check) and Playwright with Edge, Chrome or
 Playwright's Chromium (python -m playwright install chromium). For every chapter, on a phone (375 px) and a desktop:
 the islands start without errors, and in every step and language nothing scrolls sideways; on the phone every control
 is at least 44 px (links inside sentences excepted). On Motion: the player, the story, the quiz and its answer sheet,
@@ -27,6 +27,8 @@ def check(name, cond, extra=''):
     print(('PASS ' if cond else 'FAIL ') + name + (('  ' + str(extra)) if not cond else ''))
     if not cond:
         fails.append(name)
+        if os.environ.get('GITHUB_ACTIONS'):          # an annotation, readable on the run page without opening the log
+            print('::error title=Lesson pages::%s  %s' % (name, str(extra)[:300].replace(chr(10), ' ')))
 
 
 STUB = """
@@ -62,7 +64,7 @@ LAYOUT = """(phone) => {
 
 
 def run():
-    if not os.path.isfile(os.path.join(ROOT, 'web', 'dist', 'shell', 'learn', 'physics', 'g10', 'motion-in-a-straight-line', 'index.html')):
+    if not os.path.isfile(os.path.join(ROOT, 'web', 'dist-private', 'learn', 'physics', 'g10', 'motion-in-a-straight-line', 'index.html')):
         sys.exit('No web build: run  cd web && npm run build  first.')
     tmp = tempfile.mkdtemp()
     env = dict(os.environ, DB_PATH=os.path.join(tmp, 't.db'))
@@ -236,4 +238,9 @@ def run():
 
 
 if __name__ == '__main__':
-    run()
+    try:
+        run()
+    except Exception as e:
+        if os.environ.get('GITHUB_ACTIONS'):
+            print('::error title=Lesson pages::stopped: %s' % str(e)[:600].replace(chr(10), ' '))
+        raise

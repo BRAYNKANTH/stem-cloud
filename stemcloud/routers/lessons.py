@@ -6,7 +6,7 @@ from urllib.parse import quote
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import LESSONS, ROOT, WEB_SHELL
+from ..config import LESSONS, ROOT, WEB_LEARN
 from ..db import db
 from ..legacy import render_lesson
 from ..media import media_response
@@ -36,14 +36,14 @@ def legacy_page(subject: str, grade: str, chapter: str) -> str | None:
 @router.get('/learn/{subject}/{grade}/{chapter}/')
 def learn_page(subject: str, grade: str, chapter: str, req: Request):
     """A lesson built from content/ (web/src/pages/shell/learn/): signed-in students only, like the current lessons.
-    The Astro build is bundled with the function under /shell/ and served from here after the check; vercel.json sends
-    /shell/learn/* here as well, so the CDN never serves a lesson without it. Without a build (local runs), the chapter's
-    current lesson page."""
+    The build moves these pages out of the published files (web/scripts/private.mjs) into web/dist-private/learn/, which
+    is bundled with the function only, so the CDN has no copy to serve; vercel.json also sends the build's own path
+    (/shell/learn/*) here. Without a build (local runs), the chapter's current lesson page."""
     if not (SLUG_RE.match(subject) and GRADE_RE.match(grade) and SLUG_RE.match(chapter)):
         raise HTTPException(404, 'Not found.')
     if not current_user(req):
         return RedirectResponse('/login?next=' + quote('/learn/%s/%s/%s/' % (subject, grade, chapter), safe='/'), status_code=302)
-    built = WEB_SHELL / 'learn' / subject / grade / chapter / 'index.html'
+    built = WEB_LEARN / subject / grade / chapter / 'index.html'
     if built.is_file():
         return FileResponse(built, media_type='text/html')
     old = legacy_page(subject, grade, chapter)

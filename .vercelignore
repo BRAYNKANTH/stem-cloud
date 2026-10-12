@@ -10,6 +10,7 @@ docs/
 .github/
 web/node_modules/
 web/dist/
+web/dist-private/
 web/.astro/
 # BEGIN VERIFIED R2 MEDIA
 site/lessons/past-papers/2015/mcq-02.jpg

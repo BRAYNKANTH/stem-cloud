@@ -11,6 +11,7 @@ tmp/
 .venv/
 node_modules/
 dist/
+dist-private/
 .astro/
 .lighthouseci/
 docs/perf/raw/

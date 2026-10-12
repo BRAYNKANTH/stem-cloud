@@ -257,6 +257,18 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - Animations play by default with the motion toggle and `prefers-reduced-motion` respected, and nothing autoplays (*Tap to watch* poster).
 - Release the pilot chapter first behind a "Try the new lesson" link, then all 15.
 - **Done when**: the browser tests (§5) pass for every chapter on desktop and at 375 px.
+- **Milestone 5.1 (done 2026-10-12): the lesson page and the player.**
+  - All 15 chapters are built from `content/` to `/learn/<subject>/g<grade>/<chapter>/`: every step as plain HTML, readable without JavaScript.
+  - `LessonPlayer` (one step at a time, Back / Next, lesson map, `#step` links, browser Back, "whole lesson on one page" saved as `stem_view` like today), `StepEnd`, and `LegacyFrame` for the lab, games, sort game and animation.
+  - The worked examples' reveal buttons work as on the current pages. The quiz shows its answer behind "Show answer" and the story is a list of bubbles until their islands arrive (5.2).
+  - 19 KB of JavaScript per lesson page (budget 60 KB). Motion is 45 KB of HTML gzipped with all three languages, against 70 KB for the current page before its scripts.
+  - No "Try the new lesson" link yet: students only reach the new pages by URL.
+- **Decided in 5.1:**
+  - **All three languages are in the HTML**, shown by CSS from `<html lang>`, instead of one payload per language (§3.2). Switching needs no JavaScript or reload and keeps the student's place, and the rich text never has to be rendered on the device. The cost is size, measured above.
+  - **The sign-in check is a Python route**, as for `/account`: `/learn/...` checks the session, then serves the build from `web/dist/shell/learn/`. `vercel.json` redirects `/shell/learn/*` to `/learn/*`, so the CDN never serves a lesson without the check. Milestone 2.4 (edge gate, `GATE_SECRET`) is not needed for this.
+  - **Content styles are ported, not redesigned:** `tools/lesson_css.py` copies the lesson pages' rules for the content's own classes into `web/src/styles/lesson-content.css`, scoped to the content and mapped to the design tokens. CI checks it is current.
+  - **Drawings made by a page's script** (4 graphs in Motion, 2 diagrams in Turning Effect) are captured once in a browser by `tools/drawn_figures.py` and filled in by the extractor. The validator now fails on an empty drawing.
+- **Next (5.2):** `StoryPlayer`, `Quiz` + `QuizSheet` and `Exercises`, then the "Try the new lesson" link on Motion. After that: `VoiceReader` (5.3), XP and badges with progress v2 (Phase 6), and the topic view (5.4).
 
 ### Phase 6: Progress v2 (≈2 weeks, can overlap Phase 5)
 - Migration 2 for the v2 tables, `routers/progress_v2.py` and the progress store with its IndexedDB outbox.

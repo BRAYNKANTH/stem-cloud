@@ -72,6 +72,19 @@ def check_legacy(lesson: Lesson, problems: list):
                 problems.append('%s: legacy page %s has no section id="%s"' % (lesson.id, n.file, n.hash))
 
 
+EMPTY_SVG = re.compile(r'<svg\b[^>]*>\s*</svg>')
+
+
+def check_drawings(lesson: Lesson, problems: list):
+    """An empty <svg> is a drawing the old page's script drew when it loaded: capture it (tools/drawn_figures.py)."""
+    for n in walk(lesson):
+        if isinstance(n, Rich):
+            for v in (n.en, n.ta, n.si):
+                if v and EMPTY_SVG.search(v):
+                    problems.append('%s: an empty drawing (<svg> with nothing in it); run python tools/drawn_figures.py, then the extractor' % lesson.id)
+                    return
+
+
 def catalog_of(lessons: list[Lesson]) -> dict:
     def num(l):
         m = re.match(r'\d+', l.number)
@@ -99,6 +112,7 @@ def main():
         if rel != want:
             problems.append('%s: should be at %s' % (rel, want))
         check_legacy(lesson, problems)
+        check_drawings(lesson, problems)
         lessons.append(lesson)
 
     shipped = load_json(IDS, {'ids': []})['ids']

@@ -42,11 +42,13 @@ jobs:
         run: python tools/lesson_css.py --check
       - name: Progress v1 -> v2 map is current with the lesson content
         run: python tools/legacy_map.py --check
+      - name: Past papers styles are current with the current page
+        run: python tools/past_papers_css.py --check
 
   web:
     name: Web app (type check, build, JS budget)
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     defaults:
       run:
         working-directory: web
@@ -78,7 +80,7 @@ jobs:
         run: npm run budget
       - name: Lesson pages in a browser (every chapter at 375 px and desktop; player, story, quiz)
         working-directory: .
-        timeout-minutes: 8
+        timeout-minutes: 15
         run: |
           pip install -r requirements-dev.txt
           python -m playwright install --with-deps chromium

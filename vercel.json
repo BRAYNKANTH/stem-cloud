@@ -19,6 +19,11 @@
       "source": "/shell/learn/(.*)",
       "destination": "/learn/$1",
       "permanent": false
+    },
+    {
+      "source": "/shell/past-papers(.*)",
+      "destination": "/past-papers/",
+      "permanent": false
     }
   ],
   "rewrites": [

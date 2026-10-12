@@ -18,7 +18,7 @@ os.environ['GATE_SECRET'] = 'test-gate-secret'
 
 from fastapi.testclient import TestClient  # noqa: E402
 from stemcloud import db as dbmod, migrations, security  # noqa: E402
-from stemcloud.routers import lessons, pages  # noqa: E402
+from stemcloud.routers import lessons, pages, past_papers  # noqa: E402
 from stemcloud.main import app  # noqa: E402
 
 H = {'X-Requested-With': 'stemcloud'}
@@ -329,6 +329,24 @@ class LearnRoute(unittest.TestCase):
                 self.assertEqual(r.headers['cache-control'], 'no-store')
             self.assertEqual(self.signed_in.get(self.URL + 'topics/no-such-topic/', follow_redirects=False).status_code, 404)
             self.assertEqual(self.signed_in.get(self.URL + 'topics/Bad_Topic/', follow_redirects=False).status_code, 404)
+
+    def test_the_new_past_papers_page_is_login_only(self):
+        built = Path(TMP) / 'private-papers' / 'index.html'
+        built.parent.mkdir(parents=True, exist_ok=True)
+        built.write_text('<!doctype html><title>Astro papers</title>', encoding='utf-8')
+        with patch.object(past_papers, 'WEB_PAPERS', built):
+            r = TestClient(app).get('/past-papers/', follow_redirects=False)
+            self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=/past-papers/'))
+            r = self.signed_in.get('/past-papers', follow_redirects=False)
+            self.assertEqual(r.status_code, 200)
+            self.assertIn('Astro papers', r.text)
+            self.assertEqual(r.headers['cache-control'], 'no-store')
+        with patch.object(past_papers, 'WEB_PAPERS', Path(TMP) / 'no-papers.html'):
+            r = self.signed_in.get('/past-papers/', follow_redirects=False)
+            self.assertEqual((r.status_code, r.headers['location']), (302, '/lessons/past-papers.html'))
+        r = self.signed_in.get('/lessons/past-papers.html')
+        self.assertIn('/past-papers/', r.text)                 # the current page offers the new one
+        self.assertIn('Try the new past papers', r.text)
 
     def test_the_build_path_goes_through_the_check(self):
         r = TestClient(app).get('/shell/learn/physics/g10/motion-in-a-straight-line/', follow_redirects=False)

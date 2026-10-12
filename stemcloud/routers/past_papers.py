@@ -2,12 +2,25 @@
 import json, re, time
 
 from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import LESSONS
+from ..config import LESSONS, WEB_PAPERS
 from ..db import db
-from ..security import body_json, need_csrf, need_user
+from ..security import body_json, current_user, need_csrf, need_user
 
 router = APIRouter()
+
+
+@router.get('/past-papers')
+@router.get('/past-papers/')
+def past_papers_page(req: Request):
+    """The new past papers page (web/src/pages/shell/past-papers): signed-in students only, like the current one. It is
+    kept out of the published files by the build and served from here; without a build, the current page."""
+    if not current_user(req):
+        return RedirectResponse('/login?next=/past-papers/', status_code=302)
+    if WEB_PAPERS.is_file():
+        return FileResponse(WEB_PAPERS, media_type='text/html')
+    return RedirectResponse('/lessons/past-papers.html', status_code=302)
 
 
 def past_questions():

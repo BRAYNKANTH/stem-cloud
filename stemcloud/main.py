@@ -16,7 +16,7 @@ async def headers(request: Request, call_next):
     # lesson pages may be framed by our own topic pages (they show one lesson step inside a topic); nothing else may be framed, and never by another site
     resp.headers['X-Frame-Options'] = 'SAMEORIGIN' if request.url.path.startswith('/lessons/') and request.url.path.endswith('.html') else 'DENY'
     resp.headers['Referrer-Policy'] = 'same-origin'
-    if request.url.path.startswith(('/api', '/lessons', '/learn', '/shell/learn', '/topics', '/account', '/admin')):
+    if request.url.path.startswith(('/api', '/lessons', '/learn', '/shell/learn', '/past-papers', '/shell/past-papers', '/topics', '/account', '/admin')):
         resp.headers['Cache-Control'] = 'no-store'
     return resp
 

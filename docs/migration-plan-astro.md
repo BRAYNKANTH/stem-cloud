@@ -351,6 +351,18 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - Port `past-papers.js` to a `PastPapers` island: year and lesson filters, practice and exam mode, drafts, bookmarks, attempts sync.
 - Year JSON moves to `content/past-papers/physics/<year>.json` and is validated by the same CI. Images come from R2.
 - Keep the existing `past_attempts` and `past_bookmarks` tables.
+- **Milestone 7.1 (2026-10-12): the new past papers page.**
+  - `/past-papers/` is the `PastPapers` island, a port of `past-papers.js`:
+    - the year, type, topic, review and search filters, the lesson filter (`?lesson=`) and keyboard browsing;
+    - MCQ check with explanations, written answers with model answers and a self-check, scans and textbook references;
+    - paper practice without a time limit, and bookmarks.
+  - **Same storage and API as today:** it keeps drafts and pending attempts under the same device key (`stem_pp_physics_<user>`) and uses the same API, so a student can switch between the old and new page without losing anything.
+  - **Login-only:** the build moves the page out of the published files (`web/scripts/private.mjs`), the Python route serves it after the sign-in check, and `vercel.json` redirects its build path.
+  - **"Try the new past papers"** appears on the current page.
+  - **Styles** are ported by `tools/past_papers_css.py`, mapped to the design tokens (light and dark) and checked in CI.
+  - **Languages:** English and Tamil, as today. Sinhala shows English until the papers are translated.
+  - **Tests:** the browser test covers loading, an MCQ check synced to the account, bookmark, filter, a written attempt with self-check, a reload, paper practice with its score, Tamil, and 375 px.
+- **Next (7.2):** move the year files from `site/lessons/past-papers/` to `content/past-papers/physics/<year>.json`, validated in CI.
 
 ### Phase 8: Port the labs (ongoing, ≈2–4 days per lab)
 - Order: the pilot chapter first, then the most-used chapters (taken from `step_progress` data).

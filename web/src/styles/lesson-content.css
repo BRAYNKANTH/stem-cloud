@@ -209,6 +209,14 @@
 .lc .card { position:relative;background:var(--panel);border:1px solid var(--border);border-radius:18px; padding:26px 24px 22px;margin-bottom:20px;box-shadow:var(--shadow); border-top:4px solid var(--board-accent, var(--accent)); transition:transform .25s ease, box-shadow .25s ease; overflow:hidden }
 .lc .card .icon-badge { display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:14px; background:color-mix(in srgb, var(--board-accent, var(--accent)) 18%, var(--panel-2)); border:1px solid color-mix(in srgb, var(--board-accent, var(--accent)) 40%, var(--border)); margin-bottom:12px;flex-shrink:0 }
 .lc .lab-controls { display:grid;grid-template-columns:1fr auto;gap:18px;align-items:end;margin-bottom:14px }
+.lc .toggle-row { display:flex;gap:16px;flex-wrap:wrap;margin-bottom:16px }
+.lc .toggle-group { flex:1;min-width:220px }
+.lc .toggle-group .tglabel { font-size:0.78rem;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px }
+.lc .toggle-btns { display:flex;gap:8px }
+.lc .toggle-btn { flex:1;background:var(--panel-2);border:1px solid var(--border);color:var(--text-dim);padding:9px 10px;border-radius:10px;cursor:pointer;font-weight:600;font-size:0.85rem;transition:.15s }
+.lc .toggle-btn.active { background:color-mix(in srgb, var(--accent) 18%, var(--panel));border-color:var(--accent);color:var(--text) }
+.lc .a-readout .status-still { color:var(--accent) }
+.lc .a-readout .status-sliding { color:var(--accent-3) }
 .lc .lab-readouts { display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px }
 @media (max-width:700px) {
   .lc .lab-readouts { grid-template-columns:repeat(1,1fr) }
@@ -394,7 +402,7 @@
 }
 @media (pointer:coarse),(max-width:760px) {
   .lc .btn { min-height:44px }
-  .lc .lg-try { min-height:44px }
+  .lc .toggle-btn,.lc .lg-try { min-height:44px }
   .lc .so-dots i { width:10px;height:10px }
 }
 @media (max-width:760px) {

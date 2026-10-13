@@ -393,6 +393,11 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **`web/src/labs/shared.tsx`** holds what every lesson page's lab has around its own simulation (the pages' guide and stage scripts are the same in all of them): the guide, the stage loop, the missions (device keys, XP, the lab step), the readouts, the graphs and the player. A rebuilt lab now only adds its words, tries, missions, stage drawing and simulation. `MotionLab` uses it too.
   - **`ForceLab`** is chapter 4's (Newton's laws) lab rebuilt. You set F and m, and the trolley speeds up from rest, with the v-t and p-t graphs. Raja pushes a trolley loaded with stones. Missions keep `scx_lab_c4_<n>`.
   - **Tests:** the browser test checks the Force lab's physics after 6 s, its missions, its device key and Tamil.
+- **Milestone 8.3 (2026-10-13): the Friction lab.** Chapter 5's lab rebuilt on the shared parts.
+  - You choose the floor (μ 0.3 or 0.6) and how many 20 N blocks, then push.
+  - Up to the limiting friction (μ × weight), friction matches the push and the block only shakes. Past it, the block slides against dynamic friction (¾ of the limit).
+  - The friction against push graph and the stage are drawn as on the page today. Missions keep `scx_lab_c5_<n>`.
+  - **Tests:** the browser test checks the limit, the stationary and sliding cases, the distance after 6 s and the missions.
 - **Next:** the other chapters' labs, one by one, then the games and sort games.
 
 ### Phase 9: Cutover and cleanup (≈1 week)

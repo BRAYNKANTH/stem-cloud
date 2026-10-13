@@ -254,4 +254,6 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - The guide, stage, missions, readouts and graphs that every lab has are now one shared part (`labs/shared.tsx`), so each new lab is only its simulation and drawing.
 - Chapter 4's (Newton's laws) Force lab is rebuilt on it. The Motion lab now uses it too, and its checks still pass.
 
+**8.3, the Friction lab** (2026-10-13): chapter 5's lab, rebuilt on the shared parts. It has the floor and block toggles, and friction follows the push up to the limit, then drops to dynamic friction when the block slides.
+
 **Next:** the other chapters' labs, then the games.

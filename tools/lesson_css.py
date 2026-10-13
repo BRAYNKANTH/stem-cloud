@@ -28,8 +28,9 @@ ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-c
                   # the labs (web/src/labs/): the lesson pages' lab card, guide, stage and missions, controls, readouts and graphs
                   'lab-card', 'lg', 'goal', 'look', 'lg-tries', 'lg-try', 'lg-see', 'lg-live', 'ls', 'ls-top', 'ls-hint', 'ls-miss', 'ls-m', 'ck',
                   'lab-controls', 'control', 'lab-buttons', 'lab-readouts', 'readout', 'ro-label', 'ro-value', 'track-wrap', 'graphs-row',
-                  'graph-box', 'gtitle', 'lab-hint', 'lab-svg', 'a-readout'}
-STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet'}   # the islands' state classes, next to one of theirs
+                  'graph-box', 'gtitle', 'lab-hint', 'lab-svg', 'a-readout',
+                  'toggle-row', 'toggle-group', 'tglabel', 'toggle-btns', 'toggle-btn', 'status-still', 'status-sliding'}
+STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet', 'active'}   # the islands' state classes, next to one of theirs
 DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 
 

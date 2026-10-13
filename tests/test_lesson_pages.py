@@ -21,6 +21,7 @@ CATALOG = json.load(open(os.path.join(ROOT, 'content', 'catalog.json'), encoding
 URLS = ['/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']) for l in CATALOG]
 MOTION = '/learn/physics/g10/motion-in-a-straight-line/'
 NEWTON = '/learn/physics/g10/newtons-laws/'
+FRICTION = '/learn/physics/g10/friction/'
 # the topic view: lessons that have topics (content/.../lesson.json "topics"), their overview, topic and revision pages
 TOPIC_URLS = []
 for l in CATALOG:
@@ -371,6 +372,24 @@ def run():
             set_lang(pg, 'ta')
             check('Force lab: in Tamil', lambda: pg.locator('#lab .lg-try').nth(0).inner_text().startswith('1. 10 N தள்ளல்'))
             set_lang(pg, 'en')
+            # ------------------------------------------------------------ Friction: the lab, rebuilt (labs/physics/FrictionLab.tsx)
+            pg.goto(BASE + FRICTION + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('Friction lab: rebuilt, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('Friction lab: the stage draws', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c5_' + i))")
+            pg.locator('#lab .lg-try').nth(2).click()                    # rough floor, 8 N: below the 12 N limit
+            check('Friction lab: below the limit friction matches the push', lambda: (ro('status'), ro('limit'), ro('fr')) == ('Stationary', '12.0 N', '8.0 N'), lambda: (ro('status'), ro('limit'), ro('fr')))
+            pg.wait_for_timeout(1500)
+            check('...and the block does not move', lambda: ro('s') == '0.0 m' and ro('t') == '0.0 s', lambda: (ro('s'), ro('t')))
+            pg.locator('#lab .lg-try').nth(1).click()                    # smooth floor, 8 N: past the 6 N limit
+            check('Friction lab: past the limit it slides on dynamic friction', lambda: (ro('status'), ro('limit'), ro('fr')) == ('Sliding!', '6.0 N', '4.5 N'), lambda: (ro('status'), ro('limit'), ro('fr')))
+            pg.wait_for_function("document.querySelector('#lab [data-ro=t]').textContent.startsWith('6.0')", timeout=20000)
+            check('Friction lab: after 6 s it slid 31.5 m (a = (8 - 4.5) / 2)', lambda: ro('s') == '31.5 m', lambda: ro('s'))
+            check('Friction lab: sliding on the smooth floor completes mission 1 only', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, False, False],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            check('Friction lab: the mission is kept under the current page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_c5_0')") == '1')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

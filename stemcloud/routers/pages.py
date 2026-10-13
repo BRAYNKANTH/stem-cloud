@@ -1,4 +1,5 @@
 """Public and account pages, health check, and the app files that must live at the site root."""
+import os, re
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException, Request
@@ -88,6 +89,21 @@ def service_worker():
 @router.get('/manifest.webmanifest')
 def manifest():
     return FileResponse(STATIC / 'manifest.webmanifest', media_type='application/manifest+json', headers={'Cache-Control': 'public, max-age=3600'})
+
+@router.get('/.well-known/assetlinks.json')
+def asset_links():
+    """The Play Store app (Phase 10, docs/play-store.md): a Trusted Web Activity shows this site without a browser bar
+    only if the site names the app here. Set ANDROID_PACKAGE and ANDROID_CERT_SHA256 (the app signing certificate's
+    SHA-256 fingerprint from Play Console; several may be given, separated by commas) in Vercel. Until then: not found."""
+    package = os.environ.get('ANDROID_PACKAGE', '').strip()
+    prints = [f.strip().upper() for f in os.environ.get('ANDROID_CERT_SHA256', '').split(',') if f.strip()]
+    good = (bool(prints) and all(re.fullmatch(r'(?:[0-9A-F]{2}:){31}[0-9A-F]{2}', f) for f in prints)
+            and re.fullmatch(r'[a-z][a-z0-9_]*(?:\.[a-z][a-z0-9_]*)+', package))
+    if not good:
+        raise HTTPException(404, 'Not found.')
+    return JSONResponse([{'relation': ['delegate_permission/common.handle_all_urls'],
+                          'target': {'namespace': 'android_app', 'package_name': package, 'sha256_cert_fingerprints': prints}}],
+                        headers={'Cache-Control': 'public, max-age=3600'})
 
 @router.get('/apple-touch-icon.png')
 @router.get('/apple-touch-icon-precomposed.png')

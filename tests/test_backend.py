@@ -499,5 +499,30 @@ class HealthMedia(unittest.TestCase):
             self.assertNotIn('media_problems', TestClient(app).get('/healthz').json())
 
 
+class AssetLinks(unittest.TestCase):
+    """/.well-known/assetlinks.json names the Play Store app (Phase 10) only once its package and fingerprint are set."""
+    PRINT = ':'.join(['AB'] * 32)
+
+    def get(self, env):
+        with patch.dict(os.environ, env):
+            return TestClient(app).get('/.well-known/assetlinks.json')
+
+    def test_not_found_until_set(self):
+        self.assertEqual(self.get({'ANDROID_PACKAGE': '', 'ANDROID_CERT_SHA256': ''}).status_code, 404)
+        self.assertEqual(self.get({'ANDROID_PACKAGE': 'site.stemcloud.app', 'ANDROID_CERT_SHA256': ''}).status_code, 404)
+
+    def test_bad_values_are_refused(self):
+        self.assertEqual(self.get({'ANDROID_PACKAGE': 'site.stemcloud.app', 'ANDROID_CERT_SHA256': 'not-a-fingerprint'}).status_code, 404)
+        self.assertEqual(self.get({'ANDROID_PACKAGE': 'Not A Package', 'ANDROID_CERT_SHA256': self.PRINT}).status_code, 404)
+
+    def test_names_the_app(self):
+        r = self.get({'ANDROID_PACKAGE': 'site.stemcloud.app', 'ANDROID_CERT_SHA256': self.PRINT.lower() + ' , ' + ':'.join(['CD'] * 32)})
+        self.assertEqual(r.status_code, 200)
+        target = r.json()[0]['target']
+        self.assertEqual(r.json()[0]['relation'], ['delegate_permission/common.handle_all_urls'])
+        self.assertEqual((target['namespace'], target['package_name']), ('android_app', 'site.stemcloud.app'))
+        self.assertEqual(target['sha256_cert_fingerprints'], [self.PRINT, ':'.join(['CD'] * 32)])
+
+
 if __name__ == '__main__':
     unittest.main()

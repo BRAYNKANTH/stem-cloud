@@ -486,6 +486,9 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **Before deleting `site/lessons/`:** the lifted parts are generated from it: the cartoon engine, slider labs, sort, challenge and level games, Watch animations, the CSS ports and `tools/extract_lesson.py --check`. Freeze them first: keep the generated files as the source, then remove the generators and their CI checks (`docs/content-authoring.md`).
 
 ### Phase 10: App stores
+- **Milestone 10.1 (2026-10-13): the site side of the Play Store app.**
+  - `/.well-known/assetlinks.json` names the app once `ANDROID_PACKAGE` and `ANDROID_CERT_SHA256` are set in Vercel, and is "not found" until then (`stemcloud/routers/pages.py`, tested in `tests/test_backend.py`).
+  - `docs/play-store.md` gives the owner's steps: PWABuilder, Play Console, the fingerprint, testing.
 - **Play Store**: package the PWA as a Trusted Web Activity with PWABuilder or Bubblewrap and host `/.well-known/assetlinks.json`. Updates go live with every deploy.
 - **iOS** (when demand appears): Capacitor shell with real native value (downloaded chapters and audio for offline use, notifications) so it passes Apple's review. Login uses the same cookie session; check cookie behaviour inside the WebView early.
 

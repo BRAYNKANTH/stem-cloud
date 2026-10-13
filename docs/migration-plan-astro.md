@@ -483,6 +483,7 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.
 - **Service-worker handover**: the new SW is served at the old `sw.js` path with the same scope, deletes all old caches when it activates and takes control of open pages. Test the upgrade from a phone that has the old app installed and has offline progress waiting to sync.
 - Retire the v1 progress endpoints once old-SW traffic falls to roughly zero (watch the logs). Then delete `routers/legacy.py`, `site/lessons/*.html`, `public/static/*` (the old app layer) and `tools/sync_lessons.py`.
+  - **Before deleting `site/lessons/`:** the lifted parts are generated from it: the cartoon engine, slider labs, sort, challenge and level games, Watch animations, the CSS ports and `tools/extract_lesson.py --check`. Freeze them first: keep the generated files as the source, then remove the generators and their CI checks (`docs/content-authoring.md`).
 
 ### Phase 10: App stores
 - **Play Store**: package the PWA as a Trusted Web Activity with PWABuilder or Bubblewrap and host `/.well-known/assetlinks.json`. Updates go live with every deploy.

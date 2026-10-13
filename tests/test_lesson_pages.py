@@ -525,10 +525,61 @@ def run():
             # the step, the badge and the XP reach the account (motion's game)
             pg.goto(BASE + MOTION + '#sort')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            # the outbox sends in batches: give it time to reach the server (slow on CI)
+            for _ in range(30):
+                if (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps', {}).get('sort') or {}).get('done'):
+                    break
+                pg.wait_for_timeout(500)
             check('sort: finishing the game marks the sort step done on the server', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps', {}).get('sort') or {}).get('done') is not None,
                   lambda: pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps'))
             set_lang(pg, 'ta')
             check('sort: in Tamil', lambda: pg.locator('#sort .mtitle').first.inner_text() == 'வார்த்தைகள்')
+            set_lang(pg, 'en')
+            # ------------------------------------------------------------ the challenge games, rebuilt (games/ChallengeGame.tsx, lifted by tools/challenge_games.py)
+            gwarns = []
+            pg.on('console', lambda m: gwarns.append(m.text[:150]) if m.type == 'warning' and m.text.startswith('game ') else None)
+            for gf in sorted(glob.glob(os.path.join(ROOT, 'web', 'src', 'games', 'challenge', '*.js'))):
+                src = open(gf, encoding='utf-8').read()
+                slug = os.path.basename(gf)[:-3]
+                key = re.search(r'"starsKey": "([^"]+)"', src).group(1)
+                answers = [float(x) for x in re.findall(r'"correct": ([-\d.]+)', src)]
+                url = next(u for u in LESSON_URL.values() if u.rstrip('/').endswith('/' + slug))
+                pg.goto(BASE + url + '#challenge')
+                pg.evaluate("localStorage.removeItem('%s')" % key)
+                pg.reload()
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                g = pg.locator('#challenge .lab-card')
+                check('%s challenge: rebuilt, not a frame' % slug, lambda: g.count() == 1 and pg.locator('#challenge iframe').count() == 0 and g.locator('.level-btn').count() == len(answers))
+                g.scroll_into_view_if_needed()
+                check('%s challenge: the picture draws' % slug, lambda: g.locator('.game-scene svg > *').count() > 2)
+                # a far-off answer first: no stars
+                g.locator('#gameGuessSlider').fill(g.locator('#gameGuessSlider').get_attribute('max'))
+                g.locator('.lab-buttons .btn').click()
+                far = abs(float(g.locator('#gameGuessSlider').input_value()) - answers[0]) > 10
+                check('%s challenge: a far-off answer gets no stars' % slug, lambda: not far or ('lose' in g.locator('[data-ro=result]').get_attribute('class') and g.locator('[data-ro=stars]').inner_text() == ''),
+                      lambda: (g.locator('[data-ro=result]').inner_text(), g.locator('[data-ro=stars]').inner_text()))
+                for i, ans in enumerate(answers):
+                    g.locator('.level-btn').nth(i).click()
+                    sl = g.locator('#gameGuessSlider')
+                    lo, step = float(sl.get_attribute('min')), float(sl.get_attribute('step'))
+                    near = round(lo + round((ans - lo) / step) * step, 6)          # the nearest value the slider can take
+                    sl.fill(str(int(near)) if near == int(near) else str(near))
+                    g.locator('.lab-buttons .btn').click()
+                    check('%s challenge: level %d, the nearest answer wins stars' % (slug, i + 1), lambda: g.locator('[data-ro=stars]').inner_text().startswith('★') and 'win' in g.locator('[data-ro=result]').get_attribute('class'),
+                          lambda: (g.locator('[data-ro=guess]').inner_text(), ans, g.locator('[data-ro=result]').inner_text()))
+                check('%s challenge: the best stars are kept on this device under the page key' % slug, lambda: all(n > 0 for n in json.loads(pg.evaluate("localStorage.getItem('%s')" % key) or '[0]')) and len(json.loads(pg.evaluate("localStorage.getItem('%s')" % key) or '[]')) == len(answers),
+                      lambda: pg.evaluate("localStorage.getItem('%s')" % key))
+            check('challenge games: nothing failed to draw', lambda: not gwarns, lambda: gwarns)
+            pg.goto(BASE + '/learn/physics/g11/waves/#challenge')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            for _ in range(30):
+                if (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g11.waves').then(r => r.json())").get('steps', {}).get('challenge') or {}).get('done'):
+                    break
+                pg.wait_for_timeout(500)
+            check('challenge: the stars and the step reach the account', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g11.waves').then(r => r.json())").get('steps', {}).get('challenge') or {}).get('done') is not None,
+                  lambda: pg.evaluate("fetch('/api/v2/progress?lesson=physics.g11.waves').then(r => r.json())"))
+            set_lang(pg, 'ta')
+            check('challenge: in Tamil', lambda: pg.locator('#challenge .lab-buttons .btn').inner_text() == '🔍 சரிபார்!')
             set_lang(pg, 'en')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)

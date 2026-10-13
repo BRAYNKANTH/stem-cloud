@@ -78,8 +78,17 @@
 .lc .hidden { display:none }
 .lc .exq { display:flex;gap:10px;align-items:baseline;color:var(--text);font-size:0.94rem;margin-bottom:8px }
 .lc .exq .exnum { color:var(--accent-3);font-weight:700;flex-shrink:0 }
+.lc .level-row { display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:8px;margin-bottom:18px }
+.lc .level-btn { background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:10px 6px;cursor:pointer;text-align:center;color:var(--text-dim);transition:.15s }
+.lc .level-btn.active { border-color:var(--accent);background:color-mix(in srgb, var(--accent) 16%, var(--panel));color:var(--text) }
+.lc .level-btn .lstars { font-size:0.85rem;color:var(--accent-3);margin-top:2px }
+.lc .level-btn .lnum2 { font-weight:800;font-size:1rem;color:var(--text) }
+.lc .game-scene { background:var(--panel-2);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;text-align:center }
+.lc .game-scene .surface-label { font-size:0.9rem;color:var(--text-dim);margin-bottom:10px }
 .lc .game-result { margin-top:10px;font-size:0.95rem;min-height:1.4em }
 .lc .game-result.win { color:var(--good);font-weight:700 }
+.lc .game-result.lose { color:var(--accent-3);font-weight:700 }
+.lc .star-row { font-size:1.6rem;letter-spacing:4px;margin:8px 0 }
 .lc .match-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px }
 @media (max-width:640px) {
   .lc .match-grid { grid-template-columns:1fr }
@@ -248,6 +257,7 @@
 }
 .lc .graphs-row { display:grid;grid-template-columns:1fr;gap:16px }
 .lc .step-toggle .marks { font-size:0.72rem;font-weight:700;color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 16%, transparent);padding:2px 8px;border-radius:6px;white-space:nowrap }
+.lc .game-scene .surface-label { font-size:0.85rem;color:var(--text-faint);margin-bottom:10px }
 .lc .lab-controls { display:grid;grid-template-columns:1fr 1fr auto;gap:18px;align-items:end;margin-bottom:18px }
 .lc .lab-controls { display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:end;margin-bottom:18px }
 .lc .fig { margin:16px 0;background:var(--panel-2);border:1px solid var(--border);border-radius:14px;padding:12px 12px 8px;text-align:center }
@@ -264,6 +274,7 @@
 .lc .worked .work { margin:4px 0 }
 .lc .lab-svg-wrap { width:100%;margin-bottom:18px }
 .lc .lab-svg-wrap svg { width:100%;height:auto;display:block }
+.lc .game-scene svg { width:100%;height:auto;max-width:560px }
 .lc .qdiagram { overflow-x:auto }
 .lc .btn { display:inline-block;text-decoration:none;border:1px solid var(--border);background:var(--panel-2);color:var(--text);padding:10px 18px;border-radius:12px;font-weight:700;font-size:.9rem;cursor:pointer }
 .lc .btn[disabled] { opacity:.45;cursor:default }
@@ -403,7 +414,7 @@
 .lc .so-quest { margin:8px 0 16px;padding:14px 18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 12%,var(--panel));border:1.5px solid color-mix(in srgb,var(--accent) 38%,var(--border));display:flex;flex-direction:column;gap:6px }
 .lc .so-quest-head { display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:800;color:var(--accent);letter-spacing:.02em }
 .lc .so-quest p { margin:0;font-size:.92rem;line-height:1.5;color:var(--text) }
-.lc .card,.lc .lab-card,.lc .qz-card { min-width:0;max-width:100%;box-sizing:border-box }
+.lc .card,.lc .lab-card,.lc .qz-card,.lc .game-scene { min-width:0;max-width:100%;box-sizing:border-box }
 .lc .so-hint-t { position:static;width:auto;height:auto;clip:auto;overflow:visible;font-size:.9rem }
 .lc .so-ctrls { flex-wrap:wrap }
 .lc .so-ctrls .so-dots { flex:1 1 100%;order:3 }

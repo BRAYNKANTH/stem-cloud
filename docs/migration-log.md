@@ -270,4 +270,7 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
   - Two quick taps could be lost, because the second tap saw the state from before the first. The game now reads the current choice.
   - The chips were 40 px, under the 44 px tap-target rule on phones.
 
-**Next:** the other games, then the Watch animations.
+**8.6, the challenge games** (2026-10-13): the nine template pages' mini-games, lifted from each page and played by one island.
+- **Found on the way:** two checks read the server before the outbox had sent its batch, and failed on CI's slower machines. They now wait for it.
+
+**Next:** the six one-off games, then the Watch animations.

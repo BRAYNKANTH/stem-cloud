@@ -50,6 +50,8 @@ jobs:
         run: python tools/slider_labs.py --check
       - name: The sort games are current with the lesson pages
         run: python tools/sort_games.py --check
+      - name: The challenge games are current with the lesson pages
+        run: python tools/challenge_games.py --check
       - name: Past paper question banks (content/past-papers)
         run: |
           python tools/validate_past_papers.py

@@ -1,6 +1,6 @@
 ---
 // One step of a lesson as static HTML (no JavaScript needed to read it). The interactive parts are islands: the labs
-// (labs/), the sort game (games/SortGame); the other games and the animation are the current lesson page in a frame
+// (labs/), the sort and challenge games (games/); the other games and the animation are the current lesson page in a frame
 // until they are rebuilt (LegacyFrame).
 // The story and the quiz are islands too (StoryPlayer, Quiz); without JavaScript the page shows the story as a list of
 // bubbles and the quiz with its answers behind "Show answer" instead (styles/lesson.css). The exercises' rows and
@@ -18,6 +18,8 @@ import EquilibriumLab from '../../labs/physics/EquilibriumLab';
 import SliderLabs from '../../labs/slider/SliderLabs.astro';
 import SortGame, { sortStrings } from '../../games/SortGame';
 import { SORT_GAMES } from '../../games/sort';
+import ChallengeGames from '../../games/challenge/ChallengeGames.astro';
+import { CHALLENGES } from '../../games/challenge';
 import { LABS } from '../../labs/registry';
 import { labSinhala, type SiDict } from '../../lib/si-lookup';
 import Quiz from '../../islands/Quiz';
@@ -36,6 +38,9 @@ const dict = (name: string) => DICTS[`../../../../public/static/si/${name}.json`
 const labSi = ported && lesson.legacy ? labSinhala(ported.strings, dict(lesson.legacy.file.replace(/\.html$/, '')), dict('_ui')) : {};
 // the sort game, rebuilt (games/SortGame.tsx, its data lifted by tools/sort_games.py)
 const sortGame = s.type === 'sort' ? SORT_GAMES[lesson.id] : undefined;
+// the challenge game, rebuilt (games/ChallengeGame.tsx, lifted by tools/challenge_games.py)
+const challenge = s.type === 'game' ? CHALLENGES[lesson.id] : undefined;
+const challengeSi = challenge && lesson.legacy ? labSinhala(challenge.strings, dict(lesson.legacy.file.replace(/[.]html$/, '')), dict('_ui')) : {};
 const sortSi = sortGame && lesson.legacy ? labSinhala(sortStrings(sortGame), dict(lesson.legacy.file.replace(/\.html$/, '')), dict('_ui')) : {};
 const kind = KINDS[s.type];
 const heading = 'heading' in s ? s.heading : { title: s.title, sub: null };
@@ -103,7 +108,8 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
   {ported?.island === 'equilibrium' && <EquilibriumLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
   {ported?.slider && <SliderLabs island={ported.island} si={labSi} legacy={lesson.legacy?.id} />}
   {sortGame && <SortGame client:visible game={sortGame} stepId={s.id} si={sortSi} />}
-  {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && !ported && !sortGame && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
+  {challenge && <ChallengeGames island={challenge.island} si={challengeSi} stepId={s.id} />}
+  {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && !ported && !sortGame && !challenge && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
 
   {s.type === 'quiz' && <Quiz client:idle stepId={s.id} questions={s.questions} />}
   {s.type === 'quiz' && (

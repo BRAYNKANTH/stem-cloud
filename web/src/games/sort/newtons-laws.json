@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Law",
+    "சுற்று 1 — விதியை இணை"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Tap a fact, then tap the bin it belongs to.",
+    "ஒரு உண்மையை தொடு, அப்புறம் அது எந்த பெட்டிக்குன்னு அந்த பெட்டியை தொடு."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Inertia",
+    "சடத்துவம்"
+   ],
+   "meaning": [
+    "The tendency of a body to resist a change in its state of motion",
+    "இயக்க நிலை மாறுறத எதிர்க்கும் பொருளோட குணம்"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "F = ma",
+    "F = ma"
+   ],
+   "meaning": [
+    "Acceleration depends on the unbalanced force and the mass",
+    "முடுக்கம், சமநிலையற்ற விசையையும் திணிவையும் பொறுத்தது"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Third law",
+    "மூன்றாவது விதி"
+   ],
+   "meaning": [
+    "Equal and opposite reaction — on a different object",
+    "சம, எதிர் மறுதாக்கம் — வேற பொருள் மேல"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Momentum",
+    "உந்தம்"
+   ],
+   "meaning": [
+    "Mass × velocity",
+    "திணிவு × வேகம்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Measured in kg",
+    "kg-ல அளக்கப்படும்"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Amount of matter in the object",
+    "பொருளில் உள்ள சடப்பொருளின் அளவு"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Same on Earth and the Moon",
+    "புவியிலும் நிலவிலும் ஒண்ணுதான்"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "A scalar quantity",
+    "அளவெண் அளவு"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Measured in N",
+    "N-ல அளக்கப்படும்"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Gravitational pull on the object",
+    "பொருள் மேல புவியீர்ப்பு இழுவை"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Changes from Earth to the Moon",
+    "புவியில இருந்து நிலவுக்கு மாறும்"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "A vector — acts downward",
+    "திசையுள்ள அளவு — கீழ் நோக்கி"
+   ],
+   "bin": "b"
+  }
+ ],
+ "bins": [
+  {
+   "id": "a",
+   "title": [
+    "⚖️ Mass",
+    "⚖️ திணிவு (Mass)"
+   ]
+  },
+  {
+   "id": "b",
+   "title": [
+    "🌍 Weight",
+    "🌍 நிறை (Weight)"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Mass/Weight Sort complete!",
+   "திணிவு/நிறை சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "ch4_sort_master"
+ }
+}

@@ -488,6 +488,48 @@ def run():
                   and pg.locator('#lab .control label span').first.inner_text() == 'ගැඹුර' and pg.locator('#lab .ls-m').first.inner_text().endswith('මෙහෙයුම 1: රාජා ජලයේ (ඝනත්වය 1000) හරියටම 5 m ට කිමිදවන්න.'),
                   lambda: (pg.locator('#lab .lg-try').nth(0).inner_text(), pg.locator('#lab .control label span').first.inner_text(), pg.locator('#lab .ls-m').first.inner_text()))
             set_lang(pg, 'en')
+            # ------------------------------------------------------------ the sort games, rebuilt (games/SortGame.tsx, data from tools/sort_games.py)
+            for gf in sorted(glob.glob(os.path.join(ROOT, 'web', 'src', 'games', 'sort', '*.json'))):
+                game = json.load(open(gf, encoding='utf-8'))
+                slug = os.path.basename(gf)[:-5]
+                url = next(u for u in LESSON_URL.values() if u.rstrip('/').endswith('/' + slug))
+                pg.goto(BASE + url + '#sort')
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                g = pg.locator('#sort .lab-card')
+                check('%s sort: rebuilt, not a frame' % slug, lambda: g.count() == 1 and pg.locator('#sort iframe').count() == 0)
+                g.scroll_into_view_if_needed()
+                check('%s sort: every term, meaning and chip is there' % slug, lambda: g.locator('.match-col').nth(0).locator('.match-tile').count() == len(game['terms'])
+                      and g.locator('.match-col').nth(1).locator('.match-tile').count() == len(game['terms']) and g.locator('.sort-pool .sort-chip').count() == len(game['items']))
+                # a wrong meaning first, then every right one
+                t0, t1 = game['terms'][0]['id'], game['terms'][1]['id']
+                g.locator('.match-col').nth(0).locator('[data-id=%s]' % t0).click()
+                g.locator('.match-col').nth(1).locator('[data-id=%s]' % t1).click()
+                check('%s sort: a wrong meaning is not matched' % slug, lambda: g.locator('.match-tile.matched').count() == 0)
+                for t in game['terms']:
+                    g.locator('.match-col').nth(0).locator('[data-id=%s]' % t['id']).click()
+                    g.locator('.match-col').nth(1).locator('[data-id=%s]' % t['id']).click()
+                check('%s sort: all matched' % slug, lambda: g.locator('.match-tile.matched').count() == 2 * len(game['terms']) and g.locator('[data-result=match]').inner_text() == '🎉 All matched!',
+                      lambda: (g.locator('.match-tile.matched').count(), g.locator('[data-result=match]').inner_text(), g.locator('.match-col').nth(0).inner_html()[:300]))
+                # a chip in the wrong bin stays, then every chip in its bin
+                it = game['items'][0]
+                other = next(b['id'] for b in game['bins'] if b['id'] != it['bin'])
+                g.locator('.sort-pool [data-id=%s]' % it['id']).click()
+                g.locator('[data-bin=%s]' % other).click()
+                check('%s sort: a chip in the wrong bin stays in the pool' % slug, lambda: g.locator('.sort-pool .sort-chip').count() == len(game['items']))
+                for it in game['items']:
+                    g.locator('.sort-pool [data-id=%s]' % it['id']).click()
+                    g.locator('[data-bin=%s]' % it['bin']).click()
+                check('%s sort: every chip sorted into its bin' % slug, lambda: g.locator('.sort-pool .sort-chip').count() == 0
+                      and all(g.locator('[data-bin=%s] .schip' % b['id']).count() == sum(1 for i in game['items'] if i['bin'] == b['id']) for b in game['bins'])
+                      and g.locator('[data-result=sort]').inner_text() == '🎉 All chips sorted correctly!')
+            # the step, the badge and the XP reach the account (motion's game)
+            pg.goto(BASE + MOTION + '#sort')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('sort: finishing the game marks the sort step done on the server', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps', {}).get('sort') or {}).get('done') is not None,
+                  lambda: pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps'))
+            set_lang(pg, 'ta')
+            check('sort: in Tamil', lambda: pg.locator('#sort .mtitle').first.inner_text() == 'வார்த்தைகள்')
+            set_lang(pg, 'en')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

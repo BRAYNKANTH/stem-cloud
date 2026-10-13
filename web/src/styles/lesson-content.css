@@ -78,6 +78,31 @@
 .lc .hidden { display:none }
 .lc .exq { display:flex;gap:10px;align-items:baseline;color:var(--text);font-size:0.94rem;margin-bottom:8px }
 .lc .exq .exnum { color:var(--accent-3);font-weight:700;flex-shrink:0 }
+.lc .game-result { margin-top:10px;font-size:0.95rem;min-height:1.4em }
+.lc .game-result.win { color:var(--good);font-weight:700 }
+.lc .match-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px }
+@media (max-width:640px) {
+  .lc .match-grid { grid-template-columns:1fr }
+}
+.lc .match-col .mtitle { font-size:0.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint);margin-bottom:8px;font-weight:700 }
+.lc .match-tile { background:var(--panel-2);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:8px;cursor:pointer;font-size:0.88rem;color:var(--text);transition:.15s }
+.lc .match-tile:hover { border-color:var(--accent-2) }
+.lc .match-tile.selected { border-color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 18%, var(--panel)) }
+.lc .match-tile.matched { opacity:0.4;cursor:default;border-color:var(--good) }
+.lc .match-tile.wrong { animation:shakeTile .35s;border-color:var(--danger) }
+.lc .sort-pool { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;min-height:40px }
+.lc .sort-chip { background:var(--panel-2);border:1px solid var(--border);border-radius:20px;padding:8px 14px;cursor:pointer;font-size:0.85rem;color:var(--text);transition:.15s }
+.lc .sort-chip:hover { border-color:var(--accent-2) }
+.lc .sort-chip.selected { border-color:var(--accent-2);background:color-mix(in srgb, var(--accent-2) 20%, var(--panel)) }
+.lc .sort-chip.wrong { animation:shakeTile .35s;border-color:var(--danger) }
+.lc .sort-bins { display:grid;grid-template-columns:1fr 1fr;gap:12px }
+@media (max-width:640px) {
+  .lc .sort-bins { grid-template-columns:1fr }
+}
+.lc .sort-bin { background:var(--panel-2);border:2px dashed var(--border);border-radius:12px;padding:14px;min-height:110px;cursor:pointer }
+.lc .sort-bin:hover { border-color:var(--accent) }
+.lc .sort-bin .btitle { font-size:0.85rem;font-weight:700;color:var(--text);margin-bottom:8px }
+.lc .sort-bin .schip { display:inline-block;background:var(--panel);border:1px solid var(--good);border-radius:16px;padding:5px 10px;margin:3px;font-size:0.78rem;color:var(--text) }
 .lc .card figure { margin:14px 0;text-align:center }
 .lc .card figure img { max-width:100%;border-radius:10px;border:1px solid var(--border) }
 .lc .card figcaption { color:var(--text-faint);font-size:0.78rem;margin-top:6px }

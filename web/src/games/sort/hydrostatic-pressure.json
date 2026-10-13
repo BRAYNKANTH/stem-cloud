@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Does the pressure at a point in a liquid depend on it?",
+    "திரவத்துல ஒரு புள்ளியோட அமுக்கம் இதப் பொறுத்ததா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Pressure",
+    "அமுக்கம்"
+   ],
+   "meaning": [
+    "Force acting on a unit area",
+    "ஓரலகு பரப்பளவு மேல தாக்கும் விசை"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Pascal (Pa)",
+    "பாஸ்கல் (Pa)"
+   ],
+   "meaning": [
+    "1 N m<sup>-2</sup>",
+    "1 N m<sup>-2</sup>"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Upthrust",
+    "மேலுதைப்பு"
+   ],
+   "meaning": [
+    "Upward force a fluid exerts on an object in it",
+    "பாய்மம் அதுல இருக்கற பொருள் மேல கொடுக்கற மேல்நோக்கிய விசை"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Atmospheric pressure",
+    "வளிமண்டல அமுக்கம்"
+   ],
+   "meaning": [
+    "Pressure due to the weight of the air above",
+    "மேல இருக்கற காத்தோட நிறையால உண்டாகும் அமுக்கம்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Hydraulic press",
+    "நீரியல் அழுத்தி"
+   ],
+   "meaning": [
+    "Passes pressure through a liquid from a small piston to a large one",
+    "சின்ன பிஸ்டன்ல இருந்து பெரிய பிஸ்டனுக்கு திரவம் வழியா அமுக்கத்த கடத்தும்"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Barometer",
+    "பாரமானி"
+   ],
+   "meaning": [
+    "Measures atmospheric pressure",
+    "வளிமண்டல அமுக்கத்த அளக்கும்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Depth of the point",
+    "புள்ளியோட ஆழம்"
+   ],
+   "bin": "yes"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Density of the liquid",
+    "திரவத்தோட அடர்த்தி"
+   ],
+   "bin": "yes"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Value of g",
+    "g-யோட பெறுமானம்"
+   ],
+   "bin": "yes"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Shape of the container",
+    "கொள்கலனோட வடிவம்"
+   ],
+   "bin": "no"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Total amount of liquid",
+    "மொத்த திரவத்தோட அளவு"
+   ],
+   "bin": "no"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Width of the container",
+    "கொள்கலனோட அகலம்"
+   ],
+   "bin": "no"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Direction at the point",
+    "புள்ளில திசை"
+   ],
+   "bin": "no"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Height of the liquid column above the point",
+    "புள்ளிக்கு மேல இருக்கற திரவ நிரலோட உயரம்"
+   ],
+   "bin": "yes"
+  }
+ ],
+ "bins": [
+  {
+   "id": "yes",
+   "title": [
+    "✅ It depends on it",
+    "✅ இதப் பொறுத்தது"
+   ]
+  },
+  {
+   "id": "no",
+   "title": [
+    "❌ It does not depend on it",
+    "❌ இதப் பொறுத்தது இல்ல"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Pressure Sort complete!",
+   "அமுக்க சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g10c15_sort_master"
+ }
+}

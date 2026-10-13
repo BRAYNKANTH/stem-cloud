@@ -264,4 +264,10 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - All 15 lab steps now use rebuilt labs. None is in a frame.
 - **Found on the way:** the generated labs showed missions in English in Sinhala, because the "Mission 1: …" lines weren't looked up. The new Sinhala check caught it, and it's fixed.
 
-**Next:** the games and sort games, then the Watch animations.
+**8.6, the sort games** (2026-10-13): all 15 rebuilt. The data comes from each page, and one island plays them.
+- **Found on the way:**
+  - The meanings were shuffled while the page was built, and again in the browser. When the page started up, some tiles showed one meaning while answering for another. They are now shuffled after the page starts.
+  - Two quick taps could be lost, because the second tap saw the state from before the first. The game now reads the current choice.
+  - The chips were 40 px, under the 44 px tap-target rule on phones.
+
+**Next:** the other games, then the Watch animations.

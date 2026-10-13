@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Is this image real or virtual?",
+    "இது உண்மை விம்பமா மாய விம்பமா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Reflection",
+    "தெறிப்பு"
+   ],
+   "meaning": [
+    "Light bouncing off a surface: i = r",
+    "மேற்பரப்பில இருந்து ஒளி திரும்பறது: i = r"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Refraction",
+    "முறிவு"
+   ],
+   "meaning": [
+    "Bending of light between two media",
+    "ரெண்டு ஊடகங்களுக்கு இடையில ஒளி வளையறது"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Refractive index",
+    "முறிவுச் சுட்டி"
+   ],
+   "meaning": [
+    "sin i ÷ sin r",
+    "sin i ÷ sin r"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Critical angle",
+    "மாறுநிலைக் கோணம்"
+   ],
+   "meaning": [
+    "Angle in the dense medium with refraction angle 90°",
+    "அடர் ஊடகத்துல முறிவுக் கோணம் 90° ஆகும் படுகோணம்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Focal length",
+    "குவிவு நீளம்"
+   ],
+   "meaning": [
+    "Distance from the pole or centre to the focal point",
+    "முனை அல்லது மையத்துல இருந்து குவியத்துக்கு உள்ள தூரம்"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Total internal reflection",
+    "முழு அகத் தெறிப்பு"
+   ],
+   "meaning": [
+    "All the light reflected back into the dense medium",
+    "எல்லா ஒளியும் அடர் ஊடகத்துக்குள்ளயே திரும்பறது"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Image in a plane mirror",
+    "தட்டை ஆடில விம்பம்"
+   ],
+   "bin": "vi"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Image of a faraway tree on the screen in Activity 5.6",
+    "செயற்பாடு 5.6-ல திரைல தூர மரத்தோட விம்பம்"
+   ],
+   "bin": "re"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Image in a convex mirror",
+    "குவிவு ஆடில விம்பம்"
+   ],
+   "bin": "vi"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Image from a magnifying glass",
+    "பூதக்கண்ணாடி விம்பம்"
+   ],
+   "bin": "vi"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Image on a camera film",
+    "கமெரா படத்தட்டுல விம்பம்"
+   ],
+   "bin": "re"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Image in a concave lens",
+    "குழிவு வில்லைல விம்பம்"
+   ],
+   "bin": "vi"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Concave mirror image of a candle beyond C, caught on a screen",
+    "C-க்கு அப்பால மெழுகுவர்த்தியோட குழிவு ஆடி விம்பம், திரைல பிடிச்சது"
+   ],
+   "bin": "re"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Dentist's concave mirror seen very close to a tooth",
+    "பல்லுக்கு ரொம்ப கிட்ட பல் டாக்டரோட குழிவு ஆடி விம்பம்"
+   ],
+   "bin": "vi"
+  }
+ ],
+ "bins": [
+  {
+   "id": "re",
+   "title": [
+    "🎯 Real image",
+    "🎯 உண்மை விம்பம்"
+   ]
+  },
+  {
+   "id": "vi",
+   "title": [
+    "👻 Virtual image",
+    "👻 மாய விம்பம்"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Optics Sort complete!",
+   "ஒளியியல் சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c05_sort_master"
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Is this mainly kinetic energy or potential energy?",
+    "இது முக்கியமா இயக்கச் சக்தியா அழுத்த சக்தியா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Work",
+    "வேலை"
+   ],
+   "meaning": [
+    "Force × distance moved in the direction of the force (J)",
+    "விசை × விசையின் திசையில் நகர்ந்த தூரம் (J)"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Energy",
+    "சக்தி"
+   ],
+   "meaning": [
+    "The ability to do work (J)",
+    "வேலை செய்யும் ஆற்றல் (J)"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Kinetic energy",
+    "இயக்கச் சக்தி"
+   ],
+   "meaning": [
+    "Energy due to motion: ½ m v²",
+    "இயக்கத்தால வரும் சக்தி: ½ m v²"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Potential energy",
+    "அழுத்த சக்தி"
+   ],
+   "meaning": [
+    "Energy stored due to position or form",
+    "இடநிலை அல்லது வடிவத்தால சேமிக்கப்படும் சக்தி"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Power",
+    "வலு"
+   ],
+   "meaning": [
+    "Rate of doing work: work ÷ time (W)",
+    "வேலை செய்யும் வீதம்: வேலை ÷ நேரம் (W)"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Watt (W)",
+    "வாட் (W)"
+   ],
+   "meaning": [
+    "1 joule per second",
+    "ஒரு வினாடிக்கு ஒரு ஜூல்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "A cyclist rolling along a flat road",
+    "சமதளத்துல ஓடற சைக்கிள்"
+   ],
+   "bin": "ek"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "A stone held at the top of a cliff",
+    "மலை உச்சில வெச்சிருக்கற கல்"
+   ],
+   "bin": "ep"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "A stretched rubber band",
+    "இழுக்கப்பட்ட ரப்பர் பேண்ட்"
+   ],
+   "bin": "ep"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "A swing at the lowest point, moving fast",
+    "மிகத் தாழ்ந்த புள்ளில வேகமா ஓடற ஊஞ்சல்"
+   ],
+   "bin": "ek"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Water stored in a high reservoir",
+    "உயர் தேக்கத்துல சேமிச்ச நீர்"
+   ],
+   "bin": "ep"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "A falling sledge hammer just before it hits",
+    "மோதறதுக்கு முன் விழற சம்மட்டி"
+   ],
+   "bin": "ek"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "A fruit hanging on a tree",
+    "மரத்துல தொங்கற பழம்"
+   ],
+   "bin": "ep"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "A moving trolley",
+    "ஓடற வண்டி"
+   ],
+   "bin": "ek"
+  }
+ ],
+ "bins": [
+  {
+   "id": "ek",
+   "title": [
+    "⚡ Kinetic energy",
+    "⚡ இயக்கச் சக்தி"
+   ]
+  },
+  {
+   "id": "ep",
+   "title": [
+    "⛰️ Potential energy",
+    "⛰️ அழுத்த சக்தி"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Energy Sort complete!",
+   "சக்தி சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g10c18_sort_master"
+ }
+}

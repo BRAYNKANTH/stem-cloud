@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Does it mainly protect people or the wires and cables?",
+    "இது முக்கியமா மனிதர்கள காக்குதா, கம்பிகள் கேபிள்கள காக்குதா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Power",
+    "வலு"
+   ],
+   "meaning": [
+    "Energy used per second: P = V I (W)",
+    "ஒரு வினாடிக்கு பயன்படும் சக்தி: P = V I (W)"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Efficiency",
+    "திறன்"
+   ],
+   "meaning": [
+    "Useful energy as a share of the energy supplied",
+    "வழங்கப்பட்ட சக்தில பயனுள்ள சக்தியோட பங்கு"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Kilowatt hour",
+    "கிலோவாட் மணி"
+   ],
+   "meaning": [
+    "Energy used in 1 hour by a 1 kW appliance (3.6 × 10⁶ J)",
+    "1 kW உபகரணம் 1 மணில பயன்படுத்தும் சக்தி (3.6 × 10⁶ J)"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Live wire",
+    "உயிர் கம்பி"
+   ],
+   "meaning": [
+    "The wire at 230 V compared with earth",
+    "நிலத்தோட ஒப்பிட்டா 230 V உள்ள கம்பி"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Neutral wire",
+    "நொதுமல் கம்பி"
+   ],
+   "meaning": [
+    "The earthed supply wire, about 0 V",
+    "நிலத்தோட இணைச்ச வழங்கு கம்பி, சுமார் 0 V"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Distribution box",
+    "பரப்பற் பெட்டி"
+   ],
+   "meaning": [
+    "Shares the supply among the house circuits (MCBs)",
+    "மின்சாரத்த வீட்டு சுற்றுகளுக்கு பிரிக்கும் (MCB)"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "RCCB (trip switch)",
+    "RCCB (ட்ரிப் சுவிட்ச்)"
+   ],
+   "bin": "pe"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "MCB",
+    "MCB"
+   ],
+   "bin": "wi"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Fuse",
+    "உருகி"
+   ],
+   "bin": "wi"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Earth pin of a three-pin plug",
+    "மூணு முள் செருகியோட நில முள்"
+   ],
+   "bin": "pe"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Overload circuit breaker",
+    "பளு சுற்றுடைப்பான்"
+   ],
+   "bin": "wi"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "A rubber mat when ironing",
+    "இஸ்திரி போடறப்ப ரப்பர் விரிப்பு"
+   ],
+   "bin": "pe"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Thick enough copper cable",
+    "போதுமான தடிமனான செம்புக் கேபிள்"
+   ],
+   "bin": "wi"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Switching off before changing a bathroom bulb",
+    "குளியலறை குமிழ மாத்தும் முன் அணைக்கறது"
+   ],
+   "bin": "pe"
+  }
+ ],
+ "bins": [
+  {
+   "id": "pe",
+   "title": [
+    "🧍 Protects people",
+    "🧍 மனிதர்கள காக்கும்"
+   ]
+  },
+  {
+   "id": "wi",
+   "title": [
+    "🔌 Protects wires and cables",
+    "🔌 கம்பிகள், கேபிள்கள காக்கும்"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Safety Sort complete!",
+   "பாதுகாப்பு சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c10_sort_master"
+ }
+}

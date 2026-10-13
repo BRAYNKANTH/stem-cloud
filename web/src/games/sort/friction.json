@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Term",
+    "சுற்று 1 — வார்த்தை ↔ விளக்கம்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching definition.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Tap a chip, then tap the bin it belongs in.",
+    "ஒரு சிப்பை தொடு, அப்புறம் அது எந்த பெட்டிக்கு (தொட்டிக்கு) சொந்தமோ அந்த பெட்டியை தொடு."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Definitions",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Static friction",
+    "நிலையியல் உராய்வு"
+   ],
+   "meaning": [
+    "Acts when a force is applied but the object still hasn’t moved",
+    "விசை பிரயோகிக்கப்பட்டாலும் பொருள் இன்னும் அசையாத போது தாக்கும் உராய்வு"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Limiting friction",
+    "எல்லை உராய்வு"
+   ],
+   "meaning": [
+    "The maximum static friction, just before the object starts moving",
+    "பொருள் நகர ஆரம்பிக்கும் தருணத்தில் தாக்கும் அதிகபட்ச நிலையியல் உராய்வு"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Dynamic (kinetic) friction",
+    "இயக்கவியல் உராய்வு"
+   ],
+   "meaning": [
+    "Acts on an object that is already moving, opposing its motion",
+    "ஏற்கனவே இயங்கும் பொருளுக்கு எதிராகத் தாக்கும் உராய்வு"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Normal reaction",
+    "செவ்வன் மறுதாக்கம்"
+   ],
+   "meaning": [
+    "The push-back force a surface gives, perpendicular to itself",
+    "ஒரு மேற்பரப்பு தனக்குச் செங்குத்தாகக் கொடுக்கும் எதிர்த் தள்ளும் விசை"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Engine oil / lubricant",
+    "எஞ்சின் எண்ணெய் / மசகு"
+   ],
+   "bin": "reduce"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Ball bearings in a wheel axle",
+    "சக்கர அச்சாணியில் பந்து பேரிங்"
+   ],
+   "bin": "reduce"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Polishing a metal surface",
+    "உலோக மேற்பரப்பை பாலிஷ் செய்தல்"
+   ],
+   "bin": "reduce"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Rough sandpaper surface",
+    "கரடுமுரடான மணற்தாள் மேற்பரப்பு"
+   ],
+   "bin": "increase"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Stacking more weight on a crate",
+    "பெட்டி மேல் அதிக எடை அடுக்குதல்"
+   ],
+   "bin": "increase"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Shoe tread pattern (for grip)",
+    "காலணி அடிப்பாக வடிவம் (பிடிக்காக)"
+   ],
+   "bin": "increase"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Worn-out smooth tyre tread",
+    "தேய்ந்த மினுமினுப்பான டயர் தவாணிப்பு"
+   ],
+   "bin": "reduce"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "A thin film of water on the road",
+    "ரோட்டில் மெல்லிய தண்ணீர் படலம்"
+   ],
+   "bin": "reduce"
+  }
+ ],
+ "bins": [
+  {
+   "id": "reduce",
+   "title": [
+    "🔽 Reduces Friction",
+    "🔽 உராய்வைக் குறைக்கும்"
+   ]
+  },
+  {
+   "id": "increase",
+   "title": [
+    "🔼 Increases Friction / Grip",
+    "🔼 உராய்வைக் கூட்டும் / பிடி தேவை"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Friction Sort complete!",
+   "ஃபிரிக்‌ஷன் சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "sort_master"
+ }
+}

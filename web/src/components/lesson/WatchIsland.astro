@@ -1,0 +1,16 @@
+---
+// A lesson's Watch animation, rebuilt (watch/WatchAnim.tsx), with the Sinhala of its strings from the lesson's
+// translation memory. The lesson's Watch step shows all of it; a topic page shows one slice (seg: from, to and the duration, in seconds).
+import type { Lesson } from '../../lib/content-types';
+import WatchAnims from '../../watch/WatchAnims.astro';
+import { WATCH } from '../../watch';
+import { labSinhala, type SiDict } from '../../lib/si-lookup';
+
+interface Props { lesson: Lesson; stepId: string; seg?: [number, number, number] }
+const { lesson, stepId, seg } = Astro.props;
+const watch = WATCH[lesson.id];
+const DICTS = import.meta.glob<SiDict>('../../../../public/static/si/*.json', { eager: true, import: 'default' });
+const dict = (name: string) => DICTS[`../../../../public/static/si/${name}.json`] ?? {};
+const si = watch && lesson.legacy ? labSinhala(watch.strings, dict(lesson.legacy.file.replace(/[.]html$/, '')), dict('_ui')) : {};
+---
+{watch && <WatchAnims island={watch.island} si={si} stepId={stepId} seg={seg} />}

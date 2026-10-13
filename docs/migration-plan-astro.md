@@ -448,7 +448,22 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **Language:** Tamil comes from the markup's `data-ta`, as the page does. Sinhala is looked up for every text the game shows, including what it writes later (as `si.js` does). A change of language starts the game again in that language.
   - **CI** checks the modules are current.
   - **Tests:** the browser test plays every level of the six games with the answer worked out from each page's own levels. It checks a far-off answer, the device key, the step reaching the server, Tamil, and Sinhala.
-- **Next:** the Watch animations (still frames). After that, every step of every lesson is rebuilt.
+- **Milestone 8.8 (2026-10-13): the Watch animations (15 of 15). Phase 8 is complete: no lesson or topic page uses a frame.**
+  - **What's lifted:** every page's Watch step is a cartoon with captions, questions to predict, sound and a time slider. `tools/watch_anims.py` takes each page's own card (with its takeaways) and its own player script (the animation's `CFG` and the player), unchanged, into `web/src/watch/`.
+  - **`watch/WatchAnim.tsx`** runs the script inside the island and gives it what it used from its page:
+    - the cartoon engine (`labs/engine.js`) as `window.__fwMakeH`;
+    - Sinhala for its `T()`;
+    - `SCX.addXP`: 3 XP for each right prediction, once.
+  - **Progress:** reaching the end counts as watching the step, as `player.js` does.
+  - **Page weight:** the player is loaded with `import()` only once the step is on screen. The built page carries only the card, which keeps every page under 54 KB.
+  - **Topic pages** now use the rebuilt parts too:
+    - Watch shows its slice of the animation (`seg`: from, to, duration), kept inside the slice as `public/static/embed.js` does.
+    - Explore's lab is the lesson's rebuilt lab.
+    - `components/lesson/LabIsland.astro` and `WatchIsland.astro` serve both the lesson and the topic pages.
+  - **CI** checks the modules are current.
+  - **Tests:** the browser test opens all 15 animations: the cartoon draws with a caption, the time slider reaches the end, and nothing fails. The end reaches the server; also checked are Tamil, and the topic's slice and Explore lab.
+  - `LegacyFrame` stays only as the fallback for a lesson whose parts aren't lifted yet.
+- **Next:** Phase 9, the cut-over. It needs the owner first: the progress migration (on a Neon branch copy, then production), a teacher's review of the new lessons, and sign-off.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.

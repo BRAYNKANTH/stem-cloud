@@ -1,5 +1,6 @@
-// The labs rebuilt as islands (docs/migration-plan-astro.md, Phase 8), by lesson and step. A lab step whose lab is
-// not here yet shows the current lesson page's lab in a frame (LegacyFrame), as before.
+// The labs rebuilt as islands (docs/migration-plan-astro.md, Phase 8), by lesson and step, rendered by
+// components/lesson/LabIsland.astro. A lab step whose lab is not here shows the current lesson page's lab in a frame
+// (LegacyFrame).
 import { STRINGS as MOTION } from './physics/MotionLab';
 import { STRINGS as FORCE } from './physics/ForceLab';
 import { STRINGS as FRICTION } from './physics/FrictionLab';

@@ -5,7 +5,8 @@
 import LessonShell from '../../../../../../../../layouts/LessonShell.astro';
 import T from '../../../../../../../../components/lesson/T.astro';
 import PracticeList from '../../../../../../../../components/lesson/PracticeList.astro';
-import LegacyFrame from '../../../../../../../../islands/LegacyFrame';
+import LabIsland from '../../../../../../../../components/lesson/LabIsland.astro';
+import WatchIsland from '../../../../../../../../components/lesson/WatchIsland.astro';
 import TopicStory from '../../../../../../../../islands/TopicStory';
 import { LESSONS } from '../../../../../../../../lib/lessons';
 import { UI } from '../../../../../../../../lib/lesson-ui';
@@ -68,8 +69,7 @@ const heading = (id: keyof typeof TOPIC_STEPS) => TOPIC_STEPS[id];
       )}
 
       {id === 'watch' && t.watch && (
-        <LegacyFrame client:visible file={t.watch.animation.file} hash={t.watch.animation.hash} title={t.watch.title}
-                     query={`seg=${t.watch.from}-${t.watch.to}&dur=${t.watch.duration}`} />
+        <WatchIsland lesson={lesson} stepId={t.watch.animation.hash} seg={[t.watch.from, t.watch.to, t.watch.duration]} />
       )}
 
       {id === 'explore' && t.explore?.type === 'story' && (
@@ -91,7 +91,7 @@ const heading = (id: keyof typeof TOPIC_STEPS) => TOPIC_STEPS[id];
         </>
       )}
       {id === 'explore' && t.explore?.type === 'lab' && (
-        <LegacyFrame client:visible file={t.explore.legacy.file} hash={t.explore.legacy.hash} title={t.explore.title} />
+        <LabIsland lesson={lesson} stepId={t.explore.legacy.hash} />
       )}
 
       {id === 'practice' && <PracticeList items={practice(lesson, t.practice ?? [])} stepId="practice" />}

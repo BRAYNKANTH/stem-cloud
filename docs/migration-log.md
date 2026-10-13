@@ -275,4 +275,12 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 
 **8.7, the one-off games** (2026-10-13): the six games written their own way. Each page's own markup and script now run inside an island, with the page's helpers given to them, so they behave exactly as today. No game is in a frame any more.
 
-**Next:** the Watch animations.
+**8.8, the Watch animations** (2026-10-13): each page's own card and player now run inside an island on the new pages, and the topic pages use the rebuilt parts too. Every lab, game, sort game and animation is rebuilt, and no lesson or topic page uses a frame.
+- **Found on the way:** with every island counted, the Motion page reached 59.3 KB of its 60 KB JavaScript budget. The Watch player now loads only once the step is on screen, which brings every page under 54 KB.
+
+**Phase 8 is complete.**
+
+**Next:** Phase 9, the cut-over, which needs the owner first:
+- the progress migration on a Neon branch copy, then on production;
+- a teacher's review of the new lessons;
+- the owner's sign-off.

@@ -33,7 +33,9 @@ ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-c
                   # the sort game (web/src/games/SortGame.tsx)
                   'match-grid', 'match-col', 'mtitle', 'match-tile', 'game-result', 'sort-pool', 'sort-bins', 'sort-bin', 'btitle', 'sort-chip', 'schip',
                   # the challenge game (web/src/games/ChallengeGame.tsx)
-                  'level-row', 'level-btn', 'lnum2', 'lstars', 'game-scene', 'surface-label', 'star-row'}
+                  'level-row', 'level-btn', 'lnum2', 'lstars', 'game-scene', 'surface-label', 'star-row',
+                  # the Watch animation (web/src/watch/WatchAnim.tsx): its card, captions, controls, questions and takeaways
+                  'fw-anim', 'fw-ask', 'fw-cap', 'n', 'fw-ctl', 'aq', 'ao', 'ar', 'watch-takeaways', 'wt-head'}
 STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet', 'active', 'selected', 'matched', 'wrong', 'win', 'lose'}   # the islands' state classes, next to one of theirs
 DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 

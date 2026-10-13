@@ -1,6 +1,7 @@
 ---
 // One step of a lesson as static HTML (no JavaScript needed to read it). The interactive parts are islands: the labs
-// (labs/) and the games (games/); the animation is the current lesson page in a frame until it is rebuilt (LegacyFrame).
+// (labs/), the games (games/) and the Watch animation (watch/); a step not rebuilt yet shows the current lesson page in a
+// frame (LegacyFrame).
 // The story and the quiz are islands too (StoryPlayer, Quiz); without JavaScript the page shows the story as a list of
 // bubbles and the quiz with its answers behind "Show answer" instead (styles/lesson.css). The exercises' rows and
 // full-screen figures are scripts/lesson-content.ts.
@@ -8,23 +9,19 @@ import type { Lesson } from '../../lib/content-types';
 import { KINDS, UI } from '../../lib/lesson-ui';
 import { CHITTU, RAJA } from '../../lib/cast';
 import LegacyFrame from '../../islands/LegacyFrame';
-import MotionLab from '../../labs/physics/MotionLab';
-import ForceLab from '../../labs/physics/ForceLab';
-import FrictionLab from '../../labs/physics/FrictionLab';
-import ResultantLab from '../../labs/physics/ResultantLab';
-import SeesawLab from '../../labs/physics/SeesawLab';
-import EquilibriumLab from '../../labs/physics/EquilibriumLab';
-import SliderLabs from '../../labs/slider/SliderLabs.astro';
 import SortGame, { sortStrings } from '../../games/SortGame';
 import { SORT_GAMES } from '../../games/sort';
 import ChallengeGames from '../../games/challenge/ChallengeGames.astro';
 import { CHALLENGES } from '../../games/challenge';
 import LevelGames from '../../games/levels/LevelGames.astro';
 import { LEVEL_GAMES } from '../../games/levels';
+import { WATCH } from '../../watch';
 import { LABS } from '../../labs/registry';
 import { labSinhala, type SiDict } from '../../lib/si-lookup';
 import Quiz from '../../islands/Quiz';
 import StoryPlayer from '../../islands/StoryPlayer';
+import LabIsland from './LabIsland.astro';
+import WatchIsland from './WatchIsland.astro';
 import T from './T.astro';
 
 interface Props {
@@ -32,11 +29,10 @@ interface Props {
   lesson: Lesson;
 }
 const { step: s, lesson } = Astro.props;
-// a lab rebuilt as an island (labs/registry.ts), with the Sinhala of its strings from the lesson's translation memory
+// a lab rebuilt as an island (labs/registry.ts; LabIsland.astro)
 const ported = s.type === 'lab' ? LABS[lesson.id + '/' + s.id] : undefined;
 const DICTS = import.meta.glob<SiDict>('../../../../public/static/si/*.json', { eager: true, import: 'default' });
 const dict = (name: string) => DICTS[`../../../../public/static/si/${name}.json`] ?? {};
-const labSi = ported && lesson.legacy ? labSinhala(ported.strings, dict(lesson.legacy.file.replace(/\.html$/, '')), dict('_ui')) : {};
 // the sort game, rebuilt (games/SortGame.tsx, its data lifted by tools/sort_games.py)
 const sortGame = s.type === 'sort' ? SORT_GAMES[lesson.id] : undefined;
 // the challenge game, rebuilt (games/ChallengeGame.tsx, lifted by tools/challenge_games.py)
@@ -45,6 +41,8 @@ const challengeSi = challenge && lesson.legacy ? labSinhala(challenge.strings, d
 // the other games: each page's own game script on its own markup (games/LevelGame.tsx, lifted by tools/level_games.py)
 const levelGame = s.type === 'game' ? LEVEL_GAMES[lesson.id] : undefined;
 const levelSi = levelGame && lesson.legacy ? labSinhala(levelGame.strings, dict(lesson.legacy.file.replace(/[.]html$/, '')), dict('_ui')) : {};
+// the Watch animation: its page's own card and player (WatchIsland.astro, lifted by tools/watch_anims.py)
+const watch = s.type === 'watch' ? WATCH[lesson.id] : undefined;
 const sortSi = sortGame && lesson.legacy ? labSinhala(sortStrings(sortGame), dict(lesson.legacy.file.replace(/\.html$/, '')), dict('_ui')) : {};
 const kind = KINDS[s.type];
 const heading = 'heading' in s ? s.heading : { title: s.title, sub: null };
@@ -103,14 +101,9 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
 
   {s.type === 'activities' && <T t={s.body} rich />}
 
-  {s.type === 'watch' && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
-  {ported?.island === 'motion' && <MotionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.island === 'force' && <ForceLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.island === 'friction' && <FrictionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.island === 'resultant' && <ResultantLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.island === 'seesaw' && <SeesawLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.island === 'equilibrium' && <EquilibriumLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
-  {ported?.slider && <SliderLabs island={ported.island} si={labSi} legacy={lesson.legacy?.id} />}
+  {watch && <WatchIsland lesson={lesson} stepId={s.id} />}
+  {s.type === 'watch' && !watch && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
+  {ported && <LabIsland lesson={lesson} stepId={s.id} />}
   {sortGame && <SortGame client:visible game={sortGame} stepId={s.id} si={sortSi} />}
   {challenge && <ChallengeGames island={challenge.island} si={challengeSi} stepId={s.id} />}
   {levelGame && <LevelGames island={levelGame.island} si={levelSi} />}

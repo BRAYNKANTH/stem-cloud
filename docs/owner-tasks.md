@@ -25,21 +25,20 @@ Never paste secrets into a chat or a commit. Put them straight into the service'
 
 - [ ] **Look at two failed preview deploys.** Vercel failed the previews of #30 and #32 without a reason on GitHub (`dpl_81RDPxXUr87M5FLhf3X6VJZNXZNQ`, `dpl_FxwBrXWJZMj5BVbzWfGdWLiottxE`); both worked when re-run. Vercel → Deployments → the failed one → Build Logs. If it repeats, tell Claude what the log says.
 
-## The cut-over (Phase 9), when you're ready
-Do these in order. Each one can be undone.
-- [ ] **First, the progress migration and a teacher's review** (see Neon and Content below). Every lesson's labs, games and animations are rebuilt now (Phase 8), so the review can cover every chapter.
-- [ ] **Trial: send students to the new pages, temporarily.**
-  - In Vercel → Project → Settings → **Environment Variables**, add `CUTOVER` = `trial` for **Production**, then redeploy (Deployments → the latest → **Redeploy**).
-  - The current lesson and topic addresses (`/lessons/<chapter>.html#<section>`, `/topics/...`) then open the new pages at the same step. Links from apps and bookmarks keep working.
-  - Browsers don't remember a trial redirect, so it can be undone.
-  - **To undo:** delete the variable, or set it to `off`, and redeploy.
-- [ ] **Watch for a week.** Look at the Vercel logs for errors, and ask a few students on phones, especially with the installed app and offline.
-- [ ] **Make it permanent:** set `CUTOVER` = `on` and redeploy. The redirects become permanent (301), which browsers and search engines remember. Then tell Claude, who will remove the old pages and the v1 progress endpoints once old-app traffic has stopped (the plan's Phase 9 clean-up).
+## The cut-over (Phase 9)
+- [x] **Progress migration** (2026-10-13): run with `--run`; "6 of 6 student(s) with v1 progress have everything in v2".
+- [x] **Teacher review:** skipped at the owner's request (2026-10-13).
+- [x] **Trial switched on** (2026-10-13): `CUTOVER` = `trial` in Vercel. Old lesson, topic and past-papers addresses open the new pages. Checked on production: all 15 lessons redirect correctly. **To undo:** set `CUTOVER` to `off` (or delete it) and redeploy.
+- [ ] **Watch for about a week.** Use it on a phone, in the installed app and offline once. Tell Claude about anything wrong.
+- [ ] **Make it permanent:** set `CUTOVER` = `on` and redeploy. The redirects become permanent (301). Then tell Claude, who will freeze the lifted parts and remove the old pages and the v1 progress endpoints once old-app traffic has stopped (the plan's Phase 9 clean-up).
+
+## Google Play (Phase 10), when you want the app
+- [ ] **Follow `docs/play-store.md`.** It covers: a Play developer account; making the app package with PWABuilder in the browser (keep its signing key safe and private); creating the app in Play Console; then `ANDROID_PACKAGE` and `ANDROID_CERT_SHA256` in Vercel, so the app opens the site full screen. The site side is ready.
 
 ## Neon
 - [ ] **Backup branch now, if it wasn't made in Phase 0.** Neon console → **Branches** → **Create branch** from `main`, named like `backup-2026-10-pre-migration`. It is an instant copy that stays inside Neon.
-- [ ] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed now: milestone 6.2 is ready.
-- [ ] **Migrate saved progress to v2 (milestone 6.2), on a copy first.**
+- [x] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed now: milestone 6.2 is ready.
+- [x] **Migrate saved progress to v2 (milestone 6.2), on a copy first.** Done 2026-10-13 (6 of 6).
   1. In Neon, create a branch from `main` (for example `progress-v2-trial`) and copy its connection string.
   2. In a terminal in this folder, set it for this terminal only, without pasting it into a chat: in PowerShell, `$env:DATABASE_URL = "<the branch's connection string>"`.
   3. Run `python tools/migrate_progress_v2.py --run`. It should end with "N of N student(s) with v1 progress have everything in v2".
@@ -60,7 +59,7 @@ Some school and office web filters block `stemcloud.site` as a **newly registere
 
 ## Content
 - [ ] **Fix 4 Tamil typos in Resultant Force** (`chapter-09-resultant-force`) in the course workspace. In four Tamil paragraphs a vowel sign was typed inside a closing tag (`</b்` instead of `்</b>`), which garbles the rest of the paragraph on the current page. The extractor repairs them in `content/` and lists them. They start with: "மீன்பிடி வலையை இழுக்கிற…", "ஆனா, கயிற்றிழுத்தல் போட்டியில…", "இது வரைக்கும் நாம பாத்த…", "ஒரு கோலை (rod)…".
-- [ ] **Review the extracted lessons** (`content/physics/**/lesson.json`) once Phase 5 shows them as pages; Claude will say when. A teacher should compare the Motion chapter with the current page first. An automatic check already confirms every English and Tamil text unit was carried over.
+- [x] **Review the extracted lessons** (skipped at the owner's request, 2026-10-13) (`content/physics/**/lesson.json`) once Phase 5 shows them as pages; Claude will say when. A teacher should compare the Motion chapter with the current page first. An automatic check already confirms every English and Tamil text unit was carried over.
 - [ ] **Read the Terms page** (`/terms`). It was written from how the app works and says the owner should check it.
 - [ ] **Sinhala gaps in the lessons** (79–96% per chapter today). `python tools/validate_content.py` shows the coverage per chapter. The missing parts are text the Sinhala dictionaries in `public/static/si/` don't have yet; a translator adds entries there and the extractor picks them up. Students see the same gaps today (that text stays English).
 - [ ] **New interface labels** (Understand, Watch, Explore, Practice, buttons and messages in the topic view) need Tamil and Sinhala wording from a reviewer.

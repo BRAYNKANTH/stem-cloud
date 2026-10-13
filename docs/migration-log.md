@@ -291,5 +291,8 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - **Found on the way:**
   - The service worker kept only the current pages offline, so the new pages wouldn't have opened offline after the cut-over. It now keeps them, with everything their islands load.
   - The sort game's last event could be lost if the student left the page at once (CI caught it). Leaving the page now also sends the page's own events.
+  - **The progress outbox could get stuck.** It opened a new storage connection for every read and write and never closed them, and one send that never finished stopped all later ones on that page. In a long session, events piled up unsent: this was the real cause of the CI failures above. Now there is one connection per page, and a send gives up after 20 s.
+  - With the player's code coming from the cache, the player could start before the page had finished loading. The page's own script then also marked the first step, so two steps showed at once. The script now leaves the choice to the player.
+  - `tests/test_pwa.py` (not in CI) has one failing check about the current pages' story animation with reduced motion. It fails the same way without these changes, and it's left as a separate task.
 
 **Next:** the owner's steps in `docs/owner-tasks.md` (progress migration, review, trial, then on). After that comes the clean-up: removing the old pages and the v1 endpoints.

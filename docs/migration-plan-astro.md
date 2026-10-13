@@ -389,6 +389,10 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **Missions** keep the current page's device keys (`scx_lab_u2_<n>`), are worth 5 XP each and 10 for all three (progress v2), and count as doing the lab step.
   - **`labs/registry.ts`:** a lab step uses its rebuilt lab when there is one, and the frame otherwise.
   - **Tests:** the browser test checks the lab isn't a frame, the stage draws, a try sets the sliders and plays, the physics after 10 s, the missions, and the device key.
+- **Milestone 8.2 (2026-10-13): the shared lab parts and the Force lab.**
+  - **`web/src/labs/shared.tsx`** holds what every lesson page's lab has around its own simulation (the pages' guide and stage scripts are the same in all of them): the guide, the stage loop, the missions (device keys, XP, the lab step), the readouts, the graphs and the player. A rebuilt lab now only adds its words, tries, missions, stage drawing and simulation. `MotionLab` uses it too.
+  - **`ForceLab`** is chapter 4's (Newton's laws) lab rebuilt. You set F and m, and the trolley speeds up from rest, with the v-t and p-t graphs. Raja pushes a trolley loaded with stones. Missions keep `scx_lab_c4_<n>`.
+  - **Tests:** the browser test checks the Force lab's physics after 6 s, its missions, its device key and Tamil.
 - **Next:** the other chapters' labs, one by one, then the games and sort games.
 
 ### Phase 9: Cutover and cleanup (≈1 week)

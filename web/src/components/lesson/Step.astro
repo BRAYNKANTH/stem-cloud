@@ -9,6 +9,7 @@ import { KINDS, UI } from '../../lib/lesson-ui';
 import { CHITTU, RAJA } from '../../lib/cast';
 import LegacyFrame from '../../islands/LegacyFrame';
 import MotionLab from '../../labs/physics/MotionLab';
+import ForceLab from '../../labs/physics/ForceLab';
 import { LABS } from '../../labs/registry';
 import { labSinhala, type SiDict } from '../../lib/si-lookup';
 import Quiz from '../../islands/Quiz';
@@ -84,6 +85,7 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
 
   {s.type === 'watch' && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
   {ported?.island === 'motion' && <MotionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
+  {ported?.island === 'force' && <ForceLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
   {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && !ported && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
 
   {s.type === 'quiz' && <Quiz client:idle stepId={s.id} questions={s.questions} />}

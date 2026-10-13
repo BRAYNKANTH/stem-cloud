@@ -20,6 +20,7 @@ H = {'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud'}
 CATALOG = json.load(open(os.path.join(ROOT, 'content', 'catalog.json'), encoding='utf-8'))['lessons']
 URLS = ['/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']) for l in CATALOG]
 MOTION = '/learn/physics/g10/motion-in-a-straight-line/'
+NEWTON = '/learn/physics/g10/newtons-laws/'
 # the topic view: lessons that have topics (content/.../lesson.json "topics"), their overview, topic and revision pages
 TOPIC_URLS = []
 for l in CATALOG:
@@ -353,6 +354,23 @@ def run():
             check('stopping and turning back complete missions 2 and 3', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [False, True, True],
                   lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
             check('a mission is kept on this device under the current page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_u2_2')") == '1')
+            # ------------------------------------------------------------ Newton's laws: the Force lab, rebuilt (labs/physics/ForceLab.tsx)
+            pg.goto(BASE + NEWTON + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('Force lab: rebuilt, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('Force lab: the stage draws', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c4_' + i))")
+            pg.locator('#lab .lg-try').nth(2).click()                    # double the push: F = 20 N, m = 5 kg
+            check('Force lab: a try sets F and m, a = F/m', lambda: pg.locator('#fSlider').input_value() == '20' and pg.locator('#mSlider').input_value() == '5' and ro('a') == '4.00 ms⁻²', lambda: ro('a'))
+            pg.wait_for_function("document.querySelector('#lab [data-ro=t]').textContent.startsWith('6.0')", timeout=20000)
+            check('Force lab: after 6 s, v = 24 m/s, p = 120 kg m/s, s = 72 m', lambda: (ro('v'), ro('p'), ro('s')) == ('24.0 m/s', '120.0 kg·m/s', '72.0 m'), lambda: (ro('v'), ro('p'), ro('s')))
+            check('Force lab: a big acceleration completes mission 1 only', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, False, False],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            check('Force lab: the mission is kept under the current page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_c4_0')") == '1')
+            set_lang(pg, 'ta')
+            check('Force lab: in Tamil', lambda: pg.locator('#lab .lg-try').nth(0).inner_text().startswith('1. 10 N தள்ளல்'))
+            set_lang(pg, 'en')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

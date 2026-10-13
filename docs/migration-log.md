@@ -250,4 +250,8 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - Missions keep today's device keys, so a student's ticks carry over. They earn XP through progress v2 (5 each, 10 for all three).
 - Other chapters' lab steps still show the current lab in a frame until they are rebuilt.
 
+**8.2, the Force lab** (2026-10-13):
+- The guide, stage, missions, readouts and graphs that every lab has are now one shared part (`labs/shared.tsx`), so each new lab is only its simulation and drawing.
+- Chapter 4's (Newton's laws) Force lab is rebuilt on it. The Motion lab now uses it too, and its checks still pass.
+
 **Next:** the other chapters' labs, then the games.

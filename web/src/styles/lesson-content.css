@@ -48,6 +48,8 @@
 .lc .btn { border:1px solid var(--border);background:var(--panel-2);color:var(--text);padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:600;font-size:0.88rem;transition:.15s }
 .lc .btn:hover { filter:brightness(1.08) }
 .lc .btn:active { transform:translateY(1px) }
+.lc .a-readout { text-align:center;background:var(--panel-2);border:1px solid var(--border);border-radius:12px;padding:12px;margin-bottom:14px;font-size:0.95rem;color:var(--text-dim) }
+.lc .a-readout b { color:var(--accent);font-size:1.15rem }
 .lc .track-wrap { width:100%;overflow-x:auto;margin-bottom:18px }
 .lc .lab-hint { color:var(--text-faint);font-size:0.85rem;margin-top:16px;text-align:center }
 .lc .lab-hint b { color:var(--text-dim) }
@@ -92,6 +94,8 @@
 .lc .compare .cbox ul { margin:0;padding-left:18px;color:var(--text-dim);font-size:0.88rem }
 .lc .compare .cbox li { margin-bottom:5px }
 .lc .lab-controls { display:grid;grid-template-columns:1fr 1fr auto;gap:18px;align-items:end;margin-bottom:14px }
+.lc .a-readout { text-align:center;background:var(--panel-2);border:1px solid var(--border);border-radius:12px; padding:10px;margin-bottom:14px;font-size:1rem;color:var(--text-dim) }
+.lc .a-readout b { color:var(--accent);font-size:1.2rem }
 .lc .lab-readouts { display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px }
 @media (max-width:700px) {
   .lc .lab-readouts { grid-template-columns:repeat(2,1fr) }

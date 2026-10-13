@@ -279,7 +279,10 @@ def run():
             check('a topic page has the steps it has content for', ids == ['understand', 'watch', 'explore', 'practice'], ids)
             check('...one at a time, Understand first, with the summary and the notes card', lambda: on() == 'understand' and pg.locator('#understand .tp-glance').is_visible() and pg.locator('#understand .card').count() >= 2)
             pg.click('.lbar .lb-btn.primary')
-            check('Watch plays its scene of the animation', lambda: 'seg=0-11&dur=30#watch' in (pg.locator('#watch iframe').get_attribute('src') or ''), lambda: pg.locator('#watch iframe').get_attribute('src'))
+            check('Watch: its scene of the animation, rebuilt (not a frame)', lambda: pg.locator('#watch .watch-anim #fw_svg > *').count() > 5 and pg.locator('#watch iframe').count() == 0)
+            pg.locator('#watch #fw_scrub').fill('1000')
+            check('...and the time slider stays inside the scene (0 to 11 s of 30)', lambda: int(pg.locator('#watch #fw_scrub').input_value()) <= 367 and not pg.locator('#watch #fw_rep').is_visible(),
+                  lambda: pg.locator('#watch #fw_scrub').input_value())
             pg.click('.lbar .lb-btn.primary')
             story = pg.locator('#explore .tp-story')
             story.locator('.qz-opt').nth(1).click()
@@ -293,6 +296,9 @@ def run():
             pg.locator('#practice .qz .qz-opt').first.click()
             check('...and opens the answer sheet', lambda: pg.locator('#stem-qsheet').count() == 1)
             pg.keyboard.press('Escape')
+            pg.goto(BASE + MOTION + 'topics/acceleration/#explore')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check("a topic's Explore lab is the rebuilt lab (not a frame)", lambda: pg.locator('#explore .lab-card .lg-try').count() == 3 and pg.locator('#explore iframe').count() == 0)
             pg.goto(BASE + MOTION + 'topics/speed-velocity/')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             ids = pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)')
@@ -641,6 +647,40 @@ def run():
             check('...and as the script rewrites it (back to level 1)', lambda: g.locator('#levelDesc').inner_text() == 'ලී පෙට්ටිය, සුමට බිම', lambda: g.locator('#levelDesc').inner_text())
             set_lang(pg, 'en')
             check('level games: the step reaches the account', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.friction').then(r => r.json())").get('steps', {}).get('pushit') or {}).get('done') is not None)
+            # ------------------------------------------------------------ the Watch animations: each page's own card and player (watch/WatchAnim.tsx)
+            wwarns = []
+            pg.on('console', lambda m: wwarns.append(m.text[:150]) if m.type == 'warning' and m.text.startswith('watch ') else None)
+            for card in sorted(glob.glob(os.path.join(ROOT, 'web', 'src', 'watch', '*.card.js'))):
+                slug = os.path.basename(card)[:-len('.card.js')]
+                url = next(u for u in LESSON_URL.values() if u.rstrip('/').endswith('/' + slug))
+                pg.goto(BASE + url + '#watch')
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                w = pg.locator('#watch .watch-anim')
+                check('%s watch: its own animation, not a frame' % slug, lambda: w.count() == 1 and pg.locator('#watch iframe').count() == 0)
+                w.scroll_into_view_if_needed()
+                check('%s watch: the cartoon draws, with a caption' % slug, lambda: w.locator('#fw_svg > *').count() > 5 and w.locator('#fw_cap').inner_text().strip() != '',
+                      lambda: (w.locator('#fw_svg > *').count(), w.locator('#fw_cap').inner_text()))
+                first = w.locator('#fw_cap').inner_text()
+                w.locator('#fw_scrub').fill('1000')
+                check('%s watch: the time slider goes to the end (the last caption)' % slug, lambda: w.locator('#fw_n').inner_text() != '1' or w.locator('#fw_cap').inner_text() != first,
+                      lambda: (w.locator('#fw_n').inner_text(), w.locator('#fw_cap').inner_text()))
+            check('Watch: nothing failed', lambda: not wwarns, lambda: wwarns)
+            # the end counts as watching it; Tamil
+            L2 = 'physics.g11.waves'
+            for _ in range(30):
+                if (pg.evaluate("fetch('/api/v2/progress?lesson=%s').then(r => r.json())" % L2).get('steps', {}).get('watch') or {}).get('done'):
+                    break
+                pg.goto(BASE + '/learn/physics/g11/waves/#watch') if _ == 0 else pg.wait_for_timeout(500)
+                if _ == 0:
+                    pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                    pg.locator('#watch .watch-anim').scroll_into_view_if_needed()
+                    pg.locator('#watch #fw_scrub').fill('1000')
+            check('Watch: reaching the end marks the step watched on the server', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=%s').then(r => r.json())" % L2).get('steps', {}).get('watch') or {}).get('done') is not None)
+            set_lang(pg, 'ta')
+            pg.locator('#watch .watch-anim').scroll_into_view_if_needed()
+            check('Watch: in Tamil', lambda: re.search('[\u0B80-\u0BFF]', pg.locator('#watch #fw_play').inner_text() + pg.locator('#watch #fw_cap').inner_text()) is not None,
+                  lambda: pg.locator('#watch #fw_play').inner_text())
+            set_lang(pg, 'en')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

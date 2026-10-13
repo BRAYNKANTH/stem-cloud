@@ -54,6 +54,8 @@ jobs:
         run: python tools/challenge_games.py --check
       - name: The level games are current with the lesson pages
         run: python tools/level_games.py --check
+      - name: The Watch animations are current with the lesson pages
+        run: python tools/watch_anims.py --check
       - name: Past paper question banks (content/past-papers)
         run: |
           python tools/validate_past_papers.py

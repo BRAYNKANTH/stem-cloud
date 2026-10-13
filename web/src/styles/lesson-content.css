@@ -197,6 +197,12 @@
 .lc .so-char.talking .so-rm { animation:so-tr .22s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 0 }
 .lc .so-char.talking .so-cb { animation:so-tc .22s ease-in-out infinite alternate }
 .lc .so-wave { animation:so-wave 1.1s ease-in-out infinite;transform-box:fill-box;transform-origin:15% 85% }
+.lc .fw-anim svg { width:100%;height:auto;display:block;background:color-mix(in srgb, var(--accent) 5%, var(--panel-2));border:1px solid var(--border);border-radius:14px }
+.lc .fw-cap { margin:12px 0 8px;min-height:3.4em;padding:10px 14px;border-radius:12px;background:var(--panel-2);border:1px solid var(--border);font-weight:600;font-size:.98rem;display:flex;align-items:center;gap:10px }
+.lc .fw-cap .n { flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--accent-3);color:#0b0f17;font-weight:800;font-size:.8rem;display:flex;align-items:center;justify-content:center }
+.lc .fw-ctl { display:flex;gap:10px;align-items:center;flex-wrap:wrap }
+.lc .fw-ctl input[type=range] { flex:1;min-width:140px }
+.lc .fw-anim text { font-weight:700 }
 .lc .lg { background:linear-gradient(135deg, color-mix(in srgb, var(--accent-2) 10%, var(--panel-2)), var(--panel-2));border:1px solid color-mix(in srgb, var(--accent-2) 35%, var(--border));border-radius:14px;padding:14px 16px;margin-bottom:16px }
 .lc .lg h4 { margin:0 0 4px;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-2) }
 .lc .lg .goal { font-size:.98rem;font-weight:600;margin-bottom:10px }
@@ -229,6 +235,13 @@
 .lc .cm-must { margin:6px 0 0;padding-left:20px;color:var(--text-dim) }
 .lc .cm-must li { margin-bottom:6px }
 .lc .cm-must b { color:var(--text) }
+.lc .fw-anim { position:relative }
+.lc .fw-ask { position:absolute;left:14px;right:14px;top:14px;z-index:6;background:var(--panel);border:3px solid var(--accent-3);border-radius:16px;padding:12px 14px;box-shadow:0 14px 40px rgba(0,0,0,.45) }
+.lc .fw-ask .aq { font-weight:800;font-size:1rem;margin-bottom:8px }
+.lc .fw-ask .ao { display:flex;gap:8px;flex-wrap:wrap }
+.lc .fw-ask .ar { margin-top:10px;font-size:.92rem;color:var(--text-dim) }
+.lc .fw-ask .ar b { color:var(--text) }
+.lc .fw-ask .ar .btn { margin-top:8px }
 .lc .ls { margin-bottom:16px }
 .lc .ls-top { display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px }
 .lc .ls-top b { font-size:.95rem }
@@ -395,6 +408,8 @@
   .lc .lab-card .lab-svg-wrap { order:2 }
   .lc .lab-card .lab-hint { order:3 }
 }
+.lc .fw-ctl { display:flex;align-items:center;gap:10px;flex-wrap:nowrap }
+.lc .fw-ctl input[type=range] { flex:1 1 60px;min-width:60px }
 .lc .so-hint { gap:14px;font-size:1.6rem }
 .lc .so-hint .so-arr { color:var(--text-faint);font-weight:800;font-size:1.8rem;line-height:1 }
 .lc .so-hint-t { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0) }
@@ -414,7 +429,13 @@
 .lc .so-quest { margin:8px 0 16px;padding:14px 18px;border-radius:16px;background:color-mix(in srgb,var(--accent) 12%,var(--panel));border:1.5px solid color-mix(in srgb,var(--accent) 38%,var(--border));display:flex;flex-direction:column;gap:6px }
 .lc .so-quest-head { display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:800;color:var(--accent);letter-spacing:.02em }
 .lc .so-quest p { margin:0;font-size:.92rem;line-height:1.5;color:var(--text) }
-.lc .card,.lc .lab-card,.lc .qz-card,.lc .game-scene { min-width:0;max-width:100%;box-sizing:border-box }
+.lc .watch-takeaways { margin:14px 0 6px;padding:14px 18px;border-radius:16px;background:var(--panel-2,var(--panel));border:1px solid var(--border);box-shadow:var(--shadow,0 4px 12px -6px rgba(0,0,0,.2)) }
+.lc .wt-head { display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:800;color:var(--accent);margin-bottom:8px }
+.lc .watch-takeaways ul { margin:0;padding-left:18px;display:flex;flex-direction:column;gap:6px }
+.lc .watch-takeaways li { font-size:.9rem;line-height:1.45;color:var(--text) }
+.lc .card,.lc .lab-card,.lc .fw-anim,.lc .qz-card,.lc .game-scene { min-width:0;max-width:100%;box-sizing:border-box }
+.lc .fw-ctl { flex-wrap:wrap }
+.lc .fw-ctl input[type=range] { flex:1 1 100%;width:100%;min-width:0 }
 .lc .so-hint-t { position:static;width:auto;height:auto;clip:auto;overflow:visible;font-size:.9rem }
 .lc .so-ctrls { flex-wrap:wrap }
 .lc .so-ctrls .so-dots { flex:1 1 100%;order:3 }
@@ -430,7 +451,8 @@
 }
 .lc table.qtable { display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch }
 @media (max-width:760px) {
-  .lc .lab-card { padding:14px;overflow:hidden;max-width:100% }
+  .lc .lab-card,.lc .fw-anim { padding:14px;overflow:hidden;max-width:100% }
+  .lc .fw-anim svg,.lc .fw-anim video,.lc .fw-anim iframe,.lc .fw-anim canvas { width:100%!important;max-width:100%!important;height:auto!important;margin:0!important;border-radius:12px;display:block }
   .lc .track-wrap svg { min-width:640px!important }
   .lc .qdiagram svg { min-width:560px!important }
   .lc .lab-card:has(.ls) { display:flex;flex-direction:column }
@@ -439,6 +461,8 @@
   .lc .lab-card .ls-miss { order:-1 }
   .lc .lab-card .ls-miss { margin-bottom:16px }
 }
+.lc .fw-anim { display:flex;flex-direction:column;position:relative }
+.lc .fw-ask { position:relative!important; top:auto!important; left:auto!important; right:auto!important; margin-top:14px!important; z-index:10; background:color-mix(in srgb, var(--panel,#171f31) 96%, var(--accent-3,#ff9f6b) 4%)!important; border:2.5px solid var(--accent-3,#ff9f6b)!important; border-radius:16px; padding:14px 16px; box-shadow:0 10px 30px rgba(0,0,0,.35); animation:stemSlideUp 0.3s ease-out }
 @media (pointer:coarse),(max-width:760px) {
   .lc .btn { min-height:44px }
   .lc .toggle-btn,.lc .lg-try { min-height:44px }

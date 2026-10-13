@@ -256,4 +256,6 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 
 **8.3, the Friction lab** (2026-10-13): chapter 5's lab, rebuilt on the shared parts. It has the floor and block toggles, and friction follows the push up to the limit, then drops to dynamic friction when the block slides.
 
+**8.4, the Resultant and See-saw labs** (2026-10-13): chapters 9 and 11, rebuilt on the shared parts. Five of the 15 labs are now rebuilt.
+
 **Next:** the other chapters' labs, then the games.

@@ -168,15 +168,17 @@ export function range(fn: (t: number) => number, tmax: number): [number, number]
   return [min, max];
 }
 
-/** A graph against time, as the lesson pages draw it (drawGraph). */
-export function Graph({ fn, t, label, tmax }: { fn: (t: number) => number; t: number; label: string; tmax: number }) {
+/** A graph against time, as the lesson pages draw it (drawGraph): 300 x 220 with the axis ends labelled, or as given. */
+export function Graph({ fn, t, label, tmax, w = 300, h = 220, x1 = 280, ybot = 180, ends = true }: {
+  fn: (t: number) => number; t: number; label: string; tmax: number; w?: number; h?: number; x1?: number; ybot?: number; ends?: boolean;
+}) {
   const [vmin, vmax] = range(fn, tmax);
-  const x0 = 44, x1 = 280, ytop = 14, ybot = 180;
+  const x0 = 44, ytop = 14;
   const mx = (tt: number) => x0 + tt / tmax * (x1 - x0), my = (v: number) => ybot - (v - vmin) / (vmax - vmin) * (ybot - ytop);
   let d = '';
   for (let i = 0; i <= 60; i++) { const tt = tmax * i / 60; d += (i ? 'L' : 'M') + mx(tt).toFixed(1) + ' ' + my(fn(tt)).toFixed(1) + ' '; }
   return (
-    <svg viewBox="0 0 300 220" width="100%" aria-hidden="true">
+    <svg viewBox={`0 0 ${w} ${h}`} width="100%" aria-hidden="true">
       <line x1={x0} y1={ybot} x2={x1} y2={ybot} style={{ stroke: 'var(--border)' }} stroke-width="1.5" />
       <line x1={x0} y1={ytop} x2={x0} y2={ybot} style={{ stroke: 'var(--border)' }} stroke-width="1.5" />
       {vmin < 0 && vmax > 0 && <line x1={x0} y1={my(0)} x2={x1} y2={my(0)} style={{ stroke: 'var(--border)' }} stroke-width="1" stroke-dasharray="3 3" />}
@@ -184,8 +186,8 @@ export function Graph({ fn, t, label, tmax }: { fn: (t: number) => number; t: nu
       <circle cx={mx(t)} cy={my(fn(t))} r="5.5" style={{ fill: 'var(--accent)' }} />
       <text x={x1 - 30} y={ybot + 22} font-size="11" style={{ fill: 'var(--text-faint)' }}>t (s)</text>
       <text x="2" y={ytop + 6} font-size="11" style={{ fill: 'var(--text-faint)' }}>{label}</text>
-      <text x="6" y={ybot + 4} font-size="10" style={{ fill: 'var(--text-faint)' }}>{vmin.toFixed(0)}</text>
-      <text x="6" y={ytop + 10} font-size="10" style={{ fill: 'var(--text-faint)' }}>{vmax.toFixed(0)}</text>
+      {ends && <text x="6" y={ybot + 4} font-size="10" style={{ fill: 'var(--text-faint)' }}>{vmin.toFixed(0)}</text>}
+      {ends && <text x="6" y={ytop + 10} font-size="10" style={{ fill: 'var(--text-faint)' }}>{vmax.toFixed(0)}</text>}
     </svg>
   );
 }
@@ -207,4 +209,23 @@ export function usePlayer(playing: boolean, setPlaying: (p: boolean) => void, st
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [playing]);
+}
+
+/** The track under a lab: a line from 40 to 600 with the 0 m mark, and the body at s (a dot, or a square box). */
+export function Track({ s, span, box = false }: { s: number; span: [number, number]; box?: boolean }) {
+  const [smin, smax] = span;
+  const map = (x: number) => 40 + (x - smin) / (smax - smin) * 560, x = map(s);
+  return (
+    <div class="track-wrap">
+      <svg viewBox="0 0 640 90" width="100%" style={{ minWidth: '480px' }} aria-hidden="true">
+        <line x1="40" y1="45" x2="600" y2="45" style={{ stroke: 'var(--border)' }} stroke-width="3" />
+        <line x1={map(0)} y1="31" x2={map(0)} y2="59" style={{ stroke: 'var(--text-faint)' }} stroke-width="2" />
+        <text x={map(0) - 10} y="75" font-size="11" style={{ fill: 'var(--text-faint)' }}>0 m</text>
+        {box
+          ? <rect x={x - 11} y="34" width="22" height="22" rx="5" style={{ fill: 'var(--accent)', stroke: 'var(--bg)' }} stroke-width="2" />
+          : <circle cx={x} cy="45" r="9" style={{ fill: 'var(--accent)', stroke: 'var(--bg)' }} stroke-width="2" />}
+        <text x={x - 14} y={box ? 25 : 29} font-size="12" font-weight="700" style={{ fill: 'var(--text)' }}>{s.toFixed(1)} m</text>
+      </svg>
+    </div>
+  );
 }

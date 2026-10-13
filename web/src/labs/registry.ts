@@ -3,10 +3,12 @@
 import { STRINGS as MOTION } from './physics/MotionLab';
 import { STRINGS as FORCE } from './physics/ForceLab';
 import { STRINGS as FRICTION } from './physics/FrictionLab';
+import { STRINGS as RESULTANT } from './physics/ResultantLab';
+import { STRINGS as SEESAW } from './physics/SeesawLab';
 
 export interface PortedLab {
   /** Which island renders it (components/lesson/Step.astro). */
-  island: 'motion' | 'force' | 'friction';
+  island: 'motion' | 'force' | 'friction' | 'resultant' | 'seesaw';
   /** Its fixed English strings, for the Sinhala looked up at build time. */
   strings: string[];
 }
@@ -15,4 +17,6 @@ export const LABS: Record<string, PortedLab> = {
   'physics.g10.motion-in-a-straight-line/lab': { island: 'motion', strings: MOTION },
   'physics.g10.newtons-laws/lab': { island: 'force', strings: FORCE },
   'physics.g10.friction/lab': { island: 'friction', strings: FRICTION },
+  'physics.g10.resultant-force/lab': { island: 'resultant', strings: RESULTANT },
+  'physics.g10.turning-effect/lab': { island: 'seesaw', strings: SEESAW },
 };

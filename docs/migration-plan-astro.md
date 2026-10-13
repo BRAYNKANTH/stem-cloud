@@ -398,6 +398,11 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - Up to the limiting friction (μ × weight), friction matches the push and the block only shakes. Past it, the block slides against dynamic friction (¾ of the limit).
   - The friction against push graph and the stage are drawn as on the page today. Missions keep `scx_lab_c5_<n>`.
   - **Tests:** the browser test checks the limit, the stationary and sliding cases, the distance after 6 s and the missions.
+- **Milestone 8.4 (2026-10-13): the Resultant and See-saw labs.**
+  - **`ResultantLab` (chapter 9):** two opposite pulls on a 5 kg crate. R = F₁ − F₂ moves it from rest, and the stage shows the tug of war. Missions keep `scx_lab_c9_<n>`.
+  - **`SeesawLab` (chapter 11):** a force and a distance on each side. The see-saw tips towards the bigger moment (F × d), and Raja and Chittu ride it on the stage. Missions keep `scx_lab_c11_<n>`.
+  - **Shared parts:** `labs/shared.tsx` gains the `Track` and a configurable `Graph`.
+  - **Tests:** the browser test checks both labs' physics and missions.
 - **Next:** the other chapters' labs, one by one, then the games and sort games.
 
 ### Phase 9: Cutover and cleanup (≈1 week)

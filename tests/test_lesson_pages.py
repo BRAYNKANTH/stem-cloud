@@ -9,7 +9,7 @@ the islands start without errors, and in every step and language nothing scrolls
 is at least 44 px (links inside sentences excepted). On Motion: the player, the story, the quiz and its answer sheet,
 worked-example reveals, read-aloud, and the page without JavaScript. Speech is replaced by a recording stub.
 """
-import json, os, subprocess, sys, tempfile, time, urllib.request
+import glob, json, os, re, subprocess, sys, tempfile, time, urllib.request
 
 from playwright.sync_api import sync_playwright
 
@@ -19,11 +19,18 @@ BASE = 'http://localhost:%d' % PORT
 H = {'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud'}
 CATALOG = json.load(open(os.path.join(ROOT, 'content', 'catalog.json'), encoding='utf-8'))['lessons']
 URLS = ['/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']) for l in CATALOG]
+# each lesson page on the current site -> its new lesson page
+LESSON_URL = {}
+for _f in glob.glob(os.path.join(ROOT, 'content', '*', '*', '*', 'lesson.json')):
+    _l = json.load(open(_f, encoding='utf-8'))
+    if _l.get('legacy'):
+        LESSON_URL[_l['legacy']['file']] = '/learn/%s/g%d/%s/' % (_l['subject'], _l['grade'], _l['slug'])
 MOTION = '/learn/physics/g10/motion-in-a-straight-line/'
 NEWTON = '/learn/physics/g10/newtons-laws/'
 FRICTION = '/learn/physics/g10/friction/'
 RESULTANT = '/learn/physics/g10/resultant-force/'
 TURNING = '/learn/physics/g10/turning-effect/'
+EQUILIBRIUM = '/learn/physics/g10/equilibrium/'
 # the topic view: lessons that have topics (content/.../lesson.json "topics"), their overview, topic and revision pages
 TOPIC_URLS = []
 for l in CATALOG:
@@ -422,6 +429,65 @@ def run():
             check('See-saw lab: the bigger right moment tips it right', lambda: (ro('mL'), ro('mR'), ro('bal')) == ('20.0 N m', '40.0 N m', '↘️ Tips right'), lambda: (ro('mL'), ro('mR'), ro('bal')))
             pg.locator('#dLSlider').fill('4')
             check('See-saw lab: a slider rebalances it', lambda: ro('bal') == '⚖️ Balanced!', lambda: ro('bal'))
+            # ------------------------------------------------------------ Equilibrium: the lab, rebuilt (labs/physics/EquilibriumLab.tsx)
+            pg.goto(BASE + EQUILIBRIUM + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('Equilibrium lab: rebuilt, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('Equilibrium lab: the stage draws', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c12_' + i))")
+            pg.locator('#lab .lg-try').nth(2).click()                    # 20 + 20 up against 60 down
+            check('Equilibrium lab: 40 N up against 60 N down moves down', lambda: (ro('net'), ro('eq')) == ('-20 N', '⬇️ Moves down'), lambda: (ro('net'), ro('eq')))
+            pg.locator('#lab .lg-try').nth(0).click()                    # one rope, 60 N
+            check('Equilibrium lab: one rope holding the weight is in equilibrium', lambda: (ro('net'), ro('eq')) == ('0 N', '⚖️ In equilibrium!'), lambda: (ro('net'), ro('eq')))
+            pg.locator('#lab .lg-try').nth(1).click()                    # 30 + 40 = 70
+            pg.locator('#f1Slider').fill('60')
+            check('Equilibrium lab: more pull than weight moves up', lambda: (ro('net'), ro('eq')) == ('+30 N', '⬆️ Moves up'), lambda: (ro('net'), ro('eq')))
+            check('Equilibrium lab: one rope, two ropes and flying complete all three missions', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, True, True],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            # ------------------------------------------------------------ the slider labs, lifted from their pages (tools/slider_labs.py, labs/SliderLab.tsx)
+            warns = []
+            pg.on('console', lambda m: warns.append(m.text[:150]) if m.type == 'warning' and m.text.startswith('lab ') else None)
+            for page in sorted(glob.glob(os.path.join(ROOT, 'site', 'lessons', '*.html'))):
+                src = open(page, encoding='utf-8').read()
+                if 'INTERACTIVE LAB (sliders + live drawing)' not in src:
+                    continue
+                url = LESSON_URL[os.path.basename(page)]
+                name = url.rstrip('/').split('/')[-1]
+                guide = src[src.index('GUIDED LAB'):]
+                tries = [dict((k, v) for k, v in re.findall(r'(\w+)Slider:\s*([-\d.]+)', t)) for t in re.findall(r'set:\{([^}]*)\}', guide[:guide.index('live:')])]
+                pg.goto(BASE + url + '#lab')
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                check('%s lab: rebuilt, not a frame' % name, lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+                pg.locator('#lab .lab-svg-wrap svg').scroll_into_view_if_needed()
+                check('%s lab: the picture draws' % name, lambda: pg.locator('#lab .lab-svg-wrap svg > *').count() > 3)
+                pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+                check('%s lab: the stage draws' % name, lambda: pg.locator('#lab .ls svg > *').count() > 10)
+                for i, want in enumerate(tries):
+                    pg.locator('#lab .lg-try').nth(i).click()
+                    js = lambda x: str(int(float(x))) if float(x) == int(float(x)) else str(float(x))
+                    check('%s lab: try %d sets its sliders and the readout' % (name, i + 1),
+                          lambda: all(ro(k) == js(x) for k, x in want.items()) and ro('a') != '' and ro('b') != '' and pg.locator('#lab .lg-see b').count() == 1,
+                          lambda: ([(k, ro(k), js(x)) for k, x in want.items()], ro('a'), ro('b')))
+            check('slider labs: nothing failed to draw', lambda: not warns, lambda: warns)
+            # hydrostatic pressure: 1 m of mercury
+            pg.goto(BASE + '/learn/physics/g10/hydrostatic-pressure/#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_g10c15_' + i))")   # the loop above did them: start again
+            pg.reload()
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.locator('#lab .lg-try').nth(3).click()
+            check('Pressure lab: 1 m of mercury is 136 000 Pa', lambda: (ro('a'), ro('b')) == ('P = hρg = 1 × 13 600 × 10', '= 136 000 Pa'), lambda: (ro('a'), ro('b')))
+            check('Pressure lab: mercury and over 100 000 Pa complete missions 2 and 3', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [False, True, True],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            check('Pressure lab: missions kept under the page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_g10c15_1')") == '1')
+            set_lang(pg, 'ta')
+            check('Pressure lab: in Tamil', lambda: pg.locator('#lab .lg-try').nth(0).inner_text().startswith('1. நீர்'))
+            set_lang(pg, 'si')
+            check('Pressure lab: in Sinhala (the try, the slider, the mission)', lambda: pg.locator('#lab .lg-try').nth(0).inner_text() == '1. ජලය, 2 m ගැඹුර'
+                  and pg.locator('#lab .control label span').first.inner_text() == 'ගැඹුර' and pg.locator('#lab .ls-m').first.inner_text().endswith('මෙහෙයුම 1: රාජා ජලයේ (ඝනත්වය 1000) හරියටම 5 m ට කිමිදවන්න.'),
+                  lambda: (pg.locator('#lab .lg-try').nth(0).inner_text(), pg.locator('#lab .control label span').first.inner_text(), pg.locator('#lab .ls-m').first.inner_text()))
+            set_lang(pg, 'en')
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

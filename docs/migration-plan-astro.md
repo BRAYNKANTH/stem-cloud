@@ -403,7 +403,20 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **`SeesawLab` (chapter 11):** a force and a distance on each side. The see-saw tips towards the bigger moment (F × d), and Raja and Chittu ride it on the stage. Missions keep `scx_lab_c11_<n>`.
   - **Shared parts:** `labs/shared.tsx` gains the `Track` and a configurable `Graph`.
   - **Tests:** the browser test checks both labs' physics and missions.
-- **Next:** the other chapters' labs, one by one, then the games and sort games.
+- **Milestone 8.5 (2026-10-13): every lab is rebuilt (15 of 15).**
+  - **`EquilibriumLab` (chapter 12):** two upward forces against the weight, with Raja on a swing. Missions keep `scx_lab_c12_<n>`.
+  - **The nine slider labs** (hydrostatic pressure to electromagnetism) all use one template. `tools/slider_labs.py` lifts them into `web/src/labs/slider/`, the way the engine was lifted:
+    - the drawing kit (`makeDraw`, identical in the nine pages);
+    - each page's controls, picture size and hint;
+    - its own `CFG` (readout, picture), `LAB` (guide) and stage `CFG` (missions, cartoon), unchanged. Their `document.getElementById(id).value` gives the slider's value, which is all they read.
+  - **`labs/SliderLab.tsx`** draws them all. Missions keep each page's own key (`scx_lab_g10c15_<n>`, …), which differs from the lesson's legacy id.
+  - **CI** checks the generated files are current.
+  - **Tests:** the browser test opens every slider lab and checks:
+    - the picture and the stage draw;
+    - each of the page's own tries sets its sliders and the readout;
+    - nothing fails to draw.
+    - It also checks the pressure lab's numbers, missions, device key, Tamil and Sinhala.
+- **Next:** the games and sort games (still frames), then the Watch animations, all with the same engine.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.

@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Is this about a transverse or a longitudinal wave?",
+    "இது குறுக்கலை பத்தியா நெட்டாங்கு அலை பத்தியா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Amplitude",
+    "வீச்சம்"
+   ],
+   "meaning": [
+    "Maximum displacement of the particles",
+    "துணிக்கைகளோட அதிகபட்ச இடப்பெயர்ச்சி"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Wavelength",
+    "அலைநீளம்"
+   ],
+   "meaning": [
+    "Distance between two consecutive crests",
+    "அடுத்தடுத்த ரெண்டு முகடுகளுக்கு இடையிலான தூரம்"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Frequency",
+    "மீடிறன்"
+   ],
+   "meaning": [
+    "Oscillations per second (hertz)",
+    "வினாடிக்கு அலைவுகள் (ஹேட்ஸ்)"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Period",
+    "ஆவர்த்தன காலம்"
+   ],
+   "meaning": [
+    "Time for one oscillation",
+    "ஒரு அலைவுக்கான நேரம்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Pitch",
+    "சுருதி"
+   ],
+   "meaning": [
+    "Sound characteristic that depends on frequency",
+    "மீடிறன பொறுத்த ஒலிப் பண்பு"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Ultrasound",
+    "கழியொலி"
+   ],
+   "meaning": [
+    "Sound above 20 000 Hz",
+    "20 000 Hz-க்கு மேல உள்ள ஒலி"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Water waves",
+    "நீர் அலைகள்"
+   ],
+   "bin": "tr"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Sound waves in air",
+    "காற்றுல ஒலி அலைகள்"
+   ],
+   "bin": "lo"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Slinky shaken sideways",
+    "பக்கவாட்டுல ஆட்டின ஸ்லிங்கி"
+   ],
+   "bin": "tr"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Slinky pushed forward and back",
+    "முன் பின் தள்ளின ஸ்லிங்கி"
+   ],
+   "bin": "lo"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Compressions and rarefactions",
+    "அமுக்கங்களும் ஐதாக்கங்களும்"
+   ],
+   "bin": "lo"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Crests and troughs",
+    "முகடுகளும் அகடுகளும்"
+   ],
+   "bin": "tr"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Waves on a plucked string",
+    "மீட்டின நாணுல அலைகள்"
+   ],
+   "bin": "tr"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Electromagnetic waves",
+    "மின்காந்த அலைகள்"
+   ],
+   "bin": "tr"
+  }
+ ],
+ "bins": [
+  {
+   "id": "tr",
+   "title": [
+    "〰️ Transverse",
+    "〰️ குறுக்கலை"
+   ]
+  },
+  {
+   "id": "lo",
+   "title": [
+    "🔊 Longitudinal",
+    "🔊 நெட்டாங்கு"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Wave Sort complete!",
+   "அலை சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c04_sort_master"
+ }
+}

@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Does this describe an n-type or a p-type semiconductor?",
+    "இது n-வகையா p-வகையா குறை கடத்திய விவரிக்குது?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Hole",
+    "துளை"
+   ],
+   "meaning": [
+    "A missing electron that acts as a positive charge carrier",
+    "நேர் ஏற்றக்காவியா செயல்படும் இல்லாத இலத்திரன்"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Doping",
+    "மாசூட்டல்"
+   ],
+   "meaning": [
+    "Adding a tiny amount of another element to a semiconductor",
+    "குறை கடத்திக்கு மிகச் சின்ன அளவு வேறு மூலகத்த சேர்க்கறது"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Depletion layer",
+    "வறிதாக்கல் பகுதி"
+   ],
+   "meaning": [
+    "Region at a p-n junction with no free carriers",
+    "p-n சந்தில சுயாதீன காவிகள் இல்லாத பகுதி"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Forward bias",
+    "முன்முகக்கோடல்"
+   ],
+   "meaning": [
+    "p side positive, n side negative: current flows",
+    "p பக்கம் நேர், n பக்கம் மறை: மின்னோட்டம் ஓடும்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Rectification",
+    "சீராக்கல்"
+   ],
+   "meaning": [
+    "Changing AC into DC with diodes",
+    "இருவாயிகளால AC-ய DC ஆக மாத்தறது"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Transistor",
+    "திரான்சிற்றர்"
+   ],
+   "meaning": [
+    "Two p-n junctions: an amplifier or a switch",
+    "ரெண்டு p-n சந்திகள்: விரியலாக்கி அல்லது சுவிட்ச்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Doped with phosphorus",
+    "பொஸ்பரசால மாசூட்டியது"
+   ],
+   "bin": "n"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Doped with boron",
+    "போரனால மாசூட்டியது"
+   ],
+   "bin": "p"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Majority carriers are electrons",
+    "பெரும்பான்மைக் காவிகள் இலத்திரன்கள்"
+   ],
+   "bin": "n"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Majority carriers are holes",
+    "பெரும்பான்மைக் காவிகள் துளைகள்"
+   ],
+   "bin": "p"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Contains donor atoms",
+    "தாளி அணுக்கள் உள்ளன"
+   ],
+   "bin": "n"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Contains acceptor atoms",
+    "ஏற்பாள் அணுக்கள் உள்ளன"
+   ],
+   "bin": "p"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Dopant from group V (arsenic, antimony)",
+    "ஐந்தாம் கூட்ட மாசு (ஆசனிக், அந்திமனி)"
+   ],
+   "bin": "n"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Dopant from group III (aluminium, gallium)",
+    "மூன்றாம் கூட்ட மாசு (அலுமினியம், கலியம்)"
+   ],
+   "bin": "p"
+  }
+ ],
+ "bins": [
+  {
+   "id": "n",
+   "title": [
+    "➖ n-type",
+    "➖ n-வகை"
+   ]
+  },
+  {
+   "id": "p",
+   "title": [
+    "➕ p-type",
+    "➕ p-வகை"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Semiconductor Sort complete!",
+   "குறை கடத்தி சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c11_sort_master"
+ }
+}

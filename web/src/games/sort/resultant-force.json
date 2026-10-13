@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Rule",
+    "சுற்று 1 — விதியை இணை"
+   ],
+   "hint": [
+    "Tap a rule, then tap its matching meaning.",
+    "ஒரு விதியை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Sort each force pair by which side the object ends up moving toward.",
+    "ஒவ்வொரு விசை ஜோடியும் எந்தப் பக்கம் நகருதுன்னு வரிசைப்படுத்து."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Rules",
+   "விதிகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Same direction rule",
+    "ஒரே திசை விதி"
+   ],
+   "meaning": [
+    "Resultant = Force 1 + Force 2",
+    "விளையுள் = விசை 1 + விசை 2"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Opposite direction rule",
+    "எதிர் திசை விதி"
+   ],
+   "meaning": [
+    "Resultant = larger force − smaller force",
+    "விளையுள் = பெரிய விசை − சிறிய விசை"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Parallel forces rule",
+    "சமாந்தர விசை விதி"
+   ],
+   "meaning": [
+    "Same-direction parallel forces simply add up",
+    "ஒரே திசை சமாந்தர விசைகள் வெறுமனே கூடும்"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Non-parallel (inclined) forces",
+    "சமாந்தரமற்ற (சாய்ந்த) விசைகள்"
+   ],
+   "meaning": [
+    "Resultant acts in a direction between the two forces",
+    "விளையுள் அந்த இரு விசைகளுக்கும் இடையே இருக்கும் திசையில் தாக்கும்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "A: 20 N →  B: 12 N ←",
+    "A: 20 N →  B: 12 N ←"
+   ],
+   "bin": "right"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "A: 8 N →   B: 15 N ←",
+    "A: 8 N →   B: 15 N ←"
+   ],
+   "bin": "left"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "A: 30 N →  B: 10 N ←",
+    "A: 30 N →  B: 10 N ←"
+   ],
+   "bin": "right"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "A: 6 N →   B: 18 N ←",
+    "A: 6 N →   B: 18 N ←"
+   ],
+   "bin": "left"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Two friends push right: 5 N + 9 N",
+    "இருவரும் வலப்புறம் தள்றார்கள்: 5 N + 9 N"
+   ],
+   "bin": "right"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "A: 4 N →   B: 22 N ←",
+    "A: 4 N →   B: 22 N ←"
+   ],
+   "bin": "left"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "A: 17 N →  B: 3 N ←",
+    "A: 17 N →  B: 3 N ←"
+   ],
+   "bin": "right"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "A: 2 N →   B: 14 N ←",
+    "A: 2 N →   B: 14 N ←"
+   ],
+   "bin": "left"
+  }
+ ],
+ "bins": [
+  {
+   "id": "right",
+   "title": [
+    "→ Moves Right",
+    "→ வலப்புறம் நகரும்"
+   ]
+  },
+  {
+   "id": "left",
+   "title": [
+    "← Moves Left",
+    "← இடப்புறம் நகரும்"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Force Combo Sort complete!",
+   "ஃபோர்ஸ் காம்போ சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "ch9_sort_master"
+ }
+}

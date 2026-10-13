@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Does it work by a force on a current in a field, or by induction?",
+    "இது புலத்துல மின்னோட்டத்தின் மேல விசையாலா, தூண்டலாலா வேலை செய்யுது?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Magnetic field",
+    "காந்தப்புலம்"
+   ],
+   "meaning": [
+    "The region around a magnet where it has an influence",
+    "காந்தத்த சுத்தி அதோட தாக்கம் உள்ள பகுதி"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Electromagnetic induction",
+    "மின்காந்தத் தூண்டல்"
+   ],
+   "meaning": [
+    "Producing an EMF by a changing magnetic field",
+    "மாறும் காந்தப்புலத்தால EMF உண்டாக்கறது"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Alternating current",
+    "ஆடலோட்டம்"
+   ],
+   "meaning": [
+    "A current whose direction changes with time",
+    "நேரத்தோட திசை மாறும் மின்னோட்டம்"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Transformer",
+    "நிலைமாற்றி"
+   ],
+   "meaning": [
+    "Two coils linked by a core: changes an AC voltage",
+    "உள்ளகத்தால இணைந்த ரெண்டு சுருள்கள்: AC வோல்ற்றளவ மாத்தும்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Step-up transformer",
+    "படிகூட்டு நிலைமாற்றி"
+   ],
+   "meaning": [
+    "Secondary has more turns: output voltage is larger",
+    "துணைல அதிக சுற்றுகள்: வெளியீட்டு வோல்ற்றளவு பெரிது"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Electromotive force",
+    "மின்னியக்கவிசை"
+   ],
+   "meaning": [
+    "The voltage a source drives round a circuit (EMF)",
+    "ஒரு மூலம் சுற்றுல தள்ளும் வோல்ற்றளவு (EMF)"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "DC motor",
+    "DC மோட்டார்"
+   ],
+   "bin": "fo"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Loud speaker",
+    "ஒலிபெருக்கி"
+   ],
+   "bin": "fo"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "AC dynamo",
+    "AC டைனமோ"
+   ],
+   "bin": "in"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Moving coil microphone",
+    "நகரும் சுருள் மைக்ரோஃபோன்"
+   ],
+   "bin": "in"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Transformer",
+    "நிலைமாற்றி"
+   ],
+   "bin": "in"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Moving coil galvanometer",
+    "நகரும் சுருள் கல்வனோமானி"
+   ],
+   "bin": "fo"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Bicycle dynamo",
+    "சைக்கிள் டைனமோ"
+   ],
+   "bin": "in"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Electric train motor",
+    "மின் ரயில் மோட்டார்"
+   ],
+   "bin": "fo"
+  }
+ ],
+ "bins": [
+  {
+   "id": "fo",
+   "title": [
+    "👈 Force on a current (motor effect)",
+    "👈 மின்னோட்டத்தின் மேல விசை (மோட்டார் விளைவு)"
+   ]
+  },
+  {
+   "id": "in",
+   "title": [
+    "🔋 Induction (generator effect)",
+    "🔋 தூண்டல் (ஜெனரேட்டர் விளைவு)"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Motor and Generator Sort complete!",
+   "மோட்டார், ஜெனரேட்டர் சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c13_sort_master"
+ }
+}

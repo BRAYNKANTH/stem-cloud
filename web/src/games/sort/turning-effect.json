@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Term",
+    "சுற்று 1 — வார்த்தையை இணை"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching definition.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Sort each see-saw pair by whether it's balanced or not.",
+    "ஒவ்வொரு சீசா ஜோடியும் சமநிலையா இருக்குமான்னு வரிசைப்படுத்து."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Definitions",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Moment of a force",
+    "விசையின் திருப்பம்"
+   ],
+   "meaning": [
+    "Force × perpendicular distance from the pivot",
+    "விசை × பிவாட்டிலிருந்து செங்குத்துத் தூரம்"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Couple",
+    "விசை இணை"
+   ],
+   "meaning": [
+    "Two equal, opposite, parallel forces not on the same line",
+    "ஒரே நேர்கோட்டில் இல்லாத, சமமும் எதிர் திசையும் சமாந்தரமுமான இரு விசைகள்"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Principle of moments",
+    "திருப்பங்களின் கொள்கை"
+   ],
+   "meaning": [
+    "For balance, clockwise moments = anticlockwise moments",
+    "சமநிலைக்கு, கடிகார திசை திருப்பங்கள் = எதிர்-கடிகார திசை திருப்பங்கள்"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Perpendicular distance",
+    "செங்குத்துத் தூரம்"
+   ],
+   "meaning": [
+    "The shortest distance, measured at a right angle to the force",
+    "விசைக்கு நேர் லம்பமா அளக்கப்படும் மிகக் குறுகிய தூரம்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Left: 10N×2m=20 · Right: 5N×4m=20",
+    "இடப்புறம்: 10N×2m=20 · வலப்புறம்: 5N×4m=20"
+   ],
+   "bin": "bal"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Left: 10N×2m=20 · Right: 8N×4m=32",
+    "இடப்புறம்: 10N×2m=20 · வலப்புறம்: 8N×4m=32"
+   ],
+   "bin": "notbal"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Left: 15N×3m=45 · Right: 9N×5m=45",
+    "இடப்புறம்: 15N×3m=45 · வலப்புறம்: 9N×5m=45"
+   ],
+   "bin": "bal"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Left: 6N×5m=30 · Right: 10N×2m=20",
+    "இடப்புறம்: 6N×5m=30 · வலப்புறம்: 10N×2m=20"
+   ],
+   "bin": "notbal"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Left: 12N×4m=48 · Right: 16N×3m=48",
+    "இடப்புறம்: 12N×4m=48 · வலப்புறம்: 16N×3m=48"
+   ],
+   "bin": "bal"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Left: 20N×2m=40 · Right: 10N×3m=30",
+    "இடப்புறம்: 20N×2m=40 · வலப்புறம்: 10N×3m=30"
+   ],
+   "bin": "notbal"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Left: 7N×6m=42 · Right: 14N×3m=42",
+    "இடப்புறம்: 7N×6m=42 · வலப்புறம்: 14N×3m=42"
+   ],
+   "bin": "bal"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Left: 9N×4m=36 · Right: 6N×5m=30",
+    "இடப்புறம்: 9N×4m=36 · வலப்புறம்: 6N×5m=30"
+   ],
+   "bin": "notbal"
+  }
+ ],
+ "bins": [
+  {
+   "id": "bal",
+   "title": [
+    "⚖️ Balanced",
+    "⚖️ சமநிலை"
+   ]
+  },
+  {
+   "id": "notbal",
+   "title": [
+    "↕️ Not Balanced",
+    "↕️ சமநிலை இல்ல"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Moment Match complete!",
+   "மொமெண்ட் மேட்ச் முடிச்சாச்சு!"
+  ],
+  "badge": "ch11_sort_master"
+ }
+}

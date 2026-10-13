@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Rule",
+    "சுற்று 1 — விதியை இணை"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Sort each situation by whether it's in equilibrium.",
+    "ஒவ்வொரு சூழ்நிலையும் சமநிலையில் இருக்குமான்னு வரிசைப்படுத்து."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Equilibrium",
+    "சமநிலை"
+   ],
+   "meaning": [
+    "The resultant of all forces on the object is zero",
+    "பொருள் மேல தாக்கும் எல்லா விசைகளின் விளையுள் பூச்சியம்"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Two-force equilibrium",
+    "இரு விசை சமநிலை"
+   ],
+   "meaning": [
+    "Equal in size, opposite in direction, along the same line",
+    "சம பருமன், எதிர் திசை, ஒரே நேர்கோடு"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Three parallel forces",
+    "மூன்று சமாந்தர விசைகள்"
+   ],
+   "meaning": [
+    "Resultant of two equals the third, opposite (e.g. F₁ + F₂ = W)",
+    "ரெண்டின் விளையுள் மூன்றாவதுக்கு சமம், எதிர் (எ.கா F₁ + F₂ = W)"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Three non-parallel forces",
+    "மூன்று சமாந்தரமற்ற விசைகள்"
+   ],
+   "meaning": [
+    "Lines of action must meet at a single point",
+    "தாக்கக் கோடுகள் ஒரே புள்ளில சந்திக்கணும்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Book resting on a table",
+    "மேசை மேல ஓய்வுல இருக்கும் புத்தகம்"
+   ],
+   "bin": "eq"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Block pulled 20 N right and 25 N left",
+    "20 N வலம், 25 N இடம் இழுக்கப்படும் பெட்டி"
+   ],
+   "bin": "noteq"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Child on a swing, ropes 120 N + 180 N, weight 300 N",
+    "ஊஞ்சல் பிள்ளை, கயிறுகள் 120 N + 180 N, நிறை 300 N"
+   ],
+   "bin": "eq"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "12 N left and 12 N right, same line",
+    "12 N இடம், 12 N வலம், ஒரே கோடு"
+   ],
+   "bin": "eq"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Tug of war: 300 N vs 260 N",
+    "கயிறிழுத்தல்: 300 N vs 260 N"
+   ],
+   "bin": "noteq"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Picture hanging still on a wall",
+    "சுவர்ல அசையாம தொங்கும் படம்"
+   ],
+   "bin": "eq"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Ring pulled 10 N up and 6 N down",
+    "10 N மேல், 6 N கீழ் இழுக்கப்படும் வளையம்"
+   ],
+   "bin": "noteq"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Rope-pulled load with 20 N up but weight 35 N",
+    "20 N மேல் இழுவை, 35 N நிறை உள்ள சுமை"
+   ],
+   "bin": "noteq"
+  }
+ ],
+ "bins": [
+  {
+   "id": "eq",
+   "title": [
+    "⚖️ In equilibrium",
+    "⚖️ சமநிலையில்"
+   ]
+  },
+  {
+   "id": "noteq",
+   "title": [
+    "↗️ Not in equilibrium",
+    "↗️ சமநிலையில் இல்ல"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Equilibrium Sort complete!",
+   "சமநிலை சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "ch12_sort_master"
+ }
+}

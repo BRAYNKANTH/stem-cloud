@@ -1,0 +1,170 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Idea",
+    "சுற்று 1 — கருத்தை இணை"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Tap a quantity, then tap the bin it belongs to.",
+    "ஒரு அளவை தொடு, அப்புறம் அது எந்த பெட்டிக்குன்னு அந்த பெட்டியை தொடு."
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Distance",
+    "தூரம்"
+   ],
+   "meaning": [
+    "Total length of the path actually travelled",
+    "நடந்த மொத்த வழியோட நீளம்"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Displacement",
+    "இடப்பெயர்ச்சி"
+   ],
+   "meaning": [
+    "Straight-line change in position, with direction",
+    "ஆரம்பத்துல இருந்து முடிவுக்கு நேர்க்கோட்டு தூரம், திசையோட"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Acceleration",
+    "முடுக்கம்"
+   ],
+   "meaning": [
+    "Change in velocity per unit time",
+    "ஒரு விநாடியில திசைவேகம் எவ்வளவு மாறுச்சு"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Area under a v–t graph",
+    "v–t கிராஃபோட ஏரியா"
+   ],
+   "meaning": [
+    "Gives the displacement",
+    "இடப்பெயர்ச்சியை கொடுக்கும்"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "Distance",
+    "தூரம்"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Speed",
+    "வேகம்"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Time",
+    "நேரம்"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Mass",
+    "திணிவு"
+   ],
+   "bin": "a"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Displacement",
+    "இடப்பெயர்ச்சி"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Velocity",
+    "திசைவேகம்"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Acceleration",
+    "முடுக்கம்"
+   ],
+   "bin": "b"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Weight",
+    "நிறை"
+   ],
+   "bin": "b"
+  }
+ ],
+ "bins": [
+  {
+   "id": "a",
+   "title": [
+    "📏 Scalar (magnitude only)",
+    "📏 அளவெண் (அளவு மட்டும்)"
+   ]
+  },
+  {
+   "id": "b",
+   "title": [
+    "🧭 Vector (magnitude + direction)",
+    "🧭 திசையுள்ளது (அளவு + திசை)"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Scalar/Vector Sort complete!",
+   "அளவெண்/திசையுள்ள சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "u2_sort_master"
+ }
+}

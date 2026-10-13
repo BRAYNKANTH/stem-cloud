@@ -1,0 +1,199 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Is this heat transfer mainly by conduction, convection or radiation?",
+    "இது முக்கியமா கடத்தல், காவுகை, கதிர்வீச்சுல எதால நடக்குது?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Temperature",
+    "வெப்பநிலை"
+   ],
+   "meaning": [
+    "Measure of the mean kinetic energy of the particles",
+    "துணிக்கைகளோட சராசரி இயக்க சக்தியோட அளவு"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Heat",
+    "வெப்பம்"
+   ],
+   "meaning": [
+    "Energy transferred because of a temperature difference (J)",
+    "வெப்பநிலை வித்தியாசத்தால கடத்தப்படும் சக்தி (J)"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Specific heat capacity",
+    "தன்வெப்பக் கொள்ளளவு"
+   ],
+   "meaning": [
+    "Heat to raise 1 kg by one degree (J kg⁻¹ K⁻¹)",
+    "1 kg-ஐ ஒரு பாகை உயர்த்த தேவையான வெப்பம் (J kg⁻¹ K⁻¹)"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Latent heat",
+    "மறை வெப்பம்"
+   ],
+   "meaning": [
+    "Heat absorbed in a change of state with no temperature change",
+    "நிலை மாறும்போது வெப்பநிலை மாறாம உறிஞ்சப்படும் வெப்பம்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Thermal expansion",
+    "வெப்பவிரிவு"
+   ],
+   "meaning": [
+    "Increase in length, area or volume when heated",
+    "சூடாக்கினா நீளம், பரப்பு, கனவளவு கூடறது"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Thermal equilibrium",
+    "வெப்பச் சமநிலை"
+   ],
+   "meaning": [
+    "Two bodies at the same temperature: no net heat flow",
+    "ரெண்டு பொருட்கள் ஒரே வெப்பநிலை: நிகர வெப்ப ஓட்டம் இல்ல"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "A metal spoon warming in hot tea",
+    "சூடான தேநீர்ல சூடாகும் உலோக கரண்டி"
+   ],
+   "bin": "cd"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "Warmth from a fire felt on your face",
+    "தீயில இருந்து முகத்துல உணரும் வெப்பம்"
+   ],
+   "bin": "rd"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "Water heating from bottom to top in a kettle",
+    "கெட்டில்ல அடில இருந்து மேலுக்கு சூடாகும் நீர்"
+   ],
+   "bin": "cv"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "Sunlight warming the Earth",
+    "பூமிய சூடாக்கும் சூரிய ஒளி"
+   ],
+   "bin": "rd"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "Heat moving along a rail from a fire at one end",
+    "ஒரு முனையில தீ வெச்சா தண்டவாளம் வழியா வெப்பம் நகருது"
+   ],
+   "bin": "cd"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Sea breeze",
+    "கடற்காற்று"
+   ],
+   "bin": "cv"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "Heat through the base of a saucepan",
+    "சட்டியோட அடிப்பாகம் வழியா வெப்பம்"
+   ],
+   "bin": "cd"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "Warm air rising above a candle",
+    "மெழுகுவர்த்தி மேல உயரும் சூடான காற்று"
+   ],
+   "bin": "cv"
+  }
+ ],
+ "bins": [
+  {
+   "id": "cd",
+   "title": [
+    "🔩 Conduction",
+    "🔩 கடத்தல்"
+   ]
+  },
+  {
+   "id": "cv",
+   "title": [
+    "♨️ Convection",
+    "♨️ காவுகை"
+   ]
+  },
+  {
+   "id": "rd",
+   "title": [
+    "☀️ Radiation",
+    "☀️ கதிர்வீச்சு"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Heat Sort complete!",
+   "வெப்ப சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g11c09_sort_master"
+ }
+}

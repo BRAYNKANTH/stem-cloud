@@ -416,7 +416,29 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
     - each of the page's own tries sets its sliders and the readout;
     - nothing fails to draw.
     - It also checks the pressure lab's numbers, missions, device key, Tamil and Sinhala.
-- **Next:** the games and sort games (still frames), then the Watch animations, all with the same engine.
+- **Milestone 8.6 (2026-10-13): the sort games (15 of 15).**
+  - Every page has the same two-round game: match the terms, then sort the chips into two or three bins. Only the way the data is written differs.
+  - `tools/sort_games.py` lifts each page's terms, chips, bins, labels and what finishing gives (its XP and badge) into `web/src/games/sort/<lesson>.json`. Node reads the JS literals.
+  - **`games/SortGame.tsx`** plays them. A page gets only its own game, as props.
+  - **XP** is as on the page (5 per match and per chip, 20 for finishing), each once. Finishing also earns the page's badge and marks the step done (progress v2).
+  - **CI** checks the data is current.
+  - **Changes from the page:**
+    - The chips are 44 px on phones.
+    - The meanings are shuffled after the page starts, so the built page and the running one agree.
+    - Taps read the current choice, so two quick taps aren't lost.
+  - **Tests:** the browser test plays every game through:
+    - a wrong meaning isn't matched, then every match;
+    - a chip in the wrong bin stays, then every chip;
+    - the step reaches the server, and Tamil.
+- **Milestone 8.6, continued: the challenge games (9 of 9).**
+  - The nine slider-lab pages also share their mini-game: levels with a question and a picture, a slider for the answer, and up to three stars.
+  - `tools/challenge_games.py` lifts each page's own `G` (levels, `scene` picture, messages, range), its stars key and its badge into `web/src/games/challenge/`. The picture uses the slider labs' drawing kit.
+  - **`games/ChallengeGame.tsx`** plays them. Best stars stay on the device under the page's key (`scx_<page>_stars`).
+  - **XP** is 10 a star for each better result, once. Clearing every level earns the page's badge, and a cleared level counts as playing the step (as `player.js` does).
+  - **On the account,** the best stars per level go to `<lesson>/challenge` (progress v2), where the bridge already puts the current pages' stars.
+  - **CI** checks the modules are current.
+  - **Tests:** the browser test plays every level of every game. It checks a far-off answer gets no stars, the nearest answer the slider allows wins, the device key, the step reaching the server, and Tamil.
+- **Next:** the six one-off games (hold ×3, push-it, tug of war, balance), then the Watch animations.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.

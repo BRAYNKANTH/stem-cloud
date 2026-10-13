@@ -29,8 +29,12 @@ ISLAND_CLASSES = {'quiz-score', 'qpart', 'qlead', 'ql', 'qt', 'has-parts', 'qd-c
                   'lab-card', 'lg', 'goal', 'look', 'lg-tries', 'lg-try', 'lg-see', 'lg-live', 'ls', 'ls-top', 'ls-hint', 'ls-miss', 'ls-m', 'ck',
                   'lab-controls', 'control', 'lab-buttons', 'lab-readouts', 'readout', 'ro-label', 'ro-value', 'track-wrap', 'graphs-row',
                   'graph-box', 'gtitle', 'lab-hint', 'lab-svg', 'a-readout',
-                  'toggle-row', 'toggle-group', 'tglabel', 'toggle-btns', 'toggle-btn', 'status-still', 'status-sliding', 'lab-svg-wrap'}
-STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet', 'active'}   # the islands' state classes, next to one of theirs
+                  'toggle-row', 'toggle-group', 'tglabel', 'toggle-btns', 'toggle-btn', 'status-still', 'status-sliding', 'lab-svg-wrap',
+                  # the sort game (web/src/games/SortGame.tsx)
+                  'match-grid', 'match-col', 'mtitle', 'match-tile', 'game-result', 'sort-pool', 'sort-bins', 'sort-bin', 'btitle', 'sort-chip', 'schip',
+                  # the challenge game (web/src/games/ChallengeGame.tsx)
+                  'level-row', 'level-btn', 'lnum2', 'lstars', 'game-scene', 'surface-label', 'star-row'}
+STATES = {'correct', 'wrong', 'show', 'on', 'talking', 'now', 'done', 'r', 'c', 'ok', 'no', 'quiet', 'active', 'selected', 'matched', 'wrong', 'win', 'lose'}   # the islands' state classes, next to one of theirs
 DARK = re.compile(r'^(?:html|:root)?\[data-theme="?dark"?\]\s+')
 
 

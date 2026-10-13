@@ -1,0 +1,192 @@
+{
+ "rounds": [
+  {
+   "title": [
+    "Round 1 — Match the Pairs",
+    "சுற்று 1 — ஜோடி சேர்"
+   ],
+   "hint": [
+    "Tap a term, then tap its matching meaning.",
+    "ஒரு வார்த்தையை தொடு, அப்புறம் அதோட விளக்கத்தை தொடு."
+   ]
+  },
+  {
+   "title": [
+    "Round 2 — Sort Them",
+    "சுற்று 2 — வரிசைப்படுத்து"
+   ],
+   "hint": [
+    "Is this true for resistors in series or in parallel?",
+    "இது தொடர் தடையிகளுக்கா சமாந்தர தடையிகளுக்கா?"
+   ]
+  }
+ ],
+ "columns": [
+  [
+   "Terms",
+   "வார்த்தைகள்"
+  ],
+  [
+   "Meanings",
+   "விளக்கங்கள்"
+  ]
+ ],
+ "terms": [
+  {
+   "id": "t1",
+   "term": [
+    "Electric current",
+    "மின்னோட்டம்"
+   ],
+   "meaning": [
+    "Flow of electric charges (ampere, A)",
+    "மின்னேற்றங்களின் ஓட்டம் (அம்பியர், A)"
+   ]
+  },
+  {
+   "id": "t2",
+   "term": [
+    "Potential difference",
+    "அழுத்த வித்தியாசம்"
+   ],
+   "meaning": [
+    "The electric \"pressure\" that pushes the current (volt, V)",
+    "மின்னோட்டத்த தள்ளும் மின் \"அமுக்கம்\" (வோல்ட், V)"
+   ]
+  },
+  {
+   "id": "t3",
+   "term": [
+    "Resistance",
+    "தடை"
+   ],
+   "meaning": [
+    "What holds back the current: V ÷ I (ohm, Ω)",
+    "மின்னோட்டத்த தடுப்பது: V ÷ I (ஓம், Ω)"
+   ]
+  },
+  {
+   "id": "t4",
+   "term": [
+    "Ammeter",
+    "அம்பியர்மானி"
+   ],
+   "meaning": [
+    "Measures current; connected in series",
+    "மின்னோட்டத்த அளக்கும்; தொடரா இணைக்கப்படும்"
+   ]
+  },
+  {
+   "id": "t5",
+   "term": [
+    "Voltmeter",
+    "வோல்ற்றுமானி"
+   ],
+   "meaning": [
+    "Measures potential difference; connected across the two points",
+    "அழுத்த வித்தியாசத்த அளக்கும்; ரெண்டு புள்ளிகளுக்கும் குறுக்கா இணைக்கப்படும்"
+   ]
+  },
+  {
+   "id": "t6",
+   "term": [
+    "Equivalent resistance",
+    "சமவலுத் தடை"
+   ],
+   "meaning": [
+    "One resistance that can replace the whole group",
+    "முழுத் தொகுதிக்கும் பதிலா வைக்கக்கூடிய ஒற்றைத் தடை"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "s1",
+   "text": [
+    "The same current flows through every resistor",
+    "எல்லா தடையிகள் வழியாவும் ஒரே மின்னோட்டம் ஓடும்"
+   ],
+   "bin": "ser"
+  },
+  {
+   "id": "s2",
+   "text": [
+    "The total current divides among the resistors",
+    "மொத்த மின்னோட்டம் தடையிகளிடையே பிரியும்"
+   ],
+   "bin": "par"
+  },
+  {
+   "id": "s3",
+   "text": [
+    "R = R₁ + R₂ + R₃",
+    "R = R₁ + R₂ + R₃"
+   ],
+   "bin": "ser"
+  },
+  {
+   "id": "s4",
+   "text": [
+    "1/R = 1/R₁ + 1/R₂ + 1/R₃",
+    "1/R = 1/R₁ + 1/R₂ + 1/R₃"
+   ],
+   "bin": "par"
+  },
+  {
+   "id": "s5",
+   "text": [
+    "The voltages across the resistors add up to the supply voltage",
+    "தடையிகளுக்கு குறுக்கா வோல்ற்றளவுகள் கூடி மூல வோல்ற்றளவாகும்"
+   ],
+   "bin": "ser"
+  },
+  {
+   "id": "s6",
+   "text": [
+    "Each resistor has the full supply voltage across it",
+    "ஒவ்வொரு தடையிக்கும் குறுக்கா முழு மூல வோல்ற்றளவு"
+   ],
+   "bin": "par"
+  },
+  {
+   "id": "s7",
+   "text": [
+    "I = I₁ + I₂ + I₃",
+    "I = I₁ + I₂ + I₃"
+   ],
+   "bin": "par"
+  },
+  {
+   "id": "s8",
+   "text": [
+    "V = V₁ + V₂ + V₃",
+    "V = V₁ + V₂ + V₃"
+   ],
+   "bin": "ser"
+  }
+ ],
+ "bins": [
+  {
+   "id": "ser",
+   "title": [
+    "➡️ Series",
+    "➡️ தொடர்"
+   ]
+  },
+  {
+   "id": "par",
+   "title": [
+    "🔀 Parallel",
+    "🔀 சமாந்தரம்"
+   ]
+  }
+ ],
+ "complete": {
+  "xp": 20,
+  "message": [
+   "Circuit Sort complete!",
+   "சுற்று சார்ட் முடிச்சாச்சு!"
+  ],
+  "badge": "g10c19_sort_master"
+ }
+}

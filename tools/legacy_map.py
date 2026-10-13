@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Write stemcloud/legacy_map.json: what the server needs to turn progress saved by the current lesson pages (v1 keys)
 into progress v2 rows (stemcloud/progress_bridge.py). Built from content/: for each lesson page's id (u2, c5, ...)
-the lesson id, its section id -> step id map, its game step and the key its game keeps stars under, and its topics.
+the lesson id, its section id -> step id map, its game step and the key its game keeps stars under, and its topics;
+and for the cut-over (stemcloud/cutover.py), the page's file and the address of its new lesson page.
 The content folder is not bundled with the server, so this small file is.
 
     python tools/legacy_map.py           # write it
@@ -28,6 +29,8 @@ def build() -> dict:
             'game': games[0] if len(games) == 1 else None,
             'stars_key': leg.get('stars_key'),
             'topics': [t['id'] for t in l.get('topics', [])],
+            'file': leg['file'],
+            'url': '/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']),
         }
     return out
 

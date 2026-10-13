@@ -284,3 +284,12 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 - the progress migration on a Neon branch copy, then on production;
 - a teacher's review of the new lessons;
 - the owner's sign-off.
+
+## 10. Phase 9, the cut-over
+
+**9.1, ready behind a switch** (2026-10-13): the cut-over is one setting. `CUTOVER=trial` turns on temporary redirects and `CUTOVER=on` permanent ones; nothing changes until it's set. Old links keep their step, and the new pages work offline.
+- **Found on the way:**
+  - The service worker kept only the current pages offline, so the new pages wouldn't have opened offline after the cut-over. It now keeps them, with everything their islands load.
+  - The sort game's last event could be lost if the student left the page at once (CI caught it). Leaving the page now also sends the page's own events.
+
+**Next:** the owner's steps in `docs/owner-tasks.md` (progress migration, review, trial, then on). After that comes the clean-up: removing the old pages and the v1 endpoints.

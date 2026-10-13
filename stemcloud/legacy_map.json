@@ -1,5 +1,6 @@
 {
  "c11": {
+  "file": "chapter-11-turning-effect.html",
   "game": "balancegame",
   "lesson": "physics.g10.turning-effect",
   "stars_key": "scx_bal_stars",
@@ -18,9 +19,11 @@
    "summary": "summary",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/turning-effect/"
  },
  "c12": {
+  "file": "chapter-12-equilibrium.html",
   "game": "holdgame",
   "lesson": "physics.g10.equilibrium",
   "stars_key": "scx_hold_stars",
@@ -39,9 +42,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/equilibrium/"
  },
  "c4": {
+  "file": "chapter-04-newtons-laws.html",
   "game": "holdgame",
   "lesson": "physics.g10.newtons-laws",
   "stars_key": "scx_force_stars",
@@ -60,9 +65,11 @@
    "summary": "summary",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/newtons-laws/"
  },
  "c5": {
+  "file": "chapter-05-friction.html",
   "game": "pushit",
   "lesson": "physics.g10.friction",
   "stars_key": "scx_pushit_stars",
@@ -81,9 +88,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/friction/"
  },
  "c9": {
+  "file": "chapter-09-resultant-force.html",
   "game": "tugofwar",
   "lesson": "physics.g10.resultant-force",
   "stars_key": "scx_tow_stars",
@@ -102,9 +111,11 @@
    "tugofwar": "tugofwar",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/resultant-force/"
  },
  "g10c15": {
+  "file": "g10-chapter-15-hydrostatic-pressure.html",
   "game": "challenge",
   "lesson": "physics.g10.hydrostatic-pressure",
   "stars_key": "scx_g10c15_stars",
@@ -123,9 +134,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/hydrostatic-pressure/"
  },
  "g10c18": {
+  "file": "g10-chapter-18-work-energy-power.html",
   "game": "challenge",
   "lesson": "physics.g10.work-energy-power",
   "stars_key": "scx_g10c18_stars",
@@ -144,9 +157,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/work-energy-power/"
  },
  "g10c19": {
+  "file": "g10-chapter-19-current-electricity.html",
   "game": "challenge",
   "lesson": "physics.g10.current-electricity",
   "stars_key": "scx_g10c19_stars",
@@ -165,9 +180,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g10/current-electricity/"
  },
  "g11c04": {
+  "file": "g11-chapter-04-waves.html",
   "game": "challenge",
   "lesson": "physics.g11.waves",
   "stars_key": "scx_g11c04_stars",
@@ -186,9 +203,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/waves/"
  },
  "g11c05": {
+  "file": "g11-chapter-05-geometrical-optics.html",
   "game": "challenge",
   "lesson": "physics.g11.geometrical-optics",
   "stars_key": "scx_g11c05_stars",
@@ -207,9 +226,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/geometrical-optics/"
  },
  "g11c09": {
+  "file": "g11-chapter-09-heat.html",
   "game": "challenge",
   "lesson": "physics.g11.heat",
   "stars_key": "scx_g11c09_stars",
@@ -228,9 +249,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/heat/"
  },
  "g11c10": {
+  "file": "g11-chapter-10-electric-appliances.html",
   "game": "challenge",
   "lesson": "physics.g11.electric-appliances",
   "stars_key": "scx_g11c10_stars",
@@ -249,9 +272,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/electric-appliances/"
  },
  "g11c11": {
+  "file": "g11-chapter-11-electronics.html",
   "game": "challenge",
   "lesson": "physics.g11.electronics",
   "stars_key": "scx_g11c11_stars",
@@ -270,9 +295,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/electronics/"
  },
  "g11c13": {
+  "file": "g11-chapter-13-electromagnetism.html",
   "game": "challenge",
   "lesson": "physics.g11.electromagnetism",
   "stars_key": "scx_g11c13_stars",
@@ -291,9 +318,11 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": []
+  "topics": [],
+  "url": "/learn/physics/g11/electromagnetism/"
  },
  "u2": {
+  "file": "unit-02-motion-in-a-straight-line.html",
   "game": "holdgame",
   "lesson": "physics.g10.motion-in-a-straight-line",
   "stars_key": "scx_speed_stars",
@@ -317,6 +346,7 @@
    "acceleration",
    "motion-graphs",
    "free-fall"
-  ]
+  ],
+  "url": "/learn/physics/g10/motion-in-a-straight-line/"
  }
 }

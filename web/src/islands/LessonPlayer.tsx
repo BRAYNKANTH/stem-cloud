@@ -30,9 +30,10 @@ function Svg({ d }: { d: string }) {
  * (stem_view = scroll, the current app's setting) shows every step instead. Without JavaScript every step is shown.
  * Progress v2 (stores/progress.ts): a step shown is opened, a step moved on from is done (as the current pages tick
  * their path), the finish is worth 20 XP once, and the map ticks the steps done. On a topic page the step ids are
- * "topic:<topic>:<step>" (prefix), as the v1 -> v2 migration names them.
+ * "topic:<topic>:<step>" (prefix), as the v1 -> v2 migration names them. A link with a current page's section id
+ * (#examples, #practice) opens the step it became (aliases, from lesson.legacy.steps), so old links keep working.
  */
-export default function LessonPlayer({ steps, lesson, prefix = '' }: { steps: StepInfo[]; lesson: string; prefix?: string }) {
+export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} }: { steps: StepInfo[]; lesson: string; prefix?: string; aliases?: Record<string, string> }) {
   const lang = useStore($lang);
   const cur = useStore($step);
   const reading = useStore($reading);
@@ -50,7 +51,7 @@ export default function LessonPlayer({ steps, lesson, prefix = '' }: { steps: St
     $ids.set(ids);
     setScroll(wholePage());
     setTts(hasTTS());
-    const fromUrl = () => go(stepFromHash(ids), false);
+    const fromUrl = () => go(stepFromHash(ids, aliases), false);
     fromUrl();
     window.addEventListener('popstate', fromUrl);
     window.addEventListener('hashchange', fromUrl);

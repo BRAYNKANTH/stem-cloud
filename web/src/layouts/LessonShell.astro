@@ -25,8 +25,10 @@ interface Props {
   /** The lesson's id, for progress v2; prefix: the step ids' prefix on topic pages ("topic:<topic>:"). */
   lesson: string;
   prefix?: string;
+  /** The current page's section ids -> step ids (lesson.legacy.steps), so old links (#examples) open the right step. */
+  aliases?: Record<string, string>;
 }
-const { pageTitle, description, title, sub, back, steps, lesson, prefix = '' } = Astro.props;
+const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', aliases = {} } = Astro.props;
 ---
 <AppLayout title={pageTitle} description={description} noindex>
   <header class="lhead" slot="header">
@@ -49,7 +51,7 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '' } =
       <XpChip client:idle />
       <ThemeToggle client:idle />
     </div>
-    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} /></div>}
+    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} aliases={aliases} /></div>}
   </header>
 
   <div class="wrap narrow lesson" id="lesson-top">

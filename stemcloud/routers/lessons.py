@@ -6,6 +6,7 @@ from urllib.parse import quote
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
+from .. import cutover
 from ..config import LESSONS, ROOT, WEB_LEARN
 from ..db import db
 from ..legacy import render_lesson
@@ -79,6 +80,9 @@ def built_lesson_path(rest: str):
 @router.get('/topics/{slug}')
 def topics_page(slug: str, req: Request):
     """Subject > chapter > topic > learning steps. The page is one shell; the chapter's content is site/lessons/topics/<slug>.json (served to logged-in students only)."""
+    moved = cutover.topics_page(slug, dict(req.query_params))
+    if moved is not None:
+        return moved
     if not SLUG_RE.match(slug) or not (LESSONS / 'topics' / (slug + '.json')).is_file():
         raise HTTPException(404, 'Not found.')
     with db() as con:
@@ -95,6 +99,9 @@ def lessons_root():
 
 @router.get('/lessons/{rel:path}')
 def lessons(rel: str, req: Request):
+    moved = cutover.lesson_page(rel, dict(req.query_params))     # the cut-over: the new lesson page (CUTOVER setting)
+    if moved is not None:
+        return moved
     p = (LESSONS / rel).resolve()
     with db() as con:                    # one database connection for the whole page: session check and the student's progress
         u = current_user(req, con)

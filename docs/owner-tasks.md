@@ -25,6 +25,17 @@ Never paste secrets into a chat or a commit. Put them straight into the service'
 
 - [ ] **Look at two failed preview deploys.** Vercel failed the previews of #30 and #32 without a reason on GitHub (`dpl_81RDPxXUr87M5FLhf3X6VJZNXZNQ`, `dpl_FxwBrXWJZMj5BVbzWfGdWLiottxE`); both worked when re-run. Vercel → Deployments → the failed one → Build Logs. If it repeats, tell Claude what the log says.
 
+## The cut-over (Phase 9), when you're ready
+Do these in order. Each one can be undone.
+- [ ] **First, the progress migration and a teacher's review** (see Neon and Content below). Every lesson's labs, games and animations are rebuilt now (Phase 8), so the review can cover every chapter.
+- [ ] **Trial: send students to the new pages, temporarily.**
+  - In Vercel → Project → Settings → **Environment Variables**, add `CUTOVER` = `trial` for **Production**, then redeploy (Deployments → the latest → **Redeploy**).
+  - The current lesson and topic addresses (`/lessons/<chapter>.html#<section>`, `/topics/...`) then open the new pages at the same step. Links from apps and bookmarks keep working.
+  - Browsers don't remember a trial redirect, so it can be undone.
+  - **To undo:** delete the variable, or set it to `off`, and redeploy.
+- [ ] **Watch for a week.** Look at the Vercel logs for errors, and ask a few students on phones, especially with the installed app and offline.
+- [ ] **Make it permanent:** set `CUTOVER` = `on` and redeploy. The redirects become permanent (301), which browsers and search engines remember. Then tell Claude, who will remove the old pages and the v1 progress endpoints once old-app traffic has stopped (the plan's Phase 9 clean-up).
+
 ## Neon
 - [ ] **Backup branch now, if it wasn't made in Phase 0.** Neon console → **Branches** → **Create branch** from `main`, named like `backup-2026-10-pre-migration`. It is an instant copy that stays inside Neon.
 - [ ] **Another backup branch before the progress migration (Phase 6).** Same steps, named like `backup-before-progress-v2`. Needed now: milestone 6.2 is ready.

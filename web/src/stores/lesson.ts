@@ -9,8 +9,10 @@ export const VIEW_KEY = 'stem_view';        // the current app's setting: "scrol
 export const $step = atom<number>(-1);
 export const $ids = atom<string[]>([]);
 
-export function stepFromHash(ids: string[]): number {
-  const h = decodeURIComponent(location.hash.slice(1));
+export function stepFromHash(ids: string[], aliases: Record<string, string> = {}): number {
+  const raw = decodeURIComponent(location.hash.slice(1));
+  // the current pages' section ids (#examples, #practice, ...) open the step they became (lesson.legacy.steps)
+  const h = ids.includes(raw) ? raw : aliases[raw] ?? raw;
   const i = ids.indexOf(h);
   if (i >= 0) return i;
   // a link to something inside a step (#q3 in the notes) opens that step

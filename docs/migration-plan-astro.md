@@ -466,6 +466,20 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
 - **Next:** Phase 9, the cut-over. It needs the owner first: the progress migration (on a Neon branch copy, then production), a teacher's review of the new lessons, and sign-off.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
+- **Milestone 9.1 (2026-10-13): ready for the cut-over, behind a switch.** Nothing changes until the owner turns it on.
+  - **The switch (`stemcloud/cutover.py`):** the `CUTOVER` setting.
+    - `trial` sends the current lesson pages, topic pages and past papers page to the new ones with temporary redirects (302).
+    - `on` makes them permanent (301).
+    - Unset (or `off`), the current pages are served as now. A page shown in a frame (`?embed=1`) is left alone.
+    - The map comes from `stemcloud/legacy_map.json`, which now also holds each lesson page's file and new address (`tools/legacy_map.py`, from `content/`).
+    - `tests/test_cutover.py` runs in CI. It checks every page is mapped, and checks trial, on, off, and what is left alone.
+  - **Old links keep their step:** the new lesson page reads the current pages' section ids (`#practice` opens the worked examples, `#sortgame` the sort game) from `lesson.legacy.steps`. A redirected address with its `#section` lands on the right step.
+  - **Offline with the new pages (the service worker, `v25`):**
+    - It now keeps the new pages (`/learn/`, `/past-papers/`) as it keeps the current ones, and their scripts and styles (`/_astro/`).
+    - When it keeps a new page, it also fetches every file the page's islands load later, so a lab never opened online, or the Watch player, still works offline.
+    - The browser test checks a new lesson page opens offline with its lab working.
+    - The handover itself is unchanged: the same `/sw.js`, which removes old caches when it starts. It still needs the phone test with the old app installed.
+  - **Owner steps:** in `docs/owner-tasks.md` (trial, then on).
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.
 - **Service-worker handover**: the new SW is served at the old `sw.js` path with the same scope, deletes all old caches when it activates and takes control of open pages. Test the upgrade from a phone that has the old app installed and has offline progress waiting to sync.
 - Retire the v1 progress endpoints once old-SW traffic falls to roughly zero (watch the logs). Then delete `routers/legacy.py`, `site/lessons/*.html`, `public/static/*` (the old app layer) and `tools/sync_lessons.py`.

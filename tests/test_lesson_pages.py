@@ -22,6 +22,8 @@ URLS = ['/learn/%s/g%d/%s/' % (l['subject'], l['grade'], l['slug']) for l in CAT
 MOTION = '/learn/physics/g10/motion-in-a-straight-line/'
 NEWTON = '/learn/physics/g10/newtons-laws/'
 FRICTION = '/learn/physics/g10/friction/'
+RESULTANT = '/learn/physics/g10/resultant-force/'
+TURNING = '/learn/physics/g10/turning-effect/'
 # the topic view: lessons that have topics (content/.../lesson.json "topics"), their overview, topic and revision pages
 TOPIC_URLS = []
 for l in CATALOG:
@@ -390,6 +392,36 @@ def run():
             check('Friction lab: sliding on the smooth floor completes mission 1 only', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, False, False],
                   lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
             check('Friction lab: the mission is kept under the current page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_c5_0')") == '1')
+            # ------------------------------------------------------------ Resultant force: the lab, rebuilt (labs/physics/ResultantLab.tsx)
+            pg.goto(BASE + RESULTANT + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('Resultant lab: rebuilt, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('Resultant lab: the stage draws', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c9_' + i))")
+            pg.locator('#lab .lg-try').nth(2).click()                    # left pull bigger: 8 N right, 15 N left
+            check('Resultant lab: R = 7 N to the left', lambda: ro('R') == '7.0 N ←', lambda: ro('R'))
+            pg.wait_for_function("document.querySelector('#lab [data-ro=t]').textContent.startsWith('6.0')", timeout=20000)
+            check('Resultant lab: after 6 s, v = -8.4 m/s, s = -25.2 m (a = R / 5 kg)', lambda: (ro('v'), ro('s')) == ('-8.4 m/s', '-25.2 m'), lambda: (ro('v'), ro('s')))
+            pg.locator('#lab .lg-try').nth(1).click()                    # equal pulls
+            check('Resultant lab: equal pulls are balanced', lambda: ro('R') == '0.0 N (balanced!)', lambda: ro('R'))
+            check('Resultant lab: Chittu winning, then equal pulls, complete missions 3 and 1', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, False, True],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            # ------------------------------------------------------------ Turning effect: the see-saw lab, rebuilt (labs/physics/SeesawLab.tsx)
+            pg.goto(BASE + TURNING + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            check('See-saw lab: rebuilt, not a frame', lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('See-saw lab: the stage draws', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c11_' + i))")
+            pg.locator('#lab .lg-try').nth(1).click()                    # 30 N at 1 m against 10 N at 3 m
+            check('See-saw lab: heavy close balances light far (30 N m each)', lambda: (ro('mL'), ro('mR'), ro('bal')) == ('30.0 N m', '30.0 N m', '⚖️ Balanced!'), lambda: (ro('mL'), ro('mR'), ro('bal')))
+            check('See-saw lab: that balance completes all three missions', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, True, True],
+                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            pg.locator('#lab .lg-try').nth(2).click()                    # 20 N m against 40 N m
+            check('See-saw lab: the bigger right moment tips it right', lambda: (ro('mL'), ro('mR'), ro('bal')) == ('20.0 N m', '40.0 N m', '↘️ Tips right'), lambda: (ro('mL'), ro('mR'), ro('bal')))
+            pg.locator('#dLSlider').fill('4')
+            check('See-saw lab: a slider rebalances it', lambda: ro('bal') == '⚖️ Balanced!', lambda: ro('bal'))
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

@@ -11,6 +11,8 @@ import LegacyFrame from '../../islands/LegacyFrame';
 import MotionLab from '../../labs/physics/MotionLab';
 import ForceLab from '../../labs/physics/ForceLab';
 import FrictionLab from '../../labs/physics/FrictionLab';
+import ResultantLab from '../../labs/physics/ResultantLab';
+import SeesawLab from '../../labs/physics/SeesawLab';
 import { LABS } from '../../labs/registry';
 import { labSinhala, type SiDict } from '../../lib/si-lookup';
 import Quiz from '../../islands/Quiz';
@@ -88,6 +90,8 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
   {ported?.island === 'motion' && <MotionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
   {ported?.island === 'force' && <ForceLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
   {ported?.island === 'friction' && <FrictionLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
+  {ported?.island === 'resultant' && <ResultantLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
+  {ported?.island === 'seesaw' && <SeesawLab client:visible si={labSi} legacy={lesson.legacy?.id} />}
   {(s.type === 'lab' || s.type === 'game' || s.type === 'sort') && !ported && <LegacyFrame client:visible file={s.legacy.file} hash={s.legacy.hash} title={heading.title} />}
 
   {s.type === 'quiz' && <Quiz client:idle stepId={s.id} questions={s.questions} />}

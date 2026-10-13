@@ -1,9 +1,11 @@
 /* STEM Cloud service worker.
  * - static files + fonts: instant from cache, refreshed in the background
- * - lesson pages: network first (always fresh progress), last visited copy when offline
+ * - lesson pages (the current /lessons/, /topics/ and the new /learn/, /past-papers/): network first (always fresh
+ *   progress), last visited copy when offline
+ * - the new pages' scripts and styles (/_astro/, file names change with their content): from cache, refreshed in the background
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v24';
+var VERSION = 'v25';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -30,6 +32,27 @@ self.addEventListener('message', function (e) {
   if (e.data && e.data.type === 'clear-pages') e.waitUntil(caches.delete(PAGES));
 });
 
+/* every /_astro/ file a page refers to (scripts, styles, islands) and the files they import, into the static cache */
+var ASSET = /\/_astro\/[\w.\-]+\.(?:js|css)/g, IMPORT = /(?:from|import)\s*\(?\s*["']\.\/([\w.\-]+\.js)["']/g;
+function keepAssets(html) {
+  var seen = {}, queue = (html.match(ASSET) || []).slice();
+  return caches.open(STATIC).then(function (cache) {
+    function next() {
+      var batch = queue.splice(0, 8).filter(function (u) { if (seen[u]) return false; seen[u] = 1; return true; });
+      if (!batch.length) return queue.length ? next() : null;
+      return Promise.all(batch.map(function (u) {
+        return cache.match(u).then(function (hit) {
+          return hit || fetch(u).then(function (res) { if (res.ok) cache.put(u, res.clone()); return res; });
+        }).then(function (res) {
+          if (!res || !/\.js$/.test(u)) return;
+          return res.clone().text().then(function (js) { var m; IMPORT.lastIndex = 0; while ((m = IMPORT.exec(js))) queue.push('/_astro/' + m[1]); });
+        }).catch(function () {});
+      })).then(next);
+    }
+    return next();
+  });
+}
+
 function swr(req, cacheName) {
   return caches.open(cacheName).then(function (cache) {
     return cache.match(req).then(function (hit) {
@@ -55,7 +78,7 @@ self.addEventListener('fetch', function (e) {
   if (url.pathname.indexOf('/lessons/') === 0 && /\.pdf$/i.test(url.pathname)) return; /* native PDF viewers need byte ranges; keep originals on the network */
   if (url.pathname.indexOf('/static/audio/') === 0) return;      /* audio needs Range requests, which the Cache API cannot answer (breaks Safari): always from the network */
 
-  if (url.pathname.indexOf('/static/') === 0 || url.pathname === '/manifest.webmanifest') {
+  if (url.pathname.indexOf('/static/') === 0 || url.pathname.indexOf('/_astro/') === 0 || url.pathname === '/manifest.webmanifest') {
     e.respondWith(swr(req, STATIC));
     return;
   }
@@ -73,9 +96,12 @@ self.addEventListener('fetch', function (e) {
 
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).then(function (res) {
-      if (res.ok && !res.redirected && (url.pathname.indexOf('/lessons/') === 0 || url.pathname.indexOf('/topics/') === 0)) {
+      if (res.ok && !res.redirected && /^\/(lessons|topics|learn|past-papers)\//.test(url.pathname)) {
         var copy = res.clone();
         caches.open(PAGES).then(function (c) { c.put(req, copy); });
+        /* a new page's islands load their code when they are first on screen: keep it all now, so every step
+           (a lab not opened yet, the Watch player) still works offline */
+        if (url.pathname.indexOf('/lessons/') !== 0) e.waitUntil(res.clone().text().then(keepAssets).catch(function () {}));
       }
       return res;
     }).catch(function () {

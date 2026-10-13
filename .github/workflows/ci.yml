@@ -28,6 +28,8 @@ jobs:
         run: python tests/test_flow.py
       - name: Migrations and lesson gate cookie
         run: python tests/test_backend.py
+      - name: The cut-over switch (old lesson and topic pages to the new ones)
+        run: python tests/test_cutover.py
       - name: R2 media routing
         run: python tests/test_r2_storage.py
       - name: Lesson format

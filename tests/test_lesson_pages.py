@@ -302,6 +302,15 @@ def run():
             pg.locator('#practice .qz .qz-opt').first.click()
             check('...and opens the answer sheet', lambda: pg.locator('#stem-qsheet').count() == 1)
             pg.keyboard.press('Escape')
+            # the current pages' section ids open the step they became (old links and the cut-over redirects keep the #section)
+            pg.wait_for_timeout(300)                      # closing the answer sheet goes back in history: let it land first
+            for old, new in (('practice', 'worked'), ('sortgame', 'sort'), ('exercises', 'exercises')):
+                pg.goto('about:blank')                    # each one a fresh load, as a link from elsewhere would be
+                pg.goto(BASE + MOTION + '#' + old)
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                check('an old link #%s opens the %s step (and only that one)' % (old, new), lambda: pg.eval_on_selector_all('section.lstep.on', 'els => els.map(e => e.id)') == [new],
+                      lambda: pg.evaluate("""[location.href, document.documentElement.hasAttribute('data-player'), [...document.querySelectorAll('section.lstep.on')].map(s => s.id),
+                        ((document.querySelector('astro-island[component-url*=LessonPlayer]') || { getAttribute: () => '' }).getAttribute('props') || '').match(/aliases.{0,120}/)]"""))
             pg.goto(BASE + MOTION + 'topics/acceleration/#explore')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             check("a topic's Explore lab is the rebuilt lab (not a frame)", lambda: pg.locator('#explore .lab-card .lg-try').count() == 3 and pg.locator('#explore iframe').count() == 0)
@@ -765,6 +774,22 @@ def run():
             check('past papers: Tamil', lambda: pg.locator('h1').inner_text() == 'கடந்த பரீட்சை வினாத்தாள்கள்', lambda: pg.locator('h1').inner_text())
             set_lang(pg, 'en')
             check('past papers: no script errors', not errs, errs)
+            ctx.close()
+
+            # ------------------------------------------------------------ offline: the service worker keeps the new pages (public/static/sw.js)
+            ctx = browser.new_context(storage_state=state, service_workers='allow')
+            pg = ctx.new_page()
+            pg.goto(BASE + FRICTION)
+            pg.wait_for_function("navigator.serviceWorker && navigator.serviceWorker.ready.then(() => true)")
+            pg.reload()                                   # now under the service worker: the page and its scripts are kept
+            pg.wait_for_function("!!navigator.serviceWorker.controller && !document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.wait_for_timeout(800)
+            ctx.set_offline(True)
+            pg.goto(BASE + FRICTION + '#lab')
+            check('offline, a new lesson page opens from the device', lambda: pg.locator('section.lstep').count() >= 10 and 'Friction' in pg.title(), lambda: pg.title())
+            pg.locator('#lab .ls svg').scroll_into_view_if_needed()
+            check('...and its lab still works (its scripts are kept too)', lambda: pg.locator('#lab .ls svg > *').count() > 10)
+            ctx.set_offline(False)
             ctx.close()
 
             # ------------------------------------------------------------ Motion without JavaScript

@@ -438,7 +438,17 @@ Estimates assume 1–2 developers; they are rough and the main purpose is orderi
   - **On the account,** the best stars per level go to `<lesson>/challenge` (progress v2), where the bridge already puts the current pages' stars.
   - **CI** checks the modules are current.
   - **Tests:** the browser test plays every level of every game. It checks a far-off answer gets no stars, the nearest answer the slider allows wins, the device key, the step reaching the server, and Tamil.
-- **Next:** the six one-off games (hold ×3, push-it, tug of war, balance), then the Watch animations.
+- **Milestone 8.7 (2026-10-13): the six one-off games (every game is now rebuilt).**
+  - Motion's and Newton's hold games, push-it, tug of war, the balance game and equilibrium's hold game are each written their own way. They're too different to port one by one without retyping their text.
+  - So `tools/level_games.py` takes each page's own game card markup and its own script, unchanged, into `web/src/games/levels/`.
+  - **`games/LevelGame.tsx`** shows the markup and runs the script on it. `document.getElementById` looks only inside the game, and the script gets the page's helpers:
+    - `el` and `cssVar`;
+    - `safeGet` and `safeSet`: the best stars stay under the page's key;
+    - `SCX.pushItLevelResult`: 10 XP a star for each better result, once; the best stars per level on the account as `<lesson>/<step>`, where the bridge puts today's stars; the badge; a cleared level counts as the step.
+  - **Language:** Tamil comes from the markup's `data-ta`, as the page does. Sinhala is looked up for every text the game shows, including what it writes later (as `si.js` does). A change of language starts the game again in that language.
+  - **CI** checks the modules are current.
+  - **Tests:** the browser test plays every level of the six games with the answer worked out from each page's own levels. It checks a far-off answer, the device key, the step reaching the server, Tamil, and Sinhala.
+- **Next:** the Watch animations (still frames). After that, every step of every lesson is rebuilt.
 
 ### Phase 9: Cutover and cleanup (≈1 week)
 - Permanent 301 redirects in `vercel.json` from every `/lessons/<file>.html` and `/topics/<slug>` to the new `/learn/...` URLs, and `#step` hashes keep working.

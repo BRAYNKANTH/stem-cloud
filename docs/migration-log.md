@@ -273,4 +273,6 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 **8.6, the challenge games** (2026-10-13): the nine template pages' mini-games, lifted from each page and played by one island.
 - **Found on the way:** two checks read the server before the outbox had sent its batch, and failed on CI's slower machines. They now wait for it.
 
-**Next:** the six one-off games, then the Watch animations.
+**8.7, the one-off games** (2026-10-13): the six games written their own way. Each page's own markup and script now run inside an island, with the page's helpers given to them, so they behave exactly as today. No game is in a frame any more.
+
+**Next:** the Watch animations.

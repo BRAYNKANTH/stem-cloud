@@ -46,6 +46,8 @@ jobs:
         run: python tools/past_papers_css.py --check
       - name: The labs' cartoon engine is current with the lesson pages
         run: python tools/lab_engine.py --check
+      - name: The slider labs are current with the lesson pages
+        run: python tools/slider_labs.py --check
       - name: Past paper question banks (content/past-papers)
         run: |
           python tools/validate_past_papers.py

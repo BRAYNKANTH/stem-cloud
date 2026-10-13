@@ -258,4 +258,10 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
 
 **8.4, the Resultant and See-saw labs** (2026-10-13): chapters 9 and 11, rebuilt on the shared parts. Five of the 15 labs are now rebuilt.
 
-**Next:** the other chapters' labs, then the games.
+**8.5, every lab rebuilt** (2026-10-13):
+- Chapter 12's Equilibrium lab is rebuilt by hand.
+- The other nine pages build their lab from one template, so `tools/slider_labs.py` lifts each page's own lab code unchanged, as it did for the engine. One island draws them all.
+- All 15 lab steps now use rebuilt labs. None is in a frame.
+- **Found on the way:** the generated labs showed missions in English in Sinhala, because the "Mission 1: …" lines weren't looked up. The new Sinhala check caught it, and it's fixed.
+
+**Next:** the games and sort games, then the Watch animations.

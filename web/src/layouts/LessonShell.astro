@@ -65,6 +65,8 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', al
         (function () {
           var d = document.documentElement;
           if (!d.hasAttribute('data-player')) return;
+          // the player may have started first (its code from the cache, before the page finished): it has chosen
+          if (document.querySelector('section.lstep.on')) return;
           var h = decodeURIComponent(location.hash.slice(1)), el = h && document.getElementById(h);
           var sec = el && el.closest ? el.closest('section.lstep') : null;
           (sec || document.querySelector('section.lstep')).classList.add('on');

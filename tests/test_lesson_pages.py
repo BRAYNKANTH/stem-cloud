@@ -308,7 +308,7 @@ def run():
                 pg.goto('about:blank')                    # each one a fresh load, as a link from elsewhere would be
                 pg.goto(BASE + MOTION + '#' + old)
                 pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
-                check('an old link #%s opens the %s step' % (old, new), lambda: on() == new,
+                check('an old link #%s opens the %s step (and only that one)' % (old, new), lambda: pg.eval_on_selector_all('section.lstep.on', 'els => els.map(e => e.id)') == [new],
                       lambda: pg.evaluate("""[location.href, document.documentElement.hasAttribute('data-player'), [...document.querySelectorAll('section.lstep.on')].map(s => s.id),
                         ((document.querySelector('astro-island[component-url*=LessonPlayer]') || { getAttribute: () => '' }).getAttribute('props') || '').match(/aliases.{0,120}/)]"""))
             pg.goto(BASE + MOTION + 'topics/acceleration/#explore')

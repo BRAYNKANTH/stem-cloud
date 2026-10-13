@@ -55,23 +55,41 @@ export function onceId(what: string): string {
 
 // ------------------------------------------------------------------ the outbox (IndexedDB; memory if it is not available)
 let memory: V2Event[] = [];
+// one connection for the page (opening one per read or write leaves them all open); closed if the browser asks
+let conn: Promise<IDBDatabase | null> | null = null;
 function open(): Promise<IDBDatabase | null> {
-  return new Promise((resolve) => {
+  if (conn) return conn;
+  conn = new Promise((resolve) => {
     try {
       const r = indexedDB.open(DB, 1);
       r.onupgradeneeded = () => r.result.createObjectStore(STORE, { keyPath: 'id' });
-      r.onsuccess = () => resolve(r.result);
-      r.onerror = () => resolve(null);
+      r.onsuccess = () => {
+        const db = r.result;
+        db.onversionchange = () => { db.close(); conn = null; };
+        db.onclose = () => { conn = null; };
+        resolve(db);
+      };
+      r.onerror = () => { conn = null; resolve(null); };
+      r.onblocked = () => { conn = null; resolve(null); };
     } catch {
+      conn = null;
       resolve(null);
     }
   });
+  return conn;
 }
 async function tx<T>(mode: IDBTransactionMode, run: (s: IDBObjectStore) => IDBRequest<T> | void): Promise<T | undefined> {
   const db = await open();
   if (!db) return undefined;
   return new Promise((resolve) => {
-    const t = db.transaction(STORE, mode);
+    let t: IDBTransaction;
+    try {
+      t = db.transaction(STORE, mode);
+    } catch {
+      conn = null;                              // the connection was closed under us: open a new one next time
+      resolve(undefined);
+      return;
+    }
     const req = run(t.objectStore(STORE));
     t.oncomplete = () => resolve(req ? (req.result as T) : undefined);
     t.onerror = t.onabort = () => resolve(undefined);
@@ -100,9 +118,12 @@ async function flush(keepalive = false): Promise<void> {
   const batch = (await pending()).slice(0, 200);
   if (!batch.length) return;
   sending = true;
+  // a request that never ends must not stop every later one: give up after 20 s and try again
+  const stop = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const limit = setTimeout(() => stop?.abort(), 20000);
   try {
     const r = await fetch('/api/v2/events', {
-      method: 'POST', credentials: 'same-origin', keepalive,
+      method: 'POST', credentials: 'same-origin', keepalive: keepalive && JSON.stringify(batch).length < 60000, signal: stop?.signal,
       headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
       body: JSON.stringify({ events: batch }),
     });
@@ -113,6 +134,7 @@ async function flush(keepalive = false): Promise<void> {
   } catch {
     /* offline: try again later */
   } finally {
+    clearTimeout(limit);
     sending = false;
   }
   if ((await pending()).length) schedule();
@@ -233,11 +255,15 @@ if (typeof window !== 'undefined') {
  */
 function last(): void {
   if (user === null || !memory.length) return;
+  // browsers refuse a keepalive body over 64 KB: the newest events that fit
+  let n = Math.min(memory.length, 200), body = '';
+  while (n > 0 && (body = JSON.stringify({ events: memory.slice(-n) })).length > 60000) n = Math.floor(n / 2);
+  if (!n) return;
   try {
     void fetch('/api/v2/events', {
       method: 'POST', credentials: 'same-origin', keepalive: true,
       headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
-      body: JSON.stringify({ events: memory.slice(-200) }),
+      body,
     }).catch(() => {});
   } catch {
     /* the browser refused it: the outbox still has what it wrote */

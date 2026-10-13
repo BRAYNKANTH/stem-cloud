@@ -581,6 +581,66 @@ def run():
             set_lang(pg, 'ta')
             check('challenge: in Tamil', lambda: pg.locator('#challenge .lab-buttons .btn').inner_text() == '🔍 சரிபார்!')
             set_lang(pg, 'en')
+            # ------------------------------------------------------------ the one-off level games: each page's own script on its own markup (games/LevelGame.tsx)
+            def answers(src):
+                """Each level's answer, from the page's own levels in the generated module."""
+                lv = src[src.index('const levels = '):src.index('];', src.index('const levels = '))]
+                if 'mu:' in lv:          # push-it: at least mu x N, the nearest whole newton above
+                    return [int(-(-round(float(m) * float(n), 6) // 1)) for m, n in re.findall(r'mu:([\d.]+), N:([\d.]+)', lv)]
+                if 'fA:' in lv:          # tug of war: the resultant
+                    return [int(a) + int(b) if s == 'true' else abs(int(a) - int(b)) for a, b, s in re.findall(r'fA:(\d+), fB:(\d+), sameDir:(true|false)', lv)]
+                if 'fL:' in lv:          # balance: the right force fL x dL / dR
+                    return [round(int(f) * int(d) / int(r)) for f, d, r in re.findall(r'fL:(\d+), dL:(\d+), dR:(\d+)', lv)]
+                return [round(float(c)) for c in re.findall(r'"?correct"?:\s*([\d.]+)', lv)]
+            for gf in sorted(glob.glob(os.path.join(ROOT, 'web', 'src', 'games', 'levels', '*.js'))):
+                src = open(gf, encoding='utf-8').read()
+                slug = os.path.basename(gf)[:-3]
+                meta = json.loads(src[src.index('export const META = ') + 20:src.index(';\n', src.index('export const META = '))])
+                url = next(u for u in LESSON_URL.values() if u.rstrip('/').endswith('/' + slug))
+                pg.goto(BASE + url + '#' + meta['step'])
+                pg.evaluate("localStorage.removeItem('%s')" % meta['starsKey'])
+                pg.reload()
+                pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+                g = pg.locator('#%s .level-game' % meta['step'])
+                ans = answers(src)
+                check('%s %s: its own game, not a frame' % (slug, meta['step']), lambda: g.count() == 1 and pg.locator('#%s iframe' % meta['step']).count() == 0 and g.locator('.level-btn').count() == len(ans) == 5)
+                g.scroll_into_view_if_needed()
+                check('%s %s: the picture draws' % (slug, meta['step']), lambda: g.locator('svg > *').count() > 0)
+                sl, btn = g.locator('input[type=range]'), g.locator('.lab-buttons .btn')
+                for i, a in enumerate(ans):
+                    g.locator('.level-btn').nth(i).click()
+                    sl.fill(str(a))
+                    btn.click()
+                    check('%s %s: level %d, the answer %s wins stars' % (slug, meta['step'], i + 1, a), lambda: g.locator('.star-row').inner_text().startswith('★') and 'win' in g.locator('.game-result').get_attribute('class'),
+                          lambda: (sl.input_value(), g.locator('.game-result').inner_text()))
+                lo, hi = float(sl.get_attribute('min')), float(sl.get_attribute('max'))
+                sl.fill(sl.get_attribute('max') if ans[-1] - lo < hi - ans[-1] else sl.get_attribute('min'))   # the end farthest from the answer
+                btn.click()
+                check('%s %s: a far-off answer does not win' % (slug, meta['step']), lambda: 'lose' in g.locator('.game-result').get_attribute('class'),
+                      lambda: (sl.input_value(), g.locator('.game-result').inner_text()))
+                check('%s %s: the best stars are kept under the page key' % (slug, meta['step']), lambda: [n > 0 for n in json.loads(pg.evaluate("localStorage.getItem('%s')" % meta['starsKey']) or '[]')] == [True] * 5,
+                      lambda: pg.evaluate("localStorage.getItem('%s')" % meta['starsKey']))
+                set_lang(pg, 'ta')
+                g.scroll_into_view_if_needed()
+                check('%s %s: in Tamil' % (slug, meta['step']), lambda: re.search('[\u0B80-\u0BFF]', g.locator('.lab-buttons .btn').inner_text() + g.locator('.lab-hint').inner_text()) is not None)
+                set_lang(pg, 'en')
+            pg.goto(BASE + '/learn/physics/g10/friction/#pushit')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            for _ in range(30):
+                if (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.friction').then(r => r.json())").get('steps', {}).get('pushit') or {}).get('done'):
+                    break
+                pg.wait_for_timeout(500)
+            set_lang(pg, 'si')
+            g = pg.locator('#pushit .level-game')
+            g.scroll_into_view_if_needed()
+            check('level games: in Sinhala, the markup and what the script writes', lambda: g.locator('.lab-buttons .btn').inner_text() == '💥 තල්ලු කරන්න!'
+                  and g.locator('#levelDesc').inner_text() == 'ලී පෙට්ටිය, සුමට බිම' and 'ඔබේ අනුමානය — බලය' in g.locator('label').inner_text(),
+                  lambda: (g.locator('.lab-buttons .btn').inner_text(), g.locator('#levelDesc').inner_text(), g.locator('label').inner_text()))
+            g.locator('.level-btn').nth(1).click()      # (no Sinhala for this level's name yet: it stays English, as on the page)
+            g.locator('.level-btn').nth(0).click()
+            check('...and as the script rewrites it (back to level 1)', lambda: g.locator('#levelDesc').inner_text() == 'ලී පෙට්ටිය, සුමට බිම', lambda: g.locator('#levelDesc').inner_text())
+            set_lang(pg, 'en')
+            check('level games: the step reaches the account', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.friction').then(r => r.json())").get('steps', {}).get('pushit') or {}).get('done') is not None)
 
             # ------------------------------------------------------------ Motion: progress v2 (outbox -> server)
             L = 'physics.g10.motion-in-a-straight-line'

@@ -99,6 +99,12 @@ LAYOUT = """(phone) => {
 }"""
 
 
+def OUTBOX(pg):
+    """What is still waiting in the device's outbox (for a failure message)."""
+    return pg.evaluate("""new Promise(res => { const r = indexedDB.open('stem-progress', 1); r.onsuccess = () => { const q = r.result.transaction('outbox').objectStore('outbox').getAll();
+        q.onsuccess = () => res(q.result.map(e => e.type + ':' + (e.step || e.badge || e.source || e.game || ''))); }; r.onerror = () => res('no outbox'); })""")
+
+
 def set_lang(pg, lang):
     """The language buttons sit at the top of the content: scroll up first, as a student would (the sticky header and a
     lab frame can cover them further down)."""
@@ -537,7 +543,7 @@ def run():
                     break
                 pg.wait_for_timeout(500)
             check('sort: finishing the game marks the sort step done on the server', lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps', {}).get('sort') or {}).get('done') is not None,
-                  lambda: pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps'))
+                  lambda: (pg.evaluate("fetch('/api/v2/progress?lesson=physics.g10.motion-in-a-straight-line').then(r => r.json())").get('steps', {}).get('sort'), OUTBOX(pg)))
             set_lang(pg, 'ta')
             check('sort: in Tamil', lambda: pg.locator('#sort .mtitle').first.inner_text() == 'வார்த்தைகள்')
             set_lang(pg, 'en')

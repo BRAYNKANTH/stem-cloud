@@ -220,7 +220,26 @@ export async function start(lesson: string): Promise<void> {
 if (typeof window !== 'undefined') {
   window.addEventListener('online', () => void flush());
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) void flush(true);
+    if (document.hidden) { void flush(true); last(); }
   });
-  window.addEventListener('pagehide', () => void flush(true));
+  window.addEventListener('pagehide', () => { void flush(true); last(); });
+}
+
+/**
+ * Leaving the page: this page's events (memory: written at once, before the outbox's own write has finished) go in one
+ * keepalive request too, whether or not a batch is on its way, so an event made just before leaving (the last chip of
+ * a game) is not lost if the page goes before the outbox has it. Sending one twice is harmless (the server applies an
+ * event id once); the outbox drops them when its own batch is answered.
+ */
+function last(): void {
+  if (user === null || !memory.length) return;
+  try {
+    void fetch('/api/v2/events', {
+      method: 'POST', credentials: 'same-origin', keepalive: true,
+      headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' },
+      body: JSON.stringify({ events: memory.slice(-200) }),
+    }).catch(() => {});
+  } catch {
+    /* the browser refused it: the outbox still has what it wrote */
+  }
 }

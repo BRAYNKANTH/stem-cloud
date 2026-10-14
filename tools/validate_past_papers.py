@@ -83,7 +83,8 @@ def check_explained(at: str, item: dict, answer, hints: dict, problems: list):
             break
 
 
-def check_bank(year: int, bank: dict, seen: set, media: set, hints: dict, problems: list):
+def check_bank(year: int, bank: dict, seen: set, media: set, problems: list, hints: dict = None):
+    hints = {} if hints is None else hints
     where = '%d.json' % year
     if bank.get('year') != year or bank.get('scope') != 'physics':
         problems.append('%s: year %r / scope %r' % (where, bank.get('year'), bank.get('scope')))
@@ -166,7 +167,7 @@ def main():
     counts = {}
     for y in years:
         bank = json.loads((BANKS / ('%d.json' % y)).read_text(encoding='utf-8'))
-        check_bank(y, bank, seen, media, hints, problems)
+        check_bank(y, bank, seen, media, problems, hints)
         counts[y] = len(bank.get('questions', []))
     for h, ats in hints.items():
         if len(ats) > 1:

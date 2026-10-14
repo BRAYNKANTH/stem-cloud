@@ -47,7 +47,8 @@ def past_paper_bank(name: str, req: Request):
     path = PAST_PAPERS / (name + '.json')
     if not path.is_file():
         raise HTTPException(404, 'Not found.')
-    return FileResponse(path, media_type='application/json')
+    # the banks change as their explanations are improved: browsers must check (a cheap 304 when unchanged)
+    return FileResponse(path, media_type='application/json', headers={'Cache-Control': 'no-cache'})
 
 
 @router.get('/api/past-papers/state')

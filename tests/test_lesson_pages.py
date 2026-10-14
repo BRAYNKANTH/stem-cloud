@@ -744,7 +744,7 @@ def run():
             pg.wait_for_selector('.pp-chapter', timeout=20000)
             cards = pg.eval_on_selector_all('.pp-chapter', 'cs => cs.map(c => c.dataset.chapter)')
             check('past papers: the home lists the chapters (and the questions no chapter teaches)', len(cards) >= 15 and 'other' in cards, cards)
-            check('past papers: every question is in a chapter but three', sum(1 for q in PP.values() if not (q.get('lessons') or any(p.get('lessons') for p in q.get('parts') or []))) == 3)
+            check('past papers: every question is in a chapter but two (diffusion, burette)', sum(1 for q in PP.values() if not (q.get('lessons') or any(p.get('lessons') for p in q.get('parts') or []))) == 2)
             xp0 = xp()
             pg.locator('.pp-chapter[data-chapter=g11-chapter-11-electronics]').click()
             pg.wait_for_selector('#pp-list .pp-qitem')

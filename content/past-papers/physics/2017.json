@@ -56,82 +56,109 @@
       ],
       "prompt": {
         "en": "Which apparatus accurately measures 26.0 cm³ of solution?",
-        "ta": "26.0 cm³ கரைசலைத் திருத்தமாக அளக்கும் உபகரணம் எது?"
+        "ta": "26.0 cm³ கரைசலைத் திருத்தமாக அளக்கும் உபகரணம் எது?",
+        "si": "ද්‍රාවණයක 26.0 cm³ නිවැරදිව මනින උපකරණය කුමක්ද?"
       },
       "options": [
         {
           "en": "Burette",
-          "ta": "அளவுச் சாடி"
+          "ta": "அளவுச் சாடி",
+          "si": "බියුරෙට්ටුව"
         },
         {
           "en": "Beaker",
-          "ta": "குவளை"
+          "ta": "குவளை",
+          "si": "බීකරය"
         },
         {
           "en": "Pipette",
-          "ta": "அளவி"
+          "ta": "அளவி",
+          "si": "පිපෙට්ටුව"
         },
         {
           "en": "Volumetric flask",
-          "ta": "கனவளவுக் குடுவை"
+          "ta": "கனவளவுக் குடுவை",
+          "si": "පරිමාමිතික ප්ලාස්කුව"
         }
       ],
       "correct": 0,
       "explanation": {
         "en": "A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-        "ta": "அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+        "ta": "அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது.",
+        "si": "බියුරෙට්ටුවකට සියුම් අංශාංකන ඇති අතර විචල්‍ය මනින ලද පරිමාවක් බෙදා හරියි. ස්ථාවර පරිමා පිපෙට්ටුවකට හෝ ප්ලාස්කුවකට අත්තනෝමතික 26.0 cm³ ලබා දිය නොහැක."
       },
       "steps": [
         {
-          "en": "A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "A pipette and a volumetric flask are each made for one fixed volume (such as 25.0 cm³ or 250 cm³), so they cannot give 26.0 cm³.",
+          "ta": "குழாயியும் கனமானக் குடுவையும் ஒவ்வொன்றும் ஒரு நிலையான கனவளவுக்கு (25.0 cm³ அல்லது 250 cm³ போல்) ஆக்கப்பட்டவை; எனவே 26.0 cm³ ஐத் தர முடியாது.",
+          "si": "පිපෙට්ටුවක් සහ පරිමාමිතික ප්ලාස්කුවක් එක් එක් එක ස්ථාවර පරිමාවක් (25.0 cm³ හෝ 250 cm³ වැනි) සඳහා සාදා ඇති බැවින් 26.0 cm³ ලබා දිය නොහැක."
+        },
+        {
+          "en": "A beaker's marks are only rough guides, not accurate.",
+          "ta": "முகவையின் குறிகள் அண்ணளவான வழிகாட்டிகள் மட்டுமே; துல்லியமானவையல்ல.",
+          "si": "බීකරයක සලකුණු දළ මගපෙන්වීම් පමණක් වන අතර නිවැරදි නොවේ."
+        },
+        {
+          "en": "A burette is graduated every 0.1 cm³ and lets you run out any volume: read before and after, and subtract.",
+          "ta": "அளவி ஒவ்வொரு 0.1 cm³ க்கும் அளவுகோடிடப்பட்டுள்ளது; எந்தக் கனவளவையும் வெளியேற்றலாம்: முன்னும் பின்னும் வாசித்துக் கழிக்கவும்.",
+          "si": "බියුරෙට්ටුවක් සෑම 0.1 cm³ කටම අංශාංකනය කර ඇති අතර ඕනෑම පරිමාවක් පිට කිරීමට ඉඩ දෙයි: පෙර සහ පසු කියවා අඩු කරන්න."
         }
       ],
       "hint": {
-        "en": "SI units identify the physical quantity.",
-        "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+        "en": "26.0 cm³ is an unusual volume. Which apparatus can deliver any volume you choose, read to 0.1 cm³?",
+        "ta": "26.0 cm³ வழக்கமற்ற கனவளவு. நீங்கள் தெரிவு செய்யும் எந்தக் கனவளவையும் 0.1 cm³ வரை வாசித்து வழங்கக்கூடிய உபகரணம் எது?",
+        "si": "26.0 cm³ අසාමාන්‍ය පරිමාවකි. ඔබ තෝරන ඕනෑම පරිමාවක් 0.1 cm³ දක්වා කියවා ලබා දිය හැකි උපකරණය කුමක්ද?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "Right: a burette delivers any volume, read to 0.1 cm³.",
+          "ta": "சரி: அளவி எந்தக் கனவளவையும் 0.1 cm³ வரை வாசித்து வழங்குகிறது.",
+          "si": "නිවැරදියි: බියුරෙට්ටුවක් ඕනෑම පරිමාවක් 0.1 cm³ දක්වා කියවා ලබා දෙයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "A beaker's marks are rough, not accurate to 0.1 cm³.",
+          "ta": "முகவையின் குறிகள் அண்ணளவானவை; 0.1 cm³ வரை துல்லியமானவையல்ல.",
+          "si": "බීකරයක සලකුණු දළ වන අතර 0.1 cm³ දක්වා නිවැරදි නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "A pipette measures one fixed volume, such as 25.0 cm³, not 26.0 cm³.",
+          "ta": "குழாயி 25.0 cm³ போன்ற ஒரு நிலையான கனவளவை அளக்கிறது; 26.0 cm³ ஐ அல்ல.",
+          "si": "පිපෙට්ටුවක් 25.0 cm³ වැනි එක් ස්ථාවර පරිමාවක් මනියි; 26.0 cm³ නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "A volumetric flask holds one fixed volume, usually much larger.",
+          "ta": "கனமானக் குடுவை பொதுவாக மிகப் பெரிய, ஒரு நிலையான கனவளவைக் கொண்டுள்ளது.",
+          "si": "පරිමාමිතික ප්ලාස්කුවක සාමාන්‍යයෙන් බොහෝ විශාල එක් ස්ථාවර පරිමාවක් ඇත."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "SI units identify the physical quantity.",
-          "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+          "en": "Choose measuring apparatus by the accuracy needed and by whether the volume is fixed or variable. A burette measures variable volumes accurately.",
+          "ta": "தேவையான துல்லியத்தையும் கனவளவு நிலையானதா மாறுவதா என்பதையும் கொண்டு அளவீட்டு உபகரணத்தைத் தெரிவு செய்க. அளவி மாறும் கனவளவுகளைத் துல்லியமாக அளக்கிறது.",
+          "si": "අවශ්‍ය නිරවද්‍යතාව සහ පරිමාව ස්ථාවරද විචල්‍යද යන්න අනුව මිනුම් උපකරණ තෝරන්න. බියුරෙට්ටුවක් විචල්‍ය පරිමා නිවැරදිව මනියි."
         },
         "reasoning": {
-          "en": "A burette has fine graduations and dispenses a variable measured volume. A fixed-volume pipette or flask does not provide an arbitrary 26.0 cm³.",
-          "ta": "அளவுச் சாடி நுண் அளவீடுகளுடன் மாறும் கனவளவை வழங்கும். நிலையான கனவளவு அளவி/குடுவை எந்த 26.0 cm³ அளவையும் வழங்காது."
+          "en": "The '.0' in 26.0 cm³ tells you the volume is needed to the nearest 0.1 cm³, which rules out a beaker or measuring cylinder.",
+          "ta": "26.0 cm³ இலுள்ள '.0' கனவளவு 0.1 cm³ வரை தேவை எனக் கூறுகிறது; அது முகவையையும் அளவுச் சாடியையும் விலக்குகிறது.",
+          "si": "26.0 cm³ හි '.0' පරිමාව 0.1 cm³ ට ආසන්නව අවශ්‍ය බව කියන අතර එය බීකරයක් හෝ මිනුම් සිලින්ඩරයක් ඉවත් කරයි."
         },
         "commonMistake": {
-          "en": "Check dimensions rather than memorising a symbol alone.",
-          "ta": "குறியீட்டை மட்டும் மனப்பாடம் செய்யாமல் பரிமாணங்களைச் சரிபார்க்கவும்."
+          "en": "Choosing the pipette because it is accurate. It is accurate only for its one fixed volume.",
+          "ta": "துல்லியமானது என்பதால் குழாயியைத் தெரிதல். அது அதன் ஒரே நிலையான கனவளவுக்கு மட்டுமே துல்லியமானது.",
+          "si": "නිවැරදි නිසා පිපෙට්ටුව තෝරා ගැනීම. එය නිවැරදි වන්නේ එහි එක් ස්ථාවර පරිමාව සඳහා පමණි."
         },
         "practice": {
           "question": {
-            "en": "What is the SI unit of force?",
-            "ta": "விசையின் SI அலகு என்ன?"
+            "en": "A burette reads 3.4 cm³ before and 29.4 cm³ after. What volume was delivered?",
+            "ta": "அளவி முன்பு 3.4 cm³ உம் பின்பு 29.4 cm³ உம் காட்டுகிறது. எவ்வளவு கனவளவு வழங்கப்பட்டது?",
+            "si": "බියුරෙට්ටුවක් පෙර 3.4 cm³ ද පසු 29.4 cm³ ද පෙන්වයි. ලබා දුන් පරිමාව කොපමණද?"
           },
           "answer": {
-            "en": "N = kg m s⁻².",
-            "ta": "N = kg m s⁻²."
+            "en": "29.4 − 3.4 = 26.0 cm³.",
+            "ta": "29.4 − 3.4 = 26.0 cm³.",
+            "si": "29.4 − 3.4 = 26.0 cm³."
           }
         }
       },
@@ -158,82 +185,109 @@
       ],
       "prompt": {
         "en": "A balloon expands as its gas warms from 20 °C to 60 °C. Which statements are true: (1) volume rises, (2) cold pressure is higher, (3) Charles’s law applies?",
-        "ta": "வாயு 20 °C இலிருந்து 60 °C இற்கு சூடாகும்போது பலூன் விரியும். (1) கனவளவு அதிகரிக்கும், (2) குளிர் அமுக்கம் அதிகம், (3) சாள்ஸ் விதி பொருந்தும். சரியானவை எவை?"
+        "ta": "வாயு 20 °C இலிருந்து 60 °C இற்கு சூடாகும்போது பலூன் விரியும். (1) கனவளவு அதிகரிக்கும், (2) குளிர் அமுக்கம் அதிகம், (3) சாள்ஸ் விதி பொருந்தும். சரியானவை எவை?",
+        "si": "බැලූනයක වායුව 20 °C සිට 60 °C දක්වා රත් වන විට එය ප්‍රසාරණය වේ. සත්‍ය ප්‍රකාශ මොනවාද: (1) පරිමාව වැඩි වේ, (2) සීතල විට පීඩනය වැඩිය, (3) චාල්ස් නියමය අදාළ වේ?"
       },
       "options": [
         {
           "en": "1 and 2 / 1,2",
-          "ta": "1 and 2 / 1,2"
+          "ta": "1 and 2 / 1,2",
+          "si": "1 සහ 2"
         },
         {
           "en": "2 and 3 / 2,3",
-          "ta": "2 and 3 / 2,3"
+          "ta": "2 and 3 / 2,3",
+          "si": "2 සහ 3"
         },
         {
           "en": "1 and 3 / 1,3",
-          "ta": "1 and 3 / 1,3"
+          "ta": "1 and 3 / 1,3",
+          "si": "1 සහ 3"
         },
         {
           "en": "None / எதுவுமில்லை",
-          "ta": "None / எதுவுமில்லை"
+          "ta": "None / எதுவுமில்லை",
+          "si": "කිසිවක් නැත"
         }
       ],
       "correct": 2,
       "explanation": {
         "en": "At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-        "ta": "ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+        "ta": "ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது.",
+        "si": "ආසන්න වශයෙන් නියත බාහිර පීඩනයකදී V නිරපේක්ෂ T ට සමානුපාතිකයි. රත් කිරීම පරිමාව වැඩි කරයි; පීඩනය ආසන්න වශයෙන් නොවෙනස්ව පවතී."
       },
       "steps": [
         {
-          "en": "At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "(1) True: the gas expands as it warms, so the volume rises.",
+          "ta": "(1) உண்மை: சூடாகும்போது வாயு விரிவதால் கனவளவு கூடுகிறது.",
+          "si": "(1) සත්‍යයි: රත් වන විට වායුව ප්‍රසාරණය වන බැවින් පරිමාව වැඩි වේ."
+        },
+        {
+          "en": "(2) False: the balloon stretches so that the pressure stays about the same as outside; it is not higher when cold.",
+          "ta": "(2) பொய்: அமுக்கம் வெளியேயுள்ளதற்கு ஏறக்குறையச் சமமாக இருக்குமாறு பலூன் நீள்கிறது; குளிராக இருக்கும்போது அது அதிகமல்ல.",
+          "si": "(2) අසත්‍යයි: පීඩනය පිටත තරම්ම පවතින සේ බැලූනය ඇදී යයි; සීතල විට එය වැඩි නොවේ."
+        },
+        {
+          "en": "(3) True: volume changing with temperature at constant pressure is Charles's law. Answer: 1 and 3.",
+          "ta": "(3) உண்மை: மாறா அமுக்கத்தில் வெப்பநிலையுடன் கனவளவு மாறுவது சாள்சின் விதி. விடை: 1, 3.",
+          "si": "(3) සත්‍යයි: නියත පීඩනයේදී උෂ්ණත්වය සමඟ පරිමාව වෙනස් වීම චාල්ස් නියමයයි. පිළිතුර: 1 සහ 3."
         }
       ],
       "hint": {
-        "en": "Charles’s law: V/T is constant at fixed pressure and fixed gas amount.",
-        "ta": "சாள்ஸ் விதி: மாறா அமுக்கத்திலும் வாயு அளவிலும் V/T மாறாதது."
+        "en": "A balloon's gas stays at about the same pressure as the air outside. What happens to the volume of a gas heated at constant pressure?",
+        "ta": "பலூனின் வாயு வெளிவளியின் ஏறக்குறைய அதே அமுக்கத்தில் இருக்கிறது. மாறா அமுக்கத்தில் சூடாக்கப்படும் வாயுவின் கனவளவுக்கு என்ன நிகழ்கிறது?",
+        "si": "බැලූනයක වායුව පිටත වාතයේ ආසන්න වශයෙන් එකම පීඩනයේ පවතී. නියත පීඩනයේදී රත් කරන වායුවක පරිමාවට කුමක් වේද?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "Statement 2 is false: the pressure stays about the same.",
+          "ta": "கூற்று 2 பொய்: அமுக்கம் ஏறக்குறைய மாறாமலே இருக்கிறது.",
+          "si": "ප්‍රකාශය 2 අසත්‍යයි: පීඩනය ආසන්න වශයෙන් නොවෙනස්ව පවතී."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "Statement 2 is false, so this pair cannot be right.",
+          "ta": "கூற்று 2 பொய்; எனவே இச்சோடி சரியாக இருக்க முடியாது.",
+          "si": "ප්‍රකාශය 2 අසත්‍ය බැවින් මෙම යුගලය නිවැරදි විය නොහැක."
         },
         {
-          "en": "At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "Right: the volume rises, as Charles's law predicts.",
+          "ta": "சரி: சாள்சின் விதி கூறுவதுபோல் கனவளவு கூடுகிறது.",
+          "si": "නිවැරදියි: චාල්ස් නියමය පුරෝකථනය කරන පරිදි පරිමාව වැඩි වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "Statements 1 and 3 are true, so 'none' is wrong.",
+          "ta": "கூற்றுகள் 1, 3 உண்மை; எனவே 'எதுவுமில்லை' தவறு.",
+          "si": "ප්‍රකාශ 1 සහ 3 සත්‍ය බැවින් 'කිසිවක් නැත' වැරදියි."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Charles’s law: V/T is constant at fixed pressure and fixed gas amount.",
-          "ta": "சாள்ஸ் விதி: மாறா அமுக்கத்திலும் வாயு அளவிலும் V/T மாறாதது."
+          "en": "Charles's law: at constant pressure, the volume of a fixed mass of gas is proportional to its absolute temperature (V/T = constant, T in kelvin).",
+          "ta": "சாள்சின் விதி: மாறா அமுக்கத்தில், நிலையான திணிவு வாயுவின் கனவளவு அதன் தனி வெப்பநிலைக்கு விகிதசமம் (V/T = மாறிலி, T கெல்வினில்).",
+          "si": "චාල්ස් නියමය: නියත පීඩනයේදී ස්ථාවර වායු ස්කන්ධයක පරිමාව එහි නිරපේක්ෂ උෂ්ණත්වයට සමානුපාතිකයි (V/T = නියතයක්, T කෙල්වින්වලින්)."
         },
         "reasoning": {
-          "en": "At approximately constant external pressure, V is proportional to absolute T. Warming increases volume; pressure is approximately unchanged.",
-          "ta": "ஏறத்தாழ மாறா வெளி அமுக்கத்தில் V முழு வெப்பநிலை T இற்கு நேர்விகிதம். சூடாக்கினால் கனவளவு அதிகரிக்கும்; அமுக்கம் ஏறத்தாழ மாறாது."
+          "en": "In kelvin, 20 °C = 293 K and 60 °C = 333 K, so the volume grows by 333/293 ≈ 1.14 times: about 14%, not three times.",
+          "ta": "கெல்வினில் 20 °C = 293 K, 60 °C = 333 K; எனவே கனவளவு 333/293 ≈ 1.14 மடங்கு கூடுகிறது: ஏறக்குறைய 14%; மூன்று மடங்கல்ல.",
+          "si": "කෙල්වින්වලින් 20 °C = 293 K සහ 60 °C = 333 K; එබැවින් පරිමාව 333/293 ≈ 1.14 ගුණයකින් වැඩි වේ: 14% පමණ; තුන් ගුණයක් නොවේ."
         },
         "commonMistake": {
-          "en": "Do not calculate volume ratios using Celsius, or apply Boyle’s law when temperature changes.",
-          "ta": "செல்சியஸில் கனவளவு விகிதம் கணிக்க வேண்டாம்; வெப்பநிலை மாறும்போது பொயில் விதியைப் பயன்படுத்த வேண்டாம்."
+          "en": "Using °C in Charles's law and thinking 20 → 60 °C triples the volume. Temperatures must be in kelvin.",
+          "ta": "சாள்சின் விதியில் °C ஐப் பயன்படுத்தி 20 → 60 °C கனவளவை மும்மடங்காக்கும் என நினைத்தல். வெப்பநிலைகள் கெல்வினில் இருக்க வேண்டும்.",
+          "si": "චාල්ස් නියමයේ °C භාවිත කර 20 → 60 °C පරිමාව තුන් ගුණ කරයි යැයි සිතීම. උෂ්ණත්ව කෙල්වින්වලින් තිබිය යුතුය."
         },
         "practice": {
           "question": {
-            "en": "At constant pressure, 2 L of gas at 300 K is cooled to 270 K. Find its volume.",
-            "ta": "மாறா அமுக்கத்தில் 300 K இல் 2 L வாயு 270 K ஆகக் குளிர்விக்கப்படுகிறது. கனவளவைக் காண்க."
+            "en": "A gas has volume 300 cm³ at 27 °C (300 K). Find its volume at 127 °C at the same pressure.",
+            "ta": "ஒரு வாயுவின் கனவளவு 27 °C (300 K) இல் 300 cm³. அதே அமுக்கத்தில் 127 °C இல் அதன் கனவளவைக் காண்க.",
+            "si": "වායුවක පරිමාව 27 °C (300 K) හිදී 300 cm³ වේ. එකම පීඩනයේදී 127 °C හි එහි පරිමාව සොයන්න."
           },
           "answer": {
-            "en": "V₂ = 2 × 270/300 = 1.8 L, for a fixed gas amount in the ideal model.",
-            "ta": "மாறா வாயு அளவுள்ள இலட்சிய மாதிரியில் V₂ = 2 × 270/300 = 1.8 L."
+            "en": "127 °C = 400 K; V = 300 × 400/300 = 400 cm³.",
+            "ta": "127 °C = 400 K; V = 300 × 400/300 = 400 cm³.",
+            "si": "127 °C = 400 K; V = 300 × 400/300 = 400 cm³."
           }
         }
       },
@@ -305,82 +359,109 @@
       ],
       "prompt": {
         "en": "An electrical appliance catches fire. What must be disconnected before using a fire extinguisher?",
-        "ta": "மின் சாதனம் தீப்பற்றுகிறது. தீயணைப்பதற்கு முன்னர் எதைத் துண்டிக்க வேண்டும்?"
+        "ta": "மின் சாதனம் தீப்பற்றுகிறது. தீயணைப்பதற்கு முன்னர் எதைத் துண்டிக்க வேண்டும்?",
+        "si": "විදුලි උපකරණයක් ගිනි ගනී. ගිනි නිවනයක් භාවිත කිරීමට පෙර විසන්ධි කළ යුත්තේ කුමක්ද?"
       },
       "options": [
         {
           "en": "Oil",
-          "ta": "எண்ணெய்"
+          "ta": "எண்ணெய்",
+          "si": "තෙල්"
         },
         {
           "en": "Plastic",
-          "ta": "பிளாஸ்ரிக்"
+          "ta": "பிளாஸ்ரிக்",
+          "si": "ප්ලාස්ටික්"
         },
         {
           "en": "Electrical appliance from supply",
-          "ta": "மின் சாதனத்தின் மின் இணைப்பு"
+          "ta": "மின் சாதனத்தின் மின் இணைப்பு",
+          "si": "සැපයුමෙන් විදුලි උපකරණය"
         },
         {
           "en": "Wooden floor",
-          "ta": "மரத் தளம்"
+          "ta": "மரத் தளம்",
+          "si": "ලී පොළොව"
         }
       ],
       "correct": 2,
       "explanation": {
         "en": "Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-        "ta": "முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+        "ta": "முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்.",
+        "si": "සජීවී සැපයුම විදුලි සැර වැදීමක් ඇති කිරීමට හෝ දෝෂයට දිගටම බලය සැපයීමට නොහැකි වන සේ පළමුව විදුලිය විසන්ධි කරන්න. සුදුසු විදුලි ගිනි නිවනයක් භාවිත කරන්න."
       },
       "steps": [
         {
-          "en": "Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "Switch off at the mains or unplug the appliance first.",
+          "ta": "முதலில் பிரதான ஆளியில் அணைக்கவும் அல்லது சாதனத்தின் செருகியை எடுக்கவும்.",
+          "si": "පළමුව ප්‍රධාන ස්විචයෙන් නිවා දමන්න හෝ උපකරණයේ ප්ලගය ගලවන්න."
+        },
+        {
+          "en": "This stops the risk of electric shock and stops the fault from heating more.",
+          "ta": "இது மின்னதிர்ச்சி ஆபத்தையும் பிழை மேலும் சூடாக்குவதையும் நிறுத்துகிறது.",
+          "si": "මෙය විදුලි සැර වැදීමේ අවදානම සහ දෝෂය තවදුරටත් රත් කිරීම නවත්වයි."
+        },
+        {
+          "en": "Then use an extinguisher suitable for electrical fires (CO₂ or dry powder), never water.",
+          "ta": "பின் மின் தீக்குப் பொருத்தமான தீயணைப்பானைப் (CO₂ அல்லது உலர் தூள்) பயன்படுத்துக; ஒருபோதும் நீரை அல்ல.",
+          "si": "ඉන්පසු විදුලි ගිනි සඳහා සුදුසු ගිනි නිවනයක් (CO₂ හෝ වියළි කුඩු) භාවිත කරන්න; කිසි විටෙකත් ජලය නොවේ."
         }
       ],
       "hint": {
-        "en": "Excess current produces heating; a fuse interrupts the circuit.",
-        "ta": "அதிக மின்னோட்டம் வெப்பத்தை உருவாக்கும்; உருகி சுற்றைத் துண்டிக்கும்."
+        "en": "Before fighting any electrical fire, remove the danger that could give you a shock and keep feeding the fire.",
+        "ta": "எந்த மின் தீயையும் அணைக்குமுன் உங்களுக்கு மின்னதிர்ச்சி தரக்கூடிய, தீக்குத் தொடர்ந்து உணவளிக்கக்கூடிய ஆபத்தை அகற்றுக.",
+        "si": "ඕනෑම විදුලි ගින්නක් නිවීමට පෙර ඔබට විදුලි සැර වැදීමට සහ ගින්නට දිගටම බලය සැපයීමට හේතු විය හැකි අනතුර ඉවත් කරන්න."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "Oil is fuel for the fire, but it is not something you disconnect.",
+          "ta": "எண்ணெய் தீக்கு எரிபொருள்; ஆனால் அது துண்டிக்கக்கூடிய ஒன்றல்ல.",
+          "si": "තෙල් ගින්නට ඉන්ධනයක් වුවද එය විසන්ධි කළ හැකි දෙයක් නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "Plastic may burn, but the urgent danger is the live electricity.",
+          "ta": "பிளாஸ்ரிக் எரியலாம்; ஆனால் அவசர ஆபத்து உயிர்ப்பான மின்சாரம்.",
+          "si": "ප්ලාස්ටික් දැවිය හැකි නමුත් හදිසි අනතුර සජීවී විදුලියයි."
         },
         {
-          "en": "Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "Right: cut the electricity supply first, then fight the fire.",
+          "ta": "சரி: முதலில் மின் வழங்கலைத் துண்டித்து, பின் தீயை அணைக்கவும்.",
+          "si": "නිවැරදියි: පළමුව විදුලි සැපයුම විසන්ධි කර, ඉන්පසු ගින්න නිවන්න."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "The floor cannot be disconnected; the supply to the appliance can.",
+          "ta": "தரையைத் துண்டிக்க முடியாது; சாதனத்துக்கான வழங்கலைத் துண்டிக்கலாம்.",
+          "si": "පොළොව විසන්ධි කළ නොහැක; උපකරණයට සැපයුම විසන්ධි කළ හැක."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Excess current produces heating; a fuse interrupts the circuit.",
-          "ta": "அதிக மின்னோட்டம் வெப்பத்தை உருவாக்கும்; உருகி சுற்றைத் துண்டிக்கும்."
+          "en": "Electrical safety: always isolate the supply before touching or treating an electrical fault or fire. Water conducts electricity and must not be used on live equipment.",
+          "ta": "மின் பாதுகாப்பு: மின் பிழையையோ தீயையோ தொடுமுன் அல்லது கையாளுமுன் எப்போதும் வழங்கலைத் துண்டிக்கவும். நீர் மின்சாரத்தைக் கடத்துவதால் உயிர்ப்பான சாதனங்களில் பயன்படுத்தக் கூடாது.",
+          "si": "විදුලි ආරක්ෂාව: විදුලි දෝෂයක් හෝ ගින්නක් ස්පර්ශ කිරීමට හෝ ප්‍රතිකාර කිරීමට පෙර සැමවිටම සැපයුම විසන්ධි කරන්න. ජලය විදුලිය සන්නයනය කරන බැවින් සජීවී උපකරණ මත භාවිත නොකළ යුතුය."
         },
         "reasoning": {
-          "en": "Disconnect electricity first so the live supply cannot cause shock or continue feeding the fault. Use an appropriate electrical-fire extinguisher.",
-          "ta": "முதலில் மின் இணைப்பைத் துண்டித்து மின்னதிர்ச்சியையும் பழுதிற்குத் தொடரும் வழங்கலையும் தடுக்கவும். பொருத்தமான மின்தீ அணைப்பானைப் பயன்படுத்தவும்."
+          "en": "The oil, plastic and floor are fuel for the fire, but you cannot 'disconnect' them, and while the supply is live the extinguisher's user is in danger.",
+          "ta": "எண்ணெய், பிளாஸ்ரிக், தரை தீக்கு எரிபொருள்; ஆனால் அவற்றை 'துண்டிக்க' முடியாது; வழங்கல் உயிர்ப்பாக இருக்கும்வரை தீயணைப்பானைப் பயன்படுத்துபவர் ஆபத்தில் உள்ளார்.",
+          "si": "තෙල්, ප්ලාස්ටික් සහ පොළොව ගින්නට ඉන්ධන වුවද ඒවා 'විසන්ධි' කළ නොහැකි අතර සැපයුම සජීවී වන තාක් ගිනි නිවනය භාවිත කරන්නා අනතුරේ සිටී."
         },
         "commonMistake": {
-          "en": "A fuse in parallel would not interrupt the protected current path.",
-          "ta": "சமாந்தர உருகி பாதுகாக்கும் மின்னோட்டப் பாதையைத் துண்டிக்காது."
+          "en": "Throwing water on an electrical fire before switching off. Water conducts and can give a fatal shock.",
+          "ta": "அணைக்குமுன் மின் தீயில் நீரை ஊற்றுதல். நீர் கடத்துவதால் உயிராபத்தான அதிர்ச்சியைத் தரலாம்.",
+          "si": "නිවා දැමීමට පෙර විදුලි ගින්නකට ජලය දැමීම. ජලය සන්නයනය කරන බැවින් මාරාන්තික සැරක් ලබා දිය හැක."
         },
         "practice": {
           "question": {
-            "en": "Why must a fuse be in series with the circuit it protects?",
-            "ta": "உருகி பாதுகாக்கும் சுற்றுடன் ஏன் தொடரில் இருக்க வேண்டும்?"
+            "en": "Which safety device switches off the supply automatically when current leaks to earth?",
+            "ta": "மின்னோட்டம் புவிக்குக் கசியும்போது வழங்கலைத் தானாக அணைக்கும் பாதுகாப்புச் சாதனம் எது?",
+            "si": "ධාරාව පොළොවට කාන්දු වන විට සැපයුම ස්වයංක්‍රීයව නිවා දමන ආරක්ෂක උපකරණය කුමක්ද?"
           },
           "answer": {
-            "en": "Melting the fuse then opens the same current path and stops current.",
-            "ta": "உருகும்போது அதே மின்னோட்டப் பாதை திறந்து மின்னோட்டம் நிற்கும்."
+            "en": "A residual current circuit breaker (RCCB, 'trip switch').",
+            "ta": "எஞ்சிய மின்னோட்டச் சுற்றுமுறிப்பான் (RCCB, 'ட்ரிப் சுவிட்ச்').",
+            "si": "අවශේෂ ධාරා පරිපථ බිඳිනය (RCCB, 'ට්‍රිප් ස්විචය')."
           }
         }
       },
@@ -518,82 +599,109 @@
       ],
       "prompt": {
         "en": "Select a scalar followed by a vector.",
-        "ta": "காவிக் கணியம், துணிக்கணியம் என்ற வரிசையில் சரியான தெரிவு எது?"
+        "ta": "காவிக் கணியம், துணிக்கணியம் என்ற வரிசையில் சரியான தெரிவு எது?",
+        "si": "අදිශයක් සහ ඉන්පසු දෛශිකයක් තෝරන්න."
       },
       "options": [
         {
           "en": "Momentum, force",
-          "ta": "உந்தம், விசை"
+          "ta": "உந்தம், விசை",
+          "si": "ගම්‍යතාව, බලය"
         },
         {
           "en": "Momentum, mass",
-          "ta": "உந்தம், திணிவு"
+          "ta": "உந்தம், திணிவு",
+          "si": "ගම්‍යතාව, ස්කන්ධය"
         },
         {
           "en": "Distance, mass",
-          "ta": "தூரம், திணிவு"
+          "ta": "தூரம், திணிவு",
+          "si": "දුර, ස්කන්ධය"
         },
         {
           "en": "Speed, acceleration",
-          "ta": "கதி, ஆர்முடுகல்"
+          "ta": "கதி, ஆர்முடுகல்",
+          "si": "වේගය, ත්වරණය"
         }
       ],
       "correct": 3,
       "explanation": {
         "en": "Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-        "ta": "கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+        "ta": "கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்.",
+        "si": "වේගයට ඇත්තේ විශාලත්වය පමණි. ත්වරණයට විශාලත්වය සහ දිශාව ඇත. ගම්‍යතාව සහ බලය දෙකම දෛශික වේ; ස්කන්ධය අදිශයකි."
       },
       "steps": [
         {
-          "en": "Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Momentum and force are both vectors, so options 1 and 2 do not start with a scalar.",
+          "ta": "உந்தமும் விசையும் இரண்டும் காவிகள்; எனவே தெரிவுகள் 1, 2 எண்ணியுடன் தொடங்குவதில்லை.",
+          "si": "ගම්‍යතාව සහ බලය දෙකම දෛශික වන බැවින් විකල්ප 1 සහ 2 අදිශයකින් ආරම්භ නොවේ."
+        },
+        {
+          "en": "Distance and mass are both scalars, so option 3 has no vector.",
+          "ta": "தூரமும் திணிவும் இரண்டும் எண்ணிகள்; எனவே தெரிவு 3 இல் காவி இல்லை.",
+          "si": "දුර සහ ස්කන්ධය දෙකම අදිශ වන බැවින් විකල්පය 3 හි දෛශිකයක් නැත."
+        },
+        {
+          "en": "Speed (scalar) then acceleration (vector): option 4.",
+          "ta": "கதி (எண்ணி) பின் ஆர்முடுகல் (காவி): தெரிவு 4.",
+          "si": "වේගය (අදිශ) ඉන්පසු ත්වරණය (දෛශික): විකල්පය 4."
         }
       ],
       "hint": {
-        "en": "SI units identify the physical quantity.",
-        "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+        "en": "Check each pair in order: is the first one size only (scalar), and does the second one need a direction (vector)?",
+        "ta": "ஒவ்வொரு சோடியையும் ஒழுங்கில் சரிபார்க்கவும்: முதலாவது அளவு மட்டுமா (எண்ணி)? இரண்டாவதுக்குத் திசை தேவையா (காவி)?",
+        "si": "සෑම යුගලයක්ම පිළිවෙලට පරීක්ෂා කරන්න: පළමුවැන්න විශාලත්වය පමණක්ද (අදිශ), දෙවැන්නට දිශාවක් අවශ්‍යද (දෛශික)?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Momentum is a vector, so this does not start with a scalar.",
+          "ta": "உந்தம் காவி; எனவே இது எண்ணியுடன் தொடங்குவதில்லை.",
+          "si": "ගම්‍යතාව දෛශිකයක් බැවින් මෙය අදිශයකින් ආරම්භ නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Momentum is a vector and mass a scalar: the wrong order.",
+          "ta": "உந்தம் காவி, திணிவு எண்ணி: தவறான ஒழுங்கு.",
+          "si": "ගම්‍යතාව දෛශිකයක් වන අතර ස්කන්ධය අදිශයකි: වැරදි පිළිවෙල."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Distance and mass are both scalars.",
+          "ta": "தூரமும் திணிவும் இரண்டும் எண்ணிகள்.",
+          "si": "දුර සහ ස්කන්ධය දෙකම අදිශ වේ."
         },
         {
-          "en": "Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Right: speed is a scalar, acceleration a vector.",
+          "ta": "சரி: கதி எண்ணி, ஆர்முடுகல் காவி.",
+          "si": "නිවැරදියි: වේගය අදිශයක් වන අතර ත්වරණය දෛශිකයකි."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "SI units identify the physical quantity.",
-          "ta": "SI அலகுகள் பௌதிகக் கணியத்தை அடையாளப்படுத்தும்."
+          "en": "Scalars: distance, speed, mass, time, energy. Vectors: displacement, velocity, acceleration, force, momentum.",
+          "ta": "எண்ணிகள்: தூரம், கதி, திணிவு, நேரம், சக்தி. காவிகள்: இடப்பெயர்ச்சி, வேகம், ஆர்முடுகல், விசை, உந்தம்.",
+          "si": "අදිශ: දුර, වේගය, ස්කන්ධය, කාලය, ශක්තිය. දෛශික: විස්ථාපනය, ප්‍රවේගය, ත්වරණය, බලය, ගම්‍යතාව."
         },
         "reasoning": {
-          "en": "Speed has magnitude only. Acceleration has magnitude and direction. Momentum and force are both vectors; mass is scalar.",
-          "ta": "கதி பருமன் மட்டும் உடையது. ஆர்முடுகல் பருமனும் திசையும் உடையது. உந்தமும் விசையும் துணிக்கணியங்கள்; திணிவு காவிக் கணியம்."
+          "en": "Speed and velocity are a scalar–vector pair: 20 m s⁻¹ is a speed; 20 m s⁻¹ north is a velocity. Acceleration is a change of velocity, so it has a direction too.",
+          "ta": "கதியும் வேகமும் எண்ணி–காவிச் சோடி: 20 m s⁻¹ கதி; வடக்கே 20 m s⁻¹ வேகம். ஆர்முடுகல் வேக மாற்றம்; எனவே அதற்கும் திசை உண்டு.",
+          "si": "වේගය සහ ප්‍රවේගය අදිශ–දෛශික යුගලයකි: 20 m s⁻¹ යනු වේගයකි; උතුරට 20 m s⁻¹ ප්‍රවේගයකි. ත්වරණය ප්‍රවේගයේ වෙනසක් බැවින් එයටද දිශාවක් ඇත."
         },
         "commonMistake": {
-          "en": "Check dimensions rather than memorising a symbol alone.",
-          "ta": "குறியீட்டை மட்டும் மனப்பாடம் செய்யாமல் பரிமாணங்களைச் சரிபார்க்கவும்."
+          "en": "Treating momentum as a scalar. p = mv takes its direction from the velocity.",
+          "ta": "உந்தத்தை எண்ணியாகக் கொள்ளுதல். p = mv வேகத்திலிருந்து அதன் திசையைப் பெறுகிறது.",
+          "si": "ගම්‍යතාව අදිශයක් ලෙස සැලකීම. p = mv එහි දිශාව ප්‍රවේගයෙන් ලබා ගනී."
         },
         "practice": {
           "question": {
-            "en": "What is the SI unit of force?",
-            "ta": "விசையின் SI அலகு என்ன?"
+            "en": "Give one more scalar–vector pair that describes the same kind of thing.",
+            "ta": "அதே வகையானதை விவரிக்கும் இன்னொரு எண்ணி–காவிச் சோடியைத் தருக.",
+            "si": "එකම ආකාරයේ දෙයක් විස්තර කරන තවත් අදිශ–දෛශික යුගලයක් දෙන්න."
           },
           "answer": {
-            "en": "N = kg m s⁻².",
-            "ta": "N = kg m s⁻²."
+            "en": "Distance (scalar) and displacement (vector).",
+            "ta": "தூரம் (எண்ணி), இடப்பெயர்ச்சி (காவி).",
+            "si": "දුර (අදිශ) සහ විස්ථාපනය (දෛශික)."
           }
         }
       },
@@ -620,7 +728,8 @@
       ],
       "prompt": {
         "en": "Convert 300 K to °C (school approximation).",
-        "ta": "300 K ஐ °C இற்கு மாற்றுக (பாடசாலை அண்மிப்பு)."
+        "ta": "300 K ஐ °C இற்கு மாற்றுக (பாடசாலை அண்மிப்பு).",
+        "si": "300 K, °C බවට පරිවර්තනය කරන්න (පාසල් ආසන්න අගය)."
       },
       "options": [
         {
@@ -643,59 +752,81 @@
       "correct": 0,
       "explanation": {
         "en": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-        "ta": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+        "ta": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
+        "si": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
       },
       "steps": [
         {
-          "en": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "T(°C) = T(K) − 273.",
+          "ta": "T(°C) = T(K) − 273.",
+          "si": "T(°C) = T(K) − 273."
+        },
+        {
+          "en": "300 − 273 = 27.",
+          "ta": "300 − 273 = 27.",
+          "si": "300 − 273 = 27."
+        },
+        {
+          "en": "300 K = 27 °C, about room temperature.",
+          "ta": "300 K = 27 °C; ஏறக்குறைய அறை வெப்பநிலை.",
+          "si": "300 K = 27 °C; ආසන්න වශයෙන් කාමර උෂ්ණත්වයයි."
         }
       ],
       "hint": {
-        "en": "Kelvin measures temperature from absolute zero.",
-        "ta": "கெல்வின் தனிப்பூச்சியத்திலிருந்து வெப்பநிலையை அளக்கிறது."
+        "en": "0 °C is 273 K, and one kelvin is the same size as one degree Celsius. Subtract 273.",
+        "ta": "0 °C = 273 K; ஒரு கெல்வின் ஒரு செல்சியஸ் பாகையின் அதே அளவு. 273 ஐக் கழிக்கவும்.",
+        "si": "0 °C = 273 K වන අතර එක් කෙල්විනයක් එක් සෙල්සියස් අංශකයක ප්‍රමාණයමයි. 273 අඩු කරන්න."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "Right: 300 − 273 = 27 °C.",
+          "ta": "சரி: 300 − 273 = 27 °C.",
+          "si": "නිවැරදියි: 300 − 273 = 27 °C."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "30 °C would be 303 K.",
+          "ta": "30 °C என்பது 303 K.",
+          "si": "30 °C යනු 303 K වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "273 °C would be 546 K.",
+          "ta": "273 °C என்பது 546 K.",
+          "si": "273 °C යනු 546 K වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "573 °C comes from adding 273 instead of subtracting.",
+          "ta": "573 °C, கழிப்பதற்குப் பதில் 273 ஐக் கூட்டுவதால் வருகிறது.",
+          "si": "573 °C ලැබෙන්නේ අඩු කරනවා වෙනුවට 273 එකතු කිරීමෙනි."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Kelvin measures temperature from absolute zero.",
-          "ta": "கெல்வின் தனிப்பூச்சியத்திலிருந்து வெப்பநிலையை அளக்கிறது."
+          "en": "The kelvin scale starts at absolute zero (−273 °C). T(K) = T(°C) + 273, and a change of 1 K equals a change of 1 °C.",
+          "ta": "கெல்வின் அளவுகோல் தனிப் பூச்சியத்தில் (−273 °C) தொடங்குகிறது. T(K) = T(°C) + 273; 1 K மாற்றம் 1 °C மாற்றத்துக்குச் சமம்.",
+          "si": "කෙල්වින් පරිමාණය නිරපේක්ෂ ශුන්‍යයෙන් (−273 °C) ආරම්භ වේ. T(K) = T(°C) + 273; 1 K වෙනසක් 1 °C වෙනසකට සමානයි."
         },
         "reasoning": {
-          "en": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C.",
-          "ta": "T(°C) = T(K) − 273 = 300 − 273 = 27 °C."
+          "en": "A quick sense check: 300 K is a little above 273 K (the freezing point of water), so it must be a little above 0 °C.",
+          "ta": "விரைவுச் சரிபார்ப்பு: 300 K, 273 K (நீரின் உறைநிலை) ஐ விடச் சற்று அதிகம்; எனவே 0 °C ஐ விடச் சற்று அதிகமாக இருக்க வேண்டும்.",
+          "si": "ඉක්මන් පරීක්ෂාවක්: 300 K, 273 K (ජලයේ හිමාංකය) ට වඩා මඳක් වැඩි බැවින් එය 0 °C ට වඩා මඳක් වැඩි විය යුතුය."
         },
         "commonMistake": {
-          "en": "Write K, not °K. A rise of 5°C is 5 K, not 278 K.",
-          "ta": "°K அல்ல, K என எழுதவும். 5°C உயர்வு 5 K; 278 K அல்ல."
+          "en": "Adding 273 instead of subtracting (573 °C).",
+          "ta": "கழிப்பதற்குப் பதில் 273 ஐக் கூட்டுதல் (573 °C).",
+          "si": "අඩු කරනවා වෙනුවට 273 එකතු කිරීම (573 °C)."
         },
         "practice": {
           "question": {
-            "en": "Convert 27°C to kelvin using the school approximation.",
-            "ta": "பாடசாலை அணுகுமுறையில் 27°C ஐக் கெல்வினாக மாற்றுக."
+            "en": "Convert 100 °C to kelvin.",
+            "ta": "100 °C ஐக் கெல்வினுக்கு மாற்றுக.",
+            "si": "100 °C කෙල්වින්වලට හරවන්න."
           },
           "answer": {
-            "en": "27 + 273 = 300 K.",
-            "ta": "27 + 273 = 300 K."
+            "en": "100 + 273 = 373 K.",
+            "ta": "100 + 273 = 373 K.",
+            "si": "100 + 273 = 373 K."
           }
         }
       },
@@ -766,83 +897,110 @@
         3
       ],
       "prompt": {
-        "en": "Identify the diode symbol with arrows pointing outward.",
-        "ta": "வெளிநோக்கிய அம்புகளுள்ள இருமுனையக் குறியீட்டை இனங்காண்க."
+        "en": "What does the given symbol (a diode with arrows pointing outwards) represent?",
+        "ta": "வெளிநோக்கிய அம்புகளுள்ள இருமுனையக் குறியீட்டை இனங்காண்க.",
+        "si": "දී ඇති සංකේතය (පිටතට යොමු වූ ඊතල සහිත ඩයෝඩයක්) නියෝජනය කරන්නේ කුමක්ද?"
       },
       "options": [
         {
           "en": "LED",
-          "ta": "ஒளி இருவாயி"
+          "ta": "ஒளி இருவாயி",
+          "si": "ආලෝක විමෝචක ඩයෝඩය (LED)"
         },
         {
-          "en": "Ordinary diode",
-          "ta": "சேர் இருவாயி"
+          "en": "Zener diode",
+          "ta": "சேர் இருவாயி",
+          "si": "සෙනර් ඩයෝඩය"
         },
         {
           "en": "NOT gate",
-          "ta": "NOT படலை"
+          "ta": "NOT படலை",
+          "si": "NOT ද්වාරය"
         },
         {
           "en": "OR gate",
-          "ta": "OR படலை"
+          "ta": "OR படலை",
+          "si": "OR ද්වාරය"
         }
       ],
       "correct": 0,
       "explanation": {
         "en": "Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-        "ta": "வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+        "ta": "வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்.",
+        "si": "පිටතට යොමු වූ ඊතල විමෝචනය වන ආලෝකය නියෝජනය කරයි: ආලෝක විමෝචක ඩයෝඩයකි. ඇතුළට යොමු වූ ඊතල ප්‍රකාශ ඩයෝඩයක් පෙන්වයි."
       },
       "steps": [
         {
-          "en": "Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "The triangle with a bar is the symbol for a diode, so it cannot be a logic gate.",
+          "ta": "கோட்டுடனான முக்கோணம் இருவாயியின் குறியீடு; எனவே அது தர்க்கப் படலையாக இருக்க முடியாது.",
+          "si": "තීරුවක් සහිත ත්‍රිකෝණය ඩයෝඩයක සංකේතය බැවින් එය තාර්කික ද්වාරයක් විය නොහැක."
+        },
+        {
+          "en": "Arrows pointing away from the diode mean it gives out light.",
+          "ta": "இருவாயியிலிருந்து விலகும் அம்புக்குறிகள் அது ஒளியை வெளியிடுவதைக் குறிக்கின்றன.",
+          "si": "ඩයෝඩයෙන් ඉවතට යොමු වූ ඊතල එය ආලෝකය විමෝචනය කරන බව අදහස් කරයි."
+        },
+        {
+          "en": "So it is a light-emitting diode (LED). A Zener diode has a bent bar and no arrows.",
+          "ta": "எனவே அது ஒளி உமிழும் இருவாயி (LED). சேனர் இருவாயிக்கு வளைந்த கோடு உண்டு; அம்புக்குறிகள் இல்லை.",
+          "si": "එබැවින් එය ආලෝක විමෝචක ඩයෝඩයකි (LED). සෙනර් ඩයෝඩයකට නැමුණු තීරුවක් ඇති අතර ඊතල නැත."
         }
       ],
       "hint": {
-        "en": "A photodiode detects incident light; symbol arrows point inward.",
-        "ta": "ஒளியிருமுனையம் வரும் ஒளியை உணரும்; குறியீட்டு அம்புகள் உள்ளே காட்டும்."
+        "en": "It is a diode symbol. The small arrows show light: arrows going out mean light is given out.",
+        "ta": "இது இருவாயிக் குறியீடு. சிறிய அம்புக்குறிகள் ஒளியைக் காட்டுகின்றன: வெளிநோக்கிய அம்புகள் ஒளி வெளியிடப்படுவதைக் குறிக்கின்றன.",
+        "si": "මෙය ඩයෝඩ සංකේතයකි. කුඩා ඊතල ආලෝකය පෙන්වයි: පිටතට යන ඊතල ආලෝකය විමෝචනය වන බව අදහස් කරයි."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "Right: a diode with arrows pointing out is a light-emitting diode.",
+          "ta": "சரி: வெளிநோக்கிய அம்புகளுள்ள இருவாயி ஒளி உமிழும் இருவாயி.",
+          "si": "නිවැරදියි: පිටතට යොමු වූ ඊතල සහිත ඩයෝඩයක් ආලෝක විමෝචක ඩයෝඩයකි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "A Zener diode's symbol has a bent bar and no light arrows.",
+          "ta": "சேனர் இருவாயியின் குறியீட்டுக்கு வளைந்த கோடு உண்டு; ஒளி அம்புகள் இல்லை.",
+          "si": "සෙනර් ඩයෝඩයක සංකේතයට නැමුණු තීරුවක් ඇති අතර ආලෝක ඊතල නැත."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "A NOT gate is a triangle with a small circle at its output, not a diode.",
+          "ta": "NOT படலை வெளியீட்டில் சிறு வட்டமுள்ள முக்கோணம்; இருவாயியல்ல.",
+          "si": "NOT ද්වාරයක් ප්‍රතිදානයේ කුඩා කවයක් සහිත ත්‍රිකෝණයකි; ඩයෝඩයක් නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "An OR gate has a curved shape with two inputs, not a diode symbol.",
+          "ta": "OR படலைக்கு இரு உள்ளீடுகளுடனான வளைந்த வடிவம் உண்டு; இருவாயிக் குறியீடல்ல.",
+          "si": "OR ද්වාරයකට ප්‍රදාන දෙකක් සහිත වක්‍ර හැඩයක් ඇත; ඩයෝඩ සංකේතයක් නොවේ."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "A photodiode detects incident light; symbol arrows point inward.",
-          "ta": "ஒளியிருமுனையம் வரும் ஒளியை உணரும்; குறியீட்டு அம்புகள் உள்ளே காட்டும்."
+          "en": "Diode symbols: plain triangle and bar = diode; with arrows out = LED (gives out light); with arrows in = photodiode (detects light); with a bent bar = Zener diode.",
+          "ta": "இருவாயிக் குறியீடுகள்: வெறும் முக்கோணமும் கோடும் = இருவாயி; வெளிநோக்கிய அம்புகளுடன் = LED (ஒளி உமிழ்கிறது); உள்நோக்கிய அம்புகளுடன் = ஒளி இருவாயி (ஒளியைக் கண்டறிகிறது); வளைந்த கோட்டுடன் = சேனர் இருவாயி.",
+          "si": "ඩයෝඩ සංකේත: සරල ත්‍රිකෝණය සහ තීරුව = ඩයෝඩය; පිටතට ඊතල සහිතව = LED (ආලෝකය විමෝචනය කරයි); ඇතුළට ඊතල සහිතව = ප්‍රකාශ ඩයෝඩය (ආලෝකය අනාවරණය කරයි); නැමුණු තීරුවක් සහිතව = සෙනර් ඩයෝඩය."
         },
         "reasoning": {
-          "en": "Outward arrows represent emitted light: a light-emitting diode. Inward arrows would indicate a photodiode.",
-          "ta": "வெளிநோக்கிய அம்புகள் வெளியிடப்படும் ஒளியைக் குறிக்கும்; இது LED. உள்நோக்கிய அம்புகள் ஒளியிருமுனையத்தைக் குறிக்கும்."
+          "en": "An LED is still a diode: it lights only when forward-biased, which is why it is often used as a direction indicator in circuits.",
+          "ta": "LED இன்னும் ஒரு இருவாயியே: முன்முகக் கோடலில் மட்டுமே ஒளிர்கிறது; அதனால்தான் சுற்றுகளில் அடிக்கடி திசைக் காட்டியாகப் பயன்படுகிறது.",
+          "si": "LED එකක් තවමත් ඩයෝඩයකි: එය දැල්වෙන්නේ පෙර නැඹුරු වූ විට පමණි; පරිපථවල එය බොහෝ විට දිශා දර්ශකයක් ලෙස භාවිත කරන්නේ එබැවිනි."
         },
         "commonMistake": {
-          "en": "Outward arrows indicate light emission, as in an LED, not detection.",
-          "ta": "வெளிநோக்கிய அம்புகள் LED போல ஒளி வெளியீட்டைக் குறிக்கும்; உணர்தலை அல்ல."
+          "en": "Mixing up the LED and the photodiode. Arrows out = light out (LED); arrows in = light in (photodiode).",
+          "ta": "LED ஐயும் ஒளி இருவாயியையும் குழப்புதல். வெளிநோக்கிய அம்புகள் = ஒளி வெளியே (LED); உள்நோக்கிய அம்புகள் = ஒளி உள்ளே (ஒளி இருவாயி).",
+          "si": "LED සහ ප්‍රකාශ ඩයෝඩය පටලවා ගැනීම. පිටතට ඊතල = ආලෝකය පිටතට (LED); ඇතුළට ඊතල = ආලෝකය ඇතුළට (ප්‍රකාශ ඩයෝඩය)."
         },
         "practice": {
           "question": {
-            "en": "Which way do the light arrows point on a photodiode symbol?",
-            "ta": "ஒளியிருமுனையக் குறியில் ஒளி அம்புகள் எத்திசையில் காட்டும்?"
+            "en": "Why is a resistor usually connected in series with an LED?",
+            "ta": "LED உடன் தொடரில் பொதுவாக ஏன் தடையி இணைக்கப்படுகிறது?",
+            "si": "LED එකක් සමඟ සාමාන්‍යයෙන් ප්‍රතිරෝධකයක් ශ්‍රේණිගතව සම්බන්ධ කරන්නේ ඇයි?"
           },
           "answer": {
-            "en": "Towards the diode, representing incoming light.",
-            "ta": "வரும் ஒளியைக் குறிக்கும் வகையில் இருமுனையத்தை நோக்கி."
+            "en": "To limit the current, so the LED is not damaged.",
+            "ta": "LED சேதமடையாதிருக்க மின்னோட்டத்தை மட்டுப்படுத்த.",
+            "si": "LED එකට හානි නොවන සේ ධාරාව සීමා කිරීමට."
           }
         }
       },
@@ -915,82 +1073,109 @@
       ],
       "prompt": {
         "en": "Which is NOT a property of electromagnetic waves?",
-        "ta": "மின்காந்த அலைகளின் இயல்பு அல்லாதது எது?"
+        "ta": "மின்காந்த அலைகளின் இயல்பு அல்லாதது எது?",
+        "si": "විද්‍යුත් චුම්බක තරංගවල ගුණයක් නොවන්නේ කුමක්ද?"
       },
       "options": [
         {
           "en": "Produced by accelerating charges",
-          "ta": "ஆர்முடுகும் ஏற்றங்களால் உருவாகும்"
+          "ta": "ஆர்முடுகும் ஏற்றங்களால் உருவாகும்",
+          "si": "ත්වරණය වන ආරෝපණවලින් නිපදවේ"
         },
         {
           "en": "Carry electric charge",
-          "ta": "மின்னேற்றத்தைக் கொண்டிருக்கும்"
+          "ta": "மின்னேற்றத்தைக் கொண்டிருக்கும்",
+          "si": "විද්‍යුත් ආරෝපණය ගෙන යයි"
         },
         {
           "en": "Transverse waves",
-          "ta": "குறுக்கு அலைகள்"
+          "ta": "குறுக்கு அலைகள்",
+          "si": "තීර්යක් තරංග වේ"
         },
         {
           "en": "Obey reflection laws",
-          "ta": "தெறிப்பு விதிகளுக்கு உட்படும்"
+          "ta": "தெறிப்பு விதிகளுக்கு உட்படும்",
+          "si": "පරාවර්තන නියමවලට අවනත වේ"
         }
       ],
       "correct": 1,
       "explanation": {
         "en": "Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-        "ta": "மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+        "ta": "மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்.",
+        "si": "විද්‍යුත් චුම්බක තරංග ශක්තිය ගෙන යන නමුත් ශුද්ධ විද්‍යුත් ආරෝපණයක් ගෙන නොයයි. ඒවායේ විද්‍යුත් සහ චුම්බක ක්ෂේත්‍ර ප්‍රචාරණයට තීර්යක්ව දෝලනය වේ."
       },
       "steps": [
         {
-          "en": "Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "EM waves are produced by accelerating (vibrating) charges, such as electrons in an aerial: true.",
+          "ta": "மின்காந்த அலைகள் ஆர்முடுகும் (அதிரும்) ஏற்றங்களால் உண்டாக்கப்படுகின்றன; உதாரணம் வான்கம்பியிலுள்ள இலத்திரன்கள்: உண்மை.",
+          "si": "විද්‍යුත් චුම්බක තරංග ත්වරණය වන (කම්පනය වන) ආරෝපණවලින් නිපදවේ; උදා. ඇන්ටෙනාවක ඉලෙක්ට්‍රෝන: සත්‍යයි."
+        },
+        {
+          "en": "They are transverse and obey the laws of reflection: true.",
+          "ta": "அவை குறுக்கு அலைகள்; தெறிப்பு விதிகளுக்குக் கீழ்ப்படிகின்றன: உண்மை.",
+          "si": "ඒවා තීර්යක් වන අතර පරාවර්තන නියමවලට අවනත වේ: සත්‍යයි."
+        },
+        {
+          "en": "They carry energy but no electric charge, so 'carry electric charge' is not a property.",
+          "ta": "அவை சக்தியைக் காவுகின்றன; ஆனால் மின்னேற்றத்தைக் காவுவதில்லை; எனவே 'மின்னேற்றம் காவுகின்றன' இயல்பல்ல.",
+          "si": "ඒවා ශක්තිය ගෙන යන නමුත් විද්‍යුත් ආරෝපණයක් ගෙන නොයයි; එබැවින් 'විද්‍යුත් ආරෝපණය ගෙන යයි' ගුණයක් නොවේ."
         }
       ],
       "hint": {
-        "en": "Wave classification compares particle motion with wave travel direction.",
-        "ta": "அலை வகைப்பாடு துணிக்கை இயக்கத்தையும் அலை பயணத் திசையையும் ஒப்பிடுகிறது."
+        "en": "Light is an electromagnetic wave. Does a beam of light make things electrically charged?",
+        "ta": "ஒளி ஒரு மின்காந்த அலை. ஒளிக் கற்றை பொருள்களை மின்னேற்றமடையச் செய்கிறதா?",
+        "si": "ආලෝකය විද්‍යුත් චුම්බක තරංගයකි. ආලෝක කදම්බයක් දේවල් විද්‍යුත් ආරෝපිත කරයිද?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "True: EM waves come from accelerating charges, such as electrons in an aerial.",
+          "ta": "உண்மை: மின்காந்த அலைகள் வான்கம்பியிலுள்ள இலத்திரன்கள் போன்ற ஆர்முடுகும் ஏற்றங்களிலிருந்து வருகின்றன.",
+          "si": "සත්‍යයි: විද්‍යුත් චුම්බක තරංග ඇන්ටෙනාවක ඉලෙක්ට්‍රෝන වැනි ත්වරණය වන ආරෝපණවලින් පැමිණේ."
         },
         {
-          "en": "Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "Right (this is not a property): EM waves carry energy, not charge.",
+          "ta": "சரி (இது இயல்பல்ல): மின்காந்த அலைகள் ஏற்றத்தையல்ல, சக்தியைக் காவுகின்றன.",
+          "si": "නිවැරදියි (මෙය ගුණයක් නොවේ): විද්‍යුත් චුම්බක තරංග ආරෝපණය නොව ශක්තිය ගෙන යයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "True: their fields vibrate at right angles to the direction of travel.",
+          "ta": "உண்மை: அவற்றின் புலங்கள் பயணத் திசைக்குச் செங்குத்தாக அதிர்கின்றன.",
+          "si": "සත්‍යයි: ඒවායේ ක්ෂේත්‍ර ගමන් දිශාවට ලම්බකව කම්පනය වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "True: light, for example, reflects from mirrors following the laws of reflection.",
+          "ta": "உண்மை: உதாரணமாக ஒளி தெறிப்பு விதிகளைப் பின்பற்றி ஆடிகளிலிருந்து தெறிக்கிறது.",
+          "si": "සත්‍යයි: උදාහරණයක් ලෙස ආලෝකය පරාවර්තන නියම අනුගමනය කරමින් දර්පණවලින් පරාවර්තනය වේ."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Wave classification compares particle motion with wave travel direction.",
-          "ta": "அலை வகைப்பாடு துணிக்கை இயக்கத்தையும் அலை பயணத் திசையையும் ஒப்பிடுகிறது."
+          "en": "Electromagnetic waves are oscillating electric and magnetic fields at right angles to each other and to the direction of travel. They travel at 3 × 10⁸ m s⁻¹ in a vacuum and carry energy, not charge.",
+          "ta": "மின்காந்த அலைகள் ஒன்றுக்கொன்றும் பயணத் திசைக்கும் செங்குத்தாக அதிரும் மின், காந்தப் புலங்கள். வெற்றிடத்தில் 3 × 10⁸ m s⁻¹ இல் பயணிக்கின்றன; ஏற்றத்தையல்ல, சக்தியைக் காவுகின்றன.",
+          "si": "විද්‍යුත් චුම්බක තරංග යනු එකිනෙකට සහ ගමන් දිශාවට ලම්බකව දෝලනය වන විද්‍යුත් සහ චුම්බක ක්ෂේත්‍රයි. ඒවා රික්තයේ 3 × 10⁸ m s⁻¹ වේගයෙන් ගමන් කරන අතර ආරෝපණය නොව ශක්තිය ගෙන යයි."
         },
         "reasoning": {
-          "en": "Electromagnetic waves carry energy, not a net electric charge. Their electric and magnetic fields oscillate transverse to propagation.",
-          "ta": "மின்காந்த அலைகள் சக்தியைக் காவும்; நிகர மின்னேற்றத்தைக் காவாது. மின், காந்தப் புலங்கள் பரவலுக்குக் குறுக்காக அதிரும்."
+          "en": "Because EM waves carry no charge, they are not bent by electric or magnetic fields, unlike beams of electrons.",
+          "ta": "மின்காந்த அலைகள் ஏற்றத்தைக் காவாததால், இலத்திரன் கற்றைகள் போலல்லாமல், மின் அல்லது காந்தப் புலங்களால் வளைக்கப்படுவதில்லை.",
+          "si": "විද්‍යුත් චුම්බක තරංග ආරෝපණයක් ගෙන නොයන බැවින් ඉලෙක්ට්‍රෝන කදම්බ මෙන් නොව විද්‍යුත් හෝ චුම්බක ක්ෂේත්‍රවලින් නොනැමේ."
         },
         "commonMistake": {
-          "en": "A moving crest does not mean the same water particle travels across the pond.",
-          "ta": "முகடு நகர்வதால் அதே நீர்த் துணிக்கை குளத்தின் குறுக்கே பயணிக்கிறது என்று கருத வேண்டாம்."
+          "en": "Thinking 'electromagnetic' means the wave is made of electric charge. It is made of changing fields.",
+          "ta": "'மின்காந்த' என்றால் அலை மின்னேற்றத்தால் ஆனது என நினைத்தல். அது மாறும் புலங்களால் ஆனது.",
+          "si": "'විද්‍යුත් චුම්බක' යනු තරංගය විද්‍යුත් ආරෝපණයෙන් සෑදී ඇති බව යැයි සිතීම. එය සෑදී ඇත්තේ වෙනස් වන ක්ෂේත්‍රවලිනි."
         },
         "practice": {
           "question": {
-            "en": "Particles oscillate parallel to the direction of a sound wave. Classify it.",
-            "ta": "ஒலி அலையின் திசைக்கு சமாந்தரமாக துணிக்கைகள் அலைகின்றன. வகைப்படுத்துக."
+            "en": "Name three types of electromagnetic wave used in everyday life.",
+            "ta": "அன்றாட வாழ்வில் பயன்படும் மூன்று வகை மின்காந்த அலைகளைக் குறிப்பிடுக.",
+            "si": "එදිනෙදා ජීවිතයේ භාවිත වන විද්‍යුත් චුම්බක තරංග වර්ග තුනක් නම් කරන්න."
           },
           "answer": {
-            "en": "Longitudinal, because particle motion is parallel to propagation.",
-            "ta": "நெட்டாங்கு அலை; துணிக்கை இயக்கம் அலை பரவலுக்கு சமாந்தரமானது."
+            "en": "For example: radio waves, microwaves, visible light (also infrared, X-rays).",
+            "ta": "உதாரணம்: வானொலி அலைகள், நுண்ணலைகள், கட்புலனாகும் ஒளி (அகச்சிவப்பு, X-கதிர்களும்).",
+            "si": "උදාහරණ: රේඩියෝ තරංග, ක්ෂුද්‍ර තරංග, දෘශ්‍ය ආලෝකය (අධෝරක්ත, X-කිරණ ද)."
           }
         }
       },
@@ -1062,7 +1247,8 @@
       ],
       "prompt": {
         "en": "Which source ray(s) go through a lens without deviation?",
-        "ta": "வில்லையூடாகத் திசை மாறாமல் செல்லும் மூலக் கதிர்(கள்) எவை?"
+        "ta": "வில்லையூடாகத் திசை மாறாமல் செல்லும் மூலக் கதிர்(கள்) எவை?",
+        "si": "කාචයක් හරහා අපගමනය නොවී යන මූලාශ්‍ර කිරණය/කිරණ කුමක්ද?"
       },
       "options": [
         {
@@ -1085,59 +1271,81 @@
       "correct": 0,
       "explanation": {
         "en": "Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-        "ta": "AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+        "ta": "AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்.",
+        "si": "AB කිරණය ප්‍රකාශ කේන්ද්‍රය හරහා ගොස් කෙළින්ම ඉදිරියට යයි. CD සහ EF කේන්ද්‍රයෙන් ඈතින් කාචයට පතිත වී වර්තනය වේ."
       },
       "steps": [
         {
-          "en": "Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "AB meets the concave lens at its optical centre, so it passes through without deviation.",
+          "ta": "AB குழிவு வில்லையை அதன் ஒளியியல் மையத்தில் சந்திப்பதால் விலகலின்றிச் செல்கிறது.",
+          "si": "AB අවතල කාචයට එහි ප්‍රකාශ කේන්ද්‍රයේදී පතිත වන බැවින් අපගමනයකින් තොරව යයි."
+        },
+        {
+          "en": "CD is parallel to the axis but meets the convex lens above the centre, so it bends towards the focus.",
+          "ta": "CD அச்சுக்குச் சமாந்தரம்; ஆனால் குவிவு வில்லையை மையத்துக்கு மேலே சந்திப்பதால் குவியத்தை நோக்கி வளைகிறது.",
+          "si": "CD අක්ෂයට සමාන්තර වුවද උත්තල කාචයට කේන්ද්‍රයට ඉහළින් පතිත වන බැවින් නාභිය දෙසට නැමේ."
+        },
+        {
+          "en": "EF meets the concave lens away from its centre, so it is refracted too. Only AB.",
+          "ta": "EF குழிவு வில்லையை அதன் மையத்திலிருந்து விலகிச் சந்திப்பதால் அதுவும் முறிகிறது. AB மட்டுமே.",
+          "si": "EF අවතල කාචයට එහි කේන්ද්‍රයෙන් ඈතින් පතිත වන බැවින් එයද වර්තනය වේ. AB පමණි."
         }
       ],
       "hint": {
-        "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
-        "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+        "en": "For any thin lens, convex or concave, only a ray through the optical centre goes straight on.",
+        "ta": "எந்த மெல்லிய வில்லைக்கும், குவிவோ குழிவோ, ஒளியியல் மையத்தூடான கதிர் மட்டுமே நேராகச் செல்கிறது.",
+        "si": "ඕනෑම තුනී කාචයකට, උත්තල හෝ අවතල, ප්‍රකාශ කේන්ද්‍රය හරහා යන කිරණයක් පමණක් කෙළින්ම යයි."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "Right: only AB passes through an optical centre.",
+          "ta": "சரி: AB மட்டுமே ஒளியியல் மையத்தூடாகச் செல்கிறது.",
+          "si": "නිවැරදියි: ප්‍රකාශ කේන්ද්‍රයක් හරහා යන්නේ AB පමණි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "CD meets the convex lens away from its centre and bends towards the focus.",
+          "ta": "CD குவிவு வில்லையை மையத்திலிருந்து விலகிச் சந்தித்துக் குவியத்தை நோக்கி வளைகிறது.",
+          "si": "CD උත්තල කාචයට කේන්ද්‍රයෙන් ඈතින් පතිත වී නාභිය දෙසට නැමේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "AB is right, but EF does not pass through the centre, so it bends.",
+          "ta": "AB சரி; ஆனால் EF மையத்தூடாகச் செல்லாததால் வளைகிறது.",
+          "si": "AB නිවැරදි වුවද EF කේන්ද්‍රය හරහා නොයන බැවින් නැමේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "Neither CD nor EF passes through an optical centre.",
+          "ta": "CD உம் EF உம் ஒளியியல் மையத்தூடாகச் செல்வதில்லை.",
+          "si": "CD හෝ EF ප්‍රකාශ කේන්ද්‍රයක් හරහා නොයයි."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
-          "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+          "en": "At the optical centre of a thin lens the two faces are parallel, so a ray through it is not deviated.",
+          "ta": "மெல்லிய வில்லையின் ஒளியியல் மையத்தில் இரு முகங்களும் சமாந்தரம்; எனவே அதனூடான கதிர் விலகுவதில்லை.",
+          "si": "තුනී කාචයක ප්‍රකාශ කේන්ද්‍රයේදී මුහුණත් දෙක සමාන්තර බැවින් ඒ හරහා යන කිරණයක් අපගමනය නොවේ."
         },
         "reasoning": {
-          "en": "Ray AB passes through the optical centre and continues straight. CD and EF meet the lens away from the centre and refract.",
-          "ta": "AB ஒளியியல் மையத்தினூடாகச் சென்று நேராகத் தொடரும். CD, EF மையத்திற்கு வெளியே வில்லையைச் சந்தித்து முறியும்."
+          "en": "The centre of a lens behaves like a very thin parallel slab of glass, and for a thin lens the sideways shift is too small to notice.",
+          "ta": "வில்லையின் மையம் மிக மெல்லிய சமாந்தரக் கண்ணாடிக் குற்றி போல் நடந்துகொள்கிறது; மெல்லிய வில்லைக்குப் பக்கப் பெயர்ச்சி கவனிக்க முடியாத அளவு சிறியது.",
+          "si": "කාචයක කේන්ද්‍රය ඉතා තුනී සමාන්තර වීදුරු කුට්ටියක් සේ හැසිරෙන අතර තුනී කාචයක් සඳහා පාර්ශ්වික විස්ථාපනය නොපෙනෙන තරම් කුඩාය."
         },
         "commonMistake": {
-          "en": "Objective and eyepiece names refer to their positions, not interchangeable parts.",
-          "ta": "பொருள்வில்லை, பார்வைவில்லை பெயர்கள் அவற்றின் இடங்களைக் குறிக்கும்; மாற்றிப் பயன்படுத்த வேண்டாம்."
+          "en": "Thinking a ray parallel to the axis (CD) is undeviated. It is bent towards (or away from) the focus.",
+          "ta": "அச்சுக்குச் சமாந்தரமான கதிர் (CD) விலகுவதில்லை என நினைத்தல். அது குவியத்தை நோக்கி (அல்லது விலகி) வளைக்கப்படுகிறது.",
+          "si": "අක්ෂයට සමාන්තර කිරණයක් (CD) අපගමනය නොවේ යැයි සිතීම. එය නාභිය දෙසට (හෝ ඉවතට) නැමේ."
         },
         "practice": {
           "question": {
-            "en": "Which microscope lens is nearest the specimen?",
-            "ta": "நுணுக்குக்காட்டியில் மாதிரிக்கு மிக அருகிலுள்ள வில்லை எது?"
+            "en": "After the convex lens, where does ray CD cross the principal axis?",
+            "ta": "குவிவு வில்லையின் பின், கதிர் CD தலைமை அச்சை எங்கே கடக்கிறது?",
+            "si": "උත්තල කාචයෙන් පසු CD කිරණය ප්‍රධාන අක්ෂය හරහා යන්නේ කොතැනින්ද?"
           },
           "answer": {
-            "en": "The objective lens.",
-            "ta": "பொருள்வில்லை."
+            "en": "At the principal focus on the far side.",
+            "ta": "மறுபக்கத் தலைமைக் குவியத்தில்.",
+            "si": "අනෙක් පැත්තේ ප්‍රධාන නාභියේදී."
           }
         }
       },
@@ -1203,7 +1411,6 @@
         "Motion and momentum"
       ],
       "lessons": [
-        "chapter-04-newtons-laws",
         "unit-02-motion-in-a-straight-line"
       ],
       "pages": [
@@ -1211,7 +1418,8 @@
       ],
       "prompt": {
         "en": "A person walks 15 m east, 6 m south and 15 m west. Find displacement magnitude.",
-        "ta": "ஒருவர் 15 m கிழக்கு, 6 m தெற்கு, 15 m மேற்கு நடக்கிறார். இடப்பெயர்ச்சிப் பருமன் என்ன?"
+        "ta": "ஒருவர் 15 m கிழக்கு, 6 m தெற்கு, 15 m மேற்கு நடக்கிறார். இடப்பெயர்ச்சிப் பருமன் என்ன?",
+        "si": "පුද්ගලයෙක් නැගෙනහිරට 15 m ද, දකුණට 6 m ද, බටහිරට 15 m ද ඇවිදියි. විස්ථාපනයේ විශාලත්වය සොයන්න."
       },
       "options": [
         {
@@ -1234,59 +1442,81 @@
       "correct": 0,
       "explanation": {
         "en": "East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-        "ta": "கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+        "ta": "கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m.",
+        "si": "නැගෙනහිර සහ බටහිර සංරචක එකිනෙක අවලංගු වේ. දකුණට 6 m පමණක් ඉතිරි වේ. ගමන් කළ දුර 36 m වුවද විස්ථාපනය 6 m වේ."
       },
       "steps": [
         {
-          "en": "East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "15 m east and then 15 m west cancel each other out.",
+          "ta": "15 m கிழக்கும் பின் 15 m மேற்கும் ஒன்றையொன்று நீக்குகின்றன.",
+          "si": "නැගෙනහිරට 15 m සහ පසුව බටහිරට 15 m එකිනෙක අවලංගු කරයි."
+        },
+        {
+          "en": "Only the 6 m south is left, so the person ends 6 m south of the start.",
+          "ta": "6 m தெற்கு மட்டுமே எஞ்சுகிறது; எனவே நபர் தொடக்கத்துக்கு 6 m தெற்கே முடிக்கிறார்.",
+          "si": "දකුණට 6 m පමණක් ඉතිරි වන බැවින් පුද්ගලයා ආරම්භයට දකුණින් 6 m දුරින් අවසන් කරයි."
+        },
+        {
+          "en": "Displacement = 6 m (south). The distance walked is 15 + 6 + 15 = 36 m.",
+          "ta": "இடப்பெயர்ச்சி = 6 m (தெற்கு). நடந்த தூரம் 15 + 6 + 15 = 36 m.",
+          "si": "විස්ථාපනය = 6 m (දකුණට). ඇවිද ගිය දුර 15 + 6 + 15 = 36 m."
         }
       ],
       "hint": {
-        "en": "Acceleration is change in velocity per time; momentum is mass × velocity.",
-        "ta": "ஆர்முடுகல் நேரத்திற்கான வேக மாற்றம்; உந்தம் திணிவு × வேகம்."
+        "en": "Displacement is from the start point to the end point. Draw the path: where does the person finish compared with where they started?",
+        "ta": "இடப்பெயர்ச்சி தொடக்கப் புள்ளியிலிருந்து முடிவுப் புள்ளி வரை. பாதையை வரைக: நபர் தொடங்கிய இடத்துடன் ஒப்பிடுகையில் எங்கே முடிக்கிறார்?",
+        "si": "විස්ථාපනය ආරම්භක ලක්ෂ්‍යයේ සිට අවසාන ලක්ෂ්‍යය දක්වාය. මාර්ගය අඳින්න: පුද්ගලයා ආරම්භ කළ තැනට සාපේක්ෂව අවසන් කරන්නේ කොතැනද?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "Right: east and west cancel, leaving 6 m south.",
+          "ta": "சரி: கிழக்கும் மேற்கும் நீங்கி 6 m தெற்கு எஞ்சுகிறது.",
+          "si": "නිවැරදියි: නැගෙනහිර සහ බටහිර අවලංගු වී දකුණට 6 m ඉතිරි වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "15 m is one leg of the walk, not the start-to-finish gap.",
+          "ta": "15 m நடையின் ஒரு பகுதி மட்டுமே; தொடக்க–முடிவு இடைவெளியல்ல.",
+          "si": "15 m යනු ඇවිදීමේ එක් කොටසක් පමණි; ආරම්භ–අවසාන පරතරය නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "30 m adds the east and west legs instead of cancelling them.",
+          "ta": "30 m கிழக்கு, மேற்குப் பகுதிகளை நீக்காமல் கூட்டுகிறது.",
+          "si": "30 m නැගෙනහිර සහ බටහිර කොටස් අවලංගු නොකර එකතු කරයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "36 m is the total distance walked, not the displacement.",
+          "ta": "36 m நடந்த மொத்தத் தூரம்; இடப்பெயர்ச்சியல்ல.",
+          "si": "36 m යනු ඇවිද ගිය මුළු දුරයි; විස්ථාපනය නොවේ."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Acceleration is change in velocity per time; momentum is mass × velocity.",
-          "ta": "ஆர்முடுகல் நேரத்திற்கான வேக மாற்றம்; உந்தம் திணிவு × வேகம்."
+          "en": "Displacement is the straight-line change in position from start to finish, with a direction. Distance is the total length of the path.",
+          "ta": "இடப்பெயர்ச்சி என்பது தொடக்கத்திலிருந்து முடிவு வரை திசையுடன் கூடிய, நிலையின் நேர்கோட்டு மாற்றம். தூரம் என்பது பாதையின் மொத்த நீளம்.",
+          "si": "විස්ථාපනය යනු ආරම්භයේ සිට අවසානය දක්වා දිශාවක් සහිත පිහිටීමේ සරල රේඛීය වෙනසයි. දුර යනු මාර්ගයේ මුළු දිගයි."
         },
         "reasoning": {
-          "en": "East and west components cancel. Only 6 m south remains. Distance travelled is 36 m, but displacement is 6 m.",
-          "ta": "கிழக்கு, மேற்கு கூறுகள் ஒன்றையொன்று நீக்கும். தெற்கு 6 m மட்டும் எஞ்சும். தூரம் 36 m; இடப்பெயர்ச்சி 6 m."
+          "en": "The path makes three sides of a rectangle; the gap between the start and end is the fourth side, 6 m long.",
+          "ta": "பாதை செவ்வகத்தின் மூன்று பக்கங்களை உருவாக்குகிறது; தொடக்கத்துக்கும் முடிவுக்குமிடையிலான இடைவெளி 6 m நீளமுள்ள நான்காவது பக்கம்.",
+          "si": "මාර්ගය සෘජුකෝණාස්‍රයක පැති තුනක් සාදයි; ආරම්භය සහ අවසානය අතර පරතරය 6 m දිගැති හතරවන පැත්තයි."
         },
         "commonMistake": {
-          "en": "Keep momentum (kg m s⁻¹) distinct from acceleration (m s⁻²).",
-          "ta": "உந்தம் (kg m s⁻¹), ஆர்முடுகல் (m s⁻²) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+          "en": "Adding all the parts (36 m). That is the distance, not the displacement.",
+          "ta": "எல்லாப் பகுதிகளையும் கூட்டுதல் (36 m). அது தூரம்; இடப்பெயர்ச்சியல்ல.",
+          "si": "සියලු කොටස් එකතු කිරීම (36 m). එය දුරයි; විස්ථාපනය නොවේ."
         },
         "practice": {
           "question": {
-            "en": "A 2 kg body slows from 6 m s⁻¹ to rest in 3 s. Find acceleration and initial momentum.",
-            "ta": "2 kg பொருள் 6 m s⁻¹ இலிருந்து 3 s இல் நிற்கிறது. ஆர்முடுகலையும் ஆரம்ப உந்தத்தையும் காண்க."
+            "en": "Someone walks 8 m north and then 6 m east. Find the displacement.",
+            "ta": "ஒருவர் 8 m வடக்கேயும் பின் 6 m கிழக்கேயும் நடக்கிறார். இடப்பெயர்ச்சியைக் காண்க.",
+            "si": "කෙනෙක් උතුරට 8 m ද පසුව නැගෙනහිරට 6 m ද ඇවිදියි. විස්ථාපනය සොයන්න."
           },
           "answer": {
-            "en": "a = (0−6)/3 = −2 m s⁻²; initial p = 2 × 6 = 12 kg m s⁻¹.",
-            "ta": "a = (0−6)/3 = −2 m s⁻²; ஆரம்ப p = 2 × 6 = 12 kg m s⁻¹."
+            "en": "√(8² + 6²) = 10 m (north-east).",
+            "ta": "√(8² + 6²) = 10 m (வடகிழக்கு).",
+            "si": "√(8² + 6²) = 10 m (ඊසාන දෙසට)."
           }
         }
       },
@@ -1402,7 +1632,8 @@
       ],
       "prompt": {
         "en": "1 kg water needs 4200 J for a 1 °C rise. Find heat to raise 10 kg by 50 °C.",
-        "ta": "1 kg நீருக்கு 1 °C உயர்விற்கு 4200 J தேவை. 10 kg நீரை 50 °C உயர்த்த வெப்பம் என்ன?"
+        "ta": "1 kg நீருக்கு 1 °C உயர்விற்கு 4200 J தேவை. 10 kg நீரை 50 °C உயர்த்த வெப்பம் என்ன?",
+        "si": "1 kg ජලයට 1 °C වැඩිවීමකට 4200 J අවශ්‍යයි. 10 kg, 50 °C කින් ඉහළ නැංවීමට අවශ්‍ය තාපය සොයන්න."
       },
       "options": [
         {
@@ -1425,59 +1656,81 @@
       "correct": 3,
       "explanation": {
         "en": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-        "ta": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+        "ta": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்.",
+        "si": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. ස්කන්ධය සහ උෂ්ණත්ව වැඩිවීම යන දෙකම විශිෂ්ට තාප ධාරිතාව ගුණ කරයි."
       },
       "steps": [
         {
-          "en": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "Q = m × c × ΔT.",
+          "ta": "Q = m × c × ΔT.",
+          "si": "Q = m × c × ΔT."
+        },
+        {
+          "en": "Q = 10 × 4200 × 50.",
+          "ta": "Q = 10 × 4200 × 50.",
+          "si": "Q = 10 × 4200 × 50."
+        },
+        {
+          "en": "Q = 2 100 000 J (2.1 × 10⁶ J).",
+          "ta": "Q = 2 100 000 J (2.1 × 10⁶ J).",
+          "si": "Q = 2 100 000 J (2.1 × 10⁶ J)."
         }
       ],
       "hint": {
-        "en": "Heating without a phase change uses Q = mcΔT.",
-        "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+        "en": "4200 J is for 1 kg and 1 °C. Multiply by the number of kilograms and by the number of degrees.",
+        "ta": "4200 J என்பது 1 kg க்கும் 1 °C க்குமானது. கிலோகிராம்களின் எண்ணிக்கையாலும் பாகைகளின் எண்ணிக்கையாலும் பெருக்குக.",
+        "si": "4200 J යනු 1 kg සහ 1 °C සඳහාය. කිලෝග්‍රෑම් ගණනින් සහ අංශක ගණනින් ගුණ කරන්න."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "21 000 J is only 4200 × 5: both factors are wrong.",
+          "ta": "21 000 J என்பது 4200 × 5 மட்டுமே: இரு காரணிகளும் தவறு.",
+          "si": "21 000 J යනු 4200 × 5 පමණි: සාධක දෙකම වැරදියි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "42 000 J = 4200 × 10 uses the mass but forgets the 50 °C.",
+          "ta": "42 000 J = 4200 × 10 திணிவைப் பயன்படுத்துகிறது; ஆனால் 50 °C ஐ மறக்கிறது.",
+          "si": "42 000 J = 4200 × 10 ස්කන්ධය භාවිත කරන නමුත් 50 °C අමතක කරයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "210 000 J = 4200 × 50 uses the rise but forgets the 10 kg.",
+          "ta": "210 000 J = 4200 × 50 உயர்வைப் பயன்படுத்துகிறது; ஆனால் 10 kg ஐ மறக்கிறது.",
+          "si": "210 000 J = 4200 × 50 වැඩිවීම භාවිත කරන නමුත් 10 kg අමතක කරයි."
         },
         {
-          "en": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "Right: 10 × 4200 × 50 = 2 100 000 J.",
+          "ta": "சரி: 10 × 4200 × 50 = 2 100 000 J.",
+          "si": "නිවැරදියි: 10 × 4200 × 50 = 2 100 000 J."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Heating without a phase change uses Q = mcΔT.",
-          "ta": "நிலை மாற்றமற்ற வெப்பமாக்கலுக்கு Q = mcΔT."
+          "en": "Specific heat capacity c is the heat for 1 kg and 1 K. The total heat scales with both mass and temperature rise: Q = mcΔT.",
+          "ta": "தன்வெப்பக் கொள்ளளவு c என்பது 1 kg க்கும் 1 K க்குமான வெப்பம். மொத்த வெப்பம் திணிவுடனும் வெப்பநிலை உயர்வுடனும் கூடுகிறது: Q = mcΔT.",
+          "si": "විශිෂ්ට තාප ධාරිතාව c යනු 1 kg සහ 1 K සඳහා තාපයයි. මුළු තාපය ස්කන්ධය සහ උෂ්ණත්ව වැඩිවීම යන දෙකම සමඟ වැඩි වේ: Q = mcΔT."
         },
         "reasoning": {
-          "en": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. Both the mass and temperature rise multiply the specific heat capacity.",
-          "ta": "Q = mcΔT = 10 × 4200 × 50 = 2100000 J. திணிவும் வெப்பநிலை உயர்வும் தன்வெப்பக் கொள்ளளவுடன் பெருக்கப்படும்."
+          "en": "Ten times the water needs ten times the heat, and fifty times the rise needs fifty times again: 4200 × 500.",
+          "ta": "பத்து மடங்கு நீருக்குப் பத்து மடங்கு வெப்பம், ஐம்பது மடங்கு உயர்வுக்கு மீண்டும் ஐம்பது மடங்கு: 4200 × 500.",
+          "si": "ජලය දස ගුණයකට තාපය දස ගුණයක් ද, වැඩිවීම පනස් ගුණයකට නැවත පනස් ගුණයක් ද අවශ්‍යයි: 4200 × 500."
         },
         "commonMistake": {
-          "en": "Do not add 273 to a temperature rise or confuse energy (J) with power (W).",
-          "ta": "வெப்பநிலை உயர்விற்கு 273 சேர்க்க வேண்டாம்; சக்தி (J), வலு (W) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+          "en": "Multiplying by only one of the two factors (giving 42 000 J or 210 000 J).",
+          "ta": "இரு காரணிகளில் ஒன்றால் மட்டுமே பெருக்குதல் (42 000 J அல்லது 210 000 J).",
+          "si": "සාධක දෙකෙන් එකකින් පමණක් ගුණ කිරීම (42 000 J හෝ 210 000 J)."
         },
         "practice": {
           "question": {
-            "en": "Heat 2 kg of material with c = 500 J kg⁻¹ K⁻¹ by 4°C. Find energy.",
-            "ta": "c = 500 J kg⁻¹ K⁻¹ உள்ள 2 kg பொருளை 4°C உயர்த்தும் சக்தியைக் காண்க."
+            "en": "How much heat raises 2 kg of water by 25 °C?",
+            "ta": "2 kg நீரை 25 °C ஆல் உயர்த்த எவ்வளவு வெப்பம் தேவை?",
+            "si": "ජලය 2 kg ක් 25 °C කින් ඉහළ නැංවීමට කොපමණ තාපයක් අවශ්‍යද?"
           },
           "answer": {
-            "en": "Q = 2 × 500 × 4 = 4000 J.",
-            "ta": "Q = 2 × 500 × 4 = 4000 J."
+            "en": "2 × 4200 × 25 = 210 000 J.",
+            "ta": "2 × 4200 × 25 = 210 000 J.",
+            "si": "2 × 4200 × 25 = 210 000 J."
           }
         }
       },
@@ -1549,7 +1802,8 @@
       ],
       "prompt": {
         "en": "Which instruments use two convex lenses: A simple microscope, B compound microscope, C astronomical telescope?",
-        "ta": "இரு குவிவு வில்லைகளைப் பயன்படுத்துவது எது: A எளிய நுணுக்குக்காட்டி, B கூட்டு நுணுக்குக்காட்டி, C வானியல் தொலைகாட்டி?"
+        "ta": "இரு குவிவு வில்லைகளைப் பயன்படுத்துவது எது: A எளிய நுணுக்குக்காட்டி, B கூட்டு நுணுக்குக்காட்டி, C வானியல் தொலைகாட்டி?",
+        "si": "උත්තල කාච දෙකක් භාවිත කරන උපකරණ මොනවාද: A සරල අන්වීක්ෂය, B සංයුක්ත අන්වීක්ෂය, C තාරකා දුරදක්නය?"
       },
       "options": [
         {
@@ -1572,59 +1826,81 @@
       "correct": 1,
       "explanation": {
         "en": "A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-        "ta": "கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+        "ta": "கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு.",
+        "si": "සංයුක්ත අන්වීක්ෂයක් සහ වර්තක තාරකා දුරදක්නයක් අවනෙත් සහ උපනෙත් උත්තල කාච භාවිත කරයි. සරල අන්වීක්ෂයක් එක් උත්තල කාචයක් භාවිත කරයි."
       },
       "steps": [
         {
-          "en": "A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "A: a simple microscope uses one convex lens.",
+          "ta": "A: எளிய நுணுக்குக்காட்டி ஒரு குவிவு வில்லையைப் பயன்படுத்துகிறது.",
+          "si": "A: සරල අන්වීක්ෂයක් එක් උත්තල කාචයක් භාවිත කරයි."
+        },
+        {
+          "en": "B: a compound microscope has a convex objective and a convex eyepiece.",
+          "ta": "B: கூட்டு நுணுக்குக்காட்டிக்குக் குவிவுப் பொருள்வில்லையும் குவிவுப் பார்வைத்துண்டும் உண்டு.",
+          "si": "B: සංයුක්ත අන්වීක්ෂයකට උත්තල අවනෙතක් සහ උත්තල උපනෙතක් ඇත."
+        },
+        {
+          "en": "C: an astronomical (refracting) telescope also has two convex lenses. Answer: B and C.",
+          "ta": "C: வானியல் (முறிவுத்) தொலைகாட்டிக்கும் இரு குவிவு வில்லைகள் உண்டு. விடை: B, C.",
+          "si": "C: තාරකා (වර්තක) දුරදක්නයකටද උත්තල කාච දෙකක් ඇත. පිළිතුර: B සහ C."
         }
       ],
       "hint": {
-        "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
-        "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+        "en": "A simple microscope is just a magnifying glass. Which instruments have an objective lens and an eyepiece?",
+        "ta": "எளிய நுணுக்குக்காட்டி ஒரு உருப்பெருக்கும் கண்ணாடி மட்டுமே. எந்தக் கருவிகளுக்குப் பொருள்வில்லையும் பார்வைத்துண்டும் உண்டு?",
+        "si": "සරල අන්වීක්ෂයක් විශාලන කාචයක් පමණි. අවනෙත් කාචයක් සහ උපනෙතක් ඇත්තේ කුමන උපකරණවලටද?"
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "A uses only one lens.",
+          "ta": "A ஒரே ஒரு வில்லையைப் பயன்படுத்துகிறது.",
+          "si": "A භාවිත කරන්නේ එක් කාචයක් පමණි."
         },
         {
-          "en": "A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "Right: both the compound microscope and the astronomical telescope use two convex lenses.",
+          "ta": "சரி: கூட்டு நுணுக்குக்காட்டியும் வானியல் தொலைகாட்டியும் இரு குவிவு வில்லைகளைப் பயன்படுத்துகின்றன.",
+          "si": "නිවැරදියි: සංයුක්ත අන්වීක්ෂය සහ තාරකා දුරදක්නය යන දෙකම උත්තල කාච දෙකක් භාවිත කරයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "A uses only one lens.",
+          "ta": "A ஒரே ஒரு வில்லையைப் பயன்படுத்துகிறது.",
+          "si": "A භාවිත කරන්නේ එක් කාචයක් පමණි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "A is a single lens, so not all three.",
+          "ta": "A ஒற்றை வில்லை; எனவே மூன்றும் அல்ல.",
+          "si": "A තනි කාචයක් බැවින් තුනම නොවේ."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "A convex lens converges light; a microscope uses an objective and an eyepiece.",
-          "ta": "குவிவு வில்லை ஒளியைக் குவிக்கும்; நுணுக்குக்காட்டி பொருள்வில்லையையும் பார்வைவில்லையையும் பயன்படுத்தும்."
+          "en": "In a two-lens instrument, the objective forms a real image and the eyepiece magnifies that image like a magnifying glass.",
+          "ta": "இரு-வில்லைக் கருவியில் பொருள்வில்லை மெய் விம்பத்தை உருவாக்குகிறது; பார்வைத்துண்டு அவ்விம்பத்தை உருப்பெருக்கும் கண்ணாடி போல் உருப்பெருக்குகிறது.",
+          "si": "කාච දෙකක උපකරණයක අවනෙත තාත්වික ප්‍රතිබිම්බයක් සාදන අතර උපනෙත එම ප්‍රතිබිම්බය විශාලන කාචයක් සේ විශාල කරයි."
         },
         "reasoning": {
-          "en": "A compound microscope and a refracting astronomical telescope use objective and eyepiece convex lenses. A simple microscope uses one convex lens.",
-          "ta": "கூட்டு நுணுக்குக்காட்டியும் முறிக்கும் வானியல் தொலைகாட்டியும் பொருள், பார்வைக் குவிவு வில்லைகளைப் பயன்படுத்தும். எளிய நுணுக்குக்காட்டியில் ஒரு குவிவு வில்லை மட்டுமே உண்டு."
+          "en": "The two instruments differ in their objective: a microscope's has a short focal length (for tiny near objects); a telescope's has a long focal length (for far objects).",
+          "ta": "இரு கருவிகளும் பொருள்வில்லையில் வேறுபடுகின்றன: நுணுக்குக்காட்டியினது குறுகிய குவியத் தூரமுள்ளது (அருகிலுள்ள சிறு பொருள்களுக்கு); தொலைகாட்டியினது நீண்ட குவியத் தூரமுள்ளது (தொலைவிலுள்ள பொருள்களுக்கு).",
+          "si": "උපකරණ දෙක ඒවායේ අවනෙතින් වෙනස් වේ: අන්වීක්ෂයේ අවනෙතට කෙටි නාභි දුරක් ඇත (ළඟ කුඩා වස්තු සඳහා); දුරදක්නයේ අවනෙතට දිගු නාභි දුරක් ඇත (දුර වස්තු සඳහා)."
         },
         "commonMistake": {
-          "en": "Objective and eyepiece names refer to their positions, not interchangeable parts.",
-          "ta": "பொருள்வில்லை, பார்வைவில்லை பெயர்கள் அவற்றின் இடங்களைக் குறிக்கும்; மாற்றிப் பயன்படுத்த வேண்டாம்."
+          "en": "Thinking a simple microscope has two lenses. 'Simple' means a single lens.",
+          "ta": "எளிய நுணுக்குக்காட்டிக்கு இரு வில்லைகள் என நினைத்தல். 'எளிய' என்றால் ஒற்றை வில்லை.",
+          "si": "සරල අන්වීක්ෂයකට කාච දෙකක් ඇතැයි සිතීම. 'සරල' යනු තනි කාචයකි."
         },
         "practice": {
           "question": {
-            "en": "Which microscope lens is nearest the specimen?",
-            "ta": "நுணுக்குக்காட்டியில் மாதிரிக்கு மிக அருகிலுள்ள வில்லை எது?"
+            "en": "Which lens of a compound microscope is nearer the object?",
+            "ta": "கூட்டு நுணுக்குக்காட்டியின் எந்த வில்லை பொருளுக்கு அருகில் உள்ளது?",
+            "si": "සංයුක්ත අන්වීක්ෂයක වස්තුවට ළඟින් ඇත්තේ කුමන කාචයද?"
           },
           "answer": {
             "en": "The objective lens.",
-            "ta": "பொருள்வில்லை."
+            "ta": "பொருள்வில்லை.",
+            "si": "අවනෙත් කාචය."
           }
         }
       },
@@ -1689,15 +1965,15 @@
         "Motion and momentum"
       ],
       "lessons": [
-        "chapter-04-newtons-laws",
-        "unit-02-motion-in-a-straight-line"
+        "chapter-04-newtons-laws"
       ],
       "pages": [
         4
       ],
       "prompt": {
         "en": "Find momentum of a 2 kg object moving at 4 m s⁻¹.",
-        "ta": "4 m s⁻¹ வேகத்தில் நகரும் 2 kg பொருளின் உந்தம் என்ன?"
+        "ta": "4 m s⁻¹ வேகத்தில் நகரும் 2 kg பொருளின் உந்தம் என்ன?",
+        "si": "4 m s⁻¹ වේගයෙන් චලනය වන 2 kg වස්තුවක ගම්‍යතාව සොයන්න."
       },
       "options": [
         {
@@ -1720,59 +1996,81 @@
       "correct": 2,
       "explanation": {
         "en": "p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-        "ta": "p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+        "ta": "p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்.",
+        "si": "p = mv = 2 × 4 = 8 kg m s⁻¹, ප්‍රවේගයේ දිශාවට."
       },
       "steps": [
         {
-          "en": "p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "p = m × v.",
+          "ta": "p = m × v.",
+          "si": "p = m × v."
+        },
+        {
+          "en": "p = 2 × 4.",
+          "ta": "p = 2 × 4.",
+          "si": "p = 2 × 4."
+        },
+        {
+          "en": "p = 8 kg m s⁻¹, in the direction of motion.",
+          "ta": "p = 8 kg m s⁻¹; இயக்கத் திசையில்.",
+          "si": "p = 8 kg m s⁻¹; චලන දිශාවට."
         }
       ],
       "hint": {
-        "en": "Acceleration is change in velocity per time; momentum is mass × velocity.",
-        "ta": "ஆர்முடுகல் நேரத்திற்கான வேக மாற்றம்; உந்தம் திணிவு × வேகம்."
+        "en": "Momentum = mass × velocity.",
+        "ta": "உந்தம் = திணிவு × வேகம்.",
+        "si": "ගම්‍යතාව = ස්කන්ධය × ප්‍රවේගය."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "2 is only the mass.",
+          "ta": "2 என்பது திணிவு மட்டுமே.",
+          "si": "2 යනු ස්කන්ධය පමණි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "6 = 2 + 4: the values were added, not multiplied.",
+          "ta": "6 = 2 + 4: பெறுமானங்கள் பெருக்கப்படாமல் கூட்டப்பட்டன.",
+          "si": "6 = 2 + 4: අගයන් ගුණ නොකර එකතු කර ඇත."
         },
         {
-          "en": "p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "Right: 2 × 4 = 8 kg m s⁻¹.",
+          "ta": "சரி: 2 × 4 = 8 kg m s⁻¹.",
+          "si": "නිවැරදියි: 2 × 4 = 8 kg m s⁻¹."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "16 = 2 × 4², as if squaring the speed (that is like kinetic energy, not momentum).",
+          "ta": "16 = 2 × 4², கதியை வர்க்கமாக்கியதுபோல் (அது இயக்கசக்தி போன்றது, உந்தமல்ல).",
+          "si": "16 = 2 × 4², වේගය වර්ග කළා සේ (එය චාලක ශක්තිය වැනිය, ගම්‍යතාව නොවේ)."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Acceleration is change in velocity per time; momentum is mass × velocity.",
-          "ta": "ஆர்முடுகல் நேரத்திற்கான வேக மாற்றம்; உந்தம் திணிவு × வேகம்."
+          "en": "Momentum p = mv is a vector with unit kg m s⁻¹. It measures how hard a moving object is to stop.",
+          "ta": "உந்தம் p = mv, kg m s⁻¹ அலகுள்ள காவி. நகரும் பொருளை நிறுத்துவது எவ்வளவு கடினம் என்பதை அது அளக்கிறது.",
+          "si": "ගම්‍යතාව p = mv, kg m s⁻¹ ඒකකය ඇති දෛශිකයකි. චලනය වන වස්තුවක් නැවැත්වීම කොතරම් අසීරුද යන්න එය මනියි."
         },
         "reasoning": {
-          "en": "p = mv = 2 × 4 = 8 kg m s⁻¹, in the direction of velocity.",
-          "ta": "p = mv = 2 × 4 = 8 kg m s⁻¹; வேகத்தின் திசையிலேயே உந்தம் இருக்கும்."
+          "en": "Doubling either the mass or the speed doubles the momentum, so a heavy slow lorry and a light fast car can have the same momentum.",
+          "ta": "திணிவையோ கதியையோ இரட்டிப்பாக்குவது உந்தத்தை இரட்டிப்பாக்குகிறது; எனவே கனமான மெதுவான லொறிக்கும் இலேசான வேகமான காருக்கும் அதே உந்தம் இருக்கலாம்.",
+          "si": "ස්කන්ධය හෝ වේගය දෙගුණ කිරීම ගම්‍යතාව දෙගුණ කරයි; එබැවින් බර, සෙමින් යන ලොරියකට සහ සැහැල්ලු, වේගවත් මෝටර් රථයකට එකම ගම්‍යතාවක් තිබිය හැක."
         },
         "commonMistake": {
-          "en": "Keep momentum (kg m s⁻¹) distinct from acceleration (m s⁻²).",
-          "ta": "உந்தம் (kg m s⁻¹), ஆர்முடுகல் (m s⁻²) ஆகியவற்றைக் குழப்ப வேண்டாம்."
+          "en": "Adding instead of multiplying (2 + 4 = 6).",
+          "ta": "பெருக்குவதற்குப் பதில் கூட்டுதல் (2 + 4 = 6).",
+          "si": "ගුණ කරනවා වෙනුවට එකතු කිරීම (2 + 4 = 6)."
         },
         "practice": {
           "question": {
-            "en": "A 2 kg body slows from 6 m s⁻¹ to rest in 3 s. Find acceleration and initial momentum.",
-            "ta": "2 kg பொருள் 6 m s⁻¹ இலிருந்து 3 s இல் நிற்கிறது. ஆர்முடுகலையும் ஆரம்ப உந்தத்தையும் காண்க."
+            "en": "A 1200 kg car has momentum 24 000 kg m s⁻¹. Find its speed.",
+            "ta": "1200 kg காரின் உந்தம் 24 000 kg m s⁻¹. அதன் கதியைக் காண்க.",
+            "si": "1200 kg මෝටර් රථයක ගම්‍යතාව 24 000 kg m s⁻¹ වේ. එහි වේගය සොයන්න."
           },
           "answer": {
-            "en": "a = (0−6)/3 = −2 m s⁻²; initial p = 2 × 6 = 12 kg m s⁻¹.",
-            "ta": "a = (0−6)/3 = −2 m s⁻²; ஆரம்ப p = 2 × 6 = 12 kg m s⁻¹."
+            "en": "v = 24 000 ÷ 1200 = 20 m s⁻¹.",
+            "ta": "v = 24 000 ÷ 1200 = 20 m s⁻¹.",
+            "si": "v = 24 000 ÷ 1200 = 20 m s⁻¹."
           }
         }
       },
@@ -1888,7 +2186,8 @@
       ],
       "prompt": {
         "en": "Which affect capacitance: A plate area, B separation, C dielectric material?",
-        "ta": "கொள்ளளவில் செல்வாக்குச் செலுத்துவது எது: A தகட்டுப் பரப்பு, B இடைவெளி, C மின்காப்புப் பொருள்?"
+        "ta": "கொள்ளளவில் செல்வாக்குச் செலுத்துவது எது: A தகட்டுப் பரப்பு, B இடைவெளி, C மின்காப்புப் பொருள்?",
+        "si": "ධාරිතාවට බලපාන්නේ කුමක්ද: A තහඩු වර්ගඵලය, B පරතරය, C පාර විද්‍යුත් ද්‍රව්‍යය?"
       },
       "options": [
         {
@@ -1911,59 +2210,81 @@
       "correct": 3,
       "explanation": {
         "en": "C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-        "ta": "C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+        "ta": "C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்.",
+        "si": "C = εA/d. වර්ගඵලය A ධාරිතාව වැඩි කරයි, පරතරය d එය අඩු කරයි, සහ පාර විද්‍යුතය ε තීරණය කරයි. තුනම වැදගත් වේ."
       },
       "steps": [
         {
-          "en": "C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "A: a larger plate area gives a larger capacitance.",
+          "ta": "A: பெரிய தட்டுப் பரப்பு பெரிய கொள்ளளவைத் தருகிறது.",
+          "si": "A: විශාල තහඩු වර්ගඵලයක් විශාල ධාරිතාවක් දෙයි."
+        },
+        {
+          "en": "B: a smaller separation gives a larger capacitance.",
+          "ta": "B: சிறிய இடைவெளி பெரிய கொள்ளளவைத் தருகிறது.",
+          "si": "B: කුඩා පරතරයක් විශාල ධාරිතාවක් දෙයි."
+        },
+        {
+          "en": "C: a dielectric (insulator) between the plates increases the capacitance. So A, B and C all matter.",
+          "ta": "C: தட்டுகளுக்கிடையிலான மின்கோடலி (காவலி) கொள்ளளவைக் கூட்டுகிறது. எனவே A, B, C எல்லாம் முக்கியம்.",
+          "si": "C: තහඩු අතර පාර විද්‍යුතයක් (පරිවාරකයක්) ධාරිතාව වැඩි කරයි. එබැවින් A, B සහ C සියල්ල වැදගත් වේ."
         }
       ],
       "hint": {
-        "en": "A capacitor stores separated electric charge.",
-        "ta": "கொள்ளளவி பிரிக்கப்பட்ட மின்னேற்றத்தைச் சேமிக்கும்."
+        "en": "Think of a parallel-plate capacitor. Bigger plates hold more charge; plates closer together hold more; the material between them matters too.",
+        "ta": "சமாந்தரத் தட்டுக் கொள்ளளவியை நினையுங்கள். பெரிய தட்டுகள் அதிக ஏற்றத்தைக் கொள்கின்றன; நெருக்கமான தட்டுகள் அதிகம் கொள்கின்றன; அவற்றுக்கிடையிலுள்ள பதார்த்தமும் முக்கியம்.",
+        "si": "සමාන්තර තහඩු ධාරිත්‍රකයක් ගැන සිතන්න. විශාල තහඩු වැඩි ආරෝපණයක් දරයි; ළංව ඇති තහඩු වැඩියෙන් දරයි; ඒවා අතර ඇති ද්‍රව්‍යයද වැදගත් වේ."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "A and B matter, but so does the dielectric C.",
+          "ta": "A, B முக்கியம்; ஆனால் மின்கோடலி C உம் முக்கியம்.",
+          "si": "A සහ B වැදගත් වුවද පාර විද්‍යුතය C ද වැදගත් වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "B and C matter, but so does the plate area A.",
+          "ta": "B, C முக்கியம்; ஆனால் தட்டுப் பரப்பு A உம் முக்கியம்.",
+          "si": "B සහ C වැදගත් වුවද තහඩු වර්ගඵලය A ද වැදගත් වේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "A and C matter, but so does the separation B.",
+          "ta": "A, C முக்கியம்; ஆனால் இடைவெளி B உம் முக்கியம்.",
+          "si": "A සහ C වැදගත් වුවද පරතරය B ද වැදගත් වේ."
         },
         {
-          "en": "C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "Right: C = εA/d depends on all three.",
+          "ta": "சரி: C = εA/d மூன்றிலும் தங்கியுள்ளது.",
+          "si": "නිවැරදියි: C = εA/d තුනම මත රඳා පවතී."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "A capacitor stores separated electric charge.",
-          "ta": "கொள்ளளவி பிரிக்கப்பட்ட மின்னேற்றத்தைச் சேமிக்கும்."
+          "en": "Capacitance of a parallel-plate capacitor: C = εA/d. It increases with plate area A and permittivity ε, and decreases with separation d.",
+          "ta": "சமாந்தரத் தட்டுக் கொள்ளளவியின் கொள்ளளவு: C = εA/d. அது தட்டுப் பரப்பு A உடனும் ε உடனும் கூடுகிறது; இடைவெளி d உடன் குறைகிறது.",
+          "si": "සමාන්තර තහඩු ධාරිත්‍රකයක ධාරිතාව: C = εA/d. එය තහඩු වර්ගඵලය A සහ ε සමඟ වැඩි වන අතර පරතරය d සමඟ අඩු වේ."
         },
         "reasoning": {
-          "en": "C = εA/d. Area A increases capacitance, separation d decreases it, and the dielectric determines ε. All three matter.",
-          "ta": "C = εA/d. பரப்பு அதிகரித்தால் கொள்ளளவு அதிகரிக்கும்; இடைவெளி அதிகரித்தால் குறையும்; மின்காப்பு ε ஐ நிர்ணயிக்கும். மூன்றும் முக்கியம்."
+          "en": "A capacitor stores charge on its plates. More area gives more room for charge, and closer plates attract the opposite charges more strongly, so more can be stored.",
+          "ta": "கொள்ளளவி அதன் தட்டுகளில் ஏற்றத்தைச் சேமிக்கிறது. அதிக பரப்பு ஏற்றத்துக்கு அதிக இடம் தருகிறது; நெருக்கமான தட்டுகள் எதிர் ஏற்றங்களை வலுவாகக் கவர்வதால் அதிகம் சேமிக்கலாம்.",
+          "si": "ධාරිත්‍රකයක් එහි තහඩු මත ආරෝපණය ගබඩා කරයි. වැඩි වර්ගඵලයක් ආරෝපණයට වැඩි ඉඩක් දෙන අතර ළං තහඩු ප්‍රතිවිරුද්ධ ආරෝපණ ප්‍රබලව ආකර්ෂණය කරන බැවින් වැඩියෙන් ගබඩා කළ හැක."
         },
         "commonMistake": {
-          "en": "A capacitor does not generate a steady current.",
-          "ta": "கொள்ளளவி தொடர்ச்சியான மின்னோட்டத்தை உருவாக்காது."
+          "en": "Thinking a larger separation increases capacitance. Moving the plates apart decreases it.",
+          "ta": "பெரிய இடைவெளி கொள்ளளவைக் கூட்டுகிறது என நினைத்தல். தட்டுகளை விலக்குவது அதைக் குறைக்கிறது.",
+          "si": "විශාල පරතරයක් ධාරිතාව වැඩි කරයි යැයි සිතීම. තහඩු ඈත් කිරීම එය අඩු කරයි."
         },
         "practice": {
           "question": {
-            "en": "Why place a capacitor across rectifier output?",
-            "ta": "சீராக்கி வெளியீட்டுக்குச் சமாந்தரமாகக் கொள்ளளவி ஏன் இணைக்கப்படுகிறது?"
+            "en": "What happens to the capacitance if the plate area is doubled and the separation is halved?",
+            "ta": "தட்டுப் பரப்பு இரட்டிப்பாகி இடைவெளி பாதியானால் கொள்ளளவுக்கு என்ன நிகழும்?",
+            "si": "තහඩු වර්ගඵලය දෙගුණ කර පරතරය අඩකට අඩු කළහොත් ධාරිතාවට කුමක් වේද?"
           },
           "answer": {
-            "en": "It charges at peaks and discharges between peaks, reducing ripple.",
-            "ta": "உச்சங்களில் ஏற்றம் பெற்று இடையில் இறங்குவதால் அலைவுத்துடிப்பு குறையும்."
+            "en": "It becomes four times as large (×2 for area, ×2 for separation).",
+            "ta": "அது நான்கு மடங்காகிறது (பரப்புக்கு ×2, இடைவெளிக்கு ×2).",
+            "si": "එය සිව් ගුණයක් වේ (වර්ගඵලයට ×2, පරතරයට ×2)."
           }
         }
       },
@@ -2068,82 +2389,109 @@
       ],
       "prompt": {
         "en": "Which doping produces a p-type semiconductor?",
-        "ta": "p-வகை அரைக்கடத்தியை உருவாக்கும் கலப்பு எது?"
+        "ta": "p-வகை அரைக்கடத்தியை உருவாக்கும் கலப்பு எது?",
+        "si": "p-වර්ගයේ අර්ධ සන්නායකයක් නිපදවන මාත්‍රණය කුමක්ද?"
       },
       "options": [
         {
           "en": "Ge with phosphorus",
-          "ta": "ஜெர்மேனியத்துடன் பொசுபரசு"
+          "ta": "ஜெர்மேனியத்துடன் பொசுபரசு",
+          "si": "පොස්පරස් සමඟ Ge"
         },
         {
           "en": "Si with aluminium",
-          "ta": "சிலிக்கனுடன் அலுமினியம்"
+          "ta": "சிலிக்கனுடன் அலுமினியம்",
+          "si": "ඇලුමිනියම් සමඟ Si"
         },
         {
           "en": "Ge with antimony",
-          "ta": "ஜெர்மேனியத்துடன் அன்ரிமனி"
+          "ta": "ஜெர்மேனியத்துடன் அன்ரிமனி",
+          "si": "ඇන්ටිමනි සමඟ Ge"
         },
         {
           "en": "Ge with silicon",
-          "ta": "ஜெர்மேனியத்துடன் சிலிக்கன்"
+          "ta": "ஜெர்மேனியத்துடன் சிலிக்கன்",
+          "si": "සිලිකන් සමඟ Ge"
         }
       ],
       "correct": 1,
       "explanation": {
         "en": "Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-        "ta": "அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+        "ta": "அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்.",
+        "si": "ඇලුමිනියම් ත්‍රිසංයුජ වේ. චතුසංයුජ සිලිකන්හිදී එය කුහර ඉතිරි කරමින් p-වර්ගයේ ද්‍රව්‍යයක් සාදයි. පංචසංයුජ අපද්‍රව්‍ය n-වර්ගයේ ද්‍රව්‍ය නිපදවයි."
       },
       "steps": [
         {
-          "en": "Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "Phosphorus and antimony have 5 outer electrons: they give spare electrons, making n-type material.",
+          "ta": "பொஸ்பரசுக்கும் அந்திமனிக்கும் 5 வெளி இலத்திரன்கள் உண்டு: மேலதிக இலத்திரன்களைத் தந்து n-வகைப் பதார்த்தத்தை உண்டாக்குகின்றன.",
+          "si": "පොස්පරස් සහ ඇන්ටිමනිවලට පිටත ඉලෙක්ට්‍රෝන 5 ක් ඇත: ඒවා අමතර ඉලෙක්ට්‍රෝන දී n-වර්ගයේ ද්‍රව්‍ය සාදයි."
+        },
+        {
+          "en": "Aluminium has 3 outer electrons: in silicon it leaves holes, making p-type material.",
+          "ta": "அலுமினியத்துக்கு 3 வெளி இலத்திரன்கள் உண்டு: சிலிக்கனில் துளைகளை விட்டு p-வகைப் பதார்த்தத்தை உண்டாக்குகிறது.",
+          "si": "ඇලුමිනියම්වලට පිටත ඉලෙක්ට්‍රෝන 3 ක් ඇත: සිලිකන්හිදී කුහර ඉතිරි කර p-වර්ගයේ ද්‍රව්‍ය සාදයි."
+        },
+        {
+          "en": "Silicon in germanium adds 4 electrons, the same as germanium, so it is not doping at all.",
+          "ta": "ஜேர்மேனியத்திலுள்ள சிலிக்கன் ஜேர்மேனியத்தைப் போலவே 4 இலத்திரன்களைச் சேர்க்கிறது; எனவே அது மாசூட்டலே அல்ல.",
+          "si": "ජර්මේනියම්හි ඇති සිලිකන් ජර්මේනියම් මෙන්ම ඉලෙක්ට්‍රෝන 4 ක් එකතු කරන බැවින් එය කිසිසේත් මාත්‍රණයක් නොවේ."
         }
       ],
       "hint": {
-        "en": "An n-type semiconductor has electrons as majority carriers.",
-        "ta": "n-வகை அரைக்கடத்தியில் இலத்திரன்கள் பெரும்பான்மை காவிகள்."
+        "en": "Silicon and germanium have 4 outer electrons. An impurity with 3 outer electrons leaves a gap (a hole); one with 5 gives a spare electron.",
+        "ta": "சிலிக்கனுக்கும் ஜேர்மேனியத்துக்கும் 4 வெளி இலத்திரன்கள் உண்டு. 3 வெளி இலத்திரன்களுள்ள மாசு ஒரு இடைவெளியை (துளை) விடுகிறது; 5 உள்ளது மேலதிக இலத்திரனைத் தருகிறது.",
+        "si": "සිලිකන් සහ ජර්මේනියම්වලට පිටත ඉලෙක්ට්‍රෝන 4 ක් ඇත. පිටත ඉලෙක්ට්‍රෝන 3 ක් ඇති අපද්‍රව්‍යයක් හිඩැසක් (කුහරයක්) ඉතිරි කරයි; 5 ක් ඇති එකක් අමතර ඉලෙක්ට්‍රෝනයක් දෙයි."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "Phosphorus has 5 outer electrons, so it makes n-type material.",
+          "ta": "பொஸ்பரசுக்கு 5 வெளி இலத்திரன்கள் உண்டு; எனவே n-வகையை உண்டாக்குகிறது.",
+          "si": "පොස්පරස්වලට පිටත ඉලෙක්ට්‍රෝන 5 ක් ඇති බැවින් එය n-වර්ගයේ ද්‍රව්‍ය සාදයි."
         },
         {
-          "en": "Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "Right: trivalent aluminium in silicon creates holes: p-type.",
+          "ta": "சரி: சிலிக்கனிலுள்ள மூவலு அலுமினியம் துளைகளை உண்டாக்குகிறது: p-வகை.",
+          "si": "නිවැරදියි: සිලිකන්හි ඇති ත්‍රිසංයුජ ඇලුමිනියම් කුහර සාදයි: p-වර්ගය."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "Antimony has 5 outer electrons, so it makes n-type material.",
+          "ta": "அந்திமனிக்கு 5 வெளி இலத்திரன்கள் உண்டு; எனவே n-வகையை உண்டாக்குகிறது.",
+          "si": "ඇන්ටිමනිවලට පිටත ඉලෙක්ට්‍රෝන 5 ක් ඇති බැවින් එය n-වර්ගයේ ද්‍රව්‍ය සාදයි."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "Silicon has 4 outer electrons like germanium, so it adds no holes or spare electrons.",
+          "ta": "சிலிக்கனுக்கு ஜேர்மேனியம் போல் 4 வெளி இலத்திரன்கள்; எனவே துளைகளையோ மேலதிக இலத்திரன்களையோ சேர்ப்பதில்லை.",
+          "si": "සිලිකන්වලට ජර්මේනියම් මෙන් පිටත ඉලෙක්ට්‍රෝන 4 ක් ඇති බැවින් කුහර හෝ අමතර ඉලෙක්ට්‍රෝන එකතු නොකරයි."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "An n-type semiconductor has electrons as majority carriers.",
-          "ta": "n-வகை அரைக்கடத்தியில் இலத்திரன்கள் பெரும்பான்மை காவிகள்."
+          "en": "Doping: adding a trivalent impurity (B, Al, Ga, In) to Si or Ge makes p-type (holes); adding a pentavalent impurity (P, As, Sb) makes n-type (free electrons).",
+          "ta": "மாசூட்டல்: Si அல்லது Ge க்கு மூவலு மாசு (B, Al, Ga, In) சேர்ப்பது p-வகையை (துளைகள்) உண்டாக்குகிறது; ஐவலு மாசு (P, As, Sb) சேர்ப்பது n-வகையை (சுயாதீன இலத்திரன்கள்) உண்டாக்குகிறது.",
+          "si": "මාත්‍රණය: Si හෝ Ge වලට ත්‍රිසංයුජ අපද්‍රව්‍යයක් (B, Al, Ga, In) එකතු කිරීම p-වර්ගය (කුහර) සාදයි; පංචසංයුජ අපද්‍රව්‍යයක් (P, As, Sb) එකතු කිරීම n-වර්ගය (නිදහස් ඉලෙක්ට්‍රෝන) සාදයි."
         },
         "reasoning": {
-          "en": "Aluminium is trivalent. In tetravalent silicon it leaves holes, making p-type material. Pentavalent impurities produce n-type material.",
-          "ta": "அலுமினியம் மூன்று வலுவளவுடையது. நான்கு வலுவளவு சிலிக்கனில் துளைகளை உருவாக்கி p-வகையைத் தரும். ஐந்து வலுவளவுக் கலப்பு n-வகையைத் தரும்."
+          "en": "'p' stands for positive: the missing electron (hole) acts like a positive charge that can move. 'n' stands for negative: the spare electron carries the current.",
+          "ta": "'p' நேர் என்பதைக் குறிக்கிறது: விடுபட்ட இலத்திரன் (துளை) நகரக்கூடிய நேர் ஏற்றம் போல் செயற்படுகிறது. 'n' மறை என்பதைக் குறிக்கிறது: மேலதிக இலத்திரன் மின்னோட்டத்தைக் காவுகிறது.",
+          "si": "'p' යනු ධනයි: අතුරුදන් ඉලෙක්ට්‍රෝනය (කුහරය) චලනය විය හැකි ධන ආරෝපණයක් සේ ක්‍රියා කරයි. 'n' යනු සෘණයි: අමතර ඉලෙක්ට්‍රෝනය ධාරාව ගෙන යයි."
         },
         "commonMistake": {
-          "en": "Adding a trivalent impurity creates p-type material, not n-type.",
-          "ta": "மூன்று இணைதிறன் இலத்திரன்களுள்ள மாசு p-வகையை உருவாக்கும்; n-வகையை அல்ல."
+          "en": "Thinking p-type material is positively charged overall. It is neutral; only its current carriers are holes.",
+          "ta": "p-வகைப் பதார்த்தம் மொத்தமாக நேர் ஏற்றமுடையது என நினைத்தல். அது நடுநிலையானது; அதன் மின்னோட்டக் காவிகள் மட்டுமே துளைகள்.",
+          "si": "p-වර්ගයේ ද්‍රව්‍යය සමස්තයක් ලෙස ධන ආරෝපිත යැයි සිතීම. එය උදාසීනයි; එහි ධාරා වාහක පමණක් කුහර වේ."
         },
         "practice": {
           "question": {
-            "en": "Which majority carrier results from adding boron to silicon?",
-            "ta": "சிலிக்கனில் போரனைச் சேர்க்கும்போது பெரும்பான்மை காவி எது?"
+            "en": "Silicon is doped with arsenic (5 outer electrons). Which type of semiconductor is made?",
+            "ta": "சிலிக்கன் ஆசனிக்கால் (5 வெளி இலத்திரன்கள்) மாசூட்டப்படுகிறது. எவ்வகைக் குறைகடத்தி உண்டாகிறது?",
+            "si": "සිලිකන් ආසනික් (පිටත ඉලෙක්ට්‍රෝන 5) සමඟ මාත්‍රණය කෙරේ. සෑදෙන්නේ කුමන වර්ගයේ අර්ධ සන්නායකයක්ද?"
           },
           "answer": {
-            "en": "Holes: boron is trivalent and produces p-type material.",
-            "ta": "துளைகள்: போரனுக்கு மூன்று இணைதிறன் இலத்திரன்கள் உள்ளதால் p-வகை உருவாகும்."
+            "en": "n-type.",
+            "ta": "n-வகை.",
+            "si": "n-වර්ගය."
           }
         }
       },
@@ -2248,7 +2596,8 @@
       ],
       "prompt": {
         "en": "A coin is 26 cm below water; refractive index is 1.3. Find its apparent depth from above.",
-        "ta": "நீரில் நாணயம் 26 cm ஆழத்தில் உள்ளது; முறிவுச் சுட்டி 1.3. மேலிருந்து தோற்ற ஆழம் என்ன?"
+        "ta": "நீரில் நாணயம் 26 cm ஆழத்தில் உள்ளது; முறிவுச் சுட்டி 1.3. மேலிருந்து தோற்ற ஆழம் என்ன?",
+        "si": "කාසියක් ජලයට 26 cm පහළින් ඇත; වර්තනාංකය 1.3 වේ. ඉහළ සිට එහි දෘශ්‍ය ගැඹුර සොයන්න."
       },
       "options": [
         {
@@ -2271,59 +2620,81 @@
       "correct": 3,
       "explanation": {
         "en": "n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-        "ta": "n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+        "ta": "n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்.",
+        "si": "n = සත්‍ය ගැඹුර/දෘශ්‍ය ගැඹුර. දෘශ්‍ය ගැඹුර = 26/1.3 = 20 cm; එබැවින් කාසිය 6 cm කින් ඉහළට පෙනේ."
       },
       "steps": [
         {
-          "en": "n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "n = real depth ÷ apparent depth, so apparent depth = real depth ÷ n.",
+          "ta": "n = உண்மை ஆழம் ÷ தோற்ற ஆழம்; எனவே தோற்ற ஆழம் = உண்மை ஆழம் ÷ n.",
+          "si": "n = සත්‍ය ගැඹුර ÷ දෘශ්‍ය ගැඹුර; එබැවින් දෘශ්‍ය ගැඹුර = සත්‍ය ගැඹුර ÷ n."
+        },
+        {
+          "en": "Apparent depth = 26 ÷ 1.3 = 20 cm.",
+          "ta": "தோற்ற ஆழம் = 26 ÷ 1.3 = 20 cm.",
+          "si": "දෘශ්‍ය ගැඹුර = 26 ÷ 1.3 = 20 cm."
+        },
+        {
+          "en": "The coin looks 6 cm higher than it really is.",
+          "ta": "நாணயம் உண்மையை விட 6 cm உயரமாகத் தோன்றுகிறது.",
+          "si": "කාසිය ඇත්තට වඩා 6 cm ඉහළින් පෙනේ."
         }
       ],
       "hint": {
-        "en": "Refraction changes light direction when its speed changes between media.",
-        "ta": "ஊடகங்களுக்கிடையில் ஒளியின் வேகம் மாறும்போது முறிவு திசையை மாற்றுகிறது."
+        "en": "Looking down into water, things look shallower than they are. Refractive index = real depth ÷ apparent depth.",
+        "ta": "நீருக்குள் கீழே பார்க்கும்போது பொருள்கள் உண்மையை விட ஆழம் குறைந்தவையாகத் தோன்றுகின்றன. முறிவுச் சுட்டி = உண்மை ஆழம் ÷ தோற்ற ஆழம்.",
+        "si": "ජලය තුළට පහළට බලන විට දේවල් ඇත්තට වඩා නොගැඹුරු ලෙස පෙනේ. වර්තනාංකය = සත්‍ය ගැඹුර ÷ දෘශ්‍ය ගැඹුර."
       },
       "answerVerification": "independently-worked-model",
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "Use the principle in the worked explanation to check this choice. n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "2.0 cm is a slip in the decimal point: 26 ÷ 1.3 = 20, not 2.",
+          "ta": "2.0 cm தசமப் புள்ளித் தவறு: 26 ÷ 1.3 = 20; 2 அல்ல.",
+          "si": "2.0 cm දශම ලක්ෂ්‍ය වරදකි: 26 ÷ 1.3 = 20 මිස 2 නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "2.6 cm is 26 ÷ 10, not 26 ÷ 1.3.",
+          "ta": "2.6 cm என்பது 26 ÷ 10; 26 ÷ 1.3 அல்ல.",
+          "si": "2.6 cm යනු 26 ÷ 10 මිස 26 ÷ 1.3 නොවේ."
         },
         {
-          "en": "Use the principle in the worked explanation to check this choice. n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "விடை விளக்கத்திலுள்ள தத்துவத்துடன் இத்தெரிவைச் சரிபார்க்கவும். n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "13.0 cm is half the real depth, not the real depth ÷ 1.3.",
+          "ta": "13.0 cm உண்மை ஆழத்தின் பாதி; உண்மை ஆழம் ÷ 1.3 அல்ல.",
+          "si": "13.0 cm යනු සත්‍ය ගැඹුරෙන් අඩකි; සත්‍ය ගැඹුර ÷ 1.3 නොවේ."
         },
         {
-          "en": "n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "Right: 26 ÷ 1.3 = 20 cm.",
+          "ta": "சரி: 26 ÷ 1.3 = 20 cm.",
+          "si": "නිවැරදියි: 26 ÷ 1.3 = 20 cm."
         }
       ],
       "detailedExplanation": {
         "concept": {
-          "en": "Refraction changes light direction when its speed changes between media.",
-          "ta": "ஊடகங்களுக்கிடையில் ஒளியின் வேகம் மாறும்போது முறிவு திசையை மாற்றுகிறது."
+          "en": "Refraction at the water surface bends light from the bottom away from the normal, so objects under water appear raised: n = real depth ÷ apparent depth.",
+          "ta": "நீர் மேற்பரப்பிலுள்ள முறிவு அடியிலிருந்து வரும் ஒளியைச் செவ்வனிலிருந்து விலக்கி வளைப்பதால் நீருக்குள்ளுள்ள பொருள்கள் உயர்ந்தவையாகத் தோன்றுகின்றன: n = உண்மை ஆழம் ÷ தோற்ற ஆழம்.",
+          "si": "ජල පෘෂ්ඨයේ වර්තනය පතුලෙන් එන ආලෝකය අභිලම්බයෙන් ඉවතට නමන බැවින් ජලය යට ඇති වස්තු ඉහළ නැංවුණු සේ පෙනේ: n = සත්‍ය ගැඹුර ÷ දෘශ්‍ය ගැඹුර."
         },
         "reasoning": {
-          "en": "n = real depth/apparent depth. Apparent depth = 26/1.3 = 20 cm, so the coin appears raised by 6 cm.",
-          "ta": "n = மெய்யாழம்/தோற்ற ஆழம். தோற்ற ஆழம் = 26/1.3 = 20 cm; நாணயம் 6 cm உயர்ந்ததாகத் தோன்றும்."
+          "en": "That is why a pool looks shallower than it is, and why a straight stick in water looks bent at the surface.",
+          "ta": "அதனால்தான் நீச்சல் தடாகம் உண்மையை விட ஆழம் குறைந்ததாகத் தோன்றுகிறது; நீரிலுள்ள நேரான கோல் மேற்பரப்பில் வளைந்ததாகத் தோன்றுகிறது.",
+          "si": "පිහිනුම් තටාකයක් ඇත්තට වඩා නොගැඹුරු ලෙස පෙනෙන්නේත් ජලයේ ඇති කෙළින් කෝටුවක් පෘෂ්ඨයේදී නැමුණු සේ පෙනෙන්නේත් එබැවිනි."
         },
         "commonMistake": {
-          "en": "Total internal reflection requires travel from higher to lower refractive index, not air into glass.",
-          "ta": "முழு அகத்தெறிப்புக்கு அதிக முறிவுச் சுட்டியிலிருந்து குறைந்த முறிவுச் சுட்டிக்குச் செல்ல வேண்டும்; வளியிலிருந்து கண்ணாடிக்குள் அல்ல."
+          "en": "Multiplying by n instead of dividing, which would make the coin look deeper.",
+          "ta": "வகுப்பதற்குப் பதில் n ஆல் பெருக்குதல்; அது நாணயத்தை ஆழமாகத் தோன்றச் செய்யும்.",
+          "si": "බෙදනවා වෙනුවට n න් ගුණ කිරීම; එය කාසිය ගැඹුරින් පෙනෙන්නට සලස්වයි."
         },
         "practice": {
           "question": {
-            "en": "A ray enters glass perpendicular to its surface. Does its direction change?",
-            "ta": "ஒளிக்கதிர் கண்ணாடி மேற்பரப்பிற்கு செங்குத்தாக நுழைந்தால் திசை மாறுமா?"
+            "en": "A pool looks 1.5 m deep. Its water has n = 1.33. Find the real depth.",
+            "ta": "ஒரு தடாகம் 1.5 m ஆழமாகத் தோன்றுகிறது. அதன் நீருக்கு n = 1.33. உண்மை ஆழத்தைக் காண்க.",
+            "si": "තටාකයක් 1.5 m ගැඹුරට පෙනේ. එහි ජලයට n = 1.33. සත්‍ය ගැඹුර සොයන්න."
           },
           "answer": {
-            "en": "No. i = 0, so r = 0; its speed still changes.",
-            "ta": "இல்லை. i = 0 என்பதால் r = 0; ஆனால் வேகம் மாறும்."
+            "en": "Real depth = 1.5 × 1.33 ≈ 2.0 m.",
+            "ta": "உண்மை ஆழம் = 1.5 × 1.33 ≈ 2.0 m.",
+            "si": "සත්‍ය ගැඹුර = 1.5 × 1.33 ≈ 2.0 m."
           }
         }
       },
@@ -2396,7 +2767,8 @@
       "physicsSubset": true,
       "prompt": {
         "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
-        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்.",
+        "si": "පහත භෞතික විද්‍යා උප කොටස්වලට පමණක් පිළිතුරු දෙන්න. මුල් උප කොටස් ලේබල් එලෙසම ඇත; රූප සඳහා මුල් පිටු බලන්න."
       },
       "parts": [
         {
@@ -2407,47 +2779,62 @@
           ],
           "prompt": {
             "en": "A distance–time graph is a straight line from 0 to 100 m in 40 s. Find AB and speed.",
-            "ta": "தூரம்–நேர நேர்கோடு 0 இலிருந்து 40 s இல் 100 m அடையும். AB தூரத்தையும் கதியையும் காண்க."
+            "ta": "தூரம்–நேர நேர்கோடு 0 இலிருந்து 40 s இல் 100 m அடையும். AB தூரத்தையும் கதியையும் காண்க.",
+            "si": "දුර–කාල ප්‍රස්තාරයක් තත්පර 40 කදී 0 සිට 100 m දක්වා සරල රේඛාවකි. AB සහ වේගය සොයන්න."
           },
           "answer": {
             "en": "AB = 100 m. | Speed = slope = distance/time = 100/40 = 2.5 m s⁻¹. A straight line means constant speed.",
-            "ta": "AB = 100 m. | கதி = சாய்வு = தூரம்/நேரம் = 100/40 = 2.5 m s⁻¹. நேர்கோடு மாறா கதியைக் குறிக்கும்."
+            "ta": "AB = 100 m. | கதி = சாய்வு = தூரம்/நேரம் = 100/40 = 2.5 m s⁻¹. நேர்கோடு மாறா கதியைக் குறிக்கும்.",
+            "si": "AB = 100 m. | වේගය = අනුක්‍රමණය = දුර/කාලය = 100/40 = 2.5 m s⁻¹. සරල රේඛාවක් යනු නියත වේගයයි."
           },
           "steps": [
             {
-              "en": "AB = 100 m.",
-              "ta": "AB = 100 m."
+              "en": "(a) AB is the total distance on the graph: 100 m.",
+              "ta": "(a) AB வரைபிலுள்ள மொத்தத் தூரம்: 100 m.",
+              "si": "(a) AB යනු ප්‍රස්තාරයේ මුළු දුරයි: 100 m."
             },
             {
-              "en": "Speed = slope = distance/time = 100/40 = 2.5 m s⁻¹. A straight line means constant speed.",
-              "ta": "கதி = சாய்வு = தூரம்/நேரம் = 100/40 = 2.5 m s⁻¹. நேர்கோடு மாறா கதியைக் குறிக்கும்."
+              "en": "(b) Speed = gradient = 100 m ÷ 40 s = 2.5 m s⁻¹.",
+              "ta": "(b) கதி = படித்திறன் = 100 m ÷ 40 s = 2.5 m s⁻¹.",
+              "si": "(b) වේගය = අනුක්‍රමණය = 100 m ÷ 40 s = 2.5 m s⁻¹."
+            },
+            {
+              "en": "The graph is a straight line, so the speed is constant the whole time.",
+              "ta": "வரைபு நேர்கோடு; எனவே முழு நேரமும் கதி மாறிலி.",
+              "si": "ප්‍රස්තාරය සරල රේඛාවක් බැවින් මුළු කාලයම වේගය නියතය."
             }
           ],
           "hint": {
-            "en": "On a velocity–time graph, height gives velocity, slope gives acceleration, area gives displacement.",
-            "ta": "வேகம்–நேர வரைபில் உயரம் வேகம்; சரிவு ஆர்முடுகல்; பரப்பளவு இடப்பெயர்ச்சி."
+            "en": "AB is read straight off the distance axis. The gradient of a distance–time graph is the speed.",
+            "ta": "AB தூர அச்சிலிருந்து நேரடியாக வாசிக்கப்படுகிறது. தூர–நேர வரைபின் படித்திறன் கதி.",
+            "si": "AB දුර අක්ෂයෙන් කෙළින්ම කියවනු ලැබේ. දුර–කාල ප්‍රස්තාරයක අනුක්‍රමණය වේගයයි."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "On a velocity–time graph, height gives velocity, slope gives acceleration, area gives displacement.",
-              "ta": "வேகம்–நேர வரைபில் உயரம் வேகம்; சரிவு ஆர்முடுகல்; பரப்பளவு இடப்பெயர்ச்சி."
+              "en": "On a distance–time graph, the gradient (rise ÷ run) is the speed. A straight line means constant speed.",
+              "ta": "தூர–நேர வரைபில் படித்திறன் (ஏற்றம் ÷ ஓட்டம்) கதி. நேர்கோடு என்றால் மாறாக் கதி.",
+              "si": "දුර–කාල ප්‍රස්තාරයක අනුක්‍රමණය (නැගීම ÷ ධාවනය) වේගයයි. සරල රේඛාවක් යනු නියත වේගයයි."
             },
             "reasoning": {
-              "en": "AB = 100 m. | Speed = slope = distance/time = 100/40 = 2.5 m s⁻¹. A straight line means constant speed.",
-              "ta": "AB = 100 m. | கதி = சாய்வு = தூரம்/நேரம் = 100/40 = 2.5 m s⁻¹. நேர்கோடு மாறா கதியைக் குறிக்கும்."
+              "en": "Any two points on a straight line give the same gradient: for example 50 m in 20 s is also 2.5 m s⁻¹.",
+              "ta": "நேர்கோட்டிலுள்ள எந்த இரு புள்ளிகளும் அதே படித்திறனைத் தருகின்றன: உதாரணமாக 20 s இல் 50 m உம் 2.5 m s⁻¹.",
+              "si": "සරල රේඛාවක ඕනෑම ලක්ෂ්‍ය දෙකක් එකම අනුක්‍රමණය දෙයි: උදාහරණයක් ලෙස තත්පර 20 කදී 50 m ද 2.5 m s⁻¹ වේ."
             },
             "commonMistake": {
-              "en": "Do not confuse slope with distance, or a duration with an absolute time-coordinate.",
-              "ta": "சரிவைத் தூரத்துடனும் கால இடைவெளியை நேர ஆயத்துடனும் குழப்ப வேண்டாம்."
+              "en": "Dividing time by distance (40 ÷ 100 = 0.4). Speed is distance ÷ time.",
+              "ta": "நேரத்தைத் தூரத்தால் வகுத்தல் (40 ÷ 100 = 0.4). கதி = தூரம் ÷ நேரம்.",
+              "si": "කාලය දුරින් බෙදීම (40 ÷ 100 = 0.4). වේගය = දුර ÷ කාලය."
             },
             "practice": {
               "question": {
-                "en": "Velocity rises uniformly from 0 to 20 m s⁻¹ in 10 s. Find distance during this interval.",
-                "ta": "வேகம் 10 s இல் சீராக 0 இலிருந்து 20 m s⁻¹ ஆகிறது. இக்காலத் தூரத்தைக் காண்க."
+                "en": "At this speed, how far does the object go in 1 minute?",
+                "ta": "இக்கதியில் 1 நிமிடத்தில் பொருள் எவ்வளவு தூரம் செல்கிறது?",
+                "si": "මෙම වේගයෙන් මිනිත්තු 1 කදී වස්තුව කොපමණ දුරක් යයිද?"
               },
               "answer": {
-                "en": "Triangle area = ½ × 10 × 20 = 100 m.",
-                "ta": "முக்கோணப் பரப்பு = ½ × 10 × 20 = 100 m."
+                "en": "2.5 × 60 = 150 m.",
+                "ta": "2.5 × 60 = 150 m.",
+                "si": "2.5 × 60 = 150 m."
               }
             }
           },
@@ -2499,7 +2886,8 @@
           ],
           "textbookReferenceStatus": "related-only"
         }
-      ]
+      ],
+      "detailedExplanation": {}
     },
     {
       "id": "ol2017-ii-04",
@@ -2523,7 +2911,8 @@
       "physicsSubset": true,
       "prompt": {
         "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
-        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்.",
+        "si": "පහත භෞතික විද්‍යා උප කොටස්වලට පමණක් පිළිතුරු දෙන්න. මුල් උප කොටස් ලේබල් එලෙසම ඇත; රූප සඳහා මුල් පිටු බලන්න."
       },
       "parts": [
         {
@@ -2534,43 +2923,62 @@
           ],
           "prompt": {
             "en": "Identify R and S, explain the circuit error and correct the two-cell connection.",
-            "ta": "R, S ஐ இனங்கண்டு சுற்றின் பிழையையும் இரு கலங்களின் சரியான இணைப்பையும் குறிப்பிடுக."
+            "ta": "R, S ஐ இனங்கண்டு சுற்றின் பிழையையும் இரு கலங்களின் சரியான இணைப்பையும் குறிப்பிடுக.",
+            "si": "R සහ S හඳුනාගෙන, පරිපථ දෝෂය පැහැදිලි කර කෝෂ දෙකේ සම්බන්ධය නිවැරදි කරන්න."
           },
           "answer": {
             "en": "R is an ammeter (circle with A); S is a cell (unequal parallel lines). The two 1.5 V cells oppose each other, giving zero net emf. Connect the positive of one to the negative of the other for 3 V in series, keeping the ammeter in series.",
-            "ta": "R அம்மீற்றர் (A கொண்ட வட்டம்); S கலம் (சமமற்ற கோடுகள்). இரு 1.5 V கலங்கள் எதிராக இருப்பதால் நிகர மின்னியக்க விசை பூச்சியம். ஒன்றின் நேர்முனையை மற்றதின் மறைமுனையுடன் இணைத்து தொடரில் 3 V பெறுக; அம்மீற்றரைத் தொடரில் வைத்திருக்கவும்."
+            "ta": "R அம்மீற்றர் (A கொண்ட வட்டம்); S கலம் (சமமற்ற கோடுகள்). இரு 1.5 V கலங்கள் எதிராக இருப்பதால் நிகர மின்னியக்க விசை பூச்சியம். ஒன்றின் நேர்முனையை மற்றதின் மறைமுனையுடன் இணைத்து தொடரில் 3 V பெறுக; அம்மீற்றரைத் தொடரில் வைத்திருக்கவும்.",
+            "si": "R ඇමීටරයකි (A සහිත කවය); S කෝෂයකි (අසමාන සමාන්තර රේඛා). 1.5 V කෝෂ දෙක එකිනෙකට විරුද්ධ වන බැවින් ශුද්ධ වි.ගා.බ. ශුන්‍යයි. ඇමීටරය ශ්‍රේණිගතව තබා ගනිමින් ශ්‍රේණිගතව 3 V සඳහා එකක ධනය අනෙකේ සෘණයට සම්බන්ධ කරන්න."
           },
           "steps": [
             {
-              "en": "R is an ammeter (circle with A); S is a cell (unequal parallel lines). The two 1.5 V cells oppose each other, giving zero net emf. Connect the positive of one to the negative of the other for 3 V in series, keeping the ammeter in series.",
-              "ta": "R அம்மீற்றர் (A கொண்ட வட்டம்); S கலம் (சமமற்ற கோடுகள்). இரு 1.5 V கலங்கள் எதிராக இருப்பதால் நிகர மின்னியக்க விசை பூச்சியம். ஒன்றின் நேர்முனையை மற்றதின் மறைமுனையுடன் இணைத்து தொடரில் 3 V பெறுக; அம்மீற்றரைத் தொடரில் வைத்திருக்கவும்."
+              "en": "(i) R is an ammeter (a circle with A). S is a cell (a long and a short line).",
+              "ta": "(i) R அம்மீற்றர் (A உள்ள வட்டம்). S கலம் (நீண்ட, குறுகிய கோடு).",
+              "si": "(i) R ඇමීටරයකි (A සහිත කවයක්). S කෝෂයකි (දිගු සහ කෙටි රේඛාවක්)."
+            },
+            {
+              "en": "(ii) The two cells are joined + to +, so they push against each other: 1.5 − 1.5 = 0 V, and no current flows.",
+              "ta": "(ii) இரு கலங்களும் + உடன் + ஆக இணைக்கப்பட்டுள்ளதால் ஒன்றுக்கொன்று எதிராகத் தள்ளுகின்றன: 1.5 − 1.5 = 0 V; மின்னோட்டம் பாய்வதில்லை.",
+              "si": "(ii) කෝෂ දෙක + සමඟ + ලෙස සම්බන්ධ කර ඇති බැවින් එකිනෙකට එරෙහිව තල්ලු කරයි: 1.5 − 1.5 = 0 V; ධාරාවක් නොගලයි."
+            },
+            {
+              "en": "(iii) Turn one cell round so + joins −: they then add to 3 V. Keep the ammeter in series.",
+              "ta": "(iii) + − உடன் இணையுமாறு ஒரு கலத்தைத் திருப்புக: அப்போது அவை 3 V ஆகக் கூடுகின்றன. அம்மீற்றரைத் தொடரிலேயே வைக்கவும்.",
+              "si": "(iii) + සහ − සම්බන්ධ වන සේ එක් කෝෂයක් හරවන්න: එවිට ඒවා 3 V දක්වා එකතු වේ. ඇමීටරය ශ්‍රේණිගතව තබා ගන්න."
             }
           ],
           "hint": {
-            "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
-            "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+            "en": "Read the symbols: a circle with A, and a pair of long/short lines. Then check how the two cells face each other.",
+            "ta": "குறியீடுகளை வாசிக்கவும்: A உள்ள வட்டம், நீண்ட/குறுகிய கோடுகளின் சோடி. பின் இரு கலங்களும் ஒன்றையொன்று எவ்வாறு நோக்குகின்றன எனச் சரிபார்க்கவும்.",
+            "si": "සංකේත කියවන්න: A සහිත කවයක්, සහ දිගු/කෙටි රේඛා යුගලයක්. ඉන්පසු කෝෂ දෙක එකිනෙකට මුහුණලා ඇති ආකාරය පරීක්ෂා කරන්න."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
-              "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+              "en": "Cells in series add their emfs only if they are joined + to −. Joined the wrong way, their emfs subtract.",
+              "ta": "தொடரிலுள்ள கலங்கள் + இலிருந்து − ஆக இணைக்கப்பட்டால் மட்டுமே மி.இ.வி களைக் கூட்டுகின்றன. தவறாக இணைக்கப்பட்டால் அவற்றின் மி.இ.வி கள் கழிகின்றன.",
+              "si": "ශ්‍රේණිගත කෝෂ ඒවායේ වි.ගා.බ. එකතු කරන්නේ + සිට − ලෙස සම්බන්ධ කළහොත් පමණි. වැරදි ලෙස සම්බන්ධ කළහොත් ඒවායේ වි.ගා.බ. අඩු වේ."
             },
             "reasoning": {
-              "en": "R is an ammeter (circle with A); S is a cell (unequal parallel lines). The two 1.5 V cells oppose each other, giving zero net emf. Connect the positive of one to the negative of the other for 3 V in series, keeping the ammeter in series.",
-              "ta": "R அம்மீற்றர் (A கொண்ட வட்டம்); S கலம் (சமமற்ற கோடுகள்). இரு 1.5 V கலங்கள் எதிராக இருப்பதால் நிகர மின்னியக்க விசை பூச்சியம். ஒன்றின் நேர்முனையை மற்றதின் மறைமுனையுடன் இணைத்து தொடரில் 3 V பெறுக; அம்மீற்றரைத் தொடரில் வைத்திருக்கவும்."
+              "en": "In the cell symbol the long line is +. Following the loop, you meet each cell from − to + only if they all face the same way.",
+              "ta": "கலக் குறியீட்டில் நீண்ட கோடு +. சுற்று வழியே சென்றால், அவை எல்லாம் ஒரே திசையை நோக்கினால் மட்டுமே ஒவ்வொரு கலத்தையும் − இலிருந்து + ஆகச் சந்திப்பீர்கள்.",
+              "si": "කෝෂ සංකේතයේ දිගු රේඛාව + වේ. පුඩුව දිගේ ගිය විට, ඒවා සියල්ල එකම දිශාවට මුහුණලා ඇත්නම් පමණක් ඔබ එක් එක් කෝෂය − සිට + දක්වා හමු වේ."
             },
             "commonMistake": {
-              "en": "Never show the ammeter in parallel across the supply in your circuit drawing.",
-              "ta": "மின்சுற்றுப் படத்தில் அம்மீற்றரை வழங்கலுக்குச் சமாந்தரமாகக் காட்ட வேண்டாம்."
+              "en": "Thinking the problem is the ammeter. An ammeter in series is correct; the cells are the fault.",
+              "ta": "பிரச்சினை அம்மீற்றர் என நினைத்தல். தொடரிலுள்ள அம்மீற்றர் சரி; பிழை கலங்களே.",
+              "si": "ගැටලුව ඇමීටරය යැයි සිතීම. ශ්‍රේණිගත ඇමීටරයක් නිවැරදියි; දෝෂය කෝෂවලයි."
             },
             "practice": {
               "question": {
-                "en": "A resistor has 6 V across it and carries 0.5 A. Find resistance.",
-                "ta": "ஒரு தடையின் வோல்ற்றளவு 6 V; மின்னோட்டம் 0.5 A. தடையைக் காண்க."
+                "en": "Three 1.5 V cells are in series, but one is the wrong way round. What is the total emf?",
+                "ta": "மூன்று 1.5 V கலங்கள் தொடரில் உள்ளன; ஆனால் ஒன்று தவறாகத் திருப்பப்பட்டுள்ளது. மொத்த மி.இ.வி என்ன?",
+                "si": "1.5 V කෝෂ තුනක් ශ්‍රේණිගතව ඇති නමුත් එකක් වැරදි ලෙස හරවා ඇත. මුළු වි.ගා.බ. කුමක්ද?"
               },
               "answer": {
-                "en": "R = V/I = 6/0.5 = 12 Ω.",
-                "ta": "R = V/I = 6/0.5 = 12 Ω."
+                "en": "1.5 + 1.5 − 1.5 = 1.5 V.",
+                "ta": "1.5 + 1.5 − 1.5 = 1.5 V.",
+                "si": "1.5 + 1.5 − 1.5 = 1.5 V."
               }
             }
           },
@@ -2663,47 +3071,62 @@
           ],
           "prompt": {
             "en": "After correction, current is 1.5 A through a 2 cm nichrome wire. Find resistance and two factors affecting it.",
-            "ta": "திருத்திய பின்னர் 2 cm நைக்குரோம் கம்பியில் 1.5 A செல்கிறது. தடையையும் இரு காரணிகளையும் காண்க."
+            "ta": "திருத்திய பின்னர் 2 cm நைக்குரோம் கம்பியில் 1.5 A செல்கிறது. தடையையும் இரு காரணிகளையும் காண்க.",
+            "si": "නිවැරදි කිරීමෙන් පසු 2 cm නයික්‍රෝම් කම්බියක් හරහා ධාරාව 1.5 A වේ. ප්‍රතිරෝධය සහ එයට බලපාන සාධක දෙකක් සොයන්න."
           },
           "answer": {
             "en": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. Resistance depends on length and cross-sectional area; material and temperature also matter.",
-            "ta": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. தடை நீளத்திலும் குறுக்குவெட்டுப் பரப்பிலும் தங்கும்; பொருளும் வெப்பநிலையும் முக்கியம்."
+            "ta": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. தடை நீளத்திலும் குறுக்குவெட்டுப் பரப்பிலும் தங்கும்; பொருளும் வெப்பநிலையும் முக்கியம்.",
+            "si": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. ප්‍රතිරෝධය දිග සහ හරස්කඩ වර්ගඵලය මත රඳා පවතී; ද්‍රව්‍යය සහ උෂ්ණත්වය ද වැදගත් වේ."
           },
           "steps": [
             {
-              "en": "V = 1.5 + 1.5 = 3 V.",
-              "ta": "V = 1.5 + 1.5 = 3 V."
+              "en": "Voltage = 1.5 + 1.5 = 3 V.",
+              "ta": "அழுத்த வேறுபாடு = 1.5 + 1.5 = 3 V.",
+              "si": "වෝල්ටීයතාව = 1.5 + 1.5 = 3 V."
             },
             {
-              "en": "R = V/I = 3/1.5 = 2 Ω. Resistance depends on length and cross-sectional area; material and temperature also matter.",
-              "ta": "R = V/I = 3/1.5 = 2 Ω. தடை நீளத்திலும் குறுக்குவெட்டுப் பரப்பிலும் தங்கும்; பொருளும் வெப்பநிலையும் முக்கியம்."
+              "en": "(a) R = 3 ÷ 1.5 = 2 Ω.",
+              "ta": "(a) R = 3 ÷ 1.5 = 2 Ω.",
+              "si": "(a) R = 3 ÷ 1.5 = 2 Ω."
+            },
+            {
+              "en": "(b) Resistance depends on the wire's length (longer → more) and cross-sectional area (thicker → less); also on the material and temperature.",
+              "ta": "(b) தடை கம்பியின் நீளத்திலும் (நீளம் → அதிகம்) குறுக்குவெட்டுப் பரப்பிலும் (தடிப்பு → குறைவு) தங்கியுள்ளது; பதார்த்தத்திலும் வெப்பநிலையிலும் கூட.",
+              "si": "(b) ප්‍රතිරෝධය කම්බියේ දිග (දිගු → වැඩි) සහ හරස්කඩ වර්ගඵලය (ඝන → අඩු) මත රඳා පවතී; ද්‍රව්‍යය සහ උෂ්ණත්වය මතද."
             }
           ],
           "hint": {
-            "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
-            "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+            "en": "After the fix the supply is 3 V. Use R = V ÷ I. Then think of what makes a wire harder for current to pass through.",
+            "ta": "சரிசெய்த பின் வழங்கல் 3 V. R = V ÷ I ஐப் பயன்படுத்துக. பின் மின்னோட்டம் செல்வதைக் கம்பியில் கடினமாக்குவது எது எனச் சிந்தியுங்கள்.",
+            "si": "නිවැරදි කිරීමෙන් පසු සැපයුම 3 V වේ. R = V ÷ I භාවිත කරන්න. ඉන්පසු කම්බියක් හරහා ධාරාව යාම අසීරු කරන්නේ කුමක්දැයි සිතන්න."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Ohm’s law relates V and I for a conductor at constant temperature.",
-              "ta": "மாறா வெப்பநிலையில் கடத்தியின் V, I ஐ ஓம் விதி தொடர்புபடுத்துகிறது."
+              "en": "R = V/I, and for a wire R = ρL/A: proportional to length, inversely proportional to cross-sectional area.",
+              "ta": "R = V/I; கம்பிக்கு R = ρL/A: நீளத்துக்கு விகிதசமம், குறுக்குவெட்டுப் பரப்புக்கு நேர்மாறு விகிதசமம்.",
+              "si": "R = V/I; කම්බියක් සඳහා R = ρL/A: දිගට සමානුපාතික, හරස්කඩ වර්ගඵලයට ප්‍රතිලෝමව සමානුපාතික."
             },
             "reasoning": {
-              "en": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. Resistance depends on length and cross-sectional area; material and temperature also matter.",
-              "ta": "V = 1.5 + 1.5 = 3 V. | R = V/I = 3/1.5 = 2 Ω. தடை நீளத்திலும் குறுக்குவெட்டுப் பரப்பிலும் தங்கும்; பொருளும் வெப்பநிலையும் முக்கியம்."
+              "en": "This 2 cm wire is 2 Ω, so the same wire 6 cm long would be 6 Ω: tripling the length triples the resistance. That fits the next part.",
+              "ta": "இந்த 2 cm கம்பி 2 Ω; எனவே அதே கம்பி 6 cm நீளமானால் 6 Ω: நீளத்தை மும்மடங்காக்குவது தடையை மும்மடங்காக்குகிறது. அது அடுத்த பகுதிக்குப் பொருந்துகிறது.",
+              "si": "මෙම 2 cm කම්බිය 2 Ω වන බැවින් එම කම්බියම 6 cm දිග නම් 6 Ω වේ: දිග තුන් ගුණ කිරීම ප්‍රතිරෝධය තුන් ගුණ කරයි. එය ඊළඟ කොටසට ගැළපේ."
             },
             "commonMistake": {
-              "en": "Never show the ammeter in parallel across the supply in your circuit drawing.",
-              "ta": "மின்சுற்றுப் படத்தில் அம்மீற்றரை வழங்கலுக்குச் சமாந்தரமாகக் காட்ட வேண்டாம்."
+              "en": "Using 1.5 V (one cell) instead of the corrected 3 V.",
+              "ta": "சரிசெய்த 3 V க்குப் பதில் 1.5 V (ஒரு கலம்) பயன்படுத்துதல்.",
+              "si": "නිවැරදි කළ 3 V වෙනුවට 1.5 V (එක් කෝෂයක්) භාවිත කිරීම."
             },
             "practice": {
               "question": {
-                "en": "A resistor has 6 V across it and carries 0.5 A. Find resistance.",
-                "ta": "ஒரு தடையின் வோல்ற்றளவு 6 V; மின்னோட்டம் 0.5 A. தடையைக் காண்க."
+                "en": "The same nichrome wire, 2 cm long but with twice the cross-sectional area. Find its resistance.",
+                "ta": "அதே நிக்குரோம் கம்பி, 2 cm நீளம், ஆனால் இருமடங்கு குறுக்குவெட்டுப் பரப்பு. அதன் தடையைக் காண்க.",
+                "si": "එම නයික්‍රෝම් කම්බියම, 2 cm දිග නමුත් හරස්කඩ වර්ගඵලය දෙගුණයක්. එහි ප්‍රතිරෝධය සොයන්න."
               },
               "answer": {
-                "en": "R = V/I = 6/0.5 = 12 Ω.",
-                "ta": "R = V/I = 6/0.5 = 12 Ω."
+                "en": "1 Ω: doubling the area halves the resistance.",
+                "ta": "1 Ω: பரப்பை இரட்டிப்பாக்குவது தடையைப் பாதியாக்குகிறது.",
+                "si": "1 Ω: වර්ගඵලය දෙගුණ කිරීම ප්‍රතිරෝධය අඩකට අඩු කරයි."
               }
             }
           },
@@ -2796,47 +3219,62 @@
           ],
           "prompt": {
             "en": "A 6 cm wire has resistance 6 Ω. Combine it with the 2 Ω wire to obtain 1.5 Ω, and show the calculation.",
-            "ta": "6 cm கம்பியின் தடை 6 Ω. அதை 2 Ω கம்பியுடன் இணைத்து 1.5 Ω பெறும் முறையையும் கணிப்பையும் காட்டுக."
+            "ta": "6 cm கம்பியின் தடை 6 Ω. அதை 2 Ω கம்பியுடன் இணைத்து 1.5 Ω பெறும் முறையையும் கணிப்பையும் காட்டுக.",
+            "si": "6 cm කම්බියක ප්‍රතිරෝධය 6 Ω වේ. 1.5 Ω ලබා ගැනීමට එය 2 Ω කම්බිය සමඟ සංයෝජනය කර ගණනය පෙන්වන්න."
           },
           "answer": {
             "en": "Use parallel connection: both wires span the same two circuit nodes. | 1/R = 1/2 + 1/6 = 4/6, so R = 6/4 = 1.5 Ω. A series connection would give 8 Ω.",
-            "ta": "இரு கம்பிகளையும் ஒரே இரு முனைகளுக்கிடையில் சமாந்தரமாக இணைக்கவும். | 1/R = 1/2 + 1/6 = 4/6; R = 6/4 = 1.5 Ω. தொடர் இணைப்பு 8 Ω தரும்."
+            "ta": "இரு கம்பிகளையும் ஒரே இரு முனைகளுக்கிடையில் சமாந்தரமாக இணைக்கவும். | 1/R = 1/2 + 1/6 = 4/6; R = 6/4 = 1.5 Ω. தொடர் இணைப்பு 8 Ω தரும்.",
+            "si": "සමාන්තරගත සම්බන්ධය භාවිත කරන්න: කම්බි දෙකම එකම පරිපථ නෝඩ දෙක හරහා විහිදේ. | 1/R = 1/2 + 1/6 = 4/6, එබැවින් R = 6/4 = 1.5 Ω. ශ්‍රේණිගත සම්බන්ධයක් 8 Ω දෙනු ඇත."
           },
           "steps": [
             {
-              "en": "Use parallel connection: both wires span the same two circuit nodes.",
-              "ta": "இரு கம்பிகளையும் ஒரே இரு முனைகளுக்கிடையில் சமாந்தரமாக இணைக்கவும்."
+              "en": "(a) Connect the two wires in parallel, across the same two points.",
+              "ta": "(a) இரு கம்பிகளையும் அதே இரு புள்ளிகளுக்குக் குறுக்கே சமாந்தரமாக இணைக்கவும்.",
+              "si": "(a) කම්බි දෙක එකම ලක්ෂ්‍ය දෙක හරහා සමාන්තරගතව සම්බන්ධ කරන්න."
             },
             {
-              "en": "1/R = 1/2 + 1/6 = 4/6, so R = 6/4 = 1.5 Ω. A series connection would give 8 Ω.",
-              "ta": "1/R = 1/2 + 1/6 = 4/6; R = 6/4 = 1.5 Ω. தொடர் இணைப்பு 8 Ω தரும்."
+              "en": "(b) 1/R = 1/2 + 1/6 = 3/6 + 1/6 = 4/6.",
+              "ta": "(b) 1/R = 1/2 + 1/6 = 3/6 + 1/6 = 4/6.",
+              "si": "(b) 1/R = 1/2 + 1/6 = 3/6 + 1/6 = 4/6."
+            },
+            {
+              "en": "R = 6/4 = 1.5 Ω. (In series they would give 2 + 6 = 8 Ω.)",
+              "ta": "R = 6/4 = 1.5 Ω. (தொடரில் அவை 2 + 6 = 8 Ω தரும்.)",
+              "si": "R = 6/4 = 1.5 Ω. (ශ්‍රේණිගතව ඒවා 2 + 6 = 8 Ω දෙයි.)"
             }
           ],
           "hint": {
-            "en": "In series, current is shared; in parallel, voltage is shared.",
-            "ta": "தொடரில் மின்னோட்டம் ஒன்றே; சமாந்தரத்தில் வோல்ற்றளவு ஒன்றே."
+            "en": "1.5 Ω is smaller than both 2 Ω and 6 Ω. Which kind of connection gives a total smaller than either part?",
+            "ta": "1.5 Ω, 2 Ω, 6 Ω இரண்டையும் விடச் சிறியது. எவ்வகை இணைப்பு எந்தப் பகுதியையும் விடச் சிறிய மொத்தத்தைத் தரும்?",
+            "si": "1.5 Ω, 2 Ω සහ 6 Ω යන දෙකටම වඩා කුඩාය. කුමන ආකාරයේ සම්බන්ධයක් ඕනෑම කොටසකට වඩා කුඩා මුළු අගයක් දෙයිද?"
           },
           "detailedExplanation": {
             "concept": {
-              "en": "In series, current is shared; in parallel, voltage is shared.",
-              "ta": "தொடரில் மின்னோட்டம் ஒன்றே; சமாந்தரத்தில் வோல்ற்றளவு ஒன்றே."
+              "en": "Parallel: 1/R = 1/R₁ + 1/R₂, and the total is always less than the smallest resistor. Series: R = R₁ + R₂, always more than the largest.",
+              "ta": "சமாந்தரம்: 1/R = 1/R₁ + 1/R₂; மொத்தம் எப்போதும் மிகச் சிறிய தடையியை விடக் குறைவு. தொடர்: R = R₁ + R₂; எப்போதும் மிகப் பெரியதை விட அதிகம்.",
+              "si": "සමාන්තරගත: 1/R = 1/R₁ + 1/R₂; මුළු අගය සැමවිටම කුඩාම ප්‍රතිරෝධකයට වඩා අඩුය. ශ්‍රේණිගත: R = R₁ + R₂; සැමවිටම විශාලතමයට වඩා වැඩිය."
             },
             "reasoning": {
-              "en": "Use parallel connection: both wires span the same two circuit nodes. | 1/R = 1/2 + 1/6 = 4/6, so R = 6/4 = 1.5 Ω. A series connection would give 8 Ω.",
-              "ta": "இரு கம்பிகளையும் ஒரே இரு முனைகளுக்கிடையில் சமாந்தரமாக இணைக்கவும். | 1/R = 1/2 + 1/6 = 4/6; R = 6/4 = 1.5 Ω. தொடர் இணைப்பு 8 Ω தரும்."
+              "en": "Product over sum gives the same answer: (2 × 6) ÷ (2 + 6) = 12 ÷ 8 = 1.5 Ω.",
+              "ta": "பெருக்கம் ÷ கூட்டுத்தொகை அதே விடையைத் தருகிறது: (2 × 6) ÷ (2 + 6) = 12 ÷ 8 = 1.5 Ω.",
+              "si": "ගුණිතය ÷ එකතුව එකම පිළිතුර දෙයි: (2 × 6) ÷ (2 + 6) = 12 ÷ 8 = 1.5 Ω."
             },
             "commonMistake": {
-              "en": "Parallel resistances are not added directly. Each equal parallel branch carries half the total current.",
-              "ta": "சமாந்தரத் தடைகளை நேரடியாகக் கூட்ட வேண்டாம். சமமான இரு கிளைகளில் ஒவ்வொன்றும் மொத்த மின்னோட்டத்தின் பாதியைக் காவும்."
+              "en": "Stopping at 1/R = 4/6 and writing R = 0.67 Ω. Turn the fraction upside down: R = 6/4.",
+              "ta": "1/R = 4/6 இல் நிறுத்தி R = 0.67 Ω என எழுதுதல். பின்னத்தைத் தலைகீழாக்குக: R = 6/4.",
+              "si": "1/R = 4/6 හි නතර වී R = 0.67 Ω ලෙස ලිවීම. භාගය උඩුයටිකුරු කරන්න: R = 6/4."
             },
             "practice": {
               "question": {
-                "en": "Two 4 Ω resistors in parallel are in series with 2 Ω across 8 V. Find the series resistor voltage.",
-                "ta": "சமாந்தரமான இரு 4 Ω தடைகள் 2 Ω உடன் தொடரில் 8 V வழங்கலில் உள்ளன. 2 Ω இன் வோல்ற்றளவைக் காண்க."
+                "en": "What is the total current from the 3 V supply through this 1.5 Ω combination?",
+                "ta": "இந்த 1.5 Ω சேர்க்கையூடாக 3 V வழங்கலிலிருந்தான மொத்த மின்னோட்டம் என்ன?",
+                "si": "මෙම 1.5 Ω සංයෝජනය හරහා 3 V සැපයුමෙන් මුළු ධාරාව කුමක්ද?"
               },
               "answer": {
-                "en": "Parallel = 2 Ω; total = 4 Ω; current = 2 A; voltage across 2 Ω = 4 V.",
-                "ta": "சமாந்தரம் = 2 Ω; மொத்தம் = 4 Ω; மின்னோட்டம் = 2 A; 2 Ω இன் வோல்ற்றளவு = 4 V."
+                "en": "I = 3 ÷ 1.5 = 2 A (1.5 A in the 2 Ω wire, 0.5 A in the 6 Ω wire).",
+                "ta": "I = 3 ÷ 1.5 = 2 A (2 Ω கம்பியில் 1.5 A, 6 Ω கம்பியில் 0.5 A).",
+                "si": "I = 3 ÷ 1.5 = 2 A (2 Ω කම්බියේ 1.5 A, 6 Ω කම්බියේ 0.5 A)."
               }
             }
           },
@@ -2921,7 +3359,8 @@
           ],
           "textbookReferenceStatus": "related-only"
         }
-      ]
+      ],
+      "detailedExplanation": {}
     },
     {
       "id": "ol2017-ii-09",
@@ -2948,55 +3387,74 @@
       "physicsSubset": true,
       "prompt": {
         "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
-        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்.",
+        "si": "පහත භෞතික විද්‍යා උප කොටස්වලට පමණක් පිළිතුරු දෙන්න. මුල් උප කොටස් ලේබල් එලෙසම ඇත; රූප සඳහා මුල් පිටු බලන්න."
       },
       "parts": [
         {
           "label": "i–iii",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
-            "g10-chapter-18-work-energy-power"
+            "g10-chapter-15-hydrostatic-pressure"
           ],
           "prompt": {
             "en": "A full bucket has mass 5 kg (g = 10). Find its weight, the hand load in air and the change when fully immersed; describe its force diagram.",
-            "ta": "நிரம்பிய வாளியின் திணிவு 5 kg (g = 10). நிறை, வளியில் கை உணரும் சுமை, நீரில் அமிழ்ந்தபோது மாற்றம், விசைப் படம் என்பவற்றைக் குறிப்பிடுக."
+            "ta": "நிரம்பிய வாளியின் திணிவு 5 kg (g = 10). நிறை, வளியில் கை உணரும் சுமை, நீரில் அமிழ்ந்தபோது மாற்றம், விசைப் படம் என்பவற்றைக் குறிப்பிடுக.",
+            "si": "පිරුණු බාල්දියක ස්කන්ධය 5 kg වේ (g = 10). එහි බර, වාතයේදී අතට ඇති භාරය සහ සම්පූර්ණයෙන් ගිල්වූ විට වෙනස සොයන්න; එහි බල සටහන විස්තර කරන්න."
           },
           "answer": {
             "en": "W = mg = 5 × 10 = 50 N. In air the hand tension is approximately 50 N. In water, upward buoyancy reduces apparent load: T = W − U. Draw downward W, upward U and upward T; equilibrium gives T + U = W.",
-            "ta": "W = mg = 5 × 10 = 50 N. வளியில் கை இழுவை ஏறத்தாழ 50 N. நீரில் மேலுதைப்பு சுமையைக் குறைக்கும்: T = W − U. கீழே W, மேலே U, T; சமநிலைக்கு T + U = W."
+            "ta": "W = mg = 5 × 10 = 50 N. வளியில் கை இழுவை ஏறத்தாழ 50 N. நீரில் மேலுதைப்பு சுமையைக் குறைக்கும்: T = W − U. கீழே W, மேலே U, T; சமநிலைக்கு T + U = W.",
+            "si": "W = mg = 5 × 10 = 50 N. වාතයේදී අතේ ආතතිය ආසන්න වශයෙන් 50 N වේ. ජලයේදී ඉහළට ඇති උත්ප්ලාවකතාව දෘශ්‍ය භාරය අඩු කරයි: T = W − U. පහළට W, ඉහළට U සහ ඉහළට T අඳින්න; සමතුලිතතාව T + U = W දෙයි."
           },
           "steps": [
             {
-              "en": "W = mg = 5 × 10 = 50 N. In air the hand tension is approximately 50 N. In water, upward buoyancy reduces apparent load: T = W − U. Draw downward W, upward U and upward T; equilibrium gives T + U = W.",
-              "ta": "W = mg = 5 × 10 = 50 N. வளியில் கை இழுவை ஏறத்தாழ 50 N. நீரில் மேலுதைப்பு சுமையைக் குறைக்கும்: T = W − U. கீழே W, மேலே U, T; சமநிலைக்கு T + U = W."
+              "en": "(i) W = mg = 5 × 10 = 50 N.",
+              "ta": "(i) W = mg = 5 × 10 = 50 N.",
+              "si": "(i) W = mg = 5 × 10 = 50 N."
+            },
+            {
+              "en": "(ii) In air the hand must pull up with about 50 N.",
+              "ta": "(ii) வளியில் கை ஏறக்குறைய 50 N ஆல் மேலே இழுக்க வேண்டும்.",
+              "si": "(ii) වාතයේදී අතට ආසන්න වශයෙන් 50 N කින් ඉහළට ඇදීමට සිදු වේ."
+            },
+            {
+              "en": "(iii) Fully under water, upthrust U also acts upwards, so the hand needs only T = W − U. Force diagram: W down; U and T up; T + U = W.",
+              "ta": "(iii) முழுமையாக நீருக்குள், மேலுதைப்பு U உம் மேல்நோக்கித் தாக்குவதால் கைக்கு T = W − U மட்டுமே தேவை. விசை வரிப்படம்: W கீழ்; U, T மேல்; T + U = W.",
+              "si": "(iii) සම්පූර්ණයෙන් ජලය යට උඩුකුරු තෙරපුම U ද ඉහළට ක්‍රියා කරන බැවින් අතට අවශ්‍ය වන්නේ T = W − U පමණි. බල සටහන: W පහළට; U සහ T ඉහළට; T + U = W."
             }
           ],
           "hint": {
-            "en": "Upthrust equals the weight of displaced liquid; floating equilibrium requires U = mg.",
-            "ta": "மேலுதைப்பு இடம்பெயர்ந்த திரவத்தின் நிறைக்குச் சமம்; மிதக்கும் சமநிலையில் U = mg."
+            "en": "In air the hand holds the whole weight. Under water, the upthrust helps hold the bucket up.",
+            "ta": "வளியில் கை முழு நிறையையும் தாங்குகிறது. நீருக்குள் மேலுதைப்பு வாளியைத் தாங்க உதவுகிறது.",
+            "si": "වාතයේදී අත සම්පූර්ණ බරම දරයි. ජලය යට උඩුකුරු තෙරපුම බාල්දිය දරා සිටීමට උදවු කරයි."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Upthrust equals the weight of displaced liquid; floating equilibrium requires U = mg.",
-              "ta": "மேலுதைப்பு இடம்பெயர்ந்த திரவத்தின் நிறைக்குச் சமம்; மிதக்கும் சமநிலையில் U = mg."
+              "en": "An object in a liquid feels an upthrust, so its apparent weight is less: apparent weight = real weight − upthrust.",
+              "ta": "திரவத்திலுள்ள பொருள் மேலுதைப்பை உணர்வதால் அதன் தோற்ற நிறை குறைவு: தோற்ற நிறை = உண்மை நிறை − மேலுதைப்பு.",
+              "si": "ද්‍රවයක ඇති වස්තුවක් උඩුකුරු තෙරපුමක් අත්විඳින බැවින් එහි දෘශ්‍ය බර අඩුය: දෘශ්‍ය බර = සත්‍ය බර − උඩුකුරු තෙරපුම."
             },
             "reasoning": {
-              "en": "W = mg = 5 × 10 = 50 N. In air the hand tension is approximately 50 N. In water, upward buoyancy reduces apparent load: T = W − U. Draw downward W, upward U and upward T; equilibrium gives T + U = W.",
-              "ta": "W = mg = 5 × 10 = 50 N. வளியில் கை இழுவை ஏறத்தாழ 50 N. நீரில் மேலுதைப்பு சுமையைக் குறைக்கும்: T = W − U. கீழே W, மேலே U, T; சமநிலைக்கு T + U = W."
+              "en": "That is why a full bucket feels light while it is still in the well and suddenly heavy as it leaves the water.",
+              "ta": "அதனால்தான் நிரம்பிய வாளி கிணற்றுக்குள் இருக்கும்போது இலேசாகவும் நீரை விட்டு வெளியேறும்போது திடீரெனக் கனமாகவும் உணரப்படுகிறது.",
+              "si": "පිරුණු බාල්දියක් ළිඳ තුළ ඇති විට සැහැල්ලු ලෙසත් ජලයෙන් පිටවන විට හදිසියේ බර ලෙසත් දැනෙන්නේ එබැවිනි."
             },
             "commonMistake": {
-              "en": "Upthrust is a force in newtons, not a mass in kilograms.",
-              "ta": "மேலுதைப்பு நியூற்றனில் உள்ள விசை; கிலோகிராமிலுள்ள திணிவு அல்ல."
+              "en": "Thinking the bucket's weight changes under water. The weight stays 50 N; only the force the hand must give changes.",
+              "ta": "நீருக்குள் வாளியின் நிறை மாறுகிறது என நினைத்தல். நிறை 50 N ஆகவே இருக்கிறது; கை தர வேண்டிய விசை மட்டுமே மாறுகிறது.",
+              "si": "ජලය යට බාල්දියේ බර වෙනස් වේ යැයි සිතීම. බර 50 N ලෙසම පවතී; වෙනස් වන්නේ අතට දිය යුතු බලය පමණි."
             },
             "practice": {
               "question": {
-                "en": "A 200 kg raft floats at rest. With g = 10 N kg⁻¹, find upthrust.",
-                "ta": "200 kg தெப்பம் ஓய்வில் மிதக்கிறது. g = 10 N kg⁻¹ எனில் மேலுதைப்பைக் காண்க."
+                "en": "Under water the upthrust on the full bucket is 15 N. What force must the hand give?",
+                "ta": "நீருக்குள் நிரம்பிய வாளியின் மீதான மேலுதைப்பு 15 N. கை எவ்வளவு விசை தர வேண்டும்?",
+                "si": "ජලය යට පිරුණු බාල්දිය මත උඩුකුරු තෙරපුම 15 N වේ. අතට දිය යුතු බලය කොපමණද?"
               },
               "answer": {
-                "en": "U = mg = 200 × 10 = 2000 N upward.",
-                "ta": "U = mg = 200 × 10 = 2000 N மேல்நோக்கி."
+                "en": "T = 50 − 15 = 35 N.",
+                "ta": "T = 50 − 15 = 35 N.",
+                "si": "T = 50 − 15 = 35 N."
               }
             }
           },
@@ -3096,56 +3554,71 @@
           "label": "iv(a–f)",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
             "g10-chapter-18-work-energy-power"
           ],
           "prompt": {
             "en": "A fixed pulley lifts the 50 N bucket with mechanical advantage 0.9. Name the machine, its benefit, effort, changes during lifting, velocity ratio and efficiency.",
-            "ta": "நிலைக் கப்பியின் பொறிமுறை நயம் 0.9; 50 N வாளியை உயர்த்துகிறது. பெயர், நன்மை, எத்தனம், உயரும்போது மாற்றம், வேகவிகிதம், திறன் என்பவற்றைக் காண்க."
+            "ta": "நிலைக் கப்பியின் பொறிமுறை நயம் 0.9; 50 N வாளியை உயர்த்துகிறது. பெயர், நன்மை, எத்தனம், உயரும்போது மாற்றம், வேகவிகிதம், திறன் என்பவற்றைக் காண்க.",
+            "si": "යාන්ත්‍රික වාසිය 0.9 ක් ඇති අචල කප්පියක් 50 N බාල්දිය ඔසවයි. යන්ත්‍රය, එහි ප්‍රයෝජනය, ආයාසය, එසවීමේදී වෙනස්වීම්, ප්‍රවේග අනුපාතය සහ කාර්යක්ෂමතාව නම් කරන්න."
           },
           "answer": {
             "en": "It is a single fixed pulley; it changes effort direction. | MA = load/effort, so effort = 50/0.9 ≈ 55.6 N. Below ground near water, buoyancy can reduce the initial effort; once clear, the full load is lifted. | VR = 1; efficiency = MA/VR × 100 = 90%.",
-            "ta": "இது ஒற்றை நிலைக் கப்பி; எத்தனத்தின் திசையை மாற்றும். | MA = சுமை/எத்தனம்; எத்தனம் = 50/0.9 ≈ 55.6 N. நீரருகில் மேலுதைப்பு ஆரம்ப எத்தனத்தைக் குறைக்கும்; நீரிலிருந்து வெளியே வந்ததும் முழுச் சுமை உயர்த்தப்படும். | VR = 1; திறன் = MA/VR × 100 = 90%."
+            "ta": "இது ஒற்றை நிலைக் கப்பி; எத்தனத்தின் திசையை மாற்றும். | MA = சுமை/எத்தனம்; எத்தனம் = 50/0.9 ≈ 55.6 N. நீரருகில் மேலுதைப்பு ஆரம்ப எத்தனத்தைக் குறைக்கும்; நீரிலிருந்து வெளியே வந்ததும் முழுச் சுமை உயர்த்தப்படும். | VR = 1; திறன் = MA/VR × 100 = 90%.",
+            "si": "එය තනි අචල කප්පියකි; එය ආයාසයේ දිශාව වෙනස් කරයි. | MA = භාරය/ආයාසය, එබැවින් ආයාසය = 50/0.9 ≈ 55.6 N. ජලය යට ඇති විට උත්ප්ලාවකතාව ආරම්භක ආයාසය අඩු කළ හැක; ජලයෙන් පිටවූ පසු සම්පූර්ණ භාරය ඔසවයි. | VR = 1; කාර්යක්ෂමතාව = MA/VR × 100 = 90%."
           },
           "steps": [
             {
-              "en": "It is a single fixed pulley; it changes effort direction.",
-              "ta": "இது ஒற்றை நிலைக் கப்பி; எத்தனத்தின் திசையை மாற்றும்."
+              "en": "(a–b) It is a single fixed pulley. Its benefit: you pull down (using your weight) instead of lifting up.",
+              "ta": "(a–b) அது ஒற்றை நிலைக் கப்பி. அதன் பயன்: மேலே தூக்குவதற்குப் பதில் கீழே இழுக்கிறீர்கள் (உங்கள் நிறையைப் பயன்படுத்தி).",
+              "si": "(a–b) එය තනි අචල කප්පියකි. එහි ප්‍රයෝජනය: ඉහළට එසවීම වෙනුවට පහළට අදින්න (ඔබේ බර භාවිතයෙන්)."
             },
             {
-              "en": "MA = load/effort, so effort = 50/0.9 ≈ 55.6 N. Below ground near water, buoyancy can reduce the initial effort; once clear, the full load is lifted.",
-              "ta": "MA = சுமை/எத்தனம்; எத்தனம் = 50/0.9 ≈ 55.6 N. நீரருகில் மேலுதைப்பு ஆரம்ப எத்தனத்தைக் குறைக்கும்; நீரிலிருந்து வெளியே வந்ததும் முழுச் சுமை உயர்த்தப்படும்."
+              "en": "(c) Effort = load ÷ MA = 50 ÷ 0.9 ≈ 55.6 N (a bit more than the load, because of friction).",
+              "ta": "(c) முயற்சி = சுமை ÷ MA = 50 ÷ 0.9 ≈ 55.6 N (உராய்வின் காரணமாகச் சுமையை விடச் சற்று அதிகம்).",
+              "si": "(c) ආයාසය = භාරය ÷ MA = 50 ÷ 0.9 ≈ 55.6 N (ඝර්ෂණය නිසා භාරයට වඩා මඳක් වැඩිය)."
             },
             {
-              "en": "VR = 1; efficiency = MA/VR × 100 = 90%.",
-              "ta": "VR = 1; திறன் = MA/VR × 100 = 90%."
+              "en": "(d) While the bucket is still under water, upthrust makes the effort smaller; once it leaves the water the full effort is needed.",
+              "ta": "(d) வாளி இன்னும் நீருக்குள் இருக்கும்போது மேலுதைப்பு முயற்சியைக் குறைக்கிறது; நீரை விட்டு வெளியேறியதும் முழு முயற்சியும் தேவை.",
+              "si": "(d) බාල්දිය තවමත් ජලය යට ඇති අතරතුර උඩුකුරු තෙරපුම ආයාසය අඩු කරයි; ජලයෙන් පිටවූ පසු සම්පූර්ණ ආයාසය අවශ්‍යයි."
+            },
+            {
+              "en": "(e–f) The rope moves as far as the load, so VR = 1. Efficiency = MA ÷ VR × 100% = 0.9 ÷ 1 × 100% = 90%.",
+              "ta": "(e–f) கயிறு சுமை அளவுக்கே நகர்வதால் VR = 1. திறன் = MA ÷ VR × 100% = 0.9 ÷ 1 × 100% = 90%.",
+              "si": "(e–f) ලණුව භාරය තරම්ම චලනය වන බැවින් VR = 1. කාර්යක්ෂමතාව = MA ÷ VR × 100% = 0.9 ÷ 1 × 100% = 90%."
             }
           ],
           "hint": {
-            "en": "Mechanical advantage is load/effort; velocity ratio compares distances moved.",
-            "ta": "பொறிமுறை நயம் சுமை/பிரயோகம்; வேக விகிதம் நகர்ந்த தூரங்களை ஒப்பிடுகிறது."
+            "en": "A single fixed pulley does not reduce the effort; it lets you pull down instead of lifting up. MA = load ÷ effort; efficiency = MA ÷ VR.",
+            "ta": "ஒற்றை நிலைக் கப்பி முயற்சியைக் குறைப்பதில்லை; மேலே தூக்குவதற்குப் பதில் கீழே இழுக்க விடுகிறது. MA = சுமை ÷ முயற்சி; திறன் = MA ÷ VR.",
+            "si": "තනි අචල කප්පියක් ආයාසය අඩු නොකරයි; ඉහළට එසවීම වෙනුවට පහළට ඇදීමට ඉඩ දෙයි. MA = භාරය ÷ ආයාසය; කාර්යක්ෂමතාව = MA ÷ VR."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Mechanical advantage is load/effort; velocity ratio compares distances moved.",
-              "ta": "பொறிமுறை நயம் சுமை/பிரயோகம்; வேக விகிதம் நகர்ந்த தூரங்களை ஒப்பிடுகிறது."
+              "en": "Mechanical advantage MA = load ÷ effort; velocity ratio VR = distance moved by effort ÷ distance moved by load; efficiency = MA ÷ VR × 100%.",
+              "ta": "பொறிமுறை நயம் MA = சுமை ÷ முயற்சி; வேக விகிதம் VR = முயற்சி நகர்ந்த தூரம் ÷ சுமை நகர்ந்த தூரம்; திறன் = MA ÷ VR × 100%.",
+              "si": "යාන්ත්‍රික වාසිය MA = භාරය ÷ ආයාසය; ප්‍රවේග අනුපාතය VR = ආයාසය චලනය වූ දුර ÷ භාරය චලනය වූ දුර; කාර්යක්ෂමතාව = MA ÷ VR × 100%."
             },
             "reasoning": {
-              "en": "It is a single fixed pulley; it changes effort direction. | MA = load/effort, so effort = 50/0.9 ≈ 55.6 N. Below ground near water, buoyancy can reduce the initial effort; once clear, the full load is lifted. | VR = 1; efficiency = MA/VR × 100 = 90%.",
-              "ta": "இது ஒற்றை நிலைக் கப்பி; எத்தனத்தின் திசையை மாற்றும். | MA = சுமை/எத்தனம்; எத்தனம் = 50/0.9 ≈ 55.6 N. நீரருகில் மேலுதைப்பு ஆரம்ப எத்தனத்தைக் குறைக்கும்; நீரிலிருந்து வெளியே வந்ததும் முழுச் சுமை உயர்த்தப்படும். | VR = 1; திறன் = MA/VR × 100 = 90%."
+              "en": "In a perfect pulley MA would equal VR (= 1). Friction in the axle and rope makes MA a little less, which is why efficiency is under 100%.",
+              "ta": "சிறந்த கப்பியில் MA, VR (= 1) க்குச் சமமாக இருக்கும். அச்சிலும் கயிற்றிலுமுள்ள உராய்வு MA ஐச் சற்றுக் குறைக்கிறது; அதனால்தான் திறன் 100% க்குக் குறைவு.",
+              "si": "පරිපූර්ණ කප්පියක MA, VR (= 1) ට සමාන වේ. අක්ෂයේ සහ ලණුවේ ඝර්ෂණය MA මඳක් අඩු කරයි; කාර්යක්ෂමතාව 100% ට අඩු වන්නේ එබැවිනි."
             },
             "commonMistake": {
-              "en": "Mechanical advantage is not effort/load, and is not always identical to velocity ratio.",
-              "ta": "பொறிமுறை நயம் பிரயோகம்/சுமை அல்ல; எப்போதும் வேக விகிதத்திற்குச் சமமும் அல்ல."
+              "en": "Thinking a single fixed pulley halves the effort. That needs a movable pulley; a fixed one only changes direction.",
+              "ta": "ஒற்றை நிலைக் கப்பி முயற்சியைப் பாதியாக்குகிறது என நினைத்தல். அதற்கு நகரும் கப்பி தேவை; நிலைக் கப்பி திசையை மட்டுமே மாற்றுகிறது.",
+              "si": "තනි අචල කප්පියක් ආයාසය අඩකට අඩු කරයි යැයි සිතීම. ඒ සඳහා චලනය වන කප්පියක් අවශ්‍යයි; අචල කප්පියක් දිශාව පමණක් වෙනස් කරයි."
             },
             "practice": {
               "question": {
-                "en": "A 20 N effort lifts a 60 N load. Find mechanical advantage.",
-                "ta": "20 N பிரயோகம் 60 N சுமையை உயர்த்துகிறது. பொறிமுறை நயத்தைக் காண்க."
+                "en": "A machine has VR = 4 and lifts 200 N with an effort of 80 N. Find its efficiency.",
+                "ta": "ஒரு இயந்திரத்துக்கு VR = 4; அது 80 N முயற்சியால் 200 N ஐத் தூக்குகிறது. அதன் திறனைக் காண்க.",
+                "si": "යන්ත්‍රයකට VR = 4 වන අතර එය 80 N ආයාසයකින් 200 N ඔසවයි. එහි කාර්යක්ෂමතාව සොයන්න."
               },
               "answer": {
-                "en": "MA = 60/20 = 3.",
-                "ta": "MA = 60/20 = 3."
+                "en": "MA = 200 ÷ 80 = 2.5; efficiency = 2.5 ÷ 4 × 100% = 62.5%.",
+                "ta": "MA = 200 ÷ 80 = 2.5; திறன் = 2.5 ÷ 4 × 100% = 62.5%.",
+                "si": "MA = 200 ÷ 80 = 2.5; කාර්යක්ෂමතාව = 2.5 ÷ 4 × 100% = 62.5%."
               }
             }
           },
@@ -3212,52 +3685,66 @@
           "label": "iv(g)",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
             "g10-chapter-18-work-energy-power"
           ],
           "prompt": {
             "en": "The bucket is 10 m below the pulley. Take potential energy at the pulley as zero; find its initial potential energy.",
-            "ta": "கப்பியிலிருந்து வாளி 10 m கீழே உள்ளது. கப்பியில் அழுத்தச் சக்தி பூச்சியம் எனில் வாளியின் தொடக்க அழுத்தச் சக்தி என்ன?"
+            "ta": "கப்பியிலிருந்து வாளி 10 m கீழே உள்ளது. கப்பியில் அழுத்தச் சக்தி பூச்சியம் எனில் வாளியின் தொடக்க அழுத்தச் சக்தி என்ன?",
+            "si": "බාල්දිය කප්පියට 10 m පහළින් ඇත. කප්පියේදී විභව ශක්තිය ශුන්‍ය ලෙස ගෙන එහි ආරම්භක විභව ශක්තිය සොයන්න."
           },
           "answer": {
             "en": "Height relative to the chosen zero is h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. A negative value is valid because potential energy depends on the reference level.",
-            "ta": "தெரிவு செய்த பூச்சிய மட்டத்திற்குச் சார்பாக h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. அழுத்தச் சக்தி சார்பு மட்டத்தில் தங்குவதால் மறைப் பெறுமானம் பொருத்தமானது."
+            "ta": "தெரிவு செய்த பூச்சிய மட்டத்திற்குச் சார்பாக h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. அழுத்தச் சக்தி சார்பு மட்டத்தில் தங்குவதால் மறைப் பெறுமானம் பொருத்தமானது.",
+            "si": "තෝරාගත් ශුන්‍යයට සාපේක්ෂව උස h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. විභව ශක්තිය යොමු මට්ටම මත රඳා පවතින බැවින් සෘණ අගයක් වලංගුයි."
           },
           "steps": [
             {
-              "en": "Height relative to the chosen zero is h = −10 m.",
-              "ta": "தெரிவு செய்த பூச்சிய மட்டத்திற்குச் சார்பாக h = −10 m."
+              "en": "Height relative to the pulley: h = −10 m.",
+              "ta": "கப்பியுடன் ஒப்பிடுகையில் உயரம்: h = −10 m.",
+              "si": "කප්පියට සාපේක්ෂව උස: h = −10 m."
             },
             {
-              "en": "Ep = mgh = 5 × 10 × (−10) = −500 J. A negative value is valid because potential energy depends on the reference level.",
-              "ta": "Ep = mgh = 5 × 10 × (−10) = −500 J. அழுத்தச் சக்தி சார்பு மட்டத்தில் தங்குவதால் மறைப் பெறுமானம் பொருத்தமானது."
+              "en": "Ep = mgh = 5 × 10 × (−10).",
+              "ta": "Ep = mgh = 5 × 10 × (−10).",
+              "si": "Ep = mgh = 5 × 10 × (−10)."
+            },
+            {
+              "en": "Ep = −500 J. Lifting it up to the pulley adds 500 J, bringing it to zero.",
+              "ta": "Ep = −500 J. அதைக் கப்பி வரை தூக்குவது 500 J சேர்த்து அதைப் பூச்சியமாக்குகிறது.",
+              "si": "Ep = −500 J. එය කප්පිය දක්වා එසවීම 500 J එකතු කර එය ශුන්‍ය කරයි."
             }
           ],
           "hint": {
-            "en": "Gravitational potential-energy change is ΔE = mgΔh.",
-            "ta": "ஈர்ப்பு அழுத்தச் சக்தி மாற்றம் ΔE = mgΔh."
+            "en": "The zero of potential energy is at the pulley. The bucket is 10 m below it, so its height relative to the zero is negative.",
+            "ta": "அழுத்தசக்தியின் பூச்சியம் கப்பியில் உள்ளது. வாளி அதற்கு 10 m கீழே உள்ளதால் பூச்சியத்துடன் ஒப்பிடுகையில் அதன் உயரம் மறை.",
+            "si": "විභව ශක්තියේ ශුන්‍යය කප්පියේ ඇත. බාල්දිය ඊට 10 m පහළින් ඇති බැවින් ශුන්‍යයට සාපේක්ෂව එහි උස සෘණ වේ."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Gravitational potential-energy change is ΔE = mgΔh.",
-              "ta": "ஈர்ப்பு அழுத்தச் சக்தி மாற்றம் ΔE = mgΔh."
+              "en": "Gravitational potential energy Ep = mgh is measured from a chosen zero level. Below that level h is negative, so Ep is negative.",
+              "ta": "ஈர்ப்பு அழுத்தசக்தி Ep = mgh தெரிவு செய்த பூச்சிய மட்டத்திலிருந்து அளக்கப்படுகிறது. அம்மட்டத்துக்குக் கீழ் h மறை; எனவே Ep மறை.",
+              "si": "ගුරුත්වාකර්ෂණ විභව ශක්තිය Ep = mgh තෝරාගත් ශුන්‍ය මට්ටමක සිට මනිනු ලැබේ. එම මට්ටමට පහළින් h සෘණ බැවින් Ep සෘණ වේ."
             },
             "reasoning": {
-              "en": "Height relative to the chosen zero is h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. A negative value is valid because potential energy depends on the reference level.",
-              "ta": "தெரிவு செய்த பூச்சிய மட்டத்திற்குச் சார்பாக h = −10 m. | Ep = mgh = 5 × 10 × (−10) = −500 J. அழுத்தச் சக்தி சார்பு மட்டத்தில் தங்குவதால் மறைப் பெறுமானம் பொருத்தமானது."
+              "en": "Only changes in potential energy matter physically. Whatever zero you pick, raising the bucket 10 m always adds 500 J.",
+              "ta": "அழுத்தசக்தியின் மாற்றங்கள் மட்டுமே பௌதிக ரீதியாக முக்கியம். எந்தப் பூச்சியத்தைத் தெரிவு செய்தாலும் வாளியை 10 m உயர்த்துவது எப்போதும் 500 J சேர்க்கிறது.",
+              "si": "භෞතිකව වැදගත් වන්නේ විභව ශක්තියේ වෙනස්වීම් පමණි. ඔබ කුමන ශුන්‍යයක් තෝරා ගත්තද බාල්දිය 10 m ඉහළ නැංවීම සැමවිටම 500 J එකතු කරයි."
             },
             "commonMistake": {
-              "en": "Using 5 instead of 0.005 kg makes the energy 1000 times too large.",
-              "ta": "0.005 kg க்குப் பதில் 5 பயன்படுத்தினால் சக்தி 1000 மடங்கு அதிகமாகும்."
+              "en": "Giving +500 J. With the zero at the pulley, a point below it has negative potential energy.",
+              "ta": "+500 J எனக் கொடுத்தல். பூச்சியம் கப்பியில் இருக்கும்போது அதற்குக் கீழுள்ள புள்ளிக்கு மறை அழுத்தசக்தி.",
+              "si": "+500 J ලෙස දීම. ශුන්‍යය කප්පියේ ඇති විට ඊට පහළින් ඇති ලක්ෂ්‍යයකට සෘණ විභව ශක්තියක් ඇත."
             },
             "practice": {
               "question": {
-                "en": "Raise a 2 kg object by 3 m with g = 10 N kg⁻¹. Find the energy increase.",
-                "ta": "g = 10 N kg⁻¹ எனில் 2 kg பொருளை 3 m உயர்த்தும் சக்தி அதிகரிப்பைக் காண்க."
+                "en": "Taking the bottom of the well (bucket level) as zero instead, what is the bucket's Ep at the pulley?",
+                "ta": "பதிலாகக் கிணற்றின் அடியை (வாளி மட்டம்) பூச்சியமாக எடுத்தால், கப்பியில் வாளியின் Ep என்ன?",
+                "si": "ඒ වෙනුවට ළිඳේ පතුල (බාල්දි මට්ටම) ශුන්‍ය ලෙස ගත්තොත් කප්පියේදී බාල්දියේ Ep කුමක්ද?"
               },
               "answer": {
-                "en": "ΔE = 2 × 10 × 3 = 60 J.",
-                "ta": "ΔE = 2 × 10 × 3 = 60 J."
+                "en": "+500 J. The change (500 J) is the same either way.",
+                "ta": "+500 J. மாற்றம் (500 J) இரு வழியிலும் ஒன்றே.",
+                "si": "+500 J. වෙනස (500 J) ක්‍රම දෙකේම එකමය."
               }
             }
           },
@@ -3353,7 +3840,8 @@
           ],
           "textbookReferenceStatus": "related-only"
         }
-      ]
+      ],
+      "detailedExplanation": {}
     },
     {
       "id": "ol2017-ii-10",
@@ -3369,8 +3857,8 @@
         "Sound"
       ],
       "lessons": [
-        "g10-chapter-15-hydrostatic-pressure",
-        "g11-chapter-04-waves"
+        "g11-chapter-04-waves",
+        "g10-chapter-15-hydrostatic-pressure"
       ],
       "pages": [
         12
@@ -3378,55 +3866,74 @@
       "physicsSubset": true,
       "prompt": {
         "en": "Answer only the physics subparts below. Original subpart labels are retained; use the source pages for diagrams.",
-        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்."
+        "ta": "கீழுள்ள பௌதிகவியல் பகுதிகளுக்கு மட்டும் விடையளிக்கவும். மூலப் பகுதி இலக்கங்கள் பேணப்பட்டுள்ளன; படங்களுக்கு மூலப் பக்கங்களைப் பார்க்கவும்.",
+        "si": "පහත භෞතික විද්‍යා උප කොටස්වලට පමණක් පිළිතුරු දෙන්න. මුල් උප කොටස් ලේබල් එලෙසම ඇත; රූප සඳහා මුල් පිටු බලන්න."
       },
       "parts": [
         {
           "label": "A(i–iii)",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
             "g11-chapter-04-waves"
           ],
           "prompt": {
             "en": "Identify instruments with vibrating strings and an air column; state two ways to raise violin pitch and explain same-note differences between violin and flute.",
-            "ta": "அதிரும் நரம்பு, வளிநிரல் உள்ள கருவிகளை இனங்காண்க; வயலின் சுருதியை உயர்த்த இரு முறைகளையும் வயலின்/புல்லாங்குழல் ஒரே குறிப்பு வேறுபாட்டையும் கூறுக."
+            "ta": "அதிரும் நரம்பு, வளிநிரல் உள்ள கருவிகளை இனங்காண்க; வயலின் சுருதியை உயர்த்த இரு முறைகளையும் வயலின்/புல்லாங்குழல் ஒரே குறிப்பு வேறுபாட்டையும் கூறுக.",
+            "si": "කම්පනය වන තන්තු සහ වායු කඳක් ඇති සංගීත භාණ්ඩ හඳුනාගෙන, වයලීනයේ තාරතාව ඉහළ නැංවීමට ක්‍රම දෙකක් සඳහන් කර, වයලීනය සහ නළාව අතර එකම ස්වරයේ වෙනස්කම් පැහැදිලි කරන්න."
           },
           "answer": {
             "en": "Violin: strings; flute: air column. Shorten the vibrating string or increase its tension to raise frequency and pitch. The same note has the same fundamental frequency, but different harmonics give different timbre.",
-            "ta": "வயலின்: நரம்புகள்; புல்லாங்குழல்: வளிநிரல். அதிரும் நரம்பைக் குறுக்கவும் அல்லது இழுவையை அதிகரிக்கவும்; மீடிறனும் சுருதியும் உயரும். ஒரே குறிப்பிற்கு அடிப்படை மீடிறன் சமம்; வேறுபட்ட மேற்றோன்கள் ஒலிப் பண்பை வேறுபடுத்தும்."
+            "ta": "வயலின்: நரம்புகள்; புல்லாங்குழல்: வளிநிரல். அதிரும் நரம்பைக் குறுக்கவும் அல்லது இழுவையை அதிகரிக்கவும்; மீடிறனும் சுருதியும் உயரும். ஒரே குறிப்பிற்கு அடிப்படை மீடிறன் சமம்; வேறுபட்ட மேற்றோன்கள் ஒலிப் பண்பை வேறுபடுத்தும்.",
+            "si": "වයලීනය: තන්තු; නළාව: වායු කඳ. සංඛ්‍යාතය සහ තාරතාව ඉහළ නැංවීමට කම්පනය වන තන්තුව කෙටි කරන්න හෝ එහි ආතතිය වැඩි කරන්න. එකම ස්වරයට එකම මූලික සංඛ්‍යාතය ඇති නමුත් විවිධ උපරිතාන විවිධ ස්වර ගුණ ලබා දෙයි."
           },
           "steps": [
             {
-              "en": "Violin: strings; flute: air column. Shorten the vibrating string or increase its tension to raise frequency and pitch. The same note has the same fundamental frequency, but different harmonics give different timbre.",
-              "ta": "வயலின்: நரம்புகள்; புல்லாங்குழல்: வளிநிரல். அதிரும் நரம்பைக் குறுக்கவும் அல்லது இழுவையை அதிகரிக்கவும்; மீடிறனும் சுருதியும் உயரும். ஒரே குறிப்பிற்கு அடிப்படை மீடிறன் சமம்; வேறுபட்ட மேற்றோன்கள் ஒலிப் பண்பை வேறுபடுத்தும்."
+              "en": "(i) The violin uses vibrating strings; the flute uses a vibrating air column.",
+              "ta": "(i) வயலின் அதிரும் நரம்புகளைப் பயன்படுத்துகிறது; புல்லாங்குழல் அதிரும் வளி நிரலைப் பயன்படுத்துகிறது.",
+              "si": "(i) වයලීනය කම්පනය වන තන්තු භාවිත කරයි; නළාව කම්පනය වන වායු කඳක් භාවිත කරයි."
+            },
+            {
+              "en": "(ii) To raise the pitch: shorten the vibrating length (press the string with a finger) or increase the tension (tighten the peg).",
+              "ta": "(ii) சுருதியை உயர்த்த: அதிரும் நீளத்தைக் குறுக்குக (விரலால் நரம்பை அழுத்துக) அல்லது இழுவையைக் கூட்டுக (முளையை இறுக்குக).",
+              "si": "(ii) තාරතාව ඉහළ නැංවීමට: කම්පනය වන දිග කෙටි කරන්න (ඇඟිල්ලෙන් තන්තුව තද කරන්න) හෝ ආතතිය වැඩි කරන්න (ඇණය තද කරන්න)."
+            },
+            {
+              "en": "(iii) The same note has the same fundamental frequency, but each instrument adds different overtones, so the quality (timbre) is different.",
+              "ta": "(iii) அதே சுரத்துக்கு அதே அடிப்படை மீடிறன் உண்டு; ஆனால் ஒவ்வொரு கருவியும் வெவ்வேறு மேற்சுரங்களைச் சேர்ப்பதால் பண்பு (நாதம்) வேறுபடுகிறது.",
+              "si": "(iii) එකම ස්වරයට එකම මූලික සංඛ්‍යාතය ඇති නමුත් එක් එක් භාණ්ඩය විවිධ උපරිතාන එකතු කරන බැවින් ගුණය (ස්වර ගුණය) වෙනස් වේ."
             }
           ],
           "hint": {
-            "en": "Timbre depends on waveform and frequency mixture.",
-            "ta": "ஒலித் தரம் அலைவடிவத்தையும் மீடிறன் கலவையையும் சாரும்."
+            "en": "A violin player shortens strings with their fingers and tightens them with the pegs. Two instruments playing the same note still sound different: why?",
+            "ta": "வயலின் வாசிப்பவர் விரல்களால் நரம்புகளைக் குறுக்கி முளைகளால் இறுக்குகிறார். அதே சுரத்தை வாசிக்கும் இரு கருவிகளும் வேறுபட்டு ஒலிக்கின்றன: ஏன்?",
+            "si": "වයලීන වාදකයා ඇඟිලිවලින් තන්තු කෙටි කර ඇණවලින් තද කරයි. එකම ස්වරය වාදනය කරන භාණ්ඩ දෙකක් තවමත් වෙනස් ලෙස ඇසේ: ඇයි?"
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Timbre depends on waveform and frequency mixture.",
-              "ta": "ஒலித் தரம் அலைவடிவத்தையும் மீடிறன் கலவையையும் சாரும்."
+              "en": "A string's frequency rises when it is shorter, tighter or lighter. Timbre (quality) depends on which overtones are mixed with the fundamental.",
+              "ta": "நரம்பு குறுகியதாக, இறுக்கமானதாக அல்லது இலேசானதாக இருக்கும்போது அதன் மீடிறன் உயருகிறது. நாதம் (பண்பு) அடிப்படையுடன் எந்த மேற்சுரங்கள் கலக்கின்றன என்பதில் தங்கியுள்ளது.",
+              "si": "තන්තුවක් කෙටි, තද හෝ සැහැල්ලු වන විට එහි සංඛ්‍යාතය ඉහළ යයි. ස්වර ගුණය මූලිකය සමඟ මිශ්‍ර වන්නේ කුමන උපරිතානද යන්න මත රඳා පවතී."
             },
             "reasoning": {
-              "en": "Violin: strings; flute: air column. Shorten the vibrating string or increase its tension to raise frequency and pitch. The same note has the same fundamental frequency, but different harmonics give different timbre.",
-              "ta": "வயலின்: நரம்புகள்; புல்லாங்குழல்: வளிநிரல். அதிரும் நரம்பைக் குறுக்கவும் அல்லது இழுவையை அதிகரிக்கவும்; மீடிறனும் சுருதியும் உயரும். ஒரே குறிப்பிற்கு அடிப்படை மீடிறன் சமம்; வேறுபட்ட மேற்றோன்கள் ஒலிப் பண்பை வேறுபடுத்தும்."
+              "en": "The thinner strings of a violin give the higher notes for the same reason: less mass per length means a higher frequency.",
+              "ta": "அதே காரணத்துக்காக வயலினின் மெல்லிய நரம்புகள் உயர் சுரங்களைத் தருகின்றன: நீளத்துக்கான குறைந்த திணிவு என்றால் உயர் மீடிறன்.",
+              "si": "වයලීනයේ සිහින් තන්තු ඉහළ ස්වර ලබා දෙන්නේ එම හේතුව නිසාමය: දිගකට අඩු ස්කන්ධයක් යනු ඉහළ සංඛ්‍යාතයකි."
             },
             "commonMistake": {
-              "en": "Do not use loudness or pitch as synonyms for timbre.",
-              "ta": "உரப்பையும் சுருதியையும் ஒலித் தரத்திற்கு மாற்றுப் பெயர்களாகப் பயன்படுத்த வேண்டாம்."
+              "en": "Saying the violin and flute differ in pitch for the same note. Same note means same pitch; they differ in quality.",
+              "ta": "அதே சுரத்துக்கு வயலினும் புல்லாங்குழலும் சுருதியில் வேறுபடுகின்றன எனக் கூறுதல். அதே சுரம் என்றால் அதே சுருதி; அவை பண்பில் வேறுபடுகின்றன.",
+              "si": "එකම ස්වරයට වයලීනය සහ නළාව තාරතාවෙන් වෙනස් යැයි පැවසීම. එකම ස්වරය යනු එකම තාරතාවයි; ඒවා වෙනස් වන්නේ ගුණයෙනි."
             },
             "practice": {
               "question": {
-                "en": "Why can a violin and flute playing the same note still be distinguished?",
-                "ta": "ஒரே சுரத்தை வாசிக்கும் வயலினையும் புல்லாங்குழலையும் ஏன் வேறுபடுத்தலாம்?"
+                "en": "How can a flute player raise the pitch of a note?",
+                "ta": "புல்லாங்குழல் வாசிப்பவர் சுரத்தின் சுருதியை எவ்வாறு உயர்த்தலாம்?",
+                "si": "නළා වාදකයෙකුට ස්වරයක තාරතාව ඉහළ නැංවිය හැක්කේ කෙසේද?"
               },
               "answer": {
-                "en": "Their waveforms and harmonic mixtures give different timbres.",
-                "ta": "அலைவடிவங்களும் இசையன் கலவைகளும் வேறுபட்ட ஒலித் தரங்களைத் தருகின்றன."
+                "en": "By opening holes to shorten the vibrating air column.",
+                "ta": "அதிரும் வளி நிரலைக் குறுக்கத் துளைகளைத் திறப்பதன் மூலம்.",
+                "si": "කම්පනය වන වායු කඳ කෙටි කිරීමට සිදුරු විවෘත කිරීමෙන්."
               }
             }
           },
@@ -3493,56 +4000,66 @@
           "label": "B(i)(a–e)",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
             "g11-chapter-04-waves"
           ],
           "prompt": {
             "en": "Name the depth-measuring device/principle. Sound frequency is 2920 Hz, speed 1460 m/s and echo time 20 s. Find depth and wavelength.",
-            "ta": "ஆழமளக்கும் சாதனம்/தத்துவத்தைப் பெயரிடுக. ஒலி மீடிறன் 2920 Hz, கதி 1460 m/s, எதிரொலி நேரம் 20 s. ஆழத்தையும் அலைநீளத்தையும் காண்க."
+            "ta": "ஆழமளக்கும் சாதனம்/தத்துவத்தைப் பெயரிடுக. ஒலி மீடிறன் 2920 Hz, கதி 1460 m/s, எதிரொலி நேரம் 20 s. ஆழத்தையும் அலைநீளத்தையும் காண்க.",
+            "si": "ගැඹුර මනින උපකරණය/මූලධර්මය නම් කරන්න. ශබ්ද සංඛ්‍යාතය 2920 Hz, වේගය 1460 m/s සහ ප්‍රතිරාව කාලය තත්පර 20 වේ. ගැඹුර සහ තරංග ආයාමය සොයන්න."
           },
           "answer": {
             "en": "Echo sounder/SONAR uses reflection of ultrasound. | h = vt/2 = 1460 × 20/2 = 14600 m (two-way journey). | λ = v/f = 1460/2920 = 0.5 m.",
-            "ta": "எதிரொலி ஆழமானி/SONAR கழியொலியின் தெறிப்பைப் பயன்படுத்தும். | h = vt/2 = 1460 × 20/2 = 14600 m (சென்று திரும்பும் பயணம்). | λ = v/f = 1460/2920 = 0.5 m."
+            "ta": "எதிரொலி ஆழமானி/SONAR கழியொலியின் தெறிப்பைப் பயன்படுத்தும். | h = vt/2 = 1460 × 20/2 = 14600 m (சென்று திரும்பும் பயணம்). | λ = v/f = 1460/2920 = 0.5 m.",
+            "si": "ප්‍රතිරාව ශබ්දමානය/SONAR අතිධ්වනියේ පරාවර්තනය භාවිත කරයි. | h = vt/2 = 1460 × 20/2 = 14600 m (දෙපැත්තට ගමන). | λ = v/f = 1460/2920 = 0.5 m."
           },
           "steps": [
             {
-              "en": "Echo sounder/SONAR uses reflection of ultrasound.",
-              "ta": "எதிரொலி ஆழமானி/SONAR கழியொலியின் தெறிப்பைப் பயன்படுத்தும்."
+              "en": "(a–b) The device is an echo sounder (SONAR); it uses the reflection of sound (an echo).",
+              "ta": "(a–b) சாதனம் எதிரொலி அளவி (SONAR); அது ஒலியின் தெறிப்பைப் (எதிரொலி) பயன்படுத்துகிறது.",
+              "si": "(a–b) උපකරණය ප්‍රතිරාව ශබ්දමානයකි (SONAR); එය ශබ්දයේ පරාවර්තනය (ප්‍රතිරාවය) භාවිත කරයි."
             },
             {
-              "en": "h = vt/2 = 1460 × 20/2 = 14600 m (two-way journey).",
-              "ta": "h = vt/2 = 1460 × 20/2 = 14600 m (சென்று திரும்பும் பயணம்)."
+              "en": "(c–d) Total path = 1460 × 20 = 29 200 m; depth = half of that = 14 600 m.",
+              "ta": "(c–d) மொத்தப் பாதை = 1460 × 20 = 29 200 m; ஆழம் = அதன் பாதி = 14 600 m.",
+              "si": "(c–d) මුළු මාර්ගය = 1460 × 20 = 29 200 m; ගැඹුර = එහි අඩක් = 14 600 m."
             },
             {
-              "en": "λ = v/f = 1460/2920 = 0.5 m.",
-              "ta": "λ = v/f = 1460/2920 = 0.5 m."
+              "en": "(e) λ = v ÷ f = 1460 ÷ 2920 = 0.5 m.",
+              "ta": "(e) λ = v ÷ f = 1460 ÷ 2920 = 0.5 m.",
+              "si": "(e) λ = v ÷ f = 1460 ÷ 2920 = 0.5 m."
             }
           ],
           "hint": {
-            "en": "At constant speed, distance = speed × time.",
-            "ta": "மாறா வேகத்தில் தூரம் = வேகம் × நேரம்."
+            "en": "The sound goes down to the sea bed and back up, so the echo time is for twice the depth. Then use v = fλ.",
+            "ta": "ஒலி கடலடிக்குச் சென்று மீண்டும் மேலே வருவதால் எதிரொலி நேரம் ஆழத்தின் இருமடங்குக்கானது. பின் v = fλ ஐப் பயன்படுத்துக.",
+            "si": "ශබ්දය මුහුදු පතුලට ගොස් නැවත ඉහළට එන බැවින් ප්‍රතිරාව කාලය ගැඹුර මෙන් දෙගුණයක් සඳහාය. ඉන්පසු v = fλ භාවිත කරන්න."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "At constant speed, distance = speed × time.",
-              "ta": "மாறா வேகத்தில் தூரம் = வேகம் × நேரம்."
+              "en": "Echo ranging: distance = speed × time ÷ 2, because the sound travels there and back. Wave equation: v = fλ.",
+              "ta": "எதிரொலி அளவீடு: தூரம் = கதி × நேரம் ÷ 2; ஏனெனில் ஒலி சென்று திரும்புகிறது. அலைச் சமன்பாடு: v = fλ.",
+              "si": "ප්‍රතිරාව මැනීම: දුර = වේගය × කාලය ÷ 2; ශබ්දය එහි ගොස් ආපසු එන බැවිනි. තරංග සමීකරණය: v = fλ."
             },
             "reasoning": {
-              "en": "Echo sounder/SONAR uses reflection of ultrasound. | h = vt/2 = 1460 × 20/2 = 14600 m (two-way journey). | λ = v/f = 1460/2920 = 0.5 m.",
-              "ta": "எதிரொலி ஆழமானி/SONAR கழியொலியின் தெறிப்பைப் பயன்படுத்தும். | h = vt/2 = 1460 × 20/2 = 14600 m (சென்று திரும்பும் பயணம்). | λ = v/f = 1460/2920 = 0.5 m."
+              "en": "Sound travels about four times faster in water (1460 m s⁻¹) than in air (about 340 m s⁻¹), which is why ships use sound to measure depth.",
+              "ta": "ஒலி வளியை (ஏறக்குறைய 340 m s⁻¹) விட நீரில் (1460 m s⁻¹) ஏறக்குறைய நான்கு மடங்கு வேகமாகச் செல்கிறது; அதனால்தான் கப்பல்கள் ஆழத்தை அளக்க ஒலியைப் பயன்படுத்துகின்றன.",
+              "si": "ශබ්දය වාතයට (340 m s⁻¹ පමණ) වඩා ජලයේ (1460 m s⁻¹) හතර ගුණයක් පමණ වේගයෙන් ගමන් කරයි; නැව් ගැඹුර මැනීමට ශබ්දය භාවිත කරන්නේ එබැවිනි."
             },
             "commonMistake": {
-              "en": "Use sound speed, not light speed, for the measured delay.",
-              "ta": "அளந்த தாமதத்திற்கு ஒளி வேகத்தை அல்ல, ஒலி வேகத்தைப் பயன்படுத்தவும்."
+              "en": "Forgetting to halve and giving 29 200 m. The echo time covers the trip down and back.",
+              "ta": "பாதியாக்க மறந்து 29 200 m எனக் கொடுத்தல். எதிரொலி நேரம் கீழே சென்று திரும்பும் பயணத்தை உள்ளடக்குகிறது.",
+              "si": "අඩක් කිරීමට අමතක කර 29 200 m ලෙස දීම. ප්‍රතිරාව කාලය පහළට ගොස් ආපසු එන ගමන ආවරණය කරයි."
             },
             "practice": {
               "question": {
-                "en": "Thunder arrives 3 s after a flash. Sound speed is 330 m s⁻¹. Find the distance.",
-                "ta": "ஒளிக்குப் பின் 3 s இல் இடி கேட்கிறது. ஒலி வேகம் 330 m s⁻¹. தூரத்தைக் காண்க."
+                "en": "An echo returns in 0.4 s in water (v = 1500 m s⁻¹). How deep is the sea bed?",
+                "ta": "நீரில் (v = 1500 m s⁻¹) எதிரொலி 0.4 s இல் திரும்புகிறது. கடலடி எவ்வளவு ஆழம்?",
+                "si": "ජලයේ (v = 1500 m s⁻¹) ප්‍රතිරාවයක් තත්පර 0.4 කින් ආපසු එයි. මුහුදු පතුල කොපමණ ගැඹුරද?"
               },
               "answer": {
-                "en": "d = 330 × 3 = 990 m.",
-                "ta": "d = 330 × 3 = 990 m."
+                "en": "1500 × 0.4 ÷ 2 = 300 m.",
+                "ta": "1500 × 0.4 ÷ 2 = 300 m.",
+                "si": "1500 × 0.4 ÷ 2 = 300 m."
               }
             }
           },
@@ -3609,52 +4126,66 @@
           "label": "B(ii)(a–b)",
           "subject": "physics",
           "lessons": [
-            "g10-chapter-15-hydrostatic-pressure",
-            "g11-chapter-04-waves"
+            "g10-chapter-15-hydrostatic-pressure"
           ],
           "prompt": {
             "en": "Write pressure in terms of depth h, density d and g. Calculate it for d = 1100 kg m⁻³ at the depth above.",
-            "ta": "h ஆழம், d அடர்த்தி, g கொண்டு அமுக்கச் சமன்பாட்டை எழுதி மேலுள்ள ஆழத்தில் d = 1100 kg m⁻³ எனில் கணிக்கவும்."
+            "ta": "h ஆழம், d அடர்த்தி, g கொண்டு அமுக்கச் சமன்பாட்டை எழுதி மேலுள்ள ஆழத்தில் d = 1100 kg m⁻³ எனில் கணிக்கவும்.",
+            "si": "ගැඹුර h, ඝනත්වය d සහ g ඇසුරෙන් පීඩනය ලියන්න. ඉහත ගැඹුරේදී d = 1100 kg m⁻³ සඳහා එය ගණනය කරන්න."
           },
           "answer": {
             "en": "p = dgh (water-only pressure). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. The 1000 kg stored waste mass is not needed for water pressure.",
-            "ta": "p = dgh (நீரால் மட்டும் அமுக்கம்). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. நீரமுக்கத்திற்கு 1000 kg கழிவுத் திணிவு தேவையில்லை."
+            "ta": "p = dgh (நீரால் மட்டும் அமுக்கம்). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. நீரமுக்கத்திற்கு 1000 kg கழிவுத் திணிவு தேவையில்லை.",
+            "si": "p = dgh (ජලයේ පමණක් පීඩනය). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. ජල පීඩනය සඳහා ගබඩා කළ අපද්‍රව්‍ය ස්කන්ධය 1000 kg අවශ්‍ය නොවේ."
           },
           "steps": [
             {
-              "en": "p = dgh (water-only pressure).",
-              "ta": "p = dgh (நீரால் மட்டும் அமுக்கம்)."
+              "en": "(a) p = hdg (pressure due to the water only).",
+              "ta": "(a) p = hdg (நீரால் மட்டுமான அமுக்கம்).",
+              "si": "(a) p = hdg (ජලය නිසා පමණක් ඇති පීඩනය)."
             },
             {
-              "en": "p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. The 1000 kg stored waste mass is not needed for water pressure.",
-              "ta": "p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. நீரமுக்கத்திற்கு 1000 kg கழிவுத் திணிவு தேவையில்லை."
+              "en": "(b) p = 14 600 × 1100 × 10.",
+              "ta": "(b) p = 14 600 × 1100 × 10.",
+              "si": "(b) p = 14 600 × 1100 × 10."
+            },
+            {
+              "en": "p = 160 600 000 Pa ≈ 1.6 × 10⁸ Pa. The mass of the waste is not needed: pressure depends only on depth, density and g.",
+              "ta": "p = 160 600 000 Pa ≈ 1.6 × 10⁸ Pa. கழிவின் திணிவு தேவையில்லை: அமுக்கம் ஆழம், அடர்த்தி, g இல் மட்டுமே தங்கியுள்ளது.",
+              "si": "p = 160 600 000 Pa ≈ 1.6 × 10⁸ Pa. අපද්‍රව්‍යයේ ස්කන්ධය අවශ්‍ය නොවේ: පීඩනය රඳා පවතින්නේ ගැඹුර, ඝනත්වය සහ g මත පමණි."
             }
           ],
           "hint": {
-            "en": "Liquid pressure at depth h is p = ρgh.",
-            "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+            "en": "Liquid pressure = depth × density × g. Use the depth from the previous part and the sea-water density given.",
+            "ta": "திரவ அமுக்கம் = ஆழம் × அடர்த்தி × g. முந்திய பகுதியின் ஆழத்தையும் தரப்பட்ட கடல்நீர் அடர்த்தியையும் பயன்படுத்துக.",
+            "si": "ද්‍රව පීඩනය = ගැඹුර × ඝනත්වය × g. පෙර කොටසේ ගැඹුර සහ දී ඇති මුහුදු ජල ඝනත්වය භාවිත කරන්න."
           },
           "detailedExplanation": {
             "concept": {
-              "en": "Liquid pressure at depth h is p = ρgh.",
-              "ta": "h ஆழத்திலுள்ள திரவ அமுக்கம் p = ρgh."
+              "en": "Pressure at depth h in a liquid of density d: p = hdg. It does not depend on what object is at that depth.",
+              "ta": "அடர்த்தி d உள்ள திரவத்தில் ஆழம் h இல் அமுக்கம்: p = hdg. அது அவ்வாழத்திலுள்ள பொருளில் தங்கியிருப்பதில்லை.",
+              "si": "ඝනත්වය d වන ද්‍රවයක h ගැඹුරේ පීඩනය: p = hdg. එය එම ගැඹුරේ ඇති වස්තුව මත රඳා නොපවතී."
             },
             "reasoning": {
-              "en": "p = dgh (water-only pressure). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. The 1000 kg stored waste mass is not needed for water pressure.",
-              "ta": "p = dgh (நீரால் மட்டும் அமுக்கம்). | p = 1100 × 10 × 14600 = 160600000 Pa = 1.606 × 10⁸ Pa. நீரமுக்கத்திற்கு 1000 kg கழிவுத் திணிவு தேவையில்லை."
+              "en": "1.6 × 10⁸ Pa is about 1600 times atmospheric pressure, which is why deep-sea containers must be extremely strong.",
+              "ta": "1.6 × 10⁸ Pa ஏறக்குறைய வளிமண்டல அமுக்கத்தின் 1600 மடங்கு; அதனால்தான் ஆழ்கடல் கொள்கலன்கள் மிக வலிமையானவையாக இருக்க வேண்டும்.",
+              "si": "1.6 × 10⁸ Pa යනු ආසන්න වශයෙන් වායුගෝලීය පීඩනය මෙන් 1600 ගුණයකි; ගැඹුරු මුහුදු බහාලුම් අතිශයින් ශක්තිමත් විය යුත්තේ එබැවිනි."
             },
             "commonMistake": {
-              "en": "Pressure and total force are different: force also depends on area.",
-              "ta": "அமுக்கமும் மொத்த விசையும் வேறு: விசை பரப்பளவையும் சாரும்."
+              "en": "Using the mass of the waste container in the calculation. Liquid pressure does not depend on it.",
+              "ta": "கணிப்பில் கழிவுக் கொள்கலனின் திணிவைப் பயன்படுத்துதல். திரவ அமுக்கம் அதில் தங்கியிருப்பதில்லை.",
+              "si": "ගණනයේදී අපද්‍රව්‍ය බහාලුමේ ස්කන්ධය භාවිත කිරීම. ද්‍රව පීඩනය එය මත රඳා නොපවතී."
             },
             "practice": {
               "question": {
-                "en": "Two points in the same still water are both 10 cm below its surface. Compare their pressure.",
-                "ta": "அசைவற்ற ஒரே நீரில் இரு புள்ளிகள் மேற்பரப்பிலிருந்து 10 cm ஆழத்தில் உள்ளன. அமுக்கங்களை ஒப்பிடுக."
+                "en": "Find the pressure 50 m deep in sea water (d = 1100 kg m⁻³, g = 10).",
+                "ta": "கடல்நீரில் (d = 1100 kg m⁻³, g = 10) 50 m ஆழத்திலுள்ள அமுக்கத்தைக் காண்க.",
+                "si": "මුහුදු ජලයේ (d = 1100 kg m⁻³, g = 10) 50 m ගැඹුරේ පීඩනය සොයන්න."
               },
               "answer": {
-                "en": "Their liquid pressures are equal, regardless of container shape.",
-                "ta": "பாத்திர வடிவம் எதுவாயினும் அவற்றின் திரவ அமுக்கங்கள் சமம்."
+                "en": "50 × 1100 × 10 = 550 000 Pa.",
+                "ta": "50 × 1100 × 10 = 550 000 Pa.",
+                "si": "50 × 1100 × 10 = 550 000 Pa."
               }
             }
           },
@@ -3750,7 +4281,8 @@
           ],
           "textbookReferenceStatus": "related-only"
         }
-      ]
+      ],
+      "detailedExplanation": {}
     }
   ]
 }

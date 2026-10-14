@@ -296,3 +296,40 @@ These are all in [owner-tasks.md](owner-tasks.md), and none of them blocks the n
   - `tests/test_pwa.py` (not in CI) has one failing check about the current pages' story animation with reduced motion. It fails the same way without these changes, and it's left as a separate task.
 
 **Next:** the owner's steps in `docs/owner-tasks.md` (progress migration, review, trial, then on). After that comes the clean-up: removing the old pages and the v1 endpoints.
+
+## 11. Past papers, by chapter and fully explained (2026-10-14)
+
+The owner asked for past papers to be the key part of the system: more explanation, a better page, and questions
+grouped by chapter.
+
+**The page (#45):**
+- `/past-papers/` now opens on the chapters, not the years. A chapter shows its questions from every paper, with filters (all, multiple choice, written, not yet right, saved).
+- **Practise this chapter** gives a set of 10, weakest first, with a summary at the end. The years view keeps paper practice (timed, scored).
+- After an answer, the chosen option and the right one are marked, with a reason on each. The explanation comes in parts: the answer, the idea, step by step, why it works, watch out, try one like it, and a link to the lesson.
+- Written parts are self-checked ("I got it" / "Needs more practice").
+- A question right for the first time is worth 5 XP, once. All of it is in English, Tamil and Sinhala.
+
+**The explanations (#46–#54, one PR per year, 2023 back to 2015):**
+- All 155 questions were rewritten: 120 MCQs and 141 written parts, 261 explanations in all.
+- The first explanations were machine-made and mostly placeholders. An audit found:
+  - 241 of 261 hints were general rather than about the question;
+  - 172 steps only repeated the answer;
+  - 106 option reasons said "use the principle in the worked explanation";
+  - many "ideas" were about the wrong topic.
+- Each question now has a hint for that question, worked steps, the idea, why it works, a common mistake, a practice question with its answer, and a reason for every option.
+- Sinhala was added throughout; before this, Sinhala covered only the page.
+- Chapters were checked and fixed. Each written part now names its own chapter, so a question about two topics appears in both. Only two questions have no physics chapter: a diffusion question and a burette question.
+
+**Errors in the old banks, corrected against the paper scans:**
+- 2018 Q25: the explanation misquoted option 4.
+- 2018 Q37: the English called a tank's valve pit (bisokotuwa) a hydroelectric surge tank.
+- 2017 Q27: option 2 is a Zener diode, not an "ordinary diode".
+
+**Kept that way (#55):** `tools/validate_past_papers.py` now also checks the explanations:
+- every section is present in all three languages;
+- no section repeats another or the answer;
+- each option has its own reason;
+- a hint is never shared between questions;
+- none of the old placeholder text remains.
+
+Run against the old 2016 bank, it reports all 30 of its questions.

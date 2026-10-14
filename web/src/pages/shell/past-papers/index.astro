@@ -26,8 +26,8 @@ const chapters: Chapter[] = (catalog.lessons as Entry[])
     </div>
   </header>
   <div class="pp-page">
-    <a class="pp-skip" href="#pp-question">Skip to question</a>
-    <div class="pp-main">
+    <a class="pp-skip" href="#pp-main">Skip to content</a>
+    <div class="pp-main" id="pp-main" tabindex="-1">
       <PastPapers client:load chapters={chapters} />
     </div>
   </div>

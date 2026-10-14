@@ -333,3 +333,11 @@ grouped by chapter.
 - none of the old placeholder text remains.
 
 Run against the old 2016 bank, it reports all 30 of its questions.
+
+**A calmer page (#56).** The owner found the page had too much friction and packed too much in. It now shows one thing at a time:
+- **Home:** a "Continue" card, the chapters, and the years as small buttons. The three stat boxes and the chapter/year tabs are gone.
+- **Chapter:** its questions as a plain list, showing the start of each prompt. Four filters replace six chips and a year menu.
+- **Question:** its own screen, with Previous and Next kept at the bottom.
+- **After an answer:** the verdict with one reason. Only the chosen and the right options show reasons; the full explanation is folded away and opens by itself after a wrong answer.
+- **Written questions:** typing is optional. A question opened from a chapter shows that chapter's parts first.
+- **Paper practice (sitting a whole paper) is removed.** A paper someone had started is kept as drafts.

@@ -1,0 +1,26 @@
+---
+// The page a browser gets for an address that is not there (stemcloud/main.py, not_found), in place of the API's
+// {"detail": "Not Found"}: what happened, in the three languages, and the way back.
+import AppLayout from '../../layouts/AppLayout.astro';
+---
+<AppLayout title="Page not found · STEM Cloud" noindex>
+  <div class="wrap narrow nf">
+    <p class="nf-mark" aria-hidden="true">🧭</p>
+    <h1>This page is not here</h1>
+    <p>The address may be old or mistyped. Your lessons and progress are safe.</p>
+    <p lang="ta">இந்தப் பக்கம் இங்க இல்ல. உன் பாடங்களும் முன்னேற்றமும் பத்திரமா இருக்கு.</p>
+    <p lang="si">මෙම පිටුව මෙහි නැත. ඔබේ පාඩම් සහ ප්‍රගතිය ආරක්ෂිතයි.</p>
+    <div class="nf-go">
+      <a class="btn primary" href="/">Go to my lessons</a>
+      <a class="btn" href="/past-papers/">Past papers</a>
+    </div>
+  </div>
+</AppLayout>
+
+<style>
+  .nf { padding-block: max(48px, env(safe-area-inset-top)) 48px; display: grid; gap: 4px; }
+  .nf-mark { font-size: 3rem; margin: 0; }
+  .nf h1 { font-size: 1.8rem; margin: 8px 0 6px; }
+  .nf p { color: var(--sc-ink-2); margin: 0 0 6px; }
+  .nf-go { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+</style>

@@ -152,12 +152,16 @@ def lesson_progress(con, uid: int, lesson_id: str) -> dict:
 
 
 def summary(con, uid: int) -> dict:
-    """Totals for the home page: XP, badges, the days the student learned on, and steps opened / done per lesson."""
+    """Totals for the home page and "Me": XP, badges, the days the student learned on, steps opened / done per lesson,
+    and the lessons finished."""
     xp = con.execute('SELECT xp_total FROM users WHERE id=?', (uid,)).fetchone()
     badges = [r['badge_id'] for r in con.execute('SELECT badge_id FROM badges WHERE user_id=? ORDER BY earned_at', (uid,)).fetchall()]
     days = [r['day'] for r in con.execute('SELECT day FROM activity_days WHERE user_id=? ORDER BY day DESC LIMIT 400', (uid,)).fetchall()]
     lessons = {r['lesson_id']: {'opened': r['o'], 'done': r['d']} for r in con.execute(
         'SELECT lesson_id, COUNT(opened_at) AS o, COUNT(done_at) AS d FROM step_progress WHERE user_id=? GROUP BY lesson_id', (uid,)).fetchall()}
+    # the lessons finished: their Finish step is done ("Me" shows chapters finished)
+    finished = sorted(r['lesson_id'] for r in con.execute(
+        "SELECT lesson_id FROM step_progress WHERE user_id=? AND step_id='finish' AND done_at IS NOT NULL", (uid,)).fetchall())
     prefs = con.execute('SELECT lang,theme,motion,reading_mode FROM user_prefs WHERE user_id=?', (uid,)).fetchone()
-    return {'xp': int(xp['xp_total']) if xp else 0, 'badges': badges, 'days': days, 'lessons': lessons,
+    return {'xp': int(xp['xp_total']) if xp else 0, 'badges': badges, 'days': days, 'lessons': lessons, 'finished': finished,
             'prefs': {k: prefs[k] for k in PREFS if prefs[k]} if prefs else {}}

@@ -94,7 +94,7 @@ export default function ForceLab({ si = {}, legacy = 'c4' }: { si?: SiDict; lega
   const vAt = (tt: number) => a * tt;
   const pAt = (tt: number) => m * vAt(tt);
   const state = (): S => { const c = sim.current, ca = c.F / c.m; return { F: c.F, m: c.m, a: ca, t: c.t, v: ca * c.t, s: 0.5 * ca * c.t * c.t }; };
-  const { done, touch } = useMissions(legacy, MISSIONS, state, [t, F, m]);
+  const { done, last, touch } = useMissions(legacy, MISSIONS, state, [t, F, m]);
 
   // the motion from rest: real time, up to 6 s
   usePlayer(playing, setPlaying, (dt) => {
@@ -133,7 +133,7 @@ export default function ForceLab({ si = {}, legacy = 'c4' }: { si?: SiDict; lega
   return (
     <div class="lab-card">
       <LabGuide tx={tx} goal={W.goal} look={W.look} tries={TRIES} chosen={chosen} onTry={tryIt} now={live(F, m)} />
-      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, F, m]} />
+      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, F, m]} note={last >= 0 ? tx(SHARED.missionDone) + tx(SHARED.now) + tx(live(F, m)) : ''} />
       <div class="lab-controls">
         <div class="control">
           <label for="fSlider"><span>{tx(W.F)}</span>, F = <b>{F.toFixed(0)}</b> N</label>

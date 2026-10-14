@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks';
 import type { ComponentChildren } from 'preact';
 import type { SiDict } from '../../lib/si-lookup';
-import { LabGuide, LabStage, markLab, sharedStrings, useLabText, useMissions, type Mission, type Pair } from '../shared';
+import { LabGuide, LabStage, SHARED, markLab, sharedStrings, useLabText, useMissions, type Mission, type Pair } from '../shared';
 
 /*
  * The Equilibrium Lab of chapter 12 (the lesson page's "EQUILIBRIUM LAB", "GUIDED LAB" and "CARTOON LAB STAGE" scripts,
@@ -91,9 +91,9 @@ export default function EquilibriumLab({ si = {}, legacy = 'c12' }: { si?: SiDic
   const [v, setV] = useState<V>({ f1: 40, f2: 20, w: 60 });
   const [chosen, setChosen] = useState(-1);
   const S: S = { ...v, net: v.f1 + v.f2 - v.w };
-  const { done, touch } = useMissions(legacy, MISSIONS, () => S, [v]);
+  const { done, last, touch } = useMissions(legacy, MISSIONS, () => S, [v]);
   const set = (k: keyof V, x: number) => { touch(); setV({ ...v, [k]: x }); };
-  const tryIt = (i: number) => { setChosen(i); touch(); setV({ ...TRIES[i]!.set }); markLab(); };
+  const tryIt = (i: number) => { setChosen(i); touch(false); setV({ ...TRIES[i]!.set }); markLab(); };
 
   // the page's own picture under the controls: the ball moves (up to 35) the way of the net force
   const net = S.net, balanced = Math.abs(net) < 0.5, cx = 320, cy = 170 - Math.max(-35, Math.min(35, net * 0.8)), s = 1.1;
@@ -106,7 +106,7 @@ export default function EquilibriumLab({ si = {}, legacy = 'c12' }: { si?: SiDic
   return (
     <div class="lab-card">
       <LabGuide tx={tx} goal={W.goal} look={W.look} tries={TRIES} chosen={chosen} onTry={tryIt} now={live(v)} />
-      <LabStage text={text} draw={(tt, H) => drawStage(S, tt, H, tx)} missions={MISSIONS} done={done} deps={[v]} />
+      <LabStage text={text} draw={(tt, H) => drawStage(S, tt, H, tx)} missions={MISSIONS} done={done} deps={[v]} note={last >= 0 ? tx(SHARED.missionDone) + tx(SHARED.now) + tx(live(v)) : ''} />
       <div class="lab-controls">
         {slider('f1', W.f1, <>F<sub>1</sub></>, 0, 60)}
         {slider('f2', W.f2, <>F<sub>2</sub></>, 0, 60)}

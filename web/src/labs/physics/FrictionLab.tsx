@@ -111,7 +111,7 @@ export default function FrictionLab({ si = {}, legacy = 'c5' }: { si?: SiDict; l
   };
   const P = phys(sim.current);
   const state = (): S => { const c = sim.current, p = phys(c); return { F: c.F, FL: shown(p.FL), fr: p.fr, s: p.s, rough: c.rough, blocks: c.blocks }; };
-  const { done, touch } = useMissions(legacy, MISSIONS, state, [t, F, rough, blocks]);
+  const { done, last, touch } = useMissions(legacy, MISSIONS, state, [t, F, rough, blocks]);
 
   // sliding: real time, up to 6 s
   usePlayer(playing, setPlaying, (dt) => {
@@ -158,7 +158,7 @@ export default function FrictionLab({ si = {}, legacy = 'c5' }: { si?: SiDict; l
   return (
     <div class="lab-card">
       <LabGuide tx={tx} goal={W.goal} look={W.look} tries={TRIES} chosen={chosen} onTry={tryIt} now={live(F, shown(P.FL))} />
-      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, F, rough, blocks]} />
+      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, F, rough, blocks]} note={last >= 0 ? tx(SHARED.missionDone) + tx(SHARED.now) + tx(live(F, shown(P.FL))) : ''} />
       <div class="toggle-row">
         <div class="toggle-group">
           <div class="tglabel">{tx(W.surface)}</div>

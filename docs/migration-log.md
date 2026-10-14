@@ -341,3 +341,31 @@ Run against the old 2016 bank, it reports all 30 of its questions.
 - **After an answer:** the verdict with one reason. Only the chosen and the right options show reasons; the full explanation is folded away and opens by itself after a wrong answer.
 - **Written questions:** typing is optional. A question opened from a chapter shows that chapter's parts first.
 - **Paper practice (sitting a whole paper) is removed.** A paper someone had started is kept as drafts.
+
+## 12. The mobile audit fixes (2026-10-14)
+
+A phone-first audit of the whole app (375 × 812, English and Tamil) found 16 problems. All of them are fixed:
+
+**Navigation: one way to each place.**
+- Three bottom tabs: **Learn** (the course home), **Past papers**, **Me**. The old Home tab and the Learn tab (a shortcut to the last chapter) were the same place twice.
+- Every "home" goes to the course home: the logo, the footer and the lesson back arrow. The logo used to open the marketing page.
+- `/learn/` (and `/learn/physics/g10/`) opens the course home. An address that is not there shows a page with a way back, not `{"detail": "Not Found"}`; the API keeps its JSON (`stemcloud/main.py`).
+- A lesson has one pager: Back / Next, sticky at the bottom in thumb reach. The top bar keeps Listen and the step picker ("Step menu"); the bottom one is "Step navigation".
+- One language button, the same in every header (`islands/LangSwitch.tsx`): a globe and the language, opening the three. The lessons' row of language chips is gone. The light / dark switch moved into the lesson map, to keep room for the chapter name.
+- **Me** shows progress first (XP, the day streak, chapters finished, past papers right, what to revisit), then the settings. The progress summary API also lists the lessons finished.
+
+**The labs.** All slider labs share one template (`labs/SliderLab.tsx`):
+- The picture comes first and stays in view on a phone while a slider moves; the sliders and the result are right under it. Before, the sliders were 1 541 px down the page.
+- One picture slot with a Scene / Diagram switch, where the same tank was drawn twice.
+- Sliders are 44 px tall with a 28 px thumb, and have − / + buttons (the density slider moved about 1 px per step).
+- A "Try" button sets the lab but does not do a mission for the student; a mission counts only when the student's own change gets there (`labs/shared.tsx`). A done mission says what it showed. The See-saw and Equilibrium labs work the same way; the moving labs still count a mission seen in the motion a Try starts.
+- The result reads as one line ("P = hρg = 4 × 1 000 × 10 = 40 000 Pa", no stray "·"), the picture is named by what it shows, and screen readers hear the result when the slider stops.
+- In Tamil a lab is always ஆய்வகம் and a mission பணி: the lesson pages were changed and the content regenerated.
+
+**Accessibility and look.**
+- Focus: an ink ring with the mango ring outside it, about 16:1 against the page; the mango alone was 1.66:1 (WCAG 1.4.11 asks 3:1).
+- The lesson page's H1 is the chapter name; the steps' headers are plain blocks.
+- "1 to revisit" on past papers: 6.6:1 (was 4.42:1).
+- Weight carries the hierarchy: headings 800, controls 700, labels 600, reading text 400.
+- The course home: one skip link (two differed by a letter), 12 px stat labels.
+- The service worker version is v26, and a new version fills its cache from the server, not from the browser's copy.

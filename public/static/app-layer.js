@@ -70,7 +70,8 @@
   var main = doc.querySelector('.wrap');
   if (main) { main.id = main.id || 'stem-main'; main.setAttribute('role', 'main'); main.setAttribute('tabindex', '-1'); }
   if (tb) tb.setAttribute('role', 'banner');
-  if (main) {
+  /* one skip link: a page with its own (the course home) keeps it */
+  if (main && !doc.querySelector('.skip-link')) {
     var skip = doc.createElement('a');
     skip.className = 'skip-link'; skip.href = '#' + main.id;
     skip.textContent = A('Skip to the lesson', 'பாடத்துக்கு நேரா போ');

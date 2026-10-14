@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
-import { $lang, loadPrefs, setLang } from '../stores/prefs';
+import { $lang, loadPrefs } from '../stores/prefs';
 import { onceId, record, reward, start as startProgress } from '../stores/progress';
 
 /*
@@ -290,6 +290,10 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   // OTHER: the few questions no physics chapter teaches (a measuring apparatus, diffusion)
   const inChapter = (key: string) => bank.filter((q) => (key === OTHER ? !chaptersOf(q).length : chaptersOf(q).includes(key))).sort((a, b) => b.year - a.year || a.paper.localeCompare(b.paper) || a.number - b.number);
   const inYear = (year: number) => bank.filter((q) => q.year === year).sort((a, b) => a.paper.localeCompare(b.paper) || a.number - b.number);
+  // while a question is open it has its own Previous / Next: the page's bottom bar steps aside (past-papers/index.astro)
+  useEffect(() => {
+    document.documentElement.toggleAttribute('data-ppq', view.kind === 'set' || ((view.kind === 'chapter' || view.kind === 'year') && !!view.q));
+  }, [view]);
   // a practice set is made when its view opens: up to 10, to revisit first, then not tried, then answered, then right
   useEffect(() => {
     if (view.kind !== 'set' || !st || !bank.length || (set && set.key === view.key)) return;
@@ -333,11 +337,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   const top = (back?: { label: string; to: View }) => (
     <div class="pp-top">
       {back ? <a class="pp-back" href={hashOf(back.to)} onClick={(e) => { e.preventDefault(); go(back.to); }}>← {back.label}</a> : <span />}
-      <div class="pp-lang" role="group" aria-label="Language">
-        <button type="button" aria-pressed={lang === 'en'} onClick={() => setLang('en')} lang="en">EN</button>
-        <button type="button" aria-pressed={lang === 'ta'} onClick={() => setLang('ta')} lang="ta" aria-label="தமிழ்">த</button>
-        <button type="button" aria-pressed={lang === 'si'} onClick={() => setLang('si')} lang="si" aria-label="සිංහල">සි</button>
-      </div>
       {msg.text && <p id="pp-status" class="pp-msg" role="status">{msg.text}{msg.retry && <> <button type="button" class="pp-link" onClick={() => void sync()}>{t('Try again', 'மீண்டும் முயற்சி', 'නැවත උත්සාහ කරන්න')}</button></>}</p>}
     </div>
   );

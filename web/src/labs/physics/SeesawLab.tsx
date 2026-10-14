@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 import type { SiDict } from '../../lib/si-lookup';
-import { LabGuide, LabStage, markLab, sharedStrings, useLabText, useMissions, type Mission, type Pair } from '../shared';
+import { LabGuide, LabStage, SHARED, markLab, sharedStrings, useLabText, useMissions, type Mission, type Pair } from '../shared';
 
 /*
  * The Balance Lab of chapter 11, the turning effect (the lesson page's "BALANCE LAB (SEE-SAW)", "GUIDED LAB" and
@@ -81,9 +81,9 @@ export default function SeesawLab({ si = {}, legacy = 'c11' }: { si?: SiDict; le
   const [v, setV] = useState<V>({ fL: 10, dL: 3, fR: 15, dR: 2 });
   const [chosen, setChosen] = useState(-1);
   const S: S = { ...v, ML: v.fL * v.dL, MR: v.fR * v.dR };
-  const { done, touch } = useMissions(legacy, MISSIONS, () => S, [v]);
+  const { done, last, touch } = useMissions(legacy, MISSIONS, () => S, [v]);
   const set = (k: keyof V, x: number) => { touch(); setV({ ...v, [k]: x }); };
-  const tryIt = (i: number) => { setChosen(i); touch(); setV({ ...TRIES[i]!.set }); markLab(); };
+  const tryIt = (i: number) => { setChosen(i); touch(false); setV({ ...TRIES[i]!.set }); markLab(); };
 
   // the page's own see-saw under the controls: tips towards the bigger moment, by up to 18 degrees
   const diff = S.MR - S.ML, balanced = Math.abs(diff) < 0.3;
@@ -99,7 +99,7 @@ export default function SeesawLab({ si = {}, legacy = 'c11' }: { si?: SiDict; le
   return (
     <div class="lab-card">
       <LabGuide tx={tx} goal={W.goal} look={W.look} tries={TRIES} chosen={chosen} onTry={tryIt} now={live(v)} />
-      <LabStage text={text} draw={(tt, H) => drawStage(S, tt, H, tx)} missions={MISSIONS} done={done} deps={[v]} />
+      <LabStage text={text} draw={(tt, H) => drawStage(S, tt, H, tx)} missions={MISSIONS} done={done} deps={[v]} note={last >= 0 ? tx(SHARED.missionDone) + tx(SHARED.now) + tx(live(v)) : ''} />
       <div class="lab-controls">
         {slider('fL', W.fL, 'F', 'N', 1, 30, 1, 0)}
         {slider('dL', W.dL, 'd', 'm', 0.5, 6, 0.5, 1)}

@@ -1,6 +1,6 @@
 ---
-// The frame of a lesson page and of the topic pages: the header (back, title, theme), the step bar (LessonPlayer) when
-// the page has steps, the language switch, read-aloud, and the lesson content's styles and script. The page's steps
+// The frame of a lesson page and of the topic pages: the header (back, title, XP, language), the step bar (LessonPlayer)
+// when the page has steps, read-aloud, and the lesson content's styles and script. The page's steps
 // go in the default slot as <section class="lstep" id="...">; one is shown at a time once the player has started.
 import AppLayout from './AppLayout.astro';
 import T from '../components/lesson/T.astro';
@@ -45,17 +45,20 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', al
         <span class="visually-hidden"><T t={back.label} /></span>
       </a>
       <div class="lh-title">
-        <b><T t={title} /></b>
+        {/* the page's H1, except on the topic list, which has its own */}
+        {steps ? <h1><T t={title} /></h1> : <b><T t={title} /></b>}
         <small><T t={sub} /></small>
       </div>
       <XpChip client:idle />
-      <ThemeToggle client:idle />
+      <LangSwitch client:idle />
+      {/* with steps, the light / dark switch is in the lesson map (LessonPlayer): the header keeps room for the title */}
+      {!steps && <ThemeToggle client:idle />}
     </div>
     {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} aliases={aliases} /></div>}
   </header>
 
   <div class="wrap narrow lesson" id="lesson-top">
-    <div class="lang"><slot name="links" /><LangSwitch client:idle /></div>
+    {Astro.slots.has('links') && <div class="lang"><slot name="links" /></div>}
     <div class="lc">
       <slot />
       <VoiceControls client:idle />

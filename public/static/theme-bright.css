@@ -62,7 +62,7 @@ html:root .btn,html:root button,html:root input,html:root select{font-family:inh
 html body::before{display:none!important}
 body{background-image:none!important}
 ::selection{background:var(--sc-mango);color:#16183D}
-:focus-visible{outline:3px solid var(--sc-mango)!important;outline-offset:2px}
+:focus-visible{outline:3px solid var(--sc-mango)!important;outline-offset:3px;box-shadow:0 0 0 3px var(--sc-ink,#16183D)!important}
 
 /* ------------------------------------------------------------------ shared pieces */
 .btn,.lang-toggle,.theme-toggle{border-radius:14px;border:2px solid var(--border);background:var(--panel);color:var(--text);font-weight:800;box-shadow:0 3px 0 var(--border);min-height:44px}
@@ -175,7 +175,7 @@ html.stem-player[data-stem-step="mid"] .sb-next{color:var(--text)!important}
 .c-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
 .c-tile{display:flex;flex-direction:column;gap:2px;min-width:0;padding:10px;border-radius:16px;background:var(--panel);box-shadow:0 2px 0 var(--border)}
 .c-tile b{display:flex;align-items:center;gap:3px;font-family:'Baloo Thambi 2',sans-serif;font-weight:800;font-size:1.2rem;line-height:1;color:var(--text)}
-.c-tile span{font-size:.7rem;font-weight:700;line-height:1.2;color:var(--text-dim);overflow-wrap:anywhere}
+.c-tile span{font-size:.75rem;font-weight:600;line-height:1.2;color:var(--text-dim);overflow-wrap:anywhere}
 .c-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:26px;background:var(--sc-blue);color:#fff}
 .c-card::before{content:'';position:absolute;right:-36px;top:-36px;width:130px;height:130px;border-radius:50%;background:#4B5AE8}
 .c-card>*{position:relative}
@@ -329,7 +329,7 @@ html.stem-player[data-stem-step="start"] .wrap{max-width:760px;margin-left:auto;
 /* ------------------------------------------------------------------ bottom navigation (nav.js): course home, past papers, account; phone widths only */
 #stem-bnav{display:none}
 @media (max-width:760px){
-  #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
+  #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
   #stem-bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:44px;text-decoration:none;color:var(--text-dim);font-weight:700;font-size:.75rem}
   #stem-bnav a[aria-current="page"]{color:var(--accent);font-weight:800}
   #stem-bnav a:active svg{transform:translateY(1px)}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import type { SiDict } from '../lib/si-lookup';
 import { makeDraw } from './slider/draw';
-import { LabGuide, LabStage, markLab, useLabText, useMissions, type Mission, type Pair } from './shared';
+import { LabStage, SHARED, markLab, useLabText, useMissions, type Mission, type Pair } from './shared';
 
 /*
  * The lesson pages' slider labs (hydrostatic pressure to electromagnetism: one template, nine labs), rebuilt. Each lab
@@ -34,12 +34,18 @@ export default function SliderLab({ lab, si = {} }: { lab: SliderLabModule; si?:
   // the page's own code, with its language helpers and the sliders' values
   const { CFG, LAB, STAGE } = useMemo(() => lab.build((en, ta) => tx([en, ta]), tx, lang === 'ta' ? 'ta' : 'en', (id) => vals.current[id] ?? 0), [lang, lookup]);
   const missions: Mission<any>[] = useMemo(() => STAGE.missions.map((m) => ({ l: [m.en, m.ta] as Pair, test: m.test })), [STAGE]);
-  const { done, touch } = useMissions(META.legacy, missions, () => STAGE.read(), [v]);
+  const { done, last, touch } = useMissions(META.legacy, missions, () => STAGE.read(), [v]);
   const set = (id: string, x: number) => { touch(); setV({ ...vals.current, [id]: x }); };
+  // − and +: one step of the slider, kept inside its range (and free of float dust: 0.1 + 0.2)
+  const nudge = (c: SliderControl, dir: 1 | -1) => {
+    const dp = (String(c.step).split('.')[1] ?? '').length;
+    const x = Math.min(c.max, Math.max(c.min, (vals.current[c.id] ?? c.value) + dir * c.step));
+    set(c.id, parseFloat(x.toFixed(dp)));
+  };
   const tryIt = (i: number) => {
     const tr = LAB.tries[i]!;
     setChosen(i);
-    touch();
+    touch(false);     // a Try sets the lab for the student: it does not do a mission for them
     const next = { ...vals.current };
     for (const [k, x] of Object.entries(tr.set ?? {})) next[k.replace(/Slider$/, '')] = x;
     setV(next);
@@ -61,25 +67,48 @@ export default function SliderLab({ lab, si = {} }: { lab: SliderLabModule; si?:
   let now: Pair | null = null;
   try { now = LAB.live ? LAB.live() : null; } catch { /* nothing to say */ }
   const html = (p: Pair) => ({ __html: lang === 'ta' ? p[1] : lang === 'si' ? lookup(p[0]) || p[0] : p[0] });
+  const ra = r ? tx(r.a) : '', rb = r ? tx(r.b) : '';
+  // "P = hρg = 4 × 1 000 × 10" and "= 40 000 Pa" read as one line; other labs' two parts are separate facts
+  const joined = rb.trim().startsWith('=') ? ra + ' ' + rb : ra + ' · ' + rb;
+  // what the picture shows, said once the student stops moving a slider (not at every step of a drag)
+  const [said, setSaid] = useState('');
+  useEffect(() => { const t = setTimeout(() => setSaid(joined), 700); return () => clearTimeout(t); }, [joined]);
+  const note = last >= 0 ? tx(SHARED.missionDone) + (now ? tx(SHARED.now) + tx(now) : joined) : '';
+  const plain = (s: string) => s.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').trim();
   return (
-    <div class="lab-card">
-      <LabGuide tx={tx} goal={LAB.goal} look={['In the picture: ' + LAB.look[0], 'படத்துல: ' + LAB.look[1]]} tries={LAB.tries} chosen={chosen} onTry={tryIt} now={now} />
-      <LabStage text={text} draw={(t, H) => STAGE.draw(STAGE.read(), t, H)} missions={missions} done={done} deps={[v]} />
-      <div class="lab-controls">
-        {META.controls.map((c) => (
-          <div class="control">
-            <label for={c.id + 'Slider'}><span>{tx(c.name)}</span><span dangerouslySetInnerHTML={{ __html: c.mid }} /><b data-ro={c.id}>{String(v[c.id])}</b> <span dangerouslySetInnerHTML={{ __html: c.unit }} /></label>
-            <input type="range" id={c.id + 'Slider'} min={c.min} max={c.max} step={c.step} value={v[c.id]} onInput={(e) => set(c.id, parseFloat((e.target as HTMLInputElement).value))} />
-          </div>
-        ))}
-      </div>
-      <div class="a-readout">
-        <b data-ro="a">{r ? tx(r.a) : ''}</b>{' · '}<b data-ro="b" style={{ color: r?.good ? 'var(--good)' : 'var(--accent-3)' }}>{r ? tx(r.b) : ''}</b>
-      </div>
-      <div class="lab-svg-wrap">
-        <svg ref={pic} viewBox={META.viewBox} role="img" aria-label="lab" />
-      </div>
-      <p class="lab-hint" dangerouslySetInnerHTML={html(META.hint)} />
+    <div class="lab-card lab-v2">
+      <p class="lab-goal">{tx(LAB.goal)}</p>
+      <LabStage text={text} draw={(t, H) => STAGE.draw(STAGE.read(), t, H)} missions={missions} done={done} deps={[v]} label={joined} note={note}
+        diagram={<div class="lab-svg-wrap"><svg ref={pic} viewBox={META.viewBox} role="img" aria-label={joined} /></div>}>
+        <div class="lab-controls">
+          {META.controls.map((c) => (
+            <div class="control">
+              <label for={c.id + 'Slider'}><span>{tx(c.name)}</span><span dangerouslySetInnerHTML={{ __html: c.mid }} /><b data-ro={c.id}>{String(v[c.id])}</b> <span dangerouslySetInnerHTML={{ __html: c.unit }} /></label>
+              <div class="sl-row">
+                <button type="button" class="sl-step" aria-label={tx(SHARED.less) + ': ' + tx(c.name)} disabled={(v[c.id] ?? 0) <= c.min} onClick={() => nudge(c, -1)}>−</button>
+                <input type="range" id={c.id + 'Slider'} min={c.min} max={c.max} step={c.step} value={v[c.id]}
+                  aria-valuetext={String(v[c.id]) + ' ' + plain(c.unit)} onInput={(e) => set(c.id, parseFloat((e.target as HTMLInputElement).value))} />
+                <button type="button" class="sl-step" aria-label={tx(SHARED.plus) + ': ' + tx(c.name)} disabled={(v[c.id] ?? 0) >= c.max} onClick={() => nudge(c, 1)}>+</button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div class="a-readout">
+          <b data-ro="a">{ra}</b>{rb.trim().startsWith('=') ? ' ' : ' · '}<b data-ro="b" style={{ color: r?.good ? 'var(--good)' : 'var(--accent-3)' }}>{rb}</b>
+        </div>
+        <p class="visually-hidden" aria-live="polite">{said}</p>
+        {now && <p class="lg-live">💬 <b>{tx(SHARED.now)}</b>{tx(now)}</p>}
+        <div class="lg-tries" role="group" aria-label={tx(SHARED.tryLabel)}>
+          <span class="lg-tl">{tx(SHARED.tryLabel)}</span>
+          {LAB.tries.map((tr, i) => <button type="button" class={'lg-try' + (i === chosen ? ' on' : '')} aria-pressed={i === chosen} onClick={() => tryIt(i)}>{tx(tr.l)}</button>)}
+        </div>
+        {chosen >= 0 && <p class="lg-see" role="status">👀 <b>{tx(SHARED.see)}</b>{tx(LAB.tries[chosen]!.see)}</p>}
+      </LabStage>
+      <details class="lab-more">
+        <summary>{tx(SHARED.more)}</summary>
+        <p>{tx(LAB.look)}</p>
+        <p class="lab-hint" dangerouslySetInnerHTML={html(META.hint)} />
+      </details>
     </div>
   );
 }

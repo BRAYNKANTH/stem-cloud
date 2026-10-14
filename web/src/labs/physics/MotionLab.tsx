@@ -97,7 +97,7 @@ export default function MotionLab({ si = {}, legacy = 'u2' }: { si?: SiDict; leg
   const sAt = (tt: number) => u * tt + 0.5 * a * tt * tt;
   const vAt = (tt: number) => u + a * tt;
   const state = (): S => { const c = sim.current; return { u: c.u, a: c.a, t: c.t, v: c.u + c.a * c.t, s: c.u * c.t + 0.5 * c.a * c.t * c.t, d: c.d }; };
-  const { done, touch } = useMissions(legacy, MISSIONS, state, [t, u, a]);
+  const { done, last, touch } = useMissions(legacy, MISSIONS, state, [t, u, a]);
 
   // the motion: real time, up to 10 s
   usePlayer(playing, setPlaying, (dt) => {
@@ -140,7 +140,7 @@ export default function MotionLab({ si = {}, legacy = 'u2' }: { si?: SiDict; leg
   return (
     <div class="lab-card">
       <LabGuide tx={tx} goal={W.goal} look={W.look} tries={TRIES} chosen={chosen} onTry={tryIt} now={live(u, a)} />
-      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, u, a]} />
+      <LabStage text={text} draw={(tt, H) => drawStage(state(), tt, H, tx)} missions={MISSIONS} done={done} deps={[t, u, a]} note={last >= 0 ? tx(SHARED.missionDone) + tx(SHARED.now) + tx(live(u, a)) : ''} />
       <div class="lab-controls">
         <div class="control">
           <label for="uSlider"><span>{tx(W.u)}</span>, u = <b>{u.toFixed(1)}</b> m s<sup>-1</sup></label>

@@ -112,7 +112,7 @@
 <a class="skip-link" href="#main" data-ta="பாடங்களுக்கு நேரா போ" data-si="පාඩම් වෙත කෙලින්ම යන්න">Skip to the lessons</a>
 <div class="topbar" role="banner">
   <div class="topbar-inner">
-    <a class="brand" href="/home" style="text-decoration:none;color:inherit" title="STEM Cloud Platform Homepage">STEM Cloud</a>
+    <a class="brand" href="/lessons/index.html" style="text-decoration:none;color:inherit" title="STEM Cloud: your course">STEM Cloud</a>
     <div class="toggles">
       <button class="lang-toggle" id="langToggle" type="button">🌐 தமிழ்</button>
       <button class="theme-toggle" id="themeToggle" type="button">🌙</button>
@@ -142,7 +142,7 @@
     <div id="toc"></div>
   </section>
 
-  <footer data-ta="STEM Cloud — உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது." data-si="STEM Cloud — ඔබේ ප්‍රගතිය ඔබේ ගිණුමේ සුරැකේ.">STEM Cloud — your progress is saved to your account. &middot; <a href="/about" style="color:var(--accent-text)">About</a> &middot; <a href="/home" style="color:var(--accent-text)">Home</a></footer>
+  <footer data-ta="STEM Cloud — உன் முன்னேற்றம் உன் அக்கவுண்ட்ல சேமிக்கப்படுது." data-si="STEM Cloud — ඔබේ ප්‍රගතිය ඔබේ ගිණුමේ සුරැකේ.">STEM Cloud — your progress is saved to your account. &middot; <a href="/about" style="color:var(--accent-text)">About</a></footer>
 </div>
 
 <script>
@@ -284,7 +284,7 @@ function render(){
   const sel = SEL || target.m;
   document.getElementById('cTabs').innerHTML = MODULES.map(m =>
     '<button type="button" data-m="' + m.id + '" aria-pressed="' + (m.id === sel) + '">' + t(m.en, m.ta, m.si) + '</button>').join('') +
-    '<a href="past-papers.html">' + t('Past papers', 'கடந்த வினாத்தாள்', 'පසුගිය ප්‍රශ්න පත්‍ර') + '</a>';
+    '<a href="/past-papers/">' + t('Past papers', 'கடந்த வினாத்தாள்', 'පසුගිය ප්‍රශ්න පත්‍ර') + '</a>';
   let h = '';
   MODULES.forEach(function(m){
     const items = LESSONS.map((l, i) => [l, prog[i]]).filter(x => x[0].m === m.id);

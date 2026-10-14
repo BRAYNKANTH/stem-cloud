@@ -442,7 +442,7 @@
       <a href="#watch" data-ta="👀 பாரு">👀 Watch</a>
       <a href="#notes" data-ta="குறிப்புகள்">Notes</a>
       <a href="#activities" data-ta="செயற்பாடுகள்">Activities</a>
-      <a href="#lab" data-ta="வில்லை லேப்">Lens Lab</a>
+      <a href="#lab" data-ta="வில்லை ஆய்வகம்">Lens Lab</a>
       <a href="#challenge" data-ta="🎮 ஒளியியல் சவால்">🎮 Optics Challenge</a>
       <a href="#quiz" data-ta="சுயபரிசோதனை">Self-Check</a>
       <a href="#sortgame" data-ta="🧩 வரிசைப்படுத்து">🧩 Sort Game</a>
@@ -645,7 +645,7 @@
     </div>
     <div class="callout tip">
       <div class="ctitle" data-ta="💡 உபகரணங்கள் இல்லையா?">💡 No apparatus?</div>
-      <ul><li data-ta="கவலை வேணாம் — கீழ இருக்கற <a href='#lab'>லேப்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!">Don't worry: you can see the same ideas in the <a href="#lab">lab</a> below. But doing it for real makes it stick even better!</li></ul>
+      <ul><li data-ta="கவலை வேணாம் — கீழ இருக்கற <a href='#lab'>ஆய்வகம்</a>ல இதே கருத்துகள நீ பாக்கலாம். ஆனா நிஜமா செஞ்சு பாத்தா நல்லா மனசுல பதியும்!">Don't worry: you can see the same ideas in the <a href="#lab">lab</a> below. But doing it for real makes it stick even better!</li></ul>
     </div>
     <div class="card c1 act" data-act="5.1">
       <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/></svg></div>
@@ -722,7 +722,7 @@
   <section class="block" id="lab">
     <div class="section-label">
       <div class="num">4</div>
-      <div><h2 data-ta="குவிவு வில்லை லேப்">Interactive Convex Lens Lab</h2><div class="sub" data-ta="பொருள நகர்த்தி குவிவு நீளத்த மாத்தி விம்பத்த பாரு">Move the object and change the focal length, and watch the image</div></div>
+      <div><h2 data-ta="குவிவு வில்லை ஆய்வகம்">Interactive Convex Lens Lab</h2><div class="sub" data-ta="பொருள நகர்த்தி குவிவு நீளத்த மாத்தி விம்பத்த பாரு">Move the object and change the focal length, and watch the image</div></div>
     </div>
 
     <div class="lab-card">
@@ -2243,7 +2243,7 @@ function makeDraw(svg){
   let chosen = -1;
   function setVal(id, v){ const e = $(id); if(!e) return; e.value = v; e.dispatchEvent(new Event('input', {bubbles:true})); e.dispatchEvent(new Event('change', {bubbles:true})); }
   function render(){
-    $('lg_h').textContent = T('🎯 How to use this lab', '🎯 இந்த லேப்ப எப்படி பயன்படுத்தறது');
+    $('lg_h').textContent = T('🎯 How to use this lab', '🎯 இந்த ஆய்வகத்த எப்படி பயன்படுத்தறது');
     $('lg_goal').textContent = T(LAB.goal[0], LAB.goal[1]);
     $('lg_look').textContent = T('In the picture: ' + LAB.look[0], 'படத்துல: ' + LAB.look[1]);
     $('lg_tries').innerHTML = '';
@@ -2261,7 +2261,7 @@ function makeDraw(svg){
       $('lg_tries').appendChild(b);
     });
     const see = chosen >= 0 ? LAB.tries[chosen].see : null;
-    $('lg_see').innerHTML = see ? '👀 <b>' + T('What you should see: ', 'நீ பாக்கணும்: ') + '</b>' + T(see[0], see[1]) : '👆 ' + T('Press a "Try" button, and I will set the lab for you. Or move the sliders yourself.', '"Try" பட்டனை அழுத்து, நான் லேப்ப செட் பண்றேன். இல்லன்னா நீயே ஸ்லைடர நகர்த்து.');
+    $('lg_see').innerHTML = see ? '👀 <b>' + T('What you should see: ', 'நீ பாக்கணும்: ') + '</b>' + T(see[0], see[1]) : '👆 ' + T('Press a "Try" button, and I will set the lab for you. Or move the sliders yourself.', '"Try" பட்டனை அழுத்து, நான் ஆய்வகத்த செட் பண்றேன். இல்லன்னா நீயே ஸ்லைடர நகர்த்து.');
     live();
   }
   function live(){
@@ -2323,9 +2323,9 @@ function makeDraw(svg){
   const labCard = $('ls').closest('.lab-card');
   ['input', 'click', 'change'].forEach(ev => labCard.addEventListener(ev, (e) => { if(!(e.target.closest && e.target.closest('input[type=range],select,.lg-try'))) return; touched = true; setTimeout(() => { try{ check(CFG.read()); }catch(e){} }, 120); }));
   function renderMissions(){
-    $('ls_h').textContent = T('🎬 Lab stage: watch Raja and Chittu react', '🎬 லேப் மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு');
-    $('ls_hint').textContent = T('Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி மிஷன்கள முடி!');
-    $('ls_miss').innerHTML = CFG.missions.map((m, i) => '<div class="ls-m' + (done[i] ? ' ok' : '') + '"><span class="ck">✓</span>' + T('Mission ' + (i + 1) + ': ' + m.en, 'மிஷன் ' + (i + 1) + ': ' + m.ta) + '</div>').join('');
+    $('ls_h').textContent = T('🎬 Lab stage: watch Raja and Chittu react', '🎬 ஆய்வக மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு');
+    $('ls_hint').textContent = T('Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி பணிகள முடி!');
+    $('ls_miss').innerHTML = CFG.missions.map((m, i) => '<div class="ls-m' + (done[i] ? ' ok' : '') + '"><span class="ck">✓</span>' + T('Mission ' + (i + 1) + ': ' + m.en, 'பணி ' + (i + 1) + ': ' + m.ta) + '</div>').join('');
   }
   function check(S){
     if(!touched) return;
@@ -2334,9 +2334,9 @@ function makeDraw(svg){
       let ok = false; try{ ok = m.test(S); }catch(e){}
       if(!ok) return;
       done[i] = true; safeSet('scx_lab_' + LID2 + '_' + i, '1'); renderMissions();
-      if(typeof SCX !== 'undefined'){ try{ SCX.addXP(5, 'Lab mission complete!', 'லேப் மிஷன் முடிஞ்சது!'); }catch(e){} }
+      if(typeof SCX !== 'undefined'){ try{ SCX.addXP(5, 'Lab mission complete!', 'ஆய்வகம் பணி முடிஞ்சது!'); }catch(e){} }
       if(window.__fwMark) window.__fwMark('lab');
-      if(done.every(Boolean) && !allDone.v){ allDone.v = true; if(typeof SCX !== 'undefined'){ try{ SCX.addXP(10, 'All lab missions done!', 'எல்லா லேப் மிஷனும் முடிஞ்சது!'); SCX.confettiBurst(); }catch(e){} } }
+      if(done.every(Boolean) && !allDone.v){ allDone.v = true; if(typeof SCX !== 'undefined'){ try{ SCX.addXP(10, 'All lab missions done!', 'எல்லா ஆய்வகம் மிஷனும் முடிஞ்சது!'); SCX.confettiBurst(); }catch(e){} } }
     });
   }
   function paint(){

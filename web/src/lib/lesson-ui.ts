@@ -21,9 +21,11 @@ export const UI = {
   finish: { en: 'Finish', ta: 'முடிவு', si: 'අවසානය' },
   map: { en: 'Lesson map', ta: 'பாடத்தின் வரைபடம்', si: 'පාඩම් සිතියම' },
   steps: { en: 'Lesson steps', ta: 'எல்லா படிகளும்', si: 'පාඩම් පියවර' },
+  stepMenu: { en: 'Step menu', ta: 'படிகளின் பட்டியல்', si: 'පියවර මෙනුව' },
+  stepNav: { en: 'Step navigation', ta: 'படி மாற்றம்', si: 'පියවර අතර යාම' },
   close: { en: 'Close', ta: 'மூடு', si: 'වසන්න' },
   done: { en: 'done', ta: 'முடிஞ்சது', si: 'අවසන්' },
-  contents: { en: 'Course contents', ta: 'பாட உள்ளடக்கம்', si: 'පාඨමාලා පටුන' },
+  contents: { en: 'Back to Learn', ta: 'படி பக்கத்துக்கு திரும்பு', si: 'ඉගෙනුම වෙත ආපසු' },   // the course home, named as its tab (BottomNav)
   finished: { en: 'You finished this lesson!', ta: 'இந்த பாடத்த முடிச்சுட்டே!', si: 'ඔබ මෙම පාඩම අවසන් කළා!' },
   proud: { en: 'Well done! Raja and Chittu are proud of you.', ta: 'சபாஷ்! ராஜாவும் சிட்டுவும் உன்ன நினைச்சு பெருமைப்படறாங்க.', si: 'සුබ පැතුම්! රාජා සහ චිට්ටුට ඔබ ගැන ආඩම්බරයි.' },
   allLessons: { en: 'All lessons', ta: 'எல்லா பாடங்கள்', si: 'සියලුම පාඩම්' },

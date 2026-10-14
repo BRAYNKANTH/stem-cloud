@@ -47,7 +47,7 @@
 .pp-app .pp-chapter-no { font-size: .76rem; font-weight: 800; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .05em; }
 .pp-app .pp-chapter-meta { font-size: .85rem; color: var(--sc-ink-2); display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
 .pp-app .pp-chapter-meta em { font-style: normal; font-weight: 800; font-size: .78rem; border-radius: 99px; padding: 1px 9px; }
-.pp-app .pp-revisit { background: var(--sc-clay-lt); color: var(--sc-clay); }
+.pp-app .pp-revisit { background: var(--sc-clay-lt); color: var(--sc-clay-ink); }
 .pp-app .pp-done { background: var(--sc-leaf-lt); color: var(--sc-leaf); }
 .pp-app .pp-year-row { display: flex; flex-wrap: wrap; gap: 8px; }
 .pp-app .pp-year { display: inline-flex; align-items: center; justify-content: center; min-width: 72px; min-height: var(--tap); padding: 0 14px; border-radius: 99px; font-weight: 800;

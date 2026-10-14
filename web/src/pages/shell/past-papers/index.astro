@@ -3,8 +3,12 @@
 // the lessons: after the build, web/scripts/private.mjs moves this page out of the published files, and the Python
 // route /past-papers serves it after checking the sign-in (stemcloud/routers/past_papers.py).
 // The chapters come from the course catalog (content/catalog.json): the questions name a chapter by its lesson page.
+// One of the three places of the bottom bar (Learn / Past papers / Me); the bar steps aside while a question is open,
+// which has its own Previous / Next.
 import AppLayout from '../../../layouts/AppLayout.astro';
 import PastPapers, { type Chapter } from '../../../islands/PastPapers';
+import BottomNav from '../../../islands/BottomNav';
+import LangSwitch from '../../../islands/LangSwitch';
 import ThemeToggle from '../../../islands/ThemeToggle';
 import XpChip from '../../../islands/XpChip';
 import catalog from '../../../../../content/catalog.json';
@@ -19,9 +23,10 @@ const chapters: Chapter[] = (catalog.lessons as Entry[])
 ---
 <AppLayout title="Past Papers · STEM Cloud" description="O/L Science past papers: the physics questions by chapter, with full explanations." noindex>
   <header class="pp-header topbar" slot="header">
-    <a href="/">← STEM Cloud</a>
+    <a class="pp-home" href="/lessons/index.html">← <span data-l="en">Learn</span><span data-l="ta" lang="ta">படி</span><span data-l="si" lang="si">ඉගෙනුම</span></a>
     <div class="pp-header-right">
       <XpChip client:idle />
+      <LangSwitch client:idle />
       <ThemeToggle client:idle />
     </div>
   </header>
@@ -31,10 +36,21 @@ const chapters: Chapter[] = (catalog.lessons as Entry[])
       <PastPapers client:load chapters={chapters} />
     </div>
   </div>
+  <BottomNav slot="footer" here="papers" client:idle />
 </AppLayout>
 
 <style>
   .pp-header :global(.theme-toggle) { width: var(--tap); height: var(--tap); border-radius: var(--r); border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink); cursor: pointer; }
   .pp-header-right { display: flex; gap: 8px; align-items: center; }
+  .pp-home { display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); }
   .pp-page :global(.pp-status) { padding: 24px 0; }
+  /* the page's language decides which name of "Learn" shows (as T.astro does on the lesson pages) */
+  html:not([lang="ta"]):not([lang="si"]) .pp-home [data-l]:not([data-l="en"]),
+  html[lang="ta"] .pp-home [data-l]:not([data-l="ta"]),
+  html[lang="si"] .pp-home [data-l]:not([data-l="si"]) { display: none; }
+  /* a question has its own Previous / Next at the bottom: the bottom bar steps aside (PastPapers sets data-ppq) */
+  :global(html[data-ppq] .bnav) { display: none !important; }
+  @media (max-width: 760px) {
+    :global(html:not([data-ppq])) .pp-page { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+  }
 </style>

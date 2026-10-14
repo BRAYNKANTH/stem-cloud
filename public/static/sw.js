@@ -5,7 +5,7 @@
  * - the new pages' scripts and styles (/_astro/, file names change with their content): from cache, refreshed in the background
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v25';
+var VERSION = 'v26';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -19,7 +19,8 @@ var PRECACHE = [
 ];
 
 self.addEventListener('install', function (e) {
-  e.waitUntil(caches.open(STATIC).then(function (c) { return c.addAll(PRECACHE); }).then(function () { return self.skipWaiting(); }));
+  /* cache: reload: a new version is filled from the server, not from the browser's HTTP cache (an older copy for 5 minutes) */
+  e.waitUntil(caches.open(STATIC).then(function (c) { return c.addAll(PRECACHE.map(function (u) { return new Request(u, { cache: 'reload' }); })); }).then(function () { return self.skipWaiting(); }));
 });
 
 self.addEventListener('activate', function (e) {

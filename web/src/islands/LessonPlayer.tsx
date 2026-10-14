@@ -6,9 +6,8 @@ import { PHASES, UI, pick, type StepInfo } from '../lib/lesson-ui';
 import { $reading, stop as stopReading, toggle as toggleReading } from '../stores/reader';
 import { hasTTS } from '../lib/speech';
 import { $lesson, onceId, randomId, record, reward, start as startProgress } from '../stores/progress';
+import ThemeToggle from './ThemeToggle';
 
-const BACK = 'M15 6l-6 6 6 6';
-const NEXT = 'M5 12h14M13 6l6 6-6 6';
 const MAP = 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14';
 const SPEAKER = 'M11 5 6 9H3v6h3l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13';
 const PAUSE = 'M7 5v14M17 5v14';
@@ -26,7 +25,8 @@ function Svg({ d }: { d: string }) {
 
 /**
  * The lesson player (public/static/player.js on the current pages): one step at a time, a bar under the header with
- * Back / the step you are on / Next, and a lesson map with every step one tap away. "Whole lesson on one page"
+ * Listen and the step you are on, which opens the lesson map with every step one tap away. Back / Next are one sticky
+ * bar at the bottom, in thumb reach (StepEnd): one way forward, not two. "Whole lesson on one page"
  * (stem_view = scroll, the current app's setting) shows every step instead. Without JavaScript every step is shown.
  * Progress v2 (stores/progress.ts): a step shown is opened, a step moved on from is done (as the current pages tick
  * their path), the finish is worth 20 XP once, and the map ticks the steps done. On a topic page the step ids are
@@ -77,6 +77,14 @@ export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} 
     }
     prev.current = cur;
   }, [cur]);
+  // the sticky header's height, for what sticks under it (a lab's picture on a phone)
+  useEffect(() => {
+    const head = document.querySelector<HTMLElement>('.lhead');
+    if (!head || typeof ResizeObserver === 'undefined') return;
+    const ro = new ResizeObserver(() => document.documentElement.style.setProperty('--lhead-h', head.offsetHeight + 'px'));
+    ro.observe(head);
+    return () => ro.disconnect();
+  }, []);
   // the language is a preference that follows the student to other devices
   useEffect(() => $lang.listen((l) => void record({ id: randomId(), type: 'prefs', lang: l })), []);
   const isDone = (id: string) => !!progress.steps[prefix + id]?.done;
@@ -106,12 +114,7 @@ export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} 
   const step = steps[i];
   return (
     <>
-      <nav class="lbar" aria-label={L(UI.steps)}>
-        {!scroll && (
-          <button type="button" class="lb-btn" onClick={() => go(i - 1)} disabled={i === 0} aria-label={L(UI.previous)} title={L(UI.previous)}>
-            <Svg d={BACK} />
-          </button>
-        )}
+      <nav class="lbar" aria-label={L(UI.stepMenu)}>
         {tts && (
           <button type="button" class={'lb-btn lb-listen' + (reading.on ? ' on' : '')} onClick={listen} aria-label={listenLabel} title={listenLabel}>
             <Svg d={speaking ? PAUSE : SPEAKER} />
@@ -121,12 +124,8 @@ export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} 
           <Svg d={step && !scroll ? step.icon : MAP} />
           <span class="lb-title">{scroll || !step ? L(UI.map) : L(step.label)}</span>
           {!scroll && <span class="lb-count">{i + 1} / {steps.length}</span>}
+          <svg class="lb-caret" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
         </button>
-        {!scroll && (
-          <button type="button" class="lb-btn primary" onClick={() => go(i + 1)} disabled={i >= steps.length - 1} aria-label={L(UI.next)} title={L(UI.next)}>
-            <Svg d={NEXT} />
-          </button>
-        )}
       </nav>
       <dialog ref={dlg} class="lmap" aria-label={L(UI.map)} onClick={(e) => e.target === dlg.current && dlg.current?.close()}>
         <div class="lm-in">
@@ -155,6 +154,7 @@ export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} 
             );
           })}
           <button type="button" class="btn full" onClick={toggleView}>{L(scroll ? UI.oneStep : UI.wholePage)}</button>
+          <ThemeToggle text lang={lang === 'ta' ? 1 : lang === 'si' ? 2 : 0} className="btn full lm-theme" />
         </div>
       </dialog>
     </>

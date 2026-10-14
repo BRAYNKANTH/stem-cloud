@@ -16,7 +16,7 @@ export default function XpChip() {
   if (xp === null) return null;
   return (
     <span class="xp-chip" aria-live="polite">
-      <span aria-hidden="true">⭐</span> <b>{xp}</b> XP
+      <span aria-hidden="true">⭐</span> <b>{xp}</b> <span class="xp-word">XP</span>
       {shown !== null && <span class="xp-plus">+{shown}</span>}
     </span>
   );

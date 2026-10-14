@@ -1,3 +1,4 @@
+import type { ComponentChildren } from 'preact';
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang } from '../stores/prefs';
@@ -12,19 +13,30 @@ import { currentLesson, onceId, record, reward } from '../stores/progress';
  * its tries, its missions and its stage drawing, and keeps its simulation to itself.
  */
 
-export type Pair = [string, string];
+/** English, Tamil, and Sinhala when the lab gives it (otherwise looked up in the lesson's translation memory). */
+export type Pair = [string, string, string?];
 
-/** The words all the labs share (English, Tamil). */
+/** The words all the labs share. In Tamil a lab is always ஆய்வகம் and a mission பணி (tools/validate_content.py checks). */
 export const SHARED = {
-  title: ['🎯 How to use this lab', '🎯 இந்த லேப்ப எப்படி பயன்படுத்தறது'],
+  title: ['🎯 How to use this lab', '🎯 இந்த ஆய்வகத்த எப்படி பயன்படுத்துறது'],
   see: ['What you should see: ', 'நீ பாக்கணும்: '],
-  press: ['Press a "Try" button, and I will set the lab for you. Or move the sliders yourself.', '"Try" பட்டனை அழுத்து, நான் லேப்ப செட் பண்றேன். இல்லன்னா நீயே ஸ்லைடர நகர்த்து.'],
+  press: ['Press a "Try" button, and I will set the lab for you. Or move the sliders yourself.', '"Try" பட்டனை அழுத்து, நான் ஆய்வகத்த செட் பண்றேன். இல்லன்னா நீயே ஸ்லைடர நகர்த்து.'],
   now: ['Right now: ', 'இப்போ: '],
-  stage: ['🎬 Lab stage: watch Raja and Chittu react', '🎬 லேப் மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு'],
-  hint: ['Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி மிஷன்கள முடி!'],
+  stage: ['🎬 Lab stage: watch Raja and Chittu react', '🎬 ஆய்வக மேடை: ராஜா, சிட்டு எப்படி ரியாக்ட் பண்றாங்கன்னு பாரு'],
+  hint: ['Move the sliders below and complete the missions!', 'கீழ இருக்கற ஸ்லைடர நகர்த்தி பணிகள முடி!'],
   play: ['▶ Play', '▶ ஓடு'],
   pause: ['⏸ Pause', '⏸ நிறுத்து'],
   reset: ['⟲ Reset', '⟲ மறுபடி'],
+  picture: ['Picture', 'படம்', 'පින්තූරය'],
+  scene: ['Scene', 'காட்சி', 'දර්ශනය'],
+  diagram: ['Diagram', 'வரிப்படம்', 'රූප සටහන'],
+  missions: ['🎯 Missions', '🎯 பணிகள்', '🎯 මෙහෙයුම්'],
+  doneMark: ['Done:', 'முடிஞ்சது:', 'නිම කළා:'],
+  missionDone: ['Mission done. ', 'பணி முடிஞ்சது. ', 'මෙහෙයුම නිම කළා. '],
+  more: ['What is in the picture?', 'படத்துல என்ன இருக்கு?', 'පින්තූරයේ ඇත්තේ මොනවාද?'],
+  tryLabel: ['Try:', 'செஞ்சு பாரு:', 'උත්සාහ කරන්න:'],
+  less: ['Less', 'குறை', 'අඩු කරන්න'],
+  plus: ['More', 'கூட்டு', 'වැඩි කරන්න'],
 } satisfies Record<string, Pair>;
 
 export interface Mission<S> { l: Pair; test: (s: S) => boolean }
@@ -38,7 +50,7 @@ export function sharedStrings(missions: Mission<any>[]): string[] {
 export function useLabText(si: SiDict) {
   const lang = useStore($lang);
   const lookup = useMemo(() => makeLookup(si), [si]);
-  const tx = (p: Pair) => (lang === 'ta' ? p[1] : lang === 'si' ? lookup(p[0]) || p[0] : p[0]);
+  const tx = (p: Pair) => (lang === 'ta' ? p[1] : lang === 'si' ? p[2] || lookup(p[0]) || p[0] : p[0]);
   return { lang, lookup, tx };
 }
 export type LabText = ReturnType<typeof useLabText>;
@@ -51,34 +63,39 @@ export function markLab() {
 
 /**
  * The missions: done ones are kept on this device under the current page's keys (scx_lab_<legacy>_<n>), so a mission
- * done on either page shows on both. Checked whenever deps change once the student has touched the lab; 5 XP each and
- * 10 more for all, once (progress v2).
+ * done on either page shows on both; 5 XP each and 10 more for all, once (progress v2). A mission counts only when the
+ * student's own change takes the lab from not meeting it to meeting it: a lab that starts on a mission's values, or a
+ * "Try" button that sets them (touch(false)), does not do the mission for them. last is the mission done most recently.
  */
 export function useMissions<S>(legacy: string, missions: Mission<S>[], state: () => S, deps: unknown[]) {
   const [done, setDone] = useState<boolean[]>(() => missions.map(() => false));
+  const [last, setLast] = useState(-1);
   const touched = useRef(false);
+  const counts = useRef(false);
+  const met = useRef<boolean[] | null>(null);
   useEffect(() => {
     setDone(missions.map((_, i) => { try { return localStorage.getItem(`scx_lab_${legacy}_${i}`) === '1'; } catch { return false; } }));
   }, []);
   useEffect(() => {
-    if (!touched.current) return;
     const S = state();
-    missions.forEach((m, i) => {
-      if (done[i]) return;
-      let ok = false;
-      try { ok = m.test(S); } catch { /* not yet */ }
-      if (!ok) return;
+    const now = missions.map((m) => { try { return !!m.test(S); } catch { return false; } });
+    const before = met.current;
+    met.current = now;
+    if (!before || !touched.current || !counts.current) return;
+    missions.forEach((_, i) => {
+      if (done[i] || before[i] || !now[i]) return;
       setDone((d) => {
         const next = d.map((x, k) => x || k === i);
         if (next.every(Boolean)) void reward('lab:all-missions', 10);
         return next;
       });
+      setLast(i);
       try { localStorage.setItem(`scx_lab_${legacy}_${i}`, '1'); } catch { /* private mode */ }
       void reward('lab:mission-' + (i + 1), 5);
       markLab();
     });
   }, deps);
-  return { done, touch: () => { touched.current = true; } };
+  return { done, last, touch: (own = true) => { touched.current = true; counts.current = own; } };
 }
 
 /** The guide: goal, the picture, the tries, what to see after a try, and what is happening now. */
@@ -104,10 +121,19 @@ export function LabGuide({ tx, goal, look, tries, chosen, onTry, now }: {
  * The stage: draw(t, H) is called about 30 times a second while it is on screen (with the state the lab keeps in a
  * ref), and once per change of deps when animations are off. Then the missions.
  */
-export function LabStage<S>({ text, draw, missions, done, deps }: {
+export function LabStage<S>({ text, draw, missions, done, deps, diagram, label, note, children }: {
   text: LabText; draw: (t: number, H: any) => void; missions: Mission<S>[]; done: boolean[]; deps: unknown[];
+  /** A second picture of the same thing (the lab's diagram): one picture is shown at a time, with a switch. */
+  diagram?: ComponentChildren;
+  /** What the picture shows now, for screen readers. */
+  label?: string;
+  /** One line after a mission is done: what it showed. */
+  note?: string;
+  /** The controls, under the picture (the picture stays in view on phones while they are used). */
+  children?: ComponentChildren;
 }) {
   const { lang, lookup, tx } = text;
+  const [pic, setPic] = useState<'scene' | 'diagram'>('scene');
   const stage = useRef<SVGSVGElement>(null);
   const drawRef = useRef(draw);
   drawRef.current = draw;
@@ -138,12 +164,25 @@ export function LabStage<S>({ text, draw, missions, done, deps }: {
   useEffect(() => {
     if (document.documentElement.classList.contains('stem-calm')) stage.current?.dispatchEvent(new Event('repaint'));
   }, deps);
+  const count = done.filter(Boolean).length;
   return (
-    <div class="ls">
+    <div class={'ls' + (diagram ? ' ls-two' : '')}>
       <div class="ls-top"><b>{tx(SHARED.stage)}</b><span class="ls-hint">{tx(SHARED.hint)}</span></div>
-      <svg ref={stage} viewBox="0 0 640 300" role="img" aria-label="lab cartoon" />
+      <div class="ls-pic">
+        {diagram && (
+          <div class="ls-switch" role="group" aria-label={tx(SHARED.picture)}>
+            <button type="button" aria-pressed={pic === 'scene'} onClick={() => setPic('scene')}>{tx(SHARED.scene)}</button>
+            <button type="button" aria-pressed={pic === 'diagram'} onClick={() => setPic('diagram')}>{tx(SHARED.diagram)}</button>
+          </div>
+        )}
+        <svg ref={stage} viewBox="0 0 640 300" role="img" aria-label={label || tx(SHARED.stage)} hidden={!!diagram && pic !== 'scene'} />
+        {diagram && <div class="ls-diagram" hidden={pic !== 'diagram'}>{diagram}</div>}
+      </div>
+      {children}
       <div class="ls-miss">
-        {missions.map((m, i) => <div class={'ls-m' + (done[i] ? ' ok' : '')}><span class="ck">✓</span>{tx(['Mission ' + (i + 1) + ': ' + m.l[0], 'மிஷன் ' + (i + 1) + ': ' + m.l[1]])}</div>)}
+        <p class="ls-mh"><b>{tx(SHARED.missions)}</b> <span>{count} / {missions.length}</span></p>
+        {missions.map((m, i) => <div class={'ls-m' + (done[i] ? ' ok' : '')}><span class="ck" aria-hidden="true">✓</span>{done[i] && <span class="visually-hidden">{tx(SHARED.doneMark)} </span>}{tx(['Mission ' + (i + 1) + ': ' + m.l[0], 'பணி ' + (i + 1) + ': ' + m.l[1]])}</div>)}
+        <p class="ls-note" role="status">{note || ''}</p>
       </div>
     </div>
   );

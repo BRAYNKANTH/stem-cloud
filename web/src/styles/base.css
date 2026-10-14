@@ -20,7 +20,8 @@ p { margin: 0 0 1em; }
 a { color: var(--sc-blue); }
 img, svg { max-width: 100%; height: auto; }
 ::selection { background: var(--sc-mango); color: #16183D; }
-:focus-visible { outline: 3px solid var(--sc-mango); outline-offset: 2px; }
+/* Focus: an ink ring (about 16:1 on the ground in both themes, WCAG 1.4.11 asks 3:1) with the mango ring outside it. */
+:focus-visible { outline: 3px solid var(--sc-mango); outline-offset: 3px; box-shadow: 0 0 0 3px var(--sc-ink); }
 
 .wrap { width: 100%; max-width: 960px; margin: 0 auto; padding: 0 var(--gutter); }
 .wrap.narrow { max-width: 672px; }   /* 640px of text plus the gutters: reading pages */
@@ -37,7 +38,7 @@ img, svg { max-width: 100%; height: auto; }
   min-height: var(--tap); padding: 0 18px;
   border-radius: var(--r); border: 2px solid var(--sc-line);
   background: var(--sc-panel); color: var(--sc-ink);
-  font: inherit; font-weight: 800; text-decoration: none; cursor: pointer;
+  font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
   box-shadow: 0 3px 0 var(--sc-line);
 }
 .btn:hover { border-color: var(--sc-blue); }
@@ -54,5 +55,28 @@ img, svg { max-width: 100%; height: auto; }
 
 /* Animations play unless the student switched them off in the account menu (stem_motion=off), as on the current app. */
 html.stem-calm *, html.stem-calm *::before, html.stem-calm *::after { animation: none !important; transition: none !important; }
+
+/* the language button, the same in every header (islands/LangSwitch.tsx) */
+.langsw { position: relative; flex: 0 0 auto; }
+.langsw-btn { display: inline-flex; align-items: center; gap: 6px; min-height: var(--tap); padding: 0 12px; border-radius: var(--r); border: 2px solid var(--sc-line);
+              background: var(--sc-panel); color: var(--sc-ink); font: inherit; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.langsw-btn:hover { border-color: var(--sc-blue); }
+.langsw-short { display: none; }
+@media (max-width: 480px) { .langsw-name { display: none; } .langsw-short { display: inline; } .langsw-btn { padding: 0 10px; } }
+.langsw-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 100; display: grid; gap: 4px; min-width: 170px; padding: 6px;
+               border-radius: var(--r); background: var(--sc-panel); border: 1px solid var(--sc-line); box-shadow: 0 10px 28px rgba(22, 24, 61, .18); }
+.langsw-menu button { min-height: var(--tap); padding: 0 14px; border: 0; border-radius: 10px; background: none; color: var(--sc-ink); font: inherit; font-weight: 600; text-align: left; cursor: pointer; }
+.langsw-menu button:hover { background: var(--sc-panel-2); }
+.langsw-menu button[aria-pressed="true"] { background: var(--sc-blue-lt); color: var(--sc-ink); font-weight: 700; }
+
+/* phone bottom bar (islands/BottomNav.tsx; public/static/nav.js on the current pages): Learn / Past papers / Me, phones only */
+.bnav { display: none; }
+@media (max-width: 760px) {
+  .bnav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
+          height: calc(68px + env(safe-area-inset-bottom)); padding: 0 8px env(safe-area-inset-bottom); background: var(--sc-panel); border-top: 1px solid var(--sc-line); }
+  .bnav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: var(--tap); text-decoration: none;
+            color: var(--sc-ink-2); font-weight: 600; font-size: .78rem; }
+  .bnav a[aria-current="page"] { color: var(--sc-blue); font-weight: 800; }
+}
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

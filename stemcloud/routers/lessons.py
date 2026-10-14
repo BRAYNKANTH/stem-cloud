@@ -97,6 +97,16 @@ def topics_page(slug: str, req: Request):
 def lessons_root():
     return RedirectResponse('/lessons/index.html', status_code=302)
 
+@router.get('/learn')
+@router.get('/learn/')
+@router.get('/learn/{subject}')
+@router.get('/learn/{subject}/')
+@router.get('/learn/{subject}/{grade}')
+@router.get('/learn/{subject}/{grade}/')
+def learn_root(subject: str = '', grade: str = ''):
+    """A shortened lesson address (/learn/, /learn/physics/g10/) opens the chapter list, the course home."""
+    return RedirectResponse('/lessons/index.html', status_code=302)
+
 @router.get('/lessons/{rel:path}')
 def lessons(rel: str, req: Request):
     moved = cutover.lesson_page(rel, dict(req.query_params))     # the cut-over: the new lesson page (CUTOVER setting)

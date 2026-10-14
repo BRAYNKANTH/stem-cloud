@@ -5,10 +5,12 @@
 import AppLayout from '../../layouts/AppLayout.astro';
 import AccountPanel from '../../islands/AccountPanel';
 import BottomNav from '../../islands/BottomNav';
+import catalog from '../../../../content/catalog.json';
+const chapters = (catalog.lessons as { subject: string }[]).filter((l) => l.subject === 'physics').length;
 ---
 <AppLayout title="STEM Cloud · My account" description="Your STEM Cloud account: name, password, language and progress." noindex>
   <div class="wrap narrow account">
-    <AccountPanel client:load />
+    <AccountPanel client:load chapters={chapters} />
   </div>
   <BottomNav slot="footer" here="me" client:idle />
 </AppLayout>
@@ -20,10 +22,15 @@ import BottomNav from '../../islands/BottomNav';
   .account :global(.acct-head .back) { margin: 2px 0 0; }
   .account :global(.acct-head .back a) { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
   .account :global(.card h1), .account :global(.card h2) { font-size: 1.15rem; margin: 0 0 10px; }
-  .account :global(.stats) { display: flex; gap: 12px; flex-wrap: wrap; }
+  .account :global(.stats) { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
   .account :global(.stat) { flex: 1; min-width: 110px; background: var(--sc-panel-2); border-radius: 14px; padding: 10px 12px; }
   .account :global(.stat span) { color: var(--sc-ink-2); font-size: .85rem; font-weight: 700; }
   .account :global(.stat b) { display: block; font-size: 1.5rem; font-variant-numeric: tabular-nums; }
+  .account :global(.stat b small) { font-size: .95rem; color: var(--sc-ink-2); font-weight: 600; }
+  .account :global(.stat-sub) { color: var(--sc-ink-2); font-size: .8rem; }
+  .account :global(.card .sub-h) { font-size: .95rem; color: var(--sc-ink-2); margin: 0 0 10px; }
+  .account :global(.next-row) { margin-top: 14px; }
+  .account :global(.settings-h) { font-size: 1.15rem; margin: 12px 4px 0; }
   .account :global(.langrow) { display: flex; gap: 8px; flex-wrap: wrap; }
   .account :global(label) { display: block; font-weight: 700; font-size: .9rem; margin: 12px 0 5px; }
   .account :global(input[type=text]), .account :global(input[type=password]) { width: 100%; font: inherit; font-size: 1rem; color: var(--sc-ink); background: var(--sc-field);
@@ -39,14 +46,8 @@ import BottomNav from '../../islands/BottomNav';
   .account :global(.foot) { text-align: center; color: var(--sc-ink-2); font-size: .85rem; margin: 0; }
   .account :global(.foot a) { display: inline-flex; align-items: center; min-height: var(--tap); }
 
-  /* phone bottom bar (island), as on the current pages: phones only */
-  :global(.bnav) { display: none; }
+  /* room for the phone bottom bar (BottomNav, styles/base.css) */
   @media (max-width: 760px) {
-    :global(.bnav) { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
-                     height: calc(68px + env(safe-area-inset-bottom)); padding: 0 8px env(safe-area-inset-bottom); background: var(--sc-panel); border-top: 1px solid var(--sc-line); }
-    :global(.bnav a) { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: var(--tap); text-decoration: none;
-                       color: var(--sc-ink-2); font-weight: 700; font-size: .75rem; }
-    :global(.bnav a[aria-current="page"]) { color: var(--sc-blue); font-weight: 800; }
     .account { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
   }
 </style>

@@ -106,10 +106,14 @@ def OUTBOX(pg):
 
 
 def set_lang(pg, lang):
-    """The language buttons sit at the top of the content: scroll up first, as a student would (the sticky header and a
-    lab frame can cover them further down)."""
+    """The language button is in the header: open it and choose (a page without it has the language buttons in its
+    content: scroll up first, as a student would)."""
     pg.evaluate('scrollTo(0, 0)')
-    pg.click('button[lang=%s]' % lang)
+    if pg.locator('.langsw-btn').count():          # the language button in the header (islands/LangSwitch.tsx)
+        pg.click('.langsw-btn')
+        pg.click('.langsw-menu button[lang=%s]' % lang)
+    else:
+        pg.click('button[lang=%s]' % lang)
 
 
 def run():
@@ -187,7 +191,13 @@ def run():
             pg, errs = open_page(ctx, MOTION)
             on = lambda: pg.evaluate("document.querySelector('section.lstep.on').id")
             check('opens on the first step', lambda: on() == 'story', lambda: on())
-            pg.click('.lbar .lb-btn.primary')
+            check('the chapter name is the page\'s one H1; the two step bars have their own names',
+                  lambda: pg.locator('h1').count() == 1 and pg.locator('header').count() == 1
+                  and {'Step menu', 'Step navigation'} <= set(pg.eval_on_selector_all('nav', 'ns => ns.map(n => n.getAttribute("aria-label"))')),
+                  lambda: (pg.locator('h1').count(), pg.locator('header').count(), pg.eval_on_selector_all('nav', 'ns => ns.map(n => n.getAttribute("aria-label"))')))
+            check('one way forward: Next is the bottom bar, sticky in thumb reach (no Next at the top)',
+                  lambda: pg.locator('.lbar .lb-btn.primary').count() == 0 and pg.evaluate("getComputedStyle(document.querySelector('.lend')).position") == 'sticky')
+            pg.click('.lend .btn.primary')
             check('Next shows the next step and records it in the URL', lambda: on() == 'basics' and pg.url.endswith('#basics'), lambda: pg.url)
             pg.go_back()
             pg.wait_for_function("document.querySelector('section.lstep.on').id === 'story'")
@@ -284,19 +294,19 @@ def run():
             ids = pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)')
             check('a topic page has the steps it has content for', ids == ['understand', 'watch', 'explore', 'practice'], ids)
             check('...one at a time, Understand first, with the summary and the notes card', lambda: on() == 'understand' and pg.locator('#understand .tp-glance').is_visible() and pg.locator('#understand .card').count() >= 2)
-            pg.click('.lbar .lb-btn.primary')
+            pg.click('.lend .btn.primary')
             check('Watch: its scene of the animation, rebuilt (not a frame)', lambda: pg.locator('#watch .watch-anim #fw_svg > *').count() > 5 and pg.locator('#watch iframe').count() == 0)
             pg.locator('#watch #fw_scrub').fill('1000')
             check('...and the time slider stays inside the scene (0 to 11 s of 30)', lambda: int(pg.locator('#watch #fw_scrub').input_value()) <= 367 and not pg.locator('#watch #fw_rep').is_visible(),
                   lambda: pg.locator('#watch #fw_scrub').input_value())
-            pg.click('.lbar .lb-btn.primary')
+            pg.click('.lend .btn.primary')
             story = pg.locator('#explore .tp-story')
             story.locator('.qz-opt').nth(1).click()
             check('Explore: an answer shows whether it is right and why', lambda: story.locator('.qz-explain.show').count() == 1 and story.locator('.qz-opt.correct').count() == 1)
             story.locator('.tp-next').click()
             story.locator('.qz-card').nth(1).locator('.qz-opt').nth(2).click()
             check('...then the next question, and the wrap-up at the end', lambda: story.locator('.qz-card').count() == 2 and pg.locator('#explore .tp-story .tp-wrap').is_visible())
-            pg.click('.lbar .lb-btn.primary')
+            pg.click('.lend .btn.primary')
             check('Practice: the lesson questions and exercises of the topic, in order', lambda: pg.locator('#practice .ex').count() == 4 and pg.locator('#practice .qz .qz-card').count() == 1)
             check('...a practice question has no score line', lambda: pg.locator('#practice .quiz-score').count() == 0)
             pg.locator('#practice .qz .qz-opt').first.click()
@@ -360,7 +370,7 @@ def run():
             pg.wait_for_timeout(300)
             spoken = pg.evaluate('window.__spoken')
             check('in Tamil it reads the Tamil text', lambda: any(any('஀' <= c <= '௿' for c in s) for s in spoken), lambda: spoken[:1])
-            pg.click('.lbar .lb-btn.primary')
+            pg.click('.lend .btn.primary')
             check('a new step stops reading', lambda: pg.locator('#stem-vp').count() == 0)
             set_lang(pg, 'en')
             pg.goto(BASE + MOTION + '#story')
@@ -444,12 +454,16 @@ def run():
             pg.evaluate("[0,1,2].forEach(i => localStorage.removeItem('scx_lab_c11_' + i))")
             pg.locator('#lab .lg-try').nth(1).click()                    # 30 N at 1 m against 10 N at 3 m
             check('See-saw lab: heavy close balances light far (30 N m each)', lambda: (ro('mL'), ro('mR'), ro('bal')) == ('30.0 N m', '30.0 N m', '⚖️ Balanced!'), lambda: (ro('mL'), ro('mR'), ro('bal')))
-            check('See-saw lab: that balance completes all three missions', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, True, True],
-                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            missions = lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')]
+            check('See-saw lab: a Try that balances it does not do the missions for the student', lambda: missions() == [False, False, False], missions)
             pg.locator('#lab .lg-try').nth(2).click()                    # 20 N m against 40 N m
             check('See-saw lab: the bigger right moment tips it right', lambda: (ro('mL'), ro('mR'), ro('bal')) == ('20.0 N m', '40.0 N m', '↘️ Tips right'), lambda: (ro('mL'), ro('mR'), ro('bal')))
             pg.locator('#dLSlider').fill('4')
             check('See-saw lab: a slider rebalances it', lambda: ro('bal') == '⚖️ Balanced!', lambda: ro('bal'))
+            check('...and balancing it yourself completes mission 1, with a line on what it showed', lambda: missions() == [True, False, False] and pg.inner_text('#lab .ls-note').startswith('Mission done.'), missions)
+            pg.locator('#fLSlider').fill('20')
+            pg.locator('#dLSlider').fill('2')                            # 20 N at 2 m against 10 N at 4 m
+            check('See-saw lab: a heavy weight at a different distance completes missions 2 and 3', lambda: missions() == [True, True, True], missions)
             # ------------------------------------------------------------ Equilibrium: the lab, rebuilt (labs/physics/EquilibriumLab.tsx)
             pg.goto(BASE + EQUILIBRIUM + '#lab')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
@@ -461,11 +475,15 @@ def run():
             check('Equilibrium lab: 40 N up against 60 N down moves down', lambda: (ro('net'), ro('eq')) == ('-20 N', '⬇️ Moves down'), lambda: (ro('net'), ro('eq')))
             pg.locator('#lab .lg-try').nth(0).click()                    # one rope, 60 N
             check('Equilibrium lab: one rope holding the weight is in equilibrium', lambda: (ro('net'), ro('eq')) == ('0 N', '⚖️ In equilibrium!'), lambda: (ro('net'), ro('eq')))
+            missions = lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')]
+            check('Equilibrium lab: the Try buttons do not do the missions', lambda: missions() == [False, False, False], missions)
             pg.locator('#lab .lg-try').nth(1).click()                    # 30 + 40 = 70
             pg.locator('#f1Slider').fill('60')
             check('Equilibrium lab: more pull than weight moves up', lambda: (ro('net'), ro('eq')) == ('+30 N', '⬆️ Moves up'), lambda: (ro('net'), ro('eq')))
-            check('Equilibrium lab: one rope, two ropes and flying complete all three missions', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [True, True, True],
-                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            pg.locator('#f1Slider').fill('30')                           # 30 + 40 = 70 again
+            pg.locator('#f2Slider').fill('0')
+            pg.locator('#wSlider').fill('30')                            # one rope, 30 N
+            check('Equilibrium lab: flying, two ropes and one rope, done with the sliders, complete all three missions', lambda: missions() == [True, True, True], missions)
             # ------------------------------------------------------------ the slider labs, lifted from their pages (tools/slider_labs.py, labs/SliderLab.tsx)
             warns = []
             pg.on('console', lambda m: warns.append(m.text[:150]) if m.type == 'warning' and m.text.startswith('lab ') else None)
@@ -480,10 +498,16 @@ def run():
                 pg.goto(BASE + url + '#lab')
                 pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
                 check('%s lab: rebuilt, not a frame' % name, lambda: pg.locator('#lab .lab-card').count() == 1 and pg.locator('#lab iframe').count() == 0)
-                pg.locator('#lab .lab-svg-wrap svg').scroll_into_view_if_needed()
-                check('%s lab: the picture draws' % name, lambda: pg.locator('#lab .lab-svg-wrap svg > *').count() > 3)
-                pg.locator('#lab .ls svg').scroll_into_view_if_needed()
-                check('%s lab: the stage draws' % name, lambda: pg.locator('#lab .ls svg > *').count() > 10)
+                pg.locator('#lab .ls-pic > svg').scroll_into_view_if_needed()
+                check('%s lab: the stage draws' % name, lambda: pg.locator('#lab .ls-pic > svg > *').count() > 10)
+                check('%s lab: the sliders come right after the picture, 44 px tall, with - and +' % name,
+                      lambda: pg.evaluate("(() => { const p = document.querySelector('#lab .ls-pic'), c = document.querySelector('#lab .lab-controls'), r = c.querySelector('input[type=range]');"
+                                          " return p.nextElementSibling === c && r.getBoundingClientRect().height >= 44 && c.querySelectorAll('.sl-step').length === 2 * c.querySelectorAll('input[type=range]').length; })()"))
+                pg.locator('#lab .ls-switch button').nth(1).click()
+                check('%s lab: "Diagram" shows the diagram in the same place, and it draws' % name,
+                      lambda: pg.locator('#lab .lab-svg-wrap svg > *').count() > 3 and pg.locator('#lab .lab-svg-wrap svg').is_visible() and not pg.locator('#lab .ls-pic > svg').is_visible())
+                pg.locator('#lab .ls-switch button').nth(0).click()
+                check('%s lab: the readout is one line, no stray "·" before "="' % name, lambda: ' · =' not in pg.inner_text('#lab .a-readout'), lambda: pg.inner_text('#lab .a-readout'))
                 for i, want in enumerate(tries):
                     pg.locator('#lab .lg-try').nth(i).click()
                     js = lambda x: str(int(float(x))) if float(x) == int(float(x)) else str(float(x))
@@ -499,13 +523,24 @@ def run():
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             pg.locator('#lab .lg-try').nth(3).click()
             check('Pressure lab: 1 m of mercury is 136 000 Pa', lambda: (ro('a'), ro('b')) == ('P = hρg = 1 × 13 600 × 10', '= 136 000 Pa'), lambda: (ro('a'), ro('b')))
-            check('Pressure lab: mercury and over 100 000 Pa complete missions 2 and 3', lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')] == [False, True, True],
-                  lambda: pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)'))
+            missions = lambda: [c == 'ls-m ok' for c in pg.eval_on_selector_all('#lab .ls-m', 'ms => ms.map(m => m.className)')]
+            check('Pressure lab: the "Mercury, 1 m" try does not do the missions for the student', lambda: missions() == [False, False, False], missions)
+            pg.locator('#hSlider').fill('0.5')
+            pg.locator('#rhoSlider').fill('1000')
+            pg.locator('#rhoSlider').fill('13600')                       # mercury, 0.5 m: 68 000 Pa
+            pg.locator('#hSlider').fill('2')                             # 272 000 Pa
+            check('Pressure lab: mercury and over 100 000 Pa, done with the sliders, complete missions 2 and 3', lambda: missions() == [False, True, True], missions)
             check('Pressure lab: missions kept under the page key', lambda: pg.evaluate("localStorage.getItem('scx_lab_g10c15_1')") == '1')
+            pg.locator('#lab .sl-step').nth(1).click()
+            check('Pressure lab: "+" moves the depth one step (2 -> 2.5 m)', lambda: pg.locator('#hSlider').input_value() == '2.5' and pg.locator('#hSlider').get_attribute('aria-valuetext') == '2.5 m',
+                  lambda: (pg.locator('#hSlider').input_value(), pg.locator('#hSlider').get_attribute('aria-valuetext')))
+            check('Pressure lab: the picture is named by what it shows', lambda: pg.locator('#lab .ls-pic > svg').get_attribute('aria-label') == 'P = hρg = 2.5 × 13 600 × 10 = 340 000 Pa',
+                  lambda: pg.locator('#lab .ls-pic > svg').get_attribute('aria-label'))
             set_lang(pg, 'ta')
-            check('Pressure lab: in Tamil', lambda: pg.locator('#lab .lg-try').nth(0).inner_text().startswith('1. நீர்'))
+            check('Pressure lab: in Tamil', lambda: pg.locator('#lab .lg-try').nth(0).inner_text().startswith('நீர்'))
+            check('Pressure lab: in Tamil a lab is ஆய்வகம் and a mission பணி', lambda: 'லேப்' not in pg.inner_text('#lab') and 'மிஷன்' not in pg.inner_text('#lab'))
             set_lang(pg, 'si')
-            check('Pressure lab: in Sinhala (the try, the slider, the mission)', lambda: pg.locator('#lab .lg-try').nth(0).inner_text() == '1. ජලය, 2 m ගැඹුර'
+            check('Pressure lab: in Sinhala (the try, the slider, the mission)', lambda: pg.locator('#lab .lg-try').nth(0).inner_text() == 'ජලය, 2 m ගැඹුර'
                   and pg.locator('#lab .control label span').first.inner_text() == 'ගැඹුර' and pg.locator('#lab .ls-m').first.inner_text().endswith('මෙහෙයුම 1: රාජා ජලයේ (ඝනත්වය 1000) හරියටම 5 m ට කිමිදවන්න.'),
                   lambda: (pg.locator('#lab .lg-try').nth(0).inner_text(), pg.locator('#lab .control label span').first.inner_text(), pg.locator('#lab .ls-m').first.inner_text()))
             set_lang(pg, 'en')
@@ -811,7 +846,24 @@ def run():
             set_lang(pg, 'si')
             check('past papers: Sinhala', lambda: pg.locator('h1').inner_text() == 'අතීත ප්‍රශ්න පත්‍ර' and 'පරිච්ඡේදය' in pg.locator('.pp-chapter-no').first.inner_text(), lambda: pg.locator('h1').inner_text())
             set_lang(pg, 'en')
+            tabs = lambda: pg.eval_on_selector_all('.bnav a', "as => as.map(a => a.getAttribute('href') + (a.getAttribute('aria-current') ? ' (here)' : ''))")
+            check('past papers: the bottom bar is Learn / Past papers / Me', lambda: tabs() == ['/lessons/index.html', '/past-papers/ (here)', '/account'], tabs)
+            check('past papers: one language button, in the header', lambda: pg.locator('.langsw-btn').count() == 1 and pg.locator('.pp-lang').count() == 0)
             check('past papers: no script errors', not errs, errs)
+            # ------------------------------------------------------------ "Me": progress first, then the settings
+            pg.goto(BASE + '/account')
+            pg.wait_for_function("document.querySelectorAll('.stat b').length === 5 && ![...document.querySelectorAll('.stat b')].some(b => b.textContent.includes('…'))")
+            check('Me: progress first (XP, streak, chapters finished, past papers right, badges), then the settings',
+                  lambda: pg.locator('#prog-h').count() == 1 and pg.locator('.settings-h').count() == 1 and 'Continue learning' in pg.inner_text('.next-row'), lambda: pg.inner_text('.stats'))
+            check('Me: the question to revisit (the written one) is one tap away', lambda: 'Questions to revisit: 1' in pg.inner_text('.next-row'), lambda: pg.inner_text('.next-row'))
+            check('Me: the bottom bar marks Me', lambda: tabs() == ['/lessons/index.html', '/past-papers/', '/account (here)'], tabs)
+            # ------------------------------------------------------------ an address that is not there
+            r = pg.request.get(BASE + '/no-such-page', headers={'accept': 'text/html'})
+            check('a page that is not there: a page with a way back, not {"detail": "Not Found"}', r.status == 404 and 'Go to my lessons' in r.text(), r.status)
+            r = pg.request.get(BASE + '/api/no-such-thing')
+            check('...the API still answers in JSON', r.status == 404 and r.json().get('detail') == 'Not Found', r.status)
+            r = pg.request.get(BASE + '/learn/', max_redirects=0)
+            check('/learn/ opens the course home', r.status == 302 and r.headers.get('location') == '/lessons/index.html', r.status)
             ctx.close()
 
             # ------------------------------------------------------------ offline: the service worker keeps the new pages (public/static/sw.js)

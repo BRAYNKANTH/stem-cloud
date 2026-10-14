@@ -510,7 +510,9 @@
       "topics": [
         "Measurement"
       ],
-      "lessons": [],
+      "lessons": [
+        "unit-02-motion-in-a-straight-line"
+      ],
       "pages": [
         3
       ],

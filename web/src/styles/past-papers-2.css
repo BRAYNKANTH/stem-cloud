@@ -1,0 +1,126 @@
+/* Past papers by chapter (web/src/islands/PastPapers.tsx): the chapter cards, the question list, the question with its
+   marked options and the explanation in parts, practice sets. Written for phones first; scoped to .pp-app, after the
+   ported styles (past-papers.css), on the design tokens (tokens.css). */
+
+.pp-app { --pp-gap: 14px; }
+.pp-app .pp-top { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+.pp-app .pp-toggles { display: flex; gap: 8px; flex-wrap: wrap; }
+.pp-app .pp-msg { width: 100%; margin: 0; padding: 10px 14px; border-radius: var(--r); background: var(--sc-mango-lt); color: var(--sc-ink); }
+
+/* the home */
+.pp-app .pp-hero h1 { font-family: var(--font-head); font-size: clamp(1.7rem, 5vw, 2.4rem); margin: 4px 0 2px; }
+.pp-app .pp-hero > p { color: var(--sc-ink-2); margin: 0 0 14px; }
+.pp-app .pp-overall { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 18px; }
+.pp-app .pp-overall > div { background: var(--sc-panel); border-radius: var(--r); box-shadow: 0 3px 0 var(--sc-line); padding: 10px 12px; display: flex; flex-direction: column; }
+.pp-app .pp-overall b { font-family: var(--font-head); font-size: 1.6rem; line-height: 1.1; color: var(--sc-blue); }
+.pp-app .pp-overall span { color: var(--sc-ink-2); font-size: .85rem; }
+.pp-app .pp-tabs { display: flex; gap: 6px; background: var(--sc-panel-2); padding: 5px; border-radius: var(--r-lg); margin: 6px 0 18px; }
+.pp-app .pp-tabs button { flex: 1; border: 0; box-shadow: none; background: transparent; border-radius: var(--r); font-weight: 800; }
+.pp-app .pp-tabs button[aria-selected="true"] { background: var(--sc-panel); box-shadow: 0 3px 0 var(--sc-line); color: var(--sc-blue); }
+.pp-app .pp-grade h2 { font-family: var(--font-head); margin: 18px 0 10px; }
+.pp-app .pp-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: var(--pp-gap); }
+.pp-app .pp-chapter { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-align: left; padding: 14px 16px; min-height: 120px;
+  background: var(--sc-panel); border: 2px solid var(--sc-line); border-radius: var(--r-lg); box-shadow: 0 4px 0 var(--sc-line); }
+.pp-app .pp-chapter:hover { border-color: var(--sc-blue); }
+.pp-app .pp-chapter b { font-family: var(--font-head); font-size: 1.15rem; line-height: 1.25; }
+.pp-app .pp-chapter-no { font-size: .8rem; font-weight: 800; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .04em; }
+.pp-app .pp-chapter-meta { font-size: .85rem; color: var(--sc-ink-2); display: flex; flex-wrap: wrap; gap: 6px 10px; }
+.pp-app .pp-chapter-meta em { font-style: normal; font-weight: 800; border-radius: 99px; padding: 0 8px; }
+.pp-app .pp-revisit { background: var(--sc-clay-lt); color: var(--sc-clay); }
+.pp-app .pp-done { background: var(--sc-leaf-lt); color: var(--sc-leaf); }
+.pp-app .pp-bar { display: block; width: 100%; height: 8px; border-radius: 99px; background: var(--sc-panel-2); overflow: hidden; }
+.pp-app .pp-bar i { display: block; height: 100%; background: var(--sc-mango); border-radius: 99px; }
+
+/* a chapter, a year, a practice set */
+.pp-app .pp-back { border: 0; box-shadow: none; background: transparent; padding-left: 0; color: var(--sc-blue); font-weight: 800; }
+.pp-app .pp-chapter-head h1, .pp-app .pp-set-head h1, .pp-app .pp-summary h1 { font-family: var(--font-head); font-size: clamp(1.4rem, 4.5vw, 2rem); margin: 2px 0 6px; }
+.pp-app .pp-chapter-head .btn, .pp-app .pp-row .btn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; min-height: var(--tap); }
+.pp-app .pp-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 4px; }
+.pp-app .pp-chip { border-radius: 99px; padding: 6px 14px; font-weight: 800; font-size: .9rem; box-shadow: none; }
+.pp-app .pp-chip[aria-pressed="true"] { background: var(--sc-blue); color: #fff; border-color: var(--sc-blue); box-shadow: none; }
+.pp-app .pp-chip-select select { border-radius: 99px; padding: 6px 14px; font-weight: 800; }
+.pp-app .pp-layout { grid-template-columns: 260px minmax(0, 1fr); margin-top: 14px; }
+
+/* the question list */
+.pp-app .pp-qlist { display: flex; flex-direction: column; gap: 6px; max-height: 72vh; overflow-y: auto; padding: 4px; }
+.pp-app .pp-qitem { display: flex; gap: 10px; align-items: center; text-align: left; width: 100%; flex-shrink: 0; padding: 8px 12px; box-shadow: none; }
+.pp-app .pp-qitem[aria-current="true"] { background: var(--sc-blue-lt); border-color: var(--sc-blue); box-shadow: none; }
+.pp-app .pp-qitem-main { display: flex; flex-direction: column; min-width: 0; }
+.pp-app .pp-qitem-main b { font-size: .92rem; }
+.pp-app .pp-qitem-main small { color: var(--sc-ink-2); font-weight: 600; font-size: .8rem; }
+.pp-app .pp-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; background: var(--sc-line); border: 2px solid var(--sc-line); }
+.pp-app .is-right .pp-dot { background: var(--sc-leaf); border-color: var(--sc-leaf); }
+.pp-app .is-revisit .pp-dot { background: var(--sc-clay); border-color: var(--sc-clay); }
+.pp-app .is-tried .pp-dot { background: var(--sc-mango); border-color: var(--sc-mango); }
+
+/* the question */
+.pp-app .pp-card { background: var(--sc-panel); border-radius: var(--r-xl); box-shadow: 0 4px 0 var(--sc-line); padding: 20px; min-width: 0; }
+.pp-app .pp-q .pp-qhead h2 { font-size: 1rem; color: var(--sc-ink-2); margin: 0; }
+.pp-app .pp-bookmark { padding: 6px 12px; font-size: .9rem; }
+.pp-app .pp-prompt { font-size: 1.12rem; font-weight: 700; line-height: 1.55; margin: 14px 0; }
+.pp-app .pp-options { gap: 10px; margin: 16px 0; }
+.pp-app .pp-opt { display: grid !important; grid-template-columns: 34px minmax(0, 1fr); align-items: start; gap: 12px; padding: 12px 14px !important; position: relative; }
+.pp-app .pp-opt input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pp-app .pp-opt-no { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 900; background: var(--sc-panel-2); color: var(--sc-ink); }
+.pp-app .pp-opt.is-chosen .pp-opt-no, .pp-app .pp-opt:has(input:checked) .pp-opt-no { background: var(--sc-blue); color: #fff; }
+.pp-app .pp-opt-text { padding-top: 5px; }
+.pp-app .pp-opt-why { display: block; margin-top: 6px; font-weight: 600; font-size: .9rem; color: var(--sc-ink-2); }
+.pp-app .pp-opt.is-right { border-color: var(--sc-leaf) !important; background: var(--sc-leaf-lt) !important; box-shadow: 0 3px 0 var(--sc-leaf) !important; }
+.pp-app .pp-opt.is-right .pp-opt-no, .pp-app .pp-opt.is-right:has(input:checked) .pp-opt-no { background: var(--sc-leaf); color: #fff; }
+.pp-app .pp-opt.is-wrong { border-color: var(--sc-clay) !important; background: var(--sc-clay-lt) !important; box-shadow: 0 3px 0 var(--sc-clay) !important; }
+.pp-app .pp-opt.is-wrong .pp-opt-no, .pp-app .pp-opt.is-wrong:has(input:checked) .pp-opt-no { background: var(--sc-clay); color: #fff; }
+.pp-app .pp-opt:focus-within { outline: 3px solid var(--sc-mango); outline-offset: 2px; }
+.pp-app .pp-hint { background: var(--sc-mango-lt); border-radius: var(--r); padding: 10px 14px; }
+.pp-app .pp-feedback { border: 0; background: transparent; padding: 0; margin: 10px 0 0; }
+.pp-app .pp-verdict { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; border-radius: var(--r); padding: 10px 14px; margin: 6px 0 12px; }
+.pp-app .pp-verdict.is-right { background: var(--sc-leaf-lt); color: var(--sc-leaf); }
+.pp-app .pp-verdict.is-wrong { background: var(--sc-clay-lt); color: var(--sc-clay); }
+
+/* the explanation in parts */
+.pp-app .pp-explain { display: grid; gap: 10px; }
+.pp-app .pp-x { border-radius: var(--r-lg); padding: 12px 16px; background: var(--sc-panel-2); }
+.pp-app .pp-x h4 { margin: 0 0 4px; font-family: var(--font-head); font-size: 1.02rem; }
+.pp-app .pp-x p { margin: 4px 0; }
+.pp-app .pp-x ol { margin: 6px 0; padding-left: 22px; }
+.pp-app .pp-x li { margin: 4px 0; }
+.pp-app .pp-x-answer { background: var(--sc-blue-lt); }
+.pp-app .pp-x-idea h4::before { content: '💡 '; }
+.pp-app .pp-x-steps h4::before { content: '🪜 '; }
+.pp-app .pp-x-why h4::before { content: '🔍 '; }
+.pp-app .pp-x-mistake { background: var(--sc-mango-lt); }
+.pp-app .pp-x-mistake h4::before { content: '⚠️ '; }
+.pp-app .pp-x-try summary, .pp-app .pp-x-learn summary { font-weight: 800; }
+.pp-app .pp-x-try summary::before { content: '✏️ '; }
+.pp-app .pp-x-learn h4::before { content: '📘 '; }
+.pp-app .pp-learn-links { margin: 4px 0; padding-left: 20px; }
+.pp-app .pp-diagram .pp-model-diagram { background: var(--sc-panel); color: var(--sc-ink); }
+
+/* written answers */
+.pp-app .pp-part { border-top: 2px solid var(--sc-line); }
+.pp-app .pp-part h3 { display: inline-block; background: var(--sc-blue-lt); color: var(--sc-blue); border-radius: 99px; padding: 0 12px; margin: 0; }
+.pp-app .pp-solution > summary, .pp-app .pp-hint-box > summary { font-weight: 800; color: var(--sc-blue); }
+.pp-app .pp-selfcheck { background: var(--sc-panel-2); border-radius: var(--r-lg); padding: 12px 16px; margin: 14px 0; }
+.pp-app .pp-selfcheck p { margin: 0; font-weight: 700; }
+.pp-app .pp-scan summary { color: var(--sc-ink-2); font-weight: 700; }
+.pp-app .pp-nav { justify-content: space-between; border-top: 2px solid var(--sc-line); padding-top: 14px; }
+
+/* a practice set */
+.pp-app .pp-set-head { margin-bottom: 12px; }
+.pp-app .pp-set-head p { color: var(--sc-ink-2); margin: 6px 0 0; }
+.pp-app .pp-score { font-family: var(--font-head); font-size: 2rem; margin: 6px 0; }
+.pp-app .pp-score b { color: var(--sc-blue); font-size: 2.6rem; }
+.pp-app .pp-summary-list { list-style: none; padding: 0; display: grid; gap: 6px; }
+.pp-app .pp-summary-list li { display: flex; align-items: center; gap: 10px; }
+.pp-app .pp-exam-bar { background: var(--sc-blue-lt); border-radius: var(--r-lg); padding: 14px 16px; margin: 12px 0; }
+.pp-app .pp-result { background: var(--sc-leaf-lt); border-radius: var(--r-lg); padding: 12px 16px; }
+.pp-app .pp-dialog .pp-row { justify-content: flex-end; }
+
+@media (max-width: 760px) {
+  .pp-app .pp-layout { grid-template-columns: 1fr; }
+  .pp-app .pp-qlist { flex-direction: row; max-height: none; overflow-x: auto; overflow-y: hidden; padding-bottom: 8px; }
+  .pp-app .pp-qitem { width: 190px; min-width: 190px; }
+  .pp-app .pp-card { padding: 16px; border-radius: var(--r-lg); }
+  .pp-app .pp-overall b { font-size: 1.3rem; }
+  .pp-app .pp-cards { grid-template-columns: 1fr; }
+  .pp-app .pp-chapter { min-height: 0; }
+}

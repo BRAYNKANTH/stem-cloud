@@ -1,27 +1,40 @@
 ---
-// Past papers on the new pages (the PastPapers island, ported from public/static/past-papers.js). Login-only like the
-// lessons: after the build, web/scripts/private.mjs moves this page out of the published files, and the Python route
-// /past-papers serves it after checking the sign-in (stemcloud/routers/past_papers.py).
+// Past papers on the new pages (the PastPapers island): the physics questions by chapter and by year. Login-only like
+// the lessons: after the build, web/scripts/private.mjs moves this page out of the published files, and the Python
+// route /past-papers serves it after checking the sign-in (stemcloud/routers/past_papers.py).
+// The chapters come from the course catalog (content/catalog.json): the questions name a chapter by its lesson page.
 import AppLayout from '../../../layouts/AppLayout.astro';
-import PastPapers from '../../../islands/PastPapers';
+import PastPapers, { type Chapter } from '../../../islands/PastPapers';
 import ThemeToggle from '../../../islands/ThemeToggle';
+import XpChip from '../../../islands/XpChip';
+import catalog from '../../../../../content/catalog.json';
 import '../../../styles/past-papers.css';
+import '../../../styles/past-papers-2.css';
+
+interface Entry { subject: string; grade: number; number: string; slug: string; title: Chapter['title']; legacy?: { file: string } }
+const chapters: Chapter[] = (catalog.lessons as Entry[])
+  .filter((l) => l.subject === 'physics' && l.legacy)
+  .map((l) => ({ key: l.legacy!.file.replace(/\.html$/, ''), grade: l.grade, number: l.number, title: l.title, url: `/learn/${l.subject}/g${l.grade}/${l.slug}/` }))
+  .sort((a, b) => a.grade - b.grade || Number(a.number) - Number(b.number));
 ---
-<AppLayout title="Past Papers · STEM Cloud" description="O/L Science past papers: the physics questions, with model answers." noindex>
+<AppLayout title="Past Papers · STEM Cloud" description="O/L Science past papers: the physics questions by chapter, with full explanations." noindex>
   <header class="pp-header topbar" slot="header">
-    <a href="/lessons/index.html">← STEM Cloud</a>
-    <ThemeToggle client:idle />
+    <a href="/">← STEM Cloud</a>
+    <div class="pp-header-right">
+      <XpChip client:idle />
+      <ThemeToggle client:idle />
+    </div>
   </header>
   <div class="pp-page">
     <a class="pp-skip" href="#pp-question">Skip to question</a>
     <div class="pp-main">
-      <PastPapers client:load />
+      <PastPapers client:load chapters={chapters} />
     </div>
   </div>
 </AppLayout>
 
 <style>
   .pp-header :global(.theme-toggle) { width: var(--tap); height: var(--tap); border-radius: var(--r); border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink); cursor: pointer; }
-  .pp-page :global(.pp-toggles) { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .pp-header-right { display: flex; gap: 8px; align-items: center; }
   .pp-page :global(.pp-status) { padding: 24px 0; }
 </style>

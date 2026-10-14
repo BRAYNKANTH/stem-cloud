@@ -50,7 +50,9 @@
       "topics": [
         "Measurement"
       ],
-      "lessons": [],
+      "lessons": [
+        "chapter-04-newtons-laws"
+      ],
       "pages": [
         1
       ],

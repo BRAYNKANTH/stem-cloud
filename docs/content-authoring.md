@@ -90,6 +90,31 @@ The same applies to `tools/extract_lesson.py --check` once `content/` is edited 
   - **To fill a gap:** add the English → Sinhala entry to the page's dictionary, then run `python tools/extract_lesson.py --all` and `python tools/validate_content.py`.
 - **Interface labels** (Understand, Watch, buttons) are in `web/src/lib/lesson-ui.ts` and need a reviewer's Tamil and Sinhala.
 
+## Past paper questions
+
+One bank per year, `content/past-papers/physics/<year>.json`, listed in `catalog.json` in the same folder. Every text
+is `{ "en", "ta", "si" }`.
+
+- **A question** is an MCQ (`options`, `correct`, one entry in `optionExplanations` per option, `explanation`) or a written question (`parts`, each with a `label`, a `prompt` and a model `answer`).
+- **Chapters:** `lessons` lists the chapters a question belongs to, by the lesson page's file name (`g10-chapter-15-hydrostatic-pressure`). On a written question, give each part its own `lessons`; the question's list is all of its parts' lists. The page groups questions by these.
+- **The explanation** of each MCQ and each written part has:
+  - a `hint`;
+  - `steps`, at least two;
+  - in `detailedExplanation`: the `concept` (the idea), the `reasoning` (why it works), a `commonMistake`, and a `practice` question with its answer.
+
+  Write each section for this question:
+  - the hint points at what to notice here, not at the topic in general;
+  - the steps work it out;
+  - each option's reason says why that option is right or wrong.
+- **A figure question** (`figure`): read the scan before writing the reasons, and say what each diagram shows.
+
+`python tools/validate_past_papers.py` checks all of this, in all three languages:
+- no section repeats another or the answer;
+- each option has its own reason;
+- no hint is used twice.
+
+The page shows only the sections that add something new.
+
 ## Adding a chapter, or a new subject
 
 1. Write `content/<subject>/g<grade>/<slug>/lesson.json`: copy a chapter of the same kind and replace its content. Give every step and question a new id.

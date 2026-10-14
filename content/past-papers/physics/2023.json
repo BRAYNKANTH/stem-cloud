@@ -1319,24 +1319,24 @@
       "sourceChecked": true,
       "optionExplanations": [
         {
-          "en": "This diagram does not put A, the metal that expands more, on the outer, longer side of the curve.",
-          "ta": "இந்தப் படம் அதிகம் விரியும் உலோகமான A ஐ வளைவின் நீளமான வெளிப்பக்கத்தில் காட்டவில்லை.",
-          "si": "මෙම රූපයේ වැඩියෙන් ප්‍රසාරණය වන A ලෝහය වක්‍රයේ දිගු පිටත පැත්තේ නොපෙන්වයි."
+          "en": "The strip stays straight, but on heating A grows longer than B, so a bonded strip must bend.",
+          "ta": "பட்டை நேராகவே இருக்கிறது; ஆனால் சூடாக்கும்போது A, B ஐ விட நீளமாவதால் ஒட்டிய பட்டை வளைய வேண்டும்.",
+          "si": "තීරුව කෙළින්ම පවතී; නමුත් රත් කරන විට A, B ට වඩා දිගු වන බැවින් බැඳුණු තීරුවක් නැමිය යුතුය."
         },
         {
-          "en": "This diagram does not put A, the metal that expands more, on the outer, longer side of the curve.",
-          "ta": "இந்தப் படம் அதிகம் விரியும் உலோகமான A ஐ வளைவின் நீளமான வெளிப்பக்கத்தில் காட்டவில்லை.",
-          "si": "මෙම රූපයේ වැඩියෙන් ප්‍රසාරණය වන A ලෝහය වක්‍රයේ දිගු පිටත පැත්තේ නොපෙන්වයි."
+          "en": "A is drawn longer but still straight, as if the metals had come apart; bonded metals bend instead.",
+          "ta": "A நீளமாக, ஆனால் இன்னும் நேராக வரையப்பட்டுள்ளது; உலோகங்கள் பிரிந்ததுபோல்; ஒட்டிய உலோகங்கள் பதிலாக வளைகின்றன.",
+          "si": "A දිගු නමුත් තවමත් කෙළින් ලෙස ඇඳ ඇත, ලෝහ වෙන් වූවා සේ; බැඳුණු ලෝහ ඒ වෙනුවට නැමේ."
         },
         {
-          "en": "This diagram does not put A, the metal that expands more, on the outer, longer side of the curve.",
-          "ta": "இந்தப் படம் அதிகம் விரியும் உலோகமான A ஐ வளைவின் நீளமான வெளிப்பக்கத்தில் காட்டவில்லை.",
-          "si": "මෙම රූපයේ වැඩියෙන් ප්‍රසාරණය වන A ලෝහය වක්‍රයේ දිගු පිටත පැත්තේ නොපෙන්වයි."
+          "en": "The strip bends the wrong way: A, which expands more, ends up on the inner, shorter side.",
+          "ta": "பட்டை தவறான திசையில் வளைகிறது: அதிகம் விரியும் A உட்புற, குறுகிய பக்கத்தில் முடிகிறது.",
+          "si": "තීරුව වැරදි දිශාවට නැමේ: වැඩියෙන් ප්‍රසාරණය වන A ඇතුළත, කෙටි පැත්තේ පිහිටයි."
         },
         {
           "en": "Right: A is on the outside of the curve and the strip bends towards B.",
-          "ta": "சரி: A வளைவின் வெளிப்பக்கம்; கீலம் B ஐ நோக்கி வளைகிறது.",
-          "si": "නිවැරදියි: A වක්‍රයේ පිටත පැත්තේ වන අතර තීරුව B දෙසට නැමේ."
+          "ta": "சரி: A வளைவின் வெளிப்புறத்தில்; பட்டை B ஐ நோக்கி வளைகிறது.",
+          "si": "නිවැරදියි: A වක්‍රයේ පිටත පැත්තේ ඇති අතර තීරුව B දෙසට නැමේ."
         }
       ],
       "detailedExplanation": {

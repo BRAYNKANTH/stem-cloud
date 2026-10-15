@@ -3,7 +3,7 @@
 // question; true or false; a formula), from content/feed/physics.json. Separate from the rest of the app while it is
 // tried out: nothing links here yet. Login-only like the lessons (web/scripts/private.mjs, stemcloud/routers/feed.py).
 import AppLayout from '../../../layouts/AppLayout.astro';
-import LearningFeed, { type Chapter, type FeedCard } from '../../../islands/LearningFeed';
+import LearningFeed, { type Chapter, type FeedCard, type Pool } from '../../../islands/LearningFeed';
 import LangSwitch from '../../../islands/LangSwitch';
 import catalog from '../../../../../content/catalog.json';
 import feed from '../../../../../content/feed/physics.json';
@@ -14,6 +14,16 @@ const chapters: Chapter[] = (catalog.lessons as Entry[]).map((l) => ({ id: l.id,
 const byFormula = new Map(formulas.cards.map((c) => [c.id, c]));
 // a formula card names its formula; the feed gets the formula itself
 const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byFormula.get(c.formula as string) } : c)) as FeedCard[];
+// each chapter's practice questions (content/practice): /feed/#<chapter> draws a round of 10
+interface Q { id: string; type: 'mcq' | 'tf'; q: Record<string, string>; options?: Record<string, string>[]; correct: number; why: Record<string, string>; figure?: unknown }
+const POOLS = import.meta.glob<{ lesson: string; questions: Q[] }>('../../../../../content/practice/*/*.json', { eager: true, import: 'default' });
+const slugOf = new Map((catalog.lessons as Entry[]).map((l) => [l.id, l.slug]));
+const pools: Pool[] = Object.values(POOLS).map((p) => ({
+  slug: slugOf.get(p.lesson) ?? p.lesson, lesson: p.lesson,
+  cards: p.questions.map((q) => (q.type === 'tf'
+    ? { id: q.id, type: 'tf', lesson: p.lesson, statement: q.q, correct: q.correct, why: q.why, figure: q.figure, practice: true }
+    : { id: q.id, type: 'mcq', lesson: p.lesson, question: q.q, options: q.options, correct: q.correct, why: q.why, figure: q.figure, practice: true })) as FeedCard[],
+}));
 ---
 <AppLayout title="Learning Feed · STEM Cloud" description="Swipe through physics: predict, watch, answer." noindex>
   <header class="fd-header" slot="header">
@@ -21,7 +31,7 @@ const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byForm
     <b class="fd-title">Feed <small>beta</small></b>
     <LangSwitch client:idle />
   </header>
-  <LearningFeed client:load cards={cards} chapters={chapters} />
+  <LearningFeed client:load cards={cards} chapters={chapters} pools={pools} />
 </AppLayout>
 
 <style>
@@ -87,5 +97,8 @@ const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byForm
   :global(.fd-replay) { justify-self: start; }
   :global(.fd-end .fd-inner) { text-align: center; align-items: center; }
   :global(.fd-big) { font: 800 2rem var(--font-head); margin: 0; }
+  :global(.fd-figure) { display: block; width: 100%; max-height: 30dvh; border-radius: 18px; background: var(--sc-panel); box-shadow: 0 3px 0 var(--sc-line); }
+  :global(.fd-tag) { margin-left: 6px; padding: 1px 7px; border-radius: 6px; background: var(--sc-mango-lt); color: var(--sc-ink); font-style: normal; text-transform: none; letter-spacing: 0; }
+  :global(.fd-end .fd-inner .btn) { width: 100%; max-width: 360px; min-height: 48px; }
   @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } }
 </style>

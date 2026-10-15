@@ -9,7 +9,7 @@ from functools import lru_cache
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import FEED_CARDS, WEB_FEED
+from ..config import FEED_CARDS, PRACTICE, WEB_FEED
 from ..db import db
 from ..security import body_json, current_user, need_csrf, need_user
 
@@ -18,14 +18,17 @@ router = APIRouter()
 
 @lru_cache(maxsize=1)
 def cards() -> dict:
-    """The answerable cards by id: how many choices each has and which is right (true / false is two choices)."""
-    data = json.loads(FEED_CARDS.read_text(encoding='utf-8'))
+    """The answerable cards by id: how many choices each has and which is right (true / false is two choices). The feed's
+    own cards, and every chapter's practice questions (content/practice/<subject>/<chapter>.json)."""
     out = {}
-    for c in data['cards']:
+    for c in json.loads(FEED_CARDS.read_text(encoding='utf-8'))['cards']:
         if c['type'] in ('predict', 'mcq'):
             out[c['id']] = (len(c['options']), c['correct'])
         elif c['type'] == 'tf':
             out[c['id']] = (2, c['correct'])
+    for pool in sorted(PRACTICE.glob('*/*.json')):
+        for q in json.loads(pool.read_text(encoding='utf-8'))['questions']:
+            out[q['id']] = (len(q['options']) if q['type'] == 'mcq' else 2, q['correct'])
     return out
 
 

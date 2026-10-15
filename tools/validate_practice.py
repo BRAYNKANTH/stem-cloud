@@ -25,6 +25,7 @@ FIGURES = {
     'blocks': {'weight', 'dims'}, 'vessels': set(), 'tank': {'depth', 'points'}, 'bottle': set(),
     'hydraulic': {'a1', 'a2', 'f1', 'f2'}, 'barometer': {'h'}, 'utube': set(), 'balance': {'air', 'water'}, 'float': {'weight', 'sub'},
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
+    'lever': {'loads'}, 'vectors': {'a', 'b'}, 'updown': {'mass', 'up', 'down'}, 'cords': {'w', 'a', 'b'},
 }
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
@@ -120,6 +121,10 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('the feed cannot draw a %r figure' % fig.get('kind'))
             elif not FIGURES[fig['kind']] <= set(fig):
                 say('a %s figure needs %s' % (fig['kind'], ', '.join(sorted(FIGURES[fig['kind']] - set(fig)))))
+            elif fig['kind'] == 'lever' and not (fig['loads'] and all(isinstance(l, dict) and isinstance(l.get('x'), (int, float)) and l.get('f') for l in fig['loads'])):
+                say('a lever figure needs loads, each with a number x and a force f')
+            elif fig['kind'] == 'graph' and fig.get('axis') not in ('v', 's', 'ff'):
+                say('a graph figure needs axis v, s or ff')
     return len(data.get('questions', []))
 
 

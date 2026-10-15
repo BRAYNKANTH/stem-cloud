@@ -265,10 +265,14 @@ def browser_checks(p, make_student, size, label):
 
     # ---- the course contents page links to the topics
     page.goto(BASE + '/lessons/index.html')
-    page.wait_for_selector('.tp-hub-link', timeout=15000)
-    t = page.locator('.tp-hub-link').inner_text()
+    hub = page.locator('.tp-hub-link[href="/topics/%s"]' % SLUG)
+    hub.wait_for(timeout=15000)
+    t = hub.inner_text()
     check(L('course contents offers "Learn topic by topic" with topic progress'), 'Learn topic by topic' in t and '/ 5' in t, t)
-    page.locator('.tp-hub-link').click()
+    # Waves: its topic view is only on the new pages, which do not keep topic progress yet (tools/build_topics.py)
+    waves = page.evaluate("() => [...document.querySelectorAll('.tp-hub-link')].filter(a => a.getAttribute('href') === '/learn/physics/g11/waves/topics/').map(a => a.innerText)")
+    check(L('...and for Waves, straight to its new topic pages'), len(waves) == 1 and '8 topics' in waves[0] and '/' not in waves[0].split('·')[-1], waves)
+    hub.click()
     page.wait_for_selector('#tp-h1')
     check(L('that link opens the chapter overview'), page.url.endswith(PAGE), page.url)
 

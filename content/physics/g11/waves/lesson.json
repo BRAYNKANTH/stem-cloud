@@ -1417,5 +1417,271 @@
     "si": "📖 ප්‍රධාන පද (සිංහල – ඉංග්‍රීසි)"
    }
   }
- ]
+ ],
+ "topics": [
+  {
+   "id": "what-is-a-wave",
+   "title": {
+    "en": "What is a wave?",
+    "ta": "அலை என்றால் என்ன?"
+   },
+   "blurb": {
+    "en": "A wave is a disturbance that carries energy, not the material it travels through.",
+    "ta": "அலை என்பது சக்திய கொண்டு போற குழப்பம்; அது பயணிக்கற பொருள கொண்டு போகாது."
+   },
+   "learn": {
+    "en": "Say what a wave is; explain that a wave carries energy, not matter; give examples of waves in a medium.",
+    "ta": "அலை என்றால் என்னன்னு சொல்லு, அலை சக்திய கொண்டு போகும், பருப்பொருள இல்லன்னு விளக்கு, ஊடகத்துல பயணிக்கற அலைகளுக்கு உதாரணம் சொல்லு."
+   },
+   "section": "4.0",
+   "notes_card": 0,
+   "glance": {
+    "definitions": [],
+    "misconception": {
+     "en": "\"The water travels with the wave.\" No: each bit of water only moves up and down; the wave carries energy.",
+     "ta": "\"தண்ணி அலையோட சேர்ந்து போகும்.\" இல்ல: ஒவ்வொரு துளியும் மேல கீழ மட்டும்தான் அசையும்; அலை சக்திய கொண்டு போகும்."
+    }
+   },
+   "watch": {
+    "title": {
+     "en": "Ripples carry energy",
+     "ta": "அலைகள் சக்திய கடத்துது"
+    },
+    "animation": {
+     "file": "g11-chapter-04-waves.html",
+     "hash": "watch"
+    },
+    "from": 0,
+    "to": 10,
+    "duration": 30
+   },
+   "practice": [
+    "q1",
+    "x41-1i",
+    "x41-1ii",
+    "x41-1iii"
+   ]
+  },
+  {
+   "id": "mechanical-waves",
+   "title": {
+    "en": "Mechanical waves: transverse and longitudinal",
+    "ta": "பொறிமுறை அலைகள்: குறுக்கலைகள், நெட்டாங்கு அலைகள்"
+   },
+   "blurb": {
+    "en": "Waves that need a material medium are mechanical. The way the particles move gives two kinds: transverse and longitudinal.",
+    "ta": "பொருள் ஊடகம் தேவைப்படும் அலைகள் பொறிமுறை அலைகள். துணிக்கைகள் அசையும் விதத்த வச்சு ரெண்டு வகை: குறுக்கலை, நெட்டாங்கு அலை."
+   },
+   "learn": {
+    "en": "Say what a mechanical wave is; tell a transverse wave from a longitudinal wave; name an example of each.",
+    "ta": "பொறிமுறை அலைன்னா என்னன்னு சொல்லு, குறுக்கலைய நெட்டாங்கு அலைல இருந்து பிரிச்சு அறி, ஒவ்வொண்ணுக்கும் ஒரு உதாரணம் சொல்லு."
+   },
+   "section": "4.1",
+   "notes_card": 1,
+   "watch": {
+    "title": {
+     "en": "Transverse and longitudinal waves",
+     "ta": "குறுக்கலை, நெட்டாங்கு அலை"
+    },
+    "animation": {
+     "file": "g11-chapter-04-waves.html",
+     "hash": "watch"
+    },
+    "from": 10,
+    "to": 20,
+    "duration": 30
+   },
+   "practice": [
+    "q2",
+    "q3",
+    "x41-1iv",
+    "x41-1v"
+   ]
+  },
+  {
+   "id": "describing-a-wave",
+   "title": {
+    "en": "Describing a wave: amplitude, wavelength, period, frequency, speed",
+    "ta": "அலைய விவரிக்கறது: வீச்சம், அலைநீளம், அலைவுகாலம், மீடிறன், கதி"
+   },
+   "blurb": {
+    "en": "Amplitude, wavelength, period and frequency describe a wave. Frequency × wavelength gives its speed.",
+    "ta": "வீச்சம், அலைநீளம், ஆவர்த்தன காலம், மீடிறன் ஆகியவை அலைய விவரிக்கும். மீடிறன் × அலைநீளம் = கதி."
+   },
+   "learn": {
+    "en": "Say what amplitude, wavelength, period and frequency mean; use f = 1 ÷ T; use v = f λ to find the speed of a wave.",
+    "ta": "வீச்சம், அலைநீளம், ஆவர்த்தன காலம், மீடிறன் என்னன்னு சொல்லு, f = 1 ÷ T பயன்படுத்து, v = f λ வச்சு அலையோட கதிய காணு."
+   },
+   "section": "4.2",
+   "notes_card": 2,
+   "explore": {
+    "type": "lab",
+    "title": {
+     "en": "Change the amplitude, frequency and wavelength, and watch v = f λ",
+     "ta": "வீச்சம், மீடிறன், அலைநீளத்த மாத்தி v = f λ-ஐ பாரு",
+     "si": "විස්තාරය, සංඛ්‍යාතය සහ තරංග ආයාමය වෙනස් කර v = f λ බලන්න"
+    },
+    "legacy": {
+     "file": "g11-chapter-04-waves.html",
+     "hash": "lab"
+    }
+   },
+   "practice": [
+    "q4",
+    "q5",
+    "x41-2ii",
+    "x41-2i",
+    "x41-4a",
+    "x41-4b",
+    "x41-2iii"
+   ]
+  },
+  {
+   "id": "electromagnetic-waves-and-the-spectrum",
+   "title": {
+    "en": "Electromagnetic waves and the spectrum",
+    "ta": "மின்காந்த அலைகளும் திருசியமும்"
+   },
+   "blurb": {
+    "en": "Light, radio waves and X-rays need no medium. They are transverse and travel at 3 × 10⁸ m s⁻¹ in a vacuum.",
+    "ta": "ஒளி, ரேடியோ அலை, X-கதிர்களுக்கு ஊடகம் வேணாம். அவை குறுக்கலைகள்; வெற்றிடத்துல 3 × 10⁸ m s⁻¹ வேகத்துல போகும்."
+   },
+   "learn": {
+    "en": "Describe electromagnetic waves; name the parts of the electromagnetic spectrum; use c = f λ.",
+    "ta": "மின்காந்த அலைகள விவரி, மின்காந்த திருசியத்தின் பகுதிகளுக்கு பேர் சொல்லு, c = f λ பயன்படுத்து."
+   },
+   "section": "4.3",
+   "notes_card": 3,
+   "practice": [
+    "q6",
+    "x41-3i",
+    "x41-3iia",
+    "x41-3iib"
+   ]
+  },
+  {
+   "id": "sound",
+   "title": {
+    "en": "Sound: how it travels",
+    "ta": "ஒலி: எப்படி பயணிக்குது"
+   },
+   "blurb": {
+    "en": "Sound is a longitudinal mechanical wave. It needs a medium and travels far slower than light.",
+    "ta": "ஒலி ஒரு நெட்டாங்கு பொறிமுறை அலை. அதுக்கு ஊடகம் வேணும்; ஒளிய விட ரொம்ப மெதுவா போகும்."
+   },
+   "learn": {
+    "en": "Say how vibrations make sound; show that sound needs a medium; compare the speed of sound with the speed of light.",
+    "ta": "அதிர்வுகள் ஒலிய எப்படி உண்டாக்குதுன்னு சொல்லு, ஒலிக்கு ஊடகம் வேணும்னு காட்டு, ஒலியோட கதிய ஒளியோட கதியோட ஒப்பிடு."
+   },
+   "section": "4.4",
+   "notes_card": 4,
+   "watch": {
+    "title": {
+     "en": "Lightning before thunder",
+     "ta": "இடிக்கு முன்னாடி மின்னல்"
+    },
+    "animation": {
+     "file": "g11-chapter-04-waves.html",
+     "hash": "watch"
+    },
+    "from": 20,
+    "to": 30,
+    "duration": 30
+   },
+   "practice": [
+    "x41-2iv",
+    "x41-6i",
+    "x41-6iii"
+   ]
+  },
+  {
+   "id": "pitch-loudness-and-quality",
+   "title": {
+    "en": "Pitch, loudness and quality",
+    "ta": "சுருதி, உரப்பு, ஒலியின் பண்பு"
+   },
+   "blurb": {
+    "en": "Pitch depends on frequency, loudness on amplitude and quality on the shape of the waveform.",
+    "ta": "சுருதி மீடிறன பொறுத்தது, உரப்பு வீச்சத்த பொறுத்தது, ஒலியின் பண்பு அலை வடிவத்த பொறுத்தது."
+   },
+   "learn": {
+    "en": "Link pitch to frequency; link loudness to amplitude; link quality to the shape of the waveform.",
+    "ta": "சுருதிய மீடிறனோட இணை, உரப்ப வீச்சத்தோட இணை, ஒலியின் பண்ப அலை வடிவத்தோட இணை."
+   },
+   "section": "4.5",
+   "notes_card": 5,
+   "practice": [
+    "q7",
+    "x41-2va",
+    "x41-2vb",
+    "x41-2vc",
+    "x41-6ii"
+   ]
+  },
+  {
+   "id": "hearing-range-and-ultrasound",
+   "title": {
+    "en": "Hearing range and ultrasound",
+    "ta": "கேள்தகு வீச்சும் கழியொலியும்"
+   },
+   "blurb": {
+    "en": "People hear 20 Hz to 20 000 Hz. Ultrasound is above that and is used in SONAR and in medical scans.",
+    "ta": "மனிதர் 20 Hz முதல் 20 000 Hz வரை கேப்பாங்க. அதுக்கு மேல கழியொலி; அது SONAR-லயும் மருத்துவ ஸ்கேன்லயும் பயன்படும்."
+   },
+   "learn": {
+    "en": "State the human hearing range; tell infrasound from ultrasound; find a depth from an echo, d = v t ÷ 2.",
+    "ta": "மனிதனோட கேள்தகு வீச்ச சொல்லு, தாழொலிய கழியொலில இருந்து பிரி, எதிரொலில இருந்து ஆழம் காணு, d = v t ÷ 2."
+   },
+   "section": "4.6",
+   "notes_card": 6,
+   "practice": [
+    "q8",
+    "q9"
+   ]
+  },
+  {
+   "id": "musical-instruments",
+   "title": {
+    "en": "Musical instruments",
+    "ta": "இசைக் கருவிகள்"
+   },
+   "blurb": {
+    "en": "Musical instruments make regular vibrations. They are string, percussion or wind instruments.",
+    "ta": "இசைக் கருவிகள் ஒழுங்கான அதிர்வுகள உண்டாக்கும். அவை நாண், தாள, காற்றுக் கருவிகள்."
+   },
+   "learn": {
+    "en": "Name the three kinds of instrument; say what changes the frequency in each kind; tell music from noise.",
+    "ta": "மூணு வகை கருவிகளுக்கும் பேர் சொல்லு, ஒவ்வொரு வகையிலயும் மீடிறன மாத்தறது எதுன்னு சொல்லு, இசைய இரைச்சல்ல இருந்து பிரி."
+   },
+   "section": "4.7",
+   "notes_card": 7,
+   "practice": [
+    "x41-5i",
+    "x41-5iia",
+    "x41-5iib",
+    "x41-5iic"
+   ]
+  }
+ ],
+ "revision": {
+  "mixed": [
+   "x41-1ii",
+   "x41-2iii",
+   "x41-3iia",
+   "x41-6i",
+   "x41-6ii",
+   "x41-5iib"
+  ],
+  "quiz": [
+   "q1",
+   "q2",
+   "q3",
+   "q4",
+   "q5",
+   "q6",
+   "q7",
+   "q8",
+   "q9"
+  ]
+ }
 }

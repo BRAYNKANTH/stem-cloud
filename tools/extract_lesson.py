@@ -482,13 +482,16 @@ def add_topics(lesson: dict, spec: dict, soup, report: list):
     file = lesson['legacy']['file']
     pills = soup.select('.sns-pill')
     notes = next(s for s in lesson['steps'] if s['type'] == 'notes')
-    words = lambda t: tri(t) if isinstance(t, str) else t
+    # a text in the map is English (Motion) or {en, ta} (Waves); either way the translation memory adds the Sinhala
+    words = lambda t: tri(t) if isinstance(t, str) else tri(t['en'], t.get('ta'))
     for t in spec['topics']:
         pill = pills[t['taFromPill']].select('span')[1] if 'taFromPill' in t else None
         title = {'en': t['title']['en']}
         if pill is not None and pill.get('data-ta'):
             title['ta'] = pill['data-ta']
-        si = SI.text(pill.get_text(' ', strip=True)) if (SI and pill is not None) else None
+        elif t['title'].get('ta'):                         # a lesson without topic pills: the Tamil title is in the map
+            title['ta'] = t['title']['ta']
+        si = SI.text(pill.get_text(' ', strip=True) if pill is not None else t['title']['en']) if SI else None
         if si:
             title['si'] = si
         topic = {'id': t['id'], 'title': title, 'blurb': words(t['blurb']), 'learn': words(t['learn'])}

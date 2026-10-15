@@ -23,10 +23,11 @@
         var rec = saved(c.id), done = c.topics.filter(function (t) { return topicDone(rec, t); }).length;
         var started = Object.keys(rec).length > 0;
         var link = document.createElement('a');
-        link.className = 'tp-hub-link'; link.href = '/topics/' + c.slug;
+        /* c.url: a chapter whose topic view is only on the new pages (Waves); they do not keep topic progress yet */
+        link.className = 'tp-hub-link'; link.href = c.url || '/topics/' + c.slug;
         link.innerHTML = '<span aria-hidden="true">🧭</span><span><b>' + T('Learn topic by topic') + '</b> · ' +
-          T(started ? 'Continue' : 'Start') +
-          '</span><small>' + done + ' / ' + c.topics.length + ' ' + T('topics') + '</small>';
+          T(started && !c.url ? 'Continue' : 'Start') +
+          '</span><small>' + (c.url ? '' : done + ' / ') + c.topics.length + ' ' + T('topics') + '</small>';
         a.parentNode.appendChild(link);
       });
     } finally { busy = false; }

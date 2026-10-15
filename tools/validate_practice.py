@@ -27,6 +27,9 @@ FIGURES = {
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
     'mains': {'switch'}, 'plug': {'pins'}, 'diode': {'bias'}, 'signal': {'shape'}, 'pn': {'bias'}, 'transistor': {'type'}, 'divider': {'r1', 'r2', 'v'},
     'wirefield': {'dir'}, 'fleming': {'n', 'current'}, 'xfmr': {'np', 'ns'}, 'induct': {'move'},
+    'lift': {'mass', 'h'}, 'push': {'f', 'd'}, 'bars': {'groups'}, 'swing': {'a', 'b'},
+    'wave': {'cycles'}, 'traces': {'items'}, 'slinky': set(), 'sonar': {'depth'}, 'mirror': {'i', 'r'}, 'refract': {'from', 'i', 'r'}, 'tir': {'state'}, 'lens': {'u'}, 'scales': set(),
+    'lever': {'loads'}, 'vectors': {'a', 'b'}, 'updown': {'mass', 'up', 'down'}, 'cords': {'w', 'a', 'b'},
 }
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
@@ -140,6 +143,22 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('a fleming figure needs n left or right, current out or in, and force up or down if given')
             elif fig['kind'] == 'induct' and fig['move'] not in ('toward', 'away', 'still'):
                 say('an induct figure needs move toward, away or still')
+            elif fig['kind'] == 'bars' and not (fig['groups'] and all(isinstance(g, dict) and g.get('at') and all(isinstance(g.get(k), (int, float)) and 0 <= g[k] <= 100 for k in ('ek', 'ep')) for g in fig['groups'])):
+                say('a bars figure needs groups, each with at and ek, ep from 0 to 100')
+            elif fig['kind'] == 'wave' and fig['cycles'] not in (1, 2, 3, 4):
+                say('a wave figure needs cycles 1 to 4')
+            elif fig['kind'] == 'traces' and not (1 <= len(fig['items']) <= 3 and all(isinstance(t, dict) and t.get('l') and t.get('cycles') and 0 < t.get('size', 0) <= 1 for t in fig['items'])):
+                say('a traces figure needs 1 to 3 items, each with l, cycles and a size up to 1')
+            elif fig['kind'] == 'refract' and fig['from'] not in ('rare', 'dense'):
+                say('a refract figure needs from rare or dense')
+            elif fig['kind'] == 'tir' and fig['state'] not in ('less', 'critical', 'greater'):
+                say('a tir figure needs state less, critical or greater')
+            elif fig['kind'] == 'lens' and not (0.3 <= fig['u'] <= 4 and not 0.9 <= fig['u'] <= 1.1 and (fig.get('type') or 'convex') in ('convex', 'concave')):
+                say('a lens figure needs u from 0.3 to 4 focal lengths (not near 1) and type convex or concave')
+            elif fig['kind'] == 'lever' and not (fig['loads'] and all(isinstance(l, dict) and isinstance(l.get('x'), (int, float)) and l.get('f') for l in fig['loads'])):
+                say('a lever figure needs loads, each with a number x and a force f')
+            elif fig['kind'] == 'graph' and fig.get('axis') not in ('v', 's', 'ff', 'T'):
+                say('a graph figure needs axis v, s, ff or T')
     return len(data.get('questions', []))
 
 

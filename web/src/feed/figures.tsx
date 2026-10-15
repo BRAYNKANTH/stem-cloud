@@ -15,11 +15,24 @@ export type Figure =
   | { kind: 'utube'; balloon?: boolean }
   | { kind: 'balance'; air: string; water: string }
   | { kind: 'float'; weight: string; sub: number }
-  | { kind: 'graph'; axis: 'v' | 's' | 'ff'; points: [number, number][] }
+  | { kind: 'graph'; axis: 'v' | 's' | 'ff' | 'T'; points: [number, number][] }
   | { kind: 'route'; legs: ['N' | 'S' | 'E' | 'W', number][] }
   | { kind: 'forces'; mass: string; left: string; right: string }
   | { kind: 'circuit'; layout: 'series' | 'parallel'; r: string[]; v: string }
   | { kind: 'resistor'; bands: string[] }
+  | { kind: 'lift'; mass: string; h: string; f?: string }
+  | { kind: 'push'; f: string; d: string; mass?: string }
+  | { kind: 'bars'; groups: { at: string; ek: number; ep: number }[] }
+  | { kind: 'swing'; a: string; b: string }
+  | { kind: 'wave'; cycles: number; size?: number; amp?: string; wl?: string; pts?: boolean }
+  | { kind: 'traces'; items: { l: string; cycles: number; size: number }[] }
+  | { kind: 'slinky'; marks?: { c?: string; r?: string } }
+  | { kind: 'sonar'; depth: string; t?: string }
+  | { kind: 'mirror'; i: string; r: string; angle?: number }
+  | { kind: 'refract'; from: 'rare' | 'dense'; i: string; r: string; a1?: number; a2?: number }
+  | { kind: 'tir'; state: 'less' | 'critical' | 'greater'; i?: string }
+  | { kind: 'lens'; u: number; type?: 'convex' | 'concave' }
+  | { kind: 'scales'; c?: number; mark?: string }
   | { kind: 'lever'; loads: { x: number; f: string; d?: string; dir?: 'up' | 'down' }[]; pivot?: boolean }
   | { kind: 'vectors'; a: string; b: string; r?: string; angle?: number }
   | { kind: 'updown'; mass: string; up: string; down: string; hang?: boolean }
@@ -219,9 +232,9 @@ function draw(f: Figure): JSX.Element {
           <polyline points={f.points.map(([t, v]) => `${X(t)},${Y(v)}`).join(' ')} fill="none" stroke={EDGE} stroke-width="4" stroke-linejoin="round" />
           {ts.map((t) => T(X(t), y0 + 13, String(t), { size: 11, color: INK2 }))}
           {vs.map((v) => T(x0 - 6, Y(v), String(v), { size: 11, color: INK2, anchor: 'end' }))}
-          {T(x0 - 6, y0 + 13, '0', { size: 11, color: INK2, anchor: 'end' })}
-          {T(x1, y0 + 26, f.axis === 'ff' ? 'F (N)' : 't (s)', { size: 11, anchor: 'end' })}
-          {T(x0 + 4, y1 - 14, f.axis === 'v' ? 'v (m s⁻¹)' : f.axis === 's' ? 's (m)' : 'f (N)', { size: 11, anchor: 'start' })}
+          {!ts.includes(0) && T(x0 - 6, y0 + 13, '0', { size: 11, color: INK2, anchor: 'end' })}
+          {T(x1, y0 + 26, f.axis === 'ff' ? 'F (N)' : f.axis === 'T' ? 't (min)' : 't (s)', { size: 11, anchor: 'end' })}
+          {T(x0 + 4, y1 - 14, f.axis === 'v' ? 'v (m s⁻¹)' : f.axis === 's' ? 's (m)' : f.axis === 'T' ? 'θ (°C)' : 'f (N)', { size: 11, anchor: 'start' })}
         </g>
       );
     }
@@ -276,6 +289,226 @@ function draw(f: Figure): JSX.Element {
             </g>
           )}
           <g stroke="none">{cell(50, 105, f.v)}</g>
+        </g>
+      );
+    }
+    case 'lift': {
+      // an object raised through a height h (it started on the ground, drawn dashed); f, if given, is the lifting force
+      const bw = Math.max(64, f.mass.length * 9 + 18), bx = 190 - bw / 2;
+      return (
+        <g>
+          <line x1="20" y1="176" x2="300" y2="176" stroke={INK} stroke-width="3" />
+          <rect x={bx} y="130" width={bw} height="46" rx="4" fill="none" stroke={INK2} stroke-width="2" stroke-dasharray="5 4" />
+          <rect x={bx} y="60" width={bw} height="46" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(190, 83, f.mass, { size: 15 })}
+          <g stroke={INK2} stroke-width="1.5"><line x1="80" y1="106" x2="80" y2="176" /><line x1="72" y1="106" x2="88" y2="106" /><line x1="72" y1="176" x2="88" y2="176" /></g>
+          {T(70, 141, f.h, { size: 13, color: INK2, anchor: 'end' })}
+          {f.f && <g>{arrow(190, 56, 190, 14)}{T(206, 30, f.f, { color: CLAY, anchor: 'start' })}</g>}
+        </g>
+      );
+    }
+    case 'push': {
+      // a block pushed along a floor by a force f through a distance d (a dimension line under the floor)
+      const bw = Math.max(70, (f.mass ?? '').length * 9 + 18);
+      return (
+        <g>
+          <line x1="20" y1="130" x2="300" y2="130" stroke={INK} stroke-width="3" />
+          <rect x="50" y="80" width={bw} height="50" rx="4" fill="none" stroke={INK2} stroke-width="2" stroke-dasharray="5 4" />
+          <rect x="150" y="80" width={bw} height="50" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{f.mass && T(150 + bw / 2, 105, f.mass, { size: 15 })}
+          {arrow(150 + bw / 2 - 30, 66, 150 + bw / 2 + 30, 66)}
+          <g stroke={INK2} stroke-width="1.5"><line x1={50 + bw / 2} y1="160" x2={150 + bw / 2} y2="160" /><line x1={50 + bw / 2} y1="154" x2={50 + bw / 2} y2="166" /><line x1={150 + bw / 2} y1="154" x2={150 + bw / 2} y2="166" /></g>
+          {T(100 + bw / 2, 180, f.d, { size: 13, color: INK2 })}
+          {T(150 + bw / 2, 48, f.f, { color: CLAY })}
+        </g>
+      );
+    }
+    case 'bars': {
+      // kinetic (Ek) and potential (Ep) energy as two bars at each position; ek and ep run 0 to 100
+      const n = f.groups.length, w = 300 / n, base = 150;
+      return (
+        <g>
+          <line x1="10" y1={base} x2="310" y2={base} stroke={INK} stroke-width="3" />
+          {f.groups.map((g, i) => {
+            const cx = 10 + w * i + w / 2;
+            return (
+              <g>
+                <rect x={cx - 28} y={base - g.ek * 1.2} width="24" height={Math.max(g.ek * 1.2, 1)} fill={EDGE} stroke={INK} stroke-width="1.5" />
+                <rect x={cx + 4} y={base - g.ep * 1.2} width="24" height={Math.max(g.ep * 1.2, 1)} fill="var(--sc-leaf)" stroke={INK} stroke-width="1.5" />
+                {T(cx - 16, base + 13, 'Ek', { size: 11, color: INK2 })}{T(cx + 16, base + 13, 'Ep', { size: 11, color: INK2 })}
+                {T(cx, base + 33, g.at, { size: 15 })}
+              </g>
+            );
+          })}
+        </g>
+      );
+    }
+    case 'swing': {
+      // a swing (or pendulum): A is the lowest point, B the highest, on the right; the left side is the same height, dashed
+      const px = 160, py = 22, L = 128, th = (40 * Math.PI) / 180;
+      const bx = px + L * Math.sin(th), by = py + L * Math.cos(th);
+      return (
+        <g>
+          <line x1="90" y1={py} x2="230" y2={py} stroke={INK} stroke-width="4" />
+          <path d={`M${px - L * Math.sin(th)} ${by} A ${L} ${L} 0 0 0 ${bx} ${by}`} fill="none" stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1={px} y1={py} x2={px} y2={py + L} stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1={px} y1={py} x2={bx} y2={by} stroke={INK} stroke-width="3" />
+          <circle cx={px} cy={py + L} r="11" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(px, py + L + 26, f.a, { size: 15 })}
+          <circle cx={bx} cy={by} r="11" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(bx + 18, by, f.b, { size: 15, anchor: 'start' })}
+        </g>
+      );
+    }
+    case 'wave': {
+      // a transverse wave: n whole waves from the rest line; size (0.3 to 1) is the height; amp and wl are written on the first amplitude and wavelength; pts labels crests A, B and troughs C, D
+      const x0 = 40, x1 = 300, cy = 104, A = (f.size ?? 1) * 58, n = f.cycles, W = (x1 - x0) / n;
+      const pts: string[] = [];
+      for (let x = 0; x <= x1 - x0; x += 3) pts.push(`${x0 + x},${cy - A * Math.sin((2 * Math.PI * x) / W)}`);
+      const cr = (k: number) => x0 + W / 4 + k * W, tr = (k: number) => x0 + (3 * W) / 4 + k * W;
+      return (
+        <g>
+          <line x1={x0 - 10} y1={cy} x2={x1 + 8} y2={cy} stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4" />
+          <polyline points={pts.join(' ')} fill="none" stroke={EDGE} stroke-width="4" stroke-linejoin="round" />
+          {f.amp && <g stroke={INK2} stroke-width="1.5"><line x1={x0 - 4} y1={cy} x2={x0 - 4} y2={cy - A} /><line x1={x0 - 9} y1={cy - A} x2={cr(0)} y2={cy - A} stroke-dasharray="3 3" /></g>}
+          {f.amp && T(x0 - 12, cy - A / 2, f.amp, { size: 12, color: INK2, anchor: 'end' })}
+          {f.wl && n >= 2 && <g stroke={INK2} stroke-width="1.5"><line x1={cr(0)} y1={cy - A - 20} x2={cr(1)} y2={cy - A - 20} /><line x1={cr(0)} y1={cy - A - 26} x2={cr(0)} y2={cy - A - 14} /><line x1={cr(1)} y1={cy - A - 26} x2={cr(1)} y2={cy - A - 14} /></g>}
+          {f.wl && n >= 2 && T((cr(0) + cr(1)) / 2, cy - A - 33, f.wl, { size: 12, color: INK2 })}
+          {f.pts && [0, 1].filter((k) => k < n).map((k) => T(cr(k), cy - A - 12, 'AB'.charAt(k), { size: 15 }))}
+          {f.pts && [0, 1].filter((k) => k < n).map((k) => T(tr(k), cy + A + 14, 'CD'.charAt(k), { size: 15 }))}
+        </g>
+      );
+    }
+    case 'traces': {
+      // up to three wave traces one above another (an oscilloscope), each with a letter on the left
+      const n = f.items.length, H = 190 / n;
+      return (
+        <g>
+          {f.items.map((it, j) => {
+            const cy = 5 + H * j + H / 2, A = it.size * (H / 2 - 6), x0 = 50, x1 = 305, p: string[] = [];
+            for (let x = 0; x <= x1 - x0; x += 3) p.push(`${x0 + x},${cy - A * Math.sin((2 * Math.PI * it.cycles * x) / (x1 - x0))}`);
+            return (
+              <g>
+                <line x1={x0} y1={cy} x2={x1} y2={cy} stroke={INK2} stroke-width="1" stroke-dasharray="4 4" />
+                <polyline points={p.join(' ')} fill="none" stroke={EDGE} stroke-width="3.5" stroke-linejoin="round" />
+                {T(28, cy, it.l, { size: 16 })}
+              </g>
+            );
+          })}
+        </g>
+      );
+    }
+    case 'slinky': {
+      // a longitudinal wave in a slinky: coils bunch together (compressions) and spread apart (rarefactions); the wave moves to the right
+      const lines: JSX.Element[] = [];
+      const xs = (i: number) => 20 + i * 7.5 + 4.5 * Math.sin((2 * Math.PI * i) / 12);
+      for (let i = 0; i < 38; i++) lines.push(<line x1={xs(i)} y1="62" x2={xs(i)} y2="132" stroke={INK} stroke-width="2.5" stroke-linecap="round" />);
+      const mk = f.marks ?? {};
+      return (
+        <g>
+          {lines}
+          {mk.c && [6, 18, 30].map((i) => T(xs(i), 46, mk.c as string, { size: 15 }))}
+          {mk.r && [12, 24].map((i) => T(xs(i), 46, mk.r as string, { size: 15 }))}
+          {arrow(110, 168, 210, 168, EDGE)}{T(224, 168, 'v', { size: 14, anchor: 'start' })}
+        </g>
+      );
+    }
+    case 'sonar': {
+      // a ship sends a pulse down to the sea bottom and it comes back; d is the depth
+      return (
+        <g>
+          <line x1="10" y1="52" x2="310" y2="52" stroke={EDGE} stroke-width="3" stroke-dasharray="8 5" />
+          <path d="M60 36 L60 46 L130 46 L140 36 Z" fill={SOLID} stroke={INK} stroke-width="2.5" stroke-linejoin="round" />
+          <line x1="10" y1="178" x2="310" y2="178" stroke={INK} stroke-width="4" />
+          {arrow(88, 54, 88, 172)}{arrow(116, 172, 116, 58, EDGE)}
+          {f.t && T(150, 86, f.t, { size: 13, anchor: 'start', color: CLAY })}
+          <g stroke={INK2} stroke-width="1.5"><line x1="250" y1="52" x2="250" y2="178" /><line x1="244" y1="52" x2="256" y2="52" /><line x1="244" y1="178" x2="256" y2="178" /></g>
+          {T(240, 115, f.depth, { size: 14, anchor: 'end', color: INK2 })}
+        </g>
+      );
+    }
+    case 'mirror': {
+      // reflection in a plane mirror: incident ray, reflected ray and the normal (dashed), with the angle labels i and r
+      const a = ((f.angle ?? 40) * Math.PI) / 180, ox = 160, oy = 140, L = 105;
+      const sx = ox - L * Math.sin(a), sy = oy - L * Math.cos(a), ex = ox + L * Math.sin(a);
+      const arc = (rad: number, from: number, to: number) => `M${ox + rad * Math.sin(from)} ${oy - rad * Math.cos(from)} A ${rad} ${rad} 0 0 ${to > from ? 1 : 0} ${ox + rad * Math.sin(to)} ${oy - rad * Math.cos(to)}`;
+      return (
+        <g>
+          <line x1="40" y1={oy} x2="280" y2={oy} stroke={INK} stroke-width="4" />
+          {Array.from({ length: 13 }, (_, i) => <line x1={50 + i * 19} y1={oy} x2={42 + i * 19} y2={oy + 10} stroke={INK2} stroke-width="1.5" />)}
+          <line x1={ox} y1="26" x2={ox} y2={oy} stroke={INK2} stroke-width="1.5" stroke-dasharray="5 4" />
+          {arrow(sx, sy, ox - 2 * Math.sin(a), oy - 2 * Math.cos(a))}{arrow(ox, oy, ex, sy, CLAY)}
+          <path d={arc(44, -a, 0)} fill="none" stroke={INK2} stroke-width="1.5" /><path d={arc(44, 0, a)} fill="none" stroke={INK2} stroke-width="1.5" />
+          {T(ox - 38 * Math.sin(a / 2) - 12, oy - 62, f.i, { size: 14 })}{T(ox + 38 * Math.sin(a / 2) + 12, oy - 62, f.r, { size: 14 })}
+        </g>
+      );
+    }
+    case 'refract': {
+      // a ray crossing from a rare medium (above) into a dense one (below), or the reverse; a1 is the angle in the rare medium, a2 in the dense one
+      const a1 = ((f.a1 ?? 45) * Math.PI) / 180, a2 = ((f.a2 ?? 28) * Math.PI) / 180, ox = 160, oy = 100, L = 85;
+      const rare = f.from === 'rare';
+      const top = { x: ox - L * Math.sin(a1), y: oy - L * Math.cos(a1) }, topOut = { x: ox + L * Math.sin(a1), y: oy - L * Math.cos(a1) };
+      const botIn = { x: ox - L * Math.sin(a2), y: oy + L * Math.cos(a2) }, botOut = { x: ox + L * Math.sin(a2), y: oy + L * Math.cos(a2) };
+      return (
+        <g>
+          <rect x="30" y={oy} width="260" height="92" fill={WATER} />
+          <line x1="30" y1={oy} x2="290" y2={oy} stroke={INK} stroke-width="3" />
+          <line x1={ox} y1="8" x2={ox} y2="192" stroke={INK2} stroke-width="1.5" stroke-dasharray="5 4" />
+          {rare ? <g>{arrow(top.x, top.y, ox - 2, oy - 2)}{arrow(ox, oy, botOut.x, botOut.y, CLAY)}</g> : <g>{arrow(botIn.x, botIn.y, ox - 2, oy + 2)}{arrow(ox, oy, topOut.x, topOut.y, CLAY)}</g>}
+          {rare ? T(ox - 38, oy - 40, f.i, { size: 14 }) : T(ox - 34, oy + 52, f.i, { size: 14 })}
+          {rare ? T(ox + 30, oy + 60, f.r, { size: 14 }) : T(ox + 40, oy - 40, f.r, { size: 14 })}
+        </g>
+      );
+    }
+    case 'tir': {
+      // a ray in water (below) meeting the surface at a small angle, the critical angle, or a bigger angle; i is written on the incident ray
+      const ox = 160, oy = 100, L = 85, deg = (d: number) => (d * Math.PI) / 180;
+      const ang = f.state === 'less' ? 30 : f.state === 'critical' ? 49 : 65;
+      const a = deg(ang), sx = ox - L * Math.sin(a), sy = oy + L * Math.cos(a);
+      return (
+        <g>
+          <rect x="30" y={oy} width="260" height="92" fill={WATER} />
+          <line x1="30" y1={oy} x2="290" y2={oy} stroke={INK} stroke-width="3" />
+          <line x1={ox} y1="8" x2={ox} y2="192" stroke={INK2} stroke-width="1.5" stroke-dasharray="5 4" />
+          {arrow(sx, sy, ox - 2 * Math.sin(a), oy + 2 * Math.cos(a))}
+          {f.state === 'less' && arrow(ox, oy, ox + 78 * Math.sin(deg(48)), oy - 78 * Math.cos(deg(48)), CLAY)}
+          {f.state === 'critical' && arrow(ox, oy, ox + 90, oy - 1, CLAY)}
+          {f.state === 'greater' && arrow(ox, oy, ox + L * Math.sin(a), oy + L * Math.cos(a), CLAY)}
+          {T(ox - 28, oy + 40, f.i ?? 'i', { size: 14 })}
+        </g>
+      );
+    }
+    case 'lens': {
+      // a ray diagram for a lens: object O (u focal lengths from the lens), the image I from the lens formula, the parallel ray and the ray through the centre
+      const cx = 160, ay = 100, k = 40, h = 34, convex = f.type !== 'concave', u = f.u;
+      const v = convex ? u / (u - 1) : -u / (u + 1), m = -v / u, ox = cx - u * k, ix = cx + v * k;
+      const tipY = ay - h, imY = ay - m * h, virtual = v < 0;
+      const xe = 300, yAt = (x0: number, y0: number, x1: number, y1: number, x: number) => y0 + ((x - x0) * (y1 - y0)) / (x1 - x0);
+      return (
+        <g>
+          <line x1="10" y1={ay} x2="310" y2={ay} stroke={INK2} stroke-width="1.5" />
+          {convex ? <path d={`M${cx} ${ay - 52} Q${cx + 16} ${ay} ${cx} ${ay + 52} Q${cx - 16} ${ay} ${cx} ${ay - 52} Z`} fill={WATER} stroke={INK} stroke-width="2.5" />
+                  : <path d={`M${cx - 10} ${ay - 52} L${cx + 10} ${ay - 52} Q${cx + 2} ${ay} ${cx + 10} ${ay + 52} L${cx - 10} ${ay + 52} Q${cx - 2} ${ay} ${cx - 10} ${ay - 52} Z`} fill={WATER} stroke={INK} stroke-width="2.5" />}
+          {[-2, -1, 1, 2].map((j) => <g><line x1={cx + j * k} y1={ay - 4} x2={cx + j * k} y2={ay + 4} stroke={INK} stroke-width="2" />{T(cx + j * k, ay + 16, Math.abs(j) === 1 ? 'F' : '2F', { size: 11, color: INK2 })}</g>)}
+          <g stroke={CLAY} stroke-width="2" fill="none">
+            <line x1={ox} y1={tipY} x2={cx} y2={tipY} />
+            {convex ? <line x1={cx} y1={tipY} x2={xe} y2={yAt(cx, tipY, cx + k, ay, xe)} /> : <line x1={cx} y1={tipY} x2={xe} y2={yAt(cx - k, ay, cx, tipY, xe)} />}
+            <line x1={ox} y1={tipY} x2={xe} y2={yAt(ox, tipY, cx, ay, xe)} />
+          </g>
+          {virtual && <g stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4"><line x1={cx} y1={tipY} x2={ix} y2={imY} />{convex ? <line x1={cx} y1={ay} x2={ix} y2={imY} /> : <line x1={cx} y1={ay} x2={ix} y2={imY} />}</g>}
+          {arrow(ox, ay, ox, tipY, INK)}{T(ox, tipY - 10, 'O', { size: 13 })}
+          <g stroke-dasharray={virtual ? '4 3' : undefined}>{arrow(ix, ay, ix, imY, EDGE)}</g>{T(ix, imY + (m >= 0 ? -10 : 12), 'I', { size: 13, color: EDGE })}
+        </g>
+      );
+    }
+    case 'scales': {
+      // a thermometer from 0 to 100 °C with the kelvin values beside it; c, if given, is where the mercury stands and mark is the letter on that level
+      const yy = (c: number) => 150 - c * 1.2;
+      return (
+        <g>
+          <rect x="152" y="24" width="16" height="132" rx="8" fill="var(--sc-panel)" stroke={INK} stroke-width="2.5" />
+          <circle cx="160" cy="166" r="14" fill={CLAY} stroke={INK} stroke-width="2.5" />
+          {f.c !== undefined && <rect x="156" y={yy(f.c)} width="8" height={160 - yy(f.c)} fill={CLAY} />}
+          {[0, 25, 50, 75, 100].map((c) => <g><line x1="140" y1={yy(c)} x2="152" y2={yy(c)} stroke={INK} stroke-width="2" /><line x1="168" y1={yy(c)} x2="180" y2={yy(c)} stroke={INK} stroke-width="2" />
+            {T(134, yy(c), String(c), { size: 12, anchor: 'end' })}{T(186, yy(c), String(c + 273), { size: 12, anchor: 'start' })}</g>)}
+          {T(134, 10, '°C', { size: 13, anchor: 'end', color: INK2 })}{T(186, 10, 'K', { size: 13, anchor: 'start', color: INK2 })}
+          {f.c !== undefined && f.mark && <g><line x1="168" y1={yy(f.c)} x2="236" y2={yy(f.c)} stroke={CLAY} stroke-width="2" stroke-dasharray="4 3" />{T(246, yy(f.c), f.mark, { size: 15, anchor: 'start', color: CLAY })}</g>}
         </g>
       );
     }

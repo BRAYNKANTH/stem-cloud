@@ -27,6 +27,7 @@ FIGURES = {
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
     'lift': {'mass', 'h'}, 'push': {'f', 'd'}, 'bars': {'groups'}, 'swing': {'a', 'b'},
     'wave': {'cycles'}, 'traces': {'items'}, 'slinky': set(), 'sonar': {'depth'}, 'mirror': {'i', 'r'}, 'refract': {'from', 'i', 'r'}, 'tir': {'state'}, 'lens': {'u'}, 'scales': set(),
+    'lever': {'loads'}, 'vectors': {'a', 'b'}, 'updown': {'mass', 'up', 'down'}, 'cords': {'w', 'a', 'b'},
 }
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
@@ -134,6 +135,10 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('a tir figure needs state less, critical or greater')
             elif fig['kind'] == 'lens' and not (0.3 <= fig['u'] <= 4 and not 0.9 <= fig['u'] <= 1.1 and (fig.get('type') or 'convex') in ('convex', 'concave')):
                 say('a lens figure needs u from 0.3 to 4 focal lengths (not near 1) and type convex or concave')
+            elif fig['kind'] == 'lever' and not (fig['loads'] and all(isinstance(l, dict) and isinstance(l.get('x'), (int, float)) and l.get('f') for l in fig['loads'])):
+                say('a lever figure needs loads, each with a number x and a force f')
+            elif fig['kind'] == 'graph' and fig.get('axis') not in ('v', 's', 'ff', 'T'):
+                say('a graph figure needs axis v, s, ff or T')
     return len(data.get('questions', []))
 
 

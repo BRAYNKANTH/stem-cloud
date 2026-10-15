@@ -190,3 +190,11 @@
 @media (prefers-reduced-motion: reduce) {
   .pp-app .pp-bar i, .pp-app .pp-chapter, .pp-app .pp-opt { transition: none; }
 }
+
+/* the way to the formula cards (pages/shell/formulas) */
+.pp-app .pp-formulas { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; padding: 14px 16px; min-height: var(--tap); border-radius: 18px; background: var(--sc-panel);
+                       box-shadow: 0 3px 0 var(--sc-line); color: var(--sc-ink); text-decoration: none; }
+.pp-app .pp-formulas > span:first-child { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 14px;
+                       background: var(--sc-blue-lt); color: var(--sc-blue); font: 800 1.4rem/1 var(--font-head); }
+.pp-app .pp-formulas b { display: block; }
+.pp-app .pp-formulas small { display: block; color: var(--sc-ink-2); font-size: .85rem; }

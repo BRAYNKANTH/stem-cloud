@@ -389,6 +389,11 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
             <span class="pp-continue-go" aria-hidden="true">→</span>
           </a>
         )}
+        <a class="pp-formulas" href="/formulas/">
+          <span aria-hidden="true">Σ</span>
+          <span><b>{t('Formula cards', 'சூத்திர அட்டைகள்', 'සූත්‍ර කාඩ්පත්')}</b>
+            <small>{t('Every formula with its units and an example, before you start.', 'தொடங்கும் முன் ஒவ்வொரு சூத்திரமும் அலகுகளுடனும் உதாரணத்துடனும்.', 'ආරම්භ කිරීමට පෙර සෑම සූත්‍රයක්ම ඒකක හා උදාහරණයක් සමඟ.')}</small></span>
+        </a>
         {grades.map((g) => (
           <section class="pp-grade" aria-labelledby={'pp-grade-' + g}>
             <h2 id={'pp-grade-' + g}>{t('Grade ' + g, 'தரம் ' + g, g + ' ශ්‍රේණිය')}</h2>

@@ -4,7 +4,7 @@ import json, re, time
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse, RedirectResponse
 
-from ..config import PAST_PAPERS, WEB_PAPERS
+from ..config import PAST_PAPERS, WEB_FORMULAS, WEB_PAPERS
 from ..db import db
 from ..security import body_json, current_user, need_csrf, need_user
 
@@ -21,6 +21,18 @@ def past_papers_page(req: Request):
     if WEB_PAPERS.is_file():
         return FileResponse(WEB_PAPERS, media_type='text/html')
     return RedirectResponse('/lessons/past-papers.html', status_code=302)
+
+
+@router.get('/formulas')
+@router.get('/formulas/')
+def formula_cards_page(req: Request):
+    """The formula cards (web/src/pages/shell/formulas): signed-in students only, like the lessons they come from. Kept
+    out of the published files by the build (web/scripts/private.mjs) and served from here."""
+    if not current_user(req):
+        return RedirectResponse('/login?next=/formulas/', status_code=302)
+    if WEB_FORMULAS.is_file():
+        return FileResponse(WEB_FORMULAS, media_type='text/html')
+    raise HTTPException(404, 'Not found.')
 
 
 def past_questions():

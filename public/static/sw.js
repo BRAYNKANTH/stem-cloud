@@ -1,11 +1,11 @@
 /* STEM Cloud service worker.
  * - static files + fonts: instant from cache, refreshed in the background
- * - lesson pages (the current /lessons/, /topics/ and the new /learn/, /past-papers/): network first (always fresh
+ * - lesson pages (the current /lessons/, /topics/ and the new /learn/, /past-papers/, /formulas/): network first (always fresh
  *   progress), last visited copy when offline
  * - the new pages' scripts and styles (/_astro/, file names change with their content): from cache, refreshed in the background
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v26';
+var VERSION = 'v27';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -97,7 +97,7 @@ self.addEventListener('fetch', function (e) {
 
   if (req.mode === 'navigate') {
     e.respondWith(fetch(req).then(function (res) {
-      if (res.ok && !res.redirected && /^\/(lessons|topics|learn|past-papers)\//.test(url.pathname)) {
+      if (res.ok && !res.redirected && /^\/(lessons|topics|learn|past-papers|formulas)\//.test(url.pathname)) {
         var copy = res.clone();
         caches.open(PAGES).then(function (c) { c.put(req, copy); });
         /* a new page's islands load their code when they are first on screen: keep it all now, so every step

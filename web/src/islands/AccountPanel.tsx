@@ -124,6 +124,7 @@ export default function AccountPanel({ chapters = 15 }: { chapters?: number }) {
         </div>
         <div class="row next-row">
           <a class="btn primary" href="/lessons/index.html">{T('Continue learning')}</a>
+          <a class="btn" href="/formulas/">{T('Formula cards')}</a>
           {pp && pp.revisit > 0 && <a class="btn" href="/past-papers/">{T('Questions to revisit')}: {pp.revisit}</a>}
         </div>
       </section>

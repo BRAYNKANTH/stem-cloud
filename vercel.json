@@ -21,6 +21,11 @@
       "permanent": false
     },
     {
+      "source": "/shell/formulas(.*)",
+      "destination": "/formulas/",
+      "permanent": false
+    },
+    {
       "source": "/shell/past-papers(.*)",
       "destination": "/past-papers/",
       "permanent": false

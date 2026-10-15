@@ -244,3 +244,8 @@ html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
 .lc .so-bubble { font-weight: 600; }
 .lc :is(.lg-try, .qz-opt, .ls-m, .lg .goal) { font-weight: 600; }
 .lc :is(.bs-home p, .so-quest p) { font-weight: 400; }
+
+/* the formula cards: a button in the step bar, and a way there from the finish */
+.lb-formulas { text-decoration: none; }
+.finish .finish-go { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 8px; }
+.finish .finish-go .btn { margin-top: 0; }

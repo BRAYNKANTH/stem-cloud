@@ -1,0 +1,435 @@
+{
+  "about": "Formula cards for O/L Physics (web/src/pages/shell/formulas). One card per formula, in the order the chapter teaches it. 'box' is the English label of the lesson's own formula box it comes from (tests/test_formula_cards.py checks it is still there). Tamil and Sinhala names use the textbook terms of the lessons' glossaries. g = 10 m s⁻² in every worked example, as in the exam.",
+  "cards": [
+    {
+      "id": "speed", "lesson": "physics.g10.motion-in-a-straight-line", "box": "Speed (scalar)",
+      "name": {"en": "Speed", "ta": "கதி", "si": "වේගය"},
+      "math": "v = d ÷ t",
+      "symbols": [
+        {"s": "v", "en": "speed", "ta": "கதி", "si": "වේගය", "unit": "m s⁻¹"},
+        {"s": "d", "en": "distance", "ta": "தூரம்", "si": "දුර", "unit": "m"},
+        {"s": "t", "en": "time", "ta": "நேரம்", "si": "කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "100 m in 20 s: v = 100 ÷ 20 = 5 m s⁻¹", "ta": "20 s இல் 100 m: v = 100 ÷ 20 = 5 m s⁻¹", "si": "20 s තුළ 100 m: v = 100 ÷ 20 = 5 m s⁻¹"},
+      "tip": {"en": "Speed is a scalar: it has size only, no direction.", "ta": "கதி ஒரு எண்ணிக் கணியம்: பருமன் மட்டும், திசை இல்லை.", "si": "වේගය අදිශ රාශියකි: විශාලත්වය පමණයි, දිශාවක් නැත."}
+    },
+    {
+      "id": "velocity", "lesson": "physics.g10.motion-in-a-straight-line", "box": "Velocity (vector)",
+      "name": {"en": "Velocity", "ta": "வேகம்", "si": "ප්‍රවේගය"},
+      "math": "v = s ÷ t",
+      "symbols": [
+        {"s": "v", "en": "velocity", "ta": "வேகம்", "si": "ප්‍රවේගය", "unit": "m s⁻¹"},
+        {"s": "s", "en": "displacement", "ta": "இடப்பெயர்ச்சி", "si": "විස්ථාපනය", "unit": "m"},
+        {"s": "t", "en": "time", "ta": "நேரம்", "si": "කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "30 m east in 6 s: v = 30 ÷ 6 = 5 m s⁻¹ east", "ta": "6 s இல் கிழக்கே 30 m: v = 30 ÷ 6 = 5 m s⁻¹ கிழக்கே", "si": "6 s තුළ නැගෙනහිරට 30 m: v = 30 ÷ 6 = 5 m s⁻¹ නැගෙනහිරට"},
+      "tip": {"en": "Velocity is a vector: always say its direction.", "ta": "வேகம் ஒரு காவிக் கணியம்: அதன் திசையையும் சொல்லு.", "si": "ප්‍රවේගය දෛශික රාශියකි: එහි දිශාවත් සඳහන් කරන්න."}
+    },
+    {
+      "id": "average-speed", "lesson": "physics.g10.motion-in-a-straight-line", "box": "Mean / average speed",
+      "name": {"en": "Average speed", "ta": "சராசரிக் கதி", "si": "සාමාන්‍ය වේගය"},
+      "math": {"en": "average speed = total distance ÷ total time", "ta": "சராசரிக் கதி = மொத்தத் தூரம் ÷ மொத்த நேரம்", "si": "සාමාන්‍ය වේගය = මුළු දුර ÷ මුළු කාලය"},
+      "symbols": [],
+      "worked": {"en": "120 m, then a rest, in 40 s altogether: 120 ÷ 40 = 3 m s⁻¹", "ta": "ஓய்வு உட்பட மொத்தம் 40 s இல் 120 m: 120 ÷ 40 = 3 m s⁻¹", "si": "විවේකයත් සමඟ මුළු 40 s තුළ 120 m: 120 ÷ 40 = 3 m s⁻¹"},
+      "tip": {"en": "Use the whole journey, stops included.", "ta": "நிறுத்தங்கள் உட்பட முழுப் பயணத்தையும் எடு.", "si": "නැවතුම් ද ඇතුළුව මුළු ගමනම ගන්න."}
+    },
+    {
+      "id": "acceleration", "lesson": "physics.g10.motion-in-a-straight-line", "box": "Acceleration",
+      "name": {"en": "Acceleration", "ta": "ஆர்முடுகல்", "si": "ත්වරණය"},
+      "math": "a = (v − u) ÷ t",
+      "symbols": [
+        {"s": "a", "en": "acceleration", "ta": "ஆர்முடுகல்", "si": "ත්වරණය", "unit": "m s⁻²"},
+        {"s": "v", "en": "final velocity", "ta": "இறுதி வேகம்", "si": "අවසාන ප්‍රවේගය", "unit": "m s⁻¹"},
+        {"s": "u", "en": "initial velocity", "ta": "ஆரம்ப வேகம்", "si": "ආරම්භක ප්‍රවේගය", "unit": "m s⁻¹"},
+        {"s": "t", "en": "time taken", "ta": "எடுத்த நேரம்", "si": "ගත වූ කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "0 to 20 m s⁻¹ in 4 s: a = (20 − 0) ÷ 4 = 5 m s⁻²", "ta": "4 s இல் 0 இலிருந்து 20 m s⁻¹: a = (20 − 0) ÷ 4 = 5 m s⁻²", "si": "4 s තුළ 0 සිට 20 m s⁻¹: a = (20 − 0) ÷ 4 = 5 m s⁻²"},
+      "tip": {"en": "A negative answer is a deceleration: the body is slowing down.", "ta": "விடை மறையானால் அது அமர்முடுகல்: பொருள் வேகம் குறைகிறது.", "si": "ඍණ පිළිතුරක් මන්දනයකි: වස්තුව වේගය අඩු කරයි."}
+    },
+    {
+      "id": "displacement-accel", "lesson": "physics.g10.motion-in-a-straight-line", "box": "Displacement (uniform acceleration)",
+      "name": {"en": "Displacement with uniform acceleration", "ta": "சீரான ஆர்முடுகலில் இடப்பெயர்ச்சி", "si": "ඒකාකාර ත්වරණයේදී විස්ථාපනය"},
+      "math": "s = ((u + v) ÷ 2) × t",
+      "symbols": [
+        {"s": "s", "en": "displacement", "ta": "இடப்பெயர்ச்சி", "si": "විස්ථාපනය", "unit": "m"},
+        {"s": "u", "en": "initial velocity", "ta": "ஆரம்ப வேகம்", "si": "ආරම්භක ප්‍රවේගය", "unit": "m s⁻¹"},
+        {"s": "v", "en": "final velocity", "ta": "இறுதி வேகம்", "si": "අවසාන ප්‍රවේගය", "unit": "m s⁻¹"},
+        {"s": "t", "en": "time", "ta": "நேரம்", "si": "කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "From rest to 10 m s⁻¹ in 4 s: s = (0 + 10) ÷ 2 × 4 = 20 m", "ta": "ஓய்விலிருந்து 4 s இல் 10 m s⁻¹: s = (0 + 10) ÷ 2 × 4 = 20 m", "si": "නිශ්චලතාවයේ සිට 4 s තුළ 10 m s⁻¹: s = (0 + 10) ÷ 2 × 4 = 20 m"},
+      "tip": {"en": "(u + v) ÷ 2 is the mean velocity.", "ta": "(u + v) ÷ 2 என்பது சராசரி வேகம்.", "si": "(u + v) ÷ 2 යනු මධ්‍යක ප්‍රවේගයයි."}
+    },
+    {
+      "id": "st-graph", "lesson": "physics.g10.motion-in-a-straight-line", "box": "s–t graph",
+      "name": {"en": "Displacement–time graph", "ta": "இடப்பெயர்ச்சி–நேர வரைபு", "si": "විස්ථාපන–කාල ප්‍රස්තාරය"},
+      "math": {"en": "gradient of the s–t graph = velocity", "ta": "s–t வரைபின் படித்திறன் = வேகம்", "si": "s–t ප්‍රස්තාරයේ අනුක්‍රමණය = ප්‍රවේගය"},
+      "symbols": [],
+      "worked": {"en": "The line rises 40 m in 8 s: velocity = 40 ÷ 8 = 5 m s⁻¹", "ta": "கோடு 8 s இல் 40 m உயர்கிறது: வேகம் = 40 ÷ 8 = 5 m s⁻¹", "si": "රේඛාව 8 s තුළ 40 m ඉහළ යයි: ප්‍රවේගය = 40 ÷ 8 = 5 m s⁻¹"},
+      "tip": {"en": "A flat line means the body is at rest.", "ta": "கிடைக் கோடு என்றால் பொருள் ஓய்வில் உள்ளது.", "si": "තිරස් රේඛාවක් යනු වස්තුව නිශ්චල බවයි."}
+    },
+    {
+      "id": "vt-graph", "lesson": "physics.g10.motion-in-a-straight-line", "box": "v–t graph — the big one",
+      "name": {"en": "Velocity–time graph", "ta": "வேக–நேர வரைபு", "si": "ප්‍රවේග–කාල ප්‍රස්තාරය"},
+      "math": {"en": "gradient = acceleration · area under the line = displacement", "ta": "படித்திறன் = ஆர்முடுகல் · கோட்டின் கீழுள்ள பரப்பளவு = இடப்பெயர்ச்சி", "si": "අනුක්‍රමණය = ත්වරණය · රේඛාවට යටින් ඇති වර්ගඵලය = විස්ථාපනය"},
+      "symbols": [],
+      "worked": {"en": "10 m s⁻¹ for 5 s: area = 10 × 5 = 50 m", "ta": "5 s க்கு 10 m s⁻¹: பரப்பளவு = 10 × 5 = 50 m", "si": "5 s ක් 10 m s⁻¹: වර්ගඵලය = 10 × 5 = 50 m"},
+      "tip": {"en": "Under a sloping line the area is a triangle: ½ × base × height.", "ta": "சாய்ந்த கோட்டின் கீழ் பரப்பளவு முக்கோணம்: ½ × அடி × உயரம்.", "si": "ආනත රේඛාවක් යටින් වර්ගඵලය ත්‍රිකෝණයකි: ½ × පාදය × උස."}
+    },
+    {
+      "id": "newton-2", "lesson": "physics.g10.newtons-laws", "box": "Newton's Second Law (equation)",
+      "name": {"en": "Newton's second law", "ta": "நியூற்றனின் இரண்டாம் விதி", "si": "නිව්ටන්ගේ දෙවන නියමය"},
+      "math": "F = m a",
+      "symbols": [
+        {"s": "F", "en": "unbalanced force", "ta": "சமநிலைப்படாத விசை", "si": "අසමතුලිත බලය", "unit": "N"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "a", "en": "acceleration", "ta": "ஆர்முடுகல்", "si": "ත්වරණය", "unit": "m s⁻²"}
+      ],
+      "worked": {"en": "A 2 kg trolley at 3 m s⁻²: F = 2 × 3 = 6 N", "ta": "2 kg தள்ளுவண்டி 3 m s⁻² இல்: F = 2 × 3 = 6 N", "si": "2 kg ට්‍රොලියක් 3 m s⁻² න්: F = 2 × 3 = 6 N"},
+      "tip": {"en": "1 N gives 1 kg an acceleration of 1 m s⁻².", "ta": "1 N விசை 1 kg க்கு 1 m s⁻² ஆர்முடுகல் தரும்.", "si": "1 N බලයක් 1 kg කට 1 m s⁻² ත්වරණයක් දෙයි."}
+    },
+    {
+      "id": "momentum", "lesson": "physics.g10.newtons-laws", "box": "Momentum",
+      "name": {"en": "Momentum", "ta": "உந்தம்", "si": "ගම්‍යතාව"},
+      "math": "p = m v",
+      "symbols": [
+        {"s": "p", "en": "momentum", "ta": "உந்தம்", "si": "ගම්‍යතාව", "unit": "kg m s⁻¹"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "v", "en": "velocity", "ta": "வேகம்", "si": "ප්‍රවේගය", "unit": "m s⁻¹"}
+      ],
+      "worked": {"en": "A 50 kg runner at 4 m s⁻¹: p = 50 × 4 = 200 kg m s⁻¹", "ta": "4 m s⁻¹ இல் ஓடும் 50 kg ஓட்டவீரர்: p = 50 × 4 = 200 kg m s⁻¹", "si": "4 m s⁻¹ න් දුවන 50 kg ධාවකයෙක්: p = 50 × 4 = 200 kg m s⁻¹"},
+      "tip": {"en": "Momentum has the direction of the velocity.", "ta": "உந்தத்தின் திசை வேகத்தின் திசையே.", "si": "ගම්‍යතාවේ දිශාව ප්‍රවේගයේ දිශාවමයි."}
+    },
+    {
+      "id": "weight", "lesson": "physics.g10.newtons-laws", "box": "Weight",
+      "name": {"en": "Weight", "ta": "நிறை", "si": "බර"},
+      "math": "W = m g",
+      "symbols": [
+        {"s": "W", "en": "weight", "ta": "நிறை", "si": "බර", "unit": "N"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "g", "en": "acceleration due to gravity", "ta": "புவியீர்ப்பினாலான ஆர்முடுகல்", "si": "ගුරුත්වජ ත්වරණය", "unit": "10 m s⁻²"}
+      ],
+      "worked": {"en": "A 5 kg bag: W = 5 × 10 = 50 N", "ta": "5 kg பை: W = 5 × 10 = 50 N", "si": "5 kg බෑගයක්: W = 5 × 10 = 50 N"},
+      "tip": {"en": "Mass stays the same on the Moon; weight is only 1/6.", "ta": "நிலவில் திணிவு மாறாது; நிறை 1/6 மட்டுமே.", "si": "සඳේදී ස්කන්ධය වෙනස් නොවේ; බර 1/6 ක් පමණි."}
+    },
+    {
+      "id": "limiting-friction", "lesson": "physics.g10.friction", "box": "What limiting friction depends on",
+      "name": {"en": "Limiting friction", "ta": "எல்லை உராய்வு", "si": "සීමාකාරී ඝර්ෂණය"},
+      "math": {"en": "limiting friction grows with the normal reaction and the roughness; not with the contact area", "ta": "எல்லை உராய்வு செவ்வன் மறுதாக்கத்துடனும் கரடுமுரட்டுத்தன்மையுடனும் கூடும்; தொடுகைப் பரப்புடன் அல்ல", "si": "සීමාකාරී ඝර්ෂණය අභිලම්බ ප්‍රතික්‍රියාව හා රළුබව සමඟ වැඩි වේ; ස්පර්ශ වර්ගඵලය සමඟ නොවේ"},
+      "symbols": [],
+      "worked": {"en": "Add a second block on top: the normal reaction doubles, so the limiting friction doubles.", "ta": "மேலே இன்னொரு கட்டை வை: செவ்வன் மறுதாக்கம் இரட்டிக்கும், அதனால் எல்லை உராய்வும் இரட்டிக்கும்.", "si": "උඩින් තවත් කුට්ටියක් තබන්න: අභිලම්බ ප්‍රතික්‍රියාව දෙගුණ වේ, එබැවින් සීමාකාරී ඝර්ෂණයද දෙගුණ වේ."},
+      "tip": {"en": "Dynamic friction (while sliding) is a little less than limiting friction.", "ta": "நழுவும்போதுள்ள இயக்கவியல் உராய்வு எல்லை உராய்வை விடச் சற்றுக் குறைவு.", "si": "ලිස්සන විට ඇති ගතික ඝර්ෂණය සීමාකාරී ඝර්ෂණයට වඩා මඳක් අඩුය."}
+    },
+    {
+      "id": "resultant-same", "lesson": "physics.g10.resultant-force", "box": "Two forces in the SAME direction",
+      "name": {"en": "Resultant: forces in the same direction", "ta": "விளையுள்: ஒரே திசையில் விசைகள்", "si": "සම්ප්‍රයුක්තය: එකම දිශාවට බල"},
+      "math": "R = F₁ + F₂",
+      "symbols": [
+        {"s": "R", "en": "resultant force", "ta": "விளையுள் விசை", "si": "සම්ප්‍රයුක්ත බලය", "unit": "N"},
+        {"s": "F₁, F₂", "en": "the two forces", "ta": "இரு விசைகள்", "si": "බල දෙක", "unit": "N"}
+      ],
+      "worked": {"en": "8 N and 6 N pulling the same way: R = 8 + 6 = 14 N", "ta": "ஒரே திசையில் 8 N, 6 N: R = 8 + 6 = 14 N", "si": "එකම දිශාවට 8 N සහ 6 N: R = 8 + 6 = 14 N"}
+    },
+    {
+      "id": "resultant-opposite", "lesson": "physics.g10.resultant-force", "box": "Two forces in OPPOSITE directions",
+      "name": {"en": "Resultant: forces in opposite directions", "ta": "விளையுள்: எதிர்த் திசைகளில் விசைகள்", "si": "සම්ප්‍රයුක්තය: ප්‍රතිවිරුද්ධ දිශාවලට බල"},
+      "math": "R = F₁ − F₂",
+      "symbols": [
+        {"s": "F₁", "en": "the larger force", "ta": "பெரிய விசை", "si": "විශාල බලය", "unit": "N"},
+        {"s": "F₂", "en": "the smaller force", "ta": "சிறிய விசை", "si": "කුඩා බලය", "unit": "N"}
+      ],
+      "worked": {"en": "5 N one way, 2 N the other: R = 5 − 2 = 3 N, in the direction of the 5 N", "ta": "ஒரு திசையில் 5 N, எதிரில் 2 N: R = 5 − 2 = 3 N, 5 N இன் திசையில்", "si": "එක් අතකට 5 N, අනෙක් අතට 2 N: R = 5 − 2 = 3 N, 5 N හි දිශාවට"},
+      "tip": {"en": "Equal and opposite forces give R = 0: the forces are balanced.", "ta": "சமமான எதிர் விசைகள் R = 0 தரும்: விசைகள் சமநிலையில்.", "si": "සමාන ප්‍රතිවිරුද්ධ බල R = 0 දෙයි: බල සමතුලිතයි."}
+    },
+    {
+      "id": "moment", "lesson": "physics.g10.turning-effect", "box": "Moment of a Force",
+      "name": {"en": "Moment of a force", "ta": "விசையின் திருப்பம்", "si": "බලයේ ඝූර්ණය"},
+      "math": "moment = F × d",
+      "symbols": [
+        {"s": "F", "en": "force", "ta": "விசை", "si": "බලය", "unit": "N"},
+        {"s": "d", "en": "perpendicular distance from the axis to the force", "ta": "அச்சிலிருந்து விசைக்கான செங்குத்துத் தூரம்", "si": "අක්ෂයේ සිට බලයට ලම්බ දුර", "unit": "m"}
+      ],
+      "worked": {"en": "20 N on a spanner, 0.5 m from the nut: moment = 20 × 0.5 = 10 N m", "ta": "நட்டிலிருந்து 0.5 m இல் 20 N: திருப்பம் = 20 × 0.5 = 10 N m", "si": "ඇණයේ සිට 0.5 m දී 20 N: ඝූර්ණය = 20 × 0.5 = 10 N m"},
+      "tip": {"en": "Balanced when the clockwise moments equal the anticlockwise moments.", "ta": "வலஞ்சுழித் திருப்பங்கள் இடஞ்சுழித் திருப்பங்களுக்குச் சமமானால் சமநிலை.", "si": "දක්ෂිණාවර්ත ඝූර්ණ වාමාවර්ත ඝූර්ණවලට සමාන වූ විට සමතුලිතයි."}
+    },
+    {
+      "id": "couple", "lesson": "physics.g10.turning-effect", "box": "Moment of a Couple",
+      "name": {"en": "Moment of a couple", "ta": "விசை இணையின் திருப்பம்", "si": "බල යුග්මයක ඝූර්ණය"},
+      "math": "moment = F × d",
+      "symbols": [
+        {"s": "F", "en": "one of the two equal forces", "ta": "சமமான இரு விசைகளில் ஒன்று", "si": "සමාන බල දෙකෙන් එකක්", "unit": "N"},
+        {"s": "d", "en": "perpendicular distance between the two forces", "ta": "இரு விசைகளுக்கும் இடையிலான செங்குத்துத் தூரம்", "si": "බල දෙක අතර ලම්බ දුර", "unit": "m"}
+      ],
+      "worked": {"en": "15 N on each side of a steering wheel 0.4 m across: 15 × 0.4 = 6 N m", "ta": "0.4 m அகல ஸ்டீயரிங்கின் இருபுறமும் 15 N: 15 × 0.4 = 6 N m", "si": "0.4 m පළල සුක්කානමේ දෙපසින් 15 N බැගින්: 15 × 0.4 = 6 N m"},
+      "tip": {"en": "Use the distance between the forces, not from one axis.", "ta": "ஒரு அச்சிலிருந்தல்ல, விசைகளுக்கு இடையிலான தூரத்தை எடு.", "si": "එක් අක්ෂයක සිට නොව බල අතර දුර ගන්න."}
+    },
+    {
+      "id": "three-parallel", "lesson": "physics.g10.equilibrium", "box": "Three parallel forces",
+      "name": {"en": "Equilibrium of three parallel forces", "ta": "மூன்று சமாந்தர விசைகளின் சமநிலை", "si": "සමාන්තර බල තුනක සමතුලිතතාව"},
+      "math": "F₁ + F₂ = W",
+      "symbols": [
+        {"s": "F₁, F₂", "en": "the two upward forces", "ta": "மேல்நோக்கிய இரு விசைகள்", "si": "ඉහළට ඇති බල දෙක", "unit": "N"},
+        {"s": "W", "en": "the weight (downward)", "ta": "நிறை (கீழ்நோக்கி)", "si": "බර (පහළට)", "unit": "N"}
+      ],
+      "worked": {"en": "A 60 N rule on two spring balances; one reads 25 N, so the other reads 60 − 25 = 35 N", "ta": "இரு விற்றராசுகளில் 60 N கோல்; ஒன்று 25 N காட்டினால் மற்றது 60 − 25 = 35 N", "si": "දුනු තරාදි දෙකක 60 N රූලක්; එකක් 25 N පෙන්වයි නම් අනෙක 60 − 25 = 35 N"},
+      "tip": {"en": "Total upward force = total downward force.", "ta": "மொத்த மேல்நோக்கு விசை = மொத்த கீழ்நோக்கு விசை.", "si": "මුළු ඉහළ බලය = මුළු පහළ බලය."}
+    },
+    {
+      "id": "pressure", "lesson": "physics.g10.hydrostatic-pressure", "box": "Pressure",
+      "name": {"en": "Pressure", "ta": "அமுக்கம்", "si": "පීඩනය"},
+      "math": "P = F ÷ A",
+      "symbols": [
+        {"s": "P", "en": "pressure", "ta": "அமுக்கம்", "si": "පීඩනය", "unit": "Pa (N m⁻²)"},
+        {"s": "F", "en": "perpendicular force", "ta": "செங்குத்து விசை", "si": "ලම්බ බලය", "unit": "N"},
+        {"s": "A", "en": "area", "ta": "பரப்பளவு", "si": "වර්ගඵලය", "unit": "m²"}
+      ],
+      "worked": {"en": "200 N on 0.5 m²: P = 200 ÷ 0.5 = 400 Pa", "ta": "0.5 m² மீது 200 N: P = 200 ÷ 0.5 = 400 Pa", "si": "0.5 m² මත 200 N: P = 200 ÷ 0.5 = 400 Pa"},
+      "tip": {"en": "The same force on a smaller area gives a bigger pressure.", "ta": "ஒரே விசை சிறிய பரப்பில் அதிக அமுக்கம் தரும்.", "si": "එකම බලය කුඩා වර්ගඵලයක් මත වැඩි පීඩනයක් දෙයි."}
+    },
+    {
+      "id": "liquid-pressure", "lesson": "physics.g10.hydrostatic-pressure", "box": "Pressure due to a liquid column",
+      "name": {"en": "Pressure in a liquid", "ta": "திரவ அமுக்கம்", "si": "ද්‍රවයක පීඩනය"},
+      "math": "P = h ρ g",
+      "symbols": [
+        {"s": "h", "en": "depth below the surface", "ta": "மேற்பரப்பிலிருந்து ஆழம்", "si": "පෘෂ්ඨයේ සිට ගැඹුර", "unit": "m"},
+        {"s": "ρ", "en": "density of the liquid", "ta": "திரவத்தின் அடர்த்தி", "si": "ද්‍රවයේ ඝනත්වය", "unit": "kg m⁻³"},
+        {"s": "g", "en": "acceleration due to gravity", "ta": "புவியீர்ப்பினாலான ஆர்முடுகல்", "si": "ගුරුත්වජ ත්වරණය", "unit": "10 m s⁻²"}
+      ],
+      "worked": {"en": "2 m down in water: P = 2 × 1000 × 10 = 20 000 Pa", "ta": "நீரில் 2 m ஆழத்தில்: P = 2 × 1000 × 10 = 20 000 Pa", "si": "ජලයේ 2 m ගැඹුරේ: P = 2 × 1000 × 10 = 20 000 Pa"},
+      "tip": {"en": "Only the vertical depth matters, not the shape of the container.", "ta": "நிலைக்குத்து ஆழம் மட்டுமே முக்கியம், பாத்திரத்தின் வடிவம் அல்ல.", "si": "වැදගත් වන්නේ සිරස් ගැඹුර පමණි, භාජනයේ හැඩය නොවේ."}
+    },
+    {
+      "id": "hydraulic", "lesson": "physics.g10.hydrostatic-pressure", "box": null,
+      "name": {"en": "Hydraulic jack", "ta": "நீரியல் உயர்த்தி", "si": "දාව ජැක්කුව"},
+      "math": "F₁ ÷ A₁ = F₂ ÷ A₂",
+      "symbols": [
+        {"s": "F₁, A₁", "en": "force and area of the small piston", "ta": "சிறிய முசலத்தின் விசையும் பரப்பும்", "si": "කුඩා පිස්ටනයේ බලය සහ වර්ගඵලය", "unit": "N, cm²"},
+        {"s": "F₂, A₂", "en": "force and area of the large piston", "ta": "பெரிய முசலத்தின் விசையும் பரப்பும்", "si": "විශාල පිස්ටනයේ බලය සහ වර්ගඵලය", "unit": "N, cm²"}
+      ],
+      "worked": {"en": "10 N on 5 cm² gives 2 N cm⁻²; on a 100 cm² piston that lifts 2 × 100 = 200 N", "ta": "5 cm² இல் 10 N என்றால் 2 N cm⁻²; 100 cm² முசலத்தில் 2 × 100 = 200 N தூக்கும்", "si": "5 cm² මත 10 N නම් 2 N cm⁻²; 100 cm² පිස්ටනයක් 2 × 100 = 200 N ඔසවයි"},
+      "tip": {"en": "A liquid passes the same pressure on to every part.", "ta": "திரவம் ஒரே அமுக்கத்தை எல்லாப் பகுதிக்கும் கடத்தும்.", "si": "ද්‍රවයක් එකම පීඩනය සෑම කොටසකටම සම්ප්‍රේෂණය කරයි."}
+    },
+    {
+      "id": "work", "lesson": "physics.g10.work-energy-power", "box": "Work done by a force",
+      "name": {"en": "Work", "ta": "வேலை", "si": "කාර්යය"},
+      "math": "W = F × d",
+      "symbols": [
+        {"s": "W", "en": "work done", "ta": "செய்த வேலை", "si": "කළ කාර්යය", "unit": "J"},
+        {"s": "F", "en": "force", "ta": "விசை", "si": "බලය", "unit": "N"},
+        {"s": "d", "en": "distance moved in the direction of the force", "ta": "விசையின் திசையில் நகர்ந்த தூரம்", "si": "බලයේ දිශාවට චලනය වූ දුර", "unit": "m"}
+      ],
+      "worked": {"en": "Pushing a box with 50 N for 4 m: W = 50 × 4 = 200 J", "ta": "50 N விசையால் பெட்டியை 4 m தள்ளுதல்: W = 50 × 4 = 200 J", "si": "50 N බලයෙන් පෙට්ටියක් 4 m තල්ලු කිරීම: W = 50 × 4 = 200 J"},
+      "tip": {"en": "No movement in the direction of the force means no work.", "ta": "விசையின் திசையில் நகர்வு இல்லையென்றால் வேலை இல்லை.", "si": "බලයේ දිශාවට චලනයක් නැත්නම් කාර්යයක් නැත."}
+    },
+    {
+      "id": "kinetic", "lesson": "physics.g10.work-energy-power", "box": "Kinetic energy",
+      "name": {"en": "Kinetic energy", "ta": "இயக்கச் சக்தி", "si": "චාලක ශක්තිය"},
+      "math": "Ek = ½ m v²",
+      "symbols": [
+        {"s": "Ek", "en": "kinetic energy", "ta": "இயக்கச் சக்தி", "si": "චාලක ශක්තිය", "unit": "J"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "v", "en": "velocity", "ta": "வேகம்", "si": "ප්‍රවේගය", "unit": "m s⁻¹"}
+      ],
+      "worked": {"en": "2 kg at 3 m s⁻¹: Ek = ½ × 2 × 3² = 9 J", "ta": "3 m s⁻¹ இல் 2 kg: Ek = ½ × 2 × 3² = 9 J", "si": "3 m s⁻¹ න් 2 kg: Ek = ½ × 2 × 3² = 9 J"},
+      "tip": {"en": "Double the speed: four times the kinetic energy.", "ta": "வேகம் இரட்டித்தால் இயக்கச் சக்தி நான்கு மடங்கு.", "si": "ප්‍රවේගය දෙගුණ වූ විට චාලක ශක්තිය හතර ගුණයි."}
+    },
+    {
+      "id": "potential", "lesson": "physics.g10.work-energy-power", "box": "Gravitational potential energy",
+      "name": {"en": "Gravitational potential energy", "ta": "ஈர்ப்பு அழுத்த சக்தி", "si": "ගුරුත්වාකර්ෂණ විභව ශක්තිය"},
+      "math": "Ep = m g h",
+      "symbols": [
+        {"s": "Ep", "en": "potential energy", "ta": "அழுத்த சக்தி", "si": "විභව ශක්තිය", "unit": "J"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "g", "en": "acceleration due to gravity", "ta": "புவியீர்ப்பினாலான ஆர்முடுகல்", "si": "ගුරුත්වජ ත්වරණය", "unit": "10 m s⁻²"},
+        {"s": "h", "en": "vertical height", "ta": "நிலைக்குத்து உயரம்", "si": "සිරස් උස", "unit": "m"}
+      ],
+      "worked": {"en": "2 kg lifted 5 m: Ep = 2 × 10 × 5 = 100 J", "ta": "2 kg ஐ 5 m உயர்த்துதல்: Ep = 2 × 10 × 5 = 100 J", "si": "2 kg ක් 5 m ඔසවයි: Ep = 2 × 10 × 5 = 100 J"}
+    },
+    {
+      "id": "power", "lesson": "physics.g10.work-energy-power", "box": "Power",
+      "name": {"en": "Power", "ta": "வலு", "si": "ජවය"},
+      "math": "P = W ÷ t",
+      "symbols": [
+        {"s": "P", "en": "power", "ta": "வலு", "si": "ජවය", "unit": "W (J s⁻¹)"},
+        {"s": "W", "en": "work done", "ta": "செய்த வேலை", "si": "කළ කාර්යය", "unit": "J"},
+        {"s": "t", "en": "time taken", "ta": "எடுத்த நேரம்", "si": "ගත වූ කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "600 J of work in 30 s: P = 600 ÷ 30 = 20 W", "ta": "30 s இல் 600 J வேலை: P = 600 ÷ 30 = 20 W", "si": "30 s තුළ 600 J කාර්යයක්: P = 600 ÷ 30 = 20 W"},
+      "tip": {"en": "Here W is work, not weight: read the question.", "ta": "இங்கே W என்பது வேலை, நிறை அல்ல: வினாவை வாசி.", "si": "මෙහි W යනු කාර්යය මිස බර නොවේ: ප්‍රශ්නය කියවන්න."}
+    },
+    {
+      "id": "ohm", "lesson": "physics.g10.current-electricity", "box": "Ohm's law",
+      "name": {"en": "Ohm's law", "ta": "ஓமின் விதி", "si": "ඕම් නියමය"},
+      "math": "V = I R",
+      "symbols": [
+        {"s": "V", "en": "potential difference", "ta": "அழுத்த வித்தியாசம்", "si": "විභව අන්තරය", "unit": "V"},
+        {"s": "I", "en": "electric current", "ta": "மின்னோட்டம்", "si": "විද්‍යුත් ධාරාව", "unit": "A"},
+        {"s": "R", "en": "resistance", "ta": "தடை", "si": "ප්‍රතිරෝධය", "unit": "Ω"}
+      ],
+      "worked": {"en": "1.5 A through a 6 Ω bulb: V = 1.5 × 6 = 9 V", "ta": "6 Ω குமிழ் வழியே 1.5 A: V = 1.5 × 6 = 9 V", "si": "6 Ω බල්බයක් හරහා 1.5 A: V = 1.5 × 6 = 9 V"},
+      "tip": {"en": "Also R = V ÷ I and I = V ÷ R.", "ta": "மேலும் R = V ÷ I, I = V ÷ R.", "si": "එසේම R = V ÷ I සහ I = V ÷ R."}
+    },
+    {
+      "id": "series", "lesson": "physics.g10.current-electricity", "box": "Equivalent resistance, series",
+      "name": {"en": "Resistors in series", "ta": "தொடராக இணைத்த தடையிகள்", "si": "ශ්‍රේණිගත ප්‍රතිරෝධක"},
+      "math": "R = R₁ + R₂ + R₃",
+      "symbols": [
+        {"s": "R", "en": "equivalent resistance", "ta": "சமவலுத் தடை", "si": "සමක ප්‍රතිරෝධය", "unit": "Ω"}
+      ],
+      "worked": {"en": "2 Ω, 3 Ω and 5 Ω in series: R = 2 + 3 + 5 = 10 Ω", "ta": "தொடராக 2 Ω, 3 Ω, 5 Ω: R = 2 + 3 + 5 = 10 Ω", "si": "ශ්‍රේණිගතව 2 Ω, 3 Ω, 5 Ω: R = 2 + 3 + 5 = 10 Ω"},
+      "tip": {"en": "In series the same current flows through every resistor.", "ta": "தொடரில் எல்லாத் தடையிகளூடாகவும் ஒரே மின்னோட்டம்.", "si": "ශ්‍රේණිගතව සෑම ප්‍රතිරෝධකයක් හරහාම එකම ධාරාව ගලයි."}
+    },
+    {
+      "id": "parallel", "lesson": "physics.g10.current-electricity", "box": "Equivalent resistance, parallel",
+      "name": {"en": "Resistors in parallel", "ta": "சமாந்தரமாக இணைத்த தடையிகள்", "si": "සමාන්තරගත ප්‍රතිරෝධක"},
+      "math": "1/R = 1/R₁ + 1/R₂",
+      "symbols": [
+        {"s": "R", "en": "equivalent resistance", "ta": "சமவலுத் தடை", "si": "සමක ප්‍රතිරෝධය", "unit": "Ω"}
+      ],
+      "worked": {"en": "6 Ω and 3 Ω in parallel: 1/R = 1/6 + 1/3 = 1/2, so R = 2 Ω", "ta": "சமாந்தரமாக 6 Ω, 3 Ω: 1/R = 1/6 + 1/3 = 1/2, ஆகவே R = 2 Ω", "si": "සමාන්තරගතව 6 Ω, 3 Ω: 1/R = 1/6 + 1/3 = 1/2, එබැවින් R = 2 Ω"},
+      "tip": {"en": "The answer is always smaller than the smallest resistor.", "ta": "விடை எப்போதும் மிகச் சிறிய தடையை விடக் குறைவு.", "si": "පිළිතුර සෑමවිටම කුඩාම ප්‍රතිරෝධයට වඩා අඩුය."}
+    },
+    {
+      "id": "frequency", "lesson": "physics.g11.waves", "box": "Frequency and period",
+      "name": {"en": "Frequency and period", "ta": "மீடிறனும் ஆவர்த்தன காலமும்", "si": "සංඛ්‍යාතය සහ ආවර්ත කාලය"},
+      "math": "f = 1 ÷ T",
+      "symbols": [
+        {"s": "f", "en": "frequency", "ta": "மீடிறன்", "si": "සංඛ්‍යාතය", "unit": "Hz"},
+        {"s": "T", "en": "period", "ta": "ஆவர்த்தன காலம்", "si": "ආවර්ත කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "One wave every 0.02 s: f = 1 ÷ 0.02 = 50 Hz", "ta": "0.02 s க்கு ஒரு அலை: f = 1 ÷ 0.02 = 50 Hz", "si": "0.02 s කට එක් තරංගයක්: f = 1 ÷ 0.02 = 50 Hz"}
+    },
+    {
+      "id": "wave-speed", "lesson": "physics.g11.waves", "box": "Wave speed",
+      "name": {"en": "Wave speed", "ta": "அலைக் கதி", "si": "තරංග වේගය"},
+      "math": "v = f λ",
+      "symbols": [
+        {"s": "v", "en": "wave speed", "ta": "அலைக் கதி", "si": "තරංග වේගය", "unit": "m s⁻¹"},
+        {"s": "f", "en": "frequency", "ta": "மீடிறன்", "si": "සංඛ්‍යාතය", "unit": "Hz"},
+        {"s": "λ", "en": "wavelength", "ta": "அலைநீளம்", "si": "තරංග ආයාමය", "unit": "m"}
+      ],
+      "worked": {"en": "f = 50 Hz, λ = 2 m: v = 50 × 2 = 100 m s⁻¹", "ta": "f = 50 Hz, λ = 2 m: v = 50 × 2 = 100 m s⁻¹", "si": "f = 50 Hz, λ = 2 m: v = 50 × 2 = 100 m s⁻¹"},
+      "tip": {"en": "Also v = λ ÷ T.", "ta": "மேலும் v = λ ÷ T.", "si": "එසේම v = λ ÷ T."}
+    },
+    {
+      "id": "em-wave", "lesson": "physics.g11.waves", "box": "Speed of an electromagnetic wave",
+      "name": {"en": "Speed of an electromagnetic wave", "ta": "மின்காந்த அலையின் கதி", "si": "විද්‍යුත් චුම්බක තරංගයක වේගය"},
+      "math": "c = f λ",
+      "symbols": [
+        {"s": "c", "en": "speed of light in a vacuum", "ta": "வெற்றிடத்தில் ஒளியின் கதி", "si": "රික්තයේ ආලෝකයේ වේගය", "unit": "3 × 10⁸ m s⁻¹"},
+        {"s": "f", "en": "frequency", "ta": "மீடிறன்", "si": "සංඛ්‍යාතය", "unit": "Hz"},
+        {"s": "λ", "en": "wavelength", "ta": "அலைநீளம்", "si": "තරංග ආයාමය", "unit": "m"}
+      ],
+      "worked": {"en": "A 100 MHz radio wave: λ = 3 × 10⁸ ÷ 10⁸ = 3 m", "ta": "100 MHz வானொலி அலை: λ = 3 × 10⁸ ÷ 10⁸ = 3 m", "si": "100 MHz ගුවන් විදුලි තරංගයක්: λ = 3 × 10⁸ ÷ 10⁸ = 3 m"}
+    },
+    {
+      "id": "refractive-index", "lesson": "physics.g11.geometrical-optics", "box": "Refractive index",
+      "name": {"en": "Refractive index", "ta": "முறிவுச் சுட்டி", "si": "වර්තනාංකය"},
+      "math": "n = sin i ÷ sin r",
+      "symbols": [
+        {"s": "n", "en": "refractive index (no unit)", "ta": "முறிவுச் சுட்டி (அலகு இல்லை)", "si": "වර්තනාංකය (ඒකකයක් නැත)", "unit": "—"},
+        {"s": "i", "en": "angle of incidence", "ta": "படுகோணம்", "si": "පතන කෝණය", "unit": "°"},
+        {"s": "r", "en": "angle of refraction", "ta": "முறிவுக் கோணம்", "si": "වර්තන කෝණය", "unit": "°"}
+      ],
+      "worked": {"en": "sin i = 0.6, sin r = 0.4: n = 0.6 ÷ 0.4 = 1.5 (glass)", "ta": "sin i = 0.6, sin r = 0.4: n = 0.6 ÷ 0.4 = 1.5 (கண்ணாடி)", "si": "sin i = 0.6, sin r = 0.4: n = 0.6 ÷ 0.4 = 1.5 (වීදුරු)"},
+      "tip": {"en": "Air to glass ≈ 1.5; air to water ≈ 1.33.", "ta": "காற்று → கண்ணாடி ≈ 1.5; காற்று → நீர் ≈ 1.33.", "si": "වාතයේ සිට වීදුරු ≈ 1.5; වාතයේ සිට ජලය ≈ 1.33."}
+    },
+    {
+      "id": "kelvin", "lesson": "physics.g11.heat", "box": "Converting Celsius and Kelvin",
+      "name": {"en": "Celsius and Kelvin", "ta": "செல்சியசும் கெல்வினும்", "si": "සෙල්සියස් සහ කෙල්වින්"},
+      "math": "T = θ + 273",
+      "symbols": [
+        {"s": "T", "en": "temperature in kelvin", "ta": "கெல்வினில் வெப்பநிலை", "si": "කෙල්වින්වලින් උෂ්ණත්වය", "unit": "K"},
+        {"s": "θ", "en": "temperature in degrees Celsius", "ta": "செல்சியசில் வெப்பநிலை", "si": "සෙල්සියස්වලින් උෂ්ණත්වය", "unit": "°C"}
+      ],
+      "worked": {"en": "27 °C: T = 27 + 273 = 300 K", "ta": "27 °C: T = 27 + 273 = 300 K", "si": "27 °C: T = 27 + 273 = 300 K"},
+      "tip": {"en": "A change of 1 K is the same as a change of 1 °C.", "ta": "1 K மாற்றம் 1 °C மாற்றத்துக்குச் சமம்.", "si": "1 K වෙනසක් 1 °C වෙනසකට සමානයි."}
+    },
+    {
+      "id": "heat-capacity", "lesson": "physics.g11.heat", "box": "Heat capacity",
+      "name": {"en": "Heat capacity", "ta": "வெப்பக் கொள்ளளவு", "si": "තාප ධාරිතාව"},
+      "math": "C = m c",
+      "symbols": [
+        {"s": "C", "en": "heat capacity", "ta": "வெப்பக் கொள்ளளவு", "si": "තාප ධාරිතාව", "unit": "J K⁻¹"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "c", "en": "specific heat capacity", "ta": "தன்வெப்பக் கொள்ளளவு", "si": "විශිෂ්ට තාප ධාරිතාව", "unit": "J kg⁻¹ K⁻¹"}
+      ],
+      "worked": {"en": "2 kg of water (c = 4200): C = 2 × 4200 = 8400 J K⁻¹", "ta": "2 kg நீர் (c = 4200): C = 2 × 4200 = 8400 J K⁻¹", "si": "ජලය 2 kg (c = 4200): C = 2 × 4200 = 8400 J K⁻¹"}
+    },
+    {
+      "id": "heat", "lesson": "physics.g11.heat", "box": "Quantity of heat",
+      "name": {"en": "Quantity of heat", "ta": "வெப்பக் கணியம்", "si": "තාප ප්‍රමාණය"},
+      "math": "Q = m c θ",
+      "symbols": [
+        {"s": "Q", "en": "heat", "ta": "வெப்பம்", "si": "තාපය", "unit": "J"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "c", "en": "specific heat capacity", "ta": "தன்வெப்பக் கொள்ளளவு", "si": "විශිෂ්ට තාප ධාරිතාව", "unit": "J kg⁻¹ K⁻¹"},
+        {"s": "θ", "en": "temperature change", "ta": "வெப்பநிலை மாற்றம்", "si": "උෂ්ණත්ව වෙනස", "unit": "K or °C"}
+      ],
+      "worked": {"en": "0.5 kg of water warmed by 20 °C: Q = 0.5 × 4200 × 20 = 42 000 J", "ta": "0.5 kg நீர் 20 °C சூடாகுதல்: Q = 0.5 × 4200 × 20 = 42 000 J", "si": "ජලය 0.5 kg ක් 20 °C කින් රත් වීම: Q = 0.5 × 4200 × 20 = 42 000 J"}
+    },
+    {
+      "id": "latent-heat", "lesson": "physics.g11.heat", "box": "Heat for a change of state",
+      "name": {"en": "Latent heat", "ta": "மறை வெப்பம்", "si": "ගුප්ත තාපය"},
+      "math": "Q = m L",
+      "symbols": [
+        {"s": "Q", "en": "heat", "ta": "வெப்பம்", "si": "තාපය", "unit": "J"},
+        {"s": "m", "en": "mass", "ta": "திணிவு", "si": "ස්කන්ධය", "unit": "kg"},
+        {"s": "L", "en": "specific latent heat", "ta": "தன்மறை வெப்பம்", "si": "විශිෂ්ට ගුප්ත තාපය", "unit": "J kg⁻¹"}
+      ],
+      "worked": {"en": "Melting 0.2 kg of ice (L = 336 000): Q = 0.2 × 336 000 = 67 200 J", "ta": "0.2 kg பனிக்கட்டியை உருக்குதல் (L = 336 000): Q = 0.2 × 336 000 = 67 200 J", "si": "අයිස් 0.2 kg ක් දියකිරීම (L = 336 000): Q = 0.2 × 336 000 = 67 200 J"},
+      "tip": {"en": "The temperature stays the same while the state changes.", "ta": "நிலை மாறும்போது வெப்பநிலை மாறாது.", "si": "අවස්ථාව වෙනස් වන අතරතුර උෂ්ණත්වය නොවෙනස්ව පවතී."}
+    },
+    {
+      "id": "electric-power", "lesson": "physics.g11.electric-appliances", "box": "Electric power",
+      "name": {"en": "Electric power", "ta": "மின் வலு", "si": "විදුලි ජවය"},
+      "math": "P = V I",
+      "symbols": [
+        {"s": "P", "en": "power", "ta": "வலு", "si": "ජවය", "unit": "W"},
+        {"s": "V", "en": "potential difference", "ta": "அழுத்த வித்தியாசம்", "si": "විභව අන්තරය", "unit": "V"},
+        {"s": "I", "en": "current", "ta": "மின்னோட்டம்", "si": "ධාරාව", "unit": "A"}
+      ],
+      "worked": {"en": "An iron on 230 V draws 2 A: P = 230 × 2 = 460 W", "ta": "230 V இல் அழுத்தி 2 A எடுக்கிறது: P = 230 × 2 = 460 W", "si": "230 V මත ඉස්ත්‍රික්කයක් 2 A ගනී: P = 230 × 2 = 460 W"}
+    },
+    {
+      "id": "electric-energy", "lesson": "physics.g11.electric-appliances", "box": "Electric energy",
+      "name": {"en": "Electric energy", "ta": "மின் சக்தி", "si": "විදුලි ශක්තිය"},
+      "math": "E = P t = V I t",
+      "symbols": [
+        {"s": "E", "en": "energy", "ta": "சக்தி", "si": "ශක්තිය", "unit": "J"},
+        {"s": "P", "en": "power", "ta": "வலு", "si": "ජවය", "unit": "W"},
+        {"s": "t", "en": "time", "ta": "நேரம்", "si": "කාලය", "unit": "s"}
+      ],
+      "worked": {"en": "A 1000 W kettle for 60 s: E = 1000 × 60 = 60 000 J", "ta": "1000 W கேத்தல் 60 s: E = 1000 × 60 = 60 000 J", "si": "1000 W කේතලයක් 60 s: E = 1000 × 60 = 60 000 J"},
+      "tip": {"en": "Time in seconds for joules; in hours for units (kW h).", "ta": "ஜூலுக்கு நேரம் செக்கனில்; அலகுக்கு (kW h) மணியில்.", "si": "ජූල් සඳහා කාලය තත්පරවලින්; ඒකක (kW h) සඳහා පැයවලින්."}
+    },
+    {
+      "id": "kwh", "lesson": "physics.g11.electric-appliances", "box": "Commercial unit",
+      "name": {"en": "Units of electricity (kW h)", "ta": "மின் அலகுகள் (kW h)", "si": "විදුලි ඒකක (kW h)"},
+      "math": {"en": "units = (watts ÷ 1000) × hours", "ta": "அலகுகள் = (வாட் ÷ 1000) × மணிகள்", "si": "ඒකක = (වොට් ÷ 1000) × පැය"},
+      "symbols": [],
+      "worked": {"en": "A 100 W bulb for 10 hours: (100 ÷ 1000) × 10 = 1 unit", "ta": "100 W குமிழ் 10 மணி: (100 ÷ 1000) × 10 = 1 அலகு", "si": "100 W බල්බයක් පැය 10 ක්: (100 ÷ 1000) × 10 = ඒකක 1"},
+      "tip": {"en": "1 kW h = 3.6 × 10⁶ J: one unit on the electricity bill.", "ta": "1 kW h = 3.6 × 10⁶ J: மின் கட்டணத்தில் ஒரு அலகு.", "si": "1 kW h = 3.6 × 10⁶ J: විදුලි බිලේ එක් ඒකකයක්."}
+    },
+    {
+      "id": "transformer", "lesson": "physics.g11.electromagnetism", "box": "Transformer equations",
+      "name": {"en": "Transformer", "ta": "நிலைமாற்றி", "si": "පරිණාමකය"},
+      "math": "Vp ÷ Vs = Np ÷ Ns",
+      "symbols": [
+        {"s": "Vp, Vs", "en": "primary and secondary voltage", "ta": "முதன்மை, துணை அழுத்தம்", "si": "ප්‍රාථමික සහ ද්විතීයික වෝල්ටීයතාව", "unit": "V"},
+        {"s": "Np, Ns", "en": "turns on the primary and secondary coils", "ta": "முதன்மை, துணைச் சுருள்களின் சுற்றுகள்", "si": "ප්‍රාථමික සහ ද්විතීයික දඟරවල වට ගණන", "unit": "—"}
+      ],
+      "worked": {"en": "230 V, 1000 turns to 100 turns: Vs = 230 × 100 ÷ 1000 = 23 V", "ta": "230 V, 1000 சுற்றிலிருந்து 100 சுற்று: Vs = 230 × 100 ÷ 1000 = 23 V", "si": "230 V, වට 1000 සිට වට 100: Vs = 230 × 100 ÷ 1000 = 23 V"},
+      "tip": {"en": "More turns on the secondary: a step-up transformer.", "ta": "துணைச் சுருளில் அதிக சுற்றுகள்: படிகூட்டு நிலைமாற்றி.", "si": "ද්විතීයිකයේ වට වැඩි නම්: අධිකර පරිණාමකයකි."}
+    },
+    {
+      "id": "transformer-power", "lesson": "physics.g11.electromagnetism", "box": "Transformer equations",
+      "name": {"en": "Transformer power", "ta": "நிலைமாற்றியின் வலு", "si": "පරිණාමකයේ ජවය"},
+      "math": "Vp Ip = Vs Is",
+      "symbols": [
+        {"s": "Ip, Is", "en": "primary and secondary current", "ta": "முதன்மை, துணை மின்னோட்டம்", "si": "ප්‍රාථමික සහ ද්විතීයික ධාරාව", "unit": "A"}
+      ],
+      "worked": {"en": "230 V × 0.5 A in = 23 V × 5 A out: 115 W each side", "ta": "உள்ளே 230 V × 0.5 A = வெளியே 23 V × 5 A: இருபுறமும் 115 W", "si": "ආදානය 230 V × 0.5 A = ප්‍රතිදානය 23 V × 5 A: දෙපසම 115 W"},
+      "tip": {"en": "This assumes no energy is lost (100 % efficiency).", "ta": "இது சக்தி இழப்பு இல்லை (100 % திறன்) என்று கொள்கிறது.", "si": "මෙයින් ශක්ති හානියක් නැතැයි (100 % කාර්යක්ෂමතාව) උපකල්පනය කරයි."}
+    }
+  ]
+}

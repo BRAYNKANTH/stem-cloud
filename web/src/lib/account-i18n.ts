@@ -14,6 +14,7 @@ export const ACCOUNT_WORDS: Record<string, [string, string]> = {
   "question done": ["வினா செஞ்சது","ප්‍රශ්නය කළා"],
   "Questions to revisit": ["மீண்டும் பார்க்க வேண்டிய வினாக்கள்","නැවත බැලිය යුතු ප්‍රශ්න"],
   "Continue learning": ["தொடர்ந்து படி","ඉගෙනීම දිගටම කරන්න"],
+  "Formula cards": ["சூத்திர அட்டைகள்","සූත්‍ර කාඩ්පත්"],
   "Settings": ["அமைப்புகள்","සැකසුම්"],
   "Language": ["மொழி","භාෂාව"],
   "Change my name": ["என் பேரை மாத்து","මගේ නම වෙනස් කරන්න"],

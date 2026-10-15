@@ -11,6 +11,7 @@ import ThemeToggle from './ThemeToggle';
 const MAP = 'M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14';
 const SPEAKER = 'M11 5 6 9H3v6h3l5 4V5zM15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13';
 const PAUSE = 'M7 5v14M17 5v14';
+const SIGMA = 'M18 5H6l6 7-6 7h12';
 
 /** The story step's Listen switches the story's voices instead (voice.js), heard by StoryPlayer. */
 export const STORY_VOICE_EVENT = 'stem-story-voice';
@@ -33,7 +34,7 @@ function Svg({ d }: { d: string }) {
  * "topic:<topic>:<step>" (prefix), as the v1 -> v2 migration names them. A link with a current page's section id
  * (#examples, #practice) opens the step it became (aliases, from lesson.legacy.steps), so old links keep working.
  */
-export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} }: { steps: StepInfo[]; lesson: string; prefix?: string; aliases?: Record<string, string> }) {
+export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {}, formulas }: { steps: StepInfo[]; lesson: string; prefix?: string; aliases?: Record<string, string>; formulas?: string }) {
   const lang = useStore($lang);
   const cur = useStore($step);
   const reading = useStore($reading);
@@ -119,6 +120,11 @@ export default function LessonPlayer({ steps, lesson, prefix = '', aliases = {} 
           <button type="button" class={'lb-btn lb-listen' + (reading.on ? ' on' : '')} onClick={listen} aria-label={listenLabel} title={listenLabel}>
             <Svg d={speaking ? PAUSE : SPEAKER} />
           </button>
+        )}
+        {formulas && (
+          <a class="lb-btn lb-formulas" href={formulas} aria-label={L(UI.formulas)} title={L(UI.formulas)}>
+            <Svg d={SIGMA} />
+          </a>
         )}
         <button type="button" class="lb-mid" aria-haspopup="dialog" onClick={() => dlg.current?.showModal()}>
           <Svg d={step && !scroll ? step.icon : MAP} />

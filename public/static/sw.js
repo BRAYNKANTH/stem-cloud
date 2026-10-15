@@ -5,7 +5,7 @@
  * - the new pages' scripts and styles (/_astro/, file names change with their content): from cache, refreshed in the background
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v27';
+var VERSION = 'v28';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;

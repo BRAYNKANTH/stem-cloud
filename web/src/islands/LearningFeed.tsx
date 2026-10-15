@@ -15,6 +15,9 @@ export interface Chapter { id: string; title: Tri; url: string }
 /** A chapter's pool of practice questions (content/practice): a round draws 10 of them. */
 export interface Pool { slug: string; lesson: string; cards: FeedCard[] }
 const ROUND = 10;
+/** #chapters in the address: the list of chapters to practise (the feed header's Chapters button). */
+const CHAPTERS = 'chapters';
+const gradeOf = (lesson: string) => /\.g(\d+)\./.exec(lesson)?.[1] ?? '';
 
 interface Answer { choice: number; right: boolean; counts?: number[] }
 const KEY = 'stem_feed_v1';
@@ -50,6 +53,10 @@ const W = {
   more: { en: '10 more questions', ta: 'இன்னும் 10 வினாக்கள்', si: 'තවත් ප්‍රශ්න 10' },
   backFeed: { en: 'Back to the feed', ta: 'ஓட்டத்துக்குத் திரும்பு', si: 'පෝෂණයට ආපසු' },
   roundDone: { en: 'Round done', ta: 'சுற்று முடிந்தது', si: 'වටය අවසන්' },
+  chapters: { en: 'Practise a chapter', ta: 'ஒரு பாடத்தைப் பயிற்சி செய்', si: 'පරිච්ඡේදයක් පුහුණු වන්න' },
+  pick: { en: 'Pick a chapter: 10 questions at a time.', ta: 'ஒரு பாடத்தைத் தெரிவு செய்: ஒவ்வொரு முறையும் 10 வினாக்கள்.', si: 'පරිච්ඡේදයක් තෝරන්න: වරකට ප්‍රශ්න 10 බැගින්.' },
+  grade: { en: 'Grade', ta: 'தரம்', si: 'ශ්‍රේණිය' },
+  toFeed: { en: 'Or swipe through the feed', ta: 'அல்லது ஓட்டத்தைப் பார்', si: 'නැතහොත් පෝෂණය බලන්න' },
   allDone: { en: 'You have answered every question in this chapter right!', ta: 'இந்தப் பாடத்தின் எல்லா வினாக்களுக்கும் சரியாகப் பதிலளித்தாய்!', si: 'මෙම පරිච්ඡේදයේ සියලු ප්‍රශ්නවලට ඔබ නිවැරදිව පිළිතුරු දුන්නා!' },
 };
 
@@ -64,7 +71,7 @@ const load = (): Record<string, Answer> => { try { return JSON.parse(localStorag
  * The learning feed: one card per screen, swiped up, like a reel. Cards: predict, then watch (a scene plays, stops for a
  * guess, then shows what happens); a quick question; true or false (swiped right or left); a formula. Every answer is
  * checked at once with a one-line reason, and shows how all students answered (the API keeps each student's first
- * answer). Separate from the rest of the app for now; answers are kept on this device.
+ * answer). The Practice tab of the bottom bar; answers are kept on this device.
  */
 export default function LearningFeed({ cards, chapters, pools = [] }: { cards: FeedCard[]; chapters: Chapter[]; pools?: Pool[] }) {
   const lang = useStore($lang);
@@ -95,12 +102,16 @@ export default function LearningFeed({ cards, chapters, pools = [] }: { cards: F
     loadPrefs();
     const a = load();
     setAnswers(a);
-    const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (pools.some((p) => p.slug === h)) deal(h, load()); else { setMode(''); setDeck([]); } };
+    const fromHash = () => {
+      const h = decodeURIComponent(location.hash.slice(1));
+      if (pools.some((p) => p.slug === h)) deal(h, load());
+      else { setMode(h === CHAPTERS ? CHAPTERS : ''); setDeck([]); box.current?.scrollTo({ top: 0 }); }
+    };
     fromHash();
     window.addEventListener('hashchange', fromHash);
     return () => window.removeEventListener('hashchange', fromHash);
   }, []);
-  const list = mode ? deck : cards;
+  const list = mode === CHAPTERS ? [] : mode ? deck : cards;
   const save = (a: Record<string, Answer>) => { setAnswers(a); try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* private mode */ } };
 
   const answer = (card: FeedCard, choice: number) => {
@@ -151,9 +162,26 @@ export default function LearningFeed({ cards, chapters, pools = [] }: { cards: F
     );
   };
 
+  // every chapter with practice questions, by grade, with how many of its questions this student has got right
+  const grades = [...new Set(pools.map((p) => gradeOf(p.lesson)))];
+  const chooser = (
+    <div class="fd-pools">
+      {grades.map((g) => (
+        <>
+          {g && <h3>{t(W.grade)} {g}</h3>}
+          {pools.filter((p) => gradeOf(p.lesson) === g).map((p) => {
+            const ch = byId.get(p.lesson);
+            const ok = p.cards.filter((c) => answers[c.id]?.right).length;
+            return <a class="btn fd-pool" href={'#' + p.slug}><span>{ch ? t(ch.title) : p.slug}</span><small>✓ {ok}/{p.cards.length}</small></a>;
+          })}
+        </>
+      ))}
+    </div>
+  );
+
   return (
     <div class="fd" ref={box} aria-label={t(W.feed)}>
-      <div class="fd-score" aria-live="polite">✓ {right}/{answered.length} · 🔥 {streak} {t(W.streak)}</div>
+      {mode !== CHAPTERS && <div class="fd-score" aria-live="polite">✓ {right}/{answered.length} · 🔥 {streak} {t(W.streak)}</div>}
       {list.map((card, i) => {
         const ch = byId.get(card.lesson);
         const a = answers[card.id];
@@ -190,7 +218,14 @@ export default function LearningFeed({ cards, chapters, pools = [] }: { cards: F
       })}
       <section class="fd-card fd-end">
         <div class="fd-inner">
-          {mode ? (
+          {mode === CHAPTERS ? (
+            <>
+              <h2 class="fd-q fd-focus" tabIndex={-1}>{t(W.chapters)}</h2>
+              <p class="fd-tip">{t(W.pick)}</p>
+              {chooser}
+              <a class="btn" href="#">{t(W.toFeed)} ↓</a>
+            </>
+          ) : mode ? (
             <>
               <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(list.length ? W.roundDone : W.allDone)}</h2>
               {list.length > 0 && <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>}
@@ -201,10 +236,7 @@ export default function LearningFeed({ cards, chapters, pools = [] }: { cards: F
             <>
               <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(W.done)}</h2>
               <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>
-              {pools.map((p) => {
-                const ch = byId.get(p.lesson);
-                return <a class="btn primary fd-pool" href={'#' + p.slug}>{t(W.practise)}: {ch ? t(ch.title) : p.slug} · {p.cards.length} {t(W.questions)}</a>;
-              })}
+              {chooser}
               <button type="button" class="btn" onClick={() => { const b = { ...answers }; cards.forEach((c) => delete b[c.id]); save(b); box.current?.scrollTo({ top: 0 }); }}>{t(W.again)}</button>
             </>
           )}

@@ -69,7 +69,7 @@ html.stem-calm *, html.stem-calm *::before, html.stem-calm *::after { animation:
 .langsw-menu button:hover { background: var(--sc-panel-2); }
 .langsw-menu button[aria-pressed="true"] { background: var(--sc-blue-lt); color: var(--sc-ink); font-weight: 700; }
 
-/* phone bottom bar (islands/BottomNav.tsx; public/static/nav.js on the current pages): Learn / Past papers / Me, phones only */
+/* phone bottom bar (islands/BottomNav.tsx; public/static/nav.js on the current pages): Learn / Practice / Past papers / Me, phones only */
 .bnav { display: none; }
 @media (max-width: 760px) {
   .bnav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
@@ -77,6 +77,7 @@ html.stem-calm *, html.stem-calm *::before, html.stem-calm *::after { animation:
   .bnav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-height: var(--tap); text-decoration: none;
             color: var(--sc-ink-2); font-weight: 600; font-size: .78rem; }
   .bnav a[aria-current="page"] { color: var(--sc-blue); font-weight: 800; }
+  .bnav a span { text-align: center; line-height: 1.15; }   /* four tabs: a long label (Tamil) wraps onto two short lines */
 }
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

@@ -56,7 +56,9 @@ const cards = data.cards as Card[];
   .fc-page :global(.fc-chips button small) { color: var(--sc-ink-2); font-weight: 700; margin-right: 2px; }
   .fc-page :global(.fc-chips button[aria-pressed="true"]) { background: var(--sc-ink); border-color: var(--sc-ink); color: var(--sc-ground); }
   .fc-page :global(.fc-chips button[aria-pressed="true"] small) { color: inherit; }
-  .fc-page :global(.fc-tools) { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 6px 0 12px; }
+  /* the view switch and "Test me" share a row; a longer Tamil or Sinhala label wraps inside its button, never past the screen */
+  .fc-page :global(.fc-tools) { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin: 6px 0 12px; }
+  .fc-page :global(.fc-test) { flex: 0 1 auto; min-width: 0; max-width: 100%; white-space: normal; text-align: center; line-height: 1.2; padding-block: 6px; }
   .fc-page :global(.fc-seg) { display: inline-flex; padding: 3px; gap: 3px; border-radius: 12px; background: var(--sc-panel-2); }
   .fc-page :global(.fc-seg button) { min-height: var(--tap); padding: 0 16px; border: 0; border-radius: 10px; background: none; color: var(--sc-ink-2); font: inherit; font-weight: 700; cursor: pointer; }
   .fc-page :global(.fc-seg button[aria-pressed="true"]) { background: var(--sc-panel); color: var(--sc-ink); box-shadow: 0 2px 0 var(--sc-line); }

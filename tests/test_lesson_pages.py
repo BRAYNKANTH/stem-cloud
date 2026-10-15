@@ -880,6 +880,10 @@ def run():
             check('formula cards: the list of every formula', lambda: pg.locator('.fc-list .fc-row').count() == len(FC), lambda: pg.locator('.fc-list .fc-row').count())
             set_lang(pg, 'ta')
             check('formula cards: in Tamil, with the textbook terms', lambda: pg.locator('h1').inner_text() == 'சூத்திர அட்டைகள்' and 'கதி' in pg.inner_text('.fc-list'))
+            sideways = "() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }"
+            check('formula cards: no sideways scroll at 375 px in Tamil (longer labels)', lambda: not pg.evaluate(sideways), lambda: pg.evaluate(sideways))
+            set_lang(pg, 'si')
+            check('formula cards: no sideways scroll at 375 px in Sinhala', lambda: not pg.evaluate(sideways), lambda: pg.evaluate(sideways))
             set_lang(pg, 'en')
             problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
             check('formula cards: no sideways scroll at 375 px', not problems, problems)

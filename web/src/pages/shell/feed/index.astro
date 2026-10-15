@@ -1,10 +1,12 @@
 ---
 // The learning feed (the LearningFeed island): short cards swiped up one screen at a time (predict, then watch; a quick
-// question; true or false; a formula), from content/feed/physics.json. Separate from the rest of the app while it is
-// tried out: nothing links here yet. Login-only like the lessons (web/scripts/private.mjs, stemcloud/routers/feed.py).
+// question; true or false; a formula), from content/feed/physics.json, and each chapter's practice questions. It is the
+// Practice tab of the bottom bar (BottomNav), and a lesson's finish step links its chapter here. Login-only like the lessons
+// (web/scripts/private.mjs, stemcloud/routers/feed.py).
 import AppLayout from '../../../layouts/AppLayout.astro';
 import LearningFeed, { type Chapter, type FeedCard, type Pool } from '../../../islands/LearningFeed';
 import LangSwitch from '../../../islands/LangSwitch';
+import BottomNav from '../../../islands/BottomNav';
 import catalog from '../../../../../content/catalog.json';
 import feed from '../../../../../content/feed/physics.json';
 import formulas from '../../../../../content/formulas/physics.json';
@@ -18,20 +20,22 @@ const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byForm
 interface Q { id: string; type: 'mcq' | 'tf'; q: Record<string, string>; options?: Record<string, string>[]; correct: number; why: Record<string, string>; figure?: unknown }
 const POOLS = import.meta.glob<{ lesson: string; questions: Q[] }>('../../../../../content/practice/*/*.json', { eager: true, import: 'default' });
 const slugOf = new Map((catalog.lessons as Entry[]).map((l) => [l.id, l.slug]));
-const pools: Pool[] = Object.values(POOLS).map((p) => ({
+const order = new Map((catalog.lessons as Entry[]).map((l, i) => [l.id, i]));
+const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?? 99) - (order.get(b.lesson) ?? 99)).map((p) => ({
   slug: slugOf.get(p.lesson) ?? p.lesson, lesson: p.lesson,
   cards: p.questions.map((q) => (q.type === 'tf'
     ? { id: q.id, type: 'tf', lesson: p.lesson, statement: q.q, correct: q.correct, why: q.why, figure: q.figure, practice: true }
     : { id: q.id, type: 'mcq', lesson: p.lesson, question: q.q, options: q.options, correct: q.correct, why: q.why, figure: q.figure, practice: true })) as FeedCard[],
 }));
 ---
-<AppLayout title="Learning Feed · STEM Cloud" description="Swipe through physics: predict, watch, answer." noindex>
+<AppLayout title="Practice · STEM Cloud" description="Swipe through physics: predict, watch, answer." noindex>
   <header class="fd-header" slot="header">
-    <a class="fd-home" href="/lessons/index.html">← <span data-l="en">Learn</span><span data-l="ta" lang="ta">படி</span><span data-l="si" lang="si">ඉගෙනුම</span></a>
-    <b class="fd-title">Feed <small>beta</small></b>
+    <a class="fd-home" href="#chapters"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" /></svg><span data-l="en">Chapters</span><span data-l="ta" lang="ta">பாடங்கள்</span><span data-l="si" lang="si">පරිච්ඡේද</span></a>
+    <b class="fd-title"><span data-l="en">Practice</span><span data-l="ta" lang="ta">பயிற்சி</span><span data-l="si" lang="si">පුහුණුව</span> <small>beta</small></b>
     <LangSwitch client:idle />
   </header>
   <LearningFeed client:load cards={cards} chapters={chapters} pools={pools} />
+  <BottomNav slot="footer" here="practice" client:idle />
 </AppLayout>
 
 <style>
@@ -41,12 +45,12 @@ const pools: Pool[] = Object.values(POOLS).map((p) => ({
   .fd-home { display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); font-weight: 700; text-decoration: none; }
   .fd-title { font-family: var(--font-head); font-size: 1.15rem; }
   .fd-title small { font: 700 .7rem var(--font-text); color: var(--sc-ink-2); background: var(--sc-mango-lt); padding: 2px 6px; border-radius: 6px; vertical-align: middle; }
-  html:not([lang="ta"]):not([lang="si"]) .fd-home [data-l]:not([data-l="en"]),
-  html[lang="ta"] .fd-home [data-l]:not([data-l="ta"]),
-  html[lang="si"] .fd-home [data-l]:not([data-l="si"]) { display: none; }
+  html:not([lang="ta"]):not([lang="si"]) :is(.fd-home, .fd-title) [data-l]:not([data-l="en"]),
+  html[lang="ta"] :is(.fd-home, .fd-title) [data-l]:not([data-l="ta"]),
+  html[lang="si"] :is(.fd-home, .fd-title) [data-l]:not([data-l="si"]) { display: none; }
 
   /* the feed: one card per screen, snapped, like a reel */
-  :global(.fd) { height: calc(100dvh - 56px - env(safe-area-inset-top)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; }
+  :global(.fd) { height: calc(100dvh - 56px - env(safe-area-inset-top) - var(--fd-bnav, 0px)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; }
   :global(.fd-score) { position: sticky; top: 8px; z-index: 5; width: max-content; margin: 8px auto -40px; padding: 6px 12px; border-radius: 999px; background: var(--sc-panel);
                        box-shadow: 0 2px 0 var(--sc-line); font-weight: 700; font-size: .85rem; font-variant-numeric: tabular-nums; }
   :global(.fd-card) { min-height: 100%; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: 52px var(--gutter) 20px; }
@@ -100,5 +104,11 @@ const pools: Pool[] = Object.values(POOLS).map((p) => ({
   :global(.fd-figure) { display: block; width: 100%; max-height: 30dvh; border-radius: 18px; background: var(--sc-panel); box-shadow: 0 3px 0 var(--sc-line); }
   :global(.fd-tag) { margin-left: 6px; padding: 1px 7px; border-radius: 6px; background: var(--sc-mango-lt); color: var(--sc-ink); font-style: normal; text-transform: none; letter-spacing: 0; }
   :global(.fd-end .fd-inner .btn) { width: 100%; max-width: 360px; min-height: 48px; }
+  /* on a phone the bottom bar (BottomNav) sits under the feed */
+  @media (max-width: 760px) { :global(html) { --fd-bnav: calc(68px + env(safe-area-inset-bottom)); } }
+  :global(.fd-pools) { display: grid; gap: 8px; width: 100%; max-width: 420px; text-align: left; }
+  :global(.fd-pools h3) { margin: 10px 0 0; font-size: .85rem; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .04em; }
+  :global(.fd-pools .btn) { justify-content: space-between; min-height: 48px; text-align: left; }
+  :global(.fd-pools .btn small) { color: var(--sc-ink-2); font-weight: 600; white-space: nowrap; }
   @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } }
 </style>

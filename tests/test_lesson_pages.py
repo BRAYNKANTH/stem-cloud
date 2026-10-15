@@ -847,7 +847,7 @@ def run():
             check('past papers: Sinhala', lambda: pg.locator('h1').inner_text() == 'අතීත ප්‍රශ්න පත්‍ර' and 'පරිච්ඡේදය' in pg.locator('.pp-chapter-no').first.inner_text(), lambda: pg.locator('h1').inner_text())
             set_lang(pg, 'en')
             tabs = lambda: pg.eval_on_selector_all('.bnav a', "as => as.map(a => a.getAttribute('href') + (a.getAttribute('aria-current') ? ' (here)' : ''))")
-            check('past papers: the bottom bar is Learn / Past papers / Me', lambda: tabs() == ['/lessons/index.html', '/past-papers/ (here)', '/account'], tabs)
+            check('past papers: the bottom bar is Learn / Practice / Past papers / Me', lambda: tabs() == ['/lessons/index.html', '/feed/', '/past-papers/ (here)', '/account'], tabs)
             check('past papers: one language button, in the header', lambda: pg.locator('.langsw-btn').count() == 1 and pg.locator('.pp-lang').count() == 0)
             check('past papers: no script errors', not errs, errs)
             # ------------------------------------------------------------ "Me": progress first, then the settings
@@ -856,7 +856,7 @@ def run():
             check('Me: progress first (XP, streak, chapters finished, past papers right, badges), then the settings',
                   lambda: pg.locator('#prog-h').count() == 1 and pg.locator('.settings-h').count() == 1 and 'Continue learning' in pg.inner_text('.next-row'), lambda: pg.inner_text('.stats'))
             check('Me: the question to revisit (the written one) is one tap away', lambda: 'Questions to revisit: 1' in pg.inner_text('.next-row'), lambda: pg.inner_text('.next-row'))
-            check('Me: the bottom bar marks Me', lambda: tabs() == ['/lessons/index.html', '/past-papers/', '/account (here)'], tabs)
+            check('Me: the bottom bar marks Me', lambda: tabs() == ['/lessons/index.html', '/feed/', '/past-papers/', '/account (here)'], tabs)
             # ------------------------------------------------------------ the formula cards (islands/FormulaCards.tsx)
             r = visitor.request.get(BASE + '/formulas/', max_redirects=0)
             check('formula cards: a visitor is sent to the login page', r.status == 302 and r.headers.get('location', '').startswith('/login?next=/formulas/'), r.status)
@@ -889,12 +889,12 @@ def run():
             check('formula cards: no sideways scroll at 375 px', not problems, problems)
             small = pg.evaluate("[...document.querySelectorAll('.fc button, .fc a')].filter(e => e.offsetParent && e.getBoundingClientRect().height < 43.5).map(e => e.tagName + ' ' + (e.innerText || '').slice(0, 30))")
             check('formula cards: controls are at least 44 px', not small, small[:5])
-            # ------------------------------------------------------------ the learning feed (islands/LearningFeed.tsx), separate for now
+            # ------------------------------------------------------------ the learning feed (islands/LearningFeed.tsx), the Practice tab
             pg.goto(BASE + '/feed/')
             pg.wait_for_selector('.fd-card')
             FEED = json.load(open(os.path.join(ROOT, 'content', 'feed', 'physics.json'), encoding='utf-8'))['cards']
             check('feed: one screen per card, and an end card', lambda: pg.locator('.fd-card').count() == len(FEED) + 1)
-            check('feed: nothing in the app links to it yet', lambda: pg.evaluate("fetch('/lessons/index.html').then(r => r.text())").count('/feed/') == 0)
+            check('feed: the bottom bar marks Practice', lambda: tabs() == ['/lessons/index.html', '/feed/ (here)', '/past-papers/', '/account'], tabs)
             first = pg.locator('[data-card=predict-bottle]')
             pg.wait_for_function("document.querySelector('[data-card=predict-bottle] .fd-hint')", timeout=15000)
             check('feed: a "predict, then watch" scene stops for the guess', lambda: first.locator('.fd-opt:disabled').count() == 0 and first.locator('.fd-result').count() == 0)
@@ -921,6 +921,21 @@ def run():
             pg.locator('.fd-end .btn.primary').click()
             round2 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
             check('practice: "10 more" deals questions not answered yet', lambda: len(round2) == 10 and round1[0] not in round2, lambda: round2)
+            pg.goto(BASE + '/feed/')
+            pg.wait_for_selector('.fd-card')
+            pg.click('.fd-home')                                    # the header's Chapters button
+            pg.wait_for_selector('.fd-pools')
+            POOLS = sorted(glob.glob(os.path.join(ROOT, 'content', 'practice', '*', '*.json')))
+            check('feed: Chapters lists every chapter with practice questions, by grade, with what is right so far',
+                  lambda: pg.locator('.fd-pools .fd-pool').count() == len(POOLS) and pg.locator('.fd-card[data-card]').count() == 0
+                  and pg.locator('.fd-pools h3').count() >= 2 and re.search(r'✓ [01]/100', pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]')),
+                  lambda: pg.inner_text('.fd-pools'))
+            problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
+            check('feed: the chapter list has no sideways scroll at 375 px', not problems, problems)
+            pg.goto(BASE + '/learn/physics/g10/hydrostatic-pressure/')
+            check("feed: a lesson's finish step offers its chapter's practice", lambda: pg.locator('#finish .btn.primary').get_attribute('href') == '/feed/#hydrostatic-pressure')
+            pg.goto(BASE + '/feed/#hydrostatic-pressure')
+            pg.wait_for_selector('.fd-card .fd-tag')
             figs = pg.locator('.fd-figure').count()
             problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
             check('practice: no sideways scroll at 375 px (%d pictures in this round)' % figs, not problems, problems)

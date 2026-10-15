@@ -329,9 +329,10 @@ html.stem-player[data-stem-step="start"] .wrap{max-width:760px;margin-left:auto;
 /* ------------------------------------------------------------------ bottom navigation (nav.js): course home, past papers, account; phone widths only */
 #stem-bnav{display:none}
 @media (max-width:760px){
-  #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
+  #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
   #stem-bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:44px;text-decoration:none;color:var(--text-dim);font-weight:700;font-size:.75rem}
   #stem-bnav a[aria-current="page"]{color:var(--accent);font-weight:800}
+  #stem-bnav a span{text-align:center;line-height:1.15}
   #stem-bnav a:active svg{transform:translateY(1px)}
   body.has-bnav{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
   body.has-bnav .wrap{padding-bottom:24px}

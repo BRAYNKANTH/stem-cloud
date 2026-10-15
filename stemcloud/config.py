@@ -16,6 +16,8 @@ WEB_SHELL = WEB_DIST / 'shell'
 WEB_LEARN = ROOT / 'web' / 'dist-private' / 'learn'
 WEB_PAPERS = ROOT / 'web' / 'dist-private' / 'past-papers' / 'index.html'
 WEB_FORMULAS = ROOT / 'web' / 'dist-private' / 'formulas' / 'index.html'
+WEB_FEED = ROOT / 'web' / 'dist-private' / 'feed' / 'index.html'
+FEED_CARDS = ROOT / 'content' / 'feed' / 'physics.json'
 # past paper question banks (content/, validated by tools/validate_past_papers.py); their scans and PDFs stay under LESSONS
 PAST_PAPERS = ROOT / 'content' / 'past-papers' / 'physics'
 ON_VERCEL = bool(os.environ.get('VERCEL'))

@@ -7,7 +7,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from .config import ON_VERCEL, STATIC, WEB_DIST, WEB_SHELL
 from .media import MediaStaticFiles
-from .routers import account, admin, auth, lessons, pages, past_papers, progress, progress_v2
+from .routers import account, admin, auth, feed, lessons, pages, past_papers, progress, progress_v2
 
 app = FastAPI(title='STEM Cloud', docs_url=None, redoc_url=None, openapi_url=None)
 
@@ -19,11 +19,11 @@ async def headers(request: Request, call_next):
     # lesson pages may be framed by our own topic pages (they show one lesson step inside a topic); nothing else may be framed, and never by another site
     resp.headers['X-Frame-Options'] = 'SAMEORIGIN' if request.url.path.startswith('/lessons/') and request.url.path.endswith('.html') else 'DENY'
     resp.headers['Referrer-Policy'] = 'same-origin'
-    if request.url.path.startswith(('/api', '/lessons', '/learn', '/shell/learn', '/past-papers', '/shell/past-papers', '/formulas', '/shell/formulas', '/topics', '/account', '/admin')):
+    if request.url.path.startswith(('/api', '/lessons', '/learn', '/shell/learn', '/past-papers', '/shell/past-papers', '/formulas', '/shell/formulas', '/feed', '/shell/feed', '/topics', '/account', '/admin')):
         resp.headers['Cache-Control'] = 'no-store'
     return resp
 
-for module in (auth, progress, progress_v2, past_papers, account, admin, pages, lessons):
+for module in (auth, progress, progress_v2, past_papers, feed, account, admin, pages, lessons):
     app.include_router(module.router)
 
 

@@ -383,3 +383,14 @@ From the audit's list of features, the owner chose formula cards. `/formulas/` h
   - a button on Me.
 - **Like the lessons:** login-only (`web/scripts/private.mjs`, the `/formulas` route) and kept offline by the service worker (v27).
 - **The data:** `content/formulas/physics.json`. `tests/test_formula_cards.py` ties each card to its lesson's formula box and fails if a lesson gains a formula box that no card shows.
+## 14. The learning feed, beta (2026-10-15)
+
+`/feed/` is a feed of short cards, one per screen, swiped up like a reel. The owner chose it from the feature ideas, with video questions added. It is separate for now: nothing in the app links to it, so it can be tried before it is connected.
+- **Predict, then watch:** a scene plays and stops at "?". The student guesses, then the scene plays to the end.
+  - The three scenes are drawn on a canvas in `web/src/feed/scenes.ts`, so there is no video to download: water jets from a bottle, adding a bulb in series, and melting ice.
+  - A card can use a filmed video instead (`video: {src, pauseAt}`).
+- **Other cards:** true or false (swipe right or left, or tap); a quick question; a formula card from `content/formulas`.
+- **After every answer:** right or wrong at once, a one-line reason, and how all students answered ("62% chose B").
+- **The poll:** each student's first answer is kept in `feed_answers` (migration 3), through `POST /api/feed/answer`.
+- **Progress:** a score and a streak, kept on the device for now (no XP yet).
+- **Content:** 20 cards in three languages, `content/feed/physics.json`. `tests/test_feed.py` checks the cards and the API; `tests/test_lesson_pages.py` checks the page.

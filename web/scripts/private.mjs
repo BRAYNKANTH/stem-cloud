@@ -1,4 +1,4 @@
-// After the build: lesson pages, past papers and the formula cards are login-only, so they must never be published as static files.
+// After the build: lesson pages, past papers, the formula cards and the learning feed are login-only, so they must never be published as static files.
 // Astro builds them to dist/shell/learn/ and dist/shell/past-papers/; this moves them to dist-private/, which Vercel
 // bundles with the Python function only
 // (vercel.json includeFiles) and never puts on the CDN. The function serves them after checking the sign-in
@@ -9,7 +9,7 @@ import { join, resolve } from 'node:path';
 
 const web = resolve(import.meta.dirname, '..');
 rmSync(join(web, 'dist-private'), { recursive: true, force: true });
-for (const name of ['learn', 'past-papers', 'formulas']) {
+for (const name of ['learn', 'past-papers', 'formulas', 'feed']) {
   const from = join(web, 'dist', 'shell', name);
   const to = join(web, 'dist-private', name);
   if (!existsSync(from)) {

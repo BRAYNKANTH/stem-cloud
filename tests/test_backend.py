@@ -64,14 +64,14 @@ class Migrations(unittest.TestCase):
         raw.commit(); raw.close()
         self.use_db(path)
         with dbmod.db() as con:
-            self.assertEqual(migrations.applied(con.raw), [1, 2])
+            self.assertEqual(migrations.applied(con.raw), [v for v, _, _ in migrations.MIGRATIONS])
             self.assertEqual(con.execute('SELECT xp_total FROM users').fetchone()['xp_total'], 0)      # progress v2's XP total, empty until migrated
             cols = [r['name'] for r in con.execute('PRAGMA table_info(sessions)').fetchall()]
             self.assertIn('device_name', cols)
             self.assertEqual(con.execute("SELECT v FROM progress WHERE k='scx_xp_total'").fetchone()['v'], '120')
         migrations._ready = False          # a second cold start applies nothing again
         with dbmod.db() as con:
-            self.assertEqual(migrations.applied(con.raw), [1, 2])
+            self.assertEqual(migrations.applied(con.raw), [v for v, _, _ in migrations.MIGRATIONS])
 
 
 class GateCookie(unittest.TestCase):

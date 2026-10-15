@@ -1,0 +1,91 @@
+---
+// The learning feed (the LearningFeed island): short cards swiped up one screen at a time (predict, then watch; a quick
+// question; true or false; a formula), from content/feed/physics.json. Separate from the rest of the app while it is
+// tried out: nothing links here yet. Login-only like the lessons (web/scripts/private.mjs, stemcloud/routers/feed.py).
+import AppLayout from '../../../layouts/AppLayout.astro';
+import LearningFeed, { type Chapter, type FeedCard } from '../../../islands/LearningFeed';
+import LangSwitch from '../../../islands/LangSwitch';
+import catalog from '../../../../../content/catalog.json';
+import feed from '../../../../../content/feed/physics.json';
+import formulas from '../../../../../content/formulas/physics.json';
+
+interface Entry { id: string; subject: string; grade: number; slug: string; title: Chapter['title'] }
+const chapters: Chapter[] = (catalog.lessons as Entry[]).map((l) => ({ id: l.id, title: l.title, url: `/learn/${l.subject}/g${l.grade}/${l.slug}/` }));
+const byFormula = new Map(formulas.cards.map((c) => [c.id, c]));
+// a formula card names its formula; the feed gets the formula itself
+const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byFormula.get(c.formula as string) } : c)) as FeedCard[];
+---
+<AppLayout title="Learning Feed · STEM Cloud" description="Swipe through physics: predict, watch, answer." noindex>
+  <header class="fd-header" slot="header">
+    <a class="fd-home" href="/lessons/index.html">← <span data-l="en">Learn</span><span data-l="ta" lang="ta">படி</span><span data-l="si" lang="si">ඉගෙනුම</span></a>
+    <b class="fd-title">Feed <small>beta</small></b>
+    <LangSwitch client:idle />
+  </header>
+  <LearningFeed client:load cards={cards} chapters={chapters} />
+</AppLayout>
+
+<style>
+  :global(html), :global(body) { overscroll-behavior-y: none; }
+  .fd-header { position: sticky; top: 0; z-index: 50; height: calc(56px + env(safe-area-inset-top)); display: flex; align-items: center; justify-content: space-between; gap: 8px;
+               padding: env(safe-area-inset-top) var(--gutter) 0; background: var(--sc-ground); border-bottom: 1px solid var(--sc-line); }
+  .fd-home { display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); font-weight: 700; text-decoration: none; }
+  .fd-title { font-family: var(--font-head); font-size: 1.15rem; }
+  .fd-title small { font: 700 .7rem var(--font-text); color: var(--sc-ink-2); background: var(--sc-mango-lt); padding: 2px 6px; border-radius: 6px; vertical-align: middle; }
+  html:not([lang="ta"]):not([lang="si"]) .fd-home [data-l]:not([data-l="en"]),
+  html[lang="ta"] .fd-home [data-l]:not([data-l="ta"]),
+  html[lang="si"] .fd-home [data-l]:not([data-l="si"]) { display: none; }
+
+  /* the feed: one card per screen, snapped, like a reel */
+  :global(.fd) { height: calc(100dvh - 56px - env(safe-area-inset-top)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; }
+  :global(.fd-score) { position: sticky; top: 8px; z-index: 5; width: max-content; margin: 8px auto -40px; padding: 6px 12px; border-radius: 999px; background: var(--sc-panel);
+                       box-shadow: 0 2px 0 var(--sc-line); font-weight: 700; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  :global(.fd-card) { min-height: 100%; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: 52px var(--gutter) 20px; }
+  :global(.fd-inner) { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 12px; }
+  :global(.fd-kind) { margin: 0; font-size: .8rem; font-weight: 700; color: var(--sc-blue); text-transform: uppercase; letter-spacing: .04em; }
+  :global(.fd-kind span) { color: var(--sc-ink-2); text-transform: none; letter-spacing: 0; }
+  :global(.fd-q) { font-size: 1.35rem; margin: 0; line-height: 1.3; }
+  :global(.fd-q:focus) { outline: none; }
+  :global(.fd-stage) { position: relative; border-radius: 20px; background: var(--sc-panel); box-shadow: 0 3px 0 var(--sc-line); overflow: hidden; }
+  :global(.fd-stage canvas), :global(.fd-stage video) { display: block; width: 100%; aspect-ratio: 4 / 3; max-height: 38dvh; object-fit: contain; }
+  :global(.fd-badge) { position: absolute; left: 10px; top: 10px; padding: 3px 10px; border-radius: 999px; background: var(--sc-ink); color: var(--sc-ground); font-size: .8rem; font-weight: 700; }
+  :global(.fd-hint) { margin: -4px 0 0; color: var(--sc-ink-2); font-weight: 600; }
+  :global(.fd-opts), :global(.fd-tf) { display: grid; gap: 8px; }
+  :global(.fd-tf) { grid-template-columns: 1fr 1fr; }
+  :global(.fd-opt) { min-height: 52px; padding: 10px 14px; border-radius: 14px; border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink);
+                     font: inherit; font-weight: 600; text-align: left; cursor: pointer; box-shadow: 0 3px 0 var(--sc-line); }
+  :global(.fd-opt:not(:disabled):hover) { border-color: var(--sc-blue); }
+  :global(.fd-opt:disabled) { cursor: default; }
+  :global(.fd-tf .fd-opt) { text-align: center; font-weight: 800; }
+  :global(.fd-opt.is-right) { border-color: var(--sc-leaf); background: var(--sc-leaf-lt); }
+  :global(.fd-opt.is-wrong) { border-color: var(--sc-clay); background: var(--sc-clay-lt); }
+  :global(.fd-opt.is-dim) { opacity: .55; }
+  :global(.fd-statement) { padding: 26px 20px; border-radius: 22px; background: var(--sc-panel); box-shadow: 0 4px 0 var(--sc-line); touch-action: pan-y; user-select: none;
+                           transition: transform .15s ease-out, background .15s; cursor: grab; }
+  :global(.fd-statement p) { margin: 0 0 8px; font: 800 1.3rem/1.35 var(--font-head); }
+  :global(.fd-statement small) { color: var(--sc-ink-2); }
+  :global(.fd-statement.lean-t) { background: var(--sc-leaf-lt); }
+  :global(.fd-statement.lean-f) { background: var(--sc-clay-lt); }
+  :global(.fd-result) { padding: 14px; border-radius: 16px; background: var(--sc-panel); box-shadow: 0 3px 0 var(--sc-line); display: grid; gap: 6px; }
+  :global(.fd-result.ok) { box-shadow: inset 4px 0 0 var(--sc-leaf), 0 3px 0 var(--sc-line); }
+  :global(.fd-result.no) { box-shadow: inset 4px 0 0 var(--sc-clay), 0 3px 0 var(--sc-line); }
+  :global(.fd-verdict) { margin: 0; font-weight: 800; }
+  :global(.fd-why) { margin: 0; }
+  :global(.fd-poll) { display: grid; gap: 5px; margin-top: 4px; }
+  :global(.fd-poll p) { margin: 0; font-size: .85rem; font-weight: 700; color: var(--sc-ink-2); }
+  :global(.fd-bar) { position: relative; display: flex; justify-content: space-between; gap: 8px; padding: 6px 10px; border-radius: 10px; background: var(--sc-panel-2); overflow: hidden; font-size: .88rem; }
+  :global(.fd-bar-fill) { position: absolute; inset: 0 auto 0 0; background: var(--sc-blue-lt); }
+  :global(.fd-bar.is-right .fd-bar-fill) { background: var(--sc-leaf-lt); }
+  :global(.fd-bar-text), :global(.fd-bar b) { position: relative; }
+  :global(.fd-bar.is-mine .fd-bar-text::after) { content: ' ●'; color: var(--sc-blue); }
+  :global(.fd-math) { margin: 0; padding: 22px 14px; border-radius: 18px; background: var(--sc-blue-lt); text-align: center; font: 800 clamp(1.6rem, 8vw, 2.3rem)/1.2 var(--font-head); }
+  :global(.fd-ex) { margin: 0; padding: 12px 14px; border-radius: 14px; background: var(--sc-leaf-lt); }
+  :global(.fd-ex b) { display: block; font-size: .78rem; color: var(--sc-ink-2); }
+  :global(.fd-tip) { margin: 0; color: var(--sc-ink-2); }
+  :global(.fd-foot) { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 52px; }
+  :global(.fd-foot a) { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
+  :global(.fd-next) { margin-left: auto; min-height: 48px; }
+  :global(.fd-replay) { justify-self: start; }
+  :global(.fd-end .fd-inner) { text-align: center; align-items: center; }
+  :global(.fd-big) { font: 800 2rem var(--font-head); margin: 0; }
+  @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } }
+</style>

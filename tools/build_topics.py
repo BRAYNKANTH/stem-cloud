@@ -78,10 +78,32 @@ def parse_exercises(soup):
     return out
 
 
+def write_index(entry):
+    """The list the course contents page reads (public/static/hub-topics.js) to offer "learn by topic" next to a chapter."""
+    idx_path = os.path.join(OUT, 'index.json')
+    idx = {'schema': 1, 'chapters': []}
+    if os.path.exists(idx_path):
+        idx = json.load(open(idx_path, encoding='utf-8'))
+    idx['chapters'] = [c for c in idx['chapters'] if c['slug'] != entry['slug']] + [entry]
+    idx['chapters'].sort(key=lambda c: c['slug'])
+    with open(idx_path, 'w', encoding='utf-8') as f:
+        json.dump(idx, f, ensure_ascii=False, indent=1)
+        f.write('\n')
+
+
 def build(slug):
     spec = json.load(open(os.path.join(SPECS, slug + '.spec.json'), encoding='utf-8'))
     ch = spec['chapter']
-    html = open(os.path.join(LESSONS, ch['lessonFile']), encoding='utf-8').read()
+    if ch.get('topicsUrl'):
+        # a lesson page this tool cannot read (Waves, built by the lesson factory): its topic view is only on the new pages
+        # (tools/extract_lesson.py puts the map into the lesson); the course contents page links straight there
+        os.makedirs(OUT, exist_ok=True)
+        write_index({'slug': slug, 'id': ch['id'], 'lessonFile': ch['lessonFile'], 'url': ch['topicsUrl'], 'topics': [
+            {'id': t['id'], 'steps': ['understand'] + (['watch'] if t.get('watch') else []) + (['explore'] if t.get('explore') else []) +
+             (['practice'] if t['practice']['order'] else [])} for t in spec['topics']]})
+        print('listed', slug, '(%d topics, on the new pages: %s)' % (len(spec['topics']), ch['topicsUrl']))
+        return
+    html =open(os.path.join(LESSONS, ch['lessonFile']), encoding='utf-8').read()
     soup = BeautifulSoup(html, 'html.parser')
     quiz = parse_quiz(html)
     exs = parse_exercises(soup)
@@ -190,17 +212,7 @@ def build(slug):
         json.dump(data, f, ensure_ascii=False, indent=1)
         f.write('\n')
 
-    # the list the course contents page reads to offer "learn by topic" next to a chapter
-    idx_path = os.path.join(OUT, 'index.json')
-    idx = {'schema': 1, 'chapters': []}
-    if os.path.exists(idx_path):
-        idx = json.load(open(idx_path, encoding='utf-8'))
-    idx['chapters'] = [c for c in idx['chapters'] if c['slug'] != slug] + [
-        {'slug': slug, 'id': ch['id'], 'lessonFile': ch['lessonFile'], 'topics': [{'id': t['id'], 'steps': t['steps']} for t in topics]}]
-    idx['chapters'].sort(key=lambda c: c['slug'])
-    with open(idx_path, 'w', encoding='utf-8') as f:
-        json.dump(idx, f, ensure_ascii=False, indent=1)
-        f.write('\n')
+    write_index({'slug': slug, 'id': ch['id'], 'lessonFile': ch['lessonFile'], 'topics': [{'id': t['id'], 'steps': t['steps']} for t in topics]})
 
     unassigned = sorted(set(exs) - {i['id'] for t in topics for i in t['practice']['items']} - {e['id'] for e in revision['mixed']})
     print('wrote', os.path.relpath(path, ROOT), '(%d topics, %d bytes)' % (len(topics), os.path.getsize(path)))

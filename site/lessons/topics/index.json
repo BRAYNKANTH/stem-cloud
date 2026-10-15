@@ -2,6 +2,74 @@
  "schema": 1,
  "chapters": [
   {
+   "slug": "g11-chapter-04-waves",
+   "id": "g11c04",
+   "lessonFile": "g11-chapter-04-waves.html",
+   "url": "/learn/physics/g11/waves/topics/",
+   "topics": [
+    {
+     "id": "what-is-a-wave",
+     "steps": [
+      "understand",
+      "watch",
+      "practice"
+     ]
+    },
+    {
+     "id": "mechanical-waves",
+     "steps": [
+      "understand",
+      "watch",
+      "practice"
+     ]
+    },
+    {
+     "id": "describing-a-wave",
+     "steps": [
+      "understand",
+      "explore",
+      "practice"
+     ]
+    },
+    {
+     "id": "electromagnetic-waves-and-the-spectrum",
+     "steps": [
+      "understand",
+      "practice"
+     ]
+    },
+    {
+     "id": "sound",
+     "steps": [
+      "understand",
+      "watch",
+      "practice"
+     ]
+    },
+    {
+     "id": "pitch-loudness-and-quality",
+     "steps": [
+      "understand",
+      "practice"
+     ]
+    },
+    {
+     "id": "hearing-range-and-ultrasound",
+     "steps": [
+      "understand",
+      "practice"
+     ]
+    },
+    {
+     "id": "musical-instruments",
+     "steps": [
+      "understand",
+      "practice"
+     ]
+    }
+   ]
+  },
+  {
    "slug": "unit-02-motion-in-a-straight-line",
    "id": "u2",
    "lessonFile": "unit-02-motion-in-a-straight-line.html",

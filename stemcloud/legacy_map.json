@@ -203,7 +203,16 @@
    "walkthroughs": "worked",
    "watch": "watch"
   },
-  "topics": [],
+  "topics": [
+   "what-is-a-wave",
+   "mechanical-waves",
+   "describing-a-wave",
+   "electromagnetic-waves-and-the-spectrum",
+   "sound",
+   "pitch-loudness-and-quality",
+   "hearing-range-and-ultrasound",
+   "musical-instruments"
+  ],
   "url": "/learn/physics/g11/waves/"
  },
  "g11c05": {

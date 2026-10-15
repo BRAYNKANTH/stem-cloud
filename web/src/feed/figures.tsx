@@ -15,11 +15,15 @@ export type Figure =
   | { kind: 'utube'; balloon?: boolean }
   | { kind: 'balance'; air: string; water: string }
   | { kind: 'float'; weight: string; sub: number }
-  | { kind: 'graph'; axis: 'v' | 's'; points: [number, number][] }
+  | { kind: 'graph'; axis: 'v' | 's' | 'ff'; points: [number, number][] }
   | { kind: 'route'; legs: ['N' | 'S' | 'E' | 'W', number][] }
   | { kind: 'forces'; mass: string; left: string; right: string }
   | { kind: 'circuit'; layout: 'series' | 'parallel'; r: string[]; v: string }
-  | { kind: 'resistor'; bands: string[] };
+  | { kind: 'resistor'; bands: string[] }
+  | { kind: 'lever'; loads: { x: number; f: string; d?: string; dir?: 'up' | 'down' }[]; pivot?: boolean }
+  | { kind: 'vectors'; a: string; b: string; r?: string; angle?: number }
+  | { kind: 'updown'; mass: string; up: string; down: string; hang?: boolean }
+  | { kind: 'cords'; w: string; a: string; b: string };
 
 const BAND: Record<string, string> = {
   black: '#1b1b1b', brown: '#7b4a1e', red: '#d32f2f', orange: '#f57c00', yellow: '#fbc02d', green: '#2e7d32',
@@ -216,8 +220,8 @@ function draw(f: Figure): JSX.Element {
           {ts.map((t) => T(X(t), y0 + 13, String(t), { size: 11, color: INK2 }))}
           {vs.map((v) => T(x0 - 6, Y(v), String(v), { size: 11, color: INK2, anchor: 'end' }))}
           {T(x0 - 6, y0 + 13, '0', { size: 11, color: INK2, anchor: 'end' })}
-          {T(x1, y0 + 26, 't (s)', { size: 11, anchor: 'end' })}
-          {T(x0 + 4, y1 - 14, f.axis === 'v' ? 'v (m s⁻¹)' : 's (m)', { size: 11, anchor: 'start' })}
+          {T(x1, y0 + 26, f.axis === 'ff' ? 'F (N)' : 't (s)', { size: 11, anchor: 'end' })}
+          {T(x0 + 4, y1 - 14, f.axis === 'v' ? 'v (m s⁻¹)' : f.axis === 's' ? 's (m)' : 'f (N)', { size: 11, anchor: 'start' })}
         </g>
       );
     }
@@ -283,6 +287,72 @@ function draw(f: Figure): JSX.Element {
           <rect x="80" y="70" width="160" height="60" rx="26" fill="#e8d5b0" stroke={INK} stroke-width="2.5" />
           {f.bands.map((b, i) => <rect x={100 + i * (n === 4 && i === 3 ? 32 : 26)} y="70" width="14" height="60" fill={BAND[b] ?? '#999'} stroke={INK} stroke-width="1" />)}
           {f.bands.map((b, i) => T(107 + i * (n === 4 && i === 3 ? 32 : 26), 150, String(i + 1), { size: 11, color: INK2 }))}
+        </g>
+      );
+    }
+    case 'lever': {
+      // a beam (on a pivot unless pivot is false); each load is an arrow at x (distance from the middle, negative = left) with its force
+      // above the beam (an up force under it) and its distance written below, from the pivot
+      const m = Math.max(...f.loads.map((l) => Math.abs(l.x)), 1), k = 110 / m, cx = 160, by = 100;
+      const X = (x: number) => cx + x * k;
+      const rows: Record<string, number> = {};
+      return (
+        <g>
+          <rect x={cx - m * k - 26} y={by - 5} width={2 * m * k + 52} height="10" rx="3" fill={SOLID} stroke={INK} stroke-width="2.5" />
+          {f.pivot !== false && <g><polygon points={`${cx},${by + 5} ${cx - 14},${by + 32} ${cx + 14},${by + 32}`} fill={INK2} stroke={INK} stroke-width="2" /><line x1={cx - 40} y1={by + 32} x2={cx + 40} y2={by + 32} stroke={INK} stroke-width="3" /></g>}
+          {f.loads.map((l) => {
+            const up = l.dir === 'up', x = X(l.x), side = l.x < 0 ? 'l' : 'r', row = (rows[side] = (rows[side] ?? -1) + 1);
+            const ry = 166 + row * 16;
+            return (
+              <g>
+                {up ? <g>{arrow(x, by + 42, x, by + 7)}{x > 230 ? T(x - 8, by + 30, l.f, { color: CLAY, anchor: 'end' }) : T(x + 8, by + 30, l.f, { color: CLAY, anchor: 'start' })}</g> : <g>{arrow(x, 44, x, by - 7)}{T(x, 32, l.f, { color: CLAY })}</g>}
+                {l.x !== 0 && <g stroke={INK2} stroke-width="1.5"><line x1={cx} y1={ry - 7} x2={x} y2={ry - 7} /><line x1={cx} y1={ry - 12} x2={cx} y2={ry - 2} /><line x1={x} y1={ry - 12} x2={x} y2={ry - 2} /></g>}
+                {l.x !== 0 && T((cx + x) / 2, ry + 5, l.d ?? Math.abs(l.x) + ' cm', { size: 11, color: INK2 })}
+              </g>
+            );
+          })}
+        </g>
+      );
+    }
+    case 'vectors': {
+      // two forces pulling on one point at an angle (a along the right, b at the angle above it); r, if given, is the dashed resultant between them
+      const th = ((f.angle ?? 65) * Math.PI) / 180, ox = 80, oy = 150, la = 130, lb = 105;
+      const ax = ox + la, ay = oy, bx = ox + lb * Math.cos(th), by = oy - lb * Math.sin(th), rx = ax + bx - ox, ry = ay + by - oy;
+      return (
+        <g>
+          <circle cx={ox} cy={oy} r="6" fill={INK} />
+          {arrow(ox, oy, ax, ay)}{T(ax - 4, ay + 16, f.a, { color: CLAY })}
+          {arrow(ox, oy, bx, by)}{T(bx - 16, by - 6, f.b, { color: CLAY, anchor: 'end' })}
+          {f.r && <g><g stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4"><line x1={ax} y1={ay} x2={rx} y2={ry} /><line x1={bx} y1={by} x2={rx} y2={ry} /></g>{arrow(ox, oy, rx, ry, EDGE)}{T(rx + 8, ry - 12, f.r, { color: EDGE, anchor: 'start' })}</g>}
+        </g>
+      );
+    }
+    case 'updown': {
+      // a block with a force up and a force down: on a table (the table pushes up) or hanging from a rope (the rope pulls up)
+      const bw = Math.max(70, f.mass.length * 9 + 18), bx = 160 - bw / 2;
+      return (
+        <g>
+          {f.hang ? (
+            <g><line x1="100" y1="18" x2="220" y2="18" stroke={INK} stroke-width="4" /><line x1="160" y1="18" x2="160" y2="84" stroke={INK} stroke-width="3" />
+              <rect x={bx} y="84" width={bw} height="54" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(160, 111, f.mass, { size: 15 })}
+              {arrow(184, 80, 184, 34)}{T(212, 52, f.up, { color: CLAY, anchor: 'start' })}{arrow(160, 142, 160, 190)}{T(176, 172, f.down, { color: CLAY, anchor: 'start' })}</g>
+          ) : (
+            <g><line x1="40" y1="130" x2="280" y2="130" stroke={INK} stroke-width="3" />
+              <rect x={bx} y="76" width={bw} height="54" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(160, 103, f.mass, { size: 15 })}
+              {arrow(176, 72, 176, 26)}{T(204, 44, f.up, { color: CLAY, anchor: 'start' })}{arrow(160, 134, 160, 188)}{T(176, 170, f.down, { color: CLAY, anchor: 'start' })}</g>
+          )}
+        </g>
+      );
+    }
+    case 'cords': {
+      // a weight hanging from the ceiling on two slanting cords
+      return (
+        <g>
+          <line x1="40" y1="20" x2="280" y2="20" stroke={INK} stroke-width="4" />
+          <line x1="80" y1="20" x2="160" y2="96" stroke={INK} stroke-width="3" /><line x1="240" y1="20" x2="160" y2="96" stroke={INK} stroke-width="3" />
+          <rect x="130" y="96" width="60" height="42" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />
+          {T(103, 66, f.a, { color: CLAY, anchor: 'end' })}{T(217, 66, f.b, { color: CLAY, anchor: 'start' })}
+          {arrow(160, 142, 160, 190)}{T(176, 172, f.w, { color: CLAY, anchor: 'start' })}
         </g>
       );
     }

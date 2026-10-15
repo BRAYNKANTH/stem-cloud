@@ -25,6 +25,7 @@ FIGURES = {
     'blocks': {'weight', 'dims'}, 'vessels': set(), 'tank': {'depth', 'points'}, 'bottle': set(),
     'hydraulic': {'a1', 'a2', 'f1', 'f2'}, 'barometer': {'h'}, 'utube': set(), 'balance': {'air', 'water'}, 'float': {'weight', 'sub'},
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
+    'lift': {'mass', 'h'}, 'push': {'f', 'd'}, 'bars': {'groups'}, 'swing': {'a', 'b'},
 }
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
@@ -120,6 +121,8 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('the feed cannot draw a %r figure' % fig.get('kind'))
             elif not FIGURES[fig['kind']] <= set(fig):
                 say('a %s figure needs %s' % (fig['kind'], ', '.join(sorted(FIGURES[fig['kind']] - set(fig)))))
+            elif fig['kind'] == 'bars' and not (fig['groups'] and all(isinstance(g, dict) and g.get('at') and all(isinstance(g.get(k), (int, float)) and 0 <= g[k] <= 100 for k in ('ek', 'ep')) for g in fig['groups'])):
+                say('a bars figure needs groups, each with at and ek, ep from 0 to 100')
     return len(data.get('questions', []))
 
 

@@ -19,7 +19,11 @@ export type Figure =
   | { kind: 'route'; legs: ['N' | 'S' | 'E' | 'W', number][] }
   | { kind: 'forces'; mass: string; left: string; right: string }
   | { kind: 'circuit'; layout: 'series' | 'parallel'; r: string[]; v: string }
-  | { kind: 'resistor'; bands: string[] };
+  | { kind: 'resistor'; bands: string[] }
+  | { kind: 'lift'; mass: string; h: string; f?: string }
+  | { kind: 'push'; f: string; d: string; mass?: string }
+  | { kind: 'bars'; groups: { at: string; ek: number; ep: number }[] }
+  | { kind: 'swing'; a: string; b: string };
 
 const BAND: Record<string, string> = {
   black: '#1b1b1b', brown: '#7b4a1e', red: '#d32f2f', orange: '#f57c00', yellow: '#fbc02d', green: '#2e7d32',
@@ -272,6 +276,70 @@ function draw(f: Figure): JSX.Element {
             </g>
           )}
           <g stroke="none">{cell(50, 105, f.v)}</g>
+        </g>
+      );
+    }
+    case 'lift': {
+      // an object raised through a height h (it started on the ground, drawn dashed); f, if given, is the lifting force
+      const bw = Math.max(64, f.mass.length * 9 + 18), bx = 190 - bw / 2;
+      return (
+        <g>
+          <line x1="20" y1="176" x2="300" y2="176" stroke={INK} stroke-width="3" />
+          <rect x={bx} y="130" width={bw} height="46" rx="4" fill="none" stroke={INK2} stroke-width="2" stroke-dasharray="5 4" />
+          <rect x={bx} y="60" width={bw} height="46" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(190, 83, f.mass, { size: 15 })}
+          <g stroke={INK2} stroke-width="1.5"><line x1="80" y1="106" x2="80" y2="176" /><line x1="72" y1="106" x2="88" y2="106" /><line x1="72" y1="176" x2="88" y2="176" /></g>
+          {T(70, 141, f.h, { size: 13, color: INK2, anchor: 'end' })}
+          {f.f && <g>{arrow(190, 56, 190, 14)}{T(206, 30, f.f, { color: CLAY, anchor: 'start' })}</g>}
+        </g>
+      );
+    }
+    case 'push': {
+      // a block pushed along a floor by a force f through a distance d (a dimension line under the floor)
+      const bw = Math.max(70, (f.mass ?? '').length * 9 + 18);
+      return (
+        <g>
+          <line x1="20" y1="130" x2="300" y2="130" stroke={INK} stroke-width="3" />
+          <rect x="50" y="80" width={bw} height="50" rx="4" fill="none" stroke={INK2} stroke-width="2" stroke-dasharray="5 4" />
+          <rect x="150" y="80" width={bw} height="50" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />{f.mass && T(150 + bw / 2, 105, f.mass, { size: 15 })}
+          {arrow(150 + bw / 2 - 30, 66, 150 + bw / 2 + 30, 66)}
+          <g stroke={INK2} stroke-width="1.5"><line x1={50 + bw / 2} y1="160" x2={150 + bw / 2} y2="160" /><line x1={50 + bw / 2} y1="154" x2={50 + bw / 2} y2="166" /><line x1={150 + bw / 2} y1="154" x2={150 + bw / 2} y2="166" /></g>
+          {T(100 + bw / 2, 180, f.d, { size: 13, color: INK2 })}
+          {T(150 + bw / 2, 48, f.f, { color: CLAY })}
+        </g>
+      );
+    }
+    case 'bars': {
+      // kinetic (Ek) and potential (Ep) energy as two bars at each position; ek and ep run 0 to 100
+      const n = f.groups.length, w = 300 / n, base = 150;
+      return (
+        <g>
+          <line x1="10" y1={base} x2="310" y2={base} stroke={INK} stroke-width="3" />
+          {f.groups.map((g, i) => {
+            const cx = 10 + w * i + w / 2;
+            return (
+              <g>
+                <rect x={cx - 28} y={base - g.ek * 1.2} width="24" height={Math.max(g.ek * 1.2, 1)} fill={EDGE} stroke={INK} stroke-width="1.5" />
+                <rect x={cx + 4} y={base - g.ep * 1.2} width="24" height={Math.max(g.ep * 1.2, 1)} fill="var(--sc-leaf)" stroke={INK} stroke-width="1.5" />
+                {T(cx - 16, base + 13, 'Ek', { size: 11, color: INK2 })}{T(cx + 16, base + 13, 'Ep', { size: 11, color: INK2 })}
+                {T(cx, base + 33, g.at, { size: 15 })}
+              </g>
+            );
+          })}
+        </g>
+      );
+    }
+    case 'swing': {
+      // a swing (or pendulum): A is the lowest point, B the highest, on the right; the left side is the same height, dashed
+      const px = 160, py = 22, L = 128, th = (40 * Math.PI) / 180;
+      const bx = px + L * Math.sin(th), by = py + L * Math.cos(th);
+      return (
+        <g>
+          <line x1="90" y1={py} x2="230" y2={py} stroke={INK} stroke-width="4" />
+          <path d={`M${px - L * Math.sin(th)} ${by} A ${L} ${L} 0 0 0 ${bx} ${by}`} fill="none" stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1={px} y1={py} x2={px} y2={py + L} stroke={INK2} stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1={px} y1={py} x2={bx} y2={by} stroke={INK} stroke-width="3" />
+          <circle cx={px} cy={py + L} r="11" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(px, py + L + 26, f.a, { size: 15 })}
+          <circle cx={bx} cy={by} r="11" fill={SOLID} stroke={INK} stroke-width="2.5" />{T(bx + 18, by, f.b, { size: 15, anchor: 'start' })}
         </g>
       );
     }

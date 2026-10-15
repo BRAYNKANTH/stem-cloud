@@ -60,6 +60,23 @@ class Practice(unittest.TestCase):
         by_id(d, 'hp-009')['figure'] = {'kind': 'rocket'}
         self.assertTrue(any('hp-009' in p and 'cannot draw' in p for p in problems(d)))
 
+    def test_every_pool_has_100_questions_and_its_mix(self):
+        for p in sorted((ROOT / 'content' / 'practice').glob('*/*.json')):
+            qs = json.loads(p.read_text(encoding='utf-8'))['questions']
+            self.assertEqual(len(qs), 100, p.name)
+            self.assertGreaterEqual(sum(q['type'] == 'tf' for q in qs), 25, p.name)
+            self.assertGreaterEqual(sum('figure' in q for q in qs), 10, p.name)
+
+    def test_powers_minus_signs_and_the_same_words_over_a_new_picture(self):
+        self.assertEqual(v.calc('33 * 10 ** 4'), 330000)
+        self.assertEqual(v.number('−4 m s⁻²'), -4)
+        d = copy.deepcopy(DATA)
+        q = dict(by_id(d, 'hp-002'), id='hp-101', figure={'kind': 'circuit', 'layout': 'series', 'r': ['3 Ω'], 'v': '9 V'})
+        d['questions'].append(q)
+        self.assertEqual(problems(d), [])
+        q['figure'] = {'kind': 'circuit', 'layout': 'series'}
+        self.assertTrue(any('hp-101' in p and 'needs r, v' in p for p in problems(d)))
+
 
 if __name__ == '__main__':
     unittest.main()

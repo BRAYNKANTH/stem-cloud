@@ -107,6 +107,12 @@ class Api(unittest.TestCase):
         finally:
             other.__exit__(None, None, None)
 
+    def test_a_practice_question_is_answered_too(self):
+        r = self.answer('hp-022', 1)                       # content/practice/physics/hydrostatic-pressure.json
+        self.assertEqual(r.status_code, 200, r.text)
+        self.assertEqual(r.json(), {'correct': 1, 'first': True, 'counts': [0, 1, 0, 0]})
+        self.assertEqual(self.answer('hp-003', 1).json()['counts'], [0, 1])     # true / false: two choices
+
     def test_bad_answers_are_refused(self):
         self.assertEqual(self.answer('no-such-card', 0).status_code, 400)
         self.assertEqual(self.answer('idea-ohm', 0).status_code, 400)          # a formula card has nothing to answer

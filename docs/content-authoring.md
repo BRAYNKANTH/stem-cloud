@@ -133,6 +133,23 @@ All cards are in one file, `content/formulas/physics.json`, in the order the cha
 - each `box` is still in its lesson;
 - every formula box of the lessons is on a card. A box that is not a formula is listed in `NOT_A_CARD`, so a new formula in a lesson cannot be missed.
 
+## Practice questions (the learning feed)
+
+Each chapter has one file, `content/practice/<subject>/<chapter>.json`, with up to 100 questions. `/feed/#<chapter>` draws a round of 10 at random: questions not answered yet come first, then the ones answered wrong come back.
+
+- **These are practice questions, not past paper questions.** They are written from the lesson, in the style of the past papers, and the page labels them "Practice question".
+- **A question** is `mcq` (3 or 4 `options`, `correct` is the index) or `tf` (`correct` is 1 for true, 0 for false), with:
+  - `q` and a one-line `why`, in English and Tamil. Sinhala (`si`) is added after review; once a question has it, it must be complete.
+  - a `topic`, and a `level`: `recall`, `apply` or `think`.
+  - `calc`, for a numeric answer: the sum as written in the reason, such as `"3 * 1000 * 10"`.
+  - `figure`, for a question with a picture: a kind from `web/src/feed/figures.tsx` with its numbers, such as `{"kind": "hydraulic", "a1": "10 cm²", "a2": "200 cm²", "f1": "20 N", "f2": "?"}`.
+
+`python tools/validate_practice.py` (in CI) checks every question:
+- the languages, one right answer, no repeated options or questions;
+- every `calc` is worked out again: the right option must show the result, and no other option may.
+
+`python tools/practice_review.py <chapter>` writes `docs/review/<chapter>.md`, a sheet for a teacher to check every question in both languages.
+
 ## Adding a chapter, or a new subject
 
 1. Write `content/<subject>/g<grade>/<slug>/lesson.json`: copy a chapter of the same kind and replace its content. Give every step and question a new id.

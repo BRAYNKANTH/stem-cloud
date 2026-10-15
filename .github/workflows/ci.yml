@@ -66,6 +66,10 @@ jobs:
         run: python tests/test_formula_cards.py
       - name: Learning feed (its cards and its answer API)
         run: python tests/test_feed.py
+      - name: Practice questions (content/practice; every sum worked out again)
+        run: |
+          python tools/validate_practice.py
+          python tests/test_practice.py
 
   web:
     name: Web app (type check, build, JS budget)

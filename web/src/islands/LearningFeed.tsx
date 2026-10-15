@@ -3,14 +3,18 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang, loadPrefs } from '../stores/prefs';
 import { SCENES, themeColors } from '../feed/scenes';
+import FigureSvg, { type Figure } from '../feed/figures';
 
 type Tri = { en: string; ta: string; si: string };
 export type FeedCard =
   | { id: string; type: 'predict'; lesson: string; scene?: string; video?: { src: string; pauseAt: number }; question: Tri; options: Tri[]; correct: number; why: Tri }
-  | { id: string; type: 'mcq'; lesson: string; question: Tri; options: Tri[]; correct: number; why: Tri }
-  | { id: string; type: 'tf'; lesson: string; statement: Tri; correct: number; why: Tri }
+  | { id: string; type: 'mcq'; lesson: string; question: Tri; options: Tri[]; correct: number; why: Tri; figure?: Figure; practice?: boolean }
+  | { id: string; type: 'tf'; lesson: string; statement: Tri; correct: number; why: Tri; figure?: Figure; practice?: boolean }
   | { id: string; type: 'idea'; lesson: string; formula: { name: Tri; math: string | Tri; worked: Tri; tip?: Tri } };
 export interface Chapter { id: string; title: Tri; url: string }
+/** A chapter's pool of practice questions (content/practice): a round draws 10 of them. */
+export interface Pool { slug: string; lesson: string; cards: FeedCard[] }
+const ROUND = 10;
 
 interface Answer { choice: number; right: boolean; counts?: number[] }
 const KEY = 'stem_feed_v1';
@@ -40,6 +44,13 @@ const W = {
   score: { en: 'right', ta: 'சரி', si: 'නිවැරදි' },
   again: { en: 'Start again', ta: 'மீண்டும் தொடங்கு', si: 'නැවත අරඹන්න' },
   feed: { en: 'Learning feed', ta: 'கற்றல் ஓட்டம்', si: 'ඉගෙනුම් පෝෂණය' },
+  practice: { en: 'Practice question', ta: 'பயிற்சி வினா', si: 'පුහුණු ප්‍රශ්නය' },
+  practise: { en: 'Practise', ta: 'பயிற்சி', si: 'පුහුණුව' },
+  questions: { en: 'questions', ta: 'வினாக்கள்', si: 'ප්‍රශ්න' },
+  more: { en: '10 more questions', ta: 'இன்னும் 10 வினாக்கள்', si: 'තවත් ප්‍රශ්න 10' },
+  backFeed: { en: 'Back to the feed', ta: 'ஓட்டத்துக்குத் திரும்பு', si: 'පෝෂණයට ආපසු' },
+  roundDone: { en: 'Round done', ta: 'சுற்று முடிந்தது', si: 'වටය අවසන්' },
+  allDone: { en: 'You have answered every question in this chapter right!', ta: 'இந்தப் பாடத்தின் எல்லா வினாக்களுக்கும் சரியாகப் பதிலளித்தாய்!', si: 'මෙම පරිච්ඡේදයේ සියලු ප්‍රශ්නවලට ඔබ නිවැරදිව පිළිතුරු දුන්නා!' },
 };
 
 /** After an answer: bring the reason, the poll and Next into view (the card can be taller than the screen). */
@@ -55,14 +66,41 @@ const load = (): Record<string, Answer> => { try { return JSON.parse(localStorag
  * checked at once with a one-line reason, and shows how all students answered (the API keeps each student's first
  * answer). Separate from the rest of the app for now; answers are kept on this device.
  */
-export default function LearningFeed({ cards, chapters }: { cards: FeedCard[]; chapters: Chapter[] }) {
+export default function LearningFeed({ cards, chapters, pools = [] }: { cards: FeedCard[]; chapters: Chapter[]; pools?: Pool[] }) {
   const lang = useStore($lang);
   const t = (x: Tri | string) => (typeof x === 'string' ? x : x[lang] || x.en);
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const box = useRef<HTMLDivElement>(null);
   const byId = new Map(chapters.map((c) => [c.id, c]));
 
-  useEffect(() => { loadPrefs(); setAnswers(load()); }, []);
+  // #<chapter> in the address: a round of that chapter's practice questions; anything else: the feed
+  const [mode, setMode] = useState('');
+  const [deck, setDeck] = useState<FeedCard[]>([]);
+  const deal = (slug: string, a: Record<string, Answer>) => {
+    const pool = pools.find((p) => p.slug === slug);
+    if (!pool) { setMode(''); return; }
+    const mix = <X,>(xs: X[]) => xs.map((x) => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map((p) => p[1]);
+    // the ones not answered yet first; when none are left, the ones answered wrong come back to try again
+    let pick = mix(pool.cards.filter((c) => !a[c.id])).slice(0, ROUND);
+    if (pick.length < ROUND) {
+      const again = mix(pool.cards.filter((c) => a[c.id] && !a[c.id]!.right)).slice(0, ROUND - pick.length);
+      if (again.length) { const b = { ...a }; again.forEach((c) => delete b[c.id]); save(b); }
+      pick = [...pick, ...again];
+    }
+    setDeck(pick);
+    setMode(slug);
+    box.current?.scrollTo({ top: 0 });
+  };
+  useEffect(() => {
+    loadPrefs();
+    const a = load();
+    setAnswers(a);
+    const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (pools.some((p) => p.slug === h)) deal(h, load()); else { setMode(''); setDeck([]); } };
+    fromHash();
+    window.addEventListener('hashchange', fromHash);
+    return () => window.removeEventListener('hashchange', fromHash);
+  }, []);
+  const list = mode ? deck : cards;
   const save = (a: Record<string, Answer>) => { setAnswers(a); try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* private mode */ } };
 
   const answer = (card: FeedCard, choice: number) => {
@@ -84,7 +122,7 @@ export default function LearningFeed({ cards, chapters }: { cards: FeedCard[]; c
   };
 
   // the streak: answers right in a row, in feed order, up to the last one answered
-  const answered = cards.filter((c) => answers[c.id]);
+  const answered = list.filter((c) => answers[c.id]);
   let streak = 0;
   for (const c of answered) streak = answers[c.id]!.right ? streak + 1 : 0;
   const right = answered.filter((c) => answers[c.id]!.right).length;
@@ -116,17 +154,18 @@ export default function LearningFeed({ cards, chapters }: { cards: FeedCard[]; c
   return (
     <div class="fd" ref={box} aria-label={t(W.feed)}>
       <div class="fd-score" aria-live="polite">✓ {right}/{answered.length} · 🔥 {streak} {t(W.streak)}</div>
-      {cards.map((card, i) => {
+      {list.map((card, i) => {
         const ch = byId.get(card.lesson);
         const a = answers[card.id];
         const kind = card.type === 'predict' ? W.predict : card.type === 'tf' ? W.tf : card.type === 'idea' ? W.idea : W.quick;
         return (
-          <section class={'fd-card is-' + card.type} key={card.id} data-card={card.id} aria-label={`${i + 1} / ${cards.length}: ${t(kind)}`}>
+          <section class={'fd-card is-' + card.type} key={card.id} data-card={card.id} aria-label={`${i + 1} / ${list.length}: ${t(kind)}`}>
             <div class="fd-inner">
-              <p class="fd-kind">{t(kind)}{ch && <span> · {t(ch.title)}</span>}</p>
+              <p class="fd-kind">{t(kind)}{ch && <span> · {t(ch.title)}</span>}{'practice' in card && card.practice && <em class="fd-tag">{t(W.practice)}</em>}</p>
               {card.type === 'predict' && <Predict card={card} t={t} answer={a} onAnswer={(k) => answer(card, k)} why={why} />}
               {card.type === 'mcq' && (
                 <>
+                  {card.figure && <FigureSvg figure={card.figure} label={t(card.question)} />}
                   <h2 class="fd-q fd-focus" tabIndex={-1}>{t(card.question)}</h2>
                   <Options card={card} t={t} answer={a} onAnswer={(k) => answer(card, k)} />
                   {a && why(card, a, card.options.map(t))}
@@ -151,9 +190,24 @@ export default function LearningFeed({ cards, chapters }: { cards: FeedCard[]; c
       })}
       <section class="fd-card fd-end">
         <div class="fd-inner">
-          <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(W.done)}</h2>
-          <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>
-          <button type="button" class="btn" onClick={() => { save({}); box.current?.scrollTo({ top: 0 }); }}>{t(W.again)}</button>
+          {mode ? (
+            <>
+              <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(list.length ? W.roundDone : W.allDone)}</h2>
+              {list.length > 0 && <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>}
+              {list.length > 0 && <button type="button" class="btn primary" onClick={() => deal(mode, answers)}>{t(W.more)}</button>}
+              <a class="btn" href="#">{t(W.backFeed)}</a>
+            </>
+          ) : (
+            <>
+              <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(W.done)}</h2>
+              <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>
+              {pools.map((p) => {
+                const ch = byId.get(p.lesson);
+                return <a class="btn primary fd-pool" href={'#' + p.slug}>{t(W.practise)}: {ch ? t(ch.title) : p.slug} · {p.cards.length} {t(W.questions)}</a>;
+              })}
+              <button type="button" class="btn" onClick={() => { const b = { ...answers }; cards.forEach((c) => delete b[c.id]); save(b); box.current?.scrollTo({ top: 0 }); }}>{t(W.again)}</button>
+            </>
+          )}
         </div>
       </section>
     </div>
@@ -190,6 +244,7 @@ function TrueFalse({ card, t, answer, onAnswer, why }: { card: Extract<FeedCard,
   const lean = dx > 40 ? ' lean-t' : dx < -40 ? ' lean-f' : '';
   return (
     <>
+      {card.figure && <FigureSvg figure={card.figure} label={t(card.statement)} />}
       <div class={'fd-statement fd-focus' + lean} tabIndex={-1} style={{ transform: `translateX(${dx}px) rotate(${dx / 20}deg)` }}
            onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up}>
         <p>{t(card.statement)}</p>

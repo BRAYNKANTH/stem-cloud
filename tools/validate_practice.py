@@ -25,6 +25,8 @@ FIGURES = {
     'blocks': {'weight', 'dims'}, 'vessels': set(), 'tank': {'depth', 'points'}, 'bottle': set(),
     'hydraulic': {'a1', 'a2', 'f1', 'f2'}, 'barometer': {'h'}, 'utube': set(), 'balance': {'air', 'water'}, 'float': {'weight', 'sub'},
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
+    'mains': {'switch'}, 'plug': {'pins'}, 'diode': {'bias'}, 'signal': {'shape'}, 'pn': {'bias'}, 'transistor': {'type'}, 'divider': {'r1', 'r2', 'v'},
+    'wirefield': {'dir'}, 'fleming': {'n', 'current'}, 'xfmr': {'np', 'ns'}, 'induct': {'move'},
     'lift': {'mass', 'h'}, 'push': {'f', 'd'}, 'bars': {'groups'}, 'swing': {'a', 'b'},
     'wave': {'cycles'}, 'traces': {'items'}, 'slinky': set(), 'sonar': {'depth'}, 'mirror': {'i', 'r'}, 'refract': {'from', 'i', 'r'}, 'tir': {'state'}, 'lens': {'u'}, 'scales': set(),
     'lever': {'loads'}, 'vectors': {'a', 'b'}, 'updown': {'mass', 'up', 'down'}, 'cords': {'w', 'a', 'b'},
@@ -123,6 +125,24 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('the feed cannot draw a %r figure' % fig.get('kind'))
             elif not FIGURES[fig['kind']] <= set(fig):
                 say('a %s figure needs %s' % (fig['kind'], ', '.join(sorted(FIGURES[fig['kind']] - set(fig)))))
+            elif fig['kind'] == 'mains' and fig['switch'] not in ('live', 'neutral'):
+                say('a mains figure needs switch live or neutral')
+            elif fig['kind'] == 'plug' and not (isinstance(fig['pins'], list) and len(fig['pins']) == 3):
+                say('a plug figure needs three pin letters')
+            elif fig['kind'] == 'diode' and fig['bias'] not in ('forward', 'reverse'):
+                say('a diode figure needs bias forward or reverse')
+            elif fig['kind'] == 'signal' and fig['shape'] not in ('ac', 'half', 'full', 'smooth', 'dc'):
+                say('a signal figure needs shape ac, half, full, smooth or dc')
+            elif fig['kind'] == 'pn' and fig['bias'] not in ('none', 'forward', 'reverse'):
+                say('a pn figure needs bias none, forward or reverse')
+            elif fig['kind'] == 'transistor' and (fig['type'] not in ('npn', 'pnp') or (fig.get('labels') is not None and len(fig['labels']) != 3)):
+                say('a transistor figure needs type npn or pnp, and three labels if given')
+            elif fig['kind'] == 'wirefield' and fig['dir'] not in ('out', 'in'):
+                say('a wirefield figure needs dir out or in')
+            elif fig['kind'] == 'fleming' and (fig['n'] not in ('left', 'right') or fig['current'] not in ('out', 'in') or fig.get('force') not in (None, 'up', 'down')):
+                say('a fleming figure needs n left or right, current out or in, and force up or down if given')
+            elif fig['kind'] == 'induct' and fig['move'] not in ('toward', 'away', 'still'):
+                say('an induct figure needs move toward, away or still')
             elif fig['kind'] == 'bars' and not (fig['groups'] and all(isinstance(g, dict) and g.get('at') and all(isinstance(g.get(k), (int, float)) and 0 <= g[k] <= 100 for k in ('ek', 'ep')) for g in fig['groups'])):
                 say('a bars figure needs groups, each with at and ek, ep from 0 to 100')
             elif fig['kind'] == 'wave' and fig['cycles'] not in (1, 2, 3, 4):

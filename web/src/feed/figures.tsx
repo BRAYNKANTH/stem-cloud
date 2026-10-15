@@ -19,6 +19,17 @@ export type Figure =
   | { kind: 'route'; legs: ['N' | 'S' | 'E' | 'W', number][] }
   | { kind: 'forces'; mass: string; left: string; right: string }
   | { kind: 'circuit'; layout: 'series' | 'parallel'; r: string[]; v: string }
+  | { kind: 'mains'; switch: 'live' | 'neutral' }
+  | { kind: 'plug'; pins: [string, string, string] }
+  | { kind: 'diode'; bias: 'forward' | 'reverse' }
+  | { kind: 'signal'; shape: 'ac' | 'half' | 'full' | 'smooth' | 'dc' }
+  | { kind: 'pn'; bias: 'none' | 'forward' | 'reverse' }
+  | { kind: 'transistor'; type: 'npn' | 'pnp'; labels?: [string, string, string] }
+  | { kind: 'divider'; r1: string; r2: string; v: string; vb?: string }
+  | { kind: 'wirefield'; dir: 'out' | 'in' }
+  | { kind: 'fleming'; n: 'left' | 'right'; current: 'out' | 'in'; force?: 'up' | 'down' }
+  | { kind: 'xfmr'; np: string; ns: string; vp?: string; vs?: string }
+  | { kind: 'induct'; move: 'toward' | 'away' | 'still' }
   | { kind: 'resistor'; bands: string[] }
   | { kind: 'lift'; mass: string; h: string; f?: string }
   | { kind: 'push'; f: string; d: string; mass?: string }
@@ -268,6 +279,183 @@ function draw(f: Figure): JSX.Element {
           {T(160, 120, f.mass, { size: 15 })}
           {f.left && <g>{arrow(125, 120, 40, 120)}{T(82, 104, f.left, { color: CLAY })}</g>}
           {f.right && <g>{arrow(195, 120, 280, 120)}{T(238, 104, f.right, { color: CLAY })}</g>}
+        </g>
+      );
+    }
+    case 'mains': {
+      // a 230 V supply with a live wire (L, above) and a neutral wire (N, below) to a lamp; the switch is on the live or the neutral wire
+      const sw = (x: number, y: number) => <g><circle cx={x - 18} cy={y} r="3.5" fill={INK} /><circle cx={x + 18} cy={y} r="3.5" fill={INK} /><line x1={x - 18} y1={y} x2={x + 14} y2={y - 20} stroke={INK} stroke-width="3" stroke-linecap="round" /></g>;
+      const liveSw = f.switch === 'live';
+      return (
+        <g stroke={INK} stroke-width="3" fill="none">
+          <circle cx="50" cy="100" r="24" fill="var(--sc-panel)" />
+          <path d="M38 100 q6 -12 12 0 t12 0" stroke-width="2.5" />
+          <line x1="50" y1="76" x2="50" y2="60" /><line x1="50" y1="124" x2="50" y2="140" />
+          <line x1="50" y1="60" x2={liveSw ? 122 : 250} y2="60" />{liveSw && <line x1="158" y1="60" x2="250" y2="60" />}
+          <line x1="50" y1="140" x2={liveSw ? 250 : 122} y2="140" />{!liveSw && <line x1="158" y1="140" x2="250" y2="140" />}
+          <line x1="250" y1="60" x2="250" y2="82" /><line x1="250" y1="118" x2="250" y2="140" />
+          <circle cx="250" cy="100" r="18" fill="var(--sc-mango-lt)" /><line x1="237" y1="87" x2="263" y2="113" stroke-width="2.5" /><line x1="263" y1="87" x2="237" y2="113" stroke-width="2.5" />
+          {sw(140, liveSw ? 60 : 140)}
+          {T(100, 44, 'L', { size: 16, color: CLAY })}{T(100, 160, 'N', { size: 16, color: EDGE })}{T(50, 176, '230 V', { size: 12, color: INK2 })}
+        </g>
+      );
+    }
+    case 'plug': {
+      // the face of a three-pin plug; pins gives the letter at the top pin, the bottom-left pin and the bottom-right pin
+      const pin = (x: number, y: number, w: number, h: number, label: string) => <g><rect x={x - w / 2} y={y - h / 2} width={w} height={h} rx="3" fill={HG} stroke={INK} stroke-width="2.5" />{T(x, y + h / 2 + 18, label, { size: 17 })}</g>;
+      return (
+        <g>
+          <rect x="85" y="14" width="150" height="172" rx="26" fill={SOLID} stroke={INK} stroke-width="3" />
+          {pin(160, 56, 16, 44, f.pins[0])}{pin(122, 128, 16, 34, f.pins[1])}{pin(198, 128, 16, 34, f.pins[2])}
+        </g>
+      );
+    }
+    case 'diode': {
+      // a cell, a lamp and a junction diode in series: the diode triangle points right (forward) or left (reverse) along the conventional current
+      const fwd = f.bias === 'forward';
+      return (
+        <g stroke={INK} stroke-width="3" fill="none">
+          <path d="M60 70 V50 H132 M188 50 H260 V82 M260 118 V150 H60 V130" />
+          <line x1="40" y1="70" x2="80" y2="70" /><line x1="50" y1="80" x2="70" y2="80" stroke-width="6" />{T(30, 60, '+', { size: 15, color: CLAY })}{T(30, 92, '−', { size: 17, color: EDGE })}
+          <line x1="60" y1="80" x2="60" y2="130" />
+          <g fill={INK}>{fwd ? <polygon points="132,34 132,66 168,50" /> : <polygon points="168,34 168,66 132,50" />}</g>
+          <line x1={fwd ? 172 : 128} y1="32" x2={fwd ? 172 : 128} y2="68" />
+          <circle cx="260" cy="100" r="18" fill="var(--sc-mango-lt)" /><line x1="247" y1="87" x2="273" y2="113" stroke-width="2.5" /><line x1="273" y1="87" x2="247" y2="113" stroke-width="2.5" />
+        </g>
+      );
+    }
+    case 'signal': {
+      // a current against time: a.c. (sine), half wave, full wave (bridge), smoothed full wave or d.c.
+      const x0 = 30, x1 = 305, cy = f.shape === 'ac' ? 100 : 150, A = f.shape === 'ac' ? 60 : 110, n = 3, W = (x1 - x0) / n, pts: string[] = [];
+      let prev = 0;
+      for (let x = 0; x <= x1 - x0; x += 2) {
+        const sn = Math.sin((2 * Math.PI * x) / W);
+        let v = sn;
+        if (f.shape === 'half') v = Math.max(sn, 0);
+        else if (f.shape === 'full') v = Math.abs(sn);
+        else if (f.shape === 'smooth') { v = Math.max(Math.abs(sn), prev * Math.exp(-0.0125 * (W / 92))); prev = v; }
+        else if (f.shape === 'dc') v = 0.7;
+        pts.push(`${x0 + x},${cy - A * v}`);
+      }
+      return (
+        <g>
+          <line x1={x0} y1={cy} x2={x1 + 6} y2={cy} stroke={INK} stroke-width="2.5" /><line x1={x0} y1="16" x2={x0} y2="186" stroke={INK} stroke-width="2.5" />
+          <polyline points={pts.join(' ')} fill="none" stroke={EDGE} stroke-width="4" stroke-linejoin="round" />
+          {T(x0 + 8, 18, 'I', { size: 13, anchor: 'start' })}{T(x1, cy + 16, 't', { size: 13, anchor: 'end' })}
+        </g>
+      );
+    }
+    case 'pn': {
+      // a p-n junction: holes (open circles) in p, electrons (dots) in n, the depletion layer between; a cell is joined for forward or reverse bias
+      const wd = f.bias === 'forward' ? 14 : f.bias === 'reverse' ? 62 : 32, cx = 160;
+      const dots = (x0: number, x1: number, solid: boolean) => {
+        const out: JSX.Element[] = [];
+        for (let i = 0; i < 4; i++) for (let j = 0; j < 3; j++) {
+          const x = x0 + 14 + (i * (x1 - x0 - 28)) / 3, y = 50 + j * 26;
+          out.push(solid ? <circle cx={x} cy={y} r="5" fill={EDGE} /> : <circle cx={x} cy={y} r="5" fill="none" stroke={CLAY} stroke-width="2" />);
+        }
+        return out;
+      };
+      return (
+        <g>
+          <rect x="40" y="30" width="240" height="90" fill="var(--sc-panel)" stroke={INK} stroke-width="3" />
+          <rect x={cx - wd / 2} y="30" width={wd} height="90" fill={WATER} stroke="none" />
+          {dots(40, cx - wd / 2, false)}{dots(cx + wd / 2, 280, true)}
+          {T(54, 16, 'p', { size: 17 })}{T(266, 16, 'n', { size: 17 })}
+          {f.bias !== 'none' && <g stroke={INK} stroke-width="2.5" fill="none"><path d="M60 120 V170 H138 M150 170 H260 V120" />
+            <line x1="138" y1={f.bias === 'forward' ? 158 : 164} x2="138" y2={f.bias === 'forward' ? 182 : 176} stroke-width={f.bias === 'forward' ? 2.5 : 6} />
+            <line x1="150" y1={f.bias === 'forward' ? 164 : 158} x2="150" y2={f.bias === 'forward' ? 176 : 182} stroke-width={f.bias === 'forward' ? 6 : 2.5} />
+            {T(f.bias === 'forward' ? 124 : 164, 152, '+', { size: 14, color: CLAY })}</g>}
+        </g>
+      );
+    }
+    case 'transistor': {
+      // a transistor symbol: base on the left, collector above, emitter below (the arrow on the emitter points out for npn, in for pnp); labels = [base, collector, emitter]
+      const lb = f.labels ?? ['B', 'C', 'E'], cx = 170, cy = 100;
+      const npn = f.type === 'npn';
+      return (
+        <g stroke={INK} stroke-width="3" fill="none" stroke-linecap="round">
+          <circle cx={cx} cy={cy} r="62" fill="var(--sc-panel)" stroke-width="2.5" />
+          <line x1="60" y1={cy} x2="150" y2={cy} /><line x1="150" y1="68" x2="150" y2="132" stroke-width="6" />
+          <line x1="150" y1="84" x2="196" y2="52" /><line x1="196" y1="52" x2="196" y2="22" />
+          <line x1="150" y1="116" x2="196" y2="148" /><line x1="196" y1="148" x2="196" y2="178" />
+          {npn ? <polygon points="196,148 176,146 186,132" fill={INK} stroke="none" /> : <polygon points="154,112 172,116 166,130" fill={INK} stroke="none" transform="translate(0 -2)" />}
+          {T(48, cy, lb[0], { size: 16, anchor: 'end' })}{T(212, 26, lb[1], { size: 16, anchor: 'start' })}{T(212, 176, lb[2], { size: 16, anchor: 'start' })}
+        </g>
+      );
+    }
+    case 'divider': {
+      // two resistors in series across a supply v; vb is the voltage at the junction between them (the base voltage)
+      return (
+        <g stroke={INK} stroke-width="3" fill="none">
+          <line x1="120" y1="20" x2="120" y2="54" /><line x1="120" y1="54" x2="120" y2="54" />
+          {res(120, 76, f.r1, 'v')}
+          <line x1="120" y1="98" x2="120" y2="102" /><line x1="120" y1="102" x2="120" y2="116" /><line x1="120" y1="102" x2="210" y2="102" />
+          {res(120, 138, f.r2, 'v')}
+          <line x1="120" y1="160" x2="120" y2="182" /><line x1="100" y1="182" x2="140" y2="182" />
+          <line x1="100" y1="20" x2="140" y2="20" />
+          <circle cx="120" cy="102" r="4" fill={INK} />
+          {T(150, 12, f.v, { size: 14, anchor: 'start' })}
+          {f.vb && T(222, 102, f.vb, { size: 15, anchor: 'start', color: CLAY })}
+        </g>
+      );
+    }
+    case 'wirefield': {
+      // the magnetic field round a straight wire seen end-on: a dot (current out of the page) or a cross (current into the page), with circular field lines
+      const out = f.dir === 'out', cx = 160, cy = 100;
+      const head = (r: number) => { const x = cx, y = cy - r, d = out ? -1 : 1; return <polygon points={`${x + d * 9},${y} ${x - d * 1},${y - 6} ${x - d * 1},${y + 6}`} fill={CLAY} />; };
+      return (
+        <g>
+          {[28, 52, 76].map((r) => <g><circle cx={cx} cy={cy} r={r} fill="none" stroke={CLAY} stroke-width="2.5" />{head(r)}</g>)}
+          <circle cx={cx} cy={cy} r="11" fill="var(--sc-panel)" stroke={INK} stroke-width="2.5" />
+          {out ? <circle cx={cx} cy={cy} r="3.5" fill={INK} /> : <g stroke={INK} stroke-width="2.5"><line x1={cx - 5} y1={cy - 5} x2={cx + 5} y2={cy + 5} /><line x1={cx + 5} y1={cy - 5} x2={cx - 5} y2={cy + 5} /></g>}
+        </g>
+      );
+    }
+    case 'fleming': {
+      // a conductor seen end-on between the poles of a magnet; the field runs from N to S; current out of the page (dot) or into it (cross); force, if given, is the arrow on the conductor
+      const nl = f.n === 'left', out = f.current === 'out', cx = 160, cy = 100;
+      return (
+        <g>
+          <rect x="20" y="40" width="50" height="120" rx="4" fill={nl ? 'var(--sc-clay-lt)' : WATER} stroke={INK} stroke-width="2.5" />{T(45, 100, nl ? 'N' : 'S', { size: 22 })}
+          <rect x="250" y="40" width="50" height="120" rx="4" fill={nl ? WATER : 'var(--sc-clay-lt)'} stroke={INK} stroke-width="2.5" />{T(275, 100, nl ? 'S' : 'N', { size: 22 })}
+          {[56, 80, 120, 144].map((y) => (nl ? arrow(80, y, 240, y, INK2) : arrow(240, y, 80, y, INK2)))}
+          <circle cx={cx} cy={cy} r="13" fill="var(--sc-panel)" stroke={INK} stroke-width="2.5" />
+          {out ? <circle cx={cx} cy={cy} r="4" fill={INK} /> : <g stroke={INK} stroke-width="2.5"><line x1={cx - 6} y1={cy - 6} x2={cx + 6} y2={cy + 6} /><line x1={cx + 6} y1={cy - 6} x2={cx - 6} y2={cy + 6} /></g>}
+          {f.force === 'up' && arrow(cx, cy - 16, cx, cy - 52)}{f.force === 'down' && arrow(cx, cy + 16, cx, cy + 52)}
+        </g>
+      );
+    }
+    case 'xfmr': {
+      // a transformer: two coils on an iron core; np and ns are written above the primary (left) and secondary (right) coils, vp and vs at the terminals
+      const coil = (x: number, label: string) => (
+        <g>
+          {Array.from({ length: 6 }, (_, i) => <ellipse cx={x} cy={64 + i * 14} rx="16" ry="7" fill="none" stroke={CLAY} stroke-width="3" />)}
+          {T(x, 42, label, { size: 15 })}
+        </g>
+      );
+      return (
+        <g>
+          <rect x="105" y="52" width="110" height="104" rx="4" fill="none" stroke={INK2} stroke-width="14" />
+          {coil(105, f.np)}{coil(215, f.ns)}
+          <g stroke={INK} stroke-width="2.5" fill="none"><path d="M89 70 H40 M89 144 H40" /><path d="M231 70 H280 M231 144 H280" /></g>
+          {f.vp && T(30, 107, f.vp, { size: 14, anchor: 'end' })}{f.vs && T(290, 107, f.vs, { size: 14, anchor: 'start' })}
+        </g>
+      );
+    }
+    case 'induct': {
+      // a bar magnet moving towards, away from, or still near a coil joined to a centre-zero galvanometer G; the needle shows the deflection
+      const dx = f.move === 'toward' ? 1 : f.move === 'away' ? -1 : 0, mx = f.move === 'toward' ? 50 : f.move === 'away' ? 80 : 65;
+      const ang = ((dx * 32) * Math.PI) / 180;
+      return (
+        <g>
+          <rect x={mx} y="48" width="36" height="26" fill="var(--sc-clay-lt)" stroke={INK} stroke-width="2.5" /><rect x={mx + 36} y="48" width="36" height="26" fill={WATER} stroke={INK} stroke-width="2.5" />
+          {T(mx + 18, 61, 'N', { size: 14 })}{T(mx + 54, 61, 'S', { size: 14 })}
+          {dx !== 0 && (dx > 0 ? arrow(mx + 14, 34, mx + 66, 34, INK2) : arrow(mx + 66, 34, mx + 14, 34, INK2))}
+          {Array.from({ length: 6 }, (_, i) => <ellipse cx={190 + i * 12} cy="61" rx="10" ry="26" fill="none" stroke={CLAY} stroke-width="3" />)}
+          <g stroke={INK} stroke-width="2.5" fill="none"><path d="M190 87 V120 H160 M250 87 V120 H280 V150 M160 120 V150" /><circle cx="220" cy="156" r="36" fill="var(--sc-panel)" transform="translate(0 4)" />
+            <line x1="220" y1="160" x2={220 + 30 * Math.sin(ang)} y2={160 - 30 * Math.cos(ang)} stroke={CLAY} stroke-width="3" stroke-linecap="round" /></g>
+          {T(220, 190, 'G', { size: 14 })}
         </g>
       );
     }

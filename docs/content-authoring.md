@@ -115,6 +115,24 @@ is `{ "en", "ta", "si" }`.
 
 The page shows only the sections that add something new.
 
+## Formula cards
+
+All cards are in one file, `content/formulas/physics.json`, in the order the chapters teach them. The page is `/formulas/`, and `/formulas/#<chapter slug>` opens one chapter. A lesson's step bar links to its chapter's cards when it has any.
+
+- **A card** has:
+  - `lesson`: the catalog id;
+  - `name` and `worked` (one worked example), each `{ "en", "ta", "si" }`;
+  - `math`: the formula in symbols, such as `P = h ρ g`. Use `{ "en", "ta", "si" }` only when it is in words;
+  - `symbols`: each with its meaning in the three languages and its `unit`;
+  - an optional `tip`.
+- **`box`** is the English label of the lesson's own formula box that the card comes from (the `flabel` in the notes), or `null` for a formula the notes teach without a box.
+- **Terms:** use the textbook terms from the lessons' glossaries: in Tamil, கதி is speed, வேகம் velocity, ஆர்முடுகல் acceleration, திணிவு mass, நிறை weight. Worked examples take g = 10 m s⁻², as the exam does.
+
+`python tests/test_formula_cards.py` (in CI) checks:
+- every card is complete in the three languages and names a lesson of the catalog;
+- each `box` is still in its lesson;
+- every formula box of the lessons is on a card. A box that is not a formula is listed in `NOT_A_CARD`, so a new formula in a lesson cannot be missed.
+
 ## Adding a chapter, or a new subject
 
 1. Write `content/<subject>/g<grade>/<slug>/lesson.json`: copy a chapter of the same kind and replace its content. Give every step and question a new id.

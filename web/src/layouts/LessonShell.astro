@@ -27,8 +27,10 @@ interface Props {
   prefix?: string;
   /** The current page's section ids -> step ids (lesson.legacy.steps), so old links (#examples) open the right step. */
   aliases?: Record<string, string>;
+  /** The chapter's formula cards (/formulas/#<chapter>), when it has any: a button in the step bar. */
+  formulas?: string;
 }
-const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', aliases = {} } = Astro.props;
+const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', aliases = {}, formulas } = Astro.props;
 ---
 <AppLayout title={pageTitle} description={description} noindex>
   <header class="lhead" slot="header">
@@ -54,7 +56,7 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', al
       {/* with steps, the light / dark switch is in the lesson map (LessonPlayer): the header keeps room for the title */}
       {!steps && <ThemeToggle client:idle />}
     </div>
-    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} aliases={aliases} /></div>}
+    {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} aliases={aliases} formulas={formulas} /></div>}
   </header>
 
   <div class="wrap narrow lesson" id="lesson-top">

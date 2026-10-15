@@ -369,3 +369,17 @@ A phone-first audit of the whole app (375 × 812, English and Tamil) found 16 pr
 - Weight carries the hierarchy: headings 800, controls 700, labels 600, reading text 400.
 - The course home: one skip link (two differed by a letter), 12 px stat labels.
 - The service worker version is v26, and a new version fills its cache from the server, not from the browser's copy.
+## 13. Formula cards (2026-10-14)
+
+From the audit's list of features, the owner chose formula cards. `/formulas/` has 39 cards from the 14 chapters that have formulas; Electronics has none.
+- **A card:** the formula, each symbol with its meaning and unit, one worked example (g = 10), and a tip. It links to the lesson's notes and the chapter's past paper questions.
+- **The deck:** one card at a time, swiped, with Previous / Next or the arrow keys. A list view shows them all. The chapter chips choose a chapter (`#<chapter>` in the address).
+- **Test me** hides every formula until it is tapped, for revision.
+- **Languages:** all three. Tamil and Sinhala use the textbook terms of the lessons' glossaries.
+- **Ways in:**
+  - a Σ button in every lesson's step bar, which opens that chapter's cards;
+  - "Revise with the formula cards" on a lesson's finish;
+  - a card on the course home and on the past papers home;
+  - a button on Me.
+- **Like the lessons:** login-only (`web/scripts/private.mjs`, the `/formulas` route) and kept offline by the service worker (v27).
+- **The data:** `content/formulas/physics.json`. `tests/test_formula_cards.py` ties each card to its lesson's formula box and fails if a lesson gains a formula box that no card shows.

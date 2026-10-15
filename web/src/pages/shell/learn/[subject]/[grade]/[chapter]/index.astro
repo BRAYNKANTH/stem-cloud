@@ -10,6 +10,7 @@ import { LESSONS } from '../../../../../../lib/lessons';
 import { FINISH_ID, FLAG_ICON, UI, chapterLine, stepInfo } from '../../../../../../lib/lesson-ui';
 import { TOPIC_UI, topicsUrl } from '../../../../../../lib/topics';
 import type { Lesson } from '../../../../../../lib/content-types';
+import formulaData from '../../../../../../../../content/formulas/physics.json';
 
 export function getStaticPaths() {
   return LESSONS.map((lesson) => ({ params: { subject: lesson.subject, grade: 'g' + lesson.grade, chapter: lesson.slug }, props: { lesson } }));
@@ -17,16 +18,21 @@ export function getStaticPaths() {
 
 const { lesson } = Astro.props as { lesson: Lesson };
 const steps = [...stepInfo(lesson), { id: FINISH_ID, label: UI.finish, phase: 'p4' as const, icon: FLAG_ICON }];
+// the chapter's formula cards (content/formulas), when it has any
+const formulas = formulaData.cards.some((c) => c.lesson === lesson.id) ? '/formulas/#' + lesson.slug : undefined;
 ---
 <LessonShell pageTitle={`${lesson.title.en} · STEM Cloud`} description={`GCE O/L Physics, Grade ${lesson.grade}: ${lesson.title.en}.`}
-             title={lesson.title} sub={chapterLine(lesson)} back={{ href: '/lessons/index.html', label: UI.contents }} steps={steps} lesson={lesson.id} aliases={lesson.legacy?.steps ?? {}}>
+             title={lesson.title} sub={chapterLine(lesson)} back={{ href: '/lessons/index.html', label: UI.contents }} steps={steps} lesson={lesson.id} aliases={lesson.legacy?.steps ?? {}} formulas={formulas}>
   {(lesson.topics?.length ?? 0) > 0 && <a slot="links" class="btn btn-sm by-topic" href={topicsUrl(lesson)}><T t={TOPIC_UI.byTopic} /></a>}
   {lesson.steps.map((s) => <Step step={s} lesson={lesson} />)}
   <section class="lstep finish" id={FINISH_ID} aria-labelledby="finish-h">
     <div class="card">
       <h2 id="finish-h"><span aria-hidden="true">🏁</span> <T t={UI.finished} /></h2>
       <p><T t={UI.proud} /></p>
-      <a class="btn primary" href="/lessons/index.html"><T t={UI.allLessons} /></a>
+      <div class="finish-go">
+        <a class="btn primary" href="/lessons/index.html"><T t={UI.allLessons} /></a>
+        {formulas && <a class="btn" href={formulas}><T t={UI.reviseFormulas} /></a>}
+      </div>
     </div>
   </section>
 </LessonShell>

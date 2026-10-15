@@ -26,6 +26,7 @@ FIGURES = {
     'hydraulic': {'a1', 'a2', 'f1', 'f2'}, 'barometer': {'h'}, 'utube': set(), 'balance': {'air', 'water'}, 'float': {'weight', 'sub'},
     'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
     'lift': {'mass', 'h'}, 'push': {'f', 'd'}, 'bars': {'groups'}, 'swing': {'a', 'b'},
+    'wave': {'cycles'}, 'traces': {'items'}, 'slinky': set(), 'sonar': {'depth'}, 'mirror': {'i', 'r'}, 'refract': {'from', 'i', 'r'}, 'tir': {'state'}, 'lens': {'u'}, 'scales': set(),
 }
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
@@ -123,6 +124,16 @@ def check_pool(path: Path, seen_ids: set, problems: list):
                 say('a %s figure needs %s' % (fig['kind'], ', '.join(sorted(FIGURES[fig['kind']] - set(fig)))))
             elif fig['kind'] == 'bars' and not (fig['groups'] and all(isinstance(g, dict) and g.get('at') and all(isinstance(g.get(k), (int, float)) and 0 <= g[k] <= 100 for k in ('ek', 'ep')) for g in fig['groups'])):
                 say('a bars figure needs groups, each with at and ek, ep from 0 to 100')
+            elif fig['kind'] == 'wave' and fig['cycles'] not in (1, 2, 3, 4):
+                say('a wave figure needs cycles 1 to 4')
+            elif fig['kind'] == 'traces' and not (1 <= len(fig['items']) <= 3 and all(isinstance(t, dict) and t.get('l') and t.get('cycles') and 0 < t.get('size', 0) <= 1 for t in fig['items'])):
+                say('a traces figure needs 1 to 3 items, each with l, cycles and a size up to 1')
+            elif fig['kind'] == 'refract' and fig['from'] not in ('rare', 'dense'):
+                say('a refract figure needs from rare or dense')
+            elif fig['kind'] == 'tir' and fig['state'] not in ('less', 'critical', 'greater'):
+                say('a tir figure needs state less, critical or greater')
+            elif fig['kind'] == 'lens' and not (0.3 <= fig['u'] <= 4 and not 0.9 <= fig['u'] <= 1.1 and (fig.get('type') or 'convex') in ('convex', 'concave')):
+                say('a lens figure needs u from 0.3 to 4 focal lengths (not near 1) and type convex or concave')
     return len(data.get('questions', []))
 
 

@@ -1432,7 +1432,7 @@ Why: True. At the top its velocity is zero, so ½ m v² = 0 and all its energy i
 
 ## Change
 
-### we-096 · true / false · think
+### we-096 · true / false · think · picture: bars
 
 **EN:** In the bar picture, the swing at C is higher than at A.
 

@@ -21,6 +21,11 @@
       "permanent": false
     },
     {
+      "source": "/shell/feed(.*)",
+      "destination": "/feed/",
+      "permanent": false
+    },
+    {
       "source": "/shell/formulas(.*)",
       "destination": "/formulas/",
       "permanent": false
@@ -39,7 +44,7 @@
   ],
   "functions": {
     "api/index.py": {
-      "includeFiles": "{site,public,stemcloud,content/past-papers,web/dist/home,web/dist/shell,web/dist-private}/**",
+      "includeFiles": "{site,public,stemcloud,content/past-papers,content/feed,web/dist/home,web/dist/shell,web/dist-private}/**",
       "maxDuration": 30,
       "excludeFiles": "web/{node_modules,src,scripts,.astro,dist/_astro,dist/static}/**"
     }

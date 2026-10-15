@@ -71,9 +71,20 @@ def _progress_v2(c):
         c.execute('ALTER TABLE users ADD COLUMN xp_total INTEGER NOT NULL DEFAULT 0')
 
 
+def _learning_feed(c):
+    """The learning feed (stemcloud/routers/feed.py): each student's first answer to a feed card, so a card can show
+    how everyone answered ("62% chose B"). Only the first answer counts, so trying again cannot tip a poll."""
+    _int = 'BIGINT' if PG else 'INTEGER'
+    ref = '%s NOT NULL REFERENCES users(id) ON DELETE CASCADE' % _int
+    c.execute('CREATE TABLE IF NOT EXISTS feed_answers(user_id %s, card_id TEXT NOT NULL, choice INTEGER NOT NULL, correct INTEGER NOT NULL, '
+              'answered_at %s NOT NULL, PRIMARY KEY(user_id, card_id))' % (ref, _int))
+    c.execute('CREATE INDEX IF NOT EXISTS idx_feed_answers_card ON feed_answers(card_id)')
+
+
 MIGRATIONS = [
     (1, 'baseline', _baseline),
     (2, 'progress v2', _progress_v2),
+    (3, 'learning feed', _learning_feed),
 ]
 
 

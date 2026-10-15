@@ -64,6 +64,8 @@ jobs:
           python tests/test_past_paper_content.py
       - name: Formula cards (content/formulas, from the lessons' formula boxes)
         run: python tests/test_formula_cards.py
+      - name: Learning feed (its cards and its answer API)
+        run: python tests/test_feed.py
 
   web:
     name: Web app (type check, build, JS budget)

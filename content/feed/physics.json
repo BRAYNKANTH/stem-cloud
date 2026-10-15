@@ -1,0 +1,150 @@
+{
+  "about": "The learning feed (web/src/pages/shell/feed, stemcloud/routers/feed.py): cards in the order they are shown. Types: 'predict' (a scene plays, stops, the student predicts, the scene finishes), 'tf' (swipe true or false; correct is 1 for true, 0 for false), 'mcq' (tap one of the options), 'idea' (a formula card, by its id in content/formulas/physics.json). Every question card shows how all students answered once it is answered. tests/test_feed.py checks the cards.",
+  "cards": [
+    {
+      "id": "predict-bottle", "type": "predict", "lesson": "physics.g10.hydrostatic-pressure", "scene": "bottle",
+      "question": {"en": "A bottle of water has three holes. From which hole does the water shoot out fastest?", "ta": "நீர் நிறைந்த போத்தலில் மூன்று துளைகள். எந்தத் துளையிலிருந்து நீர் மிக வேகமாகப் பீச்சியடிக்கும்?", "si": "ජලය පිරි බෝතලයක සිදුරු තුනක් ඇත. ජලය වේගයෙන්ම විදින්නේ කුමන සිදුරෙන්ද?"},
+      "options": [
+        {"en": "The top hole", "ta": "மேல் துளை", "si": "ඉහළ සිදුර"},
+        {"en": "The middle hole", "ta": "நடுத் துளை", "si": "මැද සිදුර"},
+        {"en": "The bottom hole", "ta": "கீழ்த் துளை", "si": "පහළ සිදුර"}
+      ],
+      "correct": 2,
+      "why": {"en": "Deeper water has more pressure (P = hρg), so it pushes water out of the bottom hole fastest.", "ta": "ஆழம் கூடக்கூட அமுக்கம் கூடும் (P = hρg), அதனால் கீழ்த் துளையிலிருந்து நீர் மிக வேகமாகப் பாய்கிறது.", "si": "ගැඹුර වැඩි වන විට පීඩනය වැඩිය (P = hρg), එබැවින් පහළ සිදුරෙන් ජලය වේගයෙන්ම පිටවේ."}
+    },
+    {
+      "id": "tf-heavy-falls-faster", "type": "tf", "lesson": "physics.g10.motion-in-a-straight-line",
+      "statement": {"en": "With no air resistance, a heavy stone falls faster than a light stone.", "ta": "காற்றுத் தடை இல்லையென்றால், பாரமான கல் இலேசான கல்லை விட வேகமாக விழும்.", "si": "වායු ප්‍රතිරෝධය නැත්නම්, බර ගලක් සැහැල්ලු ගලකට වඩා වේගයෙන් වැටේ."},
+      "correct": 0,
+      "why": {"en": "False. Every object falls with the same acceleration, g ≈ 10 m s⁻², whatever its mass.", "ta": "பிழை. திணிவு எதுவானாலும் எல்லாப் பொருளும் ஒரே ஆர்முடுகலுடன் (g ≈ 10 m s⁻²) விழும்.", "si": "අසත්‍යයි. ස්කන්ධය කුමක් වුවත් සියලු වස්තු එකම ත්වරණයෙන් (g ≈ 10 m s⁻²) වැටේ."}
+    },
+    {"id": "idea-liquid-pressure", "type": "idea", "lesson": "physics.g10.hydrostatic-pressure", "formula": "liquid-pressure"},
+    {
+      "id": "mcq-diver", "type": "mcq", "lesson": "physics.g10.hydrostatic-pressure",
+      "question": {"en": "A diver goes from 2 m to 4 m deep. The water's pressure on her…", "ta": "ஒரு சுழியோடி 2 m ஆழத்திலிருந்து 4 m ஆழத்துக்குச் செல்கிறாள். அவள் மீதான நீரின் அமுக்கம்…", "si": "කිමිදුම්කාරියක් 2 m ගැඹුරේ සිට 4 m ගැඹුරට යයි. ඇය මත ජලයේ පීඩනය…"},
+      "options": [
+        {"en": "stays the same", "ta": "மாறாது", "si": "නොවෙනස්ව පවතී"},
+        {"en": "doubles", "ta": "இரட்டிக்கும்", "si": "දෙගුණ වේ"},
+        {"en": "halves", "ta": "பாதியாகும்", "si": "අඩක් වේ"}
+      ],
+      "correct": 1,
+      "why": {"en": "P = hρg: double the depth, double the pressure.", "ta": "P = hρg: ஆழம் இரட்டித்தால் அமுக்கமும் இரட்டிக்கும்.", "si": "P = hρg: ගැඹුර දෙගුණ වූ විට පීඩනයද දෙගුණ වේ."}
+    },
+    {
+      "id": "tf-speed-velocity", "type": "tf", "lesson": "physics.g10.motion-in-a-straight-line",
+      "statement": {"en": "Speed and velocity mean exactly the same thing.", "ta": "கதியும் வேகமும் ஒரே கருத்துடையவை.", "si": "වේගය සහ ප්‍රවේගය යන්නෙහි තේරුම හරියටම එකමය."},
+      "correct": 0,
+      "why": {"en": "False. Velocity also has a direction; speed does not.", "ta": "பிழை. வேகத்துக்குத் திசையும் உண்டு; கதிக்குத் திசை இல்லை.", "si": "අසත්‍යයි. ප්‍රවේගයට දිශාවක්ද ඇත; වේගයට නැත."}
+    },
+    {
+      "id": "predict-bulbs", "type": "predict", "lesson": "physics.g10.current-electricity", "scene": "bulbs",
+      "question": {"en": "One bulb glows. We add a second bulb in series. The first bulb will…", "ta": "ஒரு குமிழ் ஒளிர்கிறது. இரண்டாவது குமிழைத் தொடராக இணைக்கிறோம். முதல் குமிழ்…", "si": "එක් බල්බයක් දැල්වේ. දෙවන බල්බයක් ශ්‍රේණිගතව සම්බන්ධ කරමු. පළමු බල්බය…"},
+      "options": [
+        {"en": "get brighter", "ta": "மேலும் பிரகாசமாகும்", "si": "වඩා දීප්තිමත් වේ"},
+        {"en": "get dimmer", "ta": "மங்கலாகும்", "si": "මඳ වේ"},
+        {"en": "stay the same", "ta": "மாறாது", "si": "නොවෙනස්ව පවතී"}
+      ],
+      "correct": 1,
+      "why": {"en": "Two bulbs in series add their resistance, so a smaller current flows (I = V ÷ R) and each bulb is dimmer.", "ta": "தொடரில் இரு குமிழ்களின் தடையும் கூடுகிறது, அதனால் மின்னோட்டம் குறைகிறது (I = V ÷ R), ஒவ்வொரு குமிழும் மங்கலாகிறது.", "si": "ශ්‍රේණිගතව බල්බ දෙකේ ප්‍රතිරෝධය එකතු වේ, එබැවින් ධාරාව අඩු වේ (I = V ÷ R), සෑම බල්බයක්ම මඳ වේ."}
+    },
+    {"id": "idea-ohm", "type": "idea", "lesson": "physics.g10.current-electricity", "formula": "ohm"},
+    {
+      "id": "tf-parallel", "type": "tf", "lesson": "physics.g10.current-electricity",
+      "statement": {"en": "Adding another resistor in parallel makes the total resistance smaller.", "ta": "இன்னொரு தடையியைச் சமாந்தரமாக இணைத்தால் மொத்தத் தடை குறையும்.", "si": "තවත් ප්‍රතිරෝධකයක් සමාන්තරගතව එකතු කළ විට මුළු ප්‍රතිරෝධය අඩු වේ."},
+      "correct": 1,
+      "why": {"en": "True. Parallel gives the current another path, so the total is less than the smallest resistor.", "ta": "சரி. சமாந்தரம் மின்னோட்டத்துக்கு இன்னொரு பாதை தருகிறது, அதனால் மொத்தம் மிகச் சிறிய தடையை விடக் குறைவு.", "si": "සත්‍යයි. සමාන්තරගතව ධාරාවට තවත් මාර්ගයක් ලැබේ, එබැවින් මුළු ප්‍රතිරෝධය කුඩාම ප්‍රතිරෝධයට වඩා අඩුය."}
+    },
+    {
+      "id": "mcq-trolley", "type": "mcq", "lesson": "physics.g10.newtons-laws",
+      "question": {"en": "A 2 kg trolley accelerates at 3 m s⁻². The unbalanced force on it is…", "ta": "2 kg தள்ளுவண்டி 3 m s⁻² ஆர்முடுகலுடன் செல்கிறது. அதன் மீதான சமநிலைப்படாத விசை…", "si": "2 kg ට්‍රොලියක් 3 m s⁻² න් ත්වරණය වේ. එය මත අසමතුලිත බලය…"},
+      "options": [
+        {"en": "1.5 N", "ta": "1.5 N", "si": "1.5 N"},
+        {"en": "5 N", "ta": "5 N", "si": "5 N"},
+        {"en": "6 N", "ta": "6 N", "si": "6 N"}
+      ],
+      "correct": 2,
+      "why": {"en": "F = m a = 2 × 3 = 6 N.", "ta": "F = m a = 2 × 3 = 6 N.", "si": "F = m a = 2 × 3 = 6 N."}
+    },
+    {
+      "id": "tf-moon-mass", "type": "tf", "lesson": "physics.g10.newtons-laws",
+      "statement": {"en": "On the Moon your mass is 1/6 of your mass on Earth.", "ta": "நிலவில் உன் திணிவு புவியில் உள்ளதில் 1/6 ஆகும்.", "si": "සඳේදී ඔබේ ස්කන්ධය පෘථිවියේ ස්කන්ධයෙන් 1/6 කි."},
+      "correct": 0,
+      "why": {"en": "False. Mass stays the same; your weight is about 1/6.", "ta": "பிழை. திணிவு மாறாது; நிறைதான் ஏறத்தாழ 1/6.", "si": "අසත්‍යයි. ස්කන්ධය වෙනස් නොවේ; බර පමණක් 1/6 ක් පමණ වේ."}
+    },
+    {
+      "id": "predict-melt", "type": "predict", "lesson": "physics.g11.heat", "scene": "melt",
+      "question": {"en": "Ice is heated steadily. While it is melting, the thermometer reading will…", "ta": "பனிக்கட்டி சீராகச் சூடாக்கப்படுகிறது. அது உருகும்போது வெப்பமானி வாசிப்பு…", "si": "අයිස් ඒකාකාරව රත් කරයි. එය දිය වන අතරතුර උෂ්ණත්වමාන කියවීම…"},
+      "options": [
+        {"en": "keep rising", "ta": "தொடர்ந்து கூடும்", "si": "දිගටම ඉහළ යයි"},
+        {"en": "stay at 0 °C", "ta": "0 °C இல் நிற்கும்", "si": "0 °C හි පවතී"},
+        {"en": "fall", "ta": "குறையும்", "si": "අඩු වේ"}
+      ],
+      "correct": 1,
+      "why": {"en": "The heat goes into melting the ice (latent heat), not into raising the temperature. It rises again only when all the ice has melted.", "ta": "வெப்பம் பனிக்கட்டியை உருக்கச் செலவாகிறது (மறை வெப்பம்), வெப்பநிலையைக் கூட்ட அல்ல. முழுவதும் உருகிய பின்தான் மீண்டும் கூடும்.", "si": "තාපය වැය වන්නේ අයිස් දිය කිරීමටයි (ගුප්ත තාපය), උෂ්ණත්වය වැඩි කිරීමට නොවේ. සියලු අයිස් දිය වූ පසුව පමණක් එය නැවත ඉහළ යයි."}
+    },
+    {"id": "idea-kinetic", "type": "idea", "lesson": "physics.g10.work-energy-power", "formula": "kinetic"},
+    {
+      "id": "mcq-heat-same", "type": "mcq", "lesson": "physics.g11.heat",
+      "question": {"en": "Which needs more heat: 1 kg of water warmed by 10 °C, or 2 kg warmed by 5 °C?", "ta": "எதற்கு அதிக வெப்பம் தேவை: 1 kg நீரை 10 °C சூடாக்க, அல்லது 2 kg நீரை 5 °C சூடாக்க?", "si": "වැඩි තාපයක් අවශ්‍ය කුමකටද: ජලය 1 kg 10 °C කින් රත් කිරීමට, නැත්නම් 2 kg 5 °C කින් රත් කිරීමට?"},
+      "options": [
+        {"en": "1 kg by 10 °C", "ta": "1 kg ஐ 10 °C", "si": "1 kg 10 °C කින්"},
+        {"en": "2 kg by 5 °C", "ta": "2 kg ஐ 5 °C", "si": "2 kg 5 °C කින්"},
+        {"en": "The same", "ta": "இரண்டும் சமம்", "si": "දෙකම සමානයි"}
+      ],
+      "correct": 2,
+      "why": {"en": "Q = m c θ: 1 × 10 = 2 × 5, so both need the same heat (42 000 J for water).", "ta": "Q = m c θ: 1 × 10 = 2 × 5, அதனால் இரண்டுக்கும் ஒரே வெப்பம் (நீருக்கு 42 000 J).", "si": "Q = m c θ: 1 × 10 = 2 × 5, එබැවින් දෙකටම එකම තාපයක් (ජලයට 42 000 J)."}
+    },
+    {
+      "id": "tf-sound-vacuum", "type": "tf", "lesson": "physics.g11.waves",
+      "statement": {"en": "Sound can travel through a vacuum.", "ta": "ஒலி வெற்றிடத்தின் ஊடாகச் செல்லும்.", "si": "ශබ්දයට රික්තයක් හරහා ගමන් කළ හැකිය."},
+      "correct": 0,
+      "why": {"en": "False. Sound needs a medium (solid, liquid or gas) to travel through; light does not.", "ta": "பிழை. ஒலி செல்ல ஊடகம் (திண்மம், திரவம், வாயு) தேவை; ஒளிக்குத் தேவையில்லை.", "si": "අසත්‍යයි. ශබ්දයට ගමන් කිරීමට මාධ්‍යයක් (ඝන, ද්‍රව, වායු) අවශ්‍යයි; ආලෝකයට එසේ නොවේ."}
+    },
+    {
+      "id": "mcq-wave-speed", "type": "mcq", "lesson": "physics.g11.waves",
+      "question": {"en": "A wave has a frequency of 50 Hz and a wavelength of 2 m. Its speed is…", "ta": "ஒரு அலையின் மீடிறன் 50 Hz, அலைநீளம் 2 m. அதன் கதி…", "si": "තරංගයක සංඛ්‍යාතය 50 Hz සහ තරංග ආයාමය 2 m වේ. එහි වේගය…"},
+      "options": [
+        {"en": "25 m s⁻¹", "ta": "25 m s⁻¹", "si": "25 m s⁻¹"},
+        {"en": "52 m s⁻¹", "ta": "52 m s⁻¹", "si": "52 m s⁻¹"},
+        {"en": "100 m s⁻¹", "ta": "100 m s⁻¹", "si": "100 m s⁻¹"}
+      ],
+      "correct": 2,
+      "why": {"en": "v = f λ = 50 × 2 = 100 m s⁻¹.", "ta": "v = f λ = 50 × 2 = 100 m s⁻¹.", "si": "v = f λ = 50 × 2 = 100 m s⁻¹."}
+    },
+    {
+      "id": "tf-step-up", "type": "tf", "lesson": "physics.g11.electromagnetism",
+      "statement": {"en": "A step-up transformer has more turns on its secondary coil than on its primary.", "ta": "படிகூட்டு நிலைமாற்றியின் துணைச் சுருளில் முதன்மைச் சுருளை விட அதிக சுற்றுகள் உள்ளன.", "si": "අධිකර පරිණාමකයක ද්විතීයික දඟරයේ ප්‍රාථමිකයට වඩා වට වැඩිය."},
+      "correct": 1,
+      "why": {"en": "True. Vs ÷ Vp = Ns ÷ Np, so more secondary turns give a higher voltage.", "ta": "சரி. Vs ÷ Vp = Ns ÷ Np, அதனால் துணைச் சுருளில் அதிக சுற்றுகள் அதிக அழுத்தம் தரும்.", "si": "සත්‍යයි. Vs ÷ Vp = Ns ÷ Np, එබැවින් ද්විතීයිකයේ වට වැඩි නම් වෝල්ටීයතාව වැඩිය."}
+    },
+    {"id": "idea-moment", "type": "idea", "lesson": "physics.g10.turning-effect", "formula": "moment"},
+    {
+      "id": "mcq-small-area", "type": "mcq", "lesson": "physics.g10.hydrostatic-pressure",
+      "question": {"en": "The same force pushes on a big area and on a small area. The pressure is bigger on…", "ta": "ஒரே விசை பெரிய பரப்பிலும் சிறிய பரப்பிலும் தள்ளுகிறது. அமுக்கம் அதிகம்…", "si": "එකම බලය විශාල වර්ගඵලයක් හා කුඩා වර්ගඵලයක් මත තෙරපයි. පීඩනය වැඩි වන්නේ…"},
+      "options": [
+        {"en": "the big area", "ta": "பெரிய பரப்பில்", "si": "විශාල වර්ගඵලය මත"},
+        {"en": "the small area", "ta": "சிறிய பரப்பில்", "si": "කුඩා වර්ගඵලය මත"},
+        {"en": "both the same", "ta": "இரண்டிலும் சமம்", "si": "දෙකෙහිම සමානයි"}
+      ],
+      "correct": 1,
+      "why": {"en": "P = F ÷ A: a smaller area gives a bigger pressure. That is why a nail has a sharp point.", "ta": "P = F ÷ A: சிறிய பரப்பு அதிக அமுக்கம் தரும். அதனால்தான் ஆணிக்குக் கூர்மையான முனை.", "si": "P = F ÷ A: කුඩා වර්ගඵලයක් වැඩි පීඩනයක් දෙයි. ඇණයකට තියුණු තුඩක් ඇත්තේ එබැවිනි."}
+    },
+    {
+      "id": "tf-push-wall", "type": "tf", "lesson": "physics.g10.work-energy-power",
+      "statement": {"en": "You do work when you push hard on a wall that does not move.", "ta": "அசையாத சுவரைப் பலமாகத் தள்ளும்போது நீ வேலை செய்கிறாய்.", "si": "නොසෙල්වෙන බිත්තියක් තදින් තල්ලු කරන විට ඔබ කාර්යයක් කරයි."},
+      "correct": 0,
+      "why": {"en": "False. Work = F × d, and the wall moves no distance, so no work is done (even though you get tired).", "ta": "பிழை. வேலை = F × d; சுவர் நகரவில்லை, அதனால் வேலை இல்லை (நீ களைத்தாலும்).", "si": "අසත්‍යයි. කාර්යය = F × d; බිත්තිය දුරක් චලනය නොවේ, එබැවින් කාර්යයක් නැත (ඔබ වෙහෙසට පත් වුවත්)."}
+    },
+    {
+      "id": "mcq-refraction", "type": "mcq", "lesson": "physics.g11.geometrical-optics",
+      "question": {"en": "A ray of light goes from air into glass at an angle. It bends…", "ta": "ஒளிக்கதிர் காற்றிலிருந்து கண்ணாடிக்குள் சாய்வாகச் செல்கிறது. அது வளைவது…", "si": "ආලෝක කිරණයක් ආනතව වාතයේ සිට වීදුරුවට යයි. එය නැමෙන්නේ…"},
+      "options": [
+        {"en": "towards the normal", "ta": "செவ்வனை நோக்கி", "si": "අභිලම්බය දෙසට"},
+        {"en": "away from the normal", "ta": "செவ்வனை விட்டு விலகி", "si": "අභිලම්බයෙන් ඉවතට"},
+        {"en": "it does not bend", "ta": "வளையாது", "si": "නොනැමේ"}
+      ],
+      "correct": 0,
+      "why": {"en": "Light slows down in glass, so it bends towards the normal (n = sin i ÷ sin r ≈ 1.5).", "ta": "கண்ணாடியில் ஒளி வேகம் குறைகிறது, அதனால் செவ்வனை நோக்கி வளைகிறது (n = sin i ÷ sin r ≈ 1.5).", "si": "වීදුරුවේ ආලෝකය මන්දගාමී වේ, එබැවින් අභිලම්බය දෙසට නැමේ (n = sin i ÷ sin r ≈ 1.5)."}
+    }
+  ]
+}

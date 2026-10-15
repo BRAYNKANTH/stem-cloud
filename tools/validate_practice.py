@@ -24,12 +24,13 @@ LEVELS = {'recall', 'apply', 'think'}
 FIGURES = {
     'blocks': {'weight', 'dims'}, 'vessels': set(), 'tank': {'depth', 'points'}, 'bottle': set(),
     'hydraulic': {'a1', 'a2', 'f1', 'f2'}, 'barometer': {'h'}, 'utube': set(), 'balance': {'air', 'water'}, 'float': {'weight', 'sub'},
+    'graph': {'axis', 'points'}, 'route': {'legs'}, 'forces': {'mass', 'left', 'right'}, 'circuit': {'layout', 'r', 'v'}, 'resistor': {'bands'},
 }
-OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv}
+OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv, ast.Pow: operator.pow}
 
 
 def calc(expr: str) -> float:
-    """A sum of numbers with + - × ÷ and brackets, nothing else."""
+    """A sum of numbers with + - × ÷, powers (** 2, ** 0.5) and brackets, nothing else."""
     def ev(n):
         if isinstance(n, ast.Expression):
             return ev(n.body)
@@ -45,6 +46,7 @@ def calc(expr: str) -> float:
 
 def number(text: str):
     """The first number in an option ("103 360 Pa" -> 103360, "0.33 N cm⁻²" -> 0.33), or None."""
+    text = text.replace('−', '-')                  # the minus sign the questions print
     m = re.search(r'-?\d[\d  ]*(?:\.\d+)?', text)
     return float(re.sub(r'[  ]', '', m.group(0))) if m else None
 
@@ -77,7 +79,8 @@ def check_pool(path: Path, seen_ids: set, problems: list):
             say('level should be one of %s' % sorted(LEVELS))
         if not q.get('topic'):
             say('no topic')
-        key = re.sub(r'\W+', ' ', (q.get('q') or {}).get('en', '').lower()).strip()
+        # the same words over a different picture ("from this graph, what is…") is a different question
+        key = re.sub(r'\W+', ' ', (q.get('q') or {}).get('en', '').lower()).strip() + json.dumps(q.get('figure'), sort_keys=True)
         if key in asked:
             say('the same question as %s' % asked[key])
         asked[key] = qid

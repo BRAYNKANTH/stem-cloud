@@ -14,11 +14,38 @@ export type Figure =
   | { kind: 'barometer'; h: string }
   | { kind: 'utube'; balloon?: boolean }
   | { kind: 'balance'; air: string; water: string }
-  | { kind: 'float'; weight: string; sub: number };
+  | { kind: 'float'; weight: string; sub: number }
+  | { kind: 'graph'; axis: 'v' | 's'; points: [number, number][] }
+  | { kind: 'route'; legs: ['N' | 'S' | 'E' | 'W', number][] }
+  | { kind: 'forces'; mass: string; left: string; right: string }
+  | { kind: 'circuit'; layout: 'series' | 'parallel'; r: string[]; v: string }
+  | { kind: 'resistor'; bands: string[] };
+
+const BAND: Record<string, string> = {
+  black: '#1b1b1b', brown: '#7b4a1e', red: '#d32f2f', orange: '#f57c00', yellow: '#fbc02d', green: '#2e7d32',
+  blue: '#1565c0', violet: '#7b1fa2', grey: '#8a8a8a', white: '#ffffff', gold: '#c9a227', silver: '#b8bec6',
+};
+/** A resistor box on a wire, centred at (x, y), across (h) or up and down (v). */
+const res = (x: number, y: number, label: string, dir: 'h' | 'v' = 'h') => (
+  <g>
+    {dir === 'h' ? <rect x={x - 22} y={y - 9} width="44" height="18" rx="3" fill="var(--sc-panel)" stroke={INK} stroke-width="2.5" />
+                 : <rect x={x - 9} y={y - 22} width="18" height="44" rx="3" fill="var(--sc-panel)" stroke={INK} stroke-width="2.5" />}
+    {dir === 'h' ? T(x, y - 20, label, { size: 12 }) : T(x + 16, y, label, { size: 12, anchor: 'start' })}
+  </g>
+);
+/** A cell: long (+) and short (−) plates across a gap in a vertical wire at x, centred at y. */
+const cell = (x: number, y: number, label: string) => (
+  <g>
+    <rect x={x - 14} y={y - 10} width="28" height="20" fill="var(--sc-panel)" />
+    <line x1={x - 14} y1={y - 5} x2={x + 14} y2={y - 5} stroke={INK} stroke-width="3" />
+    <line x1={x - 8} y1={y + 5} x2={x + 8} y2={y + 5} stroke={INK} stroke-width="5" />
+    {T(x - 20, y, label, { anchor: 'end', size: 12 })}
+  </g>
+);
 
 const INK = 'var(--sc-ink)', INK2 = 'var(--sc-ink-2)', WATER = 'var(--sc-blue-lt)', EDGE = 'var(--sc-blue)', SOLID = 'var(--sc-mango-lt)', HG = 'var(--sc-ink-2)', CLAY = 'var(--sc-clay)';
 const T = (x: number, y: number, s: string, o: { size?: number; anchor?: 'start' | 'middle' | 'end'; color?: string } = {}) => (
-  <text x={x} y={y} font-size={o.size ?? 13} font-weight="800" text-anchor={o.anchor ?? 'middle'} dominant-baseline="middle" fill={o.color ?? INK}>{s}</text>
+  <text x={x} y={y} font-size={o.size ?? 13} font-weight="800" text-anchor={o.anchor ?? 'middle'} dominant-baseline="middle" fill={o.color ?? INK} stroke="none">{s}</text>
 );
 const arrow = (x1: number, y1: number, x2: number, y2: number, color = CLAY) => {
   const a = Math.atan2(y2 - y1, x2 - x1), h = 8;
@@ -171,6 +198,91 @@ function draw(f: Figure): JSX.Element {
           {T(160, top - 36, '?', { color: 'var(--sc-leaf)' })}
           {arrow(205, top + 10, 205, top + bh + 22, CLAY)}
           {T(212, top + bh + 30, f.weight, { anchor: 'start', color: CLAY })}
+        </g>
+      );
+    }
+    case 'graph': {
+      // a velocity-time or displacement-time graph through the points, with each point's values on the axes
+      const x0 = 50, y0 = 170, x1 = 300, y1 = 24;
+      const tmax = Math.max(...f.points.map((p) => p[0])), vmax = Math.max(...f.points.map((p) => p[1]), 1);
+      const X = (t: number) => x0 + (t / tmax) * (x1 - x0), Y = (v: number) => y0 - (v / vmax) * (y0 - y1);
+      const ts = [...new Set(f.points.map((p) => p[0]))], vs = [...new Set(f.points.map((p) => p[1]))].filter((v) => v !== 0);
+      return (
+        <g>
+          {f.points.map(([t, v]) => <g stroke={INK2} stroke-width="1" stroke-dasharray="3 3"><line x1={X(t)} y1={Y(v)} x2={X(t)} y2={y0} /><line x1={x0} y1={Y(v)} x2={X(t)} y2={Y(v)} /></g>)}
+          <line x1={x0} y1={y0} x2={x1 + 8} y2={y0} stroke={INK} stroke-width="2.5" />
+          <line x1={x0} y1={y0} x2={x0} y2={y1 - 10} stroke={INK} stroke-width="2.5" />
+          <polyline points={f.points.map(([t, v]) => `${X(t)},${Y(v)}`).join(' ')} fill="none" stroke={EDGE} stroke-width="4" stroke-linejoin="round" />
+          {ts.map((t) => T(X(t), y0 + 13, String(t), { size: 11, color: INK2 }))}
+          {vs.map((v) => T(x0 - 6, Y(v), String(v), { size: 11, color: INK2, anchor: 'end' }))}
+          {T(x0 - 6, y0 + 13, '0', { size: 11, color: INK2, anchor: 'end' })}
+          {T(x1, y0 + 26, 't (s)', { size: 11, anchor: 'end' })}
+          {T(x0 + 4, y1 - 14, f.axis === 'v' ? 'v (m s⁻¹)' : 's (m)', { size: 11, anchor: 'start' })}
+        </g>
+      );
+    }
+    case 'route': {
+      // a walk leg by leg from S to F; the straight dashed line is from start to finish
+      const step = { N: [0, -1], S: [0, 1], E: [1, 0], W: [-1, 0] } as const;
+      const pts: [number, number][] = [[0, 0]];
+      for (const [d, n] of f.legs) { const [x, y] = pts[pts.length - 1]!; pts.push([x + step[d][0] * n, y + step[d][1] * n]); }
+      const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+      const minx = Math.min(...xs), maxx = Math.max(...xs), miny = Math.min(...ys), maxy = Math.max(...ys);
+      const k = Math.min(200 / Math.max(maxx - minx, 1), 130 / Math.max(maxy - miny, 1));
+      const P = ([x, y]: [number, number]) => [70 + (x - minx) * k, 35 + (y - miny) * k] as const;
+      const s = P(pts[0]!), e = P(pts[pts.length - 1]!);
+      return (
+        <g>
+          <polyline points={pts.map((p) => P(p).join(',')).join(' ')} fill="none" stroke={EDGE} stroke-width="4" stroke-linejoin="round" />
+          {f.legs.map(([, n], i) => { const a = P(pts[i]!), b = P(pts[i + 1]!); const vert = a[0] === b[0]; return T((a[0] + b[0]) / 2 + (vert ? 10 : 0), (a[1] + b[1]) / 2 + (vert ? 0 : -12), n + ' m', { size: 12, anchor: vert ? 'start' : 'middle' }); })}
+          <line x1={s[0]} y1={s[1]} x2={e[0]} y2={e[1]} stroke={CLAY} stroke-width="2" stroke-dasharray="6 5" />
+          <circle cx={s[0]} cy={s[1]} r="7" fill={INK} />{T(s[0] - 14, s[1], 'S', { anchor: 'end' })}
+          <circle cx={e[0]} cy={e[1]} r="7" fill={CLAY} />{T(e[0] + 14, e[1], 'F', { anchor: 'start', color: CLAY })}
+          {T(296, 30, 'N', { size: 12 })}{arrow(296, 64, 296, 42, INK)}
+        </g>
+      );
+    }
+    case 'forces': {
+      // a block on the floor with a force to the left and a force to the right
+      return (
+        <g>
+          <line x1="20" y1="150" x2="300" y2="150" stroke={INK} stroke-width="3" />
+          <rect x="125" y="90" width="70" height="60" rx="4" fill={SOLID} stroke={INK} stroke-width="2.5" />
+          {T(160, 120, f.mass, { size: 15 })}
+          {f.left && <g>{arrow(125, 120, 40, 120)}{T(82, 104, f.left, { color: CLAY })}</g>}
+          {f.right && <g>{arrow(195, 120, 280, 120)}{T(238, 104, f.right, { color: CLAY })}</g>}
+        </g>
+      );
+    }
+    case 'circuit': {
+      // a cell on the left; the resistors one after another on the top wire (series), or side by side on the right (parallel)
+      const series = f.layout === 'series';
+      const x0 = f.r.length > 2 ? 140 : 160, dx = f.r.length > 2 ? 55 : 70;   // three branches sit closer, so the last label fits
+      return (
+        <g fill="none" stroke={INK} stroke-width="2.5">
+          {series ? (
+            <g>
+              <rect x="50" y="40" width="220" height="130" fill="none" />
+              {f.r.map((r, i) => res(f.r.length === 1 ? 160 : 100 + (i * 120) / (f.r.length - 1), 40, r))}
+            </g>
+          ) : (
+            <g>
+              <polyline points={`${x0},40 50,40 50,170 ${x0},170`} fill="none" />
+              {f.r.map((r, i) => { const x = x0 + i * dx; return <g><polyline points={`${x},40 ${x},170`} fill="none" />{res(x, 105, r, 'v')}{i > 0 && <g><line x1={x - dx} y1="40" x2={x} y2="40" /><line x1={x - dx} y1="170" x2={x} y2="170" /></g>}</g>; })}
+            </g>
+          )}
+          <g stroke="none">{cell(50, 105, f.v)}</g>
+        </g>
+      );
+    }
+    case 'resistor': {
+      const n = f.bands.length;
+      return (
+        <g>
+          <line x1="20" y1="100" x2="300" y2="100" stroke={INK} stroke-width="4" />
+          <rect x="80" y="70" width="160" height="60" rx="26" fill="#e8d5b0" stroke={INK} stroke-width="2.5" />
+          {f.bands.map((b, i) => <rect x={100 + i * (n === 4 && i === 3 ? 32 : 26)} y="70" width="14" height="60" fill={BAND[b] ?? '#999'} stroke={INK} stroke-width="1" />)}
+          {f.bands.map((b, i) => T(107 + i * (n === 4 && i === 3 ? 32 : 26), 150, String(i + 1), { size: 11, color: INK2 }))}
         </g>
       );
     }

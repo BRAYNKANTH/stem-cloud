@@ -22,8 +22,20 @@ export function loadPrefs(): void {
   $lang.set(storedLang());
 }
 
+/** The Tamil / Sinhala fonts are not part of every page (see AppLayout): add the one for this language, once. */
+function langFont(lang: Lang): void {
+  const url = (window as unknown as { __langFonts?: Record<string, string> }).__langFonts?.[lang];
+  if (!url || document.querySelector(`link[data-lang-font="${lang}"]`)) return;
+  const l = document.createElement('link');
+  l.rel = 'stylesheet';
+  l.href = url;
+  l.setAttribute('data-lang-font', lang);
+  document.head.appendChild(l);
+}
+
 export function setLang(lang: Lang): void {
   $lang.set(lang);
+  langFont(lang);
   try {
     localStorage.setItem(LANG_KEY, lang);
   } catch {

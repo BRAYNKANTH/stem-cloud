@@ -49,33 +49,56 @@ def past_questions():
 
 
 _ALL = {}
+# What the lists and the chapter cards need of a question; everything else (the answers, explanations, steps, references)
+# comes with the full banks. A part keeps its label, subject, prompt and lessons (a list shows a part's prompt).
+LIGHT_QUESTION = ('id', 'number', 'paper', 'type', 'subjects', 'topics', 'lessons', 'pages', 'prompt', 'figure', 'marks')
+LIGHT_PART = ('label', 'subject', 'prompt', 'lessons')
 
 
-def all_physics():
+def light_bank(bank):
+    out = {k: bank[k] for k in ('schemaVersion', 'scope', 'year', 'papers') if k in bank}
+    qs = []
+    for q in bank['questions']:
+        lq = {k: q[k] for k in LIGHT_QUESTION if k in q}
+        if q.get('parts'):
+            lq['parts'] = [{k: p[k] for k in LIGHT_PART if k in p} for p in q['parts']]
+        lq['light'] = True
+        qs.append(lq)
+    out['questions'] = qs
+    return out
+
+
+def _pack(obj):
+    plain = json.dumps(obj, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    return plain, gzip.compress(plain, 5), hashlib.sha1(plain).hexdigest()[:16]
+
+
+def all_physics(light=False):
     """The catalog and every physics bank in one body, packed once per server instance: (plain bytes, gzip bytes, version).
     The new Past papers page used to fetch the catalog and nine banks one by one (eleven requests, each checking the sign-in
-    with its own database connection); now it is one request, and the browser asks again only with the version (a 304)."""
+    with its own database connection); now it is one request, and the browser asks again only with the version (a 304).
+    light=True: the same without the answers and explanations (a tenth of the size), so the chapter list can show first."""
     if not _ALL:
         cat = json.loads((PAST_PAPERS / 'catalog.json').read_text(encoding='utf-8'))
         banks = {}
         for p in cat['papers']:
             if p.get('bank') and p.get('scope') == 'physics':
                 banks[str(p['year'])] = json.loads((PAST_PAPERS / (str(p['year']) + '.json')).read_text(encoding='utf-8'))
-        plain = json.dumps({'catalog': cat, 'banks': banks}, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
-        _ALL['all'] = (plain, gzip.compress(plain, 5), hashlib.sha1(plain).hexdigest()[:16])
-    return _ALL['all']
+        _ALL['all'] = _pack({'catalog': cat, 'banks': banks})
+        _ALL['light'] = _pack({'catalog': cat, 'banks': {y: light_bank(b) for y, b in banks.items()}})
+    return _ALL['light' if light else 'all']
 
 
 @router.get('/lessons/past-papers/{name}.json')
 def past_paper_bank(name: str, req: Request):
     """A year's question bank or the catalog, from content/past-papers/physics (the address the pages already use), or
     "all": the catalog and every bank in one go. Signed-in students only, like the rest of /lessons."""
-    if not (name in ('catalog', 'all') or (name.isdigit() and len(name) == 4)):
+    if not (name in ('catalog', 'all', 'light') or (name.isdigit() and len(name) == 4)):
         raise HTTPException(404, 'Not found.')
     if not current_user_gate(req):
         raise HTTPException(401, 'Please log in.')
-    if name == 'all':
-        plain, packed, ver = all_physics()
+    if name in ('all', 'light'):
+        plain, packed, ver = all_physics(light=name == 'light')
         # shown from the device for two minutes, then at once from the device while it checks again in the background (the
         # banks change only when their explanations are improved); the check is a 304 when nothing changed
         head = {'ETag': '"%s"' % ver, 'Cache-Control': 'private, max-age=120, stale-while-revalidate=604800', 'Vary': 'Accept-Encoding, Cookie'}

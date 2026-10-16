@@ -28,6 +28,8 @@ interface Question {
   prompt: Tx; options?: Tx[]; correct?: number; explanation?: Tx; optionExplanations?: Tx[]; hint?: Tx; steps?: Tx[]; figure?: string;
   sourceDescription?: Tx; editorialWarning?: Tx; marks?: number; parts?: Part[]; year: number;
   detailedExplanation?: Teaching; references?: Ref[]; textbookReferenceStatus?: string;
+  /** From the light file (the lists need only the prompt): the answers and explanations come with the full banks. */
+  light?: boolean;
 }
 interface Bank { year: number; scope: string; questions: Question[]; papers: { id: string; instructions: Tx }[] }
 interface Result { type: 'mcq' | 'written'; choice?: number | null; correct?: boolean; correctChoice?: number; answers?: Record<string, string>; selfCheck?: string | null; mode?: string }
@@ -79,8 +81,22 @@ function hashOf(v: View): string {
  * The physics question banks, one request (/lessons/past-papers/all.json: the catalog and every year, packed and compressed
  * on the server, and kept by the browser). If that is not there, the old way: the catalog, then each year.
  */
-async function loadBanks(): Promise<Bank[]> {
-  const fix = (bk: Bank) => { if (bk.scope !== 'physics') throw new Error('scope'); bk.questions.forEach((q) => (q.year = bk.year)); return bk; };
+function loadBanks(): { first: Promise<Bank[]>; full: Promise<Bank[]> } {
+  const full = loadFullBanks();
+  // the chapter list needs only the light file (a tenth of the size, no answers or explanations): it shows as soon as that
+  // is here, while the full banks are still on their way; with no light file, the full ones are waited for
+  const first = (async () => {
+    try {
+      const r = await fetch('/lessons/past-papers/light.json', { credentials: 'same-origin' });
+      if (r.ok && !r.redirected) return (Object.values((await r.json()).banks) as Bank[]).map(fixBank);
+    } catch { /* wait for the full banks */ }
+    return full;
+  })();
+  return { first, full };
+}
+const fixBank = (bk: Bank) => { if (bk.scope !== 'physics') throw new Error('scope'); bk.questions.forEach((q) => (q.year = bk.year)); return bk; };
+async function loadFullBanks(): Promise<Bank[]> {
+  const fix = fixBank;
   try {
     const r = await fetch('/lessons/past-papers/all.json', { credentials: 'same-origin' });
     if (r.ok && !r.redirected) {
@@ -238,8 +254,10 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     (async () => {
       // everything starts at once: who is signed in, all the questions (one request, kept on the device), the saved answers
       const meP = signedIn.then((id) => (id === null ? null : { user: { id } }));   // answered by the progress start (one request for who, XP and progress)
-      const dataP = loadBanks();
+      const data = loadBanks();
+      const dataP = data.first;
       dataP.catch(() => { /* reported below */ });
+      data.full.catch(() => { /* reported below */ });
       const stateP = meP.then((m) => (m?.user?.id ? api('state') : null));
       stateP.catch(() => { /* reported below */ });
       const me = await meP;
@@ -273,6 +291,9 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
         s.bookmarkPending = Object.fromEntries(Object.entries(s.bookmarkPending).filter(([q]) => ids.has(q)));
         setBanks(all);
         persist(s);
+        // the full banks replace the light ones when they arrive (a question opens only with its answers and explanations)
+        void data.full.then((fb) => setBanks(Object.fromEntries(fb.map((b) => [b.year, b])) as Record<number, Bank>))
+          .catch(() => setMsg({ text: t('The questions could not load. Connect to the internet and reload this page.', 'வினாக்கள் ஏற்றப்படவில்லை. இணையத்துடன் இணைந்து பக்கத்தை மீளேற்றவும்.', 'ප්‍රශ්න පූරණය නොවීය. අන්තර්ජාලයට සම්බන්ධ වී මෙම පිටුව නැවත පූරණය කරන්න.') }));
         try {
           const remote = await stateP;
           if (!remote) throw new Error('state');
@@ -361,7 +382,11 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     </div>
   );
 
-  const questionScreen = (q: Question, opts: { index: number; count: number; onGo: (i: number) => void; inSet?: boolean; focus?: string }) => (
+  const questionScreen = (q: Question, opts: { index: number; count: number; onGo: (i: number) => void; inSet?: boolean; focus?: string }) => q.light ? (
+    <section id="pp-q" class="pp-qscreen" ref={area} tabIndex={-1} aria-label={qLabel(q)}>
+      <p class="pp-status" role="status">{t('Getting your questions ready…', 'உங்கள் வினாக்கள் தயாராகின்றன…', 'ඔබේ ප්‍රශ්න සූදානම් වෙමින්…')}</p>
+    </section>
+  ) : (
     <section id="pp-q" class="pp-qscreen" ref={area} tabIndex={-1} aria-label={qLabel(q)}>
       <QuestionView key={q.id} q={q} d={draft(q)} prev={latest(st, q)} lang={lang} t={t} tr={tr} qLabel={qLabel} typeWord={typeWord}
                     chapterOf={(k) => byKey.get(k)} chapterName={chapterName}

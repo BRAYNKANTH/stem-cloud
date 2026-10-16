@@ -1,5 +1,5 @@
 """Database connections: Postgres on Vercel (DATABASE_URL), a SQLite file locally."""
-import os, sqlite3
+import os, sqlite3, threading, time
 from contextlib import contextmanager
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
@@ -50,19 +50,78 @@ def _connect():
     return con
 
 
+# ----------------------------------------------------------------------------- kept connections (Postgres)
+# A new Postgres connection costs a TCP connection, TLS and a login: several round trips to the database, on every request.
+# A few connections are therefore kept open on the server instance and used again. A connection is used by one request at
+# a time (taken out of the list, put back when the request is done, always at a transaction boundary), so nothing of one
+# request's session is left for the next. One that sat unused is checked (SELECT 1) before it is used, and one that sat
+# unused for long is dropped: a serverless instance can be frozen between requests and its sockets die meanwhile.
+MAX_IDLE = 4              # connections kept per server instance
+TRUST_FOR = 10            # seconds: unused for less than this, used without a check
+DROP_AFTER = 120          # seconds: unused for longer than this, closed instead of reused
+_IDLE = []                # [(connection, time last put back)]
+_IDLE_LOCK = threading.Lock()
+
+
+def _close(raw):
+    try:
+        raw.close()
+    except Exception:
+        pass
+
+
+def _checkout():
+    """A kept connection that works, or a new one."""
+    while True:
+        with _IDLE_LOCK:
+            item = _IDLE.pop() if _IDLE else None
+        if item is None:
+            return _connect()
+        raw, since = item
+        age = time.monotonic() - since
+        if age > DROP_AFTER or getattr(raw, 'closed', False) or getattr(raw, 'broken', False):
+            _close(raw)
+            continue
+        if age > TRUST_FOR:
+            try:
+                raw.execute('SELECT 1')
+                raw.rollback()
+            except Exception:
+                _close(raw)
+                continue
+        return raw
+
+
+def _checkin(raw, healthy):
+    """Put a connection back for the next request, or close it (broken, or enough are kept already)."""
+    if healthy and not getattr(raw, 'closed', False) and not getattr(raw, 'broken', False):
+        with _IDLE_LOCK:
+            if len(_IDLE) < MAX_IDLE:
+                _IDLE.append((raw, time.monotonic()))
+                return
+    _close(raw)
+
+
 @contextmanager
 def db():
     if ON_VERCEL and not PG:
         raise HTTPException(503, 'Database is not set up yet: add DATABASE_URL in the Vercel project settings.')
     from . import migrations
-    raw = _connect()
+    raw = _checkout() if PG else _connect()
+    healthy = True
     try:
         if not migrations.ready():
             migrations.ensure(raw)
         yield Conn(raw)
         raw.commit()
     except BaseException:
-        raw.rollback()
+        try:
+            raw.rollback()
+        except Exception:
+            healthy = False
         raise
     finally:
-        raw.close()
+        if PG:
+            _checkin(raw, healthy)
+        else:
+            raw.close()

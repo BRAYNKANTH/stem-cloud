@@ -6,13 +6,9 @@ import '@fontsource/nunito/latin-700.css';
 import '@fontsource/nunito/latin-800.css';
 import '@fontsource/baloo-thambi-2/latin-700.css';
 import '@fontsource/baloo-thambi-2/latin-800.css';
-import '@fontsource/baloo-thambi-2/tamil-700.css';
-import '@fontsource/baloo-thambi-2/tamil-800.css';
-import '@fontsource/noto-sans-tamil/tamil-400.css';
-import '@fontsource/noto-sans-tamil/tamil-700.css';
-import '@fontsource/noto-sans-sinhala/sinhala-400.css';
-import '@fontsource/noto-sans-sinhala/sinhala-700.css';
 import '../styles/base.css';
+import taFonts from '../styles/fonts-ta.css?url';
+import siFonts from '../styles/fonts-si.css?url';
 
 interface Props {
   title: string;
@@ -51,6 +47,16 @@ const { title, description = 'GCE O/L Physics with Raja and Chittu, in English, 
         var l = s.getItem('lessonLang'); d.lang = l === 'ta' || l === 'si' ? l : 'en';
         var m = s.getItem('stem_motion');
         if (m === 'off' || (m !== 'on' && matchMedia('(prefers-reduced-motion: reduce)').matches)) d.classList.add('stem-calm');
+      } catch (e) {}
+    </script>
+    {/* The Tamil and Sinhala fonts are separate style files (fonts-ta.css, fonts-si.css), added when the page's language is that
+        language (here at the start, and by setLang() when the language is switched): an English page no longer downloads
+        them (about 150 KB), and lessons keep them whenever the student reads in Tamil or Sinhala. */}
+    <script is:inline define:vars={{ ta: taFonts, si: siFonts }}>
+      window.__langFonts = { ta: ta, si: si };
+      try {
+        var f = localStorage.getItem('lessonLang');
+        if (f === 'ta' || f === 'si') { var k = document.createElement('link'); k.rel = 'stylesheet'; k.href = window.__langFonts[f]; k.setAttribute('data-lang-font', f); document.head.appendChild(k); }
       } catch (e) {}
     </script>
   </head>

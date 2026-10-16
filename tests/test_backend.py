@@ -357,6 +357,27 @@ class LearnRoute(unittest.TestCase):
         self.assertEqual(plain.json()['banks']['2016']['year'], 2016)
         self.assertEqual(self.signed_in.get('/lessons/past-papers/catalog.json').headers['cache-control'], 'no-store')
 
+    def test_the_light_past_papers_file_has_the_lists_but_not_the_answers(self):
+        self.assertEqual(TestClient(app).get('/lessons/past-papers/light.json').status_code, 401)
+        full = self.signed_in.get('/lessons/past-papers/all.json').json()
+        r = self.signed_in.get('/lessons/past-papers/light.json')
+        self.assertEqual(r.status_code, 200)
+        self.assertIn('max-age=120', r.headers['cache-control'])
+        light = r.json()
+        self.assertEqual(sorted(light['banks']), sorted(full['banks']))
+        self.assertLess(len(r.content), len(self.signed_in.get('/lessons/past-papers/all.json').content) / 5)     # (gzip both)
+        for year, bank in light['banks'].items():
+            ids = [q['id'] for q in bank['questions']]
+            self.assertEqual(ids, [q['id'] for q in full['banks'][year]['questions']])
+            for q in bank['questions']:
+                self.assertTrue(q['light'])
+                self.assertIn('prompt', q)
+                for heavy in ('explanation', 'optionExplanations', 'detailedExplanation', 'references', 'steps', 'options', 'correct'):
+                    self.assertNotIn(heavy, q)
+                for part in q.get('parts', []):
+                    self.assertEqual(sorted(set(part) - {'lessons', 'subject'}), ['label', 'prompt'])
+        self.assertEqual(self.signed_in.get('/lessons/past-papers/light.json', headers={'If-None-Match': r.headers['etag']}).status_code, 304)
+
     def test_a_page_starts_with_one_request_for_who_xp_and_progress(self):
         self.assertEqual(TestClient(app).get('/api/v2/start?lesson=past-papers').status_code, 401)
         r = self.signed_in.get('/api/v2/start?lesson=past-papers')

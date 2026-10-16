@@ -1,5 +1,5 @@
 {
-  "about": "Practice questions for one chapter (the learning feed draws 10 at random). Written for STEM Cloud from the lesson and the past papers' style; not past paper questions. English and Tamil first; Sinhala ('si') is added after review. tools/validate_practice.py checks them, and recalculates every 'calc'.",
+  "about": "Practice questions for one chapter (the learning feed shows all of them, one per screen, in a random order). Written for STEM Cloud from the lesson and the past papers' style; not past paper questions. English and Tamil first; Sinhala ('si') is added after review. tools/validate_practice.py checks them, and recalculates every 'calc'.",
   "lesson": "physics.g11.heat",
   "status": "draft: for teacher review",
   "questions": [

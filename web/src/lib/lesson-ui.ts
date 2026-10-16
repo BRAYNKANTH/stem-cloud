@@ -22,7 +22,7 @@ export const UI = {
   map: { en: 'Lesson map', ta: 'பாடத்தின் வரைபடம்', si: 'පාඩම් සිතියම' },
   steps: { en: 'Lesson steps', ta: 'எல்லா படிகளும்', si: 'පාඩම් පියවර' },
   formulas: { en: 'Formula cards for this chapter', ta: 'இந்தப் பாடத்தின் சூத்திர அட்டைகள்', si: 'මෙම පරිච්ඡේදයේ සූත්‍ර කාඩ්පත්' },
-  practise: { en: 'Practise 10 questions', ta: '10 வினாக்களைப் பயிற்சி செய்', si: 'ප්‍රශ්න 10ක් පුහුණු වන්න' },   // new wording: the chapter's practice round (/feed/#<chapter>)
+  practise: { en: 'Practise this chapter', ta: 'இந்தப் பாடத்தைப் பயிற்சி செய்', si: 'මෙම පරිච්ඡේදය පුහුණු වන්න' },   // new wording: the chapter's practice round (/feed/#<chapter>)
   reviseFormulas: { en: 'Revise with the formula cards', ta: 'சூத்திர அட்டைகளுடன் மீட்டல் செய்', si: 'සූත්‍ර කාඩ්පත් සමඟ පුනරීක්ෂණය කරන්න' },
   stepMenu: { en: 'Step menu', ta: 'படிகளின் பட்டியல்', si: 'පියවර මෙනුව' },
   stepNav: { en: 'Step navigation', ta: 'படி மாற்றம்', si: 'පියවර අතර යාම' },

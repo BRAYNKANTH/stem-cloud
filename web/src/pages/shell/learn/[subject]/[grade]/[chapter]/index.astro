@@ -20,7 +20,7 @@ const { lesson } = Astro.props as { lesson: Lesson };
 const steps = [...stepInfo(lesson), { id: FINISH_ID, label: UI.finish, phase: 'p4' as const, icon: FLAG_ICON }];
 // the chapter's formula cards (content/formulas), when it has any
 const formulas = formulaData.cards.some((c) => c.lesson === lesson.id) ? '/formulas/#' + lesson.slug : undefined;
-// the chapter's practice questions (content/practice), when it has them: a round of 10 in the learning feed
+// the chapter's practice questions (content/practice), when it has them: all of them, one per screen, in the learning feed
 const POOLS = import.meta.glob<string>('../../../../../../../../content/practice/*/*.json', { eager: true, import: 'lesson' });
 const practice = Object.values(POOLS).includes(lesson.id) ? '/feed/#' + lesson.slug : undefined;
 ---

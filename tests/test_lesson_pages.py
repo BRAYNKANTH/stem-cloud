@@ -908,19 +908,27 @@ def run():
             check('feed: the score counts both', lambda: pg.inner_text('.fd-score').startswith('✓ 2/2'), lambda: pg.inner_text('.fd-score'))
             problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
             check('feed: no sideways scroll at 375 px', not problems, problems)
-            # a chapter's practice questions (content/practice): a round of 10 drawn at random
+            # a chapter's practice questions (content/practice): all of them, one per screen like a reel, in a random order
             check('feed: the end of the feed offers the chapter practice', lambda: pg.locator('.fd-end a[href="#hydrostatic-pressure"]').count() == 1)
             pg.goto(BASE + '/feed/#hydrostatic-pressure')
             pg.wait_for_selector('.fd-card .fd-tag')
             round1 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
-            check('practice: a round of 10 practice questions, labelled as practice', lambda: len(round1) == 10 and all(i.startswith('hp-') for i in round1)
-                  and pg.locator('.fd-card[data-card] .fd-tag').count() == 10, lambda: round1)
+            check('practice: every question of the chapter, one per screen, labelled as practice', lambda: len(round1) == 100 and len(set(round1)) == 100 and all(i.startswith('hp-') for i in round1)
+                  and pg.locator('.fd-card[data-card] .fd-tag').count() == 100, lambda: len(round1))
+            check('practice: a progress bar, the question number, and a cue to swipe up', lambda: '1 / 100' in pg.inner_text('.fd-pos') and pg.locator('.fd-progress').count() == 1
+                  and pg.locator('.fd-cue').count() == 1, lambda: pg.inner_text('.fd-score'))
+            check('practice: one question fills each screen', lambda: pg.evaluate("() => { const f = document.querySelector('.fd').clientHeight; return [...document.querySelectorAll('.fd-card[data-card]')].slice(0, 5).every(c => c.offsetHeight >= f - 1); }"))
             card = pg.locator('.fd-card[data-card="%s"]' % round1[0])
             card.locator('.fd-opt').first.click()
             check('practice: an answer is checked, with how everyone answered', lambda: card.locator('.fd-result').count() == 1 and card.locator('.fd-poll .fd-bar').count() >= 2)
+            pg.locator('.fd-card[data-i="1"]').scroll_into_view_if_needed()
+            pg.wait_for_function("document.querySelector('.fd-pos').innerText.includes('2 / 100')", timeout=5000)
+            check('practice: swiping on shows the next question number', lambda: '2 / 100' in pg.inner_text('.fd-pos'), lambda: pg.inner_text('.fd-pos'))
+            pg.locator('.fd-end').scroll_into_view_if_needed()
             pg.locator('.fd-end .btn.primary').click()
             round2 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
-            check('practice: "10 more" deals questions not answered yet', lambda: len(round2) == 10 and round1[0] not in round2, lambda: round2)
+            check('practice: "Start this chapter again" deals all 100 afresh, none answered', lambda: len(round2) == 100 and pg.locator('.fd-result').count() == 0
+                  and '1 / 100' in pg.inner_text('.fd-pos'), lambda: pg.inner_text('.fd-score'))
             pg.goto(BASE + '/feed/')
             pg.wait_for_selector('.fd-card')
             pg.click('.fd-home')                                    # the header's Chapters button

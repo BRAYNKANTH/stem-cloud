@@ -16,7 +16,7 @@ const chapters: Chapter[] = (catalog.lessons as Entry[]).map((l) => ({ id: l.id,
 const byFormula = new Map(formulas.cards.map((c) => [c.id, c]));
 // a formula card names its formula; the feed gets the formula itself
 const cards = feed.cards.map((c) => (c.type === 'idea' ? { ...c, formula: byFormula.get(c.formula as string) } : c)) as FeedCard[];
-// each chapter's practice questions (content/practice): /feed/#<chapter> draws a round of 10
+// each chapter's practice questions (content/practice): /feed/#<chapter> shows the whole chapter, one question per screen
 interface Q { id: string; type: 'mcq' | 'tf'; q: Record<string, string>; options?: Record<string, string>[]; correct: number; why: Record<string, string>; figure?: unknown }
 const POOLS = import.meta.glob<{ lesson: string; questions: Q[] }>('../../../../../content/practice/*/*.json', { eager: true, import: 'default' });
 const slugOf = new Map((catalog.lessons as Entry[]).map((l) => [l.id, l.slug]));
@@ -50,9 +50,17 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   html[lang="si"] :is(.fd-home, .fd-title) [data-l]:not([data-l="si"]) { display: none; }
 
   /* the feed: one card per screen, snapped, like a reel */
-  :global(.fd) { height: calc(100dvh - 56px - env(safe-area-inset-top) - var(--fd-bnav, 0px)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; }
+  :global(.fd) { height: calc(100dvh - 56px - env(safe-area-inset-top) - var(--fd-bnav, 0px)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; overflow-anchor: none; }
   :global(.fd-score) { position: sticky; top: 8px; z-index: 5; width: max-content; margin: 8px auto -40px; padding: 6px 12px; border-radius: 999px; background: var(--sc-panel);
                        box-shadow: 0 2px 0 var(--sc-line); font-weight: 700; font-size: .85rem; font-variant-numeric: tabular-nums; }
+  /* like a reel: a thin bar for how far through the chapter, the question number in the pill, and a cue to swipe up on the first card */
+  :global(.fd-progress) { position: sticky; top: 0; z-index: 6; height: 4px; background: var(--sc-line); }
+  :global(.fd-progress i) { display: block; height: 100%; background: var(--sc-blue); border-radius: 0 4px 4px 0; transition: width .25s ease-out; }
+  :global(.fd-pos) { color: var(--sc-ink-2); }
+  :global(.fd-cue) { position: sticky; bottom: 14px; height: 0; z-index: 5; pointer-events: none; display: flex; justify-content: center; }
+  :global(.fd-cue span) { position: absolute; bottom: 0; padding: 6px 14px; border-radius: 999px; background: var(--sc-ink); color: var(--sc-ground); font-size: .85rem; font-weight: 700; box-shadow: 0 2px 8px #0003; }
+  :global(.fd-cue i) { position: absolute; bottom: 36px; font-style: normal; font-size: 1.6rem; line-height: 1; color: var(--sc-blue); animation: fd-nudge 1.1s ease-in-out infinite; }
+  @keyframes fd-nudge { 0%, 100% { transform: translateY(0); opacity: .5; } 50% { transform: translateY(-8px); opacity: 1; } }
   :global(.fd-card) { min-height: 100%; scroll-snap-align: start; scroll-snap-stop: always; display: flex; align-items: center; justify-content: center; padding: 52px var(--gutter) 20px; }
   :global(.fd-inner) { width: 100%; max-width: 520px; display: flex; flex-direction: column; gap: 12px; }
   :global(.fd-kind) { margin: 0; font-size: .8rem; font-weight: 700; color: var(--sc-blue); text-transform: uppercase; letter-spacing: .04em; }
@@ -110,5 +118,5 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   :global(.fd-pools h3) { margin: 10px 0 0; font-size: .85rem; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .04em; }
   :global(.fd-pools .btn) { justify-content: space-between; min-height: 48px; text-align: left; }
   :global(.fd-pools .btn small) { color: var(--sc-ink-2); font-weight: 600; white-space: nowrap; }
-  @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { :global(.fd-statement), :global(.fd-progress i) { transition: none; } :global(.fd-cue i) { animation: none; } }
 </style>

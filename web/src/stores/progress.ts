@@ -29,6 +29,9 @@ const DB = 'stem-progress';
 const STORE = 'outbox';
 const OWNER = 'stem_outbox_owner';
 let user: number | null = null;
+let resolveUser: (id: number | null) => void = () => {};
+/** Who is signed in (the user's id, or null), known once start() has asked the server: other code on the page need not ask again. */
+export const signedIn = new Promise<number | null>((r) => { resolveUser = r; });
 let lessonId = '';
 let sending = false;
 let timer: ReturnType<typeof setTimeout> | null = null;
@@ -197,12 +200,15 @@ export async function start(lesson: string): Promise<void> {
   } catch {
     /* private mode */
   }
+  // who is signed in, the XP and this lesson's progress: one request (it used to be three, one after another)
+  let first: { user: { id: number }; summary: { xp: number }; lesson?: { steps: unknown; questions: unknown } } | null = null;
   try {
-    const me = await fetch('/api/me', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null));
-    user = me?.user?.id ?? null;
+    first = await fetch('/api/v2/start?lesson=' + encodeURIComponent(lesson), { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null));
+    user = first?.user?.id ?? null;
   } catch {
     user = null;
   }
+  resolveUser(user);
   // a shared phone: what another student left in the outbox is theirs, not this student's
   let owner: string | null = null;
   try {
@@ -223,12 +229,9 @@ export async function start(lesson: string): Promise<void> {
   if (user === null) return;
   const waiting = await pending();
   try {
-    const [sum, les] = await Promise.all([
-      fetch('/api/v2/progress/summary', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)),
-      fetch('/api/v2/progress?lesson=' + encodeURIComponent(lesson), { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)),
-    ]);
+    const sum = first?.summary, les = first?.lesson;
     if (sum) $xp.set(sum.xp + waiting.filter((e) => e.type === 'xp').reduce((n, e) => n + (e.amount as number), 0));
-    if (les) $lesson.set({ steps: les.steps, questions: les.questions });
+    if (les) $lesson.set({ steps: les.steps as never, questions: les.questions as never });
   } catch {
     /* offline: what the device has */
   }

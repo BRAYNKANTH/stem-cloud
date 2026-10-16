@@ -9,7 +9,7 @@ from ..config import STATIC, WEB_HOME, WEB_SHELL
 from ..db import PG, db
 from ..legacy import safe_next
 from ..media import media_problems, media_status
-from ..security import current_user
+from ..security import current_user, current_user_gate
 
 router = APIRouter()
 
@@ -66,7 +66,7 @@ def terms_page():
 
 @router.get('/account')
 def account_page(req: Request):
-    if not current_user(req):
+    if not current_user_gate(req):
         return RedirectResponse('/login?next=/account', status_code=302)
     return page(WEB_SHELL / 'account' / 'index.html', 'account.html')
 

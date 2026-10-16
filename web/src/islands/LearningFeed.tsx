@@ -223,7 +223,7 @@ export default function LearningFeed({ cards, chapters, pools = [] }: { cards: F
 
   return (
     <div class="fd" ref={box} aria-label={t(W.feed)}>
-      {mode !== CHAPTERS && list.length > 0 && <div class="fd-progress" role="progressbar" aria-valuemin={1} aria-valuemax={list.length} aria-valuenow={Math.min(cur + 1, list.length)}><i style={{ width: (100 * Math.min(cur + 1, list.length) / list.length) + '%' }} /></div>}
+      {mode !== CHAPTERS && list.length > 0 && <div class="fd-progress" role="progressbar" aria-label={t(W.practice)} aria-valuemin={1} aria-valuemax={list.length} aria-valuenow={Math.min(cur + 1, list.length)}><i style={{ width: (100 * Math.min(cur + 1, list.length) / list.length) + '%' }} /></div>}
       {mode !== CHAPTERS && <div class="fd-score" aria-live="polite">✓ {right}/{answered.length} · 🔥 {streak} {t(W.streak)}{list.length > 0 && <span class="fd-pos"> · {Math.min(cur + 1, list.length)} / {list.length}</span>}</div>}
       {list.map((card, i) => {
         const ch = byId.get(card.lesson);

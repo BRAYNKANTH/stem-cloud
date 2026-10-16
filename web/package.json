@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/private.mjs",
+    "build": "astro build && node scripts/preload.mjs && node scripts/private.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "budget": "node scripts/budget.mjs"

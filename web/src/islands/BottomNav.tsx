@@ -23,6 +23,12 @@ export type Place = keyof typeof WORDS;
 export default function BottomNav({ here }: { here: Place }) {
   const lang = useStore($lang);
   useEffect(loadPrefs, []);
+  // once the page is quiet, ask the service worker to keep the other tabs' pages ready, so a tap does not wait for the server
+  useEffect(() => {
+    const warm = () => { try { navigator.serviceWorker?.controller?.postMessage({ type: 'warm', urls: [HREF.practice, HREF.papers].filter((u) => u !== HREF[here]) }); } catch { /* no service worker */ } };
+    const idle = (window as unknown as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+    if (idle) idle(warm, { timeout: 4000 }); else setTimeout(warm, 2500);
+  }, []);
   const k = lang === 'ta' ? 1 : lang === 'si' ? 2 : 0;
   return (
     <nav class="bnav" aria-label={['Main', 'முதன்மை', 'ප්‍රධාන'][k]}>

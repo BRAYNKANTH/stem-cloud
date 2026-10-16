@@ -97,6 +97,32 @@ def current_user(req: Request, con=None):
     with db() as con:
         return _user_on(con, tok)
 
+# The sign-in check of a page or a data file costs a database connection (with its TLS handshake). A student opening a tab
+# makes several such requests within a second, so for these read-only gates (never for anything that saves data) the
+# answer is kept for a few seconds on the server instance that gave it. Logging out, a password change and the admin's
+# sign-out all clear it on their own instance; another instance can still honour an ended session for up to GATE_TTL seconds.
+GATE_TTL = 10
+_GATE_CACHE = {}
+
+def forget_gate():
+    _GATE_CACHE.clear()
+
+def current_user_gate(req: Request):
+    """current_user for a page or data file that only reads: the answer is reused for GATE_TTL seconds."""
+    tok = req.cookies.get(COOKIE)
+    if not tok:
+        return None
+    key, now = sha(tok), time.monotonic()
+    hit = _GATE_CACHE.get(key)
+    if hit and hit[0] > now:
+        return hit[1]
+    u = current_user(req)
+    if u:
+        if len(_GATE_CACHE) > 500:
+            _GATE_CACHE.clear()
+        _GATE_CACHE[key] = (now + GATE_TTL, u)
+    return u
+
 def need_user(req: Request):
     u = current_user(req)
     if not u:

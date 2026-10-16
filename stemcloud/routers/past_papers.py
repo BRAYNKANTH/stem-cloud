@@ -1,12 +1,12 @@
 """Past papers: attempts and bookmarks, kept separate from lesson XP and progress."""
-import json, re, time
+import gzip, hashlib, json, re, time
 
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, RedirectResponse, Response
 
 from ..config import PAST_PAPERS, WEB_FORMULAS, WEB_PAPERS
 from ..db import db
-from ..security import body_json, current_user, need_csrf, need_user
+from ..security import body_json, current_user_gate, need_csrf, need_user
 
 router = APIRouter()
 
@@ -16,7 +16,7 @@ router = APIRouter()
 def past_papers_page(req: Request):
     """The new past papers page (web/src/pages/shell/past-papers): signed-in students only, like the current one. It is
     kept out of the published files by the build and served from here; without a build, the current page."""
-    if not current_user(req):
+    if not current_user_gate(req):
         return RedirectResponse('/login?next=/past-papers/', status_code=302)
     if WEB_PAPERS.is_file():
         return FileResponse(WEB_PAPERS, media_type='text/html')
@@ -28,7 +28,7 @@ def past_papers_page(req: Request):
 def formula_cards_page(req: Request):
     """The formula cards (web/src/pages/shell/formulas): signed-in students only, like the lessons they come from. Kept
     out of the published files by the build (web/scripts/private.mjs) and served from here."""
-    if not current_user(req):
+    if not current_user_gate(req):
         return RedirectResponse('/login?next=/formulas/', status_code=302)
     if WEB_FORMULAS.is_file():
         return FileResponse(WEB_FORMULAS, media_type='text/html')
@@ -48,14 +48,42 @@ def past_questions():
     return questions
 
 
+_ALL = {}
+
+
+def all_physics():
+    """The catalog and every physics bank in one body, packed once per server instance: (plain bytes, gzip bytes, version).
+    The new Past papers page used to fetch the catalog and nine banks one by one (eleven requests, each checking the sign-in
+    with its own database connection); now it is one request, and the browser asks again only with the version (a 304)."""
+    if not _ALL:
+        cat = json.loads((PAST_PAPERS / 'catalog.json').read_text(encoding='utf-8'))
+        banks = {}
+        for p in cat['papers']:
+            if p.get('bank') and p.get('scope') == 'physics':
+                banks[str(p['year'])] = json.loads((PAST_PAPERS / (str(p['year']) + '.json')).read_text(encoding='utf-8'))
+        plain = json.dumps({'catalog': cat, 'banks': banks}, ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+        _ALL['all'] = (plain, gzip.compress(plain, 5), hashlib.sha1(plain).hexdigest()[:16])
+    return _ALL['all']
+
+
 @router.get('/lessons/past-papers/{name}.json')
 def past_paper_bank(name: str, req: Request):
-    """A year's question bank or the catalog, from content/past-papers/physics (the address the pages already use).
-    Signed-in students only, like the rest of /lessons."""
-    if not (name == 'catalog' or (name.isdigit() and len(name) == 4)):
+    """A year's question bank or the catalog, from content/past-papers/physics (the address the pages already use), or
+    "all": the catalog and every bank in one go. Signed-in students only, like the rest of /lessons."""
+    if not (name in ('catalog', 'all') or (name.isdigit() and len(name) == 4)):
         raise HTTPException(404, 'Not found.')
-    if not current_user(req):
+    if not current_user_gate(req):
         raise HTTPException(401, 'Please log in.')
+    if name == 'all':
+        plain, packed, ver = all_physics()
+        # shown from the device for two minutes, then at once from the device while it checks again in the background (the
+        # banks change only when their explanations are improved); the check is a 304 when nothing changed
+        head = {'ETag': '"%s"' % ver, 'Cache-Control': 'private, max-age=120, stale-while-revalidate=604800', 'Vary': 'Accept-Encoding, Cookie'}
+        if req.headers.get('if-none-match') == head['ETag']:
+            return Response(status_code=304, headers=head)
+        if 'gzip' in req.headers.get('accept-encoding', ''):
+            return Response(packed, media_type='application/json', headers={**head, 'Content-Encoding': 'gzip'})
+        return Response(plain, media_type='application/json', headers=head)
     path = PAST_PAPERS / (name + '.json')
     if not path.is_file():
         raise HTTPException(404, 'Not found.')

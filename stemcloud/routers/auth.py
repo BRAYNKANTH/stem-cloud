@@ -6,7 +6,7 @@ from fastapi.responses import JSONResponse
 
 from ..config import ADMIN_USERS, COOKIE, USER_RE
 from ..db import INTEGRITY, db
-from ..security import (MAX_DEVICES, body_json, check_pw, clear_gate, hash_pw, need_csrf, need_user, new_session, public, rate,
+from ..security import (MAX_DEVICES, body_json, check_pw, clear_gate, forget_gate, hash_pw, need_csrf, need_user, new_session, public, rate,
                         set_gate, sha)
 
 router = APIRouter()
@@ -115,6 +115,7 @@ async def api_logout(req: Request):
     if tok:
         with db() as con:
             con.execute('DELETE FROM sessions WHERE token_hash=?', (sha(tok),))
+    forget_gate()
     resp = JSONResponse({'ok': True}); resp.delete_cookie(COOKIE, path='/'); clear_gate(resp)
     return resp
 

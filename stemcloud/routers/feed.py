@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse, RedirectResponse
 
 from ..config import FEED_CARDS, PRACTICE, WEB_FEED
 from ..db import db
-from ..security import body_json, current_user, need_csrf, need_user
+from ..security import body_json, current_user_gate, need_csrf, need_user
 
 router = APIRouter()
 
@@ -42,7 +42,7 @@ def counts(con, card: str, n: int) -> list[int]:
 @router.get('/feed/')
 def feed_page(req: Request):
     """Signed-in students only, like the lessons; kept out of the published files by the build (web/scripts/private.mjs)."""
-    if not current_user(req):
+    if not current_user_gate(req):
         return RedirectResponse('/login?next=/feed/', status_code=302)
     if WEB_FEED.is_file():
         return FileResponse(WEB_FEED, media_type='text/html')

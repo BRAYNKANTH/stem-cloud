@@ -12,7 +12,7 @@ from ..db import db
 from ..legacy import render_lesson
 from ..media import media_response
 from ..progress import load_progress
-from ..security import current_user
+from ..security import current_user, current_user_gate
 
 router = APIRouter()
 
@@ -42,7 +42,7 @@ def learn(req: Request, subject: str, grade: str, chapter: str, *topic: str):
     if not (SLUG_RE.match(subject) and GRADE_RE.match(grade) and SLUG_RE.match(chapter) and all(SLUG_RE.match(t) for t in topic)):
         raise HTTPException(404, 'Not found.')
     rel = '/'.join((subject, grade, chapter) + topic)
-    if not current_user(req):
+    if not current_user_gate(req):
         return RedirectResponse('/login?next=' + quote('/learn/%s/' % rel, safe='/'), status_code=302)
     built = WEB_LEARN.joinpath(*rel.split('/'), 'index.html')
     if built.is_file():

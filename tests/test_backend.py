@@ -339,6 +339,35 @@ class LearnRoute(unittest.TestCase):
             self.assertEqual(self.signed_in.get(bad).status_code, 404, bad)
         self.assertEqual(self.signed_in.get('/lessons/past-papers/2015/page-01.jpg').status_code, 200)      # scans stay where they were
 
+    def test_all_past_paper_banks_come_in_one_packed_file_kept_on_the_device(self):
+        self.assertEqual(TestClient(app).get('/lessons/past-papers/all.json').status_code, 401)
+        r = self.signed_in.get('/lessons/past-papers/all.json')           # the test client asks for gzip, like a browser
+        self.assertEqual(r.status_code, 200)
+        self.assertEqual(r.headers['content-encoding'], 'gzip')
+        self.assertIn('max-age=120', r.headers['cache-control'])         # not the blanket no-store of the other pages
+        self.assertIn('stale-while-revalidate', r.headers['cache-control'])
+        data = r.json()
+        self.assertEqual(sorted(data['banks']), [str(y) for y in range(2015, 2024)])
+        self.assertEqual(data['banks']['2015']['year'], 2015)
+        self.assertEqual(data['catalog']['schemaVersion'], 1)
+        again = self.signed_in.get('/lessons/past-papers/all.json', headers={'If-None-Match': r.headers['etag']})
+        self.assertEqual((again.status_code, again.content), (304, b''))        # unchanged: nothing is sent again
+        plain = self.signed_in.get('/lessons/past-papers/all.json', headers={'Accept-Encoding': 'identity'})
+        self.assertNotIn('content-encoding', plain.headers)
+        self.assertEqual(plain.json()['banks']['2016']['year'], 2016)
+        self.assertEqual(self.signed_in.get('/lessons/past-papers/catalog.json').headers['cache-control'], 'no-store')
+
+    def test_a_page_starts_with_one_request_for_who_xp_and_progress(self):
+        self.assertEqual(TestClient(app).get('/api/v2/start?lesson=past-papers').status_code, 401)
+        r = self.signed_in.get('/api/v2/start?lesson=past-papers')
+        self.assertEqual(r.status_code, 200)
+        d = r.json()
+        self.assertEqual(sorted(d), ['lesson', 'summary', 'user'])
+        self.assertIn('xp', d['summary'])
+        self.assertEqual(d['user']['username'], self.signed_in.get('/api/me').json()['user']['username'])
+        self.assertEqual(sorted(self.signed_in.get('/api/v2/start').json()), ['summary', 'user'])      # no lesson named: no lesson progress
+        self.assertEqual(self.signed_in.get('/api/v2/start?lesson=' + 'x' * 200).status_code, 400)
+
     def test_the_new_past_papers_page_is_login_only(self):
         built = Path(TMP) / 'private-papers' / 'index.html'
         built.parent.mkdir(parents=True, exist_ok=True)

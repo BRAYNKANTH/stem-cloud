@@ -4,7 +4,7 @@ from fastapi.responses import JSONResponse
 
 from ..config import COOKIE
 from ..db import db
-from ..security import body_json, check_pw, clear_gate, hash_pw, need_csrf, need_user, rate, sha
+from ..security import body_json, check_pw, clear_gate, forget_gate, hash_pw, need_csrf, need_user, rate, sha
 
 router = APIRouter()
 
@@ -31,6 +31,7 @@ async def api_password(req: Request):
     with db() as con:
         con.execute('UPDATE users SET pw=? WHERE id=?', (hash_pw(new), u['id']))
         con.execute('DELETE FROM sessions WHERE user_id=? AND token_hash<>?', (u['id'], sha(tok or '')))
+    forget_gate()
     return {'ok': True}
 
 @router.post('/api/account/delete')

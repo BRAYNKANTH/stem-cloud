@@ -3,9 +3,12 @@
  * - lesson pages (the current /lessons/, /topics/ and the new /learn/, /past-papers/, /formulas/): network first (always fresh
  *   progress), last visited copy when offline
  * - the new pages' scripts and styles (/_astro/, file names change with their content): from cache, refreshed in the background
+ * - the tabs' own pages (/past-papers/, /feed/, /formulas/: the same files for every student): shown at once from the last
+ *   visit while a fresh copy is fetched for next time, and kept ahead when the bottom bar asks ("warm"), so switching tabs
+ *   does not wait for the server
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v28';
+var VERSION = 'v29';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -29,8 +32,26 @@ self.addEventListener('activate', function (e) {
   }).then(function () { return self.clients.claim(); }));
 });
 
+/* the tabs' own pages: the same files for every student, behind the sign-in */
+var SHELL = /^\/(past-papers|feed|formulas)\/?$/;
+
 self.addEventListener('message', function (e) {
   if (e.data && e.data.type === 'clear-pages') e.waitUntil(caches.delete(PAGES));
+  /* the bottom bar asks for the other tabs' pages to be kept ahead (once the page is quiet) */
+  if (e.data && e.data.type === 'warm' && Array.isArray(e.data.urls)) {
+    e.waitUntil(caches.open(PAGES).then(function (c) {
+      return Promise.all(e.data.urls.filter(function (u) { return typeof u === 'string' && SHELL.test(u); }).map(function (u) {
+        return c.match(u).then(function (hit) {
+          if (hit) return;
+          return fetch(u, { credentials: 'same-origin' }).then(function (res) {
+            if (!res.ok || res.redirected) return;
+            c.put(u, res.clone());
+            return res.clone().text().then(keepAssets);
+          }).catch(function () {});
+        });
+      }));
+    }));
+  }
 });
 
 /* every /_astro/ file a page refers to (scripts, styles, islands) and the files they import, into the static cache */
@@ -92,6 +113,26 @@ self.addEventListener('fetch', function (e) {
       if(res.ok && (!res.redirected || remoteMedia)) {var copy=res.clone();caches.open(PAGES).then(function(c){c.put(req,copy);});}
       return res;
     }).catch(function(){return caches.open(PAGES).then(function(c){return c.match(req);}).then(function(hit){return hit||Response.error();});}));
+    return;
+  }
+
+  if (req.mode === 'navigate' && SHELL.test(url.pathname)) {
+    /* from the last visit at once, and a fresh copy for next time; with none yet, from the network (then kept) */
+    e.respondWith(caches.open(PAGES).then(function (c) {
+      return c.match(req, { ignoreSearch: true }).then(function (hit) {
+        var net = fetch(req).then(function (res) {
+          if (res.ok && !res.redirected) {
+            c.put(req, res.clone());
+            e.waitUntil(res.clone().text().then(keepAssets).catch(function () {}));
+          } else if (res.redirected || res.status === 401) {
+            c.delete(req, { ignoreSearch: true });      /* signed out: no copy of a page behind the sign-in */
+          }
+          return res;
+        });
+        if (hit) { e.waitUntil(net.catch(function () {})); return hit; }
+        return net.catch(function () { return caches.match('/static/offline.html'); });
+      });
+    }));
     return;
   }
 

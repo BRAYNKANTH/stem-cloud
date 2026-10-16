@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang, loadPrefs } from '../stores/prefs';
-import { onceId, record, reward, start as startProgress } from '../stores/progress';
+import { onceId, record, reward, signedIn, start as startProgress } from '../stores/progress';
 
 /*
  * Past papers: the O/L Science papers' physics questions (content/past-papers/physics/), by the lesson chapters they
@@ -73,6 +73,30 @@ function hashOf(v: View): string {
   if (v.kind === 'home') return '#';
   if (v.kind === 'set') return '#practise/' + v.key;
   return (v.kind === 'chapter' ? '#chapter/' + v.key : '#year/' + v.year) + (v.q ? '/' + v.q : '');
+}
+
+/**
+ * The physics question banks, one request (/lessons/past-papers/all.json: the catalog and every year, packed and compressed
+ * on the server, and kept by the browser). If that is not there, the old way: the catalog, then each year.
+ */
+async function loadBanks(): Promise<Bank[]> {
+  const fix = (bk: Bank) => { if (bk.scope !== 'physics') throw new Error('scope'); bk.questions.forEach((q) => (q.year = bk.year)); return bk; };
+  try {
+    const r = await fetch('/lessons/past-papers/all.json', { credentials: 'same-origin' });
+    if (r.ok && !r.redirected) {
+      const all = await r.json();
+      return (Object.values(all.banks) as Bank[]).map(fix);
+    }
+  } catch { /* try the old way */ }
+  const r = await fetch('/lessons/past-papers/catalog.json', { credentials: 'same-origin' });
+  if (!r.ok || r.redirected) throw new Error('catalog');
+  const cat = await r.json();
+  const entries = cat.papers.filter((p: { bank?: string; scope?: string }) => p.bank && p.scope === 'physics');
+  return Promise.all(entries.map(async (p: { bank: string }) => {
+    const b = await fetch(p.bank, { credentials: 'same-origin' });
+    if (!b.ok || b.redirected) throw new Error('bank');
+    return fix(await b.json());
+  }));
 }
 
 export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) {
@@ -212,7 +236,13 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     const onOnline = () => void sync();
     window.addEventListener('online', onOnline);
     (async () => {
-      const me = await fetch('/api/me', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+      // everything starts at once: who is signed in, all the questions (one request, kept on the device), the saved answers
+      const meP = signedIn.then((id) => (id === null ? null : { user: { id } }));   // answered by the progress start (one request for who, XP and progress)
+      const dataP = loadBanks();
+      dataP.catch(() => { /* reported below */ });
+      const stateP = meP.then((m) => (m?.user?.id ? api('state') : null));
+      stateP.catch(() => { /* reported below */ });
+      const me = await meP;
       const uid: number | null = me?.user?.id ?? null;
       setUser(uid);
       if (uid === null) return;
@@ -225,18 +255,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
       }
       s = Object.assign({ drafts: {}, events: [], pending: [], bookmarks: [], bookmarkPending: {} }, s);
       try {
-        const r = await fetch('/lessons/past-papers/catalog.json', { credentials: 'same-origin' });
-        if (!r.ok || r.redirected) throw new Error('catalog');
-        const cat = await r.json();
-        const entries = cat.papers.filter((p: { bank?: string; scope?: string }) => p.bank && p.scope === 'physics');
-        const loaded: Bank[] = await Promise.all(entries.map(async (p: { bank: string }) => {
-          const b = await fetch(p.bank, { credentials: 'same-origin' });
-          if (!b.ok || b.redirected) throw new Error('bank');
-          const bk: Bank = await b.json();
-          if (bk.scope !== 'physics') throw new Error('scope');
-          bk.questions.forEach((q) => (q.year = bk.year));
-          return bk;
-        }));
+        const loaded: Bank[] = await dataP;
         const all = Object.fromEntries(loaded.map((b) => [b.year, b])) as Record<number, Bank>;
         const ids = new Map(loaded.flatMap((b) => b.questions).map((q) => [q.id, q]));
         const clean = (qid: string, a?: Record<string, string>) => Object.fromEntries(Object.entries(a || {}).filter(([l]) => ids.get(qid)?.parts?.some((p) => p.label === l)));
@@ -255,7 +274,8 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
         setBanks(all);
         persist(s);
         try {
-          const remote = await api('state');
+          const remote = await stateP;
+          if (!remote) throw new Error('state');
           const s2 = clone(stRef.current!);
           mergeEvents(s2, remote.attempts);
           s2.bookmarks = remote.bookmarks;

@@ -6,7 +6,7 @@ from fastapi import APIRouter, HTTPException, Request
 from ..config import USER_RE
 from ..db import INTEGRITY, db
 from ..progress import _json
-from ..security import body_json, hash_pw, need_admin, need_csrf
+from ..security import body_json, forget_gate, hash_pw, need_admin, need_csrf
 
 router = APIRouter()
 
@@ -33,6 +33,7 @@ async def api_admin_kick_devices(req: Request):
     uid = int(body_json(await req.json()).get('id', 0))
     with db() as con:
         con.execute('DELETE FROM sessions WHERE user_id=?', (uid,))
+    forget_gate()
     return {'ok': True}
 
 @router.post('/api/admin/create-user')
@@ -69,6 +70,7 @@ async def api_admin_reset(req: Request):
     with db() as con:
         con.execute('UPDATE users SET pw=? WHERE id=?', (hash_pw(new), uid))
         con.execute('DELETE FROM sessions WHERE user_id=?', (uid,))
+    forget_gate()
     return {'ok': True}
 
 @router.post('/api/admin/delete')

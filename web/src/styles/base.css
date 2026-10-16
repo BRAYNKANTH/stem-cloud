@@ -20,6 +20,8 @@ p { margin: 0 0 1em; }
 a { color: var(--sc-blue); }
 img, svg { max-width: 100%; height: auto; }
 ::selection { background: var(--sc-mango); color: #16183D; }
+/* a tap acts at once: no waiting to see whether it is a double-tap zoom, and no grey flash on the tapped control */
+a, button, summary, label, input, select, textarea, [role="button"], [role="tab"] { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 /* Focus: an ink ring (about 16:1 on the ground in both themes, WCAG 1.4.11 asks 3:1) with the mango ring outside it. */
 :focus-visible { outline: 3px solid var(--sc-mango); outline-offset: 3px; box-shadow: 0 0 0 3px var(--sc-ink); }
 

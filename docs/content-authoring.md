@@ -135,9 +135,9 @@ All cards are in one file, `content/formulas/physics.json`, in the order the cha
 
 ## Practice questions (the learning feed)
 
-Each chapter has one file, `content/practice/<subject>/<chapter>.json`, with up to 100 questions. `/feed/#<chapter>` shows all of them, one per screen like a reel, in a random order: questions not answered yet come first, then the ones answered wrong come back, then the ones already right.
+Each chapter has one file, `content/practice/<subject>/<chapter>.json`, with up to 100 questions. The Practice tab (`/feed/`) lists the chapters; tapping one (`/feed/#<chapter>`) opens straight into all of its questions, one per screen like a reel (a bookmark in the corner keeps a question for `/feed/#saved`), in a random order: questions not answered yet come first, then the ones answered wrong come back, then the ones already right.
 
-- **These are practice questions, not past paper questions.** They are written from the lesson, in the style of the past papers, and the page labels them "Practice question".
+- **These are practice questions, not past paper questions.** They are written from the lesson, in the style of the past papers, and the page does not present them as past papers.
 - **A question** is `mcq` (3 or 4 `options`, `correct` is the index) or `tf` (`correct` is 1 for true, 0 for false), with:
   - `q` and a one-line `why`, in English and Tamil. Sinhala (`si`) is added after review; once a question has it, it must be complete.
   - a `topic`, and a `level`: `recall`, `apply` or `think`.

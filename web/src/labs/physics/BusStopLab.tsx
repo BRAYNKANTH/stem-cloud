@@ -50,7 +50,16 @@ const W = {
   do1: ['Watch the ride again with its graph: the line grows as Nimal moves. Replay it or drag the time slider as often as you like, then tap the graph to answer.', 'பயணத்தை அதன் வரைபுடன் மீண்டும் பார்: நிமல் நகரும்போது கோடு வளர்கிறது. எத்தனை முறை வேண்டுமானாலும் மீண்டும் பார் அல்லது நேர ஸ்லைடரை இழு, பிறகு விடையளிக்க வரைபைத் தொடு.', 'ගමන එහි ප්‍රස්තාරය සමඟ නැවත බලන්න: නිමල් චලනය වන විට රේඛාව වර්ධනය වේ. කැමති තරම් නැවත බලන්න හෝ කාල ස්ලයිඩරය අදින්න, ඉන්පසු පිළිතුරු දීමට ප්‍රස්තාරය තට්ටු කරන්න.'],
   question: ['Question', 'கேள்வி', 'ප්‍රශ්නය'],
   lockIn: ['Lock in', 'உறுதிசெய்', 'තහවුරු කරන්න'],
+  answerBtn: ['Answer', 'விடையளி', 'පිළිතුරු දෙන්න'],
+  setRide: ['Set the ride', 'பயணத்தை அமை', 'ගමන සකසන්න'],
+  tryAgain: ['Try again', 'மீண்டும் முயற்சி செய்', 'නැවත උත්සාහ කරන්න'],
+  close: ['Close', 'மூடு', 'වසන්න'],
+  answerHint: ['Watch the ride, then tap Answer.', 'பயணத்தைப் பார், பிறகு விடையளி என்பதைத் தொடு.', 'ගමන බලා, ඉන්පසු පිළිතුරු දෙන්න තට්ටු කරන්න.'],
+  pickSnap: ['Which graph marks the right moment?', 'எந்த வரைபு சரியான நேரத்தைக் குறிக்கிறது?', 'නිවැරදි මොහොත සලකුණු කරන්නේ කුමන ප්‍රස්තාරයද?'],
+  pickOne: ['Pick a graph first.', 'முதலில் ஒரு வரைபைத் தேர்ந்தெடு.', 'මුලින්ම ප්‍රස්තාරයක් තෝරන්න.'],
   yourPoint: ['Your point: ', 'உன் புள்ளி: ', 'ඔබේ ලක්ෂ්‍යය: '],
+  do1p: ['Watch the ride again with its graph: the line grows as Nimal moves. Replay it or drag the time slider as often as you like, then tap Answer.', 'பயணத்தை அதன் வரைபுடன் மீண்டும் பார்: நிமல் நகரும்போது கோடு வளர்கிறது. எத்தனை முறை வேண்டுமானாலும் மீண்டும் பார் அல்லது நேர ஸ்லைடரை இழு, பிறகு விடையளி என்பதைத் தொடு.', 'ගමන එහි ප්‍රස්තාරය සමඟ නැවත බලන්න: නිමල් චලනය වන විට රේඛාව වර්ධනය වේ. කැමති තරම් නැවත බලන්න හෝ කාල ස්ලයිඩරය අදින්න, ඉන්පසු පිළිතුරු දෙන්න තට්ටු කරන්න.'],
+  do2p: ['Now you plan the ride: tap Set the ride, move the slider, then press Ride. Try as many times as you like.', 'இப்போது நீ பயணத்தைத் திட்டமிடு: பயணத்தை அமை என்பதைத் தொட்டு, ஸ்லைடரை நகர்த்தி, ஓட்டு அழுத்து. எத்தனை முறை வேண்டுமானாலும் முயற்சி செய்.', 'දැන් ඔබ ගමන සැලසුම් කරන්න: ගමන සකසන්න තට්ටු කර, ස්ලයිඩරය චලනය කර, පදින්න ඔබන්න. කැමති තරම් වාර ගණනක් උත්සාහ කරන්න.'],
   watchAgain: ['↻ Watch again', '↻ மீண்டும் பார்', '↻ නැවත බලන්න'],
   pause: ['⏸ Pause', '⏸ நிறுத்து', '⏸ නවත්වන්න'],
   scrub: ['Move through the ride', 'பயணத்தில் முன்னும் பின்னும் நகர்', 'ගමන හරහා ඉදිරියට හා පසුපසට යන්න'],
@@ -301,6 +310,31 @@ function TapGraph({ tx, legs, kind, upto, ghost = false, pin, onPin }: { tx: Tx;
   );
 }
 
+/** A small copy of the ride's graph with the moment t marked: one answer to choose on a phone. */
+function Snap({ legs, kind, t }: { legs: Leg[]; kind: 's' | 'v'; t: number }) {
+  const T = Math.max(total(legs), 0.001), x0 = 30, x1 = 152, y0 = 10, y1 = 82;
+  const val = (tt: number) => (kind === 's' ? at(legs, tt).s : at(legs, tt).v);
+  let lo = 0, hi = 0;
+  const pts: [number, number][] = [];
+  let t0 = 0;
+  for (const l of legs) {
+    if (l.d <= 0) continue;
+    for (let i = 0; i <= 16; i++) { const tt = t0 + l.d * i / 16; const y = kind === 's' ? at(legs, tt).s : (i === 0 ? l.v : at(legs, tt).v); pts.push([tt, y]); lo = Math.min(lo, y); hi = Math.max(hi, y); }
+    t0 += l.d;
+  }
+  if (hi - lo < 1) hi = lo + 1;
+  const X = (tt: number) => x0 + tt / T * (x1 - x0), Y = (y: number) => y1 - (y - lo) / (hi - lo) * (y1 - y0);
+  return (
+    <svg viewBox="0 0 160 100" aria-hidden="true">
+      {ticks(lo, hi, 3).map((y) => <g><line x1={x0} y1={Y(y)} x2={x1} y2={Y(y)} class={y === 0 ? 'g-zero' : 'g-grid'} /><text x={x0 - 4} y={Y(y) + 3} class="g-yt">{y}</text></g>)}
+      {ticks(0, T, 3).map((tt) => <text x={X(tt)} y={y1 + 12} class="g-xt">{tt}</text>)}
+      <line x1={x0} y1={y0} x2={x0} y2={y1} class="g-axis" /><line x1={x0} y1={y1} x2={x1} y2={y1} class="g-axis" />
+      <path d={pts.map(([tt, y], i) => (i ? 'L' : 'M') + X(tt).toFixed(1) + ' ' + Y(y).toFixed(1)).join(' ')} class="g-line" />
+      <g class="g-pin"><line x1={X(t)} y1={y0} x2={X(t)} y2={y1} /><circle cx={X(t)} cy={Y(val(t))} r="5" /></g>
+    </svg>
+  );
+}
+
 function Readouts({ tx, p, t }: { tx: Tx; p: Pt; t: number }) {
   return (
     <dl class="bus-ro">
@@ -357,6 +391,21 @@ export default function BusStopLab() {
     addEventListener('resize', measure);
     return () => removeEventListener('resize', measure);
   }, [phone]);
+  // on a phone the answers (choices and bet, the graph snapshots, the sliders) open in a popup over the lower half of
+  // the screen, from the bar's button; the question stays in the page, under the pinned picture
+  const [pop, setPop] = useState(false);
+  const [snap, setSnap] = useState(-1);
+  const [tried, setTried] = useState<number[]>([]);
+  const popX = useRef<HTMLButtonElement>(null);
+  const barBtn = useRef<HTMLButtonElement>(null);
+  const openPop = () => { setPop(true); setTimeout(() => popX.current?.focus(), 0); };
+  const closePop = () => { setPop(false); setTimeout(() => barBtn.current?.focus(), 0); };
+  useEffect(() => {
+    if (!pop) return;
+    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') closePop(); };
+    document.addEventListener('keydown', key);
+    return () => document.removeEventListener('keydown', key);
+  }, [pop]);
   const panel = useRef<HTMLDivElement>(null);
   const stageBox = useRef<HTMLDivElement>(null);
   /** Bring the question's details (story, choices, sliders, explanations) up under the pinned picture. */
@@ -384,6 +433,7 @@ export default function BusStopLab() {
 
   function startLevel(i: number, s: Save = save) {
     const lvl = LEVELS[i]!;
+    setPop(false); setSnap(-1); setTried([]);
     setLv(i); setPhase('ask'); setPick(-1); setWon(null); setT(0); setPlaying(false); setPin(null); setReadMsg(null); setMisses(0);
     setCtl(Object.fromEntries(lvl.goal.controls.map((c) => [c.key, c.start]))); setGoalMsg(null); setTries(0); setNote('');
     setBetOn(!(s.stars[i]! & STAR.ask));
@@ -451,26 +501,37 @@ export default function BusStopLab() {
 
   const lockIn = () => {
     if (pick < 0) { setNote(tx(W.pick)); return; }
-    setNote(''); go('ride', L.legs);
+    setNote(''); setPop(false); go('ride', L.legs);
   };
-  const checkRead = () => {
-    if (pin === null) { setReadMsg({ ok: false, text: tx(W.pinFirst) }); return; }
-    if (L.read.ok(pin)) {
+  /** Whether the moment tp answers the graph question (with its star and coins the first time). */
+  const judgeRead = (tp: number) => {
+    if (L.read.ok(tp)) {
       const first = !(save.stars[lv]! & STAR.read);
       award(STAR.read, PAY.read);
       setReadMsg({ ok: true, text: tx(W.right) + ' ' + tx(L.read.why) + (first ? ' ' + tx(W.earn) + PAY.read + '.' : '') });
-    } else {
-      setMisses((n) => n + 1);
-      setReadMsg({ ok: false, text: tx(W.readWrong) + (misses >= 1 ? ' ' + tx(L.read.why) : '') });
+      return true;
     }
+    setMisses((n) => n + 1);
+    setReadMsg({ ok: false, text: tx(W.readWrong) + (misses >= 1 ? ' ' + tx(L.read.why) : '') });
+    return false;
+  };
+  const checkRead = () => {
+    if (pin === null) { setReadMsg({ ok: false, text: tx(W.pinFirst) }); return; }
+    judgeRead(pin);
+  };
+  /** On a phone: the snapshot chosen; a wrong one is greyed out, a right one closes the popup. */
+  const checkSnap = () => {
+    if (snap < 0) { setReadMsg({ ok: false, text: tx(W.pickOne) }); return; }
+    if (judgeRead(L.read.snaps[snap]!)) setPop(false);
+    else { setTried((x) => [...x, snap]); setSnap(-1); }
   };
   const toRead = () => {
-    setPhase('read'); setPin(null); setReadMsg(null);
+    setPhase('read'); setPin(null); setReadMsg(null); setSnap(-1); setTried([]);
     level.current?.querySelector('.bus-do')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
     replay(0);
   };
-  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); if (phone) setTimeout(toPanel, 60); };   // the sliders come up under the road
-  const rideGoal = () => { setGoalMsg(null); go('goalRide', goalLegs); };
+  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); };
+  const rideGoal = () => { setGoalMsg(null); setPop(false); go('goalRide', goalLegs); };
   const setControl = (k: string, v: number) => { setPlaying(false); setCtl((c) => ({ ...c, [k]: v })); setT(0); setGoalMsg(null); };
 
   const buy = (id: string, price: number) => setSave((s) => (s.coins < price || s.own.includes(id) ? s : { ...s, coins: s.coins - price, own: [...s.own, id], wear: [...s.wear, id] }));
@@ -495,12 +556,63 @@ export default function BusStopLab() {
       onPin={stage === 1 ? (x) => { setPin(x); if (!readMsg?.ok) setReadMsg(null); } : undefined} />
   );
   const bar: { text: string; act?: [string, () => void] } =
-    phase === 'ask' ? { text: tx(L.ask.q), act: [tx(W.lockIn), lockIn] }
+    phase === 'ask' ? { text: tx(L.ask.q), act: [tx(W.answerBtn), openPop] }
     : phase === 'ride' || phase === 'goalRide' ? { text: tx(W.riding) }
     : phase === 'told' ? { text: tx(pick === L.ask.right ? W.right : W.wrong) + (won ? ' ' + tx(won > 0 ? W.won : W.lost) + Math.abs(won) + '.' : ''), act: [tx(W.toRead), toRead] }
-    : phase === 'read' ? (readMsg?.ok ? { text: readMsg.text, act: [tx(W.toGoal), toGoal] } : { text: readMsg?.text ?? tx(L.read.q), act: [tx(W.check), checkRead] })
-    : phase === 'goal' ? { text: goalMsg?.text ?? tx(L.goal.q), act: [tx(W.ride), rideGoal] }
+    : phase === 'read' ? (readMsg?.ok ? { text: readMsg.text, act: [tx(W.toGoal), toGoal] } : { text: tx(L.read.q), act: [tx(W.answerBtn), openPop] })
+    : phase === 'goal' ? { text: goalMsg?.text ?? tx(L.goal.q), act: [tx(goalMsg ? W.tryAgain : W.setRide), openPop] }
     : { text: tx(W.levelDone) + ' ' + '★'.repeat(bits(m)) + '☆'.repeat(3 - bits(m)), act: lv < LEVELS.length - 1 ? [tx(W.next), () => startLevel(lv + 1)] : undefined };
+
+  const choices = (
+    <div class="bus-opts" role="radiogroup" aria-label={tx(L.ask.q)}>
+      {L.ask.opts.map((o, i) => (
+        <button type="button" role="radio" aria-checked={pick === i} disabled={phase !== 'ask'}
+          class={'opt' + (pick === i ? ' on' : '') + (phase === 'told' && i === L.ask.right ? ' right' : '') + (phase === 'told' && pick === i && i !== L.ask.right ? ' wrong' : '')}
+          onClick={() => { setPick(i); setNote(''); }}>{tx(o)}</button>
+      ))}
+    </div>
+  );
+  const betting = (
+    <div class="bus-bet">
+      {!betOn ? <p class="hint">{tx(W.noBet)}</p> : save.coins === 0 ? <p class="hint">{tx(W.free)}</p> : (
+        <>
+          <span class="bet-l" id="bet-l">{tx(W.bet)}</span>
+          <div class="chips" role="radiogroup" aria-labelledby="bet-l">
+            {BETS.map((b) => <button type="button" role="radio" aria-checked={bet === b} class={'chip' + (bet === b ? ' on' : '')} disabled={b > save.coins} onClick={() => setBet(b)}>Rs {b}</button>)}
+          </div>
+          <p class="hint">{tx(W.betNote)}</p>
+        </>
+      )}
+      <button type="button" class="btn primary" onClick={lockIn}>{tx(W.lockRide)}</button>
+      {note && <p class="msg err" role="alert">{note}</p>}
+    </div>
+  );
+  const sliders = L.goal.controls.map((c) => (
+    <div class="bus-ctl">
+      <label for={'bus-' + c.key}>{tx(c.l)}: <b>{fmt(ctl[c.key] ?? c.start)} {c.unit}</b></label>
+      <input type="range" id={'bus-' + c.key} min={c.min} max={c.max} step={c.step} value={ctl[c.key] ?? c.start} disabled={phase !== 'goal'}
+        onInput={(e) => setControl(c.key, parseFloat((e.target as HTMLInputElement).value))} />
+    </div>
+  ));
+  const answers = phase === 'ask' ? <>{choices}{betting}</>
+    : phase === 'read' ? (
+      <>
+        <p class="bus-q">{tx(W.pickSnap)}</p>
+        <div class="bus-snaps" role="radiogroup" aria-label={tx(W.pickSnap)}>
+          {L.read.snaps.map((ts, i) => (
+            <button type="button" role="radio" aria-checked={snap === i} disabled={tried.includes(i) || !!readMsg?.ok}
+              class={'snap' + (snap === i ? ' on' : '') + (tried.includes(i) ? ' wrong' : '')} onClick={() => { setSnap(i); if (!readMsg?.ok) setReadMsg(null); }}>
+              <span class="snap-l">{'ABCD'[i]}<span class="visually-hidden">: {fmt(ts)} s</span></span>
+              <Snap legs={rideLegs} kind={showGraph} t={ts} />
+            </button>
+          ))}
+        </div>
+        <button type="button" class="btn primary" onClick={checkSnap}>{tx(W.check)}</button>
+        {readMsg && !readMsg.ok && <p class="bus-msg err" role="status">{readMsg.text}</p>}
+      </>
+    )
+    : phase === 'goal' ? <>{sliders}<button type="button" class="btn primary" onClick={rideGoal}>{tx(W.ride)}</button></>
+    : null;
 
   return (
     <section class="bus" aria-labelledby="bus-h">
@@ -547,7 +659,7 @@ export default function BusStopLab() {
         </div>
         <p class="bus-do" aria-live="polite">
           {phase !== 'end' && <b>{tx(W.stepOf).replace('{n}', String(stage + 1))} · </b>}
-          {tx(phase === 'end' ? W.do3 : [W.do0, W.do1, W.do2][stage]!)}
+          {tx(phase === 'end' ? W.do3 : (phone ? [W.do0, W.do1p, W.do2p] : [W.do0, W.do1, W.do2])[stage]!)}
         </p>
 
         <div class="bus-stage" ref={stageBox}>
@@ -573,28 +685,8 @@ export default function BusStopLab() {
               <>
                 <p class="bus-story">{tx(L.story)}</p>
                 <p class="bus-q">{tx(L.ask.q)}</p>
-                <div class="bus-opts" role="radiogroup" aria-label={tx(L.ask.q)}>
-                  {L.ask.opts.map((o, i) => (
-                    <button type="button" role="radio" aria-checked={pick === i} disabled={phase !== 'ask'}
-                      class={'opt' + (pick === i ? ' on' : '') + (phase === 'told' && i === L.ask.right ? ' right' : '') + (phase === 'told' && pick === i && i !== L.ask.right ? ' wrong' : '')}
-                      onClick={() => { setPick(i); setNote(''); }}>{tx(o)}</button>
-                  ))}
-                </div>
-                {phase === 'ask' && (
-                  <div class="bus-bet">
-                    {!betOn ? <p class="hint">{tx(W.noBet)}</p> : save.coins === 0 ? <p class="hint">{tx(W.free)}</p> : (
-                      <>
-                        <span class="bet-l" id="bet-l">{tx(W.bet)}</span>
-                        <div class="chips" role="radiogroup" aria-labelledby="bet-l">
-                          {BETS.map((b) => <button type="button" role="radio" aria-checked={bet === b} class={'chip' + (bet === b ? ' on' : '')} disabled={b > save.coins} onClick={() => setBet(b)}>Rs {b}</button>)}
-                        </div>
-                        <p class="hint">{tx(W.betNote)}</p>
-                      </>
-                    )}
-                    <button type="button" class="btn primary act" onClick={lockIn}>{tx(W.lockRide)}</button>
-                    {note && <p class="msg err" role="alert">{note}</p>}
-                  </div>
-                )}
+                {!phone && choices}
+                {phase === 'ask' && (phone ? <p class="hint">{tx(W.answerHint)}</p> : betting)}
                 {phase === 'ride' && <p class="hint" aria-live="polite">{tx(W.riding)}</p>}
                 {phase === 'told' && won !== null && (
                   <div class={'bus-msg ' + (pick === L.ask.right ? 'ok' : 'err')} role="status">
@@ -612,27 +704,22 @@ export default function BusStopLab() {
             {stage === 1 && (
               <>
                 <p class="bus-q">{tx(L.read.q)}</p>
-                {pin !== null && <p class="bus-pin">{tx(W.yourPoint)}{fmt(pin)} s · {fmt(L.read.graph === 's' ? at(rideLegs, pin).s : at(rideLegs, pin).v)} {L.read.graph === 's' ? 'm' : 'm/s'}</p>}
-                <p class="hint">{tx(W.tap)} {tx(W.keys)}</p>
+                {!phone && pin !== null && <p class="bus-pin">{tx(W.yourPoint)}{fmt(pin)} s · {fmt(L.read.graph === 's' ? at(rideLegs, pin).s : at(rideLegs, pin).v)} {L.read.graph === 's' ? 'm' : 'm/s'}</p>}
+                {!readMsg?.ok && <p class="hint">{phone ? tx(W.answerHint) : tx(W.tap) + ' ' + tx(W.keys)}</p>}
                 <div class="bus-row">
-                  <button type="button" class="btn primary act" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>
+                  {!phone && <button type="button" class="btn primary" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>}
                   {readMsg?.ok ? <button type="button" class="btn primary act" onClick={toGoal}>{tx(W.toGoal)}</button> : <button type="button" class="btn" onClick={toGoal}>{tx(W.skip)}</button>}
                 </div>
-                {readMsg && <p class={'bus-msg ' + (readMsg.ok ? 'ok' : 'err')} role="status">{readMsg.text}</p>}
+                {readMsg && (readMsg.ok || !phone) && <p class={'bus-msg ' + (readMsg.ok ? 'ok' : 'err')} role="status">{readMsg.text}</p>}
               </>
             )}
 
             {stage === 2 && (
               <>
                 <p class="bus-q">{tx(L.goal.q)}</p>
-                {L.goal.controls.map((c) => (
-                  <div class="bus-ctl">
-                    <label for={'bus-' + c.key}>{tx(c.l)}: <b>{fmt(ctl[c.key] ?? c.start)} {c.unit}</b></label>
-                    <input type="range" id={'bus-' + c.key} min={c.min} max={c.max} step={c.step} value={ctl[c.key] ?? c.start} disabled={phase !== 'goal'}
-                      onInput={(e) => setControl(c.key, parseFloat((e.target as HTMLInputElement).value))} />
-                  </div>
-                ))}
-                {phase !== 'end' && <button type="button" class="btn primary act" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
+                {!phone && sliders}
+                {!phone && phase !== 'end' && <button type="button" class="btn primary" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
+                {phone && phase === 'goalRide' && <p class="hint" aria-live="polite">{tx(W.riding)}</p>}
                 {goalMsg && <p class={'bus-msg ' + (goalMsg.ok ? 'ok' : 'err')} role="status">{goalMsg.text}{(goalMsg.ok || tries >= 3) && <> {tx(L.goal.why)}</>}</p>}
                 {phase === 'end' && (
                   <div class="bus-end">
@@ -653,8 +740,20 @@ export default function BusStopLab() {
         {phone && (
           <div class="bus-qbar" role="region" aria-label={tx(W.question)}>
             <button type="button" class="qb-text" onClick={toPanel}>{bar.text}</button>
-            {bar.act && <button type="button" class="btn primary" onClick={bar.act[1]}>{bar.act[0]}</button>}
+            {bar.act && <button type="button" class="btn primary" ref={barBtn} onClick={bar.act[1]} aria-haspopup={bar.act[1] === openPop ? 'dialog' : undefined}>{bar.act[0]}</button>}
           </div>
+        )}
+        {phone && pop && answers && (
+          <>
+            <div class="bus-backdrop" onClick={closePop} aria-hidden="true" />
+            <div class="bus-pop" role="dialog" aria-modal="true" aria-labelledby="bus-pop-h">
+              <div class="pop-head">
+                <b id="bus-pop-h">{tx(W.stepOf).replace('{n}', String(stage + 1))} · {tx([W.sPredict, W.sRead, W.sGoal][stage]!)}</b>
+                <button type="button" class="pop-x" ref={popX} onClick={closePop}>✕ {tx(W.close)}</button>
+              </div>
+              {answers}
+            </div>
+          </>
         )}
       </div>
 

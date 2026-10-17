@@ -11,18 +11,23 @@ export interface Leg { v: number; a: number; d: number }
 export interface Pt { s: number; v: number; dist: number }
 export interface Control { key: string; l: Pair; min: number; max: number; step: number; unit: string; start: number }
 export type Vals = Record<string, number>;
+/** A place on the road, s metres east of the start, drawn as a sign before the ride (after it, when it would give the answer away). */
+export interface Place { s: number; l: Pair; after?: boolean }
 
 export interface Level {
   /** The syllabus sections it covers. */
   sec: string;
   stop: Pair;
-  /** The place at the end of the ride (drawn on the road). */
-  place: Pair;
+  /** Where the ride starts (0 m): Nimal's home is drawn as a house, any other start as a sign. */
+  start: Pair;
+  home?: boolean;
+  /** The places the story names, shown on the road from the start. */
+  places: Place[];
   story: Pair;
   legs: Leg[];
   ask: { q: Pair; opts: Pair[]; right: number; why: Pair };
   read: { graph: 's' | 'v'; q: Pair; ok: (t: number) => boolean; why: Pair };
-  goal: { q: Pair; controls: Control[]; legs: (c: Vals) => Leg[]; ok: (c: Vals, end: Pt, T: number) => boolean; say: (c: Vals, end: Pt, T: number) => Pair; why: Pair; target?: number };
+  goal: { q: Pair; controls: Control[]; legs: (c: Vals) => Leg[]; ok: (c: Vals, end: Pt, T: number) => boolean; say: (c: Vals, end: Pt, T: number) => Pair; why: Pair; start?: Pair; places?: Place[] };
 }
 
 const sOf = (u: number, a: number, k: number) => u * k + 0.5 * a * k * k;
@@ -61,7 +66,8 @@ export const LEVELS: Level[] = [
   {
     sec: '2.1',
     stop: ['Corner shop', 'மூலைக் கடை', 'කෙළවරේ කඩේ'],
-    place: ["Kamal's house", 'கமலின் வீடு', 'කමල්ගේ ගෙදර'],
+    start: ['Home', 'வீடு', 'ගෙදර'], home: true,
+    places: [{ s: 80, l: ['Corner shop', 'மூலைக் கடை', 'කෙළවරේ කඩේ'] }, { s: 50, l: ["Kamal's house", 'கமலின் வீடு', 'කමල්ගේ ගෙදර'] }],
     story: [
       'Nimal rides 80 m east to the corner shop. Then he remembers his pen is at Kamal\'s house, so he rides 30 m back west.',
       'நிமல் 80 m கிழக்கே மூலைக் கடைக்கு சைக்கிள் ஓட்டுகிறான். பிறகு தன் பேனா கமலின் வீட்டில் இருப்பது நினைவுக்கு வர, 30 m திரும்பி மேற்கே போகிறான்.',
@@ -110,7 +116,8 @@ export const LEVELS: Level[] = [
   {
     sec: '2.2',
     stop: ['Paddy field', 'வயல்', 'කුඹුර'],
-    place: ['Temple', 'கோயில்', 'පන්සල'],
+    start: ["Kamal's house", 'கமலின் வீடு', 'කමල්ගේ ගෙදර'],
+    places: [{ s: 150, l: ['End of the field', 'வயலின் முடிவு', 'කුඹුරේ කෙළවර'] }],
     story: [
       'The road beside the paddy field is straight and flat. Nimal rides at a steady speed and covers 150 m in 30 s.',
       'வயல் அருகிலுள்ள சாலை நேரானது, சமதளமானது. நிமல் சீரான வேகத்தில் 30 s-இல் 150 m போகிறான்.',
@@ -136,13 +143,14 @@ export const LEVELS: Level[] = [
       ok: (c) => near(c.v! * 25, 200, 0.01),
       say: (_c, e) => ['After 25 s he was ' + r1(e.s) + ' m from home.', '25 s-க்குப் பிறகு அவன் வீட்டிலிருந்து ' + r1(e.s) + ' m தூரத்தில் இருந்தான்.', 's 25කට පසු ඔහු ගෙදර සිට m ' + r1(e.s) + ' දුරින් සිටියා.'],
       why: ['Speed = 200 m ÷ 25 s = 8 m/s.', 'வேகம் = 200 m ÷ 25 s = 8 m/s.', 'වේගය = m 200 ÷ s 25 = m/s 8.'],
-      target: 200,
+      places: [{ s: 200, l: ['Temple', 'கோயில்', 'පන්සල'] }],
     },
   },
   {
     sec: '2.2',
     stop: ['Temple', 'கோயில்', 'පන්සල'],
-    place: ['Home', 'வீடு', 'ගෙදර'],
+    start: ['Home', 'வீடு', 'ගෙදර'], home: true,
+    places: [{ s: 120, l: ['Temple', 'கோயில்', 'පන්සල'] }],
     story: [
       'Nimal rides 120 m east to the temple at 6 m/s, then rides 120 m back west at 4 m/s to pick up his little sister.',
       'நிமல் 6 m/s வேகத்தில் 120 m கிழக்கே கோயிலுக்குப் போகிறான், பிறகு தங்கையை அழைத்துவர 4 m/s வேகத்தில் 120 m மேற்கே திரும்புகிறான்.',
@@ -172,13 +180,14 @@ export const LEVELS: Level[] = [
       ok: (c) => near(150 / (30 + c.w!), 2, 0.001),
       say: (_c, e, T) => ['Average velocity = ' + r1(e.s) + ' m ÷ ' + r1(T) + ' s = ' + r1(e.s / T) + ' m/s.', 'சராசரி திசைவேகம் = ' + r1(e.s) + ' m ÷ ' + r1(T) + ' s = ' + r1(e.s / T) + ' m/s.', 'සාමාන්‍ය ප්‍රවේගය = m ' + r1(e.s) + ' ÷ s ' + r1(T) + ' = m/s ' + r1(e.s / T) + '.'],
       why: ['150 m ÷ 2 m/s = 75 s in all, so he waits 75 − 30 = 45 s. Waiting adds time but no displacement.', '150 m ÷ 2 m/s = மொத்தம் 75 s, எனவே 75 − 30 = 45 s காத்திருக்கிறான். காத்திருப்பது நேரத்தைக் கூட்டும், இடப்பெயர்ச்சியை அல்ல.', 'm 150 ÷ m/s 2 = මුළු s 75, එනිසා ඔහු 75 − 30 = s 45ක් රැඳී සිටිනවා. රැඳී සිටීමෙන් කාලය වැඩි වේ, විස්ථාපනය නොවේ.'],
-      target: 150,
+      places: [{ s: 150, l: ["Friend's house", 'நண்பனின் வீடு', 'යාළුවාගේ ගෙදර'] }],
     },
   },
   {
     sec: '2.3',
     stop: ['Hill road', 'மலைச் சாலை', 'කඳු පාර'],
-    place: ['Bottom of the hill', 'மலையின் அடிவாரம்', 'කන්ද පාමුල'],
+    start: ['Top of the hill', 'மலை உச்சி', 'කන්ද මුදුන'],
+    places: [{ s: 39, l: ['Bottom of the hill', 'மலையின் அடிவாரம்', 'කන්ද පාමුල'] }],
     story: [
       'At the top of the hill Nimal is moving at 2 m/s. He freewheels down, and his velocity goes up by 1.5 m/s every second for 6 s.',
       'மலை உச்சியில் நிமல் 2 m/s வேகத்தில் போகிறான். பெடல் மிதிக்காமல் இறங்குகிறான்; 6 s வரை ஒவ்வொரு விநாடியும் திசைவேகம் 1.5 m/s கூடுகிறது.',
@@ -209,7 +218,8 @@ export const LEVELS: Level[] = [
   {
     sec: '2.3 · 2.5',
     stop: ['Bus stop', 'பஸ் நிறுத்தம்', 'බස් නැවතුම'],
-    place: ['Bus stop', 'பஸ் நிறுத்தம்', 'බස් නැවතුම'],
+    start: ['Starts braking', 'பிரேக் போடுகிறான்', 'තිරිංග තද කරයි'],
+    places: [{ s: 16, l: ['Bus stop', 'பஸ் நிறுத்தம்', 'බස් නැවතුම'], after: true }],
     story: [
       'Nimal is riding at 8 m/s when he sees the bus stop. He brakes, and his velocity drops by 2 m/s every second until he stops.',
       'பஸ் நிறுத்தத்தைப் பார்க்கும்போது நிமல் 8 m/s வேகத்தில் போகிறான். பிரேக் போடுகிறான்; நிற்கும் வரை ஒவ்வொரு விநாடியும் திசைவேகம் 2 m/s குறைகிறது.',
@@ -242,7 +252,8 @@ export const LEVELS: Level[] = [
             : ['He stopped at ' + r1(e.s) + ' m: ' + r1(off) + ' m past the bus stop.', 'அவன் ' + r1(e.s) + ' m-இல் நின்றான்: பஸ் நிறுத்தத்தைத் தாண்டி ' + r1(off) + ' m.', 'ඔහු m ' + r1(e.s) + ' දී නැවතුණා: බස් නැවතුම පසුකර m ' + r1(off) + 'ක්.'];
       },
       why: ['Braking always takes 16 m, so he rides 40 − 16 = 24 m first: 24 m ÷ 8 m/s = 3 s.', 'பிரேக்குக்கு எப்போதும் 16 m ஆகும், எனவே முதலில் 40 − 16 = 24 m ஓட்டுகிறான்: 24 m ÷ 8 m/s = 3 s.', 'තිරිංග කිරීමට සැමවිටම m 16ක් යයි, එනිසා ඔහු මුලින් 40 − 16 = m 24ක් පදිනවා: m 24 ÷ m/s 8 = s 3.'],
-      target: 40,
+      start: ['Nimal now', 'இப்போது நிமல்', 'දැන් නිමල්'],
+      places: [{ s: 40, l: ['Bus stop', 'பஸ் நிறுத்தம்', 'බස් නැවතුම'] }],
     },
   },
 ];

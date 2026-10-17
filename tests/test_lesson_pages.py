@@ -345,10 +345,14 @@ def run():
             check('the lab step starts with the bus stop game: 5 stops (4 locked), 0 stars, Rs 10, then the free lab',
                   lambda: pg.locator('.bus .stop').count() == 5 and pg.locator('.bus .stop:disabled').count() == 4 and stars() == '0' and coins() == '10'
                   and pg.locator('#lab .lab-card .lg-try').count() == 3, lambda: (pg.locator('.bus .stop').count(), stars(), coins()))
+            signs = lambda: pg.eval_on_selector_all('.bus-scene .sign-t, .bus-scene .lbl', 'els => els.map(e => e.textContent)')
+            check('before the ride the road shows every place in the story', lambda: {'Home', 'Corner shop', "Kamal's house"} <= set(signs()), signs)
             pg.click('.bus-opts .opt >> nth=1')
             pg.click('.bus .chip >> text="Rs 2"')
             pg.click('.bus-bet .btn.primary')
             check('a right prediction wins the bet and the first star', lambda: coins() == '12' and stars() == '1', lambda: (coins(), stars()))
+            check('...and the next stop stays locked until this one is cleared (all three steps)',
+                  lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
             pg.click('.bus-msg .btn.primary')
             pg.focus('.bus-graph.tap svg')
             for _ in range(4):
@@ -366,7 +370,7 @@ def run():
             pg.click('.bus-panel .btn.primary')
             check('the goal gives the third star, opens the next stop, and is kept on this device',
                   lambda: stars() == '3' and coins() == '17' and pg.locator('.bus .stop:disabled').count() == 3
-                  and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 7, lambda: (stars(), coins()))
+                  and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 15, lambda: (stars(), coins()))
             pg.click('.bus-shop summary')
             pg.click('.bus-shop li >> nth=1 >> .btn')
             check('the bike shop sells a helmet for Rs 8 and Nimal wears it', lambda: coins() == '9' and pg.locator('.bus-scene path[fill="#E53935"]').count() == 1, lambda: coins())

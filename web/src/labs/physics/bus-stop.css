@@ -31,11 +31,6 @@
 .bus-level { border-top: 1px solid var(--sc-line); padding-top: 12px; }
 .bus-lv-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
 .bus-sec { font-weight: 800; font-family: var(--font-head); font-size: 1.05rem; }
-.bus-steps { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
-.bus-steps li { padding: 4px 10px; border-radius: 999px; border: 1px solid var(--sc-line); font-size: .82rem; font-weight: 700; color: var(--sc-ink-2); }
-.bus-steps li span { color: var(--sc-line); }
-.bus-steps li.got span { color: var(--sc-mango); }
-.bus-steps li.on { border-color: var(--sc-blue); background: var(--sc-blue-lt); color: var(--sc-ink); }
 
 .bus-scene { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--sc-line); }
 .bus-scene .sky { fill: #DFF2FF; }
@@ -152,3 +147,20 @@
 .bus .btn.primary { background: var(--sc-cta); color: var(--sc-cta-ink); border-color: var(--sc-cta); box-shadow: 0 4px 0 var(--sc-cta-shadow); }
 .bus .btn.primary:disabled { opacity: .5; }
 .bus-wait { min-height: 640px; }
+
+/* the three steps of a stop, in order: done, now, still to come */
+.bus-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.bus-steps li { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 4px; border-radius: 999px; border: 2px solid var(--sc-line); font-size: .84rem; font-weight: 700; color: var(--sc-ink-2); }
+.bus-steps .n { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--sc-panel-2); font-size: .78rem; }
+.bus-steps .st { color: var(--sc-line); }
+.bus-steps li.got .st { color: var(--sc-mango); }
+.bus-steps li.on { border-color: var(--sc-blue); background: var(--sc-blue-lt); color: var(--sc-ink); }
+.bus-steps li.on .n { background: var(--sc-blue); color: #fff; }
+.bus-steps li.past .n { background: var(--sc-leaf); color: #fff; }
+.bus-steps li.next { opacity: .7; }
+.bus-do { margin: 0 0 10px; padding: 8px 12px; border-radius: var(--r-sm); background: var(--sc-mango-lt); border-left: 4px solid var(--sc-mango); font-size: .95rem; }
+.bus-map-note { margin: 6px 0 0; font-size: .85rem; font-weight: 700; color: var(--sc-ink-2); }
+.stop.clear .stop-n { background: var(--sc-leaf); }
+.stop:disabled .stop-n { background: var(--sc-panel-2); }
+.bus-scene .start .sign { fill: #3443D9; }
+.bus-scene .zero { stroke: #fff; stroke-width: 3; stroke-dasharray: 4 3; }

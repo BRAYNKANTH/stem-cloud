@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang } from '../../stores/prefs';
 import { markLab, usePlayer, type Pair } from '../shared';
-import { LEVELS, at, dirn, total, type Leg, type Level, type Pt, type Vals } from './bus-stop-levels';
+import { LEVELS, at, dirn, total, type Leg, type Level, type Place, type Pt, type Vals } from './bus-stop-levels';
 
 /*
  * Unit 2, Lab 1: "Cycling to the Bus Stop" (sections 2.1, 2.2, 2.3, 2.5). Nimal rides from home to the school bus; each
@@ -19,6 +19,8 @@ const KEY = 'scx_bus_v1';
 const START: Save = { stars: LEVELS.map(() => 0), coins: 10, own: [], wear: [] };
 const BETS = [1, 2, 3, 5];
 const STAR = { ask: 1, read: 2, goal: 4 };
+/** A stop is cleared when its goal is reached (all three steps done): only then does the next stop open. */
+const CLEAR = 8;
 const PAY = { read: 2, goal: 3 };
 
 const ITEMS: { id: string; l: Pair; price: number }[] = [
@@ -41,7 +43,13 @@ const W = {
   coins: ['Coins', 'நாணயங்கள்', 'කාසි'],
   route: ['The way to the bus', 'பஸ்ஸுக்குப் போகும் வழி', 'බසයට යන මඟ'],
   level: ['Level', 'நிலை', 'මට්ටම'],
-  locked: ['Get a star at the stop before to open this one.', 'இதைத் திறக்க முந்தைய நிறுத்தத்தில் ஒரு நட்சத்திரம் பெறு.', 'මෙය විවෘත කිරීමට පෙර නැවතුමේදී තරුවක් ලබාගන්න.'],
+  locked: ['Clear the stop before to open this one.', 'இதைத் திறக்க முந்தைய நிறுத்தத்தை முடி.', 'මෙය විවෘත කිරීමට පෙර නැවතුම නිම කරන්න.'],
+  finishFirst: ['Finish this stop first: all three steps.', 'முதலில் இந்த நிறுத்தத்தின் மூன்று படிகளையும் முடி.', 'මුලින්ම මෙම නැවතුමේ පියවර තුනම නිම කරන්න.'],
+  stepOf: ['Step {n} of 3', 'படி {n} / 3', 'පියවර {n} / 3'],
+  do0: ['Read the story and find the places on the road. Then pick your answer, place a bet and ride.', 'கதையைப் படி, சாலையில் இடங்களைப் பார். பிறகு விடையைத் தேர்ந்தெடு, பந்தயம் கட்டி ஓட்டு.', 'කතාව කියවා පාරේ ස්ථාන සොයාගන්න. ඉන්පසු පිළිතුර තෝරා, ඔට්ටුවක් අල්ලා පදින්න.'],
+  do1: ['Use the graph of the ride you just watched.', 'நீ இப்போது பார்த்த பயணத்தின் வரைபைப் பயன்படுத்து.', 'ඔබ දැන් බැලූ ගමනේ ප්‍රස්තාරය භාවිත කරන්න.'],
+  do2: ['Now you plan the ride: move the slider, then press Ride. Try as many times as you like.', 'இப்போது நீ பயணத்தைத் திட்டமிடு: ஸ்லைடரை நகர்த்தி, ஓட்டு அழுத்து. எத்தனை முறை வேண்டுமானாலும் முயற்சி செய்.', 'දැන් ඔබ ගමන සැලසුම් කරන්න: ස්ලයිඩරය චලනය කර, පදින්න ඔබන්න. කැමති තරම් වාර ගණනක් උත්සාහ කරන්න.'],
+  do3: ['Stop cleared! The next stop is open.', 'நிறுத்தம் முடிந்தது! அடுத்த நிறுத்தம் திறந்துவிட்டது.', 'නැවතුම නිම කළා! ඊළඟ නැවතුම විවෘතයි.'],
   sPredict: ['Predict', 'கணி', 'අනාවැකිය'],
   sRead: ['Read the graph', 'வரைபைப் படி', 'ප්‍රස්තාරය කියවන්න'],
   sGoal: ['Hit the goal', 'இலக்கை அடை', 'ඉලක්කය සපුරන්න'],
@@ -101,7 +109,8 @@ function load(): Save {
     const j = JSON.parse(localStorage.getItem(KEY) || 'null');
     if (j && Array.isArray(j.stars)) {
       return {
-        stars: LEVELS.map((_, i) => (Number(j.stars[i]) | 0) & 7),
+        // a goal reached before stops had to be cleared counts as cleared
+        stars: LEVELS.map((_, i) => { const m = (Number(j.stars[i]) | 0) & 15; return m & STAR.goal ? m | CLEAR : m; }),
         coins: Math.max(0, Number(j.coins) | 0),
         own: Array.isArray(j.own) ? j.own.filter((x: unknown) => typeof x === 'string') : [],
         wear: Array.isArray(j.wear) ? j.wear.filter((x: unknown) => typeof x === 'string') : [],
@@ -157,39 +166,48 @@ function Bike({ x, dir, turn, wear }: { x: number; dir: number; turn: number; we
   );
 }
 
-/** The road from the side: home, the place at the end, Nimal, and the displacement arrow. */
-function Scene({ tx, legs, t, place, target, wear }: { tx: Tx; legs: Leg[]; t: number; place: Pair | null; target?: number; wear: string[] }) {
-  const T = total(legs), end = at(legs, T).s, now = at(legs, t);
-  const mark = target ?? end;
-  const [lo, hi] = span(legs, [mark]);
+/** The road from the side: the start (Nimal's home or a sign), the places of the story, Nimal, and the displacement arrow. */
+function Scene({ tx, legs, t, start, home, places, ticks: showTicks, wear }: { tx: Tx; legs: Leg[]; t: number; start: Pair; home: boolean; places: Place[]; ticks: boolean; wear: string[] }) {
+  const now = at(legs, t);
+  const [lo, hi] = span(legs, places.map((p) => p.s));
   const X = (s: number) => 64 + (s - lo) / (hi - lo) * 550;
   const dir = now.v < -0.01 ? -1 : now.v > 0.01 ? 1 : (at(legs, Math.max(0, t - 0.05)).v < 0 ? -1 : 1);
   const disp = dirn(now.s);
   const ax0 = X(0), ax1 = X(now.s);
-  const sw = place ? Math.max(56, tx(place).length * 7.2 + 16) : 0;
+  const width = (p: Pair) => Math.max(56, tx(p).length * 7.2 + 16);
+  // signs side by side would overlap: every other one that is too close stands higher
+  const signs = [{ s: 0, l: start, first: true }, ...places.map((p) => ({ ...p, first: false }))].filter((p) => !(p.first && home)).sort((a, b) => a.s - b.s);
+  let lastX = -1e9, lastW = 0, up = false;
+  const placed = signs.map((p) => {
+    const x = X(p.s), w = width(p.l);
+    up = Math.abs(x - lastX) < (w + lastW) / 2 + 6 ? !up : false;
+    lastX = x; lastW = w;
+    return { ...p, x, w, y: up ? -132 : -106 };
+  });
   return (
-    <svg class="bus-scene" viewBox="0 0 640 230" role="img" aria-label={tx(W.scene) + ': ' + tx(W.s) + ' ' + tx(disp) + ', ' + tx(W.d) + ' ' + fmt(now.dist) + ' m'}>
+    <svg class="bus-scene" viewBox="0 0 640 230" role="img" aria-label={tx(W.scene) + ': ' + [tx(start), ...places.map((p) => tx(p.l) + ' ' + p.s + ' m')].join(', ') + '. ' + tx(W.s) + ' ' + tx(disp) + ', ' + tx(W.d) + ' ' + fmt(now.dist) + ' m'}>
       <rect x="0" y="0" width="640" height="150" class="sky" />
-      <circle cx="585" cy="36" r="18" class="sun" />
+      <circle cx="30" cy="28" r="15" class="sun" />
       <path d="M0 122 Q90 92 180 118 T380 112 T640 116 V150 H0 Z" class="hill" />
       {[70, 250, 470].map((tx0) => <g transform={`translate(${tx0} 118)`}><rect x="-3" y="0" width="6" height="22" fill="#7A5230" /><circle cx="0" cy="-6" r="15" class="tree" /></g>)}
       <rect x="0" y="150" width="640" height="34" class="road" />
       <line x1="0" y1="167" x2="640" y2="167" class="lane" />
       <rect x="0" y="184" width="640" height="46" class="verge" />
-      {/* home */}
-      <g transform={`translate(${ax0 - 34} 150)`}>
-        <rect x="-16" y="-30" width="32" height="30" class="house" /><path d="M-21 -30 L0 -48 L21 -30 Z" class="roof" /><rect x="-5" y="-15" width="10" height="15" class="door" />
-        <text x="0" y="-53" class="lbl">{tx(W.home)}</text>
-      </g>
-      {/* the place at the end */}
-      {place && Math.abs(X(mark) - ax0) > 40 && (
-        <g transform={`translate(${X(mark)} 150)`}>
-          <line x1="0" y1="0" x2="0" y2="-88" class="post" /><rect x={-sw / 2} y="-106" width={sw} height="18" rx="4" class="sign" />
-          <text x="0" y="-93" class="sign-t">{tx(place)}</text>
+      {home && (
+        <g transform={`translate(${ax0 - 34} 150)`}>
+          <rect x="-16" y="-30" width="32" height="30" class="house" /><path d="M-21 -30 L0 -48 L21 -30 Z" class="roof" /><rect x="-5" y="-15" width="10" height="15" class="door" />
+          <text x="0" y="-53" class="lbl">{tx(start)}</text>
         </g>
       )}
-      {ticks(lo, hi).map((m) => <g><line x1={X(m)} y1="184" x2={X(m)} y2="190" class="tick" /><text x={X(m)} y="201" class="tick-t">{m} m</text></g>)}
-      {/* displacement: from home to Nimal */}
+      {placed.map((p) => (
+        <g transform={`translate(${p.x} 150)`} class={p.first ? 'start' : ''}>
+          <line x1="0" y1="0" x2="0" y2={p.y + 18} class="post" /><rect x={-p.w / 2} y={p.y} width={p.w} height="18" rx="4" class="sign" />
+          <text x="0" y={p.y + 13} class="sign-t">{tx(p.l)}</text>
+        </g>
+      ))}
+      <line x1={ax0} y1="152" x2={ax0} y2="182" class="zero" />
+      {showTicks && ticks(lo, hi).map((m) => <g><line x1={X(m)} y1="184" x2={X(m)} y2="190" class="tick" /><text x={X(m)} y="201" class="tick-t">{m} m</text></g>)}
+      {/* displacement: from the start to Nimal */}
       {Math.abs(ax1 - ax0) > 4 && (
         <g class="disp">
           <line x1={ax0} y1="216" x2={ax1} y2="216" />
@@ -316,10 +334,17 @@ export default function BusStopLab() {
   const rideLegs = phase === 'goal' || phase === 'goalRide' || (phase === 'end' && goalMsg) ? goalLegs : L.legs;
   const T = total(rideLegs);
   const totalStars = save.stars.reduce((n, m) => n + bits(m), 0);
-  const unlocked = (i: number) => i === 0 || save.stars[i - 1]! > 0;
+  const unlocked = (i: number) => i === 0 || !!(save.stars[i - 1]! & CLEAR);
+  // in the middle of a stop (after locking in a prediction, before its goal) the other stops wait
+  const busy = phase !== 'ask' && phase !== 'end';
 
   useEffect(() => { if (loaded.current) { try { localStorage.setItem(KEY, JSON.stringify(save)); } catch { /* private mode */ } } }, [save]);
-  useEffect(() => { const s = load(); loaded.current = true; setSave(s); startLevel(0, s); }, []);
+  // open on the first stop not cleared yet (the last one when all are)
+  useEffect(() => {
+    const s = load(); loaded.current = true; setSave(s);
+    const next = s.stars.findIndex((m) => !(m & CLEAR));
+    startLevel(next < 0 ? LEVELS.length - 1 : next, s);
+  }, []);
 
   function startLevel(i: number, s: Save = save) {
     const lvl = LEVELS[i]!;
@@ -369,7 +394,7 @@ export default function BusStopLab() {
       setTries((n) => n + (ok ? 0 : 1));
       if (ok) {
         const first = !(save.stars[lv]! & STAR.goal);
-        award(STAR.goal, PAY.goal);
+        award(STAR.goal | CLEAR, PAY.goal);
         setGoalMsg({ ok: true, text: tx(W.goalHit) + said + (first ? ' ' + tx(W.earn) + PAY.goal + '.' : '') });
         setPhase('end');
       } else {
@@ -428,26 +453,41 @@ export default function BusStopLab() {
         <ol>
           {LEVELS.map((x, i) => (
             <li>
-              <button type="button" class={'stop' + (i === lv ? ' on' : '')} aria-current={i === lv ? 'step' : undefined} disabled={!unlocked(i)}
-                title={unlocked(i) ? undefined : tx(W.locked)} onClick={() => startLevel(i)}>
-                <span class="stop-n">{i + 1}</span>
+              <button type="button" class={'stop' + (i === lv ? ' on' : '') + (save.stars[i]! & CLEAR ? ' clear' : '')} aria-current={i === lv ? 'step' : undefined}
+                disabled={!unlocked(i) || (busy && i !== lv)} title={!unlocked(i) ? tx(W.locked) : busy && i !== lv ? tx(W.finishFirst) : undefined} onClick={() => { if (i !== lv) startLevel(i); }}>
+                <span class="stop-n" aria-hidden="true">{!unlocked(i) ? '🔒' : save.stars[i]! & CLEAR ? '✓' : i + 1}</span>
+                <span class="visually-hidden">{i + 1}. </span>
                 <span class="stop-name">{tx(x.stop)}</span>
                 <Stars m={save.stars[i]!} label={bits(save.stars[i]!) + ' / 3 ' + tx(W.stars)} />
               </button>
             </li>
           ))}
         </ol>
+        {busy && <p class="bus-map-note">{tx(W.finishFirst)}</p>}
       </nav>
 
       <div class="bus-level">
         <div class="bus-lv-top">
           <span class="bus-sec">{tx(W.level)} {lv + 1} · {L.sec}</span>
           <ol class="bus-steps">
-            {[W.sPredict, W.sRead, W.sGoal].map((w, i) => <li class={(stage === i ? 'on ' : '') + (m & [1, 2, 4][i]! ? 'got' : '')}><span aria-hidden="true">★</span> {tx(w)}</li>)}
+            {[W.sPredict, W.sRead, W.sGoal].map((w, i) => {
+              const state = phase === 'end' || stage > i ? 'past' : stage === i ? 'on' : 'next';
+              return (
+                <li class={state + (m & [1, 2, 4][i]! ? ' got' : '')} aria-current={state === 'on' ? 'step' : undefined}>
+                  <span class="n">{i + 1}</span> {tx(w)} <span class="st" aria-hidden="true">★</span>
+                </li>
+              );
+            })}
           </ol>
         </div>
+        <p class="bus-do" aria-live="polite">
+          {phase !== 'end' && <b>{tx(W.stepOf).replace('{n}', String(stage + 1))} · </b>}
+          {tx(phase === 'end' ? W.do3 : [W.do0, W.do1, W.do2][stage]!)}
+        </p>
 
-        <Scene tx={tx} legs={rideLegs} t={t} place={stage !== 0 || phase === 'told' ? L.place : null} target={stage === 2 ? L.goal.target : undefined} wear={save.wear} />
+        <Scene tx={tx} legs={rideLegs} t={t} wear={save.wear} ticks={phase !== 'ask'}
+          start={stage === 2 ? L.goal.start ?? L.start : L.start} home={!!L.home && !(stage === 2 && L.goal.start)}
+          places={stage === 2 ? L.goal.places ?? [] : L.places.filter((p) => !p.after || phase === 'told' || stage > 0)} />
         <Readouts tx={tx} p={p} t={t} />
 
         <div class="bus-work">

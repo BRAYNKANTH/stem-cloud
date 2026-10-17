@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'preact/hooks';
 import Ico from './Ico';
 
-interface User { id: number; username: string; display_name: string; role: string; created_at: number; last_seen: number; devices: number; xp: number; badges: number }
+interface User { id: number; username: string; display_name: string; role: string; created_at: number; last_seen: number; devices: number; badges: number }
 interface Created { username: string; password: string; role: string }
 type Msg = { ok: boolean; text: string } | null;
 
@@ -98,7 +98,6 @@ export default function AdminPanel() {
       <section class="card stats" aria-label="Totals">
         <div class="stat"><span>Students</span><b>{list.length}</b></div>
         <div class="stat"><span>Active in last 7 days</span><b>{list.filter((u) => u.last_seen > week).length}</b></div>
-        <div class="stat"><span>Total XP</span><b>{list.reduce((n, u) => n + u.xp, 0)}</b></div>
       </section>
 
       <section class="card" aria-labelledby="create-h">
@@ -148,14 +147,13 @@ export default function AdminPanel() {
         <div class={`msg ${msg ? (msg.ok ? 'ok' : 'err') : ''}`} role="status" aria-live="polite">{msg?.text}</div>
         <div class="tw">
           <table>
-            <thead><tr><th>User</th><th>Role</th><th>Devices</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
+            <thead><tr><th>User</th><th>Role</th><th>Devices</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
             <tbody>
               {list.map((u) => (
                 <tr key={u.id}>
                   <td>{u.display_name}<div class="hint">@{u.username}</div></td>
                   <td><span class={`pill ${u.role}`}>{u.role}</span></td>
                   <td>{(u.devices || 0) + ' / 2 active'}</td>
-                  <td>{u.xp}</td>
                   <td>{u.badges}</td>
                   <td>{day(u.created_at)}</td>
                   <td>{ago(u.last_seen)}</td>

@@ -1,21 +1,20 @@
 import { useEffect, useMemo, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang, loadPrefs } from '../stores/prefs';
-import { onceId, record, reward, signedIn, start as startProgress } from '../stores/progress';
+import { signedIn, start as startProgress } from '../stores/progress';
 
 /*
  * Past papers: the O/L Science papers' physics questions (content/past-papers/physics/), by the lesson chapters they
  * test. One thing on the screen at a time:
- *  - Home: a "continue" card, the chapters by grade, and the years at the bottom.
- *  - A chapter (or a year): its questions as a list, with a "practise 10" button and four filters.
+ *  - Home: the chapters by grade, and the years at the bottom.
+ *  - A chapter (or a year): its questions as a list, with a "practise 10" button and a Saved filter.
  *  - A question, on its own screen: choose and check. The verdict comes with one short reason; the full explanation
  *    (the idea, step by step, why it works, the common mistake) is folded away, and opens by itself after a wrong
  *    answer. A written question's parts each show their model answer on request; typing an answer is optional.
- *  - A practice set: up to 10 of a chapter's questions, the ones to revisit first, then a summary.
- * There is no paper (exam) mode any more; a paper someone had started is kept as drafts.
- * Drafts stay on this device; attempts and bookmarks sync to the account through the existing API (/api/past-papers/*),
- * under the same device key as before (stem_pp_physics_<user id>). A question right for the first time is worth 5 XP,
- * once, and every question of a chapter right earns a badge (progress v2).
+ *  - A practice set: 10 of a chapter's questions, drawn at random, then a finish screen.
+ * Nothing is marked as done and nothing is kept: an answer or a typed draft lives only while its question is open, so a
+ * question always opens fresh and can be practised any time. The one thing kept is the bookmarks (Saved), on this device
+ * under the device key stem_pp_physics_<user id> and synced to the account (/api/past-papers/bookmark). There is no XP.
  */
 
 type Lang = 'en' | 'ta' | 'si';
@@ -36,11 +35,10 @@ interface Result { type: 'mcq' | 'written'; choice?: number | null; correct?: bo
 interface Attempt { id: string; question: string; result: Result; at: number }
 interface Draft { answers: Record<string, string>; choice?: number | null; touched?: boolean }
 interface Pending { id: string; question: string; mode: string; choice?: number | null; answers?: Record<string, string>; selfCheck?: string | null }
-interface State { drafts: Record<string, Draft>; events: Attempt[]; pending: Pending[]; bookmarks: string[]; bookmarkPending: Record<string, boolean>; exam?: { responses?: Record<string, Draft> } | null }
+interface State { drafts: Record<string, Draft>; events: Attempt[]; bookmarks: string[]; bookmarkPending: Record<string, boolean> }   // drafts and events live in memory only
 /** A lesson chapter (content/catalog.json): its page file stem (the questions' "lessons"), grade, number, title, new page. */
 export interface Chapter { key: string; grade: number; number: string; title: { en: string; ta?: string; si?: string }; url: string }
-type Status = 'right' | 'revisit' | 'tried' | 'new';
-type Filter = '' | 'new' | 'revisit' | 'saved';
+type Filter = '' | 'saved';
 /** Where the student is: a list is a chapter's or a year's; a question is shown within its list. */
 type Place = { kind: 'chapter'; key: string } | { kind: 'year'; year: number };
 type View = { kind: 'home' } | (Place & { q?: string }) | { kind: 'set'; key: string };
@@ -133,7 +131,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   const [filter, setFilter] = useState<Filter>('');
   const [set, setSet] = useState<{ key: string; ids: string[]; i: number; done: boolean } | null>(null);
   const [msg, setMsg] = useState<{ text: string; retry?: boolean }>({ text: '' });
-  const [last, setLast] = useState<Place | null>(null);
   const area = useRef<HTMLElement>(null);
   const syncing = useRef(false);
   const keyRef = useRef('');
@@ -148,7 +145,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     stRef.current = next;
     setSt({ ...next });
     try {
-      localStorage.setItem(keyRef.current, JSON.stringify(next));
+      localStorage.setItem(keyRef.current, JSON.stringify({ bookmarks: next.bookmarks, bookmarkPending: next.bookmarkPending }));   // answers and drafts are not kept
     } catch {
       setMsg({ text: t('Device storage is full. Keep this page open and connect to save your answers.', 'சாதனச் சேமிப்பு நிரம்பியுள்ளது. பக்கத்தைத் திறந்து வைத்து விடைகளைச் சேமிக்க இணைக்கவும்.', 'උපාංගයේ ගබඩාව පිරී ඇත. පිළිතුරු සුරැකීමට මෙම පිටුව විවෘතව තබා සම්බන්ධ වන්න.') });
     }
@@ -156,12 +153,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   const latest = (s: State, q: Question) => {
     const ev = s.events.filter((e) => e.question === q.id);
     return [...ev].reverse().find((e) => hasResponse(e.result)) || ev.at(-1);   // an empty entry must not hide an earlier response
-  };
-  const status = (s: State, q: Question): Status => {
-    const r = latest(s, q)?.result;
-    if (!r || !hasResponse(r)) return 'new';
-    if (r.type === 'mcq') return r.correct ? 'right' : 'revisit';
-    return r.selfCheck === 'understood' ? 'right' : r.selfCheck === 'needs-work' ? 'revisit' : 'tried';
   };
   const mergeEvents = (s: State, rows: Attempt[]) => {
     const m = new Map(s.events.map((e) => [e.id, e]));
@@ -184,19 +175,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     syncing.current = true;
     try {
       let s = stRef.current;
-      while (s.pending.length) {
-        const batch: Pending[] = [];
-        for (const e of s.pending.slice(0, 50)) {
-          if (batch.length && new TextEncoder().encode(JSON.stringify({ events: [...batch, e] })).length > 500000) break;
-          batch.push(e);
-        }
-        const result = await api('attempts', 'POST', { events: batch });
-        s = clone(stRef.current!);
-        mergeEvents(s, result.attempts);
-        const sent = new Set(batch.map((e) => e.id));
-        s.pending = s.pending.filter((e) => !sent.has(e.id));
-        persist(s);
-      }
       for (const q of Object.keys(s.bookmarkPending)) {
         const saved = s.bookmarkPending[q]!;
         await api('bookmark', 'PUT', { question: q, saved });
@@ -214,35 +192,20 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     }
   }
 
-  /** XP once for a question answered right for the first time, and a badge when every question of a chapter is right. */
-  function rewardRight(s: State, q: Question) {
-    void reward('pp:' + q.id, 5);
-    for (const key of chaptersOf(q)) {
-      const qs = bank.filter((x) => chaptersOf(x).includes(key));
-      if (qs.length && qs.every((x) => status(s, x) === 'right')) {
-        const badge = 'pastpapers:' + key;
-        void record({ id: onceId('badge:' + badge), type: 'badge', badge });
-      }
-    }
-  }
-
   function enqueue(s: State, e: Pending) {
     const q = byId.get(e.question)!;
     const result: Result = q.type === 'mcq'
       ? { type: 'mcq', choice: e.choice, correct: e.choice === q.correct, correctChoice: q.correct, mode: e.mode }
       : { type: 'written', answers: e.answers, selfCheck: e.selfCheck, mode: e.mode };
     mergeEvents(s, [{ id: e.id, question: e.question, result, at: Date.now() }]);
-    s.pending.push(e);
-    persist(s);
-    if (status(s, q) === 'right') rewardRight(s, q);
-    void sync();
+    persist(s);   // in memory only: shown while this question is open, not kept
   }
 
   // ---------------------------------------------------------------- loading
   useEffect(() => {
     loadPrefs();
     void startProgress('past-papers');
-    try { setLast(JSON.parse(localStorage.getItem(LAST) || 'null')); } catch { /* none */ }
+    try { localStorage.removeItem(LAST); } catch { /* the "continue" card is gone */ }
     // a lesson's "past paper questions" link (?lesson=<chapter>) opens that chapter
     const fromLesson = new URLSearchParams(location.search).get('lesson') || '';
     if (fromLesson && !location.hash) history.replaceState(null, '', location.pathname + '#chapter/' + fromLesson);
@@ -271,22 +234,11 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
       } catch {
         s = {} as State;
       }
-      s = Object.assign({ drafts: {}, events: [], pending: [], bookmarks: [], bookmarkPending: {} }, s);
+      s = { drafts: {}, events: [], bookmarks: s.bookmarks || [], bookmarkPending: s.bookmarkPending || {} };   // earlier answers and drafts are not kept any more: only the bookmarks
       try {
         const loaded: Bank[] = await dataP;
         const all = Object.fromEntries(loaded.map((b) => [b.year, b])) as Record<number, Bank>;
         const ids = new Map(loaded.flatMap((b) => b.questions).map((q) => [q.id, q]));
-        const clean = (qid: string, a?: Record<string, string>) => Object.fromEntries(Object.entries(a || {}).filter(([l]) => ids.get(qid)?.parts?.some((p) => p.label === l)));
-        // there is no paper mode any more: a paper someone had started keeps its responses as drafts
-        for (const [q, d] of Object.entries(s.exam?.responses || {})) if (ids.has(q) && !s.drafts[q]?.touched) s.drafts[q] = { ...d, touched: true };
-        delete s.exam;
-        s.drafts = Object.fromEntries(Object.entries(s.drafts).filter(([q]) => ids.has(q)).map(([q, d]) => [q, { ...d, answers: clean(q, d.answers) }]));
-        s.events = s.events.filter((e) => ids.has(e.question)).map((e) => ({ ...e, result: { ...e.result, ...(e.result.type === 'written' ? { answers: clean(e.question, e.result.answers) } : {}) } }));
-        s.pending = s.pending.filter((e) => ids.has(e.question)).map((e) => {
-          if (!e.answers) return e;
-          const answers = clean(e.question, e.answers);
-          return { ...e, answers, id: JSON.stringify(answers) === JSON.stringify(e.answers) ? e.id : newId() };
-        });
         s.bookmarks = s.bookmarks.filter((q) => ids.has(q));
         s.bookmarkPending = Object.fromEntries(Object.entries(s.bookmarkPending).filter(([q]) => ids.has(q)));
         setBanks(all);
@@ -298,7 +250,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
           const remote = await stateP;
           if (!remote) throw new Error('state');
           const s2 = clone(stRef.current!);
-          mergeEvents(s2, remote.attempts);
           s2.bookmarks = remote.bookmarks;
           Object.entries(s2.bookmarkPending).forEach(([q, v]) => {
             s2.bookmarks = s2.bookmarks.filter((x) => x !== q);
@@ -317,16 +268,14 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   }, []);
 
   const placeKey = (v: View) => (v.kind === 'year' ? 'y' + v.year : v.kind === 'home' ? '' : v.key);
+  /** A question always opens fresh: what was answered or typed a moment ago is not kept. */
+  const fresh = () => { if (stRef.current) { stRef.current = { ...stRef.current, events: [], drafts: {} }; setSt(stRef.current); } };
   const go = (v: View, replace = false) => {
+    fresh();
     if (hashOf(v) !== (location.hash || '#')) history[replace ? 'replaceState' : 'pushState'](null, '', hashOf(v) === '#' ? location.pathname : hashOf(v));
     if (placeKey(v) !== placeKey(view)) setFilter('');   // another chapter or year starts unfiltered
     setView(v);
     window.scrollTo({ top: 0 });
-    if (v.kind === 'chapter' || v.kind === 'year' || v.kind === 'set') {
-      const place: Place = v.kind === 'year' ? { kind: 'year', year: v.year } : { kind: 'chapter', key: v.key };
-      setLast(place);
-      try { localStorage.setItem(LAST, JSON.stringify(place)); } catch { /* not kept */ }
-    }
   };
   // OTHER: the few questions no physics chapter teaches (a measuring apparatus, diffusion)
   const inChapter = (key: string) => bank.filter((q) => (key === OTHER ? !chaptersOf(q).length : chaptersOf(q).includes(key))).sort((a, b) => b.year - a.year || a.paper.localeCompare(b.paper) || a.number - b.number);
@@ -335,11 +284,10 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   useEffect(() => {
     document.documentElement.toggleAttribute('data-ppq', view.kind === 'set' || ((view.kind === 'chapter' || view.kind === 'year') && !!view.q));
   }, [view]);
-  // a practice set is made when its view opens: up to 10, to revisit first, then not tried, then answered, then right
+  // a practice set is made when its view opens: 10 of the chapter's questions, drawn at random
   useEffect(() => {
     if (view.kind !== 'set' || !st || !bank.length || (set && set.key === view.key)) return;
-    const order: Status[] = ['revisit', 'new', 'tried', 'right'];
-    const ids = inChapter(view.key).sort((a, b) => order.indexOf(status(st, a)) - order.indexOf(status(st, b))).slice(0, SET_SIZE).map((q) => q.id);
+    const ids = inChapter(view.key).map((q) => [Math.random(), q] as const).sort((a, b) => a[0] - b[0]).slice(0, SET_SIZE).map((x) => x[1].id);
     setSet({ key: view.key, ids, i: 0, done: false });
   }, [view, st, bank]);
 
@@ -355,17 +303,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     }
     return d;
   };
-  const stats = (qs: Question[]) => {
-    const n = { total: qs.length, right: 0, revisit: 0, tried: 0 };
-    for (const q of qs) {
-      const s = status(st, q);
-      if (s === 'right') n.right++; else if (s === 'revisit') n.revisit++; else if (s === 'tried') n.tried++;
-    }
-    return { ...n, done: n.right + n.revisit + n.tried };
-  };
-  const pct = (a: number, b: number) => (b ? Math.round((100 * a) / b) : 0);
-  const statusWord = (s: Status) => ({ right: t('Right', 'சரி', 'නිවැරදියි'), revisit: t('To revisit', 'மீண்டும் பார்க்க', 'නැවත බලන්න'), tried: t('Done', 'செய்தது', 'කළා'), new: t('Not done', 'செய்யாதது', 'නොකළ') })[s];
-  const doneOf = (s: { done: number; total: number }) => t(`${s.done} of ${s.total} done`, `${s.total} இல் ${s.done} செய்தவை`, `${s.total} න් ${s.done} කළා`);
   const bookmark = (q: Question) => { const s = clone(st); const on = !s.bookmarks.includes(q.id); s.bookmarks = s.bookmarks.filter((x) => x !== q.id); if (on) s.bookmarks.push(q.id); s.bookmarkPending[q.id] = on; persist(s); void sync(); };
   const placeTitle = (p: Place) => {
     if (p.kind === 'year') return t(`${p.year} paper`, `${p.year} வினாத்தாள்`, `${p.year} ප්‍රශ්න පත්‍රය`);
@@ -373,7 +310,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     return c ? chapterName(c) : p.key === OTHER ? t('Other questions', 'பிற வினாக்கள்', 'වෙනත් ප්‍රශ්න') : p.key;
   };
   const listOf = (p: Place) => (p.kind === 'year' ? inYear(p.year) : inChapter(p.key));
-  const bar = (n: number) => <span class="pp-bar" aria-hidden="true"><i style={{ width: n + '%' }} /></span>;
 
   const top = (back?: { label: string; to: View }) => (
     <div class="pp-top">
@@ -393,7 +329,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
                     bookmarked={st.bookmarks.includes(q.id)} onBookmark={() => bookmark(q)}
                     onDraft={(d) => { const s = clone(st); s.drafts[q.id] = d; persist(s); }}
                     onCheck={(choice) => enqueue(clone(st), { id: newId(), question: q.id, mode: 'practice', choice })}
-                    onSelfCheck={(answers, check) => enqueue(clone(st), { id: newId(), question: q.id, mode: 'practice', answers: clone(answers), selfCheck: check })}
                     {...opts} />
     </section>
   );
@@ -401,20 +336,15 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   // ---------------------------------------------------------------- views
   let body;
   if (view.kind === 'home') {
-    const all = stats(bank);
     const grades = [...new Set(chapters.map((c) => c.grade))].sort();
-    const lastStats = last ? stats(listOf(last)) : null;
     const card = (key: string, no: string, title: string) => {
-      const qs = inChapter(key), s = stats(qs);
-      if (!qs.length) return null;
+      const n = inChapter(key).length;
+      if (!n) return null;
       return (
-        <a class={'pp-chapter' + (s.total && s.right === s.total ? ' is-complete' : '')} data-chapter={key} href={'#chapter/' + key} onClick={(e) => { e.preventDefault(); go({ kind: 'chapter', key }); }}>
+        <a class="pp-chapter" data-chapter={key} href={'#chapter/' + key} onClick={(e) => { e.preventDefault(); go({ kind: 'chapter', key }); }}>
           <span class="pp-chapter-no">{no}</span>
           <b>{title}</b>
-          {bar(pct(s.done, s.total))}
-          <span class="pp-chapter-meta">{doneOf(s)}
-            {s.revisit > 0 && <em class="pp-revisit">{t(`${s.revisit} to revisit`, `${s.revisit} மீண்டும் பார்க்க`, `${s.revisit} නැවත බැලීමට`)}</em>}
-            {s.total > 0 && s.right === s.total && <em class="pp-done">✓ {t('All right', 'எல்லாம் சரி', 'සියල්ල නිවැරදියි')}</em>}</span>
+          <span class="pp-chapter-meta">{t(`${n} questions`, `${n} வினாக்கள்`, `ප්‍රශ්න ${n}`)}</span>
         </a>
       );
     };
@@ -424,16 +354,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
         <header class="pp-hero">
           <h1>{t('Past Papers', 'கடந்த பரீட்சை வினாத்தாள்கள்', 'අතීත ප්‍රශ්න පත්‍ර')}</h1>
           <p>{t('Real O/L Science questions, 2015 to 2023, by chapter. Every answer is explained.', 'உண்மையான சா/த விஞ்ஞான வினாக்கள், 2015–2023, அத்தியாய வாரியாக. ஒவ்வொரு விடையும் விளக்கப்பட்டுள்ளது.', 'සැබෑ සා/පෙළ විද්‍යා ප්‍රශ්න, 2015–2023, පරිච්ඡේද අනුව. සෑම පිළිතුරක්ම පැහැදිලි කර ඇත.')}</p>
-          <div class="pp-progress" aria-label={t('Your progress', 'உங்கள் முன்னேற்றம்', 'ඔබේ ප්‍රගතිය')}>{bar(pct(all.done, all.total))}<span>{doneOf(all)}</span></div>
         </header>
-        {last && lastStats && lastStats.total > 0 && (
-          <a class="pp-continue" href={hashOf(last)} onClick={(e) => { e.preventDefault(); go(last); }}>
-            <span class="pp-continue-label">{t('Continue', 'தொடர்க', 'ඉදිරියට')}</span>
-            <b>{placeTitle(last)}</b>
-            <span class="pp-chapter-meta">{doneOf(lastStats)}</span>
-            <span class="pp-continue-go" aria-hidden="true">→</span>
-          </a>
-        )}
         <a class="pp-formulas" href="/formulas/">
           <span aria-hidden="true">Σ</span>
           <span><b>{t('Formula cards', 'சூத்திர அட்டைகள்', 'සූත්‍ර කාඩ්පත්')}</b>
@@ -454,8 +375,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
         <section class="pp-years" aria-labelledby="pp-years-h">
           <h2 id="pp-years-h">{t('Or look at one year', 'அல்லது ஒரு ஆண்டைப் பாருங்கள்', 'නැතහොත් එක් වසරක් බලන්න')}</h2>
           <div class="pp-year-row">{years.map((y) => {
-            const s = stats(inYear(y));
-            return <a class={'pp-year' + (s.done ? ' is-started' : '')} data-year={y} href={'#year/' + y} onClick={(e) => { e.preventDefault(); go({ kind: 'year', year: y }); }}>{y}</a>;
+            return <a class="pp-year" data-year={y} href={'#year/' + y} onClick={(e) => { e.preventDefault(); go({ kind: 'year', year: y }); }}>{y}</a>;
           })}</div>
         </section>
         <details class="pp-about">
@@ -473,19 +393,12 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     if (!run) {
       body = <>{top(back)}<p class="pp-status">{t('Getting your questions ready…', 'உங்கள் வினாக்கள் தயாராகின்றன…', 'ඔබේ ප්‍රශ්න සූදානම් වෙමින්…')}</p></>;
     } else if (run.done) {
-      const rows = run.ids.map((id) => byId.get(id)!).filter(Boolean);
-      const r = rows.filter((q) => status(st, q) === 'right').length;
       body = (
         <>
           {top(back)}
           <section class="pp-summary" aria-live="polite">
-            <p class="pp-summary-icon" aria-hidden="true">{r === rows.length ? '🏆' : r >= rows.length / 2 ? '🌟' : '💪'}</p>
+            <p class="pp-summary-icon" aria-hidden="true">🎉</p>
             <h1>{t('Set finished', 'பயிற்சி முடிந்தது', 'කට්ටලය අවසන්')}</h1>
-            <p class="pp-score"><b>{r}</b> / {rows.length} {t('right', 'சரி', 'නිවැරදියි')}</p>
-            <ul class="pp-summary-list">{rows.map((q) => {
-              const s = status(st, q);
-              return <li class={'is-' + s}><span class="pp-dot" aria-hidden="true" /><span>{qLabel(q)}</span><em>{statusWord(s)}</em></li>;
-            })}</ul>
             <div class="pp-actions">
               <button type="button" class="btn primary" onClick={() => { setSet(null); go({ kind: 'set', key: view.key }, true); }}>{t('Practise 10 more', 'இன்னும் 10 பயிற்சி', 'තවත් 10ක් පුහුණු වන්න')}</button>
               <button type="button" class="btn" onClick={() => go({ kind: 'chapter', key: view.key })}>{t('Back to the chapter', 'அத்தியாயத்துக்குத் திரும்பு', 'පරිච්ඡේදයට ආපසු')}</button>
@@ -499,7 +412,6 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
         <>
           {top(back)}
           <div class="pp-set-head">
-            {bar(pct(run.i, run.ids.length))}
             <p>{t(`Question ${run.i + 1} of ${run.ids.length}`, `வினா ${run.i + 1} / ${run.ids.length}`, `ප්‍රශ්නය ${run.i + 1} / ${run.ids.length}`)}</p>
           </div>
           {questionScreen(q, { index: run.i, count: run.ids.length, inSet: true, focus: view.key,
@@ -526,42 +438,38 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
       );
     } else {
       const c = place.kind === 'chapter' ? byKey.get(place.key) : undefined;
-      const s = stats(qs);
       const shown = qs.filter((x) => keep(x));
       const saved = qs.filter((x) => st.bookmarks.includes(x.id)).length;
-      const filters: [Filter, string, number][] = [['', t('All', 'எல்லாம்', 'සියල්ල'), qs.length], ['new', t('Not done', 'செய்யாதவை', 'නොකළ'), s.total - s.done],
-        ['revisit', t('To revisit', 'மீண்டும் பார்க்க', 'නැවත බලන්න'), s.revisit], ['saved', t('Saved', 'சேமித்தவை', 'සුරැකි'), saved]];
+      const filters: [Filter, string, number][] = [['', t('All', 'எல்லாம்', 'සියල්ල'), qs.length], ['saved', t('Saved', 'சேமித்தவை', 'සුරැකි'), saved]];
       body = (
         <>
           {top({ label: t('Past Papers', 'கடந்த வினாத்தாள்கள்', 'අතීත ප්‍රශ්න පත්‍ර'), to: { kind: 'home' } })}
           <header class="pp-chapter-head">
             {c && <span class="pp-chapter-no">{t(`Grade ${c.grade} · Chapter ${c.number}`, `தரம் ${c.grade} · அத்தியாயம் ${c.number}`, `${c.grade} ශ්‍රේණිය · පරිච්ඡේදය ${c.number}`)}</span>}
             <h1>{title}</h1>
-            <div class="pp-progress">{bar(pct(s.done, s.total))}<span>{doneOf(s)}{s.right > 0 ? ' · ' + t(`${s.right} right`, `${s.right} சரி`, `${s.right} නිවැරදියි`) : ''}</span></div>
             <div class="pp-actions">
               {place.kind === 'chapter' && <button type="button" class="btn primary pp-start" onClick={() => { setSet(null); go({ kind: 'set', key: place.key }); }}>
                 ▶ {t(`Practise ${Math.min(SET_SIZE, qs.length)}`, `${Math.min(SET_SIZE, qs.length)} பயிற்சி`, `${Math.min(SET_SIZE, qs.length)}ක් පුහුණුව`)}</button>}
               {c && <a class="btn" href={c.url}>📘 {t('Lesson', 'பாடம்', 'පාඩම')}</a>}
             </div>
           </header>
-          <div class="pp-filters" role="group" aria-label={t('Show', 'காட்டு', 'පෙන්වන්න')}>
-            {filters.filter(([k, , n]) => !k || n > 0 || filter === k).map(([k, label, n]) => (
-              <button type="button" class="pp-chip" aria-pressed={filter === k} onClick={() => setFilter(k)}>{label} <span class="pp-count">{n}</span></button>
-            ))}
-          </div>
+          {(saved > 0 || filter === 'saved') && (
+            <div class="pp-filters" role="group" aria-label={t('Show', 'காட்டு', 'පෙන්වන්න')}>
+              {filters.filter(([k, , n]) => !k || n > 0 || filter === k).map(([k, label, n]) => (
+                <button type="button" class="pp-chip" aria-pressed={filter === k} onClick={() => setFilter(k)}>{label} <span class="pp-count">{n}</span></button>
+              ))}
+            </div>
+          )}
           {shown.length ? (
             <ol id="pp-list" class="pp-qlist">
               {shown.map((x) => {
-                const sx = status(st, x);
                 return (
-                  <li><a class={'pp-qitem is-' + sx} data-q={x.id} href={hashOf({ ...place, q: x.id })} onClick={(e) => { e.preventDefault(); go({ ...place, q: x.id }); }}>
-                    <span class="pp-dot" aria-hidden="true" />
+                  <li><a class="pp-qitem" data-q={x.id} href={hashOf({ ...place, q: x.id })} onClick={(e) => { e.preventDefault(); go({ ...place, q: x.id }); }}>
                     <span class="pp-qitem-main">
                       <span class="pp-qitem-meta">{qLabel(x)} · {typeWord(x)}{st.bookmarks.includes(x.id) ? ' · ★' : ''}</span>
                       <span class="pp-qitem-text">{tr(x.type === 'written' && x.parts?.length
                         ? (x.parts.find((pt) => place.kind === 'chapter' && (pt.lessons || []).includes(place.key)) || x.parts[0]!).prompt : x.prompt)}</span>
                     </span>
-                    <span class="pp-qitem-status">{statusWord(sx)}</span>
                   </a></li>
                 );
               })}
@@ -573,8 +481,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   }
 
   function keep(x: Question) {
-    const s = status(st!, x);
-    return !filter || (filter === 'new' && s === 'new') || (filter === 'revisit' && s === 'revisit') || (filter === 'saved' && st!.bookmarks.includes(x.id));
+    return !filter || (filter === 'saved' && st!.bookmarks.includes(x.id));
   }
 
   return <div class="pp-app">{body}</div>;
@@ -587,7 +494,7 @@ interface ViewProps {
   chapterOf: (key: string) => Chapter | undefined; chapterName: (c: Chapter) => string;
   t: (en: string, ta: string, si?: string) => string; tr: (o: Tx) => string; qLabel: (q: Question) => string; typeWord: (q: Question) => string;
   onBookmark: () => void; onDraft: (d: Draft) => void; onCheck: (choice: number) => void;
-  onSelfCheck: (answers: Record<string, string>, check: string) => void; onGo: (i: number) => void;
+  onGo: (i: number) => void;
 }
 
 function QuestionView(p: ViewProps) {
@@ -655,7 +562,8 @@ function QuestionView(p: ViewProps) {
       })}
     </details>
   );
-  const done = reveal || (q.type === 'written' && !!p.prev && hasResponse(p.prev.result));
+  const anyShown = Object.values(shownParts).some(Boolean);
+  const done = reveal || (q.type === 'written' && anyShown);
   const nav = (
     <nav class="pp-nav" aria-label={t('Questions', 'வினாக்கள்', 'ප්‍රශ්න')}>
       {p.inSet ? <span /> : <button type="button" class="btn" disabled={p.index === 0} onClick={() => p.onGo(p.index - 1)} aria-label={t('Previous question', 'முந்தைய வினா', 'පෙර ප්‍රශ්නය')}>←</button>}
@@ -667,8 +575,6 @@ function QuestionView(p: ViewProps) {
 
   const chosen = reveal ? p.prev!.result.choice : null;
   const whyShown = (i: number) => reveal && (i === q.correct || i === chosen || others);
-  const checkedSelf = q.type === 'written' && p.prev ? p.prev.result.selfCheck : null;
-  const anyShown = Object.values(shownParts).some(Boolean);
   // a written question opened from a chapter shows that chapter's parts; the others are folded away
   const mine = (q.parts || []).filter((x) => !p.focus || (x.lessons || []).includes(p.focus));
   const parts = mine.length ? mine : q.parts || [];
@@ -762,15 +668,6 @@ function QuestionView(p: ViewProps) {
               <summary>{t(`Other parts of this question (${rest.length})`, `இவ்வினாவின் பிற பகுதிகள் (${rest.length})`, `මෙම ප්‍රශ්නයේ අනෙක් කොටස් (${rest.length})`)}</summary>
               {rest.map(partView)}
             </details>
-          )}
-          {(anyShown || checkedSelf) && (
-            <div class="pp-selfcheck">
-              <p>{t('Compare with the model answer. How did you do?', 'மாதிரி விடையுடன் ஒப்பிடுக. எப்படிச் செய்தீர்கள்?', 'ආදර්ශ පිළිතුර සමඟ සසඳන්න. ඔබ කෙසේ කළාද?')}</p>
-              <div class="pp-actions">
-                <button type="button" class="btn" aria-pressed={checkedSelf === 'understood'} onClick={() => p.onSelfCheck(d.answers, 'understood')}>✓ {t('I got it', 'புரிந்தது', 'මට තේරුණා')}</button>
-                <button type="button" class="btn" aria-pressed={checkedSelf === 'needs-work'} onClick={() => p.onSelfCheck(d.answers, 'needs-work')}>↻ {t('I need more practice', 'மேலும் பயிற்சி தேவை', 'මට තව පුහුණුව අවශ්‍යයි')}</button>
-              </div>
-            </div>
           )}
         </>
       )}

@@ -30,7 +30,7 @@ function Svg({ d }: { d: string }) {
  * bar at the bottom, in thumb reach (StepEnd): one way forward, not two. "Whole lesson on one page"
  * (stem_view = scroll, the current app's setting) shows every step instead. Without JavaScript every step is shown.
  * Progress v2 (stores/progress.ts): a step shown is opened, a step moved on from is done (as the current pages tick
- * their path), the finish is worth 20 XP once, and the map ticks the steps done. On a topic page the step ids are
+ * their path), and the map ticks the steps done. On a topic page the step ids are
  * "topic:<topic>:<step>" (prefix), as the v1 -> v2 migration names them. A link with a current page's section id
  * (#examples, #practice) opens the step it became (aliases, from lesson.legacy.steps), so old links keep working.
  */

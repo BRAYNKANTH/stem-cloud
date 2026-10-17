@@ -32,7 +32,7 @@ const points = [
 const highlights = [
   { icon: 'flask', title: 'Interactive Virtual Laboratories', text: 'Experiment with mechanics, optics, wave propagation, and circuits without costly school equipment.' },
   { icon: 'mic', title: 'Neural Spoken Explanations', text: 'Listen to bilingual sentence-highlighted read-alouds with correct scientific pronunciations.' },
-  { icon: 'gamepad', title: 'Gamified Mastery & Progress', text: 'Earn XP, unlock topic badges, collect stars, and watch your exam confidence grow day by day.' },
+  { icon: 'gamepad', title: 'Practice Without Pressure', text: 'Practise any question as often as you like. Nothing is marked as done, so every question is always there to try again.' },
   { icon: 'doc', title: 'G.C.E. O/L Past Paper Vault', text: 'Solve past exam questions with instant checks, model answers, and structured hints.' },
 ] as const;
 const features = [
@@ -41,17 +41,17 @@ const features = [
   { icon: 'chat', title: 'Story Introductions with Raja & Chittu', text: 'Every topic begins with an engaging, everyday story featuring Raja and Chittu. Concepts are grounded in relatable Sri Lankan life—flying kites, cycling on hills, and domestic water pumps.', tags: ['Intuitive Learning', 'Zero Jargon', 'Relatable'] },
   { icon: 'mic', title: 'Neural Bilingual Voice Guidance', text: 'Integrated neural Tamil and English audio reads each lesson line by line with active sentence highlighting. Students can adjust speeds, repeat difficult sections, and pronounce scientific terms accurately.', tags: ['Tamil & English', 'Synchronized Highlighting', 'Paced Audio'] },
   { icon: 'note', title: 'Complete Textbook Solutions', text: 'Every single activity, question, and worked example from the official Ministry of Education textbook has a detailed, verified step-by-step answer and explanation.', tags: ['Official Textbook', 'Worked Answers', 'Diagram Previews'] },
-  { icon: 'medal', title: 'Gamified XP, Badges & Stars', text: 'Studying feels as rewarding as a game. Collect XP points as you read, earn stars for quiz accuracy, and unlock syllabus achievement badges as you master new chapters.', tags: ['Level Progress', 'Topic Badges', 'Cloud Sync'] },
+  { icon: 'medal', title: 'Practice Any Time', text: 'Practise every chapter one question at a time, swipe up for the next, and bookmark the ones you want to keep. Every answer comes with a short explanation.', tags: ['One Question at a Time', 'Bookmarks', 'Cloud Sync'] },
   { icon: 'doc', title: 'G.C.E. O/L Past Paper Drills', text: 'Targeted exam preparation with official past papers. Test yourself against past question patterns, understand marking rubrics, and bookmark challenging problems for revision.', tags: ['Exam Techniques', 'Instant Checking', 'Paper Archive'] },
   { icon: 'download', title: 'Installable PWA & 100% Offline Ready', text: 'Install STEM Cloud directly onto your phone without requiring app stores. Once loaded, lessons work seamlessly without internet, saving valuable mobile data.', tags: ['Android / iOS / PC', 'Zero Data Offline', 'Lightweight'] },
-  { icon: 'school', title: 'Teacher & Admin Monitoring', text: 'Educators and administrators have clear oversight over student participation, progress completion, XP leaderboards, and safe device session management.', tags: ['Class Tracking', 'Secure Logins', 'Activity Insights'] },
+  { icon: 'school', title: 'Teacher & Admin Monitoring', text: 'Educators and administrators have clear oversight over student participation, and safe device session management.', tags: ['Class Tracking', 'Secure Logins', 'Activity Insights'] },
 ] as const;
 const faqs = [
   { q: 'Is STEM Cloud only for G.C.E. O/L Physics?', a: 'No! STEM Cloud is built as an extensible digitalized learning platform for G.C.E. Ordinary Level education. While our physics curriculum features our flagship animated cartoon walkthroughs, interactive virtual laboratories, and worked textbook solutions, the platform is designed for broader STEM subjects, structured lesson delivery, and past paper practice across the curriculum.', open: true },
-  { q: 'How does STEM Cloud work offline?', a: 'STEM Cloud is a Progressive Web App (PWA). When you open chapters on your smartphone or computer, the core educational materials are securely cached on your device. You can review notes, reread stories, and study offline without consuming additional mobile data. Your earned XP and stars sync automatically the next time you reconnect!' },
+  { q: 'How does STEM Cloud work offline?', a: 'STEM Cloud is a Progressive Web App (PWA). When you open chapters on your smartphone or computer, the core educational materials are securely cached on your device. You can review notes, reread stories, and study offline without consuming additional mobile data. Your lessons sync automatically the next time you reconnect!' },
   { q: 'How do students receive their account credentials?', a: 'To ensure personalized progress tracking and prevent account abuse, student accounts are created by our platform administrators or partnered school teachers. You can contact our administrator directly on WhatsApp at <strong>070 775 2433</strong> to enroll and receive your login details.' },
   { q: 'What languages are supported?', a: 'STEM Cloud features full bilingual support for Tamil and English, with high-quality neural voice read-aloud recordings and synchronized text highlighting. Sinhala language localized navigation and curriculum modules are actively in development.' },
-  { q: 'Can I use STEM Cloud on multiple devices?', a: 'Yes! You can log in from your smartphone, tablet, or home PC. The platform maintains a secure two-active-device session system to protect your account, and your XP, badges, and completed lessons seamlessly follow you anywhere.' },
+  { q: 'Can I use STEM Cloud on multiple devices?', a: 'Yes! You can log in from your smartphone, tablet, or home PC. The platform maintains a secure two-active-device session system to protect your account, and your completed lessons and saved questions seamlessly follow you anywhere.' },
 ];
 ---
 <AppLayout

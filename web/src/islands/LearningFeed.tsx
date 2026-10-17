@@ -30,14 +30,13 @@ const W = {
   poll: { en: '{p}% got this right · {n} answered', ta: '{p}% பேர் சரியாகச் சொன்னார்கள் · {n} பேர் பதிலளித்தனர்', si: '{p}%ක් නිවැරදියි · පිළිතුරු දුන්නේ {n} දෙනෙකි' },
   next: { en: 'Next', ta: 'அடுத்தது', si: 'ඊළඟ' },
   learn: { en: 'Learn it', ta: 'கற்றுக்கொள்', si: 'ඉගෙන ගන්න' },
-  streak: { en: 'in a row', ta: 'தொடர்ச்சியாக', si: 'අඛණ්ඩව' },
-  score: { en: 'right', ta: 'சரி', si: 'නිවැරදි' },
+  questions: { en: 'questions', ta: 'வினாக்கள்', si: 'ප්‍රශ්න' },
   feed: { en: 'Practice questions', ta: 'பயிற்சி வினாக்கள்', si: 'පුහුණු ප්‍රශ්න' },
-  practice: { en: 'Progress through the chapter', ta: 'பாடத்தில் முன்னேற்றம்', si: 'පරිච්ඡේදයේ ප්‍රගතිය' },
-  restart: { en: 'Start this chapter again', ta: 'இந்தப் பாடத்தை மீண்டும் தொடங்கு', si: 'මෙම පරිච්ඡේදය නැවත අරඹන්න' },
+  place: { en: 'Question', ta: 'வினா', si: 'ප්‍රශ්නය' },
+  restart: { en: 'Practise this chapter again', ta: 'இந்தப் பாடத்தை மீண்டும் பயிற்சி செய்', si: 'මෙම පරිච්ඡේදය නැවත පුහුණු වන්න' },
   swipeUp: { en: 'Swipe up', ta: 'மேலே தள்ளு', si: 'ඉහළට ස්වයිප් කරන්න' },
   roundDone: { en: 'Chapter finished', ta: 'பாடம் முடிந்தது', si: 'පරිච්ඡේදය අවසන්' },
-  allDone: { en: 'You have answered every question in this chapter right!', ta: 'இந்தப் பாடத்தின் எல்லா வினாக்களுக்கும் சரியாகப் பதிலளித்தாய்!', si: 'මෙම පරිච්ඡේදයේ සියලු ප්‍රශ්නවලට ඔබ නිවැරදිව පිළිතුරු දුන්නා!' },
+  noneHere: { en: 'No questions here yet.', ta: 'இங்கு இன்னும் வினாக்கள் இல்லை.', si: 'මෙහි තවම ප්‍රශ්න නැත.' },
   chapters: { en: 'Practise a chapter', ta: 'ஒரு பாடத்தைப் பயிற்சி செய்', si: 'පරිච්ඡේදයක් පුහුණු වන්න' },
   pick: { en: 'Pick a chapter: its questions, one at a time. Swipe up for the next.', ta: 'ஒரு பாடத்தைத் தெரிவு செய்: அதன் வினாக்கள், ஒவ்வொன்றாக. அடுத்ததற்கு மேலே தள்ளு.', si: 'පරිච්ඡේදයක් තෝරන්න: එහි ප්‍රශ්න, එකින් එක. ඊළඟටට ඉහළට ස්වයිප් කරන්න.' },
   grade: { en: 'Grade', ta: 'தரம்', si: 'ශ්‍රේණිය' },
@@ -48,14 +47,14 @@ const W = {
   savedDone: { en: 'That is all you saved', ta: 'சேமித்தவை இவ்வளவுதான்', si: 'ඔබ සුරැකියේ ඇත්තේ මෙපමණයි' },
 };
 
-const load = (): Record<string, Answer> => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } };
 const loadSaved = (): string[] => { try { const s = JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); return Array.isArray(s) ? s.filter((x) => typeof x === 'string') : []; } catch { return []; } };
 
 /**
  * Practice: a chapter's questions, one per screen, swiped up like a reel (tap a chapter and its questions start at once).
  * Each question fits the screen: the picture gives way first, so nothing inside a card scrolls. Every answer is checked at
- * once with a one-line reason and how many students got it right (the API keeps each student's first answer). A bookmark in
- * the corner keeps a question for later (#saved). Answers and bookmarks are kept on this device.
+ * once with a one-line reason and how many students got it right. Nothing is marked as done: an answer lives only while the
+ * question is on this page, so every visit starts fresh and any question can be practised again. A bookmark in the corner
+ * keeps a question for later (#saved); that is the one thing kept on this device.
  */
 export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapter[]; pools?: Pool[] }) {
   const lang = useStore($lang);
@@ -71,54 +70,38 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
   const [deck, setDeck] = useState<FeedCard[]>([]);
   const [cur, setCur] = useState(0);                 // the card on screen
   const [round, setRound] = useState(0);             // counts the times a deck is dealt, so a new order is drawn afresh, not moved about
-  const [recent, setRecent] = useState<boolean[]>([]);  // this visit's answers, right or wrong, in order (for the streak)
   const [swiped, setSwiped] = useState(false);          // has the student moved on from the first card yet
   const toTop = () => { box.current?.scrollTo({ top: 0, behavior: 'instant' }); requestAnimationFrame(() => box.current?.scrollTo({ top: 0, behavior: 'instant' })); };   // again once the new order is drawn
   const start = (slug: string, cards: FeedCard[]) => {
     setDeck(cards);
     setMode(slug);
     setCur(0);
-    setRecent([]);
+    setAnswers({});                                // every visit starts fresh: nothing answered, nothing marked
     setSwiped(false);
     setRound((r) => r + 1);
     toTop();
   };
-  const deal = (slug: string, a: Record<string, Answer>) => {
+  const deal = (slug: string) => {
     const pool = pools.find((p) => p.slug === slug);
     if (!pool) { setMode(''); setDeck([]); return; }
-    const mix = <X,>(xs: X[]) => xs.map((x) => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map((p) => p[1]);
-    // every question of the chapter, in a random order: the ones not answered yet first, then the ones answered wrong (they
-    // come back to try again), then the ones already right
-    const fresh = mix(pool.cards.filter((c) => !a[c.id]));
-    const again = mix(pool.cards.filter((c) => a[c.id] && !a[c.id]!.right));
-    const done = mix(pool.cards.filter((c) => a[c.id]?.right));
-    if (again.length) { const b = { ...a }; again.forEach((c) => delete b[c.id]); save(b); }
-    start(slug, [...fresh, ...again, ...done]);
-  };
-  const restart = (slug: string) => {
-    const pool = pools.find((p) => p.slug === slug);
-    if (!pool) return;
-    const b = { ...answers };
-    pool.cards.forEach((c) => delete b[c.id]);
-    save(b);
-    deal(slug, b);
+    // every question of the chapter, in a random order, each time
+    start(slug, pool.cards.map((x) => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map((p) => p[1]));
   };
   useEffect(() => {
     loadPrefs();
-    setAnswers(load());
+    try { localStorage.removeItem(KEY); } catch { /* answers used to be kept here: not any more */ }
     setSaved(loadSaved());
     const fromHash = () => {
       const h = decodeURIComponent(location.hash.slice(1));
       if (h === SAVED) start(SAVED, loadSaved().map((id) => every.get(id)).filter(Boolean) as FeedCard[]);   // newest first, as saved
-      else if (pools.some((p) => p.slug === h)) deal(h, load());
-      else { setMode(''); setDeck([]); setCur(0); setRecent([]); setAnswers(load()); setSaved(loadSaved()); box.current?.scrollTo({ top: 0, behavior: 'instant' }); }
+      else if (pools.some((p) => p.slug === h)) deal(h);
+      else { setMode(''); setDeck([]); setCur(0); setAnswers({}); setSaved(loadSaved()); box.current?.scrollTo({ top: 0, behavior: 'instant' }); }
     };
     fromHash();
     window.addEventListener('hashchange', fromHash);
     return () => window.removeEventListener('hashchange', fromHash);
   }, []);
   const list = mode ? deck : [];
-  const save = (a: Record<string, Answer>) => { setAnswers(a); try { localStorage.setItem(KEY, JSON.stringify(a)); } catch { /* private mode */ } };
   const toggleSave = (id: string) => {
     const next = saved.includes(id) ? saved.filter((x) => x !== id) : [id, ...saved];
     setSaved(next);
@@ -128,12 +111,11 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
   const answer = (card: FeedCard, choice: number) => {
     if (answers[card.id]) return;
     const right = choice === card.correct;
-    save({ ...answers, [card.id]: { choice, right } });
-    setRecent((r) => [...r, right]);
+    setAnswers({ ...answers, [card.id]: { choice, right } });
     if (navigator.vibrate) try { navigator.vibrate(right ? 25 : [30, 60, 30]); } catch { /* not allowed */ }
     fetch('/api/feed/answer', { method: 'POST', credentials: 'same-origin', headers: H, body: JSON.stringify({ card: card.id, choice }) })
       .then((r) => (r.ok ? r.json() : null))
-      .then((j) => { if (j?.counts) setAnswers((a) => { const b = { ...a, [card.id]: { ...a[card.id]!, counts: j.counts } }; try { localStorage.setItem(KEY, JSON.stringify(b)); } catch { /* */ } return b; }); })
+      .then((j) => { if (j?.counts) setAnswers((a) => (a[card.id] ? { ...a, [card.id]: { ...a[card.id]!, counts: j.counts } } : a)); })
       .catch(() => { /* offline: the card still marks the answer */ });
   };
   const goTo = (i: number) => {
@@ -142,12 +124,6 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
     el.scrollIntoView({ behavior: document.documentElement.classList.contains('stem-calm') ? 'auto' : 'smooth', block: 'start' });
     el.querySelector<HTMLElement>('.fd-focus')?.focus({ preventScroll: true });
   };
-
-  // the streak: answers right in a row, in order, up to the last one answered
-  const answered = list.filter((c) => answers[c.id]);
-  let streak = 0;
-  for (const r of recent) streak = r ? streak + 1 : 0;
-  const right = answered.filter((c) => answers[c.id]!.right).length;
 
   // which card is on screen: the one across the middle of the feed; and the keys for a computer: down / up (or J / K)
   useEffect(() => {
@@ -194,8 +170,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
           {g && <h3>{t(W.grade)} {g}</h3>}
           {pools.filter((p) => gradeOf(p.lesson) === g).map((p) => {
             const ch = byId.get(p.lesson);
-            const ok = p.cards.filter((c) => answers[c.id]?.right).length;
-            return <a class="btn fd-pool" href={'#' + p.slug}><span>{ch ? t(ch.title) : p.slug}</span><small>✓ {ok}/{p.cards.length}</small></a>;
+            return <a class="btn fd-pool" href={'#' + p.slug}><span>{ch ? t(ch.title) : p.slug}</span><small>{p.cards.length} {t(W.questions)}</small></a>;
           })}
         </>
       ))}
@@ -209,8 +184,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
     <div class={'fd' + (mode ? '' : ' is-list')} ref={box} aria-label={t(W.feed)}>
       {mode && (
         <div class="fd-hud">
-          {list.length > 0 && <div class="fd-progress" role="progressbar" aria-label={t(W.practice)} aria-valuemin={1} aria-valuemax={list.length} aria-valuenow={shown}><i style={{ width: (100 * shown / list.length) + '%' }} /></div>}
-          <div class="fd-score" aria-live="polite">✓ {right}/{answered.length} · 🔥 {streak}{list.length > 0 && <span class="fd-pos"> · {shown} / {list.length}</span>}</div>
+          {list.length > 0 && <div class="fd-score" aria-live="polite"><span class="fd-pos">{t(W.place)} {shown} / {list.length}</span></div>}
           {here && (
             <button type="button" class={'fd-save' + (isSaved ? ' is-on' : '')} aria-pressed={isSaved} aria-label={t(isSaved ? W.unsave : W.save)} onClick={() => toggleSave(here.id)}>
               <svg viewBox="0 0 24 24" width="24" height="24" fill={isSaved ? 'currentColor' : 'none'} stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4.2L5 21V4a1 1 0 0 1 1-1z" /></svg>
@@ -255,9 +229,8 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
               </>
             ) : (
               <>
-                <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(list.length ? W.roundDone : W.allDone)}</h2>
-                {list.length > 0 && <p class="fd-big">{right} / {answered.length} {t(W.score)}</p>}
-                {list.length > 0 && <button type="button" class="btn primary" onClick={() => restart(mode)}>{t(W.restart)}</button>}
+                <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(list.length ? W.roundDone : W.noneHere)}</h2>
+                {list.length > 0 && <button type="button" class="btn primary" onClick={() => deal(mode)}>{t(W.restart)}</button>}
               </>
             )}
             <a class="btn" href="#chapters">{t(W.chapters)}</a>

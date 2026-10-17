@@ -8,7 +8,6 @@ import AppLayout from '../../../layouts/AppLayout.astro';
 import FormulaCards, { type Card, type Chapter } from '../../../islands/FormulaCards';
 import LangSwitch from '../../../islands/LangSwitch';
 import ThemeToggle from '../../../islands/ThemeToggle';
-import XpChip from '../../../islands/XpChip';
 import catalog from '../../../../../content/catalog.json';
 import data from '../../../../../content/formulas/physics.json';
 
@@ -24,7 +23,6 @@ const cards = data.cards as Card[];
   <header class="fc-header" slot="header">
     <a class="fc-home" href="/lessons/index.html">← <span data-l="en">Learn</span><span data-l="ta" lang="ta">படி</span><span data-l="si" lang="si">ඉගෙනුම</span></a>
     <div class="fc-header-right">
-      <XpChip client:idle />
       <LangSwitch client:idle />
       <ThemeToggle client:idle />
     </div>
@@ -39,8 +37,6 @@ const cards = data.cards as Card[];
                min-height: 60px; background: var(--sc-ground); border-bottom: 1px solid var(--sc-line); }
   .fc-header-right { display: flex; gap: 8px; align-items: center; }
   .fc-header :global(.theme-toggle) { width: var(--tap); height: var(--tap); border-radius: var(--r); border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink); cursor: pointer; }
-  .fc-header :global(.xp-chip) { display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); padding: 0 10px; border-radius: 999px; background: var(--sc-mango-lt); font-weight: 700; font-size: .9rem; }
-  @media (max-width: 480px) { .fc-header :global(.xp-word) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
   .fc-home { display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); font-weight: 700; text-decoration: none; }
   html:not([lang="ta"]):not([lang="si"]) .fc-home [data-l]:not([data-l="en"]),
   html[lang="ta"] .fc-home [data-l]:not([data-l="ta"]),

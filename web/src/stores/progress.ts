@@ -2,9 +2,8 @@
 // an outbox on the device (IndexedDB, so it survives going offline and closing the page), shown at once, and sent to
 // POST /api/v2/events in batches: every 1.5 s while there is something to send, when the page is hidden and when the
 // device comes back online. The server applies each event id once and only ever moves forward, so sending again is
-// harmless. One-time rewards (a question right for the first time, the lesson finished) have a fixed event id, so a
-// reload or a second device can never count them twice.
-import { atom, map } from 'nanostores';
+// harmless.
+import { map } from 'nanostores';
 
 export interface V2Event {
   id: string;
@@ -18,12 +17,8 @@ export interface LessonProgress {
   questions: Record<string, { attempts: number; correct: boolean; first_try: boolean }>;
 }
 
-/** XP: the server's total plus what is waiting in the outbox. */
-export const $xp = atom<number | null>(null);
 /** The lesson on screen, as the server knows it plus this device's events. */
 export const $lesson = map<LessonProgress>({ steps: {}, questions: {} });
-/** The latest reward, for the "+10 XP" message. */
-export const $reward = atom<{ amount: number; n: number } | null>(null);
 
 const DB = 'stem-progress';
 const STORE = 'outbox';
@@ -35,7 +30,6 @@ export const signedIn = new Promise<number | null>((r) => { resolveUser = r; });
 let lessonId = '';
 let sending = false;
 let timer: ReturnType<typeof setTimeout> | null = null;
-let rewards = 0;
 
 const now = () => Math.floor(Date.now() / 1000);
 
@@ -174,21 +168,8 @@ function applyLocally(e: V2Event): void {
 /** The lesson on screen (set by start). */
 export const currentLesson = (): string => lessonId;
 
-/** XP once for this reason (a fixed event id): shown at once, counted by the server only the first time. */
-export async function reward(reason: string, amount: number): Promise<void> {
-  const id = onceId('xp:' + lessonId + ':' + reason);
-  const seen = await pending();
-  if (seen.some((e) => e.id === id) || claimed.has(id)) return;
-  claimed.add(id);
-  try {
-    localStorage.setItem('stem_claimed', JSON.stringify([...claimed].slice(-2000)));
-  } catch {
-    /* private mode */
-  }
-  $xp.set(($xp.get() ?? 0) + amount);
-  $reward.set({ amount, n: ++rewards });
-  await record({ id, type: 'xp', source: reason.slice(0, 120).replace(/[^a-z0-9._:/-]/g, '-').replace(/^-+|-+$/g, '') || 'lesson', amount });
-}
+/** XP is switched off for now (it added friction): nothing is awarded, shown or stored. The callers stay so it can come back. */
+export async function reward(_reason: string, _amount: number): Promise<void> {}
 const claimed = new Set<string>();
 
 // ------------------------------------------------------------------ starting a page
@@ -200,8 +181,8 @@ export async function start(lesson: string): Promise<void> {
   } catch {
     /* private mode */
   }
-  // who is signed in, the XP and this lesson's progress: one request (it used to be three, one after another)
-  let first: { user: { id: number }; summary: { xp: number }; lesson?: { steps: unknown; questions: unknown } } | null = null;
+  // who is signed in and this lesson's progress: one request (it used to be three, one after another)
+  let first: { user: { id: number }; lesson?: { steps: unknown; questions: unknown } } | null = null;
   try {
     first = await fetch('/api/v2/start?lesson=' + encodeURIComponent(lesson), { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null));
     user = first?.user?.id ?? null;
@@ -229,8 +210,7 @@ export async function start(lesson: string): Promise<void> {
   if (user === null) return;
   const waiting = await pending();
   try {
-    const sum = first?.summary, les = first?.lesson;
-    if (sum) $xp.set(sum.xp + waiting.filter((e) => e.type === 'xp').reduce((n, e) => n + (e.amount as number), 0));
+    const les = first?.lesson;
     if (les) $lesson.set({ steps: les.steps as never, questions: les.questions as never });
   } catch {
     /* offline: what the device has */

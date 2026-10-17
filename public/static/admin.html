@@ -16,7 +16,6 @@
     <div class="stats">
       <div class="stat"><span>Students</span><b id="nu">0</b></div>
       <div class="stat"><span>Active in last 7 days</span><b id="na">0</b></div>
-      <div class="stat"><span>Total XP</span><b id="nx">0</b></div>
     </div>
   </div>
 
@@ -74,7 +73,7 @@
     <h2 style="margin:0 0 10px">Registered Users</h2>
     <div class="msg" id="msg" role="status"></div>
     <div class="tw"><table>
-      <thead><tr><th>User</th><th>Role</th><th>Devices</th><th>XP</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
+      <thead><tr><th>User</th><th>Role</th><th>Devices</th><th>Badges</th><th>Joined</th><th>Last seen</th><th>Actions</th></tr></thead>
       <tbody id="rows"></tbody>
     </table></div>
   </div>
@@ -187,10 +186,9 @@
       return r.json();
     }).then(function (j) {
       var tb = $('rows'); tb.textContent = '';
-      var week = Date.now() / 1000 - 7 * 86400, act = 0, xp = 0;
+      var week = Date.now() / 1000 - 7 * 86400, act = 0;
       j.users.forEach(function (u) {
         if (u.last_seen > week) act++;
-        xp += u.xp;
         var tr = document.createElement('tr');
         var c = cell(tr, u.display_name);
         var s = document.createElement('div');
@@ -205,7 +203,6 @@
         rc.appendChild(p);
 
         cell(tr, (u.devices || 0) + ' / 2 active');
-        cell(tr, u.xp);
         cell(tr, u.badges);
         cell(tr, d(u.created_at));
         cell(tr, ago(u.last_seen));
@@ -249,7 +246,6 @@
       });
       $('nu').textContent = j.users.length;
       $('na').textContent = act;
-      $('nx').textContent = xp;
     }).catch(function (e) {
       msg(false, e.message);
     });

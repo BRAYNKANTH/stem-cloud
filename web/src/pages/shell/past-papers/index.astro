@@ -10,7 +10,6 @@ import PastPapers, { type Chapter } from '../../../islands/PastPapers';
 import BottomNav from '../../../islands/BottomNav';
 import LangSwitch from '../../../islands/LangSwitch';
 import ThemeToggle from '../../../islands/ThemeToggle';
-import XpChip from '../../../islands/XpChip';
 import catalog from '../../../../../content/catalog.json';
 import '../../../styles/past-papers.css';
 import '../../../styles/past-papers-2.css';
@@ -25,7 +24,6 @@ const chapters: Chapter[] = (catalog.lessons as Entry[])
   <header class="pp-header topbar" slot="header">
     <a class="pp-home" href="/lessons/index.html">← <span data-l="en">Learn</span><span data-l="ta" lang="ta">படி</span><span data-l="si" lang="si">ඉගෙනුම</span></a>
     <div class="pp-header-right">
-      <XpChip client:idle />
       <LangSwitch client:idle />
       <ThemeToggle client:idle />
     </div>

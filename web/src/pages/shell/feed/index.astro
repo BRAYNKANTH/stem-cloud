@@ -47,10 +47,8 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   /* the reel: one question per screen, snapped, and each question fits its screen (the picture shrinks first) */
   :global(.fd) { height: calc(100dvh - var(--fd-head, 56px) - env(safe-area-inset-top) - var(--fd-bnav, 0px)); overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior: contain; position: relative; overflow-anchor: none; }
   :global(.fd.is-list) { scroll-snap-type: none; }
-  /* the bar over the reel: how far through the chapter, the score, and the bookmark in the corner (it stays while the cards pass) */
+  /* the bar over the reel: which question this is, and the bookmark in the corner (it stays while the cards pass) */
   :global(.fd-hud) { position: sticky; top: 0; z-index: 6; height: 0; }
-  :global(.fd-progress) { position: absolute; inset: 0 0 auto 0; height: 4px; background: var(--sc-line); }
-  :global(.fd-progress i) { display: block; height: 100%; background: var(--sc-blue); border-radius: 0 4px 4px 0; transition: width .25s ease-out; }
   :global(.fd-score) { position: absolute; left: var(--gutter); top: 10px; max-width: calc(100% - var(--gutter) * 2 - 52px); padding: 5px 12px; border-radius: 999px; background: var(--sc-panel);
                        box-shadow: 0 2px 0 var(--sc-line); font-weight: 700; font-size: .85rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
   :global(.fd-pos) { color: var(--sc-ink-2); }
@@ -145,5 +143,5 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   :global(.fd-pools h3) { margin: 10px 0 0; font-size: .85rem; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .04em; }
   :global(.fd-pools .btn) { justify-content: space-between; min-height: 48px; text-align: left; }
   :global(.fd-pools .btn small) { color: var(--sc-ink-2); font-weight: 600; white-space: nowrap; }
-  @media (prefers-reduced-motion: reduce) { :global(.fd-statement), :global(.fd-progress i) { transition: none; } :global(.fd-cue i) { animation: none; } :global(.fd-save:active) { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } :global(.fd-cue i) { animation: none; } :global(.fd-save:active) { transform: none; } }
 </style>

@@ -578,7 +578,7 @@ def run():
                 check('%s sort: every chip sorted into its bin' % slug, lambda: g.locator('.sort-pool .sort-chip').count() == 0
                       and all(g.locator('[data-bin=%s] .schip' % b['id']).count() == sum(1 for i in game['items'] if i['bin'] == b['id']) for b in game['bins'])
                       and g.locator('[data-result=sort]').inner_text() == '🎉 All chips sorted correctly!')
-            # the step, the badge and the XP reach the account (motion's game)
+            # the step and the badge reach the account (motion's game)
             pg.goto(BASE + MOTION + '#sort')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
             # the outbox sends in batches: give it time to reach the server (slow on CI)
@@ -742,13 +742,11 @@ def run():
             check('progress: the steps opened and the answers given reach the server', lambda: server()['questions'].get(L + '/q1', {}).get('attempts', 0) >= 1
                   and 'quiz' in server()['steps'] and 'story' in server()['steps'], lambda: server())
             check('progress: the steps moved on from are done', lambda: (server()['steps'].get('story') or {}).get('done') is not None, lambda: server()['steps'])
-            xp = summary()['xp']
-            check('progress: right answers, the story and a worked example earned XP', xp >= 10 + 5 + 15, xp)
-            check('progress: the header shows the XP', lambda: pg.locator('.xp-chip b').inner_text() == str(xp), lambda: pg.locator('.xp-chip').inner_text())
+            check('progress: XP is switched off (none earned, none in the header)', lambda: summary()['xp'] == 0 and pg.locator('.xp-chip').count() == 0, lambda: summary())
             right = [int(i) for i in pg.eval_on_selector_all('.quiz.nojs .qz-ans > p:first-of-type b', "bs => bs.map(b => 'ABCDEF'.indexOf(b.textContent))")]
             pg.locator('.qz .qz-card').nth(0).locator('.qz-opt').nth(right[0]).click()       # the same question right again, after a reload
             pg.keyboard.press('Escape')
-            check('progress: a reward counts once (a reload cannot earn it again)', lambda: outbox() == 0 and summary()['xp'] == xp, lambda: (outbox(), summary()['xp'], xp))
+            check('progress: a repeated answer leaves nothing in the outbox', lambda: outbox() == 0, lambda: outbox())
             attempts = server()['questions'][L + '/q2']['attempts']
             ctx.set_offline(True)
             pg.locator('.qz .qz-card').nth(1).locator('.qz-opt').nth(right[1]).click()
@@ -779,8 +777,8 @@ def run():
             pg.wait_for_selector('.pp-chapter', timeout=20000)
             cards = pg.eval_on_selector_all('.pp-chapter', 'cs => cs.map(c => c.dataset.chapter)')
             check('past papers: the home lists the chapters (and the questions no chapter teaches)', len(cards) >= 15 and 'other' in cards, cards)
+            check('past papers: no progress on the home (no bars, no "done" counts, no continue card)', lambda: pg.locator('.pp-progress, .pp-bar, .pp-continue').count() == 0 and ' done' not in pg.locator('.pp-chapter').first.inner_text(), lambda: pg.locator('.pp-chapter').first.inner_text())
             check('past papers: every question is in a chapter but two (diffusion, burette)', sum(1 for q in PP.values() if not (q.get('lessons') or any(p.get('lessons') for p in q.get('parts') or []))) == 2)
-            xp0 = xp()
             pg.locator('.pp-chapter[data-chapter=g11-chapter-11-electronics]').click()
             pg.wait_for_selector('#pp-list .pp-qitem')
             listed = lambda: pg.eval_on_selector_all('#pp-list .pp-qitem', 'bs => bs.map(b => b.dataset.q)')
@@ -797,18 +795,19 @@ def run():
             check('past papers: after a wrong answer the step-by-step explanation is open', lambda: pg.locator('details.pp-more[open] .pp-explain .pp-x').count() >= 3)
             pg.locator('.pp-feedback .pp-link').click()           # "why not the others?"
             check('past papers: "why not the others?" shows every option\'s reason', lambda: pg.locator('.pp-opt-why').count() == len(PP[first]['options']))
-            check('past papers: the attempt reaches the account', lambda: any(a['question'] == first for a in pp_state()['attempts']), lambda: pp_state())
+            check('past papers: an answer is not kept on the account', lambda: not any(a['question'] == first for a in pp_state()['attempts']), lambda: pp_state())
             pg.locator('.pp-feedback .btn').first.click()         # "try again"
             pg.locator('.pp-opt').nth(PP[first]['correct']).click()
             pg.click('.pp-check')
             check('past papers: try again, then the right answer', lambda: pg.locator('.pp-verdict.is-right').is_visible() and pg.locator('details.pp-more[open]').count() == 0)
-            for _ in range(30):
-                if xp() >= xp0 + 5:
-                    break
-                pg.wait_for_timeout(500)
-            check('past papers: a question right for the first time is worth 5 XP', lambda: xp() == xp0 + 5, lambda: (xp0, xp()))
+            check('past papers: no XP is awarded', lambda: xp() == 0, xp)
             pg.click('.pp-bookmark')
             check('past papers: a bookmark is saved to the account', lambda: len(pp_state()['bookmarks']) == 1, lambda: pp_state()['bookmarks'])
+            pg.click('.pp-back')
+            pg.wait_for_selector('#pp-list .pp-qitem')
+            check('past papers: the list shows no status (nothing is marked done)', lambda: pg.locator('.pp-qitem-status, .pp-dot').count() == 0 and pg.locator('.pp-qitem.is-right, .pp-qitem.is-revisit').count() == 0)
+            pg.locator('#pp-list .pp-qitem[data-q="%s"]' % first).click()
+            check('past papers: a question answered a moment ago opens fresh again (no verdict, nothing chosen)', lambda: pg.locator('.pp-verdict').count() == 0 and pg.locator('.pp-opt.is-right, .pp-opt.is-wrong').count() == 0 and pg.locator('.pp-opt input:checked').count() == 0)
             pg.click('.pp-back')
             pg.wait_for_selector('#pp-list .pp-qitem')
             pg.locator('.pp-chip', has_text='Saved').click()
@@ -819,11 +818,10 @@ def run():
             check('past papers: a written question shows only this chapter\'s parts first', lambda: pg.locator('.pp-q > .pp-part').count() == sum(1 for p in PP[written]['parts'] if 'g11-chapter-11-electronics' in (p.get('lessons') or [])))
             pg.locator('.pp-show').first.click()
             check('past papers: "show the model answer" shows it', lambda: pg.locator('.pp-model').count() == 1)
-            pg.locator('.pp-selfcheck .btn').nth(1).click()        # "I need more practice", with nothing typed: typing is optional
-            check('past papers: a written self-check is saved without typing an answer', lambda: any(a['question'] == written and a['result'].get('selfCheck') == 'needs-work' for a in pp_state()['attempts']), lambda: pp_state()['attempts'][-1:])
+            check('past papers: a written question has no self-check (nothing is marked)', lambda: pg.locator('.pp-selfcheck').count() == 0)
             pg.reload()
             pg.wait_for_selector('.pp-qscreen')
-            check('past papers: a reload stays on the question', lambda: written in pg.url and pg.locator('.pp-selfcheck .btn[aria-pressed=true]').count() == 1)
+            check('past papers: a reload stays on the question, with nothing answered', lambda: written in pg.url and pg.locator('.pp-model').count() == 0)
             problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
             check('past papers: no sideways scroll at 375 px', not problems, problems)
             small = pg.evaluate("[...document.querySelectorAll('.pp-app button, .pp-app select, .pp-app input, .pp-app summary, .pp-app a.btn')].filter(e => e.offsetParent && !e.closest('label') && e.getBoundingClientRect().height < 43.5).map(e => e.tagName + ' ' + (e.innerText || '').slice(0, 30))")   # a radio's target is its whole option
@@ -833,10 +831,10 @@ def run():
             check('past papers: "Practise 10" starts a set of 10', lambda: pg.locator('.pp-set-head').is_visible() and '1 of 10' in pg.locator('.pp-set-head p').inner_text(), lambda: pg.locator('.pp-set-head').all_inner_texts())
             for _ in range(10):
                 pg.locator('.pp-nav .btn').last.click()
-            check('past papers: ...and ends with a summary', lambda: pg.locator('.pp-summary').is_visible() and pg.locator('.pp-summary-list li').count() == 10)
+            check('past papers: ...and ends with a finish screen (no score)', lambda: pg.locator('.pp-summary').is_visible() and pg.locator('.pp-score, .pp-summary-list').count() == 0)
             pg.goto(BASE + '/past-papers/#years')                  # an old link: the home
             pg.wait_for_selector('.pp-year[data-year]')
-            check('past papers: the home offers to continue the last chapter', lambda: 'Electronics' in pg.locator('.pp-continue').inner_text())
+            check('past papers: there is no "continue" card', lambda: pg.locator('.pp-continue').count() == 0)
             pg.locator('.pp-year[data-year="2015"]').click()
             check('past papers: a year lists its questions', lambda: '2015' in pg.locator('h1').inner_text() and len(listed()) == sum(1 for q in PP.values() if q['id'].startswith('ol2015-')))
             pg.goto(BASE + '/past-papers/')
@@ -852,10 +850,10 @@ def run():
             check('past papers: no script errors', not errs, errs)
             # ------------------------------------------------------------ "Me": progress first, then the settings
             pg.goto(BASE + '/account')
-            pg.wait_for_function("document.querySelectorAll('.stat b').length === 5 && ![...document.querySelectorAll('.stat b')].some(b => b.textContent.includes('…'))")
-            check('Me: progress first (XP, streak, chapters finished, past papers right, badges), then the settings',
+            pg.wait_for_function("document.querySelectorAll('.stat b').length === 3 && ![...document.querySelectorAll('.stat b')].some(b => b.textContent.includes('…'))")
+            check('Me: progress first (streak, chapters finished, badges; no XP), then the settings',
                   lambda: pg.locator('#prog-h').count() == 1 and pg.locator('.settings-h').count() == 1 and 'Continue learning' in pg.inner_text('.next-row'), lambda: pg.inner_text('.stats'))
-            check('Me: the question to revisit (the written one) is one tap away', lambda: 'Questions to revisit: 1' in pg.inner_text('.next-row'), lambda: pg.inner_text('.next-row'))
+            check('Me: nothing about past-paper marks or XP', lambda: 'revisit' not in pg.inner_text('.next-row') and 'XP' not in pg.inner_text('.stats'), lambda: pg.inner_text('.stats'))
             check('Me: the bottom bar marks Me', lambda: tabs() == ['/lessons/index.html', '/feed/', '/past-papers/', '/account (here)'], tabs)
             # ------------------------------------------------------------ the formula cards (islands/FormulaCards.tsx)
             r = visitor.request.get(BASE + '/formulas/', max_redirects=0)
@@ -894,11 +892,11 @@ def run():
             sideways = "() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }"
             pg.goto(BASE + '/feed/')
             pg.wait_for_selector('.fd-pools')
-            check('practice: the tab opens the chapter list, with no mixed questions before it', lambda: pg.locator('.fd-card').count() == 0 and pg.locator('.fd-progress').count() == 0)
+            check('practice: the tab opens the chapter list, with no mixed questions before it', lambda: pg.locator('.fd-card').count() == 0 and pg.locator('.fd-hud').count() == 0)
             check('practice: the bottom bar marks Practice', lambda: tabs() == ['/lessons/index.html', '/feed/ (here)', '/past-papers/', '/account'], tabs)
-            check('practice: every chapter with practice questions, by grade, with what is right so far',
+            check('practice: every chapter with practice questions, by grade, with how many questions it has',
                   lambda: pg.locator('.fd-pools .fd-pool:not(.fd-savedlink)').count() == len(POOLS)
-                  and pg.locator('.fd-pools h3').count() >= 2 and re.search(r'✓ [01]/100', pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]')),
+                  and pg.locator('.fd-pools h3').count() >= 2 and re.search(r'100 questions', pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]')) and '✓' not in pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]'),
                   lambda: pg.inner_text('.fd-pools'))
             check('practice: the chapter list has no sideways scroll at 375 px', not pg.evaluate(sideways), pg.evaluate(sideways))
             pg.evaluate("localStorage.removeItem('stem_saved_v1')")
@@ -908,8 +906,8 @@ def run():
             round1 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
             check('practice: a chapter opens straight into its 100 questions, nothing else among them', lambda: len(round1) == 100 and len(set(round1)) == 100
                   and all(i.startswith('hp-') for i in round1) and pg.locator('.fd-card').count() == 101, lambda: len(round1))
-            check('practice: a progress bar, the question number, and a cue to swipe up', lambda: '1 / 100' in pg.inner_text('.fd-pos') and pg.locator('.fd-progress').count() == 1
-                  and pg.locator('.fd-cue').count() == 1, lambda: pg.inner_text('.fd-score'))
+            check('practice: the question number (no score, no streak, no progress bar), and a cue to swipe up', lambda: '1 / 100' in pg.inner_text('.fd-pos') and pg.locator('.fd-progress').count() == 0
+                  and '✓' not in pg.inner_text('.fd-score') and '🔥' not in pg.inner_text('.fd-score') and pg.locator('.fd-cue').count() == 1, lambda: pg.inner_text('.fd-score'))
             FITS = "() => { const f = document.querySelector('.fd').clientHeight; return [...document.querySelectorAll('.fd-card[data-card]')].slice(0, 6).filter(c => Math.abs(c.offsetHeight - f) > 1 || c.querySelector('.fd-inner').scrollHeight > c.querySelector('.fd-inner').clientHeight + 1).map(c => c.dataset.card); }"
             check('practice: each question is exactly one screen, and nothing in it scrolls', lambda: not pg.evaluate(FITS), lambda: pg.evaluate(FITS))
             check('practice: the reel snaps to one question at a time', lambda: pg.evaluate("() => { const cs = getComputedStyle(document.querySelector('.fd')), c = getComputedStyle(document.querySelector('.fd-card')); return cs.scrollSnapType.includes('y') && cs.scrollSnapType.includes('mandatory') && c.scrollSnapStop === 'always'; }"))
@@ -928,6 +926,10 @@ def run():
             pg.locator('.fd-card[data-i="1"]').scroll_into_view_if_needed()
             pg.wait_for_function("document.querySelector('.fd-pos').innerText.includes('2 / 100')", timeout=5000)
             check('practice: swiping on shows the next question number, and its bookmark is its own', lambda: '2 / 100' in pg.inner_text('.fd-pos') and save.get_attribute('aria-pressed') == 'false', lambda: pg.inner_text('.fd-pos'))
+            pg.reload()
+            pg.wait_for_selector('.fd-card[data-card]')
+            check('practice: nothing is kept: after a reload no question is answered or marked', lambda: pg.locator('.fd-result').count() == 0 and pg.locator('.fd-opt:disabled').count() == 0
+                  and pg.evaluate("localStorage.getItem('stem_feed_v1')") is None)
             pg.goto(BASE + '/feed/#saved')
             pg.wait_for_selector('.fd-card[data-card]')
             check('practice: Saved opens the bookmarked questions', lambda: pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)') == [round1[0]]
@@ -939,7 +941,7 @@ def run():
             pg.locator('.fd-end').scroll_into_view_if_needed()
             pg.locator('.fd-end .btn.primary').click()
             round2 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
-            check('practice: "Start this chapter again" deals all 100 afresh, none answered', lambda: len(round2) == 100 and pg.locator('.fd-result').count() == 0
+            check('practice: "Practise this chapter again" deals all 100 afresh, none answered', lambda: len(round2) == 100 and pg.locator('.fd-result').count() == 0
                   and '1 / 100' in pg.inner_text('.fd-pos'), lambda: pg.inner_text('.fd-score'))
             pg.goto(BASE + '/feed/#chapters')
             pg.wait_for_selector('.fd-pools')

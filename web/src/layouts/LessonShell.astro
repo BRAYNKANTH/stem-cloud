@@ -1,5 +1,5 @@
 ---
-// The frame of a lesson page and of the topic pages: the header (back, title, XP, language), the step bar (LessonPlayer)
+// The frame of a lesson page and of the topic pages: the header (back, title, language), the step bar (LessonPlayer)
 // when the page has steps, read-aloud, and the lesson content's styles and script. The page's steps
 // go in the default slot as <section class="lstep" id="...">; one is shown at a time once the player has started.
 import AppLayout from './AppLayout.astro';
@@ -9,7 +9,6 @@ import StepEnd from '../islands/StepEnd';
 import VoiceControls from '../islands/VoiceControls';
 import LangSwitch from '../islands/LangSwitch';
 import ThemeToggle from '../islands/ThemeToggle';
-import XpChip from '../islands/XpChip';
 import type { StepInfo, Tri } from '../lib/lesson-ui';
 import '../styles/lesson-content.css';
 import '../styles/lesson.css';
@@ -51,7 +50,6 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', al
         {steps ? <h1><T t={title} /></h1> : <b><T t={title} /></b>}
         <small><T t={sub} /></small>
       </div>
-      <XpChip client:idle />
       <LangSwitch client:idle />
       {/* with steps, the light / dark switch is in the lesson map (LessonPlayer): the header keeps room for the title */}
       {!steps && <ThemeToggle client:idle />}

@@ -153,7 +153,7 @@ details:not([open]) > summary .when-open, details[open] > summary .when-closed {
 /* without JavaScript nothing is behind a reveal button: the marking steps and answers are shown, the buttons are not */
 html:not(.js) .lc .hidden { display: block !important; }
 html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
-.lc .act-done { display: none !important; }      /* "I tried it! (+XP)": back with progress v2 (Phase 6) */
+.lc .act-done { display: none !important; }      /* "I tried it!" buttons stay hidden */
 
 /* touch targets inside the content: at least 44px (README interface rules) */
 .lc :is(.step-toggle, .final-toggle, .btn, .qz-opt) { min-height: var(--tap); }
@@ -189,16 +189,9 @@ html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
 .practice { display: grid; gap: 12px; }
 .practice .ex-src { margin: 0 0 6px; color: var(--sc-ink-2); font-size: .85rem; font-weight: 800; }
 
-/* progress v2: XP in the header, and the steps done in the lesson map */
-.xp-chip { position: relative; display: inline-flex; align-items: center; gap: 4px; min-height: var(--tap); padding: 0 12px; border-radius: 999px;
-           background: var(--sc-mango-lt); color: var(--sc-ink); font-weight: 800; font-size: .9rem; flex: 0 0 auto; white-space: nowrap; }
-.xp-plus { position: absolute; right: 6px; top: -10px; padding: 0 6px; border-radius: 999px; background: var(--sc-leaf); color: #fff; font-size: .75rem;
-           animation: xp-pop 2.2s ease forwards; }
-@keyframes xp-pop { 0% { transform: translateY(6px); opacity: 0; } 15%, 80% { transform: none; opacity: 1; } 100% { transform: translateY(-6px); opacity: 0; } }
+/* progress v2: the steps done in the lesson map */
 .lm-step.done { border-color: var(--sc-leaf); }
 .lm-tick { margin-left: auto; color: var(--sc-leaf); font-weight: 800; }
-/* a phone header keeps room for the chapter name: the star and the number say XP */
-@media (max-width: 480px) { .xp-chip { padding: 0 10px; } .xp-chip .xp-word { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); } }
 
 /* the sort game's chips: a 44 px tap target on phones (the page's chips are 40 px) */
 .lc .sort-chip { min-height: 44px; display: inline-flex; align-items: center; }

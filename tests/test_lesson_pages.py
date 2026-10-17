@@ -347,10 +347,19 @@ def run():
                   and pg.locator('#lab .lab-card .lg-try').count() == 3, lambda: (pg.locator('.bus .stop').count(), stars(), coins()))
             signs = lambda: pg.eval_on_selector_all('.bus-scene .sign-t, .bus-scene .lbl', 'els => els.map(e => e.textContent)')
             check('before the ride the road shows every place in the story', lambda: {'Home', 'Corner shop', "Kamal's house"} <= set(signs()), signs)
+            sheet = lambda: pg.locator('.bus-panel.sheet').is_visible()
+            check('on a phone the question waits behind the Question button: the road, the values and the graph keep the screen',
+                  lambda: not sheet() and pg.locator('.bus-qbtn').is_visible() and pg.locator('.bus-graph').is_visible())
+            pg.click('.bus-qbtn')
+            check('...the button opens the question in a sheet, focus on its close button', lambda: sheet() and pg.evaluate("document.activeElement.className") == 'sheet-x')
+            pg.keyboard.press('Escape')
+            check('...Escape (or the close button) goes back to the ride', lambda: not sheet() and pg.evaluate("document.activeElement.className").startswith('bus-qbtn'))
+            pg.click('.bus-qbtn')
             pg.click('.bus-opts .opt >> nth=1')
             pg.click('.bus .chip >> text="Rs 2"')
             pg.click('.bus-bet .btn.primary')
-            check('a right prediction wins the bet and the first star', lambda: coins() == '12' and stars() == '1', lambda: (coins(), stars()))
+            check('a right prediction wins the bet and the first star; the sheet closed for the ride and the button says the result is ready',
+                  lambda: coins() == '12' and stars() == '1' and not sheet() and 'See the result' in pg.inner_text('.bus-qbtn'), lambda: (coins(), stars(), sheet()))
             check('...and the next stop stays locked until this one is cleared (all three steps)',
                   lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
             pg.locator('#bus-time').fill('24')
@@ -358,6 +367,7 @@ def run():
                   lambda: pg.inner_text('.bus-ro').replace('\n', ' ').count('24.0 s') == 1 and '92.0 m' in pg.inner_text('.bus-ro')
                   and pg.locator('.bus-graph .g-ghost').count() == 1 and pg.locator('.bus-scene .disp text').text_content() == '68 m east',
                   lambda: (pg.inner_text('.bus-ro').split(), pg.locator('.bus-graph .g-ghost').count(), pg.locator('.bus-scene .disp text').all_text_contents()))
+            pg.click('.bus-qbtn')
             pg.click('.bus-msg .btn.primary')
             check('reading the graph starts with the ride again, the step saying what to do',
                   lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30')
@@ -366,18 +376,23 @@ def run():
                 pg.keyboard.press('PageUp')
             check('the graph reads a value from the keyboard', lambda: pg.inner_text('.g-read').startswith('Time 20.0 s'), lambda: pg.inner_text('.g-read'))
             pg.keyboard.press('Enter')
+            pg.click('.bus-qbtn')
+            check('...the sheet shows the point marked on the graph', lambda: pg.inner_text('.bus-pin') == 'Your point: 20.0 s · 80.0 m', lambda: pg.inner_text('.bus-pin'))
             pg.click('.bus-row .btn.primary >> nth=0')
             check('reading the graph right gives a star and Rs 2', lambda: coins() == '14' and stars() == '2', lambda: (coins(), stars()))
             pg.click('.bus-row .btn.primary >> nth=1')
             pg.locator('#bus-e').fill('90')
             pg.locator('#bus-w').fill('40')
             pg.click('.bus-panel .btn.primary')
+            pg.click('.bus-qbtn')
             check('a ride that misses the goal says what happened', lambda: 'Distance 130 m' in pg.inner_text('.bus-msg.err'))
             pg.locator('#bus-e').fill('80')
             pg.click('.bus-panel .btn.primary')
+            pg.click('.bus-qbtn')
             check('the goal gives the third star, opens the next stop, and is kept on this device',
                   lambda: stars() == '3' and coins() == '17' and pg.locator('.bus .stop:disabled').count() == 3
                   and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 15, lambda: (stars(), coins()))
+            pg.keyboard.press('Escape')
             pg.click('.bus-shop summary')
             pg.click('.bus-shop li >> nth=1 >> .btn')
             check('the bike shop sells a helmet for Rs 8 and Nimal wears it', lambda: coins() == '9' and pg.locator('.bus-scene path[fill="#E53935"]').count() == 1, lambda: coins())

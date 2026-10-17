@@ -27,8 +27,9 @@ export interface Level {
   legs: Leg[];
   ask: { q: Pair; opts: Pair[]; right: number; why: Pair };
   /** snaps: on a phone the graph is answered by choosing one of these moments, each marked on a small copy of the graph (A, B, C, D). */
-  read: { graph: 's' | 'v'; q: Pair; ok: (t: number) => boolean; snaps: number[]; why: Pair };
-  goal: { q: Pair; controls: Control[]; legs: (c: Vals) => Leg[]; ok: (c: Vals, end: Pt, T: number) => boolean; say: (c: Vals, end: Pt, T: number) => Pair; why: Pair; start?: Pair; places?: Place[] };
+  read: { graph: 's' | 'v'; q: Pair; ok: (t: number) => boolean; snaps: number[]; why: Pair; hint: Pair };
+  goal: { q: Pair; controls: Control[]; legs: (c: Vals) => Leg[]; ok: (c: Vals, end: Pt, T: number) => boolean; say: (c: Vals, end: Pt, T: number) => Pair; why: Pair; hint: Pair; answer: Vals; start?: Pair; places?: Place[] };
+  /** hint and answer: offered once a try has missed, so nobody is stuck (answer: control values that reach the goal). */
 }
 
 const sOf = (u: number, a: number, k: number) => u * k + 0.5 * a * k * k;
@@ -90,6 +91,7 @@ export const LEVELS: Level[] = [
       q: ['Find the moment Nimal turned back.', 'நிமல் திரும்பிய நேரத்தைத் கண்டுபிடி.', 'නිමල් ආපසු හැරුණු මොහොත සොයන්න.'],
       ok: (t) => near(t, 20, 1.5),
       snaps: [10, 25, 20, 5],
+      hint: ['Look for where the line stops going up and starts coming down.', 'கோடு ஏறுவதை நிறுத்தி இறங்கத் தொடங்கும் இடத்தைப் பார்.', 'රේඛාව ඉහළ යාම නවත්වා පහළට එන්න පටන් ගන්නා තැන බලන්න.'],
       why: [
         'At t = 20 s the displacement–time graph stops going up and starts going down: he changed direction.',
         't = 20 s-இல் இடப்பெயர்ச்சி–நேர வரைபு ஏறுவது நின்று இறங்கத் தொடங்குகிறது: அவன் திசை மாறினான்.',
@@ -112,6 +114,8 @@ export const LEVELS: Level[] = [
         const d = dirn(e.s);
         return ['Distance ' + r1(e.dist) + ' m, displacement ' + d[0] + '.', 'தூரம் ' + r1(e.dist) + ' m, இடப்பெயர்ச்சி ' + d[1] + '.', 'දුර m ' + r1(e.dist) + ', විස්ථාපනය ' + d[2] + '.'];
       },
+      hint: ['Distance = east + west = 120. Displacement = east − west = 40. Which two numbers add up to 120 and differ by 40?', 'தூரம் = கிழக்கு + மேற்கு = 120. இடப்பெயர்ச்சி = கிழக்கு − மேற்கு = 40. கூட்டினால் 120, வித்தியாசம் 40 வரும் இரண்டு எண்கள் எவை?', 'දුර = නැගෙනහිර + බටහිර = 120. විස්ථාපනය = නැගෙනහිර − බටහිර = 40. එකතුව 120ක් සහ වෙනස 40ක් වන සංඛ්‍යා දෙක මොනවාද?'],
+      answer: { e: 80, w: 40 },
       why: ['80 m east and 40 m back: 80 + 40 = 120 m ridden, but he ends 80 − 40 = 40 m east of home.', '80 m கிழக்கு, 40 m திரும்பி: ஓட்டியது 80 + 40 = 120 m, ஆனால் அவன் வீட்டிலிருந்து 80 − 40 = 40 m கிழக்கில் முடிக்கிறான்.', 'නැගෙනහිරට m 80ක් සහ ආපසු m 40ක්: පැද්දේ 80 + 40 = m 120, නමුත් ඔහු අවසන් වන්නේ ගෙදර සිට නැගෙනහිරට 80 − 40 = m 40.'],
     },
   },
@@ -137,6 +141,7 @@ export const LEVELS: Level[] = [
       q: ['Find the moment Nimal had ridden 100 m.', 'நிமல் 100 m ஓட்டி முடித்த நேரத்தைத் கண்டுபிடி.', 'නිමල් m 100ක් පැදගෙන ගිය මොහොත සොයන්න.'],
       ok: (t) => near(t, 20, 1.5),
       snaps: [20, 10, 30, 15],
+      hint: ['Find 100 m on the s axis, go across to the line, then straight down to the time.', 's அச்சில் 100 m-ஐக் கண்டுபிடி, கோடு வரை குறுக்கே போய், நேராகக் கீழே நேரத்துக்கு வா.', 's අක්ෂයේ m 100 සොයා, රේඛාවට හරහට ගොස්, කෙළින්ම පහළට කාලයට එන්න.'],
       why: ['Go across from 100 m to the line, then down: t = 20 s. A straight line on a displacement–time graph means a steady velocity.', '100 m-இலிருந்து கோடு வரை குறுக்கே போய், கீழே இறங்கு: t = 20 s. இடப்பெயர்ச்சி–நேர வரைபில் நேர்கோடு என்றால் சீரான திசைவேகம்.', 'm 100 සිට රේඛාවට හරහට ගොස් පහළට එන්න: t = 20 s. විස්ථාපන–කාල ප්‍රස්තාරයක සරල රේඛාවක් යනු ඒකාකාර ප්‍රවේගයකි.'],
     },
     goal: {
@@ -145,6 +150,8 @@ export const LEVELS: Level[] = [
       legs: (c) => [{ v: c.v!, a: 0, d: 25 }],
       ok: (c) => near(c.v! * 25, 200, 0.01),
       say: (_c, e) => ['After 25 s he was ' + r1(e.s) + ' m from home.', '25 s-க்குப் பிறகு அவன் வீட்டிலிருந்து ' + r1(e.s) + ' m தூரத்தில் இருந்தான்.', 's 25කට පසු ඔහු ගෙදර සිට m ' + r1(e.s) + ' දුරින් සිටියා.'],
+      hint: ['Speed = distance ÷ time. Divide 200 m by 25 s.', 'வேகம் = தூரம் ÷ நேரம். 200 m-ஐ 25 s-ஆல் வகு.', 'වේගය = දුර ÷ කාලය. m 200, s 25න් බෙදන්න.'],
+      answer: { v: 8 },
       why: ['Speed = 200 m ÷ 25 s = 8 m/s.', 'வேகம் = 200 m ÷ 25 s = 8 m/s.', 'වේගය = m 200 ÷ s 25 = m/s 8.'],
       places: [{ s: 200, l: ['Temple', 'கோயில்', 'පන්සල'] }],
     },
@@ -175,6 +182,7 @@ export const LEVELS: Level[] = [
       q: ['Find a moment when Nimal\'s velocity was negative.', 'நிமலின் திசைவேகம் எதிர்மறையாக இருந்த ஒரு நேரத்தைத் கண்டுபிடி.', 'නිමල්ගේ ප්‍රවේගය සෘණ වූ මොහොතක් සොයන්න.'],
       ok: (t) => t > 20.3 && t <= 50,
       snaps: [10, 18, 35, 5],
+      hint: ['Negative velocity means the line is below the zero line.', 'எதிர்மறை திசைவேகம் என்றால் கோடு பூஜ்ஜியக் கோட்டுக்குக் கீழே இருக்கும்.', 'සෘණ ප්‍රවේගය යනු රේඛාව බිංදු රේඛාවට පහළින් තිබීමයි.'],
       why: ['From 20 s to 50 s the line is below zero: −4 m/s. The minus sign means he was riding west.', '20 s முதல் 50 s வரை கோடு பூஜ்ஜியத்துக்குக் கீழே: −4 m/s. கழித்தல் குறி அவன் மேற்கே போனான் என்று காட்டுகிறது.', 's 20 සිට s 50 දක්වා රේඛාව බිංදුවට පහළින්: −4 m/s. සෘණ ලකුණෙන් කියන්නේ ඔහු බටහිරට පැද්ද බවයි.'],
     },
     goal: {
@@ -183,6 +191,8 @@ export const LEVELS: Level[] = [
       legs: (c) => [{ v: 5, a: 0, d: 30 }, { v: 0, a: 0, d: c.w! }],
       ok: (c) => near(150 / (30 + c.w!), 2, 0.001),
       say: (_c, e, T) => ['Average velocity = ' + r1(e.s) + ' m ÷ ' + r1(T) + ' s = ' + r1(e.s / T) + ' m/s.', 'சராசரி திசைவேகம் = ' + r1(e.s) + ' m ÷ ' + r1(T) + ' s = ' + r1(e.s / T) + ' m/s.', 'සාමාන්‍ය ප්‍රවේගය = m ' + r1(e.s) + ' ÷ s ' + r1(T) + ' = m/s ' + r1(e.s / T) + '.'],
+      hint: ['Average velocity = displacement ÷ total time. For 2 m/s, 150 m needs 150 ÷ 2 = 75 s in all.', 'சராசரி திசைவேகம் = இடப்பெயர்ச்சி ÷ மொத்த நேரம். 2 m/s-க்கு, 150 m-க்கு மொத்தம் 150 ÷ 2 = 75 s வேண்டும்.', 'සාමාන්‍ය ප්‍රවේගය = විස්ථාපනය ÷ මුළු කාලය. m/s 2 සඳහා, m 150ට මුළු 150 ÷ 2 = s 75ක් අවශ්‍යයි.'],
+      answer: { w: 45 },
       why: ['150 m ÷ 2 m/s = 75 s in all, so he waits 75 − 30 = 45 s. Waiting adds time but no displacement.', '150 m ÷ 2 m/s = மொத்தம் 75 s, எனவே 75 − 30 = 45 s காத்திருக்கிறான். காத்திருப்பது நேரத்தைக் கூட்டும், இடப்பெயர்ச்சியை அல்ல.', 'm 150 ÷ m/s 2 = මුළු s 75, එනිසා ඔහු 75 − 30 = s 45ක් රැඳී සිටිනවා. රැඳී සිටීමෙන් කාලය වැඩි වේ, විස්ථාපනය නොවේ.'],
       places: [{ s: 150, l: ["Friend's house", 'நண்பனின் வீடு', 'යාළුවාගේ ගෙදර'] }],
     },
@@ -209,6 +219,7 @@ export const LEVELS: Level[] = [
       q: ['Find the moment his velocity was 8 m/s.', 'அவனுடைய திசைவேகம் 8 m/s ஆக இருந்த நேரத்தைத் கண்டுபிடி.', 'ඔහුගේ ප්‍රවේගය m/s 8 වූ මොහොත සොයන්න.'],
       ok: (t) => near(t, 4, 0.4),
       snaps: [2, 3, 5, 4],
+      hint: ['Find 8 on the v axis, go across to the line, then down to the time.', 'v அச்சில் 8-ஐக் கண்டுபிடி, கோடு வரை குறுக்கே போய், கீழே நேரத்துக்கு வா.', 'v අක්ෂයේ 8 සොයා, රේඛාවට හරහට ගොස්, පහළට කාලයට එන්න.'],
       why: ['At t = 4 s: 2 + 1.5 × 4 = 8 m/s. The gradient of the velocity–time graph is the acceleration.', 't = 4 s-இல்: 2 + 1.5 × 4 = 8 m/s. திசைவேக–நேர வரைபின் சாய்வு முடுக்கம் ஆகும்.', 't = 4 s දී: 2 + 1.5 × 4 = m/s 8. ප්‍රවේග–කාල ප්‍රස්තාරයේ අනුක්‍රමණය ත්වරණයයි.'],
     },
     goal: {
@@ -217,6 +228,8 @@ export const LEVELS: Level[] = [
       legs: (c) => [{ v: 2, a: c.a!, d: 5 }],
       ok: (_c, e) => near(e.v, 12, 0.01),
       say: (_c, e) => ['At the bottom his velocity was ' + r1(e.v) + ' m/s.', 'அடிவாரத்தில் அவனுடைய திசைவேகம் ' + r1(e.v) + ' m/s.', 'කන්ද පාමුලදී ඔහුගේ ප්‍රවේගය m/s ' + r1(e.v) + '.'],
+      hint: ['The velocity must grow from 2 to 12 m/s in 5 s. How much is that each second?', 'திசைவேகம் 5 s-இல் 2-இலிருந்து 12 m/s ஆக வேண்டும். ஒவ்வொரு விநாடியும் எவ்வளவு?', 'ප්‍රවේගය s 5කදී 2 සිට m/s 12 දක්වා වැඩි විය යුතුය. එය සෑම තත්පරයකම කොපමණද?'],
+      answer: { a: 2 },
       why: ['a = (v − u) ÷ t = (12 − 2) ÷ 5 = 2 m/s².', 'a = (v − u) ÷ t = (12 − 2) ÷ 5 = 2 m/s².', 'a = (v − u) ÷ t = (12 − 2) ÷ 5 = m/s² 2.'],
     },
   },
@@ -242,6 +255,7 @@ export const LEVELS: Level[] = [
       q: ['Find the moment Nimal stopped.', 'நிமல் நின்ற நேரத்தைத் கண்டுபிடி.', 'නිමල් නැවතුණු මොහොත සොයන්න.'],
       ok: (t) => near(t, 4, 0.35),
       snaps: [1, 4, 2, 3],
+      hint: ['He has stopped when his velocity is 0: where does the line meet the time axis?', 'திசைவேகம் 0 ஆகும்போது அவன் நிற்கிறான்: கோடு நேர அச்சைச் சந்திக்கும் இடம் எது?', 'ප්‍රවේගය 0 වන විට ඔහු නැවතී ඇත: රේඛාව කාල අක්ෂය හමුවන්නේ කොතැනද?'],
       why: ['He stops where the line reaches v = 0, at t = 4 s. The area of the triangle under the line is the 16 m he travelled.', 'கோடு v = 0-ஐத் தொடும் இடத்தில், t = 4 s-இல் நிற்கிறான். கோட்டின் கீழுள்ள முக்கோணத்தின் பரப்புதான் அவன் போன 16 m.', 'රේඛාව v = 0 වෙත ළඟා වන තැන, t = 4 s දී ඔහු නවතිනවා. රේඛාව යට ත්‍රිකෝණයේ වර්ගඵලය ඔහු ගිය m 16යි.'],
     },
     goal: {
@@ -257,6 +271,8 @@ export const LEVELS: Level[] = [
             ? ['He stopped at ' + r1(e.s) + ' m: ' + r1(-off) + ' m short of the bus stop.', 'அவன் ' + r1(e.s) + ' m-இல் நின்றான்: பஸ் நிறுத்தத்துக்கு ' + r1(-off) + ' m முன்னால்.', 'ඔහු m ' + r1(e.s) + ' දී නැවතුණා: බස් නැවතුමට m ' + r1(-off) + 'ක් මෙපිටින්.']
             : ['He stopped at ' + r1(e.s) + ' m: ' + r1(off) + ' m past the bus stop.', 'அவன் ' + r1(e.s) + ' m-இல் நின்றான்: பஸ் நிறுத்தத்தைத் தாண்டி ' + r1(off) + ' m.', 'ඔහු m ' + r1(e.s) + ' දී නැවතුණා: බස් නැවතුම පසුකර m ' + r1(off) + 'ක්.'];
       },
+      hint: ['Braking always takes 16 m. How far must he ride before braking, and how long does that take at 8 m/s?', 'பிரேக் போட எப்போதும் 16 m ஆகும். பிரேக்குக்கு முன் எவ்வளவு தூரம் ஓட்ட வேண்டும், அதற்கு 8 m/s-இல் எவ்வளவு நேரம்?', 'තිරිංග කිරීමට සැමවිටම m 16ක් යයි. තිරිංගයට පෙර ඔහු කොපමණ දුරක් පැදිය යුතුද, m/s 8න් ඒට කොපමණ කාලයක් ගතවේද?'],
+      answer: { r: 3 },
       why: ['Braking always takes 16 m, so he rides 40 − 16 = 24 m first: 24 m ÷ 8 m/s = 3 s.', 'பிரேக்குக்கு எப்போதும் 16 m ஆகும், எனவே முதலில் 40 − 16 = 24 m ஓட்டுகிறான்: 24 m ÷ 8 m/s = 3 s.', 'තිරිංග කිරීමට සැමවිටම m 16ක් යයි, එනිසා ඔහු මුලින් 40 − 16 = m 24ක් පදිනවා: m 24 ÷ m/s 8 = s 3.'],
       start: ['Nimal now', 'இப்போது நிமல்', 'දැන් නිමල්'],
       places: [{ s: 40, l: ['Bus stop', 'பஸ் நிறுத்தம்', 'බස් නැවතුම'] }],

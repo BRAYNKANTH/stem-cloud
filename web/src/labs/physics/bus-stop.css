@@ -241,3 +241,11 @@
 .scn-step { margin: 0 0 4px; font-size: .9rem; }
 .bus-scn .bus-story { margin: 0 0 8px; color: var(--sc-ink); }
 .bus-scn .bus-qcard { margin: 0; background: var(--sc-panel); }
+
+/* stuck after a miss: a hint, or the answer and on */
+.bus-stuck { margin: 10px 0; padding: 10px 12px; border-radius: var(--r); border: 2px dashed var(--sc-line); background: var(--sc-panel); }
+.bus-stuck .hint { margin: 0 0 6px; font-weight: 700; color: var(--sc-ink); }
+.bus-stuck .bus-row { margin: 0; }
+.bus-hint { margin: 8px 0 0; padding: 8px 12px; border-radius: var(--r-sm); background: var(--sc-mango-lt); border-left: 4px solid var(--sc-mango); }
+.bus-msg.info { background: var(--sc-blue-lt); border-color: var(--sc-blue); }
+.bus-msg.info::before { content: 'i'; background: var(--sc-blue); }

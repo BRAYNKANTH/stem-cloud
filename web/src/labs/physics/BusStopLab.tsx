@@ -54,6 +54,11 @@ const W = {
   setRide: ['Set the ride', 'பயணத்தை அமை', 'ගමන සකසන්න'],
   tryAgain: ['Try again', 'மீண்டும் முயற்சி செய்', 'නැවත උත්සාහ කරන්න'],
   close: ['Close', 'மூடு', 'වසන්න'],
+  stuck: ['Stuck? Get a hint, or see the answer and move on (no star for this step).', 'சிக்கிக்கொண்டாயா? குறிப்பைப் பெறு, அல்லது விடையைப் பார்த்து முன்னேறு (இந்தப் படிக்கு நட்சத்திரம் இல்லை).', 'හිරවෙලාද? ඉඟියක් ගන්න, නැතහොත් පිළිතුර බලා ඉදිරියට යන්න (මෙම පියවරට තරුවක් නැත).'],
+  hintBtn: ['💡 Hint', '💡 குறிப்பு', '💡 ඉඟිය'],
+  showAns: ['Show the answer', 'விடையைக் காட்டு', 'පිළිතුර පෙන්වන්න'],
+  noStar: ['No star for this step, but you can go on.', 'இந்தப் படிக்கு நட்சத்திரம் இல்லை, ஆனால் தொடரலாம்.', 'මෙම පියවරට තරුවක් නැත, නමුත් ඉදිරියට යා හැක.'],
+  goalShown: ["Here is a ride that works. ", 'இதோ வேலை செய்யும் ஒரு பயணம். ', 'මෙන්න සාර්ථක වන ගමනක්. '],
   thinkHint: ['Think about the story, then tap Answer.', 'கதையைப் பற்றி யோசி, பிறகு விடையளி என்பதைத் தொடு.', 'කතාව ගැන සිතා, ඉන්පසු පිළිතුරු දෙන්න තට්ටු කරන්න.'],
   pickSnap: ['Which graph marks the right moment?', 'எந்த வரைபு சரியான நேரத்தைக் குறிக்கிறது?', 'නිවැරදි මොහොත සලකුණු කරන්නේ කුමන ප්‍රස්තාරයද?'],
   pickOne: ['Pick a graph first.', 'முதலில் ஒரு வரைபைத் தேர்ந்தெடு.', 'මුලින්ම ප්‍රස්තාරයක් තෝරන්න.'],
@@ -371,10 +376,13 @@ export default function BusStopLab() {
   const [t, setT] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [pin, setPin] = useState<number | null>(null);
-  const [readMsg, setReadMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [readMsg, setReadMsg] = useState<{ ok: boolean; text: string; shown?: boolean } | null>(null);
   const [misses, setMisses] = useState(0);
   const [ctl, setCtl] = useState<Vals>({});
-  const [goalMsg, setGoalMsg] = useState<{ ok: boolean; text: string } | null>(null);
+  const [goalMsg, setGoalMsg] = useState<{ ok: boolean; text: string; shown?: boolean } | null>(null);
+  // after a miss: the hint is open, and whether the goal ride now playing is the answer shown (read by finish())
+  const [hint, setHint] = useState(false);
+  const shownRide = useRef(false);
   const [tries, setTries] = useState(0);
   const [note, setNote] = useState('');
   const loaded = useRef(false);
@@ -450,7 +458,7 @@ export default function BusStopLab() {
     const lvl = LEVELS[i]!;
     setPop(false); setSnap(-1); setTried([]);
     setLv(i); setPhase('ask'); setPick(-1); setWon(null); setT(0); setPlaying(false); setPin(null); setReadMsg(null); setMisses(0);
-    setCtl(Object.fromEntries(lvl.goal.controls.map((c) => [c.key, c.start]))); setGoalMsg(null); setTries(0); setNote('');
+    setCtl(Object.fromEntries(lvl.goal.controls.map((c) => [c.key, c.start]))); setGoalMsg(null); setTries(0); setNote(''); setHint(false);
     setBetOn(!(s.stars[i]! & STAR.ask));
     setBet(Math.min(1, s.coins));
   }
@@ -499,11 +507,18 @@ export default function BusStopLab() {
       if (ok) award(STAR.ask, stake); else if (stake) setSave((s) => ({ ...s, coins: Math.max(0, s.coins - stake) }));
       setPhase('told');
     } else {
-      const GT = total(goalLegs), end = at(goalLegs, GT);
-      const ok = L.goal.ok(ctl, end, GT);
-      const said = tx(L.goal.say(ctl, end, GT));
+      const c = shownRide.current ? L.goal.answer : ctl, legs = L.goal.legs(c);
+      const GT = total(legs), end = at(legs, GT);
+      const ok = L.goal.ok(c, end, GT);
+      const said = tx(L.goal.say(c, end, GT));
       setTries((n) => n + (ok ? 0 : 1));
-      if (ok) {
+      if (shownRide.current) {
+        // the answer was shown: the stop is cleared, without the goal's star or coins
+        shownRide.current = false;
+        award(CLEAR, 0);
+        setGoalMsg({ ok: true, shown: true, text: tx(W.goalShown) + said + ' ' + tx(W.noStar) });
+        setPhase('end');
+      } else if (ok) {
         const first = !(save.stars[lv]! & STAR.goal);
         award(STAR.goal | CLEAR, PAY.goal);
         setGoalMsg({ ok: true, text: tx(W.goalHit) + said + (first ? ' ' + tx(W.earn) + PAY.goal + '.' : '') });
@@ -528,7 +543,7 @@ export default function BusStopLab() {
       return true;
     }
     setMisses((n) => n + 1);
-    setReadMsg({ ok: false, text: tx(W.readWrong) + (misses >= 1 ? ' ' + tx(L.read.why) : '') });
+    setReadMsg({ ok: false, text: tx(W.readWrong) });
     return false;
   };
   const checkRead = () => {
@@ -541,12 +556,23 @@ export default function BusStopLab() {
     if (judgeRead(L.read.snaps[snap]!)) setPop(false);
     else { setTried((x) => [...x, snap]); setSnap(-1); }
   };
+  /** Stuck on the graph: the right moment marked, explained, and on to the goal (no star). */
+  const showRead = () => {
+    const i = L.read.snaps.findIndex((x) => L.read.ok(x)), ta = L.read.snaps[i]!;
+    setPin(ta); setSnap(i); setPop(false); scrub(ta);
+    setReadMsg({ ok: true, shown: true, text: tx(W.answer) + (phone ? 'ABCD'[i] + ', ' : '') + 't = ' + fmt(ta) + ' s. ' + tx(L.read.why) + ' ' + tx(W.noStar) });
+  };
+  /** Stuck on the goal: the sliders set to a ride that works, and it plays. */
+  const showGoal = () => {
+    setCtl({ ...L.goal.answer }); setGoalMsg(null); setPop(false); shownRide.current = true;
+    go('goalRide', L.goal.legs(L.goal.answer));
+  };
   const toRead = () => {
-    setPhase('read'); setPin(null); setReadMsg(null); setSnap(-1); setTried([]);
+    setPhase('read'); setPin(null); setReadMsg(null); setSnap(-1); setTried([]); setHint(false); setMisses(0);
     level.current?.querySelector('.bus-scn')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
     replay(0);
   };
-  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); };
+  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); setHint(false); setTries(0); };
   const rideGoal = () => { setGoalMsg(null); setPop(false); go('goalRide', goalLegs); };
   const setControl = (k: string, v: number) => { setPlaying(false); setCtl((c) => ({ ...c, [k]: v })); setT(0); setGoalMsg(null); };
 
@@ -579,6 +605,17 @@ export default function BusStopLab() {
     : phase === 'goal' ? [tx(goalMsg ? W.tryAgain : W.setRide), openPop]
     : lv < LEVELS.length - 1 ? [tx(W.next), () => startLevel(lv + 1)] : [tx(W.again), () => startLevel(lv)];
 
+  const stuck = (h: Pair, show: () => void) => (
+    <div class="bus-stuck">
+      <p class="hint">{tx(W.stuck)}</p>
+      <div class="bus-row">
+        <button type="button" class="btn" onClick={() => setHint(true)} disabled={hint}>{tx(W.hintBtn)}</button>
+        <button type="button" class="btn" onClick={show}>{tx(W.showAns)}</button>
+      </div>
+      {hint && <p class="bus-hint" role="status">{tx(h)}</p>}
+    </div>
+  );
+  const msgClass = (m: { ok: boolean; shown?: boolean }) => 'bus-msg ' + (m.shown ? 'info' : m.ok ? 'ok' : 'err');
   const choices = (
     <div class="bus-opts" role="radiogroup" aria-label={tx(L.ask.q)}>
       {L.ask.opts.map((o, i) => (
@@ -625,6 +662,7 @@ export default function BusStopLab() {
         </div>
         <button type="button" class="btn primary" onClick={checkSnap}>{tx(W.check)}</button>
         {readMsg && !readMsg.ok && <p class="bus-msg err" role="status">{readMsg.text}</p>}
+        {misses >= 1 && !readMsg?.ok && stuck(L.read.hint, showRead)}
       </>
     )
     : phase === 'goal' ? <>{sliders}<button type="button" class="btn primary" onClick={rideGoal}>{tx(W.ride)}</button></>
@@ -726,7 +764,8 @@ export default function BusStopLab() {
                   {!phone && <button type="button" class="btn primary" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>}
                   {readMsg?.ok ? <button type="button" class="btn primary act" onClick={toGoal}>{tx(W.toGoal)}</button> : <button type="button" class="btn" onClick={toGoal}>{tx(W.skip)}</button>}
                 </div>
-                {readMsg && (readMsg.ok || !phone) && <p class={'bus-msg ' + (readMsg.ok ? 'ok' : 'err')} role="status">{readMsg.text}</p>}
+                {readMsg && (readMsg.ok || !phone) && <p class={msgClass(readMsg)} role="status">{readMsg.text}</p>}
+                {!phone && misses >= 1 && !readMsg?.ok && stuck(L.read.hint, showRead)}
               </>
             )}
 
@@ -736,7 +775,8 @@ export default function BusStopLab() {
                 {!phone && sliders}
                 {!phone && phase !== 'end' && <button type="button" class="btn primary" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
                 {phone && phase === 'goalRide' && <p class="hint" aria-live="polite">{tx(W.riding)}</p>}
-                {goalMsg && <p class={'bus-msg ' + (goalMsg.ok ? 'ok' : 'err')} role="status">{goalMsg.text}{(goalMsg.ok || tries >= 3) && <> {tx(L.goal.why)}</>}</p>}
+                {goalMsg && <p class={msgClass(goalMsg)} role="status">{goalMsg.text}{goalMsg.ok && <> {tx(L.goal.why)}</>}</p>}
+                {phase === 'goal' && tries >= 1 && stuck(L.goal.hint, showGoal)}
                 {phase === 'end' && (
                   <div class="bus-end">
                     <p><b>{tx(W.levelDone)}</b> <Stars m={m} label={bits(m) + ' / 3 ' + tx(W.stars)} /></p>

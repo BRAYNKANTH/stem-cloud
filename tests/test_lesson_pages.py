@@ -338,7 +338,7 @@ def run():
             pg.evaluate("localStorage.setItem('stem_motion', 'off'); localStorage.removeItem('scx_bus_v1')")
             pg.goto(BASE + MOTION + '#lab')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
-            pg.locator('.bus').scroll_into_view_if_needed()
+            pg.evaluate("document.querySelector('.bus').scrollIntoView()")   # (the placeholder is swapped for the game when it arrives)
             pg.wait_for_selector('.bus .stop')          # the game is fetched when the step comes into view (labs/physics/BusStop.tsx)
             coins = lambda: pg.inner_text('.hud-coins b')
             stars = lambda: pg.inner_text('.hud-stars b')
@@ -393,6 +393,10 @@ def run():
             pg.click('.bus-pop .btn.primary')
             check('...a wrong snapshot says so and is greyed out', lambda: popup() and 'Not quite' in pg.inner_text('.bus-pop .bus-msg') and pg.locator('.bus-pop .snap.wrong').count() == 1
                   and pg.locator('.bus-pop .snap >> nth=0').is_disabled())
+            check('...after a miss nobody is stuck: a hint, or the answer and on', lambda: pg.locator('.bus-pop .bus-stuck').is_visible()
+                  and pg.locator('.bus-pop .bus-stuck button >> text=Show the answer').count() == 1)
+            pg.click('.bus-pop .bus-stuck button >> text=Hint')
+            check('...the hint says where to look', lambda: 'stops going up' in pg.inner_text('.bus-pop .bus-hint'), lambda: pg.inner_text('.bus-pop .bus-stuck') if popup() else 'popup closed')
             pg.click('.bus-pop .snap >> nth=2')
             pg.click('.bus-pop .btn.primary')
             check('...the right one closes the popup and gives a star and Rs 2', lambda: not popup() and coins() == '14' and stars() == '2' and pg.inner_text('.bus-panel .bus-msg.ok').startswith('Right!') and 'Next: the goal' in bar(), lambda: (coins(), stars()))
@@ -404,7 +408,7 @@ def run():
             pg.locator('#bus-w').fill('40')
             pg.click('.bus-pop .btn.primary')
             check('a ride that misses the goal says what happened in the page, and the bar offers to try again',
-                  lambda: not popup() and 'Distance 130 m' in pg.inner_text('.bus-msg.err') and 'Try again' in bar())
+                  lambda: not popup() and 'Distance 130 m' in pg.inner_text('.bus-msg.err') and 'Try again' in bar() and pg.locator('.bus-panel .bus-stuck').is_visible())
             act()
             pg.locator('#bus-e').fill('80')
             pg.click('.bus-pop .btn.primary')
@@ -414,6 +418,27 @@ def run():
             pg.click('.bus-shop summary')
             pg.click('.bus-shop li >> nth=1 >> .btn')
             check('the bike shop sells a helmet for Rs 8 and Nimal wears it', lambda: coins() == '9' and pg.locator('.bus-scene path[fill="#E53935"]').count() == 1, lambda: coins())
+            # stuck on a stop played again: the answer shown, no star, and on
+            pg.click('.bus-end .btn >> text=Play this stop again')
+            act()
+            pg.click('.bus-pop .opt >> nth=0')
+            pg.click('.bus-pop .bus-bet .btn.primary')
+            act()
+            act()
+            pg.click('.bus-pop .snap >> nth=0')
+            pg.click('.bus-pop .btn.primary')
+            pg.click('.bus-pop .bus-stuck button >> text=Show the answer')
+            check('Show the answer marks the right moment, explains it, gives no star and leads on to the goal',
+                  lambda: not popup() and pg.inner_text('.bus-panel .bus-msg.info').startswith('The answer: C, t = 20.0 s.') and 'Next: the goal' in bar()
+                  and pg.locator('#bus-time').input_value() == '20', lambda: pg.inner_text('.bus-panel'))
+            act()
+            act()
+            pg.locator('#bus-e').fill('10')
+            pg.click('.bus-pop .btn.primary')
+            pg.click('.bus-panel .bus-stuck button >> text=Show the answer')
+            check('...on the goal it sets the sliders to a ride that works and plays it: the stop is cleared',
+                  lambda: pg.inner_text('.bus-panel .bus-msg.info').startswith('Here is a ride that works. Distance 120 m, displacement 40 m east.')
+                  and 'Next stop' in bar() and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 15, lambda: pg.inner_text('.bus-panel'))
             pg.evaluate("localStorage.removeItem('stem_motion')")
 
             # ------------------------------------------------------------ Motion: read-aloud

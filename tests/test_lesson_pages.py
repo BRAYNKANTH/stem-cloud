@@ -347,19 +347,19 @@ def run():
                   and pg.locator('#lab .lab-card .lg-try').count() == 3, lambda: (pg.locator('.bus .stop').count(), stars(), coins()))
             signs = lambda: pg.eval_on_selector_all('.bus-scene .sign-t, .bus-scene .lbl', 'els => els.map(e => e.textContent)')
             check('before the ride the road shows every place in the story', lambda: {'Home', 'Corner shop', "Kamal's house"} <= set(signs()), signs)
-            sheet = lambda: pg.locator('.bus-panel.sheet').is_visible()
-            check('on a phone the question waits behind the Question button: the road, the values and the graph keep the screen',
-                  lambda: not sheet() and pg.locator('.bus-qbtn').is_visible() and pg.locator('.bus-graph').is_visible())
-            pg.click('.bus-qbtn')
-            check('...the button opens the question in a sheet, focus on its close button', lambda: sheet() and pg.evaluate("document.activeElement.className") == 'sheet-x')
-            pg.keyboard.press('Escape')
-            check('...Escape (or the close button) goes back to the ride', lambda: not sheet() and pg.evaluate("document.activeElement.className").startswith('bus-qbtn'))
-            pg.click('.bus-qbtn')
+            bar = lambda: pg.inner_text('.bus-qbar')
+            act = lambda: pg.click('.bus-qbar .btn')
+            pg.locator('.bus-opts').scroll_into_view_if_needed()
+            pinned = "(() => { const st = document.querySelector('.bus-stage').getBoundingClientRect(), qb = document.querySelector('.bus-qbar').getBoundingClientRect(), "\
+                     "head = document.querySelector('.lhead').getBoundingClientRect(), end = document.querySelector('.lend').getBoundingClientRect(); "\
+                     "return Math.abs(st.top - head.bottom) < 2 && qb.bottom <= end.top + 1 && st.bottom < qb.top; })()"
+            check('on a phone the road stays pinned under the header and the question bar above the bottom bar while the choices scroll',
+                  lambda: pg.evaluate(pinned) and 'displacement from home?' in bar() and pg.locator('.bus-panel .act').first.is_hidden())
             pg.click('.bus-opts .opt >> nth=1')
             pg.click('.bus .chip >> text="Rs 2"')
-            pg.click('.bus-bet .btn.primary')
-            check('a right prediction wins the bet and the first star; the sheet closed for the ride and the button says the result is ready',
-                  lambda: coins() == '12' and stars() == '1' and not sheet() and 'See the result' in pg.inner_text('.bus-qbtn'), lambda: (coins(), stars(), sheet()))
+            act()
+            check('a right prediction (Lock in, in the bar) wins the bet and the first star; the bar says so and leads on',
+                  lambda: coins() == '12' and stars() == '1' and bar().startswith('Right! You won Rs 2.') and 'Next: read the graph' in bar(), lambda: (coins(), stars(), bar()))
             check('...and the next stop stays locked until this one is cleared (all three steps)',
                   lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
             pg.locator('#bus-time').fill('24')
@@ -367,32 +367,31 @@ def run():
                   lambda: pg.inner_text('.bus-ro').replace('\n', ' ').count('24.0 s') == 1 and '92.0 m' in pg.inner_text('.bus-ro')
                   and pg.locator('.bus-graph .g-ghost').count() == 1 and pg.locator('.bus-scene .disp text').text_content() == '68 m east',
                   lambda: (pg.inner_text('.bus-ro').split(), pg.locator('.bus-graph .g-ghost').count(), pg.locator('.bus-scene .disp text').all_text_contents()))
-            pg.click('.bus-qbtn')
-            pg.click('.bus-msg .btn.primary')
-            check('reading the graph starts with the ride again, the step saying what to do',
-                  lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30')
+            act()
+            check('reading the graph starts with the ride again, the graph pinned under a strip of the road',
+                  lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30'
+                  and pg.locator('.bus-stage .bus-graph').count() == 1 and pg.locator('.bus-scene.strip').count() == 1 and 'turned back' in bar())
             pg.focus('.bus-graph.tap svg')
             for _ in range(4):
                 pg.keyboard.press('PageUp')
             check('the graph reads a value from the keyboard', lambda: pg.inner_text('.g-read').startswith('Time 20.0 s'), lambda: pg.inner_text('.g-read'))
             pg.keyboard.press('Enter')
-            pg.click('.bus-qbtn')
-            check('...the sheet shows the point marked on the graph', lambda: pg.inner_text('.bus-pin') == 'Your point: 20.0 s · 80.0 m', lambda: pg.inner_text('.bus-pin'))
-            pg.click('.bus-row .btn.primary >> nth=0')
-            check('reading the graph right gives a star and Rs 2', lambda: coins() == '14' and stars() == '2', lambda: (coins(), stars()))
-            pg.click('.bus-row .btn.primary >> nth=1')
+            check('...the point marked on the graph is written out', lambda: pg.inner_text('.bus-pin') == 'Your point: 20.0 s · 80.0 m', lambda: pg.inner_text('.bus-pin'))
+            act()
+            check('reading the graph right (Check, in the bar) gives a star and Rs 2', lambda: coins() == '14' and stars() == '2' and bar().startswith('Right!'), lambda: (coins(), stars()))
+            act()
             pg.locator('#bus-e').fill('90')
             pg.locator('#bus-w').fill('40')
-            pg.click('.bus-panel .btn.primary')
-            pg.click('.bus-qbtn')
-            check('a ride that misses the goal says what happened', lambda: 'Distance 130 m' in pg.inner_text('.bus-msg.err'))
+            check('in the goal step the sliders come up between the pinned road and the bar', lambda: pg.evaluate(pinned) and pg.evaluate(
+                "(() => { const r = document.querySelector('#bus-e').getBoundingClientRect(); return r.top > document.querySelector('.bus-stage').getBoundingClientRect().bottom "
+                "&& r.bottom < document.querySelector('.bus-qbar').getBoundingClientRect().top; })()"))
+            act()
+            check('a ride that misses the goal says what happened, in the bar too', lambda: 'Distance 130 m' in pg.inner_text('.bus-msg.err') and 'Distance 130 m' in bar())
             pg.locator('#bus-e').fill('80')
-            pg.click('.bus-panel .btn.primary')
-            pg.click('.bus-qbtn')
+            act()
             check('the goal gives the third star, opens the next stop, and is kept on this device',
                   lambda: stars() == '3' and coins() == '17' and pg.locator('.bus .stop:disabled').count() == 3
                   and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 15, lambda: (stars(), coins()))
-            pg.keyboard.press('Escape')
             pg.click('.bus-shop summary')
             pg.click('.bus-shop li >> nth=1 >> .btn')
             check('the bike shop sells a helmet for Rs 8 and Nimal wears it', lambda: coins() == '9' and pg.locator('.bus-scene path[fill="#E53935"]').count() == 1, lambda: coins())

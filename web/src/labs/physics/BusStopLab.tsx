@@ -49,10 +49,7 @@ const W = {
   do0: ['Read the story and find the places on the road. Then pick your answer, place a bet and ride.', 'கதையைப் படி, சாலையில் இடங்களைப் பார். பிறகு விடையைத் தேர்ந்தெடு, பந்தயம் கட்டி ஓட்டு.', 'කතාව කියවා පාරේ ස්ථාන සොයාගන්න. ඉන්පසු පිළිතුර තෝරා, ඔට්ටුවක් අල්ලා පදින්න.'],
   do1: ['Watch the ride again with its graph: the line grows as Nimal moves. Replay it or drag the time slider as often as you like, then tap the graph to answer.', 'பயணத்தை அதன் வரைபுடன் மீண்டும் பார்: நிமல் நகரும்போது கோடு வளர்கிறது. எத்தனை முறை வேண்டுமானாலும் மீண்டும் பார் அல்லது நேர ஸ்லைடரை இழு, பிறகு விடையளிக்க வரைபைத் தொடு.', 'ගමන එහි ප්‍රස්තාරය සමඟ නැවත බලන්න: නිමල් චලනය වන විට රේඛාව වර්ධනය වේ. කැමති තරම් නැවත බලන්න හෝ කාල ස්ලයිඩරය අදින්න, ඉන්පසු පිළිතුරු දීමට ප්‍රස්තාරය තට්ටු කරන්න.'],
   question: ['Question', 'கேள்வி', 'ප්‍රශ්නය'],
-  goalBtn: ['Your goal', 'உன் இலக்கு', 'ඔබේ ඉලක්කය'],
-  seeResult: ['See the result', 'முடிவைப் பார்', 'ප්‍රතිඵලය බලන්න'],
-  backRide: ['Back to the ride', 'பயணத்துக்குத் திரும்பு', 'ගමනට ආපසු'],
-  tapQ: ['Tap Question when you are ready.', 'தயாரானதும் கேள்வி பொத்தானைத் தொடு.', 'සූදානම් වූ විට ප්‍රශ්නය තට්ටු කරන්න.'],
+  lockIn: ['Lock in', 'உறுதிசெய்', 'තහවුරු කරන්න'],
   yourPoint: ['Your point: ', 'உன் புள்ளி: ', 'ඔබේ ලක්ෂ්‍යය: '],
   watchAgain: ['↻ Watch again', '↻ மீண்டும் பார்', '↻ නැවත බලන්න'],
   pause: ['⏸ Pause', '⏸ நிறுத்து', '⏸ නවත්වන්න'],
@@ -176,7 +173,7 @@ function Bike({ x, dir, turn, wear }: { x: number; dir: number; turn: number; we
 }
 
 /** The road from the side: the start (Nimal's home or a sign), the places of the story, Nimal, and the displacement arrow. */
-function Scene({ tx, legs, t, start, home, places, ticks: showTicks, wear }: { tx: Tx; legs: Leg[]; t: number; start: Pair; home: boolean; places: Place[]; ticks: boolean; wear: string[] }) {
+function Scene({ tx, legs, t, start, home, places, ticks: showTicks, wear, strip = false }: { tx: Tx; legs: Leg[]; t: number; start: Pair; home: boolean; places: Place[]; ticks: boolean; wear: string[]; strip?: boolean }) {
   const now = at(legs, t);
   const [lo, hi] = span(legs, places.map((p) => p.s));
   const X = (s: number) => 64 + (s - lo) / (hi - lo) * 550;
@@ -194,7 +191,7 @@ function Scene({ tx, legs, t, start, home, places, ticks: showTicks, wear }: { t
     return { ...p, x, w, y: up ? -132 : -106 };
   });
   return (
-    <svg class="bus-scene" viewBox="0 0 640 230" role="img" aria-label={tx(W.scene) + ': ' + [tx(start), ...places.map((p) => tx(p.l) + ' ' + p.s + ' m')].join(', ') + '. ' + tx(W.s) + ' ' + tx(disp) + ', ' + tx(W.d) + ' ' + fmt(now.dist) + ' m'}>
+    <svg class={'bus-scene' + (strip ? ' strip' : '')} viewBox={strip ? '0 64 640 166' : '0 0 640 230'} role="img" aria-label={tx(W.scene) + ': ' + [tx(start), ...places.map((p) => tx(p.l) + ' ' + p.s + ' m')].join(', ') + '. ' + tx(W.s) + ' ' + tx(disp) + ', ' + tx(W.d) + ' ' + fmt(now.dist) + ' m'}>
       <rect x="0" y="0" width="640" height="150" class="sky" />
       <circle cx="30" cy="28" r="15" class="sun" />
       <path d="M0 122 Q90 92 180 118 T380 112 T640 116 V150 H0 Z" class="hill" />
@@ -339,29 +336,34 @@ export default function BusStopLab() {
   const [tries, setTries] = useState(0);
   const [note, setNote] = useState('');
   const loaded = useRef(false);
-  // On a phone the question, the choices and the controls sit in a sheet the student opens with the Question button,
-  // so the road, the readouts and the graph keep the screen; a ride closes the sheet, and the button says when a
-  // result is waiting (fresh).
+  // On a phone the picture (the road, or the graph while it is read) stays pinned under the lesson's header and the
+  // question with its main button stays in a bar above the lesson's bottom bar; the rest scrolls between them.
   const [phone, setPhone] = useState(false);
-  const [sheet, setSheet] = useState(false);
-  const [fresh, setFresh] = useState(false);
-  const sheetX = useRef<HTMLButtonElement>(null);
-  const qBtn = useRef<HTMLButtonElement>(null);
+  const [edges, setEdges] = useState({ top: 0, bottom: 0 });
   useEffect(() => {
     const mq = matchMedia('(max-width: 720px)');
     const on = () => setPhone(mq.matches);
     on(); mq.addEventListener('change', on);
     return () => mq.removeEventListener('change', on);
   }, []);
-  const openSheet = () => { setSheet(true); setFresh(false); setTimeout(() => sheetX.current?.focus(), 0); };
-  const closeSheet = () => { setSheet(false); setTimeout(() => qBtn.current?.focus(), 0); };
   useEffect(() => {
-    if (!phone || !sheet) return;
-    sheetX.current?.focus();
-    const key = (e: KeyboardEvent) => { if (e.key === 'Escape') closeSheet(); };
-    document.addEventListener('keydown', key);
-    return () => document.removeEventListener('keydown', key);
-  }, [phone, sheet]);
+    if (!phone) return;
+    const measure = () => {
+      const head = document.querySelector<HTMLElement>('.lhead'), end = document.querySelector<HTMLElement>('.lend');
+      const cs = end && getComputedStyle(end);
+      setEdges({ top: head ? head.getBoundingClientRect().height : 0, bottom: end && cs && cs.display !== 'none' ? end.offsetHeight + (parseFloat(cs.bottom) || 0) : 0 });
+    };
+    measure();
+    addEventListener('resize', measure);
+    return () => removeEventListener('resize', measure);
+  }, [phone]);
+  const panel = useRef<HTMLDivElement>(null);
+  const stageBox = useRef<HTMLDivElement>(null);
+  /** Bring the question's details (story, choices, sliders, explanations) up under the pinned picture. */
+  const toPanel = () => {
+    const top = panel.current?.getBoundingClientRect().top, h = stageBox.current?.offsetHeight;
+    if (top !== undefined && h !== undefined) scrollBy({ top: top - (edges.top + h + 8), behavior: calm() ? 'auto' : 'smooth' });
+  };
 
   const L: Level = LEVELS[lv]!;
   const goalLegs = L.goal.legs(ctl);
@@ -382,7 +384,6 @@ export default function BusStopLab() {
 
   function startLevel(i: number, s: Save = save) {
     const lvl = LEVELS[i]!;
-    setSheet(false); setFresh(false);
     setLv(i); setPhase('ask'); setPick(-1); setWon(null); setT(0); setPlaying(false); setPin(null); setReadMsg(null); setMisses(0);
     setCtl(Object.fromEntries(lvl.goal.controls.map((c) => [c.key, c.start]))); setGoalMsg(null); setTries(0); setNote('');
     setBetOn(!(s.stars[i]! & STAR.ask));
@@ -425,7 +426,6 @@ export default function BusStopLab() {
 
   /** The end of a ride: the prediction's result, or the goal's. */
   function finish() {
-    setFresh(true);
     if (riding.current === 'ride') {
       const ok = pick === L.ask.right;
       const stake = betOn ? Math.min(bet, save.coins) : 0;
@@ -451,7 +451,7 @@ export default function BusStopLab() {
 
   const lockIn = () => {
     if (pick < 0) { setNote(tx(W.pick)); return; }
-    setNote(''); setSheet(false); go('ride', L.legs);
+    setNote(''); go('ride', L.legs);
   };
   const checkRead = () => {
     if (pin === null) { setReadMsg({ ok: false, text: tx(W.pinFirst) }); return; }
@@ -465,12 +465,12 @@ export default function BusStopLab() {
     }
   };
   const toRead = () => {
-    setPhase('read'); setPin(null); setReadMsg(null); setSheet(false); setFresh(false);
+    setPhase('read'); setPin(null); setReadMsg(null);
     level.current?.querySelector('.bus-do')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
     replay(0);
   };
-  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); };
-  const rideGoal = () => { setGoalMsg(null); setSheet(false); go('goalRide', goalLegs); };
+  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); if (phone) setTimeout(toPanel, 60); };   // the sliders come up under the road
+  const rideGoal = () => { setGoalMsg(null); go('goalRide', goalLegs); };
   const setControl = (k: string, v: number) => { setPlaying(false); setCtl((c) => ({ ...c, [k]: v })); setT(0); setGoalMsg(null); };
 
   const buy = (id: string, price: number) => setSave((s) => (s.coins < price || s.own.includes(id) ? s : { ...s, coins: s.coins - price, own: [...s.own, id], wear: [...s.wear, id] }));
@@ -488,6 +488,19 @@ export default function BusStopLab() {
   // a ride has been watched and can be played again: the one predicted, or the student's last goal ride
   const watched = phase === 'told' || phase === 'read' || (stage === 2 && !!goalMsg && phase !== 'goalRide');
   const m = save.stars[lv]!;
+  // while the graph is read on a phone, the graph is pinned (with the road as a strip above it)
+  const pinGraph = phone && stage === 1;
+  const graph = (
+    <TapGraph key={lv + '-' + stage} tx={tx} legs={rideLegs} kind={showGraph} upto={t} ghost={watched} pin={stage === 1 ? pin : null}
+      onPin={stage === 1 ? (x) => { setPin(x); if (!readMsg?.ok) setReadMsg(null); } : undefined} />
+  );
+  const bar: { text: string; act?: [string, () => void] } =
+    phase === 'ask' ? { text: tx(L.ask.q), act: [tx(W.lockIn), lockIn] }
+    : phase === 'ride' || phase === 'goalRide' ? { text: tx(W.riding) }
+    : phase === 'told' ? { text: tx(pick === L.ask.right ? W.right : W.wrong) + (won ? ' ' + tx(won > 0 ? W.won : W.lost) + Math.abs(won) + '.' : ''), act: [tx(W.toRead), toRead] }
+    : phase === 'read' ? (readMsg?.ok ? { text: readMsg.text, act: [tx(W.toGoal), toGoal] } : { text: readMsg?.text ?? tx(L.read.q), act: [tx(W.check), checkRead] })
+    : phase === 'goal' ? { text: goalMsg?.text ?? tx(L.goal.q), act: [tx(W.ride), rideGoal] }
+    : { text: tx(W.levelDone) + ' ' + '★'.repeat(bits(m)) + '☆'.repeat(3 - bits(m)), act: lv < LEVELS.length - 1 ? [tx(W.next), () => startLevel(lv + 1)] : undefined };
 
   return (
     <section class="bus" aria-labelledby="bus-h">
@@ -518,7 +531,7 @@ export default function BusStopLab() {
         {busy && <p class="bus-map-note">{tx(W.finishFirst)}</p>}
       </nav>
 
-      <div class="bus-level" ref={level}>
+      <div class={'bus-level' + (phone ? ' is-phone' : '')} ref={level} style={phone ? { '--bus-top': edges.top + 'px', '--bus-bottom': edges.bottom + 'px' } : undefined}>
         <div class="bus-lv-top">
           <span class="bus-sec">{tx(W.level)} {lv + 1} · {L.sec}</span>
           <ol class="bus-steps">
@@ -535,12 +548,13 @@ export default function BusStopLab() {
         <p class="bus-do" aria-live="polite">
           {phase !== 'end' && <b>{tx(W.stepOf).replace('{n}', String(stage + 1))} · </b>}
           {tx(phase === 'end' ? W.do3 : [W.do0, W.do1, W.do2][stage]!)}
-          {phone && phase !== 'end' && <> {tx(W.tapQ)}</>}
         </p>
 
-        <Scene tx={tx} legs={rideLegs} t={t} wear={save.wear} ticks={phase !== 'ask'}
+        <div class="bus-stage" ref={stageBox}>
+        <Scene tx={tx} legs={rideLegs} t={t} wear={save.wear} ticks={phase !== 'ask'} strip={pinGraph}
           start={stage === 2 ? L.goal.start ?? L.start : L.start} home={!!L.home && !(stage === 2 && L.goal.start)}
           places={stage === 2 ? L.goal.places ?? [] : L.places.filter((p) => !p.after || phase === 'told' || stage > 0)} />
+        {pinGraph && graph}
         {watched && (
           <div class="bus-replay">
             {!calm() && <button type="button" class="btn btn-sm" onClick={() => replay()}>{tx(playing ? W.pause : W.watchAgain)}</button>}
@@ -551,16 +565,10 @@ export default function BusStopLab() {
           </div>
         )}
         <Readouts tx={tx} p={p} t={t} />
+        </div>
 
-        <div class={'bus-work' + (stage === 1 ? ' reading' : '')}>
-          {phone && sheet && <div class="bus-backdrop" onClick={closeSheet} aria-hidden="true" />}
-          <div class={'bus-panel' + (phone ? ' sheet' : '')} hidden={phone && !sheet} role={phone ? 'dialog' : undefined} aria-labelledby={phone ? 'bus-sheet-h' : undefined}>
-            {phone && (
-              <div class="sheet-head">
-                <b id="bus-sheet-h">{tx(W.stepOf).replace('{n}', String(stage + 1))} · {tx([W.sPredict, W.sRead, W.sGoal][stage]!)}</b>
-                <button type="button" class="sheet-x" ref={sheetX} onClick={closeSheet}>✕ {tx(W.backRide)}</button>
-              </div>
-            )}
+        <div class="bus-work">
+          <div class="bus-panel" ref={panel}>
             {stage === 0 && (
               <>
                 <p class="bus-story">{tx(L.story)}</p>
@@ -583,7 +591,7 @@ export default function BusStopLab() {
                         <p class="hint">{tx(W.betNote)}</p>
                       </>
                     )}
-                    <button type="button" class="btn primary" onClick={lockIn}>{tx(W.lockRide)}</button>
+                    <button type="button" class="btn primary act" onClick={lockIn}>{tx(W.lockRide)}</button>
                     {note && <p class="msg err" role="alert">{note}</p>}
                   </div>
                 )}
@@ -595,7 +603,7 @@ export default function BusStopLab() {
                     {won < 0 && <span class="pay">{tx(W.lost)}{-won}. </span>}
                     {pick !== L.ask.right && <span>{tx(W.answer)}<b>{tx(L.ask.opts[L.ask.right]!)}</b>. </span>}
                     <span>{tx(L.ask.why)}</span>
-                    <div><button type="button" class="btn primary" onClick={toRead}>{tx(W.toRead)}</button></div>
+                    <div><button type="button" class="btn primary act" onClick={toRead}>{tx(W.toRead)}</button></div>
                   </div>
                 )}
               </>
@@ -607,8 +615,8 @@ export default function BusStopLab() {
                 {pin !== null && <p class="bus-pin">{tx(W.yourPoint)}{fmt(pin)} s · {fmt(L.read.graph === 's' ? at(rideLegs, pin).s : at(rideLegs, pin).v)} {L.read.graph === 's' ? 'm' : 'm/s'}</p>}
                 <p class="hint">{tx(W.tap)} {tx(W.keys)}</p>
                 <div class="bus-row">
-                  <button type="button" class="btn primary" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>
-                  {readMsg?.ok ? <button type="button" class="btn primary" onClick={toGoal}>{tx(W.toGoal)}</button> : <button type="button" class="btn" onClick={toGoal}>{tx(W.skip)}</button>}
+                  <button type="button" class="btn primary act" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>
+                  {readMsg?.ok ? <button type="button" class="btn primary act" onClick={toGoal}>{tx(W.toGoal)}</button> : <button type="button" class="btn" onClick={toGoal}>{tx(W.skip)}</button>}
                 </div>
                 {readMsg && <p class={'bus-msg ' + (readMsg.ok ? 'ok' : 'err')} role="status">{readMsg.text}</p>}
               </>
@@ -624,14 +632,14 @@ export default function BusStopLab() {
                       onInput={(e) => setControl(c.key, parseFloat((e.target as HTMLInputElement).value))} />
                   </div>
                 ))}
-                {phase !== 'end' && <button type="button" class="btn primary" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
+                {phase !== 'end' && <button type="button" class="btn primary act" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
                 {goalMsg && <p class={'bus-msg ' + (goalMsg.ok ? 'ok' : 'err')} role="status">{goalMsg.text}{(goalMsg.ok || tries >= 3) && <> {tx(L.goal.why)}</>}</p>}
                 {phase === 'end' && (
                   <div class="bus-end">
                     <p><b>{tx(W.levelDone)}</b> <Stars m={m} label={bits(m) + ' / 3 ' + tx(W.stars)} /></p>
                     {lv === LEVELS.length - 1 && <p class="bus-win">🚌 {tx(W.allDone)}</p>}
                     <div class="bus-row">
-                      {lv < LEVELS.length - 1 && <button type="button" class="btn primary" onClick={() => startLevel(lv + 1)}>{tx(W.next)}</button>}
+                      {lv < LEVELS.length - 1 && <button type="button" class="btn primary act" onClick={() => startLevel(lv + 1)}>{tx(W.next)}</button>}
                       <button type="button" class="btn" onClick={() => startLevel(lv)}>{tx(W.again)}</button>
                     </div>
                   </div>
@@ -640,14 +648,12 @@ export default function BusStopLab() {
             )}
           </div>
 
-          <TapGraph key={lv + '-' + stage} tx={tx} legs={rideLegs} kind={showGraph} upto={t} ghost={watched} pin={stage === 1 ? pin : null}
-            onPin={stage === 1 ? (x) => { setPin(x); if (!readMsg?.ok) setReadMsg(null); } : undefined} />
+          {!pinGraph && graph}
         </div>
-        {phone && !sheet && phase !== 'ride' && phase !== 'goalRide' && (
-          <div class="bus-qwrap">
-            <button type="button" class={'bus-qbtn' + (fresh ? ' fresh' : '')} ref={qBtn} onClick={openSheet} aria-haspopup="dialog">
-              {fresh ? '✓ ' + tx(W.seeResult) : stage === 2 ? '🎯 ' + tx(W.goalBtn) : '📝 ' + tx(W.question)}
-            </button>
+        {phone && (
+          <div class="bus-qbar" role="region" aria-label={tx(W.question)}>
+            <button type="button" class="qb-text" onClick={toPanel}>{bar.text}</button>
+            {bar.act && <button type="button" class="btn primary" onClick={bar.act[1]}>{bar.act[0]}</button>}
           </div>
         )}
       </div>

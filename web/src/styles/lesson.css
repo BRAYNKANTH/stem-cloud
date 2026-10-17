@@ -127,6 +127,21 @@ html:not([data-player]) .lstep + .lstep { margin-top: 40px; padding-top: 24px; b
 html:has(#stem-vp) .lend { bottom: calc(76px + env(safe-area-inset-bottom)); }   /* above the reading controls */
 html:not([data-player]) .lend { display: none; }
 
+/* a phone on its side (about 375 px tall): the header and step bar scroll away with the lesson instead of taking a third of
+   the screen, and Back / Next get slimmer */
+@media (max-height: 500px) and (orientation: landscape) {
+  .lhead { position: static; }
+  .lhead-in { min-height: 48px; }
+  .lh-title small { display: none; }
+  .lbar { padding: 2px 0 8px; }
+  .lb-btn { width: 44px; height: 44px; }
+  .lb-mid { min-height: 44px; }
+  .lstep { scroll-margin-top: 12px; }
+  .lesson { padding-top: 8px; }
+  .lend { margin-top: 16px; padding-top: 6px; padding-bottom: calc(6px + env(safe-area-inset-bottom)); }
+  .lend .btn { min-height: 44px; }
+}
+
 /* revealed by scripts/lesson-content.ts; wins over the old pages' .btn display (as their own order did) */
 .lc .hidden, .lc [hidden] { display: none !important; }
 /* the story and quiz islands with JavaScript, their plain versions without */

@@ -889,66 +889,69 @@ def run():
             check('formula cards: no sideways scroll at 375 px', not problems, problems)
             small = pg.evaluate("[...document.querySelectorAll('.fc button, .fc a')].filter(e => e.offsetParent && e.getBoundingClientRect().height < 43.5).map(e => e.tagName + ' ' + (e.innerText || '').slice(0, 30))")
             check('formula cards: controls are at least 44 px', not small, small[:5])
-            # ------------------------------------------------------------ the learning feed (islands/LearningFeed.tsx), the Practice tab
+            # ------------------------------------------------------------ Practice (islands/LearningFeed.tsx), the Practice tab
+            POOLS = sorted(glob.glob(os.path.join(ROOT, 'content', 'practice', '*', '*.json')))
+            sideways = "() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }"
             pg.goto(BASE + '/feed/')
-            pg.wait_for_selector('.fd-card')
-            FEED = json.load(open(os.path.join(ROOT, 'content', 'feed', 'physics.json'), encoding='utf-8'))['cards']
-            check('feed: one screen per card, and an end card', lambda: pg.locator('.fd-card').count() == len(FEED) + 1)
-            check('feed: the bottom bar marks Practice', lambda: tabs() == ['/lessons/index.html', '/feed/ (here)', '/past-papers/', '/account'], tabs)
-            first = pg.locator('[data-card=predict-bottle]')
-            pg.wait_for_function("document.querySelector('[data-card=predict-bottle] .fd-hint')", timeout=15000)
-            check('feed: a "predict, then watch" scene stops for the guess', lambda: first.locator('.fd-opt:disabled').count() == 0 and first.locator('.fd-result').count() == 0)
-            first.locator('.fd-opt').nth(2).click()
-            pg.wait_for_selector('[data-card=predict-bottle] .fd-result', timeout=15000)
-            check('...then plays on and says why, with how everyone answered', lambda: 'Right' in first.locator('.fd-verdict').inner_text() and first.locator('.fd-poll .fd-bar').count() == 3)
-            tf = pg.locator('[data-card=tf-heavy-falls-faster]')
-            tf.scroll_into_view_if_needed()
-            tf.locator('.fd-false').click()
-            check('feed: true or false, answered', lambda: tf.locator('.fd-false.is-right').count() == 1 and tf.locator('.fd-next').is_visible())
-            check('feed: the score counts both', lambda: pg.inner_text('.fd-score').startswith('✓ 2/2'), lambda: pg.inner_text('.fd-score'))
-            problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
-            check('feed: no sideways scroll at 375 px', not problems, problems)
-            # a chapter's practice questions (content/practice): all of them, one per screen like a reel, in a random order
-            check('feed: the end of the feed offers the chapter practice', lambda: pg.locator('.fd-end a[href="#hydrostatic-pressure"]').count() == 1)
-            pg.goto(BASE + '/feed/#hydrostatic-pressure')
-            pg.wait_for_selector('.fd-card .fd-tag')
+            pg.wait_for_selector('.fd-pools')
+            check('practice: the tab opens the chapter list, with no mixed questions before it', lambda: pg.locator('.fd-card').count() == 0 and pg.locator('.fd-progress').count() == 0)
+            check('practice: the bottom bar marks Practice', lambda: tabs() == ['/lessons/index.html', '/feed/ (here)', '/past-papers/', '/account'], tabs)
+            check('practice: every chapter with practice questions, by grade, with what is right so far',
+                  lambda: pg.locator('.fd-pools .fd-pool:not(.fd-savedlink)').count() == len(POOLS)
+                  and pg.locator('.fd-pools h3').count() >= 2 and re.search(r'✓ [01]/100', pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]')),
+                  lambda: pg.inner_text('.fd-pools'))
+            check('practice: the chapter list has no sideways scroll at 375 px', not pg.evaluate(sideways), pg.evaluate(sideways))
+            pg.evaluate("localStorage.removeItem('stem_saved_v1')")
+            # tap a chapter: its 100 questions, one per screen like a reel, in a random order
+            pg.click('.fd-pools a[href="#hydrostatic-pressure"]')
+            pg.wait_for_selector('.fd-card[data-card]')
             round1 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
-            check('practice: every question of the chapter, one per screen, labelled as practice', lambda: len(round1) == 100 and len(set(round1)) == 100 and all(i.startswith('hp-') for i in round1)
-                  and pg.locator('.fd-card[data-card] .fd-tag').count() == 100, lambda: len(round1))
+            check('practice: a chapter opens straight into its 100 questions, nothing else among them', lambda: len(round1) == 100 and len(set(round1)) == 100
+                  and all(i.startswith('hp-') for i in round1) and pg.locator('.fd-card').count() == 101, lambda: len(round1))
             check('practice: a progress bar, the question number, and a cue to swipe up', lambda: '1 / 100' in pg.inner_text('.fd-pos') and pg.locator('.fd-progress').count() == 1
                   and pg.locator('.fd-cue').count() == 1, lambda: pg.inner_text('.fd-score'))
-            check('practice: one question fills each screen', lambda: pg.evaluate("() => { const f = document.querySelector('.fd').clientHeight; return [...document.querySelectorAll('.fd-card[data-card]')].slice(0, 5).every(c => c.offsetHeight >= f - 1); }"))
+            FITS = "() => { const f = document.querySelector('.fd').clientHeight; return [...document.querySelectorAll('.fd-card[data-card]')].slice(0, 6).filter(c => Math.abs(c.offsetHeight - f) > 1 || c.querySelector('.fd-inner').scrollHeight > c.querySelector('.fd-inner').clientHeight + 1).map(c => c.dataset.card); }"
+            check('practice: each question is exactly one screen, and nothing in it scrolls', lambda: not pg.evaluate(FITS), lambda: pg.evaluate(FITS))
+            check('practice: the reel snaps to one question at a time', lambda: pg.evaluate("() => { const cs = getComputedStyle(document.querySelector('.fd')), c = getComputedStyle(document.querySelector('.fd-card')); return cs.scrollSnapType.includes('y') && cs.scrollSnapType.includes('mandatory') && c.scrollSnapStop === 'always'; }"))
             card = pg.locator('.fd-card[data-card="%s"]' % round1[0])
             card.locator('.fd-opt').first.click()
-            check('practice: an answer is checked, with how everyone answered', lambda: card.locator('.fd-result').count() == 1 and card.locator('.fd-poll .fd-bar').count() >= 2)
+            check('practice: an answer is checked, with the share of students who got it right', lambda: card.locator('.fd-result').count() == 1 and card.locator('.fd-poll').count() == 1
+                  and 'got this right' in card.locator('.fd-poll').inner_text(), lambda: card.inner_text())
+            check('practice: the answered question still fits its screen', lambda: not pg.evaluate(FITS), lambda: pg.evaluate(FITS))
+            # the bookmark in the corner
+            save = pg.locator('.fd-save')
+            check('practice: a bookmark in the corner of the question (at least 44 px, off at first)', lambda: save.count() == 1 and save.get_attribute('aria-pressed') == 'false'
+                  and save.bounding_box()['height'] >= 44 and save.bounding_box()['width'] >= 44 and save.bounding_box()['x'] > 375 - 80)
+            save.click()
+            check('practice: tapping it saves the question (kept on this device)', lambda: save.get_attribute('aria-pressed') == 'true'
+                  and json.loads(pg.evaluate("localStorage.getItem('stem_saved_v1')")) == [round1[0]])
             pg.locator('.fd-card[data-i="1"]').scroll_into_view_if_needed()
             pg.wait_for_function("document.querySelector('.fd-pos').innerText.includes('2 / 100')", timeout=5000)
-            check('practice: swiping on shows the next question number', lambda: '2 / 100' in pg.inner_text('.fd-pos'), lambda: pg.inner_text('.fd-pos'))
+            check('practice: swiping on shows the next question number, and its bookmark is its own', lambda: '2 / 100' in pg.inner_text('.fd-pos') and save.get_attribute('aria-pressed') == 'false', lambda: pg.inner_text('.fd-pos'))
+            pg.goto(BASE + '/feed/#saved')
+            pg.wait_for_selector('.fd-card[data-card]')
+            check('practice: Saved opens the bookmarked questions', lambda: pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)') == [round1[0]]
+                  and pg.locator('.fd-save').get_attribute('aria-pressed') == 'true')
+            pg.locator('.fd-save').click()
+            check('...and the bookmark takes one out again', lambda: pg.locator('.fd-save').get_attribute('aria-pressed') == 'false' and json.loads(pg.evaluate("localStorage.getItem('stem_saved_v1')")) == [])
+            pg.goto(BASE + '/feed/#hydrostatic-pressure')
+            pg.wait_for_selector('.fd-card[data-card]')
             pg.locator('.fd-end').scroll_into_view_if_needed()
             pg.locator('.fd-end .btn.primary').click()
             round2 = pg.eval_on_selector_all('.fd-card[data-card]', 'cs => cs.map(c => c.dataset.card)')
             check('practice: "Start this chapter again" deals all 100 afresh, none answered', lambda: len(round2) == 100 and pg.locator('.fd-result').count() == 0
                   and '1 / 100' in pg.inner_text('.fd-pos'), lambda: pg.inner_text('.fd-score'))
-            pg.goto(BASE + '/feed/')
-            pg.wait_for_selector('.fd-card')
-            pg.click('.fd-home')                                    # the header's Chapters button
+            pg.goto(BASE + '/feed/#chapters')
             pg.wait_for_selector('.fd-pools')
-            POOLS = sorted(glob.glob(os.path.join(ROOT, 'content', 'practice', '*', '*.json')))
-            check('feed: Chapters lists every chapter with practice questions, by grade, with what is right so far',
-                  lambda: pg.locator('.fd-pools .fd-pool').count() == len(POOLS) and pg.locator('.fd-card[data-card]').count() == 0
-                  and pg.locator('.fd-pools h3').count() >= 2 and re.search(r'✓ [01]/100', pg.inner_text('.fd-pools a[href="#hydrostatic-pressure"]')),
-                  lambda: pg.inner_text('.fd-pools'))
-            problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
-            check('feed: the chapter list has no sideways scroll at 375 px', not problems, problems)
+            check('practice: #chapters (the header button) is the chapter list', lambda: pg.locator('.fd-card[data-card]').count() == 0)
             pg.goto(BASE + '/learn/physics/g10/hydrostatic-pressure/')
-            check("feed: a lesson's finish step offers its chapter's practice", lambda: pg.locator('#finish .btn.primary').get_attribute('href') == '/feed/#hydrostatic-pressure')
+            check("practice: a lesson's finish step offers its chapter's practice", lambda: pg.locator('#finish .btn.primary').get_attribute('href') == '/feed/#hydrostatic-pressure')
             pg.goto(BASE + '/feed/#hydrostatic-pressure')
-            pg.wait_for_selector('.fd-card .fd-tag')
+            pg.wait_for_selector('.fd-card[data-card]')
             figs = pg.locator('.fd-figure').count()
-            problems = pg.evaluate("() => { const d = document.documentElement; return d.scrollWidth > d.clientWidth + 1 ? ['scrolls sideways ' + d.scrollWidth] : []; }")
-            check('practice: no sideways scroll at 375 px (%d pictures in this round)' % figs, not problems, problems)
-            small = pg.evaluate("[...document.querySelectorAll('.fd button, .fd a')].filter(e => e.offsetParent && e.getBoundingClientRect().height < 43.5).map(e => e.tagName + ' ' + (e.innerText || '').slice(0, 30))")
-            check('feed: controls are at least 44 px', not small, small[:5])
+            check('practice: no sideways scroll at 375 px (%d pictures in this round)' % figs, not pg.evaluate(sideways), pg.evaluate(sideways))
+            small = pg.evaluate("[...document.querySelectorAll('.fd button:not(:disabled), .fd a')].filter(e => e.offsetParent && e.getBoundingClientRect().height < 43.5).map(e => e.tagName + ' ' + (e.innerText || '').slice(0, 30))")
+            check('practice: controls are at least 44 px', not small, small[:5])
             # ------------------------------------------------------------ an address that is not there
             r = pg.request.get(BASE + '/no-such-page', headers={'accept': 'text/html'})
             check('a page that is not there: a page with a way back, not {"detail": "Not Found"}', r.status == 404 and 'Go to my lessons' in r.text(), r.status)

@@ -44,6 +44,13 @@ type Place = { kind: 'chapter'; key: string } | { kind: 'year'; year: number };
 type View = { kind: 'home' } | (Place & { q?: string }) | { kind: 'set'; key: string };
 
 const H = { 'Content-Type': 'application/json', 'X-Requested-With': 'stemcloud' };
+/** fetch() that gives up after `ms` (a stalled phone connection would otherwise leave "Loading the questions…" for minutes;
+ * the failure then shows the usual "could not load" message). */
+const timed = (url: string, init: RequestInit = {}, ms = 30000): Promise<Response> => {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), ms);
+  return fetch(url, { ...init, signal: ctl.signal }).finally(() => clearTimeout(timer));
+};
 const newId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + '_' + Math.random().toString(36).slice(2) + '_' + Math.random().toString(36).slice(2));
 /** A written attempt counts once it has an answer or a self-check (typing is optional). */
 const hasResponse = (r?: Result) => !!r && (r.type === 'mcq' ? Number.isInteger(r.choice) : !!r.selfCheck || Object.values(r.answers || {}).some((s) => s.trim()));
@@ -85,7 +92,7 @@ function loadBanks(): { first: Promise<Bank[]>; full: Promise<Bank[]> } {
   // is here, while the full banks are still on their way; with no light file, the full ones are waited for
   const first = (async () => {
     try {
-      const r = await fetch('/lessons/past-papers/light.json', { credentials: 'same-origin' });
+      const r = await timed('/lessons/past-papers/light.json', { credentials: 'same-origin' });
       if (r.ok && !r.redirected) return (Object.values((await r.json()).banks) as Bank[]).map(fixBank);
     } catch { /* wait for the full banks */ }
     return full;
@@ -96,18 +103,18 @@ const fixBank = (bk: Bank) => { if (bk.scope !== 'physics') throw new Error('sco
 async function loadFullBanks(): Promise<Bank[]> {
   const fix = fixBank;
   try {
-    const r = await fetch('/lessons/past-papers/all.json', { credentials: 'same-origin' });
+    const r = await timed('/lessons/past-papers/all.json', { credentials: 'same-origin' });
     if (r.ok && !r.redirected) {
       const all = await r.json();
       return (Object.values(all.banks) as Bank[]).map(fix);
     }
   } catch { /* try the old way */ }
-  const r = await fetch('/lessons/past-papers/catalog.json', { credentials: 'same-origin' });
+  const r = await timed('/lessons/past-papers/catalog.json', { credentials: 'same-origin' });
   if (!r.ok || r.redirected) throw new Error('catalog');
   const cat = await r.json();
   const entries = cat.papers.filter((p: { bank?: string; scope?: string }) => p.bank && p.scope === 'physics');
   return Promise.all(entries.map(async (p: { bank: string }) => {
-    const b = await fetch(p.bank, { credentials: 'same-origin' });
+    const b = await timed(p.bank, { credentials: 'same-origin' });
     if (!b.ok || b.redirected) throw new Error('bank');
     return fix(await b.json());
   }));
@@ -161,7 +168,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
   };
 
   async function api(path: string, method = 'GET', data?: unknown) {
-    const r = await fetch('/api/past-papers/' + path, { method, headers: H, credentials: 'same-origin', body: data ? JSON.stringify(data) : undefined });
+    const r = await timed('/api/past-papers/' + path, { method, headers: H, credentials: 'same-origin', body: data ? JSON.stringify(data) : undefined }, 20000);
     if (!r.ok) {
       let detail = '';
       try { detail = (await r.json()).detail; } catch { /* no body */ }

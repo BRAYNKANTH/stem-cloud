@@ -7,7 +7,7 @@ interface Creds { username: string; password: string }
 type Msg = { kind: '' | 'err' | 'ok'; text: string };
 
 declare global {
-  interface Window { StemApp?: { canInstall(): boolean; install(): Promise<boolean> } }
+  interface Window { StemApp?: { isStandalone: boolean; isIOS: boolean; canInstall(): boolean; install(): Promise<boolean> } }
 }
 
 /** Where to go after logging in: a safe same-site ?next= path, else the admin panel or the lessons (as before). */

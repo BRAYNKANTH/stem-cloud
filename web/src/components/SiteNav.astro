@@ -52,7 +52,7 @@ const { links } = Astro.props;
     box-shadow: 0 3px 0 var(--sc-line);
   }
   .nav-actions :global(.nav-menu-btn) { display: none; color: var(--sc-ink); }
-  @media (max-width: 720px) {
+  @media (max-width: 900px) {   /* up to small tablets: at 768 px the full row was 5 px too wide */
     .nav-inner { min-height: 60px; flex-wrap: wrap; gap: 6px 10px; padding-block: 8px; }
     .nav-brand { font-size: 1.2rem; gap: 8px; }
     .nav-actions { gap: 8px; margin-left: auto; }

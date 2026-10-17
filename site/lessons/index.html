@@ -50,6 +50,7 @@
   :focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
 
   /* ---------- header: logo, language, account ---------- */
+  html{scroll-padding-top:calc(72px + env(safe-area-inset-top));scroll-padding-bottom:calc(84px + env(safe-area-inset-bottom))}  /* keyboard focus never under the bars */
   .topbar{position:sticky;top:0;z-index:50;background:color-mix(in srgb, var(--bg) 92%, transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding-top:env(safe-area-inset-top);}
   .topbar-inner{max-width:760px;margin:0 auto;padding:8px 16px;display:flex;align-items:center;gap:10px;}
   .topbar .brand{font-family:'Sora';font-weight:800;font-size:1rem;color:var(--text);white-space:nowrap;display:flex;align-items:center;gap:8px;min-height:44px;}
@@ -106,6 +107,8 @@
   .c-formulas{display:flex;align-items:center;gap:12px;margin:12px 0 0;padding:12px 14px;min-height:44px;border-radius:16px;background:var(--panel);box-shadow:0 2px 0 var(--border);color:var(--text);text-decoration:none}.c-formulas>span{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:12px;background:var(--sc-blue-lt,#E3E6FF);color:var(--accent);font:800 1.3rem/1 'Baloo Thambi 2',sans-serif}.c-formulas b{display:block}.c-formulas small{display:block;color:var(--text-dim);font-size:.82rem}
 footer{text-align:center;color:var(--text-faint);font-size:.82rem;padding:36px 0 0;}
   @media (max-width:420px){.course h1{font-size:1.6rem;}.rm{display:none;}}
+  /* a very narrow screen (a folded phone, 280 px): the logo without its name, so the header fits */
+  @media (max-width:330px){.topbar .topbar-inner .brand{font-size:0;gap:0}.topbar{overflow-x:clip}}   /* clip: the avatar's larger touch area (::after) must not widen the page */
 </style>
 </head>
 <body>

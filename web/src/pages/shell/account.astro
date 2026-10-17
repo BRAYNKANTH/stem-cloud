@@ -17,7 +17,7 @@ const chapters = (catalog.lessons as { subject: string }[]).filter((l) => l.subj
 
 <style>
   .account { padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: 32px; display: grid; gap: 16px; }
-  .account :global(.acct-head .brand) { display: flex; align-items: center; gap: 10px; margin: 0; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
+  .account :global(.acct-head .brand) { display: flex; align-items: center; gap: 4px 10px; margin: 0; font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; }
   .account :global(.acct-head .brand b) { color: var(--sc-blue); }
   .account :global(.acct-head .back) { margin: 2px 0 0; }
   .account :global(.acct-head .back a) { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
@@ -42,6 +42,11 @@ const chapters = (catalog.lessons as { subject: string }[]).filter((l) => l.subj
   .account :global(.msg) { margin-top: 10px; font-size: .92rem; min-height: 1.2em; }
   .account :global(.msg.err) { color: var(--sc-clay); font-weight: 700; }
   .account :global(.msg.ok) { color: var(--sc-leaf); font-weight: 700; }
+  /* on a phone "· My account" always has its own line: it fits at 280 px and with large text, and nothing jumps when the font arrives */
+  @media (max-width: 420px) { .account :global(.acct-head .brand) { flex-wrap: wrap; } .account :global(.acct-head .brand span) { flex-basis: 100%; } }
+  .account :global(.msg.err .btn) { margin-left: 6px; vertical-align: middle; }
+  .account :global(.install-card p) { margin: 0 0 12px; color: var(--sc-ink-2); }
+  .account :global(.install-ios) { font-weight: 700; color: var(--sc-ink) !important; }
   .account :global(.row) { display: flex; gap: 10px; flex-wrap: wrap; }
   .account :global(.foot) { text-align: center; color: var(--sc-ink-2); font-size: .85rem; margin: 0; }
   .account :global(.foot a) { display: inline-flex; align-items: center; min-height: var(--tap); }

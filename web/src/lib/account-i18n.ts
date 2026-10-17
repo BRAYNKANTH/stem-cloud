@@ -32,4 +32,10 @@ export const ACCOUNT_WORDS: Record<string, [string, string]> = {
   "Privacy": ["தனியுரிமை","පෞද්ගලිකත්වය"],
   "Saved ✓": ["சேமிச்சாச்சு ✓","සුරැකිණි ✓"],
   "Password changed ✓": ["பாஸ்வேர்டு மாறிடுச்சு ✓","මුරපදය වෙනස් විය ✓"],
+  // Install help and the progress error (added with the Sprint 1 fixes of the mobile UX audit)
+  "Install the app": ["செயலியை நிறுவு","යෙදුම ස්ථාපනය කරන්න"],
+  "Open STEM Cloud from your home screen, full screen, like an app.": ["STEM Cloud ஐ உங்கள் முகப்புத் திரையிலிருந்து, முழுத் திரையில், ஒரு செயலி போலத் திறக்கலாம்.","STEM Cloud ඔබේ මුල් තිරයෙන්, සම්පූර්ණ තිරයෙන්, යෙදුමක් ලෙස විවෘත කරන්න."],
+  "On iPhone: tap Share, then \"Add to Home Screen\".": ["iPhone இல்: Share ஐத் தொட்டு, பின்னர் \"Add to Home Screen\" ஐத் தெரிவு செய்.","iPhone හි: Share තට්ටු කර, පසුව \"Add to Home Screen\" තෝරන්න."],
+  "Could not load your progress. Check your connection.": ["உங்கள் முன்னேற்றத்தை ஏற்ற முடியவில்லை. இணைப்பைச் சரிபார்.","ඔබේ ප්‍රගතිය පූරණය කළ නොහැකි විය. සම්බන්ධතාව පරීක්ෂා කරන්න."],
+  "Try again": ["மீண்டும் முயற்சி","නැවත උත්සාහ කරන්න"],
 };

@@ -164,3 +164,12 @@
 .stop:disabled .stop-n { background: var(--sc-panel-2); }
 .bus-scene .start .sign { fill: #3443D9; }
 .bus-scene .zero { stroke: #fff; stroke-width: 3; stroke-dasharray: 4 3; }
+
+/* replaying a ride that was watched: the graph keeps the whole ride faint and draws the part up to now */
+.bus-replay { display: flex; align-items: center; gap: 10px; margin: 10px 0 0; padding: 4px 10px; border-radius: var(--r); background: var(--sc-panel-2); }
+.bus-replay .btn { flex: 0 0 auto; }
+.bus-replay input[type="range"] { flex: 1 1 auto; min-width: 0; min-height: var(--tap); accent-color: var(--sc-blue); }
+.bus-replay .rp-t { flex: 0 0 auto; min-width: 3.6em; text-align: right; font-weight: 800; font-variant-numeric: tabular-nums; }
+.bus-graph .g-ghost { fill: none; stroke: var(--sc-blue); stroke-width: 2.4; stroke-opacity: .22; stroke-dasharray: 5 4; }
+/* on a phone, while reading the graph it comes right under the road, so the ride and its graph are seen together */
+@media (max-width: 720px) { .bus-work.reading .bus-graph { order: -1; } }

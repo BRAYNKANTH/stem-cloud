@@ -353,7 +353,14 @@ def run():
             check('a right prediction wins the bet and the first star', lambda: coins() == '12' and stars() == '1', lambda: (coins(), stars()))
             check('...and the next stop stays locked until this one is cleared (all three steps)',
                   lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
+            pg.locator('#bus-time').fill('24')
+            check('the ride can be watched again: the time slider moves Nimal, the readouts and the graph together',
+                  lambda: pg.inner_text('.bus-ro').replace('\n', ' ').count('24.0 s') == 1 and '92.0 m' in pg.inner_text('.bus-ro')
+                  and pg.locator('.bus-graph .g-ghost').count() == 1 and pg.locator('.bus-scene .disp text').text_content() == '68 m east',
+                  lambda: (pg.inner_text('.bus-ro').split(), pg.locator('.bus-graph .g-ghost').count(), pg.locator('.bus-scene .disp text').all_text_contents()))
             pg.click('.bus-msg .btn.primary')
+            check('reading the graph starts with the ride again, the step saying what to do',
+                  lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30')
             pg.focus('.bus-graph.tap svg')
             for _ in range(4):
                 pg.keyboard.press('PageUp')

@@ -47,7 +47,10 @@ const W = {
   finishFirst: ['Finish this stop first: all three steps.', 'முதலில் இந்த நிறுத்தத்தின் மூன்று படிகளையும் முடி.', 'මුලින්ම මෙම නැවතුමේ පියවර තුනම නිම කරන්න.'],
   stepOf: ['Step {n} of 3', 'படி {n} / 3', 'පියවර {n} / 3'],
   do0: ['Read the story and find the places on the road. Then pick your answer, place a bet and ride.', 'கதையைப் படி, சாலையில் இடங்களைப் பார். பிறகு விடையைத் தேர்ந்தெடு, பந்தயம் கட்டி ஓட்டு.', 'කතාව කියවා පාරේ ස්ථාන සොයාගන්න. ඉන්පසු පිළිතුර තෝරා, ඔට්ටුවක් අල්ලා පදින්න.'],
-  do1: ['Use the graph of the ride you just watched.', 'நீ இப்போது பார்த்த பயணத்தின் வரைபைப் பயன்படுத்து.', 'ඔබ දැන් බැලූ ගමනේ ප්‍රස්තාරය භාවිත කරන්න.'],
+  do1: ['Watch the ride again with its graph: the line grows as Nimal moves. Replay it or drag the time slider as often as you like, then tap the graph to answer.', 'பயணத்தை அதன் வரைபுடன் மீண்டும் பார்: நிமல் நகரும்போது கோடு வளர்கிறது. எத்தனை முறை வேண்டுமானாலும் மீண்டும் பார் அல்லது நேர ஸ்லைடரை இழு, பிறகு விடையளிக்க வரைபைத் தொடு.', 'ගමන එහි ප්‍රස්තාරය සමඟ නැවත බලන්න: නිමල් චලනය වන විට රේඛාව වර්ධනය වේ. කැමති තරම් නැවත බලන්න හෝ කාල ස්ලයිඩරය අදින්න, ඉන්පසු පිළිතුරු දීමට ප්‍රස්තාරය තට්ටු කරන්න.'],
+  watchAgain: ['↻ Watch again', '↻ மீண்டும் பார்', '↻ නැවත බලන්න'],
+  pause: ['⏸ Pause', '⏸ நிறுத்து', '⏸ නවත්වන්න'],
+  scrub: ['Move through the ride', 'பயணத்தில் முன்னும் பின்னும் நகர்', 'ගමන හරහා ඉදිරියට හා පසුපසට යන්න'],
   do2: ['Now you plan the ride: move the slider, then press Ride. Try as many times as you like.', 'இப்போது நீ பயணத்தைத் திட்டமிடு: ஸ்லைடரை நகர்த்தி, ஓட்டு அழுத்து. எத்தனை முறை வேண்டுமானாலும் முயற்சி செய்.', 'දැන් ඔබ ගමන සැලසුම් කරන්න: ස්ලයිඩරය චලනය කර, පදින්න ඔබන්න. කැමති තරම් වාර ගණනක් උත්සාහ කරන්න.'],
   do3: ['Stop cleared! The next stop is open.', 'நிறுத்தம் முடிந்தது! அடுத்த நிறுத்தம் திறந்துவிட்டது.', 'නැවතුම නිම කළා! ඊළඟ නැවතුම විවෘතයි.'],
   sPredict: ['Predict', 'கணி', 'අනාවැකිය'],
@@ -224,7 +227,7 @@ function Scene({ tx, legs, t, start, home, places, ticks: showTicks, wear }: { t
  * A graph of the ride against time, drawn up to `upto`. When `onPin` is given it reads values: point at it (or move
  * along it with the arrow keys) to read t and the value; tap (or Enter) to mark a point.
  */
-function TapGraph({ tx, legs, kind, upto, pin, onPin }: { tx: Tx; legs: Leg[]; kind: 's' | 'v'; upto: number; pin: number | null; onPin?: (t: number) => void }) {
+function TapGraph({ tx, legs, kind, upto, ghost = false, pin, onPin }: { tx: Tx; legs: Leg[]; kind: 's' | 'v'; upto: number; ghost?: boolean; pin: number | null; onPin?: (t: number) => void }) {
   const T = Math.max(total(legs), 0.001);
   const val = (t: number) => (kind === 's' ? at(legs, t).s : at(legs, t).v);
   const x0 = 50, x1 = 306, y0 = 16, y1 = 168;
@@ -239,7 +242,8 @@ function TapGraph({ tx, legs, kind, upto, pin, onPin }: { tx: Tx; legs: Leg[]; k
   if (hi - lo < 1) hi = lo + 1;
   const pad = (hi - lo) * 0.06; lo = lo < 0 ? lo - pad : lo; hi += pad;
   const X = (t: number) => x0 + t / T * (x1 - x0), Y = (y: number) => y1 - (y - lo) / (hi - lo) * (y1 - y0);
-  const d = pts.filter(([tt]) => tt <= upto + 1e-6).map(([tt, y], i) => (i ? 'L' : 'M') + X(tt).toFixed(1) + ' ' + Y(y).toFixed(1)).join(' ');
+  const path = (ps: [number, number][]) => ps.map(([tt, y], i) => (i ? 'L' : 'M') + X(tt).toFixed(1) + ' ' + Y(y).toFixed(1)).join(' ');
+  const d = path([...pts.filter(([tt]) => tt <= upto + 1e-6), ...(upto > 0 && upto < T ? [[upto, val(upto)] as [number, number]] : [])]);
   const [hover, setHover] = useState<number | null>(null);
   const svg = useRef<SVGSVGElement>(null);
   const cur = hover ?? pin;
@@ -278,6 +282,7 @@ function TapGraph({ tx, legs, kind, upto, pin, onPin }: { tx: Tx; legs: Leg[]; k
         <line x1={x0} y1={y0} x2={x0} y2={y1} class="g-axis" /><line x1={x0} y1={y1} x2={x1} y2={y1} class="g-axis" />
         <text x={x1} y={y1 + 28} class="g-name end">t (s)</text>
         <text x={x0 - 44} y={y0 - 4} class="g-name">{kind === 's' ? 's (m)' : 'v (m/s)'}</text>
+        {ghost && <path d={path(pts)} class="g-ghost" />}
         <path d={d} class="g-line" />
         {upto > 0 && upto < T && <circle cx={X(upto)} cy={Y(val(upto))} r="5" class="g-now" />}
         {pin !== null && <g class="g-pin"><line x1={X(pin)} y1={y0} x2={X(pin)} y2={y1} /><circle cx={X(pin)} cy={Y(val(pin))} r="6" /></g>}
@@ -368,12 +373,21 @@ export default function BusStopLab() {
     const nt = Math.min(T, tNow.current + dt * speed);
     tNow.current = nt;
     setT(nt);
-    if (nt >= T) finish();
+    if (nt >= T && riding.current !== 'replay') finish();
     return nt < T;
   });
-  // which ride is playing: the one to predict, or the student's own for the goal (read by finish(), which may run
-  // in the same event as go() when animations are off, before the new phase is rendered)
-  const riding = useRef<'ride' | 'goalRide'>('ride');
+  // which ride is playing: the one to predict, the student's own for the goal (both read by finish(), which may run
+  // in the same event as go() when animations are off, before the new phase is rendered), or a replay of one of them
+  const riding = useRef<'ride' | 'goalRide' | 'replay'>('ride');
+  /** Replay the ride just watched (from the start, or on from where it was paused); pause it when it is playing. */
+  const replay = (from?: number) => {
+    if (playing && from === undefined) { setPlaying(false); return; }
+    const t0 = from ?? (t >= T - 1e-6 ? 0 : t);
+    riding.current = 'replay'; setT(t0); tNow.current = t0;
+    if (calm()) { setT(T); tNow.current = T; } else setPlaying(true);
+  };
+  const scrub = (v: number) => { riding.current = 'replay'; setPlaying(false); setT(v); tNow.current = v; };
+  const level = useRef<HTMLDivElement>(null);
   const go = (kind: 'ride' | 'goalRide', legs: Leg[]) => {
     riding.current = kind; setPhase(kind); setT(0); tNow.current = 0;
     if (calm()) { const end = total(legs); tNow.current = end; setT(end); finish(); } else setPlaying(true);
@@ -419,9 +433,14 @@ export default function BusStopLab() {
       setReadMsg({ ok: false, text: tx(W.readWrong) + (misses >= 1 ? ' ' + tx(L.read.why) : '') });
     }
   };
-  const toGoal = () => { setPhase('goal'); setT(0); setGoalMsg(null); };
+  const toRead = () => {
+    setPhase('read'); setPin(null); setReadMsg(null);
+    level.current?.querySelector('.bus-do')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
+    replay(0);
+  };
+  const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); };
   const rideGoal = () => { setGoalMsg(null); go('goalRide', goalLegs); };
-  const setControl = (k: string, v: number) => { setCtl((c) => ({ ...c, [k]: v })); setT(0); setGoalMsg(null); };
+  const setControl = (k: string, v: number) => { setPlaying(false); setCtl((c) => ({ ...c, [k]: v })); setT(0); setGoalMsg(null); };
 
   const buy = (id: string, price: number) => setSave((s) => (s.coins < price || s.own.includes(id) ? s : { ...s, coins: s.coins - price, own: [...s.own, id], wear: [...s.wear, id] }));
   const toggleWear = (id: string) => setSave((s) => ({ ...s, wear: s.wear.includes(id) ? s.wear.filter((x) => x !== id) : [...s.wear, id] }));
@@ -435,6 +454,8 @@ export default function BusStopLab() {
   const p = at(rideLegs, t);
   const showGraph = L.read.graph;
   const stage = phase === 'ask' || phase === 'ride' || phase === 'told' ? 0 : phase === 'read' ? 1 : 2;
+  // a ride has been watched and can be played again: the one predicted, or the student's last goal ride
+  const watched = phase === 'told' || phase === 'read' || (stage === 2 && !!goalMsg && phase !== 'goalRide');
   const m = save.stars[lv]!;
 
   return (
@@ -466,7 +487,7 @@ export default function BusStopLab() {
         {busy && <p class="bus-map-note">{tx(W.finishFirst)}</p>}
       </nav>
 
-      <div class="bus-level">
+      <div class="bus-level" ref={level}>
         <div class="bus-lv-top">
           <span class="bus-sec">{tx(W.level)} {lv + 1} · {L.sec}</span>
           <ol class="bus-steps">
@@ -488,9 +509,18 @@ export default function BusStopLab() {
         <Scene tx={tx} legs={rideLegs} t={t} wear={save.wear} ticks={phase !== 'ask'}
           start={stage === 2 ? L.goal.start ?? L.start : L.start} home={!!L.home && !(stage === 2 && L.goal.start)}
           places={stage === 2 ? L.goal.places ?? [] : L.places.filter((p) => !p.after || phase === 'told' || stage > 0)} />
+        {watched && (
+          <div class="bus-replay">
+            {!calm() && <button type="button" class="btn btn-sm" onClick={() => replay()}>{tx(playing ? W.pause : W.watchAgain)}</button>}
+            <label for="bus-time" class="visually-hidden">{tx(W.scrub)}</label>
+            <input type="range" id="bus-time" min={0} max={Math.round(T * 10) / 10} step={0.1} value={t} title={tx(W.scrub)}
+              onInput={(e) => scrub(parseFloat((e.target as HTMLInputElement).value))} />
+            <span class="rp-t">{fmt(t)} s</span>
+          </div>
+        )}
         <Readouts tx={tx} p={p} t={t} />
 
-        <div class="bus-work">
+        <div class={'bus-work' + (stage === 1 ? ' reading' : '')}>
           <div class="bus-panel">
             {stage === 0 && (
               <>
@@ -526,7 +556,7 @@ export default function BusStopLab() {
                     {won < 0 && <span class="pay">{tx(W.lost)}{-won}. </span>}
                     {pick !== L.ask.right && <span>{tx(W.answer)}<b>{tx(L.ask.opts[L.ask.right]!)}</b>. </span>}
                     <span>{tx(L.ask.why)}</span>
-                    <div><button type="button" class="btn primary" onClick={() => { setPhase('read'); setPin(null); setReadMsg(null); setT(T); }}>{tx(W.toRead)}</button></div>
+                    <div><button type="button" class="btn primary" onClick={toRead}>{tx(W.toRead)}</button></div>
                   </div>
                 )}
               </>
@@ -570,7 +600,7 @@ export default function BusStopLab() {
             )}
           </div>
 
-          <TapGraph key={lv + '-' + stage} tx={tx} legs={rideLegs} kind={showGraph} upto={stage === 1 ? T : t} pin={stage === 1 ? pin : null}
+          <TapGraph key={lv + '-' + stage} tx={tx} legs={rideLegs} kind={showGraph} upto={t} ghost={watched} pin={stage === 1 ? pin : null}
             onPin={stage === 1 ? (x) => { setPin(x); if (!readMsg?.ok) setReadMsg(null); } : undefined} />
         </div>
       </div>

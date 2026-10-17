@@ -344,7 +344,8 @@ const faqs = [
     .hero-stats { grid-template-columns: 1fr; gap: 12px; }
     .about-preview, .enroll-banner { padding: 22px; }
     .enroll-btn-row { flex-direction: column; }
-    .wa-float { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); padding: 12px 16px; }
-    .wa-float .num { display: none; }
+    /* on a phone the WhatsApp button is just its icon (the aria-label stays), so it covers no text and does not compete with Start Learning */
+    .wa-float { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 52px; height: 52px; padding: 0; justify-content: center; }
+    .wa-float span { display: none; }
   }
 </style>

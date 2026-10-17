@@ -192,7 +192,7 @@ html.stem-player[data-stem-step="mid"] .sb-next{color:var(--text)!important}
 .c-card .c-cta{display:inline-flex;align-items:center;gap:6px;height:44px;margin:0;padding:0 18px;border-radius:14px;background:#fff!important;color:#16183D!important;text-decoration:none;font-weight:800;font-size:.95rem;box-shadow:0 3px 0 var(--sc-blue-dk)!important;flex:0 0 auto}
 .c-card .c-cta:active{transform:translateY(2px);box-shadow:0 1px 0 var(--sc-blue-dk)!important}
 .toc{margin-top:18px}
-.c-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;margin-bottom:12px;border-radius:14px;background:var(--sc-line)}
+.c-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:4px;margin-bottom:12px;border-radius:14px;background:var(--sc-line)}
 .c-tabs>*{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 6px;border:0;border-radius:10px;background:transparent;color:var(--text-dim);font-family:inherit;font-weight:800;font-size:.82rem;text-align:center;text-decoration:none;cursor:pointer;line-height:1.1}
 .c-tabs [aria-pressed="true"]{background:var(--panel);color:var(--text);box-shadow:0 2px 0 var(--border)}
 .c-tabs a:hover,.c-tabs button:hover{color:var(--text)}
@@ -332,7 +332,8 @@ html.stem-player[data-stem-step="start"] .wrap{max-width:760px;margin-left:auto;
   #stem-bnav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));height:calc(68px + env(safe-area-inset-bottom));padding:0 8px env(safe-area-inset-bottom);background:var(--panel);border-top:1px solid var(--border)}
   #stem-bnav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:44px;text-decoration:none;color:var(--text-dim);font-weight:700;font-size:.75rem}
   #stem-bnav a[aria-current="page"]{color:var(--accent);font-weight:800}
-  #stem-bnav a span{text-align:center;line-height:1.15}
+  #stem-bnav a span{text-align:center;line-height:1.15;overflow-wrap:anywhere}
+  #stem-bnav{box-sizing:border-box}#stem-bnav a{min-width:0}   /* a folded phone (280 px): the four tabs fit, long labels wrap */
   #stem-bnav a:active svg{transform:translateY(1px)}
   body.has-bnav{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
   body.has-bnav .wrap{padding-bottom:24px}

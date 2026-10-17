@@ -4,23 +4,21 @@
 // bottom bar (BottomNav), and a lesson's finish step links its chapter here. Login-only like the lessons
 // (web/scripts/private.mjs, stemcloud/routers/feed.py).
 import AppLayout from '../../../layouts/AppLayout.astro';
-import LearningFeed, { type Chapter, type FeedCard, type Pool } from '../../../islands/LearningFeed';
+import LearningFeed, { type Chapter, type Pool } from '../../../islands/LearningFeed';
 import LangSwitch from '../../../islands/LangSwitch';
 import BottomNav from '../../../islands/BottomNav';
 import catalog from '../../../../../content/catalog.json';
 
 interface Entry { id: string; subject: string; grade: number; slug: string; title: Chapter['title'] }
 const chapters: Chapter[] = (catalog.lessons as Entry[]).map((l) => ({ id: l.id, title: l.title, url: `/learn/${l.subject}/g${l.grade}/${l.slug}/` }));
-// each chapter's practice questions (content/practice): /feed/#<chapter> shows the whole chapter, one question per screen
-interface Q { id: string; type: 'mcq' | 'tf'; q: Record<string, string>; options?: Record<string, string>[]; correct: number; why: Record<string, string>; figure?: unknown }
+// each chapter with practice questions (content/practice): the page carries only the list; a chapter's questions are
+// fetched when it is opened (/feed/<chapter>.json, stemcloud/routers/feed.py)
+interface Q { id: string }
 const POOLS = import.meta.glob<{ lesson: string; questions: Q[] }>('../../../../../content/practice/*/*.json', { eager: true, import: 'default' });
 const slugOf = new Map((catalog.lessons as Entry[]).map((l) => [l.id, l.slug]));
 const order = new Map((catalog.lessons as Entry[]).map((l, i) => [l.id, i]));
 const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?? 99) - (order.get(b.lesson) ?? 99)).map((p) => ({
-  slug: slugOf.get(p.lesson) ?? p.lesson, lesson: p.lesson,
-  cards: p.questions.map((q) => (q.type === 'tf'
-    ? { id: q.id, type: 'tf', lesson: p.lesson, statement: q.q, correct: q.correct, why: q.why, figure: q.figure }
-    : { id: q.id, type: 'mcq', lesson: p.lesson, question: q.q, options: q.options, correct: q.correct, why: q.why, figure: q.figure })) as FeedCard[],
+  slug: slugOf.get(p.lesson) ?? p.lesson, lesson: p.lesson, count: p.questions.length, prefix: (p.questions[0]?.id ?? '').replace(/-\d+$/, ''),
 }));
 ---
 <AppLayout title="Practice · STEM Cloud" description="Practise physics one question at a time: swipe up for the next." noindex>
@@ -29,6 +27,8 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
     <h1 class="fd-title"><span data-l="en">Practice</span><span data-l="ta" lang="ta">பயிற்சி</span><span data-l="si" lang="si">පුහුණුව</span> <small>beta</small></h1>
     <LangSwitch client:idle />
   </header>
+  {/* opened on a chapter (or #saved): the chapter list is not painted first, so nothing jumps when the questions arrive */}
+  <script is:inline>try { var h = decodeURIComponent(location.hash.slice(1)); if (h && h !== 'chapters') document.documentElement.classList.add('fd-deep'); } catch (e) {}</script>
   <LearningFeed client:load chapters={chapters} pools={pools} />
   <BottomNav slot="footer" here="practice" client:idle />
 </AppLayout>
@@ -65,7 +65,7 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   :global(.fd-kind span) { color: var(--sc-ink-2); text-transform: none; letter-spacing: 0; }
   :global(.fd-q) { font-size: clamp(1.05rem, 4.8vw, 1.3rem); margin: 0; line-height: 1.3; }
   :global(.fd-q:focus) { outline: none; }
-  :global(.fd-opts), :global(.fd-tf) { display: grid; gap: 7px; }
+  :global(.fd-opts), :global(.fd-tf) { display: grid; gap: 8px; }   /* 8 px between answers, so a thumb does not hit the next one */
   :global(.fd-tf) { grid-template-columns: 1fr 1fr; }
   :global(.fd-opt) { min-height: 46px; padding: 8px 14px; border-radius: 14px; border: 2px solid var(--sc-line); background: var(--sc-panel); color: var(--sc-ink);
                      font: inherit; font-weight: 600; line-height: 1.3; text-align: left; cursor: pointer; box-shadow: 0 3px 0 var(--sc-line); }
@@ -89,6 +89,7 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
   :global(.fd-verdict::after) { content: '·'; margin: 0 6px; font-weight: 700; }
   :global(.fd-poll) { font-size: .8rem; font-weight: 700; color: var(--sc-ink-2); }
   :global(.fd-tip) { margin: 0; color: var(--sc-ink-2); }
+  :global(.fd-note) { margin: 0; max-width: 420px; padding: 10px 14px; border-radius: 14px; background: var(--sc-mango-lt); color: var(--sc-ink); font-weight: 600; text-align: left; }
   /* the foot: where Next appears (a fixed height, so nothing moves when it does) */
   :global(.fd-foot) { width: 100%; max-width: 520px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; height: 56px; }
   :global(.fd-foot a) { display: inline-flex; align-items: center; min-height: var(--tap); font-weight: 700; }
@@ -108,7 +109,7 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
     :global(.fd-card) { padding-top: 44px; }
     :global(.fd-foot) { height: 48px; }
     :global(.fd-inner) { gap: 8px; }
-    :global(.fd-opts), :global(.fd-tf) { gap: 6px; }
+    :global(.fd-opts), :global(.fd-tf) { gap: 8px; }
     :global(.fd-opt) { min-height: 44px; padding: 6px 12px; font-size: .95rem; box-shadow: 0 2px 0 var(--sc-line); }
     :global(.fd-opt.is-dim) { min-height: 34px; padding: 4px 12px; font-size: .85rem; box-shadow: none; }
     :global(.fd-q) { font-size: clamp(1rem, 4.4vw, 1.15rem); }
@@ -132,16 +133,17 @@ const pools: Pool[] = Object.values(POOLS).sort((a, b) => (order.get(a.lesson) ?
     :global(.fd-inner > .fd-kind) { grid-column: 1 / -1; }
     :global(.fd-inner > .fd-opts), :global(.fd-inner > .fd-tf) { grid-column: 2; grid-row: 2 / span 4; align-self: center; }
     :global(.fd-end .fd-inner) { display: flex; }
-    :global(.fd-opts) { gap: 5px; }
+    :global(.fd-opts) { gap: 8px; }
     :global(.fd-opt) { min-height: 44px; padding: 4px 12px; }
     :global(.fd-opt.is-dim) { min-height: 34px; padding: 2px 12px; }
     :global(.fd-foot) { max-width: 760px; }
   }
   /* the chapter list: an ordinary page, not a reel */
-  :global(.fd-listpage) { display: grid; justify-items: center; gap: 12px; padding: 20px var(--gutter) 28px; text-align: center; }
-  :global(.fd-pools) { display: grid; gap: 8px; width: 100%; max-width: 420px; text-align: left; }
+  :global(html.fd-deep .fd-listpage) { visibility: hidden; }
+  :global(.fd-listpage) { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 12px; padding: 20px var(--gutter) 28px; text-align: center; }
+  :global(.fd-pools) { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; width: 100%; max-width: 420px; text-align: left; }
   :global(.fd-pools h3) { margin: 10px 0 0; font-size: .85rem; color: var(--sc-ink-2); text-transform: uppercase; letter-spacing: .04em; }
-  :global(.fd-pools .btn) { justify-content: space-between; min-height: 48px; text-align: left; }
+  :global(.fd-pools .btn) { justify-content: space-between; flex-wrap: wrap; gap: 2px 10px; min-width: 0; min-height: 48px; text-align: left; white-space: normal; }   /* narrow: the count goes under the name */
   :global(.fd-pools .btn small) { color: var(--sc-ink-2); font-weight: 600; white-space: nowrap; }
   @media (prefers-reduced-motion: reduce) { :global(.fd-statement) { transition: none; } :global(.fd-cue i) { animation: none; } :global(.fd-save:active) { transform: none; } }
 </style>

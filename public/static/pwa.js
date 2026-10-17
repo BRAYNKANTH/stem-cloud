@@ -36,6 +36,51 @@
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', reg); else reg();
   }
 
+  /* Two small notices, on every page (old and new, so with their own styles):
+     - "New version ready": a new service worker took over a page that already had one (not the first install); the page
+       keeps working, a tap reloads it;
+     - "Offline": while the device has no connection (saved pages still open, answers sync later). */
+  var WORDS = {
+    update: { en: 'New version ready. Tap to refresh', ta: 'புதிய பதிப்பு தயார். புதுப்பிக்கத் தொடு', si: 'නව අනුවාදය සූදානම්. නැවුම් කිරීමට තට්ටු කරන්න' },
+    offline: { en: 'Offline: showing saved pages', ta: 'இணைப்பு இல்லை: சேமித்த பக்கங்கள் மட்டும்', si: 'නොබැඳි: සුරැකි පිටු පමණි' }
+  };
+  function say(k) { var l = document.documentElement.lang; return WORDS[k][l === 'ta' || l === 'si' ? l : 'en']; }
+  function style() {
+    if (document.getElementById('stem-app-style')) return;
+    var st = document.createElement('style');
+    st.id = 'stem-app-style';
+    st.textContent =
+      '.stem-update{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));z-index:1000;' +
+      'min-height:48px;max-width:calc(100% - 32px);padding:10px 18px;border:0;border-radius:999px;cursor:pointer;' +
+      'background:var(--sc-ink,#16183d);color:var(--sc-ground,#fff);font:700 15px/1.25 system-ui,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.25)}' +
+      '.stem-offline{position:fixed;left:50%;transform:translateX(-50%);top:calc(6px + env(safe-area-inset-top));z-index:1000;pointer-events:none;' +
+      'max-width:calc(100% - 32px);padding:4px 12px;border-radius:999px;background:var(--sc-ink,#16183d);color:var(--sc-ground,#fff);' +
+      'font:700 13px/1.4 system-ui,sans-serif;text-align:center}';
+    document.head.appendChild(st);
+  }
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!document.body || document.getElementById('stem-update')) return;
+      style();
+      var b = document.createElement('button');
+      b.type = 'button'; b.id = 'stem-update'; b.className = 'stem-update'; b.textContent = say('update');
+      b.addEventListener('click', function () { location.reload(); });
+      document.body.appendChild(b);
+    });
+  }
+  function net() {
+    var el = document.getElementById('stem-offline');
+    if (navigator.onLine) { if (el) el.parentNode.removeChild(el); return; }
+    if (el || !document.body) return;
+    style();
+    el = document.createElement('div');
+    el.id = 'stem-offline'; el.className = 'stem-offline'; el.setAttribute('role', 'status'); el.textContent = say('offline');
+    document.body.appendChild(el);
+  }
+  window.addEventListener('online', net);
+  window.addEventListener('offline', net);
+  if (document.body) net(); else document.addEventListener('DOMContentLoaded', net);
+
   /* browser / status bar colour follows the page's own light or dark background */
   function themeColor() {
     var bg = '';

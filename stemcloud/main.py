@@ -20,7 +20,8 @@ async def headers(request: Request, call_next):
     resp.headers['X-Frame-Options'] = 'SAMEORIGIN' if request.url.path.startswith('/lessons/') and request.url.path.endswith('.html') else 'DENY'
     resp.headers['Referrer-Policy'] = 'same-origin'
     if request.url.path.startswith(('/api', '/lessons', '/learn', '/shell/learn', '/past-papers', '/shell/past-papers', '/formulas', '/shell/formulas', '/feed', '/shell/feed', '/topics', '/account', '/admin')):
-        if request.url.path not in ('/lessons/past-papers/all.json', '/lessons/past-papers/light.json'):       # that one sets its own (kept on the device, checked in the background)
+        # these set their own (kept on the device, checked in the background): the past-paper banks and Practice's chapters
+        if request.url.path not in ('/lessons/past-papers/all.json', '/lessons/past-papers/light.json') and not (request.url.path.startswith('/feed/') and request.url.path.endswith('.json')):
             resp.headers['Cache-Control'] = 'no-store'
     return resp
 

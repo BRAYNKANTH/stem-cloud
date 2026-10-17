@@ -7,6 +7,14 @@ import { clearPageCache, forgetLocalStudentData } from '../lib/page-cache';
 const LABEL: Record<Lang, string> = { en: 'English', ta: 'தமிழ்', si: 'සිංහල' };
 type Msg = { ok: boolean; text: string } | null;
 interface Me { username: string; display_name: string; role: string }
+declare global { interface Window { StemApp?: { isStandalone: boolean; isIOS: boolean; canInstall(): boolean; install(): Promise<boolean> } } }
+
+/** A GET that gives up after 15 s (a stalled phone connection would otherwise leave "…" on screen for minutes). */
+function get(url: string): Promise<Response> {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 15000);
+  return fetch(url, { credentials: 'same-origin', signal: ctl.signal }).finally(() => clearTimeout(timer));
+}
 
 async function post(url: string, body: object = {}) {
   const r = await fetch(url, {
@@ -45,22 +53,33 @@ export default function AccountPanel({ chapters = 15 }: { chapters?: number }) {
   const [m1, setM1] = useState<Msg>(null);
   const [m2, setM2] = useState<Msg>(null);
   const [m3, setM3] = useState<Msg>(null);
+  const [failed, setFailed] = useState(false);          // the progress could not be loaded
+  const [install, setInstall] = useState({ can: false, ios: false });   // what Install help to show (none once installed)
 
-  useEffect(() => {
-    loadPrefs();
-    fetch('/api/me', { credentials: 'same-origin' }).then((r) => {
-      if (!r.ok) { location.href = '/login?next=/account'; return null; }
-      return r.json();
-    }).then((j) => { if (j?.user) setMe(j.user); }).catch(() => {});
-    fetch('/api/progress', { credentials: 'same-origin' }).then((r) => r.json()).then((j) => {
+  const loadProgress = () => {
+    setFailed(false);
+    get('/api/progress').then((r) => r.json()).then((j) => {
       const p = j.progress || {};
       try { setBadges(JSON.parse(p.scx_badges || '[]').length); } catch { /* keep 0 */ }
     }).catch(() => {});
-    fetch('/api/v2/progress/summary', { credentials: 'same-origin' }).then((r) => (r.ok ? r.json() : null)).then((j: Summary | null) => {
-      if (!j) return;
+    get('/api/v2/progress/summary').then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status))))).then((j: Summary) => {
       setSum(j);
       setBadges((b) => Math.max(b, (j.badges || []).length));
-    }).catch(() => {});
+    }).catch(() => setFailed(true));
+  };
+  useEffect(() => {
+    loadPrefs();
+    get('/api/me').then((r) => {
+      if (!r.ok) { location.href = '/login?next=/account'; return null; }
+      return r.json();
+    }).then((j) => { if (j?.user) setMe(j.user); }).catch(() => {});
+    loadProgress();
+    // Install help: a button where the browser offers to install (Android, desktop), the steps on an iPhone (no prompt there)
+    const update = () => { const a = window.StemApp; setInstall({ can: !!a?.canInstall(), ios: !!a?.isIOS }); };
+    update();
+    document.addEventListener('stem-install-change', update);
+    window.addEventListener('load', update);
+    return () => { document.removeEventListener('stem-install-change', update); window.removeEventListener('load', update); };
   }, []);
   useEffect(() => { document.title = 'STEM Cloud · ' + T('· My account').replace(/^· /, ''); }, [lang]);
 
@@ -93,10 +112,11 @@ export default function AccountPanel({ chapters = 15 }: { chapters?: number }) {
         <h1 class="who">{me ? `${me.display_name} (@${me.username})` : '…'}</h1>
         <h2 id="prog-h" class="sub-h">{T('My progress')}</h2>
         <div class="stats">
-          <div class="stat"><span>{T('Day streak')}</span><b>{sum ? streak(sum.days || []) : '…'}</b></div>
-          <div class="stat"><span>{T('Chapters finished')}</span><b>{sum ? (sum.finished || []).length : '…'} <small>/ {chapters}</small></b></div>
+          <div class="stat"><span>{T('Day streak')}</span><b>{sum ? streak(sum.days || []) : failed ? '–' : '…'}</b></div>
+          <div class="stat"><span>{T('Chapters finished')}</span><b>{sum ? (sum.finished || []).length : failed ? '–' : '…'} <small>/ {chapters}</small></b></div>
           <div class="stat"><span>{T('Badges')}</span><b>{badges}</b></div>
         </div>
+        {failed && <p class="msg err" role="alert">{T('Could not load your progress. Check your connection.')} <button type="button" class="btn btn-sm" onClick={loadProgress}>{T('Try again')}</button></p>}
         <div class="row next-row">
           <a class="btn primary" href="/lessons/index.html">{T('Continue learning')}</a>
           <a class="btn" href="/formulas/">{T('Formula cards')}</a>
@@ -138,6 +158,16 @@ export default function AccountPanel({ chapters = 15 }: { chapters?: number }) {
         <button class="btn bad full" type="submit">{T('Delete my account')}</button>
         <Note m={m3} />
       </form>
+
+      {(install.can || install.ios) && (
+        <section class="card install-card" aria-labelledby="inst-h">
+          <h2 id="inst-h">{T('Install the app')}</h2>
+          <p>{T('Open STEM Cloud from your home screen, full screen, like an app.')}</p>
+          {install.can
+            ? <button type="button" class="btn primary" onClick={() => void window.StemApp?.install()}>{T('Install the app')}</button>
+            : <p class="install-ios">{T('On iPhone: tap Share, then "Add to Home Screen".')}</p>}
+        </section>
+      )}
 
       <div class="row">
         <button class="btn" type="button" onClick={logout}>{T('Log out')}</button>

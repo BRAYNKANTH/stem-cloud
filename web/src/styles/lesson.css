@@ -13,6 +13,7 @@ html[lang="ta"] div[data-fb][data-l~="ta"]::before, html[lang="si"] div[data-fb]
 }
 
 /* ------------------------------------------------------------------ header and step bar */
+html:has(.lhead) { --sticky-top: 128px; }   /* the lesson header and its step bar */
 .lhead { position: sticky; top: 0; z-index: 50; background: var(--sc-ground); border-bottom: 1px solid var(--sc-line); padding-top: env(safe-area-inset-top); }
 .lhead-in { display: flex; align-items: center; gap: 8px; min-height: 56px; }
 .lh-back { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap); border-radius: var(--r); color: var(--sc-ink); flex: 0 0 auto; }

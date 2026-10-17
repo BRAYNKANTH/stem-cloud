@@ -85,6 +85,24 @@ class Api(unittest.TestCase):
         r = TestClient(app).get('/feed/', follow_redirects=False)
         self.assertEqual((r.status_code, r.headers['location']), (302, '/login?next=/feed/'))
 
+    def test_a_chapter_is_fetched_on_its_own(self):
+        """Practice fetches one chapter when it is opened (/feed/<chapter>.json): what the cards need, not the authoring
+        fields; signed-in students only; a version to check against (304), and no-store left off so it can be kept."""
+        src = json.loads((ROOT / 'content' / 'practice' / 'physics' / 'friction.json').read_text(encoding='utf-8'))
+        r = self.client.get('/feed/friction.json')
+        self.assertEqual(r.status_code, 200, r.text)
+        d = r.json()
+        self.assertEqual(d['lesson'], src['lesson'])
+        self.assertEqual([q['id'] for q in d['questions']], [q['id'] for q in src['questions']])
+        self.assertTrue(all(set(q) <= {'id', 'type', 'q', 'options', 'correct', 'why', 'figure'} for q in d['questions']))
+        self.assertNotIn('no-store', r.headers.get('cache-control', ''))
+        again = self.client.get('/feed/friction.json', headers={'If-None-Match': r.headers['etag']})
+        self.assertEqual(again.status_code, 304)
+        self.assertEqual(TestClient(app).get('/feed/friction.json').status_code, 401)
+        for bad in ('no-such-chapter', 'Friction', '..%2Fsecrets'):
+            with self.subTest(slug=bad):
+                self.assertEqual(self.client.get('/feed/%s.json' % bad).status_code, 404)
+
     def test_an_answer_returns_the_right_choice_and_the_poll(self):
         r = self.answer('mcq-diver', 0)
         self.assertEqual(r.status_code, 200, r.text)

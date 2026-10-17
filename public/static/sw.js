@@ -8,7 +8,7 @@
  *   does not wait for the server
  * - /api: never touched (progress sync handles its own retries)
  * Lesson pages contain one student's progress, so that cache is wiped on logout / login page / account delete. */
-var VERSION = 'v29';
+var VERSION = 'v30';
 var STATIC = 'stemcloud-static-' + VERSION;
 var PAGES = 'stemcloud-pages-' + VERSION;
 var FONTS = 'stemcloud-fonts-' + VERSION;
@@ -105,9 +105,9 @@ self.addEventListener('fetch', function (e) {
     return;
   }
 
-  /* Authenticated question-bank data/images use the private page cache; wiped on logout.
+  /* Authenticated question-bank data/images (and Practice's chapters, /feed/<chapter>.json) use the private page cache; wiped on logout.
    * PDFs stay on the network because viewers may request byte ranges. */
-  if ((url.pathname.indexOf('/lessons/past-papers/') === 0 && /\.(json|jpg)$/.test(url.pathname)) || (url.pathname.indexOf('/lessons/topics/') === 0 && /\.json$/.test(url.pathname))) {
+  if ((url.pathname.indexOf('/lessons/past-papers/') === 0 && /\.(json|jpg)$/.test(url.pathname)) || (url.pathname.indexOf('/lessons/topics/') === 0 && /\.json$/.test(url.pathname)) || /^\/feed\/[a-z0-9-]+\.json$/.test(url.pathname)) {
     e.respondWith(fetch(req, {mode:'cors',credentials:'same-origin'}).then(function(res) {
       var remoteMedia = res.redirected && /^https:\/\/[a-f0-9]{32}\.r2\.cloudflarestorage\.com\//i.test(res.url) && /\.jpg$/.test(url.pathname);
       if(res.ok && (!res.redirected || remoteMedia)) {var copy=res.clone();caches.open(PAGES).then(function(c){c.put(req,copy);});}

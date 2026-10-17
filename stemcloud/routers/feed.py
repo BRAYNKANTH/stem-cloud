@@ -1,13 +1,13 @@
-"""The learning feed (web/src/pages/shell/feed): a swiped feed of short cards (predict, then watch; true or false; a quick
-question; a formula). Separate from the rest of the app while it is tried out: nothing links to it yet.
+"""Practice (web/src/pages/shell/feed): each chapter's practice questions (content/practice), one per screen, fetched a
+chapter at a time (/feed/<chapter>.json).
 
 A student's first answer to a card is kept (feed_answers), and every answer returns how all students answered that card,
 so the card can show "62% chose B". The cards are content/feed/physics.json."""
-import json, time
+import hashlib, json, re, time
 from functools import lru_cache
 
 from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, RedirectResponse, Response
 
 from ..config import FEED_CARDS, PRACTICE, WEB_FEED
 from ..db import db
@@ -47,6 +47,39 @@ def feed_page(req: Request):
     if WEB_FEED.is_file():
         return FileResponse(WEB_FEED, media_type='text/html')
     raise HTTPException(404, 'Not found.')
+
+
+CHAPTER = re.compile(r'^[a-z0-9-]{1,60}$')
+# what a Practice card needs; the authoring fields (topic, level, calc) stay on the server
+KEEP = ('id', 'type', 'q', 'options', 'correct', 'why', 'figure')
+
+
+@lru_cache(maxsize=64)
+def chapter_json(slug: str) -> tuple[bytes, str] | None:
+    """One chapter's practice questions as the page needs them, and their version (for the ETag); None if there is none."""
+    files = sorted(PRACTICE.glob('*/%s.json' % slug))
+    if not files:
+        return None
+    pool = json.loads(files[0].read_text(encoding='utf-8'))
+    body = json.dumps({'lesson': pool['lesson'], 'questions': [{k: q[k] for k in KEEP if k in q} for q in pool['questions']]},
+                      ensure_ascii=False, separators=(',', ':')).encode('utf-8')
+    return body, hashlib.sha256(body).hexdigest()[:16]
+
+
+@router.get('/feed/{slug}.json')
+def feed_chapter(slug: str, req: Request):
+    """One chapter's practice questions, fetched when the chapter is opened (the page itself carries only the chapter list:
+    it used to carry all 1,500 questions, 1.9 MB). Signed-in students only; kept on the device and checked again later."""
+    if not current_user_gate(req):
+        raise HTTPException(401, 'Please sign in.')
+    got = chapter_json(slug) if CHAPTER.match(slug) else None
+    if not got:
+        raise HTTPException(404, 'Not found.')
+    body, ver = got
+    head = {'ETag': '"%s"' % ver, 'Cache-Control': 'private, max-age=300, stale-while-revalidate=604800', 'Vary': 'Accept-Encoding, Cookie'}
+    if req.headers.get('if-none-match') == head['ETag']:
+        return Response(status_code=304, headers=head)
+    return Response(body, media_type='application/json', headers=head)
 
 
 @router.post('/api/feed/answer')

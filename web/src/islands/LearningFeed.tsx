@@ -8,8 +8,16 @@ export type FeedCard =
   | { id: string; type: 'mcq'; lesson: string; question: Tri; options: Tri[]; correct: number; why: Tri; figure?: Figure }
   | { id: string; type: 'tf'; lesson: string; statement: Tri; correct: number; why: Tri; figure?: Figure };
 export interface Chapter { id: string; title: Tri; url: string }
-/** A chapter's pool of practice questions (content/practice): all of them, one per screen, in a random order. */
-export interface Pool { slug: string; lesson: string; cards: FeedCard[] }
+/** A chapter with practice questions (content/practice): the page knows only this; its questions come from /feed/<slug>.json
+ * when it is opened. `prefix` is its questions' id prefix ("hp" for hp-001), to find a saved question's chapter. */
+export interface Pool { slug: string; lesson: string; count: number; prefix: string }
+/** A question as /feed/<slug>.json sends it. */
+interface Q { id: string; type: 'mcq' | 'tf'; q: Tri; options?: Tri[]; correct: number; why: Tri; figure?: Figure }
+const toCard = (q: Q, lesson: string): FeedCard => (q.type === 'tf'
+  ? { id: q.id, type: 'tf', lesson, statement: q.q, correct: q.correct, why: q.why, figure: q.figure }
+  : { id: q.id, type: 'mcq', lesson, question: q.q, options: q.options || [], correct: q.correct, why: q.why, figure: q.figure });
+const prefixOf = (id: string) => id.replace(/-\d+$/, '');
+const shuffle = <X,>(xs: X[]) => xs.map((x) => [Math.random(), x] as const).sort((a, b) => a[0] - b[0]).map((x) => x[1]);
 /** #saved in the address: the questions bookmarked on this device. */
 const SAVED = 'saved';
 const gradeOf = (lesson: string) => /\.g(\d+)\./.exec(lesson)?.[1] ?? '';
@@ -45,6 +53,10 @@ const W = {
   saved: { en: 'Saved questions', ta: 'சேமித்த வினாக்கள்', si: 'සුරැකි ප්‍රශ්න' },
   savedNone: { en: 'Nothing saved yet. Tap the bookmark in the corner of a question to keep it here.', ta: 'இன்னும் எதுவும் சேமிக்கவில்லை. வினாவின் மூலையிலுள்ள புத்தகக்குறியைத் தொட்டால் இங்கே இருக்கும்.', si: 'තවම කිසිවක් සුරකා නැත. ප්‍රශ්නයක කොනේ ඇති පිටුසන තට්ටු කළොත් එය මෙහි තබා ගනී.' },
   savedDone: { en: 'That is all you saved', ta: 'சேமித்தவை இவ்வளவுதான்', si: 'ඔබ සුරැකියේ ඇත්තේ මෙපමණයි' },
+  loading: { en: 'Loading the questions…', ta: 'வினாக்கள் ஏற்றப்படுகின்றன…', si: 'ප්‍රශ්න පූරණය වෙමින්…' },
+  loadFail: { en: 'The questions could not load. Check your connection and try again.', ta: 'வினாக்கள் ஏற்றப்படவில்லை. இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சி செய்.', si: 'ප්‍රශ්න පූරණය කළ නොහැකි විය. සම්බන්ධතාව පරීක්ෂා කර නැවත උත්සාහ කරන්න.' },
+  retry: { en: 'Try again', ta: 'மீண்டும் முயற்சி', si: 'නැවත උත්සාහ කරන්න' },
+  siNote: { en: 'Practice questions are in English and Tamil for now; Sinhala is coming.', ta: 'பயிற்சி வினாக்கள் தற்போது ஆங்கிலத்திலும் தமிழிலும் மட்டும்.', si: 'පුහුණු ප්‍රශ්න දැනට ඉංග්‍රීසියෙන් සහ දෙමළෙන් පමණි; සිංහල ඉක්මනින් එකතු වේ.' },
 };
 
 const loadSaved = (): string[] => { try { const s = JSON.parse(localStorage.getItem(SAVED_KEY) || '[]'); return Array.isArray(s) ? s.filter((x) => typeof x === 'string') : []; } catch { return []; } };
@@ -63,7 +75,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
   const [saved, setSaved] = useState<string[]>([]);
   const box = useRef<HTMLDivElement>(null);
   const byId = new Map(chapters.map((c) => [c.id, c]));
-  const every = new Map(pools.flatMap((p) => p.cards).map((c) => [c.id, c] as const));
+  const byPrefix = new Map(pools.map((p) => [p.prefix, p.slug]));
 
   // #<chapter> in the address: a round of that chapter's questions; #saved: the bookmarked ones; anything else: the chapter list
   const [mode, setMode] = useState('');
@@ -71,6 +83,9 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
   const [cur, setCur] = useState(0);                 // the card on screen
   const [round, setRound] = useState(0);             // counts the times a deck is dealt, so a new order is drawn afresh, not moved about
   const [swiped, setSwiped] = useState(false);          // has the student moved on from the first card yet
+  const [status, setStatus] = useState<'' | 'loading' | 'error'>('');   // fetching a chapter, or it could not be fetched
+  const cache = useRef(new Map<string, FeedCard[]>());    // the chapters fetched on this visit
+  const want = useRef('');                               // the deck asked for last (a slower earlier answer is dropped)
   const toTop = () => { box.current?.scrollTo({ top: 0, behavior: 'instant' }); requestAnimationFrame(() => box.current?.scrollTo({ top: 0, behavior: 'instant' })); };   // again once the new order is drawn
   const start = (slug: string, cards: FeedCard[]) => {
     setDeck(cards);
@@ -81,21 +96,56 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
     setRound((r) => r + 1);
     toTop();
   };
-  const deal = (slug: string) => {
-    const pool = pools.find((p) => p.slug === slug);
-    if (!pool) { setMode(''); setDeck([]); return; }
-    // every question of the chapter, in a random order, each time
-    start(slug, pool.cards.map((x) => [Math.random(), x] as const).sort((p, q) => p[0] - q[0]).map((p) => p[1]));
+  /** A chapter's questions: from this visit's copy, else from the server (15 s at most). */
+  const fetchPool = async (slug: string): Promise<FeedCard[]> => {
+    const hit = cache.current.get(slug);
+    if (hit) return hit;
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 15000);
+    try {
+      const r = await fetch('/feed/' + encodeURIComponent(slug) + '.json', { credentials: 'same-origin', signal: ctl.signal });
+      if (!r.ok) throw new Error(String(r.status));
+      const j: { lesson: string; questions: Q[] } = await r.json();
+      const cards = j.questions.map((q) => toCard(q, j.lesson));
+      cache.current.set(slug, cards);
+      return cards;
+    } finally {
+      clearTimeout(timer);
+    }
   };
+  /** Open a deck (a chapter, or the saved questions) once its questions are here. */
+  const open = async (slug: string, get: () => Promise<FeedCard[]>) => {
+    want.current = slug;
+    setMode(slug);
+    setDeck([]);
+    setStatus('loading');
+    try {
+      const cards = await get();
+      if (want.current !== slug) return;
+      setStatus('');
+      start(slug, cards);
+    } catch {
+      if (want.current === slug) setStatus('error');
+    }
+  };
+  // every question of the chapter, in a random order, each time
+  const deal = (slug: string) => open(slug, async () => shuffle(await fetchPool(slug)));
+  // the saved questions, newest first: only their chapters are fetched
+  const dealSaved = () => open(SAVED, async () => {
+    const ids = loadSaved();
+    const slugs = [...new Set(ids.map((id) => byPrefix.get(prefixOf(id))).filter((x): x is string => !!x))];
+    const all = new Map((await Promise.all(slugs.map(fetchPool))).flat().map((c) => [c.id, c] as const));
+    return ids.map((id) => all.get(id)).filter((c): c is FeedCard => !!c);
+  });
   useEffect(() => {
     loadPrefs();
     try { localStorage.removeItem(KEY); } catch { /* answers used to be kept here: not any more */ }
     setSaved(loadSaved());
     const fromHash = () => {
       const h = decodeURIComponent(location.hash.slice(1));
-      if (h === SAVED) start(SAVED, loadSaved().map((id) => every.get(id)).filter(Boolean) as FeedCard[]);   // newest first, as saved
-      else if (pools.some((p) => p.slug === h)) deal(h);
-      else { setMode(''); setDeck([]); setCur(0); setAnswers({}); setSaved(loadSaved()); box.current?.scrollTo({ top: 0, behavior: 'instant' }); }
+      if (h === SAVED) void dealSaved();
+      else if (pools.some((p) => p.slug === h)) void deal(h);
+      else { document.documentElement.classList.remove('fd-deep'); want.current = ''; setStatus(''); setMode(''); setDeck([]); setCur(0); setAnswers({}); setSaved(loadSaved()); box.current?.scrollTo({ top: 0, behavior: 'instant' }); }
     };
     fromHash();
     window.addEventListener('hashchange', fromHash);
@@ -161,7 +211,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
 
   // every chapter with practice questions, by grade, with how many of its questions this student has got right
   const grades = [...new Set(pools.map((p) => gradeOf(p.lesson)))];
-  const savedCount = saved.filter((id) => every.has(id)).length;
+  const savedCount = saved.filter((id) => byPrefix.has(prefixOf(id))).length;
   const chooser = (
     <div class="fd-pools">
       <a class="btn fd-pool fd-savedlink" href={'#' + SAVED}><span>🔖 {t(W.saved)}</span><small>{savedCount}</small></a>
@@ -170,7 +220,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
           {g && <h3>{t(W.grade)} {g}</h3>}
           {pools.filter((p) => gradeOf(p.lesson) === g).map((p) => {
             const ch = byId.get(p.lesson);
-            return <a class="btn fd-pool" href={'#' + p.slug}><span>{ch ? t(ch.title) : p.slug}</span><small>{p.cards.length} {t(W.questions)}</small></a>;
+            return <a class="btn fd-pool" href={'#' + p.slug}><span>{ch ? t(ch.title) : p.slug}</span><small>{p.count} {t(W.questions)}</small></a>;
           })}
         </>
       ))}
@@ -219,8 +269,20 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
           </section>
         );
       })}
-      {mode ? (
-        <section class="fd-card fd-end" data-i={list.length}>
+      {mode && status ? (
+        <section class="fd-card fd-end fd-wait" key="wait">   {/* its own key: it goes when the questions come, it does not slide down to become the end card */}
+          <div class="fd-inner">
+            {status === 'loading'
+              ? <p class="fd-tip" role="status">{t(W.loading)}</p>
+              : <>
+                  <p class="fd-tip" role="alert">{t(W.loadFail)}</p>
+                  <button type="button" class="btn primary" onClick={() => (mode === SAVED ? dealSaved() : deal(mode))}>{t(W.retry)}</button>
+                  <a class="btn" href="#chapters">{t(W.chapters)}</a>
+                </>}
+          </div>
+        </section>
+      ) : mode ? (
+        <section class="fd-card fd-end" key="end" data-i={list.length}>
           <div class="fd-inner">
             {mode === SAVED ? (
               <>
@@ -230,7 +292,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
             ) : (
               <>
                 <h2 class="fd-q fd-focus" tabIndex={-1}>🎉 {t(list.length ? W.roundDone : W.noneHere)}</h2>
-                {list.length > 0 && <button type="button" class="btn primary" onClick={() => deal(mode)}>{t(W.restart)}</button>}
+                {list.length > 0 && <button type="button" class="btn primary" onClick={() => void deal(mode)}>{t(W.restart)}</button>}
               </>
             )}
             <a class="btn" href="#chapters">{t(W.chapters)}</a>
@@ -240,6 +302,7 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
         <div class="fd-listpage">
           <h2 class="fd-q fd-focus" tabIndex={-1}>{t(W.chapters)}</h2>
           <p class="fd-tip">{t(W.pick)}</p>
+          {lang === 'si' && <p class="fd-note" role="note">{t(W.siNote)}</p>}
           {chooser}
         </div>
       )}

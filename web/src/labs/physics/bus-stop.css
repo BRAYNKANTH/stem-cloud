@@ -158,7 +158,6 @@
 .bus-steps li.on .n { background: var(--sc-blue); color: #fff; }
 .bus-steps li.past .n { background: var(--sc-leaf); color: #fff; }
 .bus-steps li.next { opacity: .7; }
-.bus-do { margin: 0 0 10px; padding: 8px 12px; border-radius: var(--r-sm); background: var(--sc-mango-lt); border-left: 4px solid var(--sc-mango); font-size: .95rem; }
 .bus-map-note { margin: 6px 0 0; font-size: .85rem; font-weight: 700; color: var(--sc-ink-2); }
 .stop.clear .stop-n { background: var(--sc-leaf); }
 .stop:disabled .stop-n { background: var(--sc-panel-2); }
@@ -236,3 +235,9 @@
 .bus-msg::before { content: '✓'; position: absolute; left: 12px; top: 10px; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%;
                    background: var(--sc-leaf); color: #fff; font-weight: 800; font-size: .85rem; }
 .bus-msg.err::before { content: '!'; background: var(--sc-clay); }
+
+/* the scenario card at the top of a step: the step, the story, the question */
+.bus-scn { margin: 0 0 12px; padding: 10px 14px 12px; border-radius: var(--r); background: var(--sc-mango-lt); border-left: 4px solid var(--sc-mango); }
+.scn-step { margin: 0 0 4px; font-size: .9rem; }
+.bus-scn .bus-story { margin: 0 0 8px; color: var(--sc-ink); }
+.bus-scn .bus-qcard { margin: 0; background: var(--sc-panel); }

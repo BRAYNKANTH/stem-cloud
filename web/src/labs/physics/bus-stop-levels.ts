@@ -87,7 +87,7 @@ export const LEVELS: Level[] = [
     },
     read: {
       graph: 's',
-      q: ['Tap the moment Nimal turned back.', 'நிமல் திரும்பிய நேரத்தைத் தொடு.', 'නිමල් ආපසු හැරුණු මොහොත තට්ටු කරන්න.'],
+      q: ['Find the moment Nimal turned back.', 'நிமல் திரும்பிய நேரத்தைத் கண்டுபிடி.', 'නිමල් ආපසු හැරුණු මොහොත සොයන්න.'],
       ok: (t) => near(t, 20, 1.5),
       snaps: [10, 25, 20, 5],
       why: [
@@ -134,7 +134,7 @@ export const LEVELS: Level[] = [
     },
     read: {
       graph: 's',
-      q: ['Tap the moment Nimal had ridden 100 m.', 'நிமல் 100 m ஓட்டி முடித்த நேரத்தைத் தொடு.', 'නිමල් m 100ක් පැදගෙන ගිය මොහොත තට්ටු කරන්න.'],
+      q: ['Find the moment Nimal had ridden 100 m.', 'நிமல் 100 m ஓட்டி முடித்த நேரத்தைத் கண்டுபிடி.', 'නිමල් m 100ක් පැදගෙන ගිය මොහොත සොයන්න.'],
       ok: (t) => near(t, 20, 1.5),
       snaps: [20, 10, 30, 15],
       why: ['Go across from 100 m to the line, then down: t = 20 s. A straight line on a displacement–time graph means a steady velocity.', '100 m-இலிருந்து கோடு வரை குறுக்கே போய், கீழே இறங்கு: t = 20 s. இடப்பெயர்ச்சி–நேர வரைபில் நேர்கோடு என்றால் சீரான திசைவேகம்.', 'm 100 සිට රේඛාවට හරහට ගොස් පහළට එන්න: t = 20 s. විස්ථාපන–කාල ප්‍රස්තාරයක සරල රේඛාවක් යනු ඒකාකාර ප්‍රවේගයකි.'],
@@ -172,7 +172,7 @@ export const LEVELS: Level[] = [
     },
     read: {
       graph: 'v',
-      q: ['Tap a moment when Nimal\'s velocity was negative.', 'நிமலின் திசைவேகம் எதிர்மறையாக இருந்த ஒரு நேரத்தைத் தொடு.', 'නිමල්ගේ ප්‍රවේගය සෘණ වූ මොහොතක් තට්ටු කරන්න.'],
+      q: ['Find a moment when Nimal\'s velocity was negative.', 'நிமலின் திசைவேகம் எதிர்மறையாக இருந்த ஒரு நேரத்தைத் கண்டுபிடி.', 'නිමල්ගේ ප්‍රවේගය සෘණ වූ මොහොතක් සොයන්න.'],
       ok: (t) => t > 20.3 && t <= 50,
       snaps: [10, 18, 35, 5],
       why: ['From 20 s to 50 s the line is below zero: −4 m/s. The minus sign means he was riding west.', '20 s முதல் 50 s வரை கோடு பூஜ்ஜியத்துக்குக் கீழே: −4 m/s. கழித்தல் குறி அவன் மேற்கே போனான் என்று காட்டுகிறது.', 's 20 සිට s 50 දක්වා රේඛාව බිංදුවට පහළින්: −4 m/s. සෘණ ලකුණෙන් කියන්නේ ඔහු බටහිරට පැද්ද බවයි.'],
@@ -206,7 +206,7 @@ export const LEVELS: Level[] = [
     },
     read: {
       graph: 'v',
-      q: ['Tap the moment his velocity was 8 m/s.', 'அவனுடைய திசைவேகம் 8 m/s ஆக இருந்த நேரத்தைத் தொடு.', 'ඔහුගේ ප්‍රවේගය m/s 8 වූ මොහොත තට්ටු කරන්න.'],
+      q: ['Find the moment his velocity was 8 m/s.', 'அவனுடைய திசைவேகம் 8 m/s ஆக இருந்த நேரத்தைத் கண்டுபிடி.', 'ඔහුගේ ප්‍රවේගය m/s 8 වූ මොහොත සොයන්න.'],
       ok: (t) => near(t, 4, 0.4),
       snaps: [2, 3, 5, 4],
       why: ['At t = 4 s: 2 + 1.5 × 4 = 8 m/s. The gradient of the velocity–time graph is the acceleration.', 't = 4 s-இல்: 2 + 1.5 × 4 = 8 m/s. திசைவேக–நேர வரைபின் சாய்வு முடுக்கம் ஆகும்.', 't = 4 s දී: 2 + 1.5 × 4 = m/s 8. ප්‍රවේග–කාල ප්‍රස්තාරයේ අනුක්‍රමණය ත්වරණයයි.'],
@@ -239,7 +239,7 @@ export const LEVELS: Level[] = [
     },
     read: {
       graph: 'v',
-      q: ['Tap the moment Nimal stopped.', 'நிமல் நின்ற நேரத்தைத் தொடு.', 'නිමල් නැවතුණු මොහොත තට්ටු කරන්න.'],
+      q: ['Find the moment Nimal stopped.', 'நிமல் நின்ற நேரத்தைத் கண்டுபிடி.', 'නිමල් නැවතුණු මොහොත සොයන්න.'],
       ok: (t) => near(t, 4, 0.35),
       snaps: [1, 4, 2, 3],
       why: ['He stops where the line reaches v = 0, at t = 4 s. The area of the triangle under the line is the 16 m he travelled.', 'கோடு v = 0-ஐத் தொடும் இடத்தில், t = 4 s-இல் நிற்கிறான். கோட்டின் கீழுள்ள முக்கோணத்தின் பரப்புதான் அவன் போன 16 m.', 'රේඛාව v = 0 වෙත ළඟා වන තැන, t = 4 s දී ඔහු නවතිනවා. රේඛාව යට ත්‍රිකෝණයේ වර්ගඵලය ඔහු ගිය m 16යි.'],

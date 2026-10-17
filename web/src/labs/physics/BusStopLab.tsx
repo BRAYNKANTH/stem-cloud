@@ -46,7 +46,6 @@ const W = {
   locked: ['Clear the stop before to open this one.', 'இதைத் திறக்க முந்தைய நிறுத்தத்தை முடி.', 'මෙය විවෘත කිරීමට පෙර නැවතුම නිම කරන්න.'],
   finishFirst: ['Finish this stop first: all three steps.', 'முதலில் இந்த நிறுத்தத்தின் மூன்று படிகளையும் முடி.', 'මුලින්ම මෙම නැවතුමේ පියවර තුනම නිම කරන්න.'],
   stepOf: ['Step {n} of 3', 'படி {n} / 3', 'පියවර {n} / 3'],
-  do0: ['Read the story and find the places on the road. Then pick your answer, place a bet and ride.', 'கதையைப் படி, சாலையில் இடங்களைப் பார். பிறகு விடையைத் தேர்ந்தெடு, பந்தயம் கட்டி ஓட்டு.', 'කතාව කියවා පාරේ ස්ථාන සොයාගන්න. ඉන්පසු පිළිතුර තෝරා, ඔට්ටුවක් අල්ලා පදින්න.'],
   do1: ['Watch the ride again with its graph: the line grows as Nimal moves. Replay it or drag the time slider as often as you like, then tap the graph to answer.', 'பயணத்தை அதன் வரைபுடன் மீண்டும் பார்: நிமல் நகரும்போது கோடு வளர்கிறது. எத்தனை முறை வேண்டுமானாலும் மீண்டும் பார் அல்லது நேர ஸ்லைடரை இழு, பிறகு விடையளிக்க வரைபைத் தொடு.', 'ගමන එහි ප්‍රස්තාරය සමඟ නැවත බලන්න: නිමල් චලනය වන විට රේඛාව වර්ධනය වේ. කැමති තරම් නැවත බලන්න හෝ කාල ස්ලයිඩරය අදින්න, ඉන්පසු පිළිතුරු දීමට ප්‍රස්තාරය තට්ටු කරන්න.'],
   question: ['Question', 'கேள்வி', 'ප්‍රශ්නය'],
   lockIn: ['Lock in', 'உறுதிசெய்', 'තහවුරු කරන්න'],
@@ -55,7 +54,6 @@ const W = {
   setRide: ['Set the ride', 'பயணத்தை அமை', 'ගමන සකසන්න'],
   tryAgain: ['Try again', 'மீண்டும் முயற்சி செய்', 'නැවත උත්සාහ කරන්න'],
   close: ['Close', 'மூடு', 'වසන්න'],
-  answerHint: ['Watch the ride, then tap Answer.', 'பயணத்தைப் பார், பிறகு விடையளி என்பதைத் தொடு.', 'ගමන බලා, ඉන්පසු පිළිතුරු දෙන්න තට්ටු කරන්න.'],
   thinkHint: ['Think about the story, then tap Answer.', 'கதையைப் பற்றி யோசி, பிறகு விடையளி என்பதைத் தொடு.', 'කතාව ගැන සිතා, ඉන්පසු පිළිතුරු දෙන්න තට්ටු කරන්න.'],
   pickSnap: ['Which graph marks the right moment?', 'எந்த வரைபு சரியான நேரத்தைக் குறிக்கிறது?', 'නිවැරදි මොහොත සලකුණු කරන්නේ කුමන ප්‍රස්තාරයද?'],
   pickOne: ['Pick a graph first.', 'முதலில் ஒரு வரைபைத் தேர்ந்தெடு.', 'මුලින්ම ප්‍රස්තාරයක් තෝරන්න.'],
@@ -408,7 +406,8 @@ export default function BusStopLab() {
   const [tried, setTried] = useState<number[]>([]);
   const popX = useRef<HTMLButtonElement>(null);
   const barBtn = useRef<HTMLButtonElement>(null);
-  const openPop = () => { setPop(true); setTimeout(() => popX.current?.focus(), 0); };
+  // the road (pinned) stays in view above the popup: bring it up first
+  const openPop = () => { if (phone) toPanel(); setPop(true); setTimeout(() => popX.current?.focus(), 0); };
   const closePop = () => { setPop(false); setTimeout(() => barBtn.current?.focus(), 0); };
   useEffect(() => {
     if (!pop) return;
@@ -417,12 +416,16 @@ export default function BusStopLab() {
     return () => document.removeEventListener('keydown', key);
   }, [pop]);
   const panel = useRef<HTMLDivElement>(null);
+  const scn = useRef<HTMLDivElement>(null);
+  /** Back up to the scenario card (the step, the story, the question), just under the lesson's header. */
+  const toScenario = () => {
+    const top = scn.current?.getBoundingClientRect().top;
+    if (top !== undefined) scrollBy({ top: top - edges.top - 8, behavior: calm() ? 'auto' : 'smooth' });
+  };
   const stageBox = useRef<HTMLDivElement>(null);
-  /** Bring the question's details up under the pinned picture: from the story, or (after a ride) from the question
-   *  card, so the question and its result are in view together. */
-  const toPanel = (fromCard = false) => {
-    const el = fromCard ? panel.current?.querySelector('.bus-qcard') ?? panel.current : panel.current;
-    const top = el?.getBoundingClientRect().top, h = stageBox.current?.offsetHeight;
+  /** Bring the panel (answers, hints, results) up under the pinned picture. */
+  const toPanel = () => {
+    const top = panel.current?.getBoundingClientRect().top, h = stageBox.current?.offsetHeight;
     if (top !== undefined && h !== undefined) scrollBy({ top: top - (edges.top + h + 8), behavior: calm() ? 'auto' : 'smooth' });
   };
 
@@ -488,7 +491,7 @@ export default function BusStopLab() {
 
   /** The end of a ride: the prediction's result, or the goal's. */
   function finish() {
-    if (phone) setTimeout(() => toPanel(true), 80);
+    if (phone) setTimeout(toPanel, 80);
     if (riding.current === 'ride') {
       const ok = pick === L.ask.right;
       const stake = betOn ? Math.min(bet, save.coins) : 0;
@@ -540,7 +543,7 @@ export default function BusStopLab() {
   };
   const toRead = () => {
     setPhase('read'); setPin(null); setReadMsg(null); setSnap(-1); setTried([]);
-    level.current?.querySelector('.bus-do')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
+    level.current?.querySelector('.bus-scn')?.scrollIntoView({ behavior: calm() ? 'auto' : 'smooth', block: 'start' });
     replay(0);
   };
   const toGoal = () => { setPlaying(false); setPhase('goal'); setT(0); setGoalMsg(null); };
@@ -670,10 +673,13 @@ export default function BusStopLab() {
             })}
           </ol>
         </div>
-        <p class="bus-do" aria-live="polite">
-          {phase !== 'end' && <b>{tx(W.stepOf).replace('{n}', String(stage + 1))} · </b>}
-          {tx(phase === 'end' ? W.do3 : (phone ? [W.do0, W.do1p, W.do2p] : [W.do0, W.do1, W.do2])[stage]!)}
-        </p>
+        <div class="bus-scn" ref={scn}>
+          <p class="scn-step" aria-live="polite">
+            {phase === 'end' ? <b>{tx(W.do3)}</b> : <b>{tx(W.stepOf).replace('{n}', String(stage + 1))} · {tx([W.sPredict, W.sRead, W.sGoal][stage]!)}</b>}
+          </p>
+          {stage < 2 && <p class="bus-story">{tx(L.story)}</p>}
+          {phase !== 'end' && <QCard tx={tx} q={[L.ask.q, L.read.q, L.goal.q][stage]!} />}
+        </div>
 
         <div class="bus-stage" ref={stageBox}>
         <Scene tx={tx} legs={rideLegs} t={t} wear={save.wear} ticks={phase !== 'ask'} strip={pinGraph}
@@ -696,8 +702,6 @@ export default function BusStopLab() {
           <div class="bus-panel" ref={panel}>
             {stage === 0 && (
               <>
-                <p class="bus-story">{tx(L.story)}</p>
-                <QCard tx={tx} q={L.ask.q} />
                 {!phone && choices}
                 {phase === 'ask' && (phone ? <p class="hint">{tx(W.thinkHint)}</p> : betting)}
                 {phase === 'ride' && <p class="hint" aria-live="polite">{tx(W.riding)}</p>}
@@ -716,9 +720,8 @@ export default function BusStopLab() {
 
             {stage === 1 && (
               <>
-                <QCard tx={tx} q={L.read.q} />
                 {!phone && pin !== null && <p class="bus-pin">{tx(W.yourPoint)}{fmt(pin)} s · {fmt(L.read.graph === 's' ? at(rideLegs, pin).s : at(rideLegs, pin).v)} {L.read.graph === 's' ? 'm' : 'm/s'}</p>}
-                {!readMsg?.ok && <p class="hint">{phone ? tx(W.answerHint) : tx(W.tap) + ' ' + tx(W.keys)}</p>}
+                {!readMsg?.ok && <p class="hint">{phone ? tx(W.do1p) : tx(W.do1) + ' ' + tx(W.keys)}</p>}
                 <div class="bus-row">
                   {!phone && <button type="button" class="btn primary" onClick={checkRead} disabled={!!readMsg?.ok}>{tx(W.check)}</button>}
                   {readMsg?.ok ? <button type="button" class="btn primary act" onClick={toGoal}>{tx(W.toGoal)}</button> : <button type="button" class="btn" onClick={toGoal}>{tx(W.skip)}</button>}
@@ -729,7 +732,7 @@ export default function BusStopLab() {
 
             {stage === 2 && (
               <>
-                <QCard tx={tx} q={L.goal.q} />
+                {phase === 'goal' && !goalMsg && <p class="hint">{tx(phone ? W.do2p : W.do2)}</p>}
                 {!phone && sliders}
                 {!phone && phase !== 'end' && <button type="button" class="btn primary" disabled={phase === 'goalRide'} onClick={rideGoal}>{tx(phase === 'goalRide' ? W.riding : W.ride)}</button>}
                 {phone && phase === 'goalRide' && <p class="hint" aria-live="polite">{tx(W.riding)}</p>}
@@ -753,7 +756,7 @@ export default function BusStopLab() {
         </div>
         {phone && (
           <div class="bus-qbar" role="region" aria-label={tx(W.stepOf).replace('{n}', String(stage + 1))}>
-            <button type="button" class="qb-step" onClick={() => toPanel()} title={tx(W.showQ)}>
+            <button type="button" class="qb-step" onClick={toScenario} title={tx(W.showQ)}>
               <span aria-hidden="true">{phase === 'end' ? '✓' : stage + 1 + '/3'}</span><span class="visually-hidden">{tx(W.showQ)}</span>
             </button>
             {bar

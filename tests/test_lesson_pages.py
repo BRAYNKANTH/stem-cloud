@@ -350,13 +350,14 @@ def run():
             bar = lambda: pg.inner_text('.bus-qbar')
             act = lambda: pg.click('.bus-qbar .btn')
             pg.locator('.bus-panel').scroll_into_view_if_needed()
-            pg.click('.qb-step')           # brings the question up under the road, which then stays pinned
+            pg.click('.qb-step')           # back up to the scenario card
             pinned = "(() => { const st = document.querySelector('.bus-stage').getBoundingClientRect(), qb = document.querySelector('.bus-qbar').getBoundingClientRect(), "\
                      "head = document.querySelector('.lhead').getBoundingClientRect(), end = document.querySelector('.lend').getBoundingClientRect(); "\
                      "return Math.abs(st.top - head.bottom) < 2 && qb.bottom <= end.top + 1 && st.bottom < qb.top; })()"
-            check('on a phone the question is a card in the page (tapping the step in the bar brings it up under the pinned road); the bar holds only the step and Answer',
-                  lambda: pg.evaluate(pinned) and 'displacement from home?' in pg.inner_text('.bus-panel .bus-qcard') and pg.inner_text('.qb-step').startswith('1/3') and pg.inner_text('.qb-go') == 'Answer'
-                  and pg.locator('.bus-panel .opt').count() == 0)
+            check('a step opens with its scenario card (the step, the story, the question) at the top; on a phone the bar holds only the step (back to it) and Answer',
+                  lambda: pg.inner_text('.scn-step') == 'Step 1 of 3 · Predict' and 'rides 80 m east' in pg.inner_text('.bus-scn .bus-story')
+                  and 'displacement from home?' in pg.inner_text('.bus-scn .bus-qcard') and pg.evaluate("Math.abs(document.querySelector('.bus-scn').getBoundingClientRect().top - document.querySelector('.lhead').getBoundingClientRect().bottom) < 12")
+                  and pg.inner_text('.qb-step').startswith('1/3') and pg.inner_text('.qb-go') == 'Answer' and pg.locator('.bus-panel .opt').count() == 0)
             popup = lambda: pg.locator('.bus-pop').count() == 1 and pg.locator('.bus-pop').is_visible()
             act()
             check('...Answer opens the choices in a popup, focus on its Close button', lambda: popup() and pg.locator('.bus-pop .opt').count() == 4
@@ -369,6 +370,8 @@ def run():
             pg.click('.bus-pop .bus-bet .btn.primary')
             check('a right prediction (Lock in, in the popup) closes it for the ride, wins the bet and the first star; the bar says so and leads on',
                   lambda: not popup() and coins() == '12' and stars() == '1' and pg.inner_text('.bus-panel .bus-msg').startswith('Right! You won Rs 2.') and 'Next: read the graph' in bar(), lambda: (coins(), stars(), bar()))
+            check('...the result comes up under the road, pinned under the header, the bar above the bottom bar', lambda: pg.evaluate(pinned) and pg.evaluate(
+                "document.querySelector('.bus-panel .bus-msg').getBoundingClientRect().top < document.querySelector('.bus-qbar').getBoundingClientRect().top"))
             check('...and the next stop stays locked until this one is cleared (all three steps)',
                   lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
             pg.locator('#bus-time').fill('24')
@@ -378,7 +381,7 @@ def run():
                   lambda: (pg.inner_text('.bus-ro').split(), pg.locator('.bus-graph .g-ghost').count(), pg.locator('.bus-scene .disp text').all_text_contents()))
             act()
             check('reading the graph starts with the ride again, the graph pinned under a strip of the road',
-                  lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30'
+                  lambda: pg.inner_text('.scn-step').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30'
                   and pg.locator('.bus-stage .bus-graph').count() == 1 and pg.locator('.bus-scene.strip').count() == 1 and 'turned back' in pg.inner_text('.bus-qcard'))
             pg.focus('.bus-graph.tap svg')
             for _ in range(4):

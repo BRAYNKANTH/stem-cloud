@@ -350,12 +350,12 @@ def run():
             bar = lambda: pg.inner_text('.bus-qbar')
             act = lambda: pg.click('.bus-qbar .btn')
             pg.locator('.bus-panel').scroll_into_view_if_needed()
-            pg.click('.qb-text')           # brings the question up under the road, which then stays pinned
+            pg.click('.qb-step')           # brings the question up under the road, which then stays pinned
             pinned = "(() => { const st = document.querySelector('.bus-stage').getBoundingClientRect(), qb = document.querySelector('.bus-qbar').getBoundingClientRect(), "\
                      "head = document.querySelector('.lhead').getBoundingClientRect(), end = document.querySelector('.lend').getBoundingClientRect(); "\
                      "return Math.abs(st.top - head.bottom) < 2 && qb.bottom <= end.top + 1 && st.bottom < qb.top; })()"
-            check('on a phone, tapping the question in the bar brings it up with the road pinned under the header, the bar above the bottom bar',
-                  lambda: pg.evaluate(pinned) and 'displacement from home?' in pg.inner_text('.bus-panel .bus-q') and 'Answer' in bar()
+            check('on a phone the question is a card in the page (tapping the step in the bar brings it up under the pinned road); the bar holds only the step and Answer',
+                  lambda: pg.evaluate(pinned) and 'displacement from home?' in pg.inner_text('.bus-panel .bus-qcard') and pg.inner_text('.qb-step').startswith('1/3') and pg.inner_text('.qb-go') == 'Answer'
                   and pg.locator('.bus-panel .opt').count() == 0)
             popup = lambda: pg.locator('.bus-pop').count() == 1 and pg.locator('.bus-pop').is_visible()
             act()
@@ -368,7 +368,7 @@ def run():
             pg.click('.bus-pop .chip >> text="Rs 2"')
             pg.click('.bus-pop .bus-bet .btn.primary')
             check('a right prediction (Lock in, in the popup) closes it for the ride, wins the bet and the first star; the bar says so and leads on',
-                  lambda: not popup() and coins() == '12' and stars() == '1' and bar().startswith('Right! You won Rs 2.') and 'Next: read the graph' in bar(), lambda: (coins(), stars(), bar()))
+                  lambda: not popup() and coins() == '12' and stars() == '1' and pg.inner_text('.bus-panel .bus-msg').startswith('Right! You won Rs 2.') and 'Next: read the graph' in bar(), lambda: (coins(), stars(), bar()))
             check('...and the next stop stays locked until this one is cleared (all three steps)',
                   lambda: pg.locator('.bus .stop:disabled').count() == 4 and pg.locator('.bus-map-note').is_visible())
             pg.locator('#bus-time').fill('24')
@@ -379,7 +379,7 @@ def run():
             act()
             check('reading the graph starts with the ride again, the graph pinned under a strip of the road',
                   lambda: pg.inner_text('.bus-do').startswith('Step 2 of 3') and pg.locator('#bus-time').input_value() == '30'
-                  and pg.locator('.bus-stage .bus-graph').count() == 1 and pg.locator('.bus-scene.strip').count() == 1 and 'turned back' in bar())
+                  and pg.locator('.bus-stage .bus-graph').count() == 1 and pg.locator('.bus-scene.strip').count() == 1 and 'turned back' in pg.inner_text('.bus-qcard'))
             pg.focus('.bus-graph.tap svg')
             for _ in range(4):
                 pg.keyboard.press('PageUp')
@@ -392,7 +392,7 @@ def run():
                   and pg.locator('.bus-pop .snap >> nth=0').is_disabled())
             pg.click('.bus-pop .snap >> nth=2')
             pg.click('.bus-pop .btn.primary')
-            check('...the right one closes the popup and gives a star and Rs 2', lambda: not popup() and coins() == '14' and stars() == '2' and bar().startswith('Right!'), lambda: (coins(), stars()))
+            check('...the right one closes the popup and gives a star and Rs 2', lambda: not popup() and coins() == '14' and stars() == '2' and pg.inner_text('.bus-panel .bus-msg.ok').startswith('Right!') and 'Next: the goal' in bar(), lambda: (coins(), stars()))
             act()
             act()
             check('in the goal step the sliders open in a popup over the lower half, the pinned road still in view above it', lambda: popup() and pg.evaluate(
@@ -400,8 +400,8 @@ def run():
             pg.locator('#bus-e').fill('90')
             pg.locator('#bus-w').fill('40')
             pg.click('.bus-pop .btn.primary')
-            check('a ride that misses the goal says what happened, in the page and the bar, and offers to try again',
-                  lambda: not popup() and 'Distance 130 m' in pg.inner_text('.bus-msg.err') and 'Distance 130 m' in bar() and 'Try again' in bar())
+            check('a ride that misses the goal says what happened in the page, and the bar offers to try again',
+                  lambda: not popup() and 'Distance 130 m' in pg.inner_text('.bus-msg.err') and 'Try again' in bar())
             act()
             pg.locator('#bus-e').fill('80')
             pg.click('.bus-pop .btn.primary')

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'preact/hooks';
+import { useEffect, useLayoutEffect, useRef, useState } from 'preact/hooks';
 import { useStore } from '@nanostores/preact';
 import { $lang, loadPrefs } from '../stores/prefs';
 import FigureSvg, { type Figure } from '../feed/figures';
@@ -56,6 +56,7 @@ const W = {
   loading: { en: 'Loading the questions…', ta: 'வினாக்கள் ஏற்றப்படுகின்றன…', si: 'ප්‍රශ්න පූරණය වෙමින්…' },
   loadFail: { en: 'The questions could not load. Check your connection and try again.', ta: 'வினாக்கள் ஏற்றப்படவில்லை. இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சி செய்.', si: 'ප්‍රශ්න පූරණය කළ නොහැකි විය. සම්බන්ධතාව පරීක්ෂා කර නැවත උත්සාහ කරන්න.' },
   retry: { en: 'Try again', ta: 'மீண்டும் முயற்சி', si: 'නැවත උත්සාහ කරන්න' },
+  more: { en: 'More', ta: 'மேலும்', si: 'තවත්' },
   siNote: { en: 'Practice questions are in English and Tamil for now; Sinhala is coming.', ta: 'பயிற்சி வினாக்கள் தற்போது ஆங்கிலத்திலும் தமிழிலும் மட்டும்.', si: 'පුහුණු ප්‍රශ්න දැනට ඉංග්‍රීසියෙන් සහ දෙමළෙන් පමණි; සිංහල ඉක්මනින් එකතු වේ.' },
 };
 
@@ -198,12 +199,12 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
   }, [mode, cur, list.length]);
 
   /** After an answer: the verdict, the reason, and what share of students got it right (short, so the card still fits the screen). */
-  const why = (card: { why: Tri; correct: number }, a: Answer) => {
+  const why = (card: { id: string; why: Tri; correct: number }, a: Answer) => {
     const total = (a.counts || []).reduce((x, y) => x + y, 0);
     const pct = total ? Math.round((100 * (a.counts![card.correct] || 0)) / total) : 0;
     return (
       <div class={'fd-result ' + (a.right ? 'ok' : 'no')} role="status">
-        <p class="fd-why"><b class="fd-verdict">{a.right ? '✓ ' + t(W.right) : '✗ ' + t(W.wrong)}</b> {t(card.why)}</p>
+        <Reason key={card.id + lang} verdict={a.right ? '✓ ' + t(W.right) : '✗ ' + t(W.wrong)} text={t(card.why)} more={t(W.more)} poll={total > 0} />
         {total > 0 && <p class="fd-poll">{t(W.poll).replace('{p}', String(pct)).replace('{n}', String(total))}</p>}
       </div>
     );
@@ -311,6 +312,29 @@ export default function LearningFeed({ chapters, pools = [] }: { chapters: Chapt
 }
 
 type T = (x: Tri | string) => string;
+
+/**
+ * The reason under a verdict. When the card would not fit its screen with all of it (long Tamil explanations on a small
+ * phone), it shows two lines and the reason becomes a button: a tap opens the rest (that card may then scroll a little).
+ * Screen readers always get the whole text.
+ */
+function Reason({ verdict, text, more, poll }: { verdict: string; text: string; more: string; poll: boolean }) {
+  const box = useRef<HTMLParagraphElement>(null);
+  const [cut, setCut] = useState(false);
+  const [open, setOpen] = useState(false);
+  useLayoutEffect(() => {
+    const inner = box.current?.closest('.fd-inner') as HTMLElement | null;
+    if (inner && inner.scrollHeight > inner.clientHeight + 1) setCut(true);
+  }, [poll]);   // again when the poll line arrives (it comes from the server a moment later)
+  const words = <><b class="fd-verdict">{verdict}</b> {text}</>;
+  if (!cut) return <p class="fd-why" ref={box}>{words}</p>;
+  return (
+    <button type="button" class="fd-why fd-whybtn" aria-expanded={open} onClick={() => setOpen(!open)}>
+      <span class="fd-whytext">{words}</span>
+      {!open && <span class="fd-moretag" aria-hidden="true">… {more}</span>}
+    </button>
+  );
+}
 
 /** Tap one option; then the right one is marked, and the one chosen if it was wrong. */
 function Options({ card, t, answer, onAnswer }: { card: { options: Tri[]; correct: number }; t: T; answer?: Answer; onAnswer: (k: number) => void }) {

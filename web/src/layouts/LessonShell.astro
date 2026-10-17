@@ -56,6 +56,32 @@ const { pageTitle, description, title, sub, back, steps, lesson, prefix = '', al
     </div>
     {steps && <div class="wrap narrow"><LessonPlayer client:load steps={steps} lesson={lesson} prefix={prefix} aliases={aliases} formulas={formulas} /></div>}
   </header>
+  {/* On a phone held upright the header and the step bar (about 120 px) slide away while the student scrolls down the
+      lesson, and come back on the first scroll up, near the top, or when one of their controls is reached with the keyboard. */}
+  <script is:inline>
+    (function () {
+      var head = document.querySelector('.lhead');
+      if (!head || !window.matchMedia) return;
+      var phone = matchMedia('(max-width: 760px) and (min-height: 501px)');
+      var last = scrollY, busy = false;
+      // a control in the header reached with the keyboard keeps it (a tapped button keeps its focus too, but must not)
+      function keyboardIn() { try { return !!head.querySelector(':focus-visible'); } catch (e) { return false; } }
+      function away(on) { head.classList.toggle('lhead-away', on); document.documentElement.classList.toggle('lhead-is-away', on); }
+      addEventListener('scroll', function () {
+        if (busy) return;
+        busy = true;
+        requestAnimationFrame(function () {
+          busy = false;
+          var y = scrollY, dy = y - last;
+          if (!phone.matches || y < head.offsetHeight) away(false);
+          else if (dy > 8 && !keyboardIn() && !document.querySelector('dialog[open]')) away(true);
+          else if (dy < -8) away(false);
+          if (Math.abs(dy) > 8) last = y;
+        });
+      }, { passive: true });
+      head.addEventListener('focusin', function () { if (keyboardIn()) away(false); });
+    })();
+  </script>
 
   <div class="wrap narrow lesson" id="lesson-top">
     {Astro.slots.has('links') && <div class="lang"><slot name="links" /></div>}

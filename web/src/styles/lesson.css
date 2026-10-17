@@ -14,6 +14,10 @@ html[lang="ta"] div[data-fb][data-l~="ta"]::before, html[lang="si"] div[data-fb]
 
 /* ------------------------------------------------------------------ header and step bar */
 html:has(.lhead) { --sticky-top: 128px; }   /* the lesson header and its step bar */
+/* scrolled down on a phone: the header slides away (LessonShell.astro) */
+.lhead { transition: transform .2s ease-out; }
+.lhead.lhead-away { transform: translateY(-100%); }
+@media (prefers-reduced-motion: reduce) { .lhead { transition: none; } }
 .lhead { position: sticky; top: 0; z-index: 50; background: var(--sc-ground); border-bottom: 1px solid var(--sc-line); padding-top: env(safe-area-inset-top); }
 .lhead-in { display: flex; align-items: center; gap: 8px; min-height: 56px; }
 .lh-back { display: inline-flex; align-items: center; justify-content: center; width: var(--tap); height: var(--tap); border-radius: var(--r); color: var(--sc-ink); flex: 0 0 auto; }
@@ -244,6 +248,7 @@ html:not(.js) .lc :is(.step-toggle, .final-toggle) { display: none !important; }
 .lc .lab-more p { margin: 6px 0 0; color: var(--sc-ink-2); font-size: .92rem; }
 .lc .lab-more .lab-hint { text-align: left; margin-top: 8px; }
 @media (max-width: 760px) and (min-height: 600px) {
+  html.lhead-is-away .lc .lab-v2 .ls-pic { top: 0; }
   .lc .lab-v2 .ls-pic { position: sticky; top: var(--lhead-h, 120px); z-index: 5; padding: 6px 0 8px; background: var(--sc-panel); }
   .lc .lab-v2 .ls-pic svg { max-height: 26vh; }
 }

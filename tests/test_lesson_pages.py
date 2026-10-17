@@ -759,6 +759,21 @@ def run():
             check('progress: the lesson map ticks the steps done', lambda: pg.locator('dialog.lmap .lm-step.done').count() >= 1)
             pg.keyboard.press('Escape')
 
+            # on a phone the header and step bar slide away while scrolling down the lesson, and come back on scroll up
+            # (a touch user: the map above was closed with Escape, which leaves keyboard focus in the header, and keyboard
+            # focus in the header keeps it on screen on purpose)
+            pg.evaluate('document.activeElement && document.activeElement.blur(); scrollTo(0, 0)'); pg.wait_for_timeout(200)
+            for y in (150, 400, 700):
+                pg.evaluate('y => scrollTo(0, y)', y); pg.wait_for_timeout(200)
+            away = pg.evaluate("[scrollY, document.querySelector('.lhead').classList.contains('lhead-away')]")
+            pg.evaluate('scrollTo(0, scrollY - 80)'); pg.wait_for_timeout(300)
+            back = not pg.evaluate("document.querySelector('.lhead').classList.contains('lhead-away')")
+            check('lesson header: slides away on scroll down, back on scroll up (phone)', away[1] and back, (away, back))
+            pg.evaluate('scrollTo(0, 0)'); pg.wait_for_timeout(200)
+            pg.keyboard.press('Tab')
+            for y in (150, 400, 700):
+                pg.evaluate('y => scrollTo(0, y)', y); pg.wait_for_timeout(200)
+            check('lesson header: stays while a control in it has the keyboard focus', lambda: not pg.evaluate("document.querySelector('.lhead').classList.contains('lhead-away')") or not pg.evaluate("document.querySelector('.lhead').contains(document.activeElement)"))
             check('no script errors on Motion', lambda: not errs, lambda: errs)
             ctx.close()
 

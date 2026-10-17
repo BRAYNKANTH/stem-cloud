@@ -3,6 +3,7 @@
 // translation memory. Used by the lesson's lab step (Step.astro) and by the topic pages' Explore.
 import type { Lesson } from '../../lib/content-types';
 import MotionLab from '../../labs/physics/MotionLab';
+import BusStop from '../../labs/physics/BusStop';
 import ForceLab from '../../labs/physics/ForceLab';
 import FrictionLab from '../../labs/physics/FrictionLab';
 import ResultantLab from '../../labs/physics/ResultantLab';
@@ -12,14 +13,16 @@ import SliderLabs from '../../labs/slider/SliderLabs.astro';
 import { LABS } from '../../labs/registry';
 import { labSinhala, type SiDict } from '../../lib/si-lookup';
 
-interface Props { lesson: Lesson; stepId: string }
-const { lesson, stepId } = Astro.props;
+/** game: the lesson's lab step, where Motion's lab starts with the bus stop game (not on the topic pages' Explore). */
+interface Props { lesson: Lesson; stepId: string; game?: boolean }
+const { lesson, stepId, game = false } = Astro.props;
 const ported = LABS[lesson.id + '/' + stepId];
 const DICTS = import.meta.glob<SiDict>('../../../../public/static/si/*.json', { eager: true, import: 'default' });
 const dict = (name: string) => DICTS[`../../../../public/static/si/${name}.json`] ?? {};
 const labSi = ported && lesson.legacy ? labSinhala(ported.strings, dict(lesson.legacy.file.replace(/[.]html$/, '')), dict('_ui')) : {};
 const legacy = lesson.legacy?.id;
 ---
+{ported?.island === 'motion' && game && <BusStop client:visible />}
 {ported?.island === 'motion' && <MotionLab client:visible si={labSi} legacy={legacy} />}
 {ported?.island === 'force' && <ForceLab client:visible si={labSi} legacy={legacy} />}
 {ported?.island === 'friction' && <FrictionLab client:visible si={labSi} legacy={legacy} />}

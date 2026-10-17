@@ -333,6 +333,45 @@ def run():
             check('the revision has the summary, mixed practice and the scored chapter quiz', lambda: pg.eval_on_selector_all('section.lstep', 'els => els.map(e => e.id)') == ['summary', 'mixed', 'quiz']
                   and on() == 'quiz' and pg.locator('#quiz .quiz-score').is_visible())
 
+            # ------------------------------------------------------------ Motion: the bus stop game (the lab step)
+            # animations off (as a student can choose), so each ride ends at once
+            pg.evaluate("localStorage.setItem('stem_motion', 'off'); localStorage.removeItem('scx_bus_v1')")
+            pg.goto(BASE + MOTION + '#lab')
+            pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")
+            pg.locator('.bus').scroll_into_view_if_needed()
+            pg.wait_for_selector('.bus .stop')          # the game is fetched when the step comes into view (labs/physics/BusStop.tsx)
+            coins = lambda: pg.inner_text('.hud-coins b')
+            stars = lambda: pg.inner_text('.hud-stars b')
+            check('the lab step starts with the bus stop game: 5 stops (4 locked), 0 stars, Rs 10, then the free lab',
+                  lambda: pg.locator('.bus .stop').count() == 5 and pg.locator('.bus .stop:disabled').count() == 4 and stars() == '0' and coins() == '10'
+                  and pg.locator('#lab .lab-card .lg-try').count() == 3, lambda: (pg.locator('.bus .stop').count(), stars(), coins()))
+            pg.click('.bus-opts .opt >> nth=1')
+            pg.click('.bus .chip >> text="Rs 2"')
+            pg.click('.bus-bet .btn.primary')
+            check('a right prediction wins the bet and the first star', lambda: coins() == '12' and stars() == '1', lambda: (coins(), stars()))
+            pg.click('.bus-msg .btn.primary')
+            pg.focus('.bus-graph.tap svg')
+            for _ in range(4):
+                pg.keyboard.press('PageUp')
+            check('the graph reads a value from the keyboard', lambda: pg.inner_text('.g-read').startswith('Time 20.0 s'), lambda: pg.inner_text('.g-read'))
+            pg.keyboard.press('Enter')
+            pg.click('.bus-row .btn.primary >> nth=0')
+            check('reading the graph right gives a star and Rs 2', lambda: coins() == '14' and stars() == '2', lambda: (coins(), stars()))
+            pg.click('.bus-row .btn.primary >> nth=1')
+            pg.locator('#bus-e').fill('90')
+            pg.locator('#bus-w').fill('40')
+            pg.click('.bus-panel .btn.primary')
+            check('a ride that misses the goal says what happened', lambda: 'Distance 130 m' in pg.inner_text('.bus-msg.err'))
+            pg.locator('#bus-e').fill('80')
+            pg.click('.bus-panel .btn.primary')
+            check('the goal gives the third star, opens the next stop, and is kept on this device',
+                  lambda: stars() == '3' and coins() == '17' and pg.locator('.bus .stop:disabled').count() == 3
+                  and pg.evaluate("JSON.parse(localStorage.getItem('scx_bus_v1')).stars[0]") == 7, lambda: (stars(), coins()))
+            pg.click('.bus-shop summary')
+            pg.click('.bus-shop li >> nth=1 >> .btn')
+            check('the bike shop sells a helmet for Rs 8 and Nimal wears it', lambda: coins() == '9' and pg.locator('.bus-scene path[fill="#E53935"]').count() == 1, lambda: coins())
+            pg.evaluate("localStorage.removeItem('stem_motion')")
+
             # ------------------------------------------------------------ Motion: read-aloud
             pg.goto(BASE + MOTION + '#notes')
             pg.wait_for_function("!document.querySelector('astro-island[ssr]:not([client=visible])')")

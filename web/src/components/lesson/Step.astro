@@ -103,7 +103,7 @@ const meanings = s.type === 'summary' && (s.glossary ?? []).some((g) => g.meanin
 
   {watch && <WatchIsland lesson={lesson} stepId={s.id} />}
   {s.type === 'watch' && !watch && <LegacyFrame client:visible file={s.animation.file} hash={s.animation.hash} title={heading.title} />}
-  {ported && <LabIsland lesson={lesson} stepId={s.id} />}
+  {ported && <LabIsland lesson={lesson} stepId={s.id} game />}
   {sortGame && <SortGame client:visible game={sortGame} stepId={s.id} si={sortSi} />}
   {challenge && <ChallengeGames island={challenge.island} si={challengeSi} stepId={s.id} />}
   {levelGame && <LevelGames island={levelGame.island} si={levelSi} />}

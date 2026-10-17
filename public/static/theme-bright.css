@@ -376,8 +376,8 @@ html.stem-calm #stem-qsheet{animation:none}
 .skel.frame{height:320px;margin:0;border-radius:0}
 @media (prefers-reduced-motion:no-preference){.skel{animation:skel-pulse 1.4s ease-in-out infinite}@keyframes skel-pulse{50%{opacity:.55}}}
 
-/* ------------------------------------------------------------------ phones: the public Home and About headers fit the screen */
-@media (max-width:720px){
+/* ------------------------------------------------------------------ phones and small tablets: the public Home and About headers fit the screen */
+@media (max-width:900px){
   .nav-inner{height:auto!important;min-height:60px;flex-wrap:wrap;gap:6px 12px!important;padding-top:8px;padding-bottom:8px}
   .nav-actions{gap:8px!important;margin-left:auto}
   .nav-actions .btn-whatsapp,.nav-actions #navEnrollBtn{display:none!important}       /* the floating WhatsApp button is always on screen */

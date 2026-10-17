@@ -420,7 +420,7 @@ export default function PastPapers({ chapters = [] }: { chapters?: Chapter[] }) 
     };
     body = (
       <>
-        {top()}
+        {msg.text ? top() : null}   {/* no empty bar above the title when there is nothing to say */}
         <header class="pp-hero">
           <h1>{t('Past Papers', 'கடந்த பரீட்சை வினாத்தாள்கள்', 'අතීත ප්‍රශ්න පත්‍ර')}</h1>
           <p>{t('Real O/L Science questions, 2015 to 2023, by chapter. Every answer is explained.', 'உண்மையான சா/த விஞ்ஞான வினாக்கள், 2015–2023, அத்தியாய வாரியாக. ஒவ்வொரு விடையும் விளக்கப்பட்டுள்ளது.', 'සැබෑ සා/පෙළ විද්‍යා ප්‍රශ්න, 2015–2023, පරිච්ඡේද අනුව. සෑම පිළිතුරක්ම පැහැදිලි කර ඇත.')}</p>
